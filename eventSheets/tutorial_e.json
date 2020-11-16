@@ -1,0 +1,760 @@
+{
+	"name": "Tutorial_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Level Master"
+		},
+		{
+			"eventType": "variable",
+			"name": "TutorialStep",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 401862174276303
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 952303971913786
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 900747929922148,
+					"parameters": {
+						"name": "\"GFX_FadeIn\"",
+						"parameter-n": [
+							"0.5",
+							"0.5"
+						]
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 206281172190872,
+					"parameters": {
+						"variable": "BG_Name",
+						"value": "\"Wastes\""
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 638888319121028,
+					"parameters": {
+						"name": "\"Spawn_BG\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 129128536307675,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 581684144130673,
+					"parameters": {
+						"name": "\"Tutorial_Doc\"",
+						"parameter-n": [
+							"function.Call(\"getText\", \"dr_intro1\")"
+						]
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 928538928601377,
+					"parameters": {
+						"variable": "TutorialStep",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 243222466493760,
+					"parameters": {
+						"variable": "level_Loaded",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 393176500816209,
+					"parameters": {
+						"variable": "stat_NPCKills",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 551032154534366,
+					"parameters": {
+						"variable": "stat_NPCKillsRun",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 946461943362329,
+					"parameters": {
+						"variable": "stat_ZombieKills",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 946823160865647,
+					"parameters": {
+						"variable": "stat_ZombieKillsRun",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 758233918403589,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Door",
+							"sid": 488865107640070,
+							"parameters": {
+								"unique-id": "4248"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Door",
+							"sid": 763137204281140,
+							"parameters": {
+								"animation": "\"ConcreteClosed\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 733613500951101
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "zzCIV",
+					"sid": 356550473782533
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "zzCIV",
+					"sid": 642852798252053,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 962234663445979,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 799946652838386,
+					"parameters": {
+						"name": "\"CIV_Mirrored\"",
+						"parameter-n": [
+							"zzCIV.UID"
+						]
+					}
+				}
+			],
+			"sid": 637662392536589
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Tutorial Signs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 522551900262360,
+							"parameters": {
+								"object": "TutorialSign"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 994201772526475,
+							"parameters": {
+								"object-to-create": "Text_Worldzz",
+								"layer": "\"Fog\"",
+								"x": "TutorialSign.X",
+								"y": "TutorialSign.Y - TutorialSign.Height - 32"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Text_Worldzz",
+							"sid": 883060246321428,
+							"parameters": {
+								"width": "150"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Text_Worldzz",
+							"sid": 665587775650478,
+							"parameters": {
+								"height": "96"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TutorialSign",
+							"sid": 723920698821523,
+							"parameters": {
+								"instance-variable": "TextID",
+								"value": "Text_Worldzz.UID"
+							}
+						}
+					],
+					"sid": 502514109939766,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 407249770480350,
+									"parameters": {
+										"variable": "system_Platform",
+										"comparison": 0,
+										"value": "\"PC\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 890163693846691,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-gamepads",
+											"objectClass": "Gamepad",
+											"sid": 232228604998999
+										}
+									],
+									"actions": [],
+									"sid": 467523201573999,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "TutorialSign",
+													"sid": 831465105945695,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "8"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Worldzz",
+													"sid": 508900332113965,
+													"parameters": {
+														"text": "function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"A\"))"
+													}
+												}
+											],
+											"sid": 963581327069599
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 271629466409142
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Worldzz",
+													"sid": 850786680120320,
+													"parameters": {
+														"text": "function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"B\")) "
+													}
+												}
+											],
+											"sid": 182592548295045
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 550613391495266
+										}
+									],
+									"actions": [],
+									"sid": 778393984471465,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "TutorialSign",
+													"sid": 919822009544509,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "8"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Worldzz",
+													"sid": 852866300915486,
+													"parameters": {
+														"text": "function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"A\"))"
+													}
+												}
+											],
+											"sid": 738421016647300
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 353642647320533
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Worldzz",
+													"sid": 660010951869513,
+													"parameters": {
+														"text": "function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"B\")) "
+													}
+												}
+											],
+											"sid": 837697285440286
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 226975557009344
+								}
+							],
+							"actions": [],
+							"sid": 674718449735503,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TutorialSign",
+											"sid": 525659239642353,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TutorialSign",
+											"sid": 181933163486731,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "5"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TutorialSign",
+											"sid": 889469341970222,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "7"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TutorialSign",
+											"sid": 601970814062196,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "8"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TutorialSign",
+											"sid": 326394390221020,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "9"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Worldzz",
+											"sid": 347316425590284,
+											"parameters": {
+												"text": "function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"A\"))"
+											}
+										}
+									],
+									"sid": 637062718575422,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 452186316992325
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Worldzz",
+											"sid": 204869913047559,
+											"parameters": {
+												"text": "function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"B\")) "
+											}
+										}
+									],
+									"sid": 166750389707799
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 437323220749601,
+							"parameters": {
+								"object": "TutorialSign"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 743284567982381,
+							"parameters": {
+								"object": "TutorialSign"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Text_Worldzz",
+							"sid": 397328659648204,
+							"parameters": {
+								"unique-id": "TutorialSign.TextID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Text_Worldzz",
+							"sid": 656491317589691
+						}
+					],
+					"sid": 605840947324767
+				}
+			],
+			"sid": 374121219229609
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Tutorial Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Tutorial Dialogue",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 100669545800931
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 137845734480531,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 134876567596755,
+									"parameters": {
+										"key": 32
+									}
+								}
+							],
+							"actions": [],
+							"sid": 155963636103779,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 374561510868073,
+									"parameters": {
+										"name": "\"Tutorial_Doc\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 592508914337164,
+									"parameters": {
+										"first-value": "TutorialStep",
+										"comparison": 2,
+										"second-value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 883454605684959,
+									"parameters": {
+										"object-to-create": "Text_World",
+										"layer": "\"Fog\"",
+										"x": "zzCIV.X",
+										"y": "zzCIV.Y - zzCIV.Height*1.5"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text_World",
+									"sid": 166596981384933,
+									"parameters": {
+										"text": "function.Param(0)"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 100634019280958,
+									"parameters": {
+										"type": "log",
+										"message": "TutorialStep"
+									}
+								}
+							],
+							"sid": 554511661448986
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "Text_World",
+									"sid": 243711371133579
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 106246757758638,
+									"parameters": {
+										"name": "\"Tutorial_Doc\"",
+										"parameter-n": [
+											"function.Call(\"getText\", (\"dr_intro\" & TutorialStep))"
+										]
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 968289107330329,
+									"parameters": {
+										"variable": "TutorialStep",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 885112053256980,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 777449997998360,
+											"parameters": {
+												"first-value": "TutorialStep",
+												"comparison": 0,
+												"second-value": "11"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 371196943697419,
+											"parameters": {
+												"name": "\"TXT_Banner\"",
+												"parameter-n": [
+													"uppercase(function.Call(\"getText\",\"tutorial\"))"
+												]
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzCIV",
+											"sid": 474556530581959,
+											"parameters": {
+												"instance-variable": "Dialogue",
+												"value": "function.Call(\"getText\", (\"dr_intro10\"))"
+											}
+										}
+									],
+									"sid": 832681179377898
+								}
+							]
+						}
+					],
+					"sid": 331397267465609
+				}
+			],
+			"sid": 557122204505308
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 225840657921223,
+					"parameters": {
+						"key": 49
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 948376709632110,
+					"parameters": {
+						"variable": "TutorialStep",
+						"value": "16"
+					}
+				}
+			],
+			"sid": 685373061080347,
+			"disabled": true
+		}
+	],
+	"sid": 459250953648464
+}

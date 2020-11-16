@@ -1,0 +1,2196 @@
+{
+	"name": "Overworld_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Loader"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Map_E"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Effects"
+		},
+		{
+			"eventType": "comment",
+			"text": "Camera Vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_LerpScale",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 327841801094371
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_Dragging",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 466488465926164
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_DragScrollX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 131875386905074
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_DragScrollY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 617580786344637
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_DragTouchX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 866681155622728
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_DragTouchY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 290380995284542
+		},
+		{
+			"eventType": "variable",
+			"name": "camera_PanReady",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 619044439153790
+		},
+		{
+			"eventType": "comment",
+			"text": "Map Vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "map_LevelToBuild",
+			"type": "string",
+			"initialValue": "Infected",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 390588454181063
+		},
+		{
+			"eventType": "variable",
+			"name": "map_LevelDifficulty",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 145068541082492
+		},
+		{
+			"eventType": "variable",
+			"name": "map_LevelName",
+			"type": "string",
+			"initialValue": "Yeet",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 255716080544672
+		},
+		{
+			"eventType": "variable",
+			"name": "map_NodeToClear",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 214596457828985
+		},
+		{
+			"eventType": "variable",
+			"name": "map_FogYoffset",
+			"type": "number",
+			"initialValue": "16",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 864642351854276
+		},
+		{
+			"eventType": "variable",
+			"name": "map_SelectedNode",
+			"type": "number",
+			"initialValue": "41",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 121376174569760
+		},
+		{
+			"eventType": "variable",
+			"name": "map_ActiveNode",
+			"type": "number",
+			"initialValue": "41",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 443392403145551
+		},
+		{
+			"eventType": "variable",
+			"name": "map_Loading",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 930423253816451
+		},
+		{
+			"eventType": "variable",
+			"name": "map_ArmsAnim",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 609159815827786
+		},
+		{
+			"eventType": "variable",
+			"name": "map_ShowingTut",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 312203698738345
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 476018722616441
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 274899271803501,
+					"parameters": {
+						"layer": "\"Loader\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 181550485224942,
+					"parameters": {
+						"variable": "zzzlevel_TurnedSettlement",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 454782339128725,
+					"parameters": {
+						"variable": "map_Loading",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 206772112458536,
+					"parameters": {
+						"variable": "map_ShowingTut",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 948759342328627,
+					"parameters": {
+						"variable": "game_OnOverworld",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 934682061194398,
+					"parameters": {
+						"layer": "\"Map\"",
+						"scale": "system_MapScale"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 954891991623505,
+					"parameters": {
+						"layer": "\"Overlay\"",
+						"scale": "system_ZoomMenus"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 886236129390035,
+					"parameters": {
+						"layer": "\"Overlay\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 336209743870102,
+					"parameters": {
+						"name": "\"Save_Stats\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 374077106710933,
+					"parameters": {
+						"name": "\"MB_Load\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 474451161160604,
+					"parameters": {
+						"name": "\"UpdateCursor\"",
+						"parameter-n": [
+							"\"Off\""
+						]
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 893427311151253,
+					"parameters": {
+						"layer": "\"Map\"",
+						"scale": "system_MapScale"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 591165578290857,
+					"parameters": {
+						"name": "\"Music_Start\"",
+						"parameter-n": [
+							"\"Overworld\""
+						]
+					}
+				}
+			],
+			"sid": 277865576987663
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Player_Sprite",
+					"sid": 991389178088093
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 178888518522636,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "MapCursor",
+					"sid": 869213738809445,
+					"parameters": {
+						"width": "ViewportRight(\"Map\") - (ViewportLeft(\"Map\"))"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "MapCursor",
+					"sid": 153437437783546,
+					"parameters": {
+						"height": "ViewportTop(\"Map\") - ViewportBottom(\"Map\") "
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "MapCursor",
+					"sid": 611436803753932,
+					"parameters": {
+						"x": "player_sprite.X",
+						"y": "player_sprite.Y"
+					}
+				},
+				{
+					"id": "scroll-to-object",
+					"objectClass": "System",
+					"sid": 895238466326133,
+					"parameters": {
+						"object": "MapCursor"
+					}
+				}
+			],
+			"sid": 871718931819828
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pan",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 253832633262939
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 413361673966023,
+							"disabled": true,
+							"parameters": {
+								"object": "PanIgnore"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 584279411110999,
+							"parameters": {
+								"variable": "camera_DragTouchX",
+								"value": "Touch.AbsoluteX"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 632536415817553,
+							"parameters": {
+								"variable": "camera_DragTouchY",
+								"value": "Touch.AbsoluteY"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 939964545176087,
+							"parameters": {
+								"name": "\"Hide Panel\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 499114082950726,
+							"parameters": {
+								"variable": "camera_PanReady",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 874856226413497
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 868425353440235
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 154033951830489,
+							"disabled": true,
+							"parameters": {
+								"object": "PanIgnore"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 585827909595337,
+							"parameters": {
+								"variable": "camera_PanReady",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 715361509833862,
+							"parameters": {
+								"variable": "camera_Dragging",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 124027008543507
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO: Verify MoveTo"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 635099651531627
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 317019320880783,
+							"parameters": {
+								"variable": "camera_Dragging",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 991612511828823,
+							"parameters": {
+								"variable": "camera_PanReady",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 557468167233425,
+							"parameters": {
+								"layer": "\"Overlay\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Player_Sprite",
+							"sid": 989397166315037,
+							"behaviorType": "MoveTo",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 538010987999841,
+							"parameters": {
+								"x": "Camera_DragScrollX+Camera_DragTouchX-Touch.AbsoluteX",
+								"y": "Camera_DragScrollY+Camera_DragTouchY-Touch.AbsoluteY"
+							}
+						}
+					],
+					"sid": 403860099112863
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 659608832949617,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 891018700182580,
+							"parameters": {
+								"variable": "camera_Dragging",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 131469127946826,
+							"parameters": {
+								"variable": "camera_DragScrollX",
+								"value": "scrollx"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 100454262977936,
+							"parameters": {
+								"variable": "camera_DragScrollY",
+								"value": "scrolly"
+							}
+						}
+					],
+					"sid": 455448812021939
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 998848102014441
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 237887470416296,
+							"parameters": {
+								"variable": "camera_PanReady",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 131947847597065
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 431429142554449,
+							"parameters": {
+								"variable": "zzSystem_UsingGamepad",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 924125198006103,
+							"parameters": {
+								"layer": "\"Overlay\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Player_Sprite",
+							"sid": 131784972683099,
+							"behaviorType": "MoveTo",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "MapCursor",
+							"sid": 730108719313901,
+							"parameters": {
+								"width": "ViewportRight(\"Map\") - (ViewportLeft(\"Map\"))"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "MapCursor",
+							"sid": 424799733538823,
+							"parameters": {
+								"height": "ViewportTop(\"Map\") - ViewportBottom(\"Map\") "
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "MapCursor",
+							"sid": 326582948969378,
+							"parameters": {
+								"x": "Self.X + Gamepad.Axis(0,0)/15",
+								"y": "Self.Y + Gamepad.Axis(0,1)/15"
+							}
+						},
+						{
+							"id": "scroll-to-object",
+							"objectClass": "System",
+							"sid": 530285672078732,
+							"parameters": {
+								"object": "MapCursor"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "MapCursor",
+							"sid": 316152085556831
+						}
+					],
+					"sid": 712964001381009
+				}
+			],
+			"sid": 698273858495824
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Overworld Interact",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 198014146404847,
+							"parameters": {
+								"object": "MB_Node"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 496847553658595,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 790684362690279,
+							"parameters": {
+								"name": "\"Map_SelectNode\"",
+								"parameter-n": [
+									"MB_Node.UID"
+								]
+							}
+						}
+					],
+					"sid": 738563053874897
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 856572770838145,
+							"parameters": {
+								"object": "MB_Icon"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MB_Icon",
+							"sid": 402240662499186,
+							"parameters": {
+								"object": "MB_Node"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 369637762567878,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 222884915720452,
+							"parameters": {
+								"name": "\"Map_SelectNode\"",
+								"parameter-n": [
+									"MB_Node.UID"
+								]
+							}
+						}
+					],
+					"sid": 569374480449733
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 738206776618309,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-a"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Target",
+							"sid": 606203249481807,
+							"parameters": {
+								"object": "MB_Node"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 967675805194389,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 760082927321156,
+							"parameters": {
+								"name": "\"Map_SelectNode\"",
+								"parameter-n": [
+									"MB_Node.UID"
+								]
+							}
+						}
+					],
+					"sid": 613452271027769
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 742633478538730,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-a"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Target",
+							"sid": 659734609226762,
+							"parameters": {
+								"object": "MB_Icon"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MB_Icon",
+							"sid": 955245015223272,
+							"parameters": {
+								"object": "MB_Node"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 505190357450237,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 739407836788490,
+							"parameters": {
+								"name": "\"Map_SelectNode\"",
+								"parameter-n": [
+									"MB_Node.UID"
+								]
+							}
+						}
+					],
+					"sid": 771035022791750
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 343406553008304,
+							"parameters": {
+								"name": "\"Map_SelectNode\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 689212681896271,
+							"parameters": {
+								"layer": "\"Overlay\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 123822117532650,
+							"parameters": {
+								"variable": "map_Loading",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "MB_Node",
+							"sid": 382807960836026,
+							"parameters": {
+								"unique-id": "function.Param(0)"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "MB_Node",
+							"sid": 988091442351683,
+							"parameters": {
+								"object": "MB_Icon"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "MB_Icon",
+							"sid": 481417999149819,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Worldzz",
+							"sid": 507268892561884,
+							"parameters": {
+								"text": "MB_Node.Name & newline & \"(\" & MB_Node.Type & \")\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 231241350032811,
+							"parameters": {
+								"variable": "map_SelectedNode",
+								"value": "MB_Node.ID"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Map_Ok",
+							"sid": 314942525692614,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 339464284034775,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 373364077446849,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Cleared\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 693738742806469,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "MB_Node",
+											"sid": 720216502929865,
+											"parameters": {
+												"object": "map_travel"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "MB_Node",
+											"sid": 425954338719231,
+											"parameters": {
+												"object": "map_travelselector"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 419264222561124,
+											"parameters": {
+												"variable": "map_ActiveNode",
+												"value": "Map_SelectedNode"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 212829064632581,
+											"parameters": {
+												"name": "\"map_Enter\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 680751182662347,
+											"parameters": {
+												"variable": "map_Loading",
+												"value": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 167514168080632,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 401171454752730,
+											"parameters": {
+												"layer": "\"Overlay\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 583300173990096
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "comment",
+							"text": "Add threat stars"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 684532297078964
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 192614506798300,
+									"parameters": {
+										"layer": "\"Overlay\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "mb_IconTutorial",
+									"sid": 195150676540549,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 298133169911138,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "MB_Node",
+											"sid": 194573202284253,
+											"parameters": {
+												"object": "MB_Sector"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Shop_SkillsBG",
+											"sid": 316701517357834,
+											"parameters": {
+												"animation": "MB_Sector.Name",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 778503464379881
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text_Worldzz",
+											"sid": 654540577230837,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Worldzz",
+											"sid": 673823456787674,
+											"parameters": {
+												"text": "uppercase(function.Call(\"getText\",MB_Node.Name))"
+											}
+										}
+									],
+									"sid": 904515292320488
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text_Worldzz",
+											"sid": 795927897073951,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Worldzz",
+											"sid": 292273983711725,
+											"parameters": {
+												"text": "\"- \" & uppercase(function.Call(\"getText\",\"nodedata_\" & MB_Node.Type)) & \" -\""
+											}
+										}
+									],
+									"sid": 793979753305626
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text_Worldzz",
+											"sid": 209269645878156,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Worldzz",
+											"sid": 692442069507446,
+											"parameters": {
+												"text": "uppercase(function.Call(\"getText\",\"nodedata_threat\")) & MB_Node.ThreatLevel"
+											}
+										}
+									],
+									"sid": 492085263883705
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 628367639874279,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 4,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Worldzz",
+									"sid": 456862957242717,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 907844456145702
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 278221779492228,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 3,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Worldzz",
+									"sid": 391767988869599,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 739609877294119
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 815537142363988,
+									"parameters": {
+										"instance-variable": "Cleared",
+										"comparison": 0,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Map_Ok",
+									"sid": 727567313012580,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 863301892902609
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 384569596066860,
+							"parameters": {
+								"layer": "\"Overlay\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 861364977875347,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 273610670074181,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player_Target",
+									"sid": 251705674099758,
+									"parameters": {
+										"object": "Map_Ok"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Map_Ok",
+									"sid": 720760224110667
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 590743560972051,
+									"parameters": {
+										"name": "\"Map_Ok\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 563609693748455
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 987025894528405,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player_Target",
+									"sid": 569135445793074,
+									"parameters": {
+										"object": "Map_Exit"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 390688070975116,
+									"parameters": {
+										"name": "\"Map_Exit\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 331648618400753
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 310156489399113,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-b"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 764097967336455,
+									"parameters": {
+										"layer": "\"Overlay\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Map_Ok",
+									"sid": 283804228259256
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 199771622539894,
+									"parameters": {
+										"name": "\"Map_Exit\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 890326328398885
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 871555155292943,
+									"parameters": {
+										"object": "Map_Ok"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Map_Ok",
+									"sid": 432322236544933
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Map_Ok",
+									"sid": 112344673074642
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 583017784689279,
+									"parameters": {
+										"name": "\"Map_Ok\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 816212644482716
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 759000491043626,
+									"parameters": {
+										"object": "Map_Exit"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 523599676623561,
+									"parameters": {
+										"name": "\"Map_Exit\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 856413812482676
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 869990159972960,
+									"parameters": {
+										"name": "\"Map_Ok\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 470748519724782,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "map_selectednode"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Map_Ok",
+									"sid": 735633117032672,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 838775630980629,
+									"parameters": {
+										"seconds": "0.08"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Map_Ok",
+									"sid": 932923266461540,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 661872558121911,
+									"parameters": {
+										"variable": "map_ActiveNode",
+										"value": "Map_SelectedNode"
+									}
+								}
+							],
+							"sid": 934727079599025,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "MB_Node",
+											"sid": 319771959858205,
+											"parameters": {
+												"instance-variable": "Turned"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 850162144765834,
+											"parameters": {
+												"variable": "zzzlevel_TurnedSettlement",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 506522156048041
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 971381142595622,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 224690530166093,
+											"parameters": {
+												"variable": "map_Loading",
+												"value": "1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 529539339375958,
+											"parameters": {
+												"name": "\"map_Enter\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 937836028425395,
+											"parameters": {
+												"layer": "\"Overlay\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 486307351898116,
+											"parameters": {
+												"group-name": "\"Overworld Interact\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 136549233146709,
+											"parameters": {
+												"group-name": "\"Pan\"",
+												"state": "deactivated"
+											}
+										}
+									],
+									"sid": 876781191796194
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 686940120826044,
+									"parameters": {
+										"name": "\"Map_Exit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Map_Exit",
+									"sid": 219396414075504,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 296257931308585,
+									"parameters": {
+										"seconds": "0.08"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Map_Exit",
+									"sid": 911352923960587,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 962120438632444,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 892676035371236,
+									"parameters": {
+										"layer": "\"Overlay\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 697696666815773,
+									"parameters": {
+										"group-name": "\"Overworld Interact\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 448849727346630
+						}
+					]
+				}
+			],
+			"sid": 294539520320486
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Overworld Tutorial",
+			"description": "TODO",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 929353604613675,
+							"parameters": {
+								"name": "\"Map_ShowTutorial\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 250724974937112,
+							"parameters": {
+								"variable": "map_ShowingTut",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 334310665059602,
+							"parameters": {
+								"key": "system_saveslot & \"MapTut\"",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Map_Ok",
+							"sid": 709352558856272,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "mb_IconTutorial",
+							"sid": 734110845291377,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 817546655619246,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 227440879409899,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Worldzz",
+									"sid": 446080365820421,
+									"parameters": {
+										"text": "uppercase(function.Call(\"getText\",\"nodedata_Home\"))"
+									}
+								}
+							],
+							"sid": 124785945818248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 734564277832421,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Worldzz",
+									"sid": 702217190496278,
+									"parameters": {
+										"text": "uppercase(function.Call(\"getText\",\"nodedata_Infected\"))"
+									}
+								}
+							],
+							"sid": 179556212538984
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 606230583640696,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Worldzz",
+									"sid": 448821101834947,
+									"parameters": {
+										"text": "uppercase(function.Call(\"getText\",\"nodedata_Tower1\"))"
+									}
+								}
+							],
+							"sid": 533527469714634
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 351334374895807,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Worldzz",
+									"sid": 701042998019754,
+									"parameters": {
+										"text": "uppercase(function.Call(\"getText\",\"nodedata_AS\"))"
+									}
+								}
+							],
+							"sid": 307557635022647
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 613645453707221,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "8"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Worldzz",
+									"sid": 226057908930627,
+									"parameters": {
+										"text": "uppercase(function.Call(\"getText\",\"nodedata_HS\"))"
+									}
+								}
+							],
+							"sid": 715931115589328
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 914111512221591,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 4,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Worldzz",
+									"sid": 404415085654952,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 578531001579827
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Worldzz",
+									"sid": 899227419046250,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 3,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Worldzz",
+									"sid": 854962251520470,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 575587622012246
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 614021972033352,
+									"parameters": {
+										"layer": "\"Overlay\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 509946053335642
+						}
+					]
+				}
+			],
+			"sid": 182068766970748
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "zzzFadeIn",
+					"sid": 941104610662797
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 659543671916548,
+					"parameters": {
+						"variable": "zzSystem_MapTutorialDisplayed",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 962079688662969,
+					"parameters": {
+						"name": "\"Map_ShowTutorial\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 219713251097767,
+					"parameters": {
+						"variable": "map_ShowingTut",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 646599288201875,
+					"parameters": {
+						"variable": "zzSystem_MapTutorialDisplayed",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 381759795091703
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Overworld Cheat",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 817516279624964,
+							"parameters": {
+								"object": "Player_Sprite"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 509825404274288,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 451959162435685,
+							"parameters": {
+								"variable": "cheatimer",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 756916208974248,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 754269809258877,
+									"parameters": {
+										"variable": "cheatimer",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 445568594479994,
+									"parameters": {
+										"name": "\"SFX_Explosion\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 135706174561416,
+									"parameters": {
+										"audio-file": "explosion",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 729903655753998,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 403208370195963,
+											"parameters": {
+												"object": "MB_Node"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "MB_Node",
+											"sid": 367433645203452,
+											"parameters": {
+												"instance-variable": "Cleared",
+												"value": "-1"
+											}
+										}
+									],
+									"sid": 544073639999441,
+									"disabled": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 508171339841644,
+							"parameters": {
+								"key": 80
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 685846205638771,
+							"parameters": {
+								"name": "\"SFX_Explosion\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 604307399516820,
+							"parameters": {
+								"audio-file": "explosion",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 735119989377417,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 798538298989399,
+									"parameters": {
+										"object": "MB_Node"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MB_Node",
+									"sid": 177559111073485,
+									"parameters": {
+										"instance-variable": "Cleared",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 293687778184467,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 456347754108232,
+							"parameters": {
+								"object": "Player_Sprite"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 739261186873617,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 620516946505976,
+							"parameters": {
+								"variable": "cheatimer",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 745784512305563,
+					"disabled": true
+				}
+			],
+			"sid": 118633589061224
+		}
+	],
+	"sid": 167716658251181
+}

@@ -1,0 +1,2481 @@
+{
+	"name": "Loot",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Loot Global"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_layer",
+			"type": "string",
+			"initialValue": "Player",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 724382512008668
+		},
+		{
+			"eventType": "comment",
+			"text": "Loot Display"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_display_xp",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 403310383257882
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_display_money",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 693802308320502
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_display_ammo",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 609179610177462
+		},
+		{
+			"eventType": "comment",
+			"text": "Loot Health"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_small_base",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 865715321183613
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_small_mod",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 116753350401004
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_med_base",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 189407139423506
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_med_mod",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 491319875215092
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_large_base",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 874370289421755
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_health_large_mod",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 931546952357840
+		},
+		{
+			"eventType": "comment",
+			"text": "Loot XP"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_small_base",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 496442370099189
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_small_mod",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 691124827687363
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_med_base",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 322100032484179
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_med_mod",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 114419950847817
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_large_base",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 499825004287580
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_xp_large_mod",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 152156223022498
+		},
+		{
+			"eventType": "comment",
+			"text": "Loot Ammo"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_small_base",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 897030630470506
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_small_mod",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416259277226265
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_med_base",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 614758814384081
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_med_mod",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 143937853643084
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_large_base",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 609591758780765
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_ammo_large_mod",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 346723358702006
+		},
+		{
+			"eventType": "comment",
+			"text": "Loot Money"
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_small_base",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 301188187797273
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_small_mod",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 173710719896458
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_med_base",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 728530287659069
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_med_mod",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 375588928294618
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_large_base",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 620925527639497
+		},
+		{
+			"eventType": "variable",
+			"name": "loot_money_large_mod",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 246737672250058
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Ammo sprites for each type"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Loot Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loot Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Loot Display",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Params - Type, Value, Ammo"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 237813993923760,
+											"parameters": {
+												"name": "\"Loot_Display\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 400692106536792,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 443714691778340,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"XP\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Player_TextXP",
+													"sid": 390281876171156,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 425173321472131,
+													"parameters": {
+														"variable": "loot_display_xp",
+														"value": "function.Param(1)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Player_TextXP",
+													"sid": 423550059700560,
+													"parameters": {
+														"text": "\"+\" & loot_display_xp"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "Player_TextXP",
+													"sid": 265065577979003,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "Player",
+													"sid": 755277239772817,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "Player_TextXP.Fade.FadeOutTime",
+														"type": "once",
+														"tag": "\"TextXP\""
+													}
+												}
+											],
+											"sid": 565320725259388
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 821123198711621,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Money\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Player_TextMoney",
+													"sid": 915209189082868,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 448847716955338,
+													"parameters": {
+														"variable": "loot_display_money",
+														"value": "function.Param(1)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Player_TextMoney",
+													"sid": 820459171691048,
+													"parameters": {
+														"text": "\"+\" & loot_display_money"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "Player_TextMoney",
+													"sid": 614108272835455,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "Player",
+													"sid": 962351690635944,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "Player_TextMoney.Fade.FadeOutTime",
+														"type": "once",
+														"tag": "\"TextMoney\""
+													}
+												}
+											],
+											"sid": 313757482327825
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 823363419915360,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Ammo\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Player_TextAmmo",
+													"sid": 244295710336699,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 367681650561200,
+													"parameters": {
+														"variable": "loot_display_ammo",
+														"value": "function.Param(1)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Player_TextAmmo",
+													"sid": 853188633623078,
+													"parameters": {
+														"text": "\"+\" & loot_display_ammo & \" (\" & function.Param(2) & \")\""
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "Player_TextAmmo",
+													"sid": 651934161148930,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "Player",
+													"sid": 247481552302242,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "Player_TextAmmo.Fade.FadeOutTime",
+														"type": "once",
+														"tag": "\"TextAmmo\""
+													}
+												}
+											],
+											"sid": 609251633046602
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "Player",
+											"sid": 707956190640000,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"TextXP\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 781110900213278,
+											"parameters": {
+												"variable": "loot_display_xp",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 664789328999508
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "Player",
+											"sid": 348736419939629,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"TextMoney\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 557390898041597,
+											"parameters": {
+												"variable": "loot_display_money",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 434159538234864
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "Player",
+											"sid": 235300115397890,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"TextAmmo\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 438077458189725,
+											"parameters": {
+												"variable": "loot_display_ammo",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 658334327254585
+								}
+							],
+							"sid": 516776040087445
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - Type, Value, X, Y, Subtype"
+						},
+						{
+							"functionName": "Loot_Create",
+							"functionDescription": "Automatically converted from 'Loot_Create'",
+							"functionCategory": "Loot",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Type",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 107611898973328
+								},
+								{
+									"name": "Value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 925672474397854
+								},
+								{
+									"name": "X",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 556630475263031
+								},
+								{
+									"name": "Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 995325508753268
+								},
+								{
+									"name": "Subtype",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 696456284037079
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 922293690388389,
+									"parameters": {
+										"variable": "Value",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 810252608403551,
+									"parameters": {
+										"object-to-create": "Loot_Spawner",
+										"layer": "\"Objects\"",
+										"x": "X",
+										"y": "Y"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spawner",
+									"sid": 826805207643655,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "Type"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spawner",
+									"sid": 951775364456620,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "Value"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spawner",
+									"sid": 457165760838620,
+									"parameters": {
+										"instance-variable": "SubType",
+										"value": "Subtype"
+									}
+								}
+							],
+							"sid": 707510730266108
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - Type, Value, X, Y, Subtype"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 920755252526107,
+									"parameters": {
+										"name": "\"Loot_Spend\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 430343464399919,
+									"parameters": {
+										"object-to-create": "Loot_Spender",
+										"layer": "\"Objects\"",
+										"x": "Player.X",
+										"y": "Player.Height + Player.Height/2"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "Loot_Spender",
+									"sid": 568469955588019,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Player",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spender",
+									"sid": 953355803042802,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "function.Param(0)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spender",
+									"sid": 855338091666384,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "function.Param(1)"
+									}
+								}
+							],
+							"sid": 581246339435577
+						},
+						{
+							"eventType": "comment",
+							"text": "TODO - Apply item modifiers"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 901965415187744,
+									"parameters": {
+										"name": "\"Loot_Collect\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Loot",
+									"sid": 148564646874149,
+									"parameters": {
+										"unique-id": "function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 164737138046084,
+									"parameters": {
+										"name": "\"Loot_Destroy\"",
+										"parameter-n": [
+											"Loot.UID"
+										]
+									}
+								}
+							],
+							"sid": 710016198244256,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot",
+											"sid": 155846470630926,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"xp\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 428785968874097,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "TODO"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 314074825301767,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "zzLevel",
+														"comparison": 2,
+														"value": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Player",
+													"sid": 718414552198831,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "zzXP",
+														"value": "Loot.Value"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Player",
+													"sid": 765555265531607,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "zzXPtoLevel",
+														"value": "Loot.Value"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 899820519607921,
+													"disabled": true,
+													"parameters": {
+														"name": "\"PLR_UpdateLevel\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"callFunction": "SFX_Exp",
+													"sid": 302355874148092
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 877296920958527,
+													"parameters": {
+														"name": "\"Loot_Display\"",
+														"parameter-n": [
+															"\"XP\"",
+															"Loot.Value"
+														]
+													}
+												}
+											],
+											"sid": 692661884373088
+										},
+										{
+											"eventType": "comment",
+											"text": "TODO"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 393144981001225
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Player",
+													"sid": 931575641290960,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "Loot.Value"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 667328341613987,
+													"parameters": {
+														"variable": "stat_TotalMoneyEarned",
+														"value": "Loot.Value"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 348333236401613,
+													"parameters": {
+														"variable": "stat_TotalMoneyEarnedRun",
+														"value": "Loot.Value"
+													}
+												},
+												{
+													"callFunction": "SFX_Money",
+													"sid": 957465120090164
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 247145246341160,
+													"parameters": {
+														"name": "\"Loot_Display\"",
+														"parameter-n": [
+															"\"Money\"",
+															"Loot.Value"
+														]
+													}
+												}
+											],
+											"sid": 843952101648344,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 687557648690472
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot",
+											"sid": 485031834239027,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"money\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "PlayerData",
+											"sid": 645090740159310,
+											"parameters": {
+												"instance-variable": "Money",
+												"value": "Loot.Value"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 986514072883767,
+											"parameters": {
+												"variable": "stat_TotalMoneyEarned",
+												"value": "Loot.Value"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 866572558253899,
+											"parameters": {
+												"variable": "stat_TotalMoneyEarnedRun",
+												"value": "Loot.Value"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Loot",
+											"sid": 946111270282792,
+											"parameters": {
+												"animation": "\"Destroy\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"callFunction": "SFX_Money",
+											"sid": 371061911689034
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 301118999844733,
+											"parameters": {
+												"name": "\"Loot_Display\"",
+												"parameter-n": [
+													"\"Money\"",
+													"Loot.Value",
+													"Loot.SubType"
+												]
+											}
+										}
+									],
+									"sid": 430645370111485
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 291482581621076
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot",
+											"sid": 754319812232222,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"ammo\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 207252346590107,
+											"parameters": {
+												"name": "\"PLR_ModAmmo\"",
+												"parameter-n": [
+													"Loot.Value",
+													"Loot.SubType"
+												]
+											}
+										},
+										{
+											"callFunction": "SFX_Ammo",
+											"sid": 448433751501474
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 791805446880092,
+											"parameters": {
+												"name": "\"Loot_Display\"",
+												"parameter-n": [
+													"\"Ammo\"",
+													"Loot.Value",
+													"Loot.SubType"
+												]
+											}
+										}
+									],
+									"sid": 507597380027897
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 347480836707884
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot",
+											"sid": 105193328090987,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"health\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Player",
+											"sid": 155715126473344,
+											"parameters": {
+												"instance-variable": "HPtoRegen",
+												"value": "Loot.Value*5"
+											}
+										},
+										{
+											"callFunction": "SFX_Health",
+											"sid": 924150747053657
+										}
+									],
+									"sid": 216871969245009
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 569604397213595,
+									"parameters": {
+										"name": "\"Loot_Destroy\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Loot",
+									"sid": 243673641194537,
+									"parameters": {
+										"unique-id": "function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot",
+									"sid": 898337856534757,
+									"parameters": {
+										"instance-variable": "State",
+										"value": "\"Destroy\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Loot",
+									"sid": 488838776520187,
+									"parameters": {
+										"animation": "\"Destroy_\" & self.Type",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Loot",
+									"sid": 722417106678946,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Loot",
+									"sid": 120534662295497,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Self.X + random(-25,25)",
+										"end-y": "Self.Y + random(-25,25)",
+										"time": "0.5",
+										"ease": "easeoutquad",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 291609380735160
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 808148883960573,
+									"parameters": {
+										"name": "\"Loot_GetRandomAmmoType\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-return-value",
+									"objectClass": "function",
+									"sid": 308108057260738,
+									"parameters": {
+										"value": "choose(\"light\",\"medium\",\"heavy\",\"shell\",\"explosive\",\"special\")"
+									}
+								}
+							],
+							"sid": 187481325535104
+						}
+					],
+					"sid": 303347190949282
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loot Container",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Loot Container Spawn",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "Loot_ContainerSpawn",
+											"sid": 577731642339430
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 970296188192379,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 621953851263147,
+											"parameters": {
+												"object-to-create": "Loot_Container",
+												"layer": "\"Objects\"",
+												"x": "Loot_ContainerSpawn.X",
+												"y": "Loot_ContainerSpawn.Y"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Loot_Container",
+											"sid": 194848745964269,
+											"parameters": {
+												"instance-variable": "Size",
+												"value": "Loot_ContainerSpawn.Size"
+											}
+										}
+									],
+									"sid": 620848522599378,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Loot_ContainerSpawn",
+													"sid": 209897234171619,
+													"parameters": {
+														"instance-variable": "Type",
+														"comparison": 0,
+														"value": "\"random\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot_Container",
+													"sid": 475864251735473,
+													"parameters": {
+														"instance-variable": "Type",
+														"value": "choose(\"xp\",\"money\",\"ammo\",\"health\")"
+													}
+												}
+											],
+											"sid": 583212350274063
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 815061372204439
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot_Container",
+													"sid": 736656082086478,
+													"parameters": {
+														"instance-variable": "Type",
+														"value": "Loot_ContainerSpawn.Type"
+													}
+												}
+											],
+											"sid": 676289369131154
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Loot_Container",
+													"sid": 682202210835054,
+													"parameters": {
+														"instance-variable": "Type",
+														"comparison": 0,
+														"value": "\"ammo\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 689075828785110,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Loot_ContainerSpawn",
+															"sid": 347824304587743,
+															"parameters": {
+																"instance-variable": "Subtype",
+																"comparison": 0,
+																"value": "\"random\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Loot_ContainerSpawn",
+															"sid": 551579236862382,
+															"parameters": {
+																"instance-variable": "Subtype",
+																"comparison": 0,
+																"value": "\"\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Loot_Container",
+															"sid": 136757198862213,
+															"parameters": {
+																"instance-variable": "SubType",
+																"value": "function.Call(\"Loot_GetRandomAmmoType\")"
+															}
+														}
+													],
+													"sid": 960603973280374,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 103325037279598
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Loot_Container",
+															"sid": 294779685230461,
+															"parameters": {
+																"instance-variable": "SubType",
+																"value": "Loot_ContainerSpawn.Subtype"
+															}
+														}
+													],
+													"sid": 944383542807015
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Loot_Container",
+													"sid": 897695275511388,
+													"parameters": {
+														"animation": "Self.Type & \"_\" & Self.Size",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot_Container",
+													"sid": 988045278708310,
+													"parameters": {
+														"instance-variable": "Value",
+														"value": "DynamicVariable.Get(\"loot_\" & Loot_Container.Type & \"_\" & Loot_Container.Size & \"_base\") + round(random(0,DynamicVariable.Get(\"loot_\" & Loot_Container.Type & \"_\" & Loot_Container.Size & \"_mod\")))"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Loot_ContainerSpawn",
+													"sid": 563698272027823
+												}
+											],
+											"sid": 902684512341153
+										}
+									]
+								}
+							],
+							"sid": 436038547387718
+						}
+					],
+					"sid": 183247268689420
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loot Spawner",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "i",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Loot Value",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 777135230960499
+						},
+						{
+							"eventType": "variable",
+							"name": "k",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Particle Value",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 436653209938987
+						},
+						{
+							"eventType": "variable",
+							"name": "scalefactor",
+							"type": "number",
+							"initialValue": "13",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 695608033587763
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Loot_Spawner",
+									"sid": 342540436025179
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 379222534887866,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 589311511532559,
+									"parameters": {
+										"variable": "i",
+										"value": "Loot_Spawner.Value"
+									}
+								}
+							],
+							"sid": 654599470811805,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 181438550071378
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 279261880080257,
+											"parameters": {
+												"first-value": "i",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 753037081361241,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 195649861531884,
+													"parameters": {
+														"variable": "i",
+														"comparison": 4,
+														"value": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 372345372200327,
+													"parameters": {
+														"variable": "k",
+														"value": "10"
+													}
+												}
+											],
+											"sid": 611892038347927
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 546609703226154
+												}
+											],
+											"actions": [],
+											"sid": 203777709980473,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 727877817508616,
+															"parameters": {
+																"variable": "i",
+																"comparison": 4,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 246402326706223,
+															"parameters": {
+																"variable": "k",
+																"value": "floor(random(1, 10.99))"
+															}
+														}
+													],
+													"sid": 338215612258562
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 418072515356057
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 297727979811024,
+															"parameters": {
+																"variable": "k",
+																"value": "floor(random(1,i))"
+															}
+														}
+													],
+													"sid": 628678611099143
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 671886410090112,
+													"parameters": {
+														"variable": "i",
+														"value": "k"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Loot_Spawner",
+													"sid": 231897088274647,
+													"parameters": {
+														"instance-variable": "Value",
+														"value": "k"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 218421985541689,
+													"parameters": {
+														"object-to-create": "Loot",
+														"layer": "loot_layer",
+														"x": "Loot_Spawner.X + random(-10,10)",
+														"y": "Loot_Spawner.Y + random(-10,10)"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 789368816126065,
+													"parameters": {
+														"instance-variable": "LoadWaitTime",
+														"value": "loopindex*0.04"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Loot",
+													"sid": 516240553816551,
+													"parameters": {
+														"animation": "\"Spawn_\" & Loot_Spawner.Type",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 495943266956331,
+													"parameters": {
+														"instance-variable": "Value",
+														"value": "k"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 874355814773591,
+													"parameters": {
+														"instance-variable": "Type",
+														"value": "Loot_Spawner.Type"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 331724090128615,
+													"parameters": {
+														"instance-variable": "SubType",
+														"value": "Loot_Spawner.SubType"
+													}
+												},
+												{
+													"id": "set-scale",
+													"objectClass": "Loot",
+													"sid": 417755639860242,
+													"parameters": {
+														"scale": "((1-(1/scalefactor) + k/scalefactor))"
+													}
+												},
+												{
+													"id": "set-animation-speed",
+													"objectClass": "Loot",
+													"sid": 704770528293728,
+													"parameters": {
+														"speed": "0"
+													}
+												}
+											],
+											"sid": 811583701465980
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Loot_Spawner",
+									"sid": 978392999073007,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Loot_Spawner",
+									"sid": 612237148640143
+								}
+							],
+							"sid": 361485362654553
+						}
+					],
+					"sid": 744071508353981
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loot Spender",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "i",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Loot Value",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 472954890987441
+						},
+						{
+							"eventType": "variable",
+							"name": "k",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Particle Value",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 682625560268089
+						},
+						{
+							"eventType": "variable",
+							"name": "scalefactor",
+							"type": "number",
+							"initialValue": "13",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 211772874166813
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Loot_Spender",
+									"sid": 894621309372514
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 450279016036085,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 992241230295654,
+									"parameters": {
+										"variable": "i",
+										"value": "Loot_Spender.Value"
+									}
+								}
+							],
+							"sid": 609790826522584,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot_Spender",
+											"sid": 859773419344493,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 4,
+												"value": "111"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Loot_Spender",
+											"sid": 559681152384173,
+											"parameters": {
+												"instance-variable": "Value",
+												"value": "111"
+											}
+										}
+									],
+									"sid": 387949489199251
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 251097142853551
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 895669963225883,
+											"parameters": {
+												"first-value": "i",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 168660608782980,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 122645421748374,
+													"parameters": {
+														"variable": "i",
+														"comparison": 4,
+														"value": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 350892647066356,
+													"parameters": {
+														"variable": "k",
+														"value": "10"
+													}
+												}
+											],
+											"sid": 981053581479145
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 964938941761265
+												}
+											],
+											"actions": [],
+											"sid": 320094285535746,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 149717690817669,
+															"parameters": {
+																"variable": "i",
+																"comparison": 4,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 128180718452096,
+															"parameters": {
+																"variable": "k",
+																"value": "floor(random(1, 10.99))"
+															}
+														}
+													],
+													"sid": 601984883633202
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 485192083640402
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 354449500041225,
+															"parameters": {
+																"variable": "k",
+																"value": "floor(random(1,i))"
+															}
+														}
+													],
+													"sid": 511851627629358
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 601485411591870,
+													"parameters": {
+														"variable": "i",
+														"value": "k"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Loot_Spender",
+													"sid": 320551725665400,
+													"parameters": {
+														"instance-variable": "Value",
+														"value": "k"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 605574360557436,
+													"parameters": {
+														"object-to-create": "Loot",
+														"layer": "loot_layer",
+														"x": "Player.X",
+														"y": "Player.Y - Player.Height/2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 200862424055234,
+													"parameters": {
+														"instance-variable": "LoadWaitTime",
+														"value": "loopindex*0.04"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Loot",
+													"sid": 814703318933852,
+													"parameters": {
+														"instance-variable": "Type",
+														"value": "Loot_Spender.Type"
+													}
+												},
+												{
+													"id": "set-scale",
+													"objectClass": "Loot",
+													"sid": 353308750353437,
+													"parameters": {
+														"scale": "((1-(1/scalefactor) + k/scalefactor))"
+													}
+												},
+												{
+													"id": "set-animation-speed",
+													"objectClass": "Loot",
+													"sid": 237585476709745,
+													"parameters": {
+														"speed": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Loot",
+													"sid": 443300652232721,
+													"parameters": {
+														"instance-variable": "Spender",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 801089537098194
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Loot_Spender",
+									"sid": 658102097579371,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Loot_Spender",
+									"sid": 112442835077996
+								}
+							],
+							"sid": 452811685960163
+						}
+					],
+					"sid": 285962350791581
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loot Particle",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Loot",
+									"sid": 317680979936509
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 665823658107606,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 337875359515048,
+									"parameters": {
+										"seconds": "Loot.LoadWaitTime"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Loot",
+									"sid": 565046236527373,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Loot",
+									"sid": 466616095419755,
+									"parameters": {
+										"speed": "20"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Loot",
+									"sid": 348205798394963,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Self.X + random(-10,10)",
+										"end-y": "Self.Y + random(-10,10)",
+										"time": "0.2",
+										"ease": "easeoutquad",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 403251305315991,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 110837229336587,
+											"parameters": {
+												"first-value": "left(Player_Sprite.AnimationName,3)",
+												"comparison": 0,
+												"second-value": "\"Die\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Loot",
+											"sid": 807405892195008,
+											"parameters": {
+												"animation": "\"Destroy_\" & Self.Type",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 101436679795949
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Loot",
+											"sid": 619657788599686,
+											"parameters": {
+												"instance-variable": "Spender"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Loot",
+											"sid": 894319670797960,
+											"parameters": {
+												"x": "Player.X + random(-5,5)",
+												"y": "Player.Y - Player.Height/2 + random(-10,10)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 640234268774196,
+											"parameters": {
+												"name": "\"Loot_Destroy\"",
+												"parameter-n": [
+													"Loot.UID"
+												]
+											}
+										}
+									],
+									"sid": 705749083240539
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-animation-finished",
+									"objectClass": "Loot",
+									"sid": 788136893289500
+								}
+							],
+							"actions": [],
+							"sid": 675108823010514,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 493692377509992,
+											"parameters": {
+												"first-value": "left(Loot.AnimationName,5)",
+												"comparison": 0,
+												"second-value": "\"Spawn\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Loot",
+											"sid": 390434508141297,
+											"parameters": {
+												"animation": "\"Move_\" & Self.Type",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 235163468297651,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-speed",
+											"objectClass": "Loot",
+											"sid": 339745468624596,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"speed": "120 + random(-15,15)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Loot",
+											"sid": 392355172882166,
+											"parameters": {
+												"instance-variable": "TargetXOffset",
+												"value": "random(-5,5)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Loot",
+											"sid": 346984936760813,
+											"parameters": {
+												"instance-variable": "TargetYOffset",
+												"value": "random(-5,5)"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Loot",
+											"sid": 891971757265614,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "angle(Self.X,Self.Y,Player.X + Self.TargetXOffset,Player.Y - Player.Height/2 + Self.TargetYOffset)"
+											}
+										},
+										{
+											"id": "set-speed",
+											"objectClass": "Loot",
+											"sid": 861538042843019,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"speed": "Self.Bullet.Speed + 0.1"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Loot",
+											"sid": 281142900694467,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Loot",
+											"sid": 266302745988570,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"Move\""
+											}
+										}
+									],
+									"sid": 707215157953179,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 998504359376021,
+													"parameters": {
+														"first-value": "fps",
+														"comparison": 2,
+														"second-value": "40"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Loot",
+													"sid": 879264816484716,
+													"parameters": {
+														"x": "Player.X",
+														"y": "Player.Y"
+													}
+												}
+											],
+											"sid": 902279183796116
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 504569520030234
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 870237144542460,
+											"parameters": {
+												"first-value": "left(Loot.AnimationName,7)",
+												"comparison": 0,
+												"second-value": "\"Destroy\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Loot",
+											"sid": 169335427257053
+										}
+									],
+									"sid": 273909519657454
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Loot",
+									"sid": 295488566345971,
+									"parameters": {
+										"object": "Player"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 921765213650677,
+									"parameters": {
+										"object": "Loot"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Loot",
+									"sid": 189781337911099,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Move\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 921853692710722,
+									"parameters": {
+										"name": "\"Loot_Collect\"",
+										"parameter-n": [
+											"Loot.UID"
+										]
+									}
+								}
+							],
+							"sid": 287450564617317
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 192136014766584,
+									"parameters": {
+										"first-value": "Loot.Count",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 152878091015913,
+									"parameters": {
+										"interval-seconds": "0.2"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 546726613700430,
+									"parameters": {
+										"first-value": "left(Loot.AnimationName,4)",
+										"comparison": 0,
+										"second-value": "\"Move\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "Loot",
+									"sid": 393001232562346,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "angle(Self.X,Self.Y,Player.X + Self.TargetXOffset,Player.Y - Player.Height/2 + Self.TargetYOffset)"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Loot",
+									"sid": 104228125657338,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "Self.Bullet.Speed + 2"
+									}
+								}
+							],
+							"sid": 826928164112058
+						}
+					],
+					"sid": 164394833404647
+				}
+			],
+			"sid": 335066329322749
+		}
+	],
+	"sid": 180408100049249
+}

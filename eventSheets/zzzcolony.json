@@ -1,0 +1,1586 @@
+{
+	"name": "zzzColony",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "colonistIndex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 832955063945017
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Colonist",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Colonist Queue",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Params - NPC UID"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 932199986489038,
+									"parameters": {
+										"name": "\"Colony_Colonist_Queue\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Human",
+									"sid": 367215924591835,
+									"parameters": {
+										"unique-id": "function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ColonistQueue",
+									"sid": 233122717105457,
+									"parameters": {
+										"width": "Self.Width + 1",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistQueue",
+									"sid": 546280563396734,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "0",
+										"value": "Human.FirstName"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistQueue",
+									"sid": 398399715538671,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "1",
+										"value": "Human.LastName"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistQueue",
+									"sid": 843071230572953,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "2",
+										"value": "Human.Skintone"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistQueue",
+									"sid": 894785292721953,
+									"disabled": true,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "3",
+										"value": "Human.Weapon"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistQueue",
+									"sid": 953876381558568,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "3",
+										"value": "\"\""
+									}
+								}
+							],
+							"sid": 208221699291045,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC_Head",
+											"sid": 584917641745796,
+											"parameters": {
+												"unique-id": "Human.HeadID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "ColonistQueue",
+											"sid": 952397119169542,
+											"parameters": {
+												"x": "Self.Width - 1",
+												"y": "4",
+												"value": "NPC_Head.Type"
+											}
+										}
+									],
+									"sid": 176195858677589
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC_Torso",
+											"sid": 102380693997522,
+											"parameters": {
+												"unique-id": "Human.TorsoID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "ColonistQueue",
+											"sid": 248504384717632,
+											"parameters": {
+												"x": "Self.Width - 1",
+												"y": "5",
+												"value": "NPC_Torso.Type"
+											}
+										}
+									],
+									"sid": 172058562138408
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC_Legs",
+											"sid": 503778620445620,
+											"parameters": {
+												"unique-id": "Human.LegsID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "ColonistQueue",
+											"sid": 729314539206180,
+											"parameters": {
+												"x": "Self.Width - 1",
+												"y": "6",
+												"value": "NPC_Legs.Type"
+											}
+										}
+									],
+									"sid": 375053845890324
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Void"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 984868446620017,
+									"parameters": {
+										"name": "\"Colony_Colonist_QueueSave\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 992561287140995,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 936532150841460,
+											"parameters": {
+												"count": "ColonistQueue.Width"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 879748045892428,
+											"parameters": {
+												"name": "\"Colony_Colonist_Add\"",
+												"parameter-n": [
+													"ColonistQueue.At(loopindex,0)",
+													"ColonistQueue.At(loopindex,1)",
+													"ColonistQueue.At(loopindex,2)",
+													"ColonistQueue.At(loopindex,3)",
+													"ColonistQueue.At(loopindex,4)",
+													"ColonistQueue.At(loopindex,5)",
+													"ColonistQueue.At(loopindex,6)",
+													"ColonistQueue.At(loopindex,7)"
+												]
+											}
+										}
+									],
+									"sid": 168143348659791
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 102564881356353,
+											"parameters": {
+												"name": "\"Colony_Colonist_QueueClear\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 267249053077306
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Void"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 547416893920501,
+									"parameters": {
+										"name": "\"Colony_Colonist_QueueClear\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ColonistQueue",
+									"sid": 721635714824461,
+									"parameters": {
+										"width": "0",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								}
+							],
+							"sid": 415691587395013
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - First Name, Last Name, Skintone, Weapons, Head, Torso, Legs"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 885578459377280,
+									"parameters": {
+										"name": "\"Colony_Colonist_Add\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ColonistData",
+									"sid": 443677979999395,
+									"parameters": {
+										"width": "Self.Width + 1",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 161543885665651,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "0",
+										"value": "function.Param(0)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 220451279693751,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "1",
+										"value": "function.Param(1)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 919190777031841,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "2",
+										"value": "function.Param(2)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 236894505152843,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "3",
+										"value": "function.Param(3)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 953815888082038,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "4",
+										"value": "function.Param(4)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 439801337496171,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "5",
+										"value": "function.Param(5)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "ColonistData",
+									"sid": 830201196427453,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "6",
+										"value": "function.Param(6)"
+									}
+								}
+							],
+							"sid": 776218680284155
+						}
+					],
+					"sid": 234614387914728
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Colonist Spawn",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Colonist Selection",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 366931905479614,
+											"parameters": {
+												"name": "\"Input_Left\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ColonistSpawned",
+											"sid": 867690527906178,
+											"parameters": {
+												"instance-variable": "SelectionAvailable"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 741471668592422,
+											"parameters": {
+												"variable": "colonistIndex",
+												"value": "function.Call(\"Math_Increment\",colonistIndex,ColonistSpawned.Width - 1)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 382115569375363,
+											"parameters": {
+												"name": "\"Colony_Colonist_Select\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 366381002735187,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 912747239733477,
+											"parameters": {
+												"name": "\"Input_Right\""
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "ColonistSpawned",
+											"sid": 894084031636327,
+											"parameters": {
+												"instance-variable": "SelectionAvailable"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 462384651516439,
+											"parameters": {
+												"variable": "colonistIndex",
+												"value": "function.Call(\"Math_Decrement\",colonistIndex,ColonistSpawned.Width - 1)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 495199917829138,
+											"parameters": {
+												"name": "\"Colony_Colonist_Select\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 803624361204822,
+									"disabled": true
+								},
+								{
+									"eventType": "comment",
+									"text": "Input Interact"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 351938638910368,
+											"parameters": {
+												"name": "\"Colony_Colonist_Pick\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 280217800348059,
+									"disabled": true
+								}
+							],
+							"sid": 938555577061573
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - Array Index"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 511941003076416,
+									"parameters": {
+										"name": "\"Colony_Colonist_Spawn\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "ColonistSpawnData",
+									"sid": 693914579454079,
+									"parameters": {
+										"json": "ColonistData.AsJSON"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "ColonistSpawnData",
+									"sid": 792057816086822,
+									"parameters": {
+										"width": "Self.Width",
+										"height": "Self.Height + 1",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 372982504564538,
+									"parameters": {
+										"variable": "colonistIndex",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 956939030453027,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "ColonistSpawnData",
+											"sid": 587957187554316,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "ColonistSpawnData",
+											"sid": 503739282590323,
+											"parameters": {
+												"x": "ColonistSpawnData.CurX",
+												"y": "Self.Height -  1",
+												"value": "ColonistSpawnData.CurX"
+											}
+										}
+									],
+									"sid": 548574103855701
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 459117195651660,
+											"parameters": {
+												"name": "\"Shuffle_Array\"",
+												"parameter-n": [
+													"ColonistSpawnData.UID"
+												]
+											}
+										}
+									],
+									"sid": 111727831504077
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 652263749153443,
+											"parameters": {
+												"first-value": "ColonistData.Width",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 739055869093359,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-element",
+													"objectClass": "ColonistSpawnData",
+													"sid": 995325099195164,
+													"parameters": {
+														"axes": "x"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 539566837815926,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "SpawnPoint_Colonist",
+															"sid": 769102965503234,
+															"parameters": {
+																"instance-variable": "Active",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "pick-random-instance",
+															"objectClass": "System",
+															"sid": 290044060886278,
+															"parameters": {
+																"object": "SpawnPoint_Colonist"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 155738506664440,
+															"parameters": {
+																"object-to-create": "Preset_Colonist",
+																"layer": "0",
+																"x": "0",
+																"y": "0"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 424289365958960,
+															"parameters": {
+																"instance-variable": "Label",
+																"value": "\"Colonist\" & ColonistSpawnData.CurX"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 987163431337724,
+															"parameters": {
+																"instance-variable": "FirstName",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,0)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 458584658812861,
+															"parameters": {
+																"instance-variable": "LastName",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,1)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 863746567608886,
+															"parameters": {
+																"instance-variable": "Skintone",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,2)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 502004693337321,
+															"parameters": {
+																"instance-variable": "Weapon",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,3)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 564747620275040,
+															"parameters": {
+																"instance-variable": "Head",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,4)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 536202933563477,
+															"parameters": {
+																"instance-variable": "Torso",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,5)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Preset_Colonist",
+															"sid": 392006943462520,
+															"parameters": {
+																"instance-variable": "Legs",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,6)"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 873499356812958,
+															"parameters": {
+																"object-to-create": "Spawn_Human",
+																"layer": "\"Objects\"",
+																"x": "SpawnPoint_Colonist.X",
+																"y": "SpawnPoint_Colonist.Y"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Spawn_Human",
+															"sid": 363116355299708,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"value": "Preset_Colonist.Label"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Spawn_Human",
+															"sid": 467128856574066,
+															"parameters": {
+																"instance-variable": "Stationary",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Spawn_Human",
+															"sid": 421610249859266,
+															"parameters": {
+																"instance-variable": "InheritOrientation",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Spawn_Human",
+															"sid": 305641686868199,
+															"parameters": {
+																"instance-variable": "zzzSurvivor",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Spawn_Human",
+															"sid": 134697922482217,
+															"parameters": {
+																"instance-variable": "zzzColonist",
+																"value": "true"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Spawn_Human",
+															"sid": 228717760729752,
+															"parameters": {
+																"instance-variable": "zzzColonistIndex",
+																"value": "ColonistSpawnData.At(ColonistSpawnData.CurX,7)"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "SpawnPoint_Colonist",
+															"sid": 290380728255199,
+															"parameters": {
+																"instance-variable": "Active",
+																"value": "0"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "SpawnPoint_Colonist",
+															"sid": 555641918035585
+														}
+													],
+													"sid": 315225460320798,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 878835419052247,
+																	"parameters": {
+																		"first-value": "random(0,100)",
+																		"comparison": 4,
+																		"second-value": "70"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Spawn_Human",
+																	"sid": 557224058563635,
+																	"parameters": {
+																		"instance-variable": "Dialogue",
+																		"value": "\"baseciv\" & floor(random(1,99.9))"
+																	}
+																}
+															],
+															"sid": 926001185616730
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 986040126641918
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Spawn_Human",
+																	"sid": 739476653891657,
+																	"parameters": {
+																		"instance-variable": "Dialogue",
+																		"value": "\"\""
+																	}
+																}
+															],
+															"sid": 447934741905569
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 942404123531589
+														}
+													],
+													"actions": [
+														{
+															"id": "stop-loop",
+															"objectClass": "System",
+															"sid": 611405833063165
+														}
+													],
+													"sid": 847906435993088
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "SpawnPoint_Colonist",
+													"sid": 673676895442639
+												},
+												{
+													"id": "set-size",
+													"objectClass": "ColonistSpawnData",
+													"sid": 934174716914319,
+													"parameters": {
+														"width": "0",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												}
+											],
+											"sid": 395438591793758
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 827064101075041
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 762579741970849,
+											"parameters": {
+												"name": "\"Colony_Colonist_Null\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 412533217673628
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 419382879919349,
+									"parameters": {
+										"name": "\"Colony_Colonist_StartSelection\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "ColonistSpawned",
+									"sid": 840242341463777,
+									"parameters": {
+										"width": "0",
+										"height": "1",
+										"depth": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 380521423782565,
+									"parameters": {
+										"name": "\"TXT_Banner\"",
+										"parameter-n": [
+											"function.Call(\"Text_GetString\",\"colonychooseprompt\")",
+											"1"
+										]
+									}
+								}
+							],
+							"sid": 205009465484468,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 660737396358567,
+											"parameters": {
+												"object": "NPC_WorldObj"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC_WorldObj",
+											"sid": 306614080280739,
+											"parameters": {
+												"instance-variable": "Colonist"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "ColonistSpawned",
+											"sid": 829498982345862,
+											"parameters": {
+												"width": "Self.Width + 1",
+												"height": "Self.Height",
+												"depth": "Self.Depth"
+											}
+										},
+										{
+											"id": "set-at-x",
+											"objectClass": "ColonistSpawned",
+											"sid": 972000846376577,
+											"parameters": {
+												"x": "Self.Width - 1",
+												"value": "NPC_WorldObj.UID"
+											}
+										}
+									],
+									"sid": 962678824629707
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-nearestfurthest",
+											"objectClass": "NPC_WorldObj",
+											"sid": 744162226719745,
+											"parameters": {
+												"which": "nearest",
+												"x": "0",
+												"y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 116708222471238,
+											"parameters": {
+												"group-name": "\"Colonist Selection\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 346918794973106,
+											"parameters": {
+												"group-name": "\"Input_Interact_Mouse\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 307604680168940,
+											"parameters": {
+												"name": "\"Colony_Colonist_Select\"",
+												"parameter-n": [
+													"NPC_WorldObj.UID"
+												]
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 371728703282622,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ColonistSpawned",
+											"sid": 325367339023863,
+											"parameters": {
+												"instance-variable": "SelectionAvailable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 145521044506818
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Void"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 740813110185455,
+									"parameters": {
+										"name": "\"Colony_Colonist_Select\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC_WorldObj",
+									"sid": 670233303044210,
+									"parameters": {
+										"unique-id": "ColonistSpawned.At(colonistIndex)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 296316223907077,
+									"parameters": {
+										"name": "\"FX_Outline_DisableAll\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 328021381902983,
+									"parameters": {
+										"name": "\"Camera_Mode\"",
+										"parameter-n": [
+											"3",
+											"NPC_WorldObj.UID"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 976351775797051,
+									"parameters": {
+										"name": "\"FX_Outline_Enable\"",
+										"parameter-n": [
+											"NPC_WorldObj.UID"
+										]
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ColonistSpawned",
+									"sid": 192272060671239,
+									"parameters": {
+										"instance-variable": "SelectionAvailable",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 213969326946675,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Human",
+											"sid": 817093217713129,
+											"parameters": {
+												"unique-id": "NPC_WorldObj.ParentID"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Text",
+											"sid": 634814589820940,
+											"parameters": {
+												"unique-id": "function.Call(\"Text_Draw\",NPC_WorldObj.X,NPC_WorldObj.Y + NPC_WorldObj.Height*0.5,\"Fog\",NPC_WorldObj.UID,\"Hover\",\"\",Human.FirstName & \" \" & Human.LastName,0.2,1,0.2,600,0.5,\"World\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-fade-out-time",
+											"objectClass": "Text_World",
+											"sid": 691167653651258,
+											"behaviorType": "Fade",
+											"parameters": {
+												"fade-out-time": "0.2"
+											}
+										},
+										{
+											"id": "set-wait-time",
+											"objectClass": "Text_World",
+											"sid": 723733198722194,
+											"behaviorType": "Fade",
+											"parameters": {
+												"wait-time": "0"
+											}
+										},
+										{
+											"id": "pin-to-object",
+											"objectClass": "Text",
+											"sid": 215475099117613,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "NPC_WorldObj",
+												"mode": "position-only"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPC_WorldObj",
+											"sid": 712366551345083,
+											"parameters": {
+												"instance-variable": "DiagUID",
+												"value": "Text.UID"
+											}
+										}
+									],
+									"sid": 631718541392925
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 675683622287265,
+											"parameters": {
+												"seconds": "0.25"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "ColonistSpawned",
+											"sid": 775469922355620,
+											"parameters": {
+												"instance-variable": "SelectionAvailable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 589859280595479
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - Human UID"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 779559163907505,
+									"parameters": {
+										"name": "\"Colony_Colonist_Pick\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC_WorldObj",
+									"sid": 101168934054866,
+									"parameters": {
+										"unique-id": "ColonistSpawned.At(colonistIndex)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 494457153315040,
+									"parameters": {
+										"group-name": "\"Colonist Selection\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 653953620634899,
+									"parameters": {
+										"group-name": "\"Input_Interact_Mouse\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 505276244957502,
+									"parameters": {
+										"name": "\"TXT_Banner_Resume\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 351235564215484,
+									"parameters": {
+										"name": "\"FX_Outline_DisableAll\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ColonistSpawned",
+									"sid": 957584966861478,
+									"parameters": {
+										"instance-variable": "SelectionAvailable",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Text_World",
+									"sid": 445700600620121,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "0.2"
+									}
+								},
+								{
+									"id": "set-wait-time",
+									"objectClass": "Text_World",
+									"sid": 510151225739552,
+									"behaviorType": "Fade",
+									"parameters": {
+										"wait-time": "0"
+									}
+								}
+							],
+							"sid": 804682611170703,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Tag gender for death SFX"
+								},
+								{
+									"eventType": "comment",
+									"text": "Class selection menu? Dressing scene? "
+								},
+								{
+									"eventType": "comment",
+									"text": "Emulate control?"
+								},
+								{
+									"eventType": "comment",
+									"text": "TODO - Pick Char"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 515712802606120
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Params - Array Index"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 191613069545917,
+									"parameters": {
+										"name": "\"Colony_Colonist_Remove\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC_WorldObj",
+									"sid": 872095053021175,
+									"parameters": {
+										"unique-id": "ColonistSpawned.At(colonistIndex)"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Human",
+									"sid": 842837114275979,
+									"parameters": {
+										"unique-id": "NPC_WorldObj.ParentID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "delete",
+									"objectClass": "ColonistData",
+									"sid": 970824687438879,
+									"parameters": {
+										"index": "Human.ColonistIndex",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 886936679138273
+						}
+					],
+					"sid": 301317619518795
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Colonist Debug",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 683944167517987,
+									"parameters": {
+										"key": 74
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 229780432984205,
+									"parameters": {
+										"name": "\"Colony_Colonist_QueueSave\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 872122165300414
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 355793358980887,
+									"parameters": {
+										"key": 75
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 484285915644731,
+									"parameters": {
+										"name": "\"Colony_Colonist_Spawn\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 734613829630180
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 752875677326356,
+									"parameters": {
+										"key": 76
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 384209140658147,
+									"parameters": {
+										"name": "\"Colony_Colonist_StartSelection\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 778976827536820
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 527622731296779,
+									"parameters": {
+										"key": 66
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Player",
+									"sid": 773527525035286
+								}
+							],
+							"sid": 501448761398564
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 788448034536399,
+									"parameters": {
+										"key": 78
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 498648189059658,
+									"parameters": {
+										"name": "\"Colony_Colonist_Remove\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 270726087381396
+						}
+					],
+					"sid": 266615170441993
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO - No colonist, now what?"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 998126353470664,
+							"parameters": {
+								"name": "\"Colony_Colonist_Null\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 184779008619165,
+							"parameters": {
+								"type": "warn",
+								"message": "\"You have no colonists!\""
+							}
+						}
+					],
+					"sid": 118695832052911
+				}
+			],
+			"sid": 607326780901985
+		}
+	],
+	"sid": 937955937474984
+}

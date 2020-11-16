@@ -1,0 +1,3369 @@
+{
+	"name": "Deprecated",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Lighting",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Player",
+							"sid": 533771098318208
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "zzfogReveal",
+							"sid": 759718784810636,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y - Player.Height/2"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "zzfogReveal",
+							"sid": 765191313426692,
+							"disabled": true,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "zzfogReveal2",
+							"sid": 519276555233420,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y - Player.Height/2"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "zzfogReveal2",
+							"sid": 743795449085064,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 554890600760233,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y - Player.Height/2"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "ShadowLight",
+							"sid": 522308091831741,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Player",
+								"mode": "position-angle"
+							}
+						}
+					],
+					"sid": 441734187332686,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Bullet",
+							"sid": 875324185568706
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 745891928648246,
+							"parameters": {
+								"object-to-create": "zzfogReveal4",
+								"layer": "\"Shade\"",
+								"x": "Bullet.X",
+								"y": "Bullet.Y"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "zzfogReveal4",
+							"sid": 496741457741513,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Bullet",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 415798655242442,
+							"parameters": {
+								"object-to-create": "zzfogReveal3",
+								"layer": "\"Shade\"",
+								"x": "Bullet.X",
+								"y": "Bullet.Y"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "zzfogReveal3",
+							"sid": 903214851689119,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Bullet",
+								"mode": "position-angle"
+							}
+						}
+					],
+					"sid": 497384691097367,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Bullet",
+							"sid": 286997666898640
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "zzfogReveal3",
+							"sid": 341708901220427
+						},
+						{
+							"id": "destroy",
+							"objectClass": "zzfogReveal4",
+							"sid": 239064397546932
+						}
+					],
+					"sid": 448910440005038,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-mirrored",
+							"objectClass": "Player",
+							"sid": 386594119118008
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "zzfogReveal",
+							"sid": 445287153826063,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "zzfogReveal2",
+							"sid": 864270783117038,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 261770817902966,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-mirrored",
+							"objectClass": "Player",
+							"sid": 897314453296143,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "zzfogReveal",
+							"sid": 996573903307637,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "zzfogReveal2",
+							"sid": 392117088049967,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 962730192519689,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 245246782639047
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "zzfogReveal",
+							"sid": 410413467623428,
+							"parameters": {
+								"x": "Player_Arms.ImagePointX(1)",
+								"y": "Player_Arms.ImagePointY(1)"
+							}
+						}
+					],
+					"sid": 234766444795019,
+					"disabled": true
+				}
+			],
+			"sid": 872947500942245
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Old Base",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Old Base Start",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzz_Colony",
+									"sid": 264214469799799,
+									"parameters": {
+										"instance-variable": "AmmoUnlocked",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Shop_Ammo",
+									"sid": 452786180658708
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_AmmoTXT",
+									"sid": 592952549356591
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 807824760035064,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"Ammo\""
+										]
+									}
+								}
+							],
+							"sid": 985659280379889
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzz_Colony",
+									"sid": 529284987133759,
+									"parameters": {
+										"instance-variable": "GunsUnlocked",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 459282484440273,
+									"parameters": {
+										"seconds": "0.04"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_Guns",
+									"sid": 336435373112047
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_GunsTXT",
+									"sid": 927317223594152
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 213192700798587,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"Guns\""
+										]
+									}
+								}
+							],
+							"sid": 300164473156497
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzz_Colony",
+									"sid": 667441315668950,
+									"parameters": {
+										"instance-variable": "AdminUnlocked",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 249428390880152,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_Admin",
+									"sid": 348853325654114
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_AdminTXT",
+									"sid": 772864329698013
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 844639233564118,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"Admin\""
+										]
+									}
+								}
+							],
+							"sid": 279138795963449
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzz_Colony",
+									"sid": 990151146288425,
+									"parameters": {
+										"instance-variable": "SkillsUnlocked",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 330877345372706,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_Skills",
+									"sid": 270557377522955
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Shop_SkillsTXT",
+									"sid": 539039050340517
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 914565130120630,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"Skills\""
+										]
+									}
+								}
+							],
+							"sid": 645982272697432
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 171009235801466,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 776555284107376,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 780436153113615,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 771726916236078
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 367907880586313
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 485581639938446,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"1"
+										]
+									}
+								}
+							],
+							"sid": 970150819930156
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 621761868554482,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 366125198247241,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 893531152357586,
+									"parameters": {
+										"seconds": "0.4"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 285484373495425
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 759911171046460
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 854108484235894,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"2"
+										]
+									}
+								}
+							],
+							"sid": 564657520160873
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 977165527077959,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "3"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 208145900508170,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 664787073079637,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 309232780759700
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 282940039918573
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 237302957541160,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"3"
+										]
+									}
+								}
+							],
+							"sid": 267503437618742
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 668961952943465,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "4"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 697524181440614,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 771254262085820,
+									"parameters": {
+										"seconds": "0.6"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 736300625112703
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 428198865618228
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 613117869171609,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"4"
+										]
+									}
+								}
+							],
+							"sid": 858339892543917
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 423206527932674,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "5"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 187009565383166,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 662250354481202,
+									"parameters": {
+										"seconds": "0.7"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 864162069121222
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 715232207034175
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 688653132912986,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"5"
+										]
+									}
+								}
+							],
+							"sid": 246030319726765
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 133064479566247,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "6"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 820232745920017,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 901482420340139,
+									"parameters": {
+										"seconds": "0.8"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 498762827698106
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 412707477745232
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 661219184130867,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"6"
+										]
+									}
+								}
+							],
+							"sid": 594279485735623
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 206829218439848,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "7"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 118060901980721,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 735313728048343,
+									"parameters": {
+										"seconds": "0.9"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 344807900442364
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 783037586158144
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 974978872437498,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"7"
+										]
+									}
+								}
+							],
+							"sid": 554086709743828
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 775921913625702,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "8"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 291116640122294,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "8"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 734381826584396,
+									"parameters": {
+										"seconds": "0.10"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 166113503271451
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 854163290432415
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 191217234969517,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"8"
+										]
+									}
+								}
+							],
+							"sid": 228818917526827
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 286896167918744,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "9"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 621579717346384,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "9"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 697290351458424,
+									"parameters": {
+										"seconds": "0.11"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 325413944422145
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 843222318188823
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 910281636001617,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"9"
+										]
+									}
+								}
+							],
+							"sid": 499673989127549
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 802883709309230,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HouseSign",
+									"sid": 722689378814995,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 149943276904463,
+									"parameters": {
+										"seconds": "0.12"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "House_TXT",
+									"sid": 475079364111666
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HouseSign",
+									"sid": 676939029642693
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 130779604612581,
+									"parameters": {
+										"name": "\"SHP_Build\"",
+										"parameter-n": [
+											"\"House\"",
+											"10"
+										]
+									}
+								}
+							],
+							"sid": 373393425760317
+						}
+					],
+					"sid": 924955119199820
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Houses",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 857123484637216,
+									"parameters": {
+										"object": "HouseSign"
+									}
+								},
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 713531137119795,
+									"parameters": {
+										"keycode": "key_Interact"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 115070867632616,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 738482968715242,
+											"parameters": {
+												"object": "HouseSign"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 693368449860024,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 298246938581455,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"comparison": 5,
+														"value": "HouseSign.Cost"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "House_TXT",
+													"sid": 406486366048269,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "HouseSign.ID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "House_TXT",
+													"sid": 180736722163162
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 809524141198150,
+													"parameters": {
+														"name": "\"SHP_Build\"",
+														"parameter-n": [
+															"\"House\"",
+															"HouseSign.ID"
+														]
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Player",
+													"sid": 999889157060998,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "HouseSign.Cost"
+													}
+												}
+											],
+											"sid": 284276551234574,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 507163889870694,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 615070096662413
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 735242434366247,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 709768806593966
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 965473260165736,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "3"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 540633834063315
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 629220926954250,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "4"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 155514194512873
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 530262654208409,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "5"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 441185494986431
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 104293404116638,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "6"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 288385022454009
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 622453259085615,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "7"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 163923742774924
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 198777013225459,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "8"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 476793445518717
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 265570283600933,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "9"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 935275668002960
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "HouseSign",
+															"sid": 253946277075533,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 595257531824069
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "HouseSign",
+															"sid": 518305114441015
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "zzz_Colony",
+															"sid": 501511091017612,
+															"parameters": {
+																"instance-variable": "MaxCitizens",
+																"value": "Self.MaxCitizens + 5"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 791261489303528,
+															"parameters": {
+																"name": "\"TXT_Banner\"",
+																"parameter-n": [
+																	"\"HOUSE UNLOCKED!\""
+																]
+															}
+														}
+													],
+													"sid": 325078775901544
+												}
+											]
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 357848492274151,
+									"parameters": {
+										"object": "HouseSign"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "House_TXT",
+									"sid": 728245436000954,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "HouseSign.ID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "House_TXT",
+									"sid": 248048332551015,
+									"parameters": {
+										"text": "\"Tap to purchase: $\" & HouseSign.Cost"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "House_TXT",
+									"sid": 140946405927348,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 389258809541701,
+									"parameters": {
+										"name": "\"PLR_ShowMoney\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 193174345481472
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 219937044380374,
+									"parameters": {
+										"object": "HouseSign"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 135256473287277
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "House_TXT",
+									"sid": 931278759054732,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 518905875178453
+						}
+					],
+					"sid": 576528411757272
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 749476515540528,
+							"parameters": {
+								"name": "\"SHP_Build\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 275783360429651,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 938412655144937,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Ammo\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 256837740861537,
+									"parameters": {
+										"variable": "game_Level",
+										"value": "10000"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 841145375684539,
+									"parameters": {
+										"tag": "\"LevelObjectData\"",
+										"url": "\"level\" & game_Level & \"objectdata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 252258967862538,
+									"parameters": {
+										"tag": "\"LevelSolidData\"",
+										"url": "\"level\" & game_Level & \"soliddata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 823759157325165,
+									"parameters": {
+										"tag": "\"LevelTileData\"",
+										"url": "\"level\" & game_Level & \"tiledata.json\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 738637860949926,
+									"parameters": {
+										"x": "zz_AmmoSpawnPoint.X",
+										"y": "zz_AmmoSpawnPoint.Y"
+									}
+								}
+							],
+							"sid": 219503377961438
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 869953334627164,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Guns\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 601043565580826,
+									"parameters": {
+										"variable": "game_Level",
+										"value": "10001"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 301457624596829,
+									"parameters": {
+										"tag": "\"LevelObjectData\"",
+										"url": "\"level\" & game_Level & \"objectdata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 985747212232855,
+									"parameters": {
+										"tag": "\"LevelSolidData\"",
+										"url": "\"level\" & game_Level & \"soliddata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 564315878845093,
+									"parameters": {
+										"tag": "\"LevelTileData\"",
+										"url": "\"level\" & game_Level & \"tiledata.json\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 153192191233906,
+									"parameters": {
+										"x": "GunSpawnPoint.X",
+										"y": "GunSpawnPoint.Y"
+									}
+								}
+							],
+							"sid": 165808338344254
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 872062893260438,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Admin\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 983359795697418,
+									"parameters": {
+										"variable": "game_Level",
+										"value": "10002"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 543235136889505,
+									"parameters": {
+										"tag": "\"LevelObjectData\"",
+										"url": "\"level\" & game_Level & \"objectdata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 262182781139146,
+									"parameters": {
+										"tag": "\"LevelSolidData\"",
+										"url": "\"level\" & game_Level & \"soliddata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 992654315576505,
+									"parameters": {
+										"tag": "\"LevelTileData\"",
+										"url": "\"level\" & game_Level & \"tiledata.json\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 557430341418986,
+									"parameters": {
+										"x": "zz_AdminSpawnPoint.X",
+										"y": "zz_AdminSpawnPoint.Y"
+									}
+								}
+							],
+							"sid": 891522837466482
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 976471771957983,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"Skills\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 698660159293829,
+									"parameters": {
+										"variable": "game_Level",
+										"value": "10003"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 551287228129687,
+									"parameters": {
+										"tag": "\"LevelObjectData\"",
+										"url": "\"level\" & game_Level & \"objectdata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 710450391838857,
+									"parameters": {
+										"tag": "\"LevelSolidData\"",
+										"url": "\"level\" & game_Level & \"soliddata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 432653733341224,
+									"parameters": {
+										"tag": "\"LevelTileData\"",
+										"url": "\"level\" & game_Level & \"tiledata.json\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 837691553801118,
+									"parameters": {
+										"x": "SkillSpawnPoint.X",
+										"y": "SkillSpawnPoint.Y"
+									}
+								}
+							],
+							"sid": 868447971098248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 117826542916071,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "\"House\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 248914129304832,
+									"parameters": {
+										"variable": "game_Level",
+										"value": "10004"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 682207735397104,
+									"parameters": {
+										"tag": "\"LevelObjectData\"",
+										"url": "\"level\" & game_Level & \"objectdata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 742838476051984,
+									"parameters": {
+										"tag": "\"LevelSolidData\"",
+										"url": "\"level\" & game_Level & \"soliddata.json\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 522698682371133,
+									"parameters": {
+										"tag": "\"LevelTileData\"",
+										"url": "\"level\" & game_Level & \"tiledata.json\""
+									}
+								}
+							],
+							"sid": 756535642819473,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HouseSpawnPoint",
+											"sid": 210180098308536,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "function.Param(1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "BuildingSpawnPoint",
+											"sid": 524688703983886,
+											"parameters": {
+												"x": "HouseSpawnPoint.X",
+												"y": "HouseSpawnPoint.Y"
+											}
+										}
+									],
+									"sid": 953919220723490
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 104115816148229
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Admin Shop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 621881170022380,
+							"parameters": {
+								"name": "\"SHP_Admin\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 344354859617285,
+							"parameters": {
+								"layer": "\"ShopAdmin\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Shop_Cash",
+							"sid": 277847450318894,
+							"parameters": {
+								"text": "\"$\" & Player.zzMoney"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 318489217853013,
+							"parameters": {
+								"time-scale": "0"
+							}
+						}
+					],
+					"sid": 214043145042132,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Shop_Citizens",
+									"sid": 524662139468338,
+									"parameters": {
+										"text": "zzz_Colony.Citizens & \"/\" & zzz_Colony.MaxCitizens"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_Outposts",
+									"sid": 868020618905681,
+									"parameters": {
+										"text": "zzz_Colony.Outposts & \"/\" & zzz_Colony.MaxOutposts"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_ColonyLevel",
+									"sid": 594185983123703,
+									"parameters": {
+										"text": "\"LEVEL: \" & zzz_Colony.Level &  \"/\" & zzz_Colony.MaxLevel"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_ColonyCost",
+									"sid": 359155687464475,
+									"parameters": {
+										"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.ColonyCost*(zzz_Colony.Level+1))"
+									}
+								}
+							],
+							"sid": 581381580082546
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzz_Colony",
+									"sid": 425092471602725,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 0,
+										"value": "Self.MaxLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_ColonyUpgrade",
+									"sid": 711092944330471,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Shop_ColonyCost",
+									"sid": 287937227553516,
+									"parameters": {
+										"text": "\"MAX!\""
+									}
+								}
+							],
+							"sid": 399520596496053
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 982569037038599,
+							"parameters": {
+								"layer": "\"ShopAdmin\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 352900909093027,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 953895349568587,
+									"parameters": {
+										"object": "Shop_Exit"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 228950227530290,
+									"parameters": {
+										"name": "\"SHP_Close\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 932983207249638
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 744491683960395,
+									"parameters": {
+										"object": "Shop_ColonyUpgrade"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Shop_ColonyUpgrade",
+									"sid": 107381764614340
+								}
+							],
+							"actions": [],
+							"sid": 487120576037449,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 931929335790631,
+											"parameters": {
+												"instance-variable": "zzMoney",
+												"comparison": 4,
+												"value": "zzz_Shop.ColonyCost*(zzz_Colony.Level+1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Player",
+											"sid": 399088554005273,
+											"parameters": {
+												"instance-variable": "zzMoney",
+												"value": "zzz_Shop.ColonyCost*(zzz_Colony.Level+1)"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "zzz_Colony",
+											"sid": 800558079136627,
+											"parameters": {
+												"instance-variable": "Level",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 437814375662375
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 356975254072653,
+											"parameters": {
+												"name": "\"SHP_Admin\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 211125300046018
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 487154012286507
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shop Signs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Ammo Sign",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 239869339261120,
+									"parameters": {
+										"object": "Shop_Ammo"
+									}
+								},
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 766862549415658,
+									"parameters": {
+										"keycode": "key_Interact"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 278705469632293,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 589973175874156,
+											"parameters": {
+												"object": "Shop_Ammo"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 876586805366592,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 689219506117884,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"comparison": 5,
+														"value": "Shop_Ammo.Cost"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shop_Ammo",
+													"sid": 578803312243270
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shop_AmmoTXT",
+													"sid": 631001603809264
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "zzz_Colony",
+													"sid": 116096304427446,
+													"parameters": {
+														"instance-variable": "AmmoUnlocked",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Player",
+													"sid": 942204166766070,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "Shop_Ammo.Cost"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 886402882628000,
+													"parameters": {
+														"name": "\"SHP_Build\"",
+														"parameter-n": [
+															"\"Ammo\""
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 366519422455945,
+													"parameters": {
+														"name": "\"TXT_Banner\"",
+														"parameter-n": [
+															"\"SHOP UNLOCKED!\""
+														]
+													}
+												}
+											],
+											"sid": 314782923323717
+										}
+									],
+									"isOrBlock": true
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 174243535310381,
+									"parameters": {
+										"object": "Shop_Ammo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_AmmoTXT",
+									"sid": 733515092925520,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 618929612562711,
+									"parameters": {
+										"name": "\"PLR_ShowMoney\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 427852603105463
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 895140140736998,
+									"parameters": {
+										"object": "Shop_Ammo"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 516776871026701
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_AmmoTXT",
+									"sid": 778617361705951,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 942305044308609
+						}
+					],
+					"sid": 424076870148761
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Gun Sign",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 113384302975640,
+									"parameters": {
+										"object": "Shop_Guns"
+									}
+								},
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 929178700216007,
+									"parameters": {
+										"keycode": "key_Interact"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 336994778188537,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 641421304765921,
+											"parameters": {
+												"object": "Shop_Guns"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 840226966811370,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 605335260992850,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"comparison": 5,
+														"value": "Shop_Guns.Cost"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shop_Guns",
+													"sid": 114809005525974
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shop_GunsTXT",
+													"sid": 682847501683417
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "zzz_Colony",
+													"sid": 675906017129344,
+													"parameters": {
+														"instance-variable": "GunsUnlocked",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Player",
+													"sid": 548189455246215,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "Shop_Guns.Cost"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 158104197453032,
+													"parameters": {
+														"name": "\"SHP_Build\"",
+														"parameter-n": [
+															"\"Guns\""
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 919053492714259,
+													"parameters": {
+														"name": "\"TXT_Banner\"",
+														"parameter-n": [
+															"\"SHOP UNLOCKED!\""
+														]
+													}
+												}
+											],
+											"sid": 194095742502601
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 424421050428430,
+									"parameters": {
+										"object": "Shop_Guns"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_GunsTXT",
+									"sid": 761179841200536,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 489100600243773,
+									"parameters": {
+										"name": "\"PLR_ShowMoney\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 689922447069605
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 269450243206001,
+									"parameters": {
+										"object": "Shop_Guns"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 111053777044500
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_GunsTXT",
+									"sid": 225041765152098,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 270059433015785
+						}
+					],
+					"sid": 153184915220468
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Admin Sign",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 591160210578260,
+									"parameters": {
+										"object": "Shop_Admin"
+									}
+								},
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 163221639300515,
+									"parameters": {
+										"keycode": "key_Interact"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 913470299927486,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 399384914740884,
+											"parameters": {
+												"object": "Shop_Admin"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 548154138114879,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 828511939986806,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"comparison": 5,
+														"value": "Shop_Admin.Cost"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shop_Admin",
+													"sid": 258426764162980
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "zzz_Colony",
+													"sid": 557428791902861,
+													"parameters": {
+														"instance-variable": "AdminUnlocked",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Player",
+													"sid": 921784653161718,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "Shop_Admin.Cost"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shop_AdminTXT",
+													"sid": 321107001190341
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 833041632338306,
+													"parameters": {
+														"name": "\"SHP_Build\"",
+														"parameter-n": [
+															"\"Admin\""
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 509540073584786,
+													"parameters": {
+														"name": "\"TXT_Banner\"",
+														"parameter-n": [
+															"\"SHOP UNLOCKED!\""
+														]
+													}
+												}
+											],
+											"sid": 102180124724190
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 259030878719796,
+									"parameters": {
+										"object": "Shop_Admin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_AdminTXT",
+									"sid": 811925444939817,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 682508029538501,
+									"parameters": {
+										"name": "\"PLR_ShowMoney\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 266006770078355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 762390419284701,
+									"parameters": {
+										"object": "Shop_Admin"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 639051906371334
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_AdminTXT",
+									"sid": 802572196558228,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 481678251273833
+						}
+					],
+					"sid": 883299452403302
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Skill Sign",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 973601625823434,
+									"parameters": {
+										"object": "Shop_Skills"
+									}
+								},
+								{
+									"id": "on-key-code-pressed",
+									"objectClass": "Keyboard",
+									"sid": 653987267426528,
+									"parameters": {
+										"keycode": "key_Interact"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 646600543510617,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 485470485515573,
+											"parameters": {
+												"object": "Shop_Skills"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 987373833121859,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 306930442461346,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"comparison": 5,
+														"value": "Shop_Skills.Cost"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Shop_Skills",
+													"sid": 327258914110768
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "zzz_Colony",
+													"sid": 215272098854055,
+													"parameters": {
+														"instance-variable": "SkillsUnlocked",
+														"value": "1"
+													}
+												},
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Player",
+													"sid": 880286490663451,
+													"parameters": {
+														"instance-variable": "zzMoney",
+														"value": "Shop_Skills.Cost"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Shop_SkillsTXT",
+													"sid": 328204858434354
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 998504655085121,
+													"parameters": {
+														"name": "\"SHP_Build\"",
+														"parameter-n": [
+															"\"Skills\""
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 547616417831201,
+													"parameters": {
+														"name": "\"TXT_Banner\"",
+														"parameter-n": [
+															"\"SHOP UNLOCKED!\""
+														]
+													}
+												}
+											],
+											"sid": 493666263824423
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 390286091943066,
+									"parameters": {
+										"object": "Shop_Skills"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_SkillsTXT",
+									"sid": 905419194956354,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 257200986744883,
+									"parameters": {
+										"name": "\"PLR_ShowMoney\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 813429640865312
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 650119880470106,
+									"parameters": {
+										"object": "Shop_Skills"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 233040826439029
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Shop_SkillsTXT",
+									"sid": 708658818757698,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 240697628199626
+						}
+					],
+					"sid": 524510176107950
+				}
+			],
+			"sid": 343102878059197
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Old Respawn",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 899637044624483
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 562670080548965,
+							"parameters": {
+								"name": "\"GFX_FadeIn\"",
+								"parameter-n": [
+									"1",
+									"1.5"
+								]
+							}
+						}
+					],
+					"sid": 859632967434200,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-size",
+									"objectClass": "ColonistData",
+									"sid": 992339905270909,
+									"parameters": {
+										"axis": "x",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 865558301438064,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "zzz_Colony",
+									"sid": 273828176651299,
+									"parameters": {
+										"instance-variable": "FirstName",
+										"value": "ColonistData.At(ColonistData.Width - 1,0,ColonistData.Depth - 1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "zzz_Colony",
+									"sid": 148306051827412,
+									"parameters": {
+										"instance-variable": "LastName",
+										"value": "ColonistData.At(ColonistData.Width - 1,1,ColonistData.Depth - 1)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 736523283004100,
+									"parameters": {
+										"text": "\"With your death, \" & zzz_Colony.FirstName & \" \" & zzz_Colony.LastName & \" has risen to take your place.\""
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "ColonistData",
+									"sid": 304959788196619,
+									"parameters": {
+										"width": "Self.Width - 1",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameOverOKButton",
+									"sid": 474415265635867,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 292876596405701,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "zzz_Colony",
+											"sid": 947244305747240,
+											"parameters": {
+												"instance-variable": "Citizens",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzz_Colony",
+											"sid": 107782912797802,
+											"parameters": {
+												"instance-variable": "Citizens",
+												"value": "Self.Citizens - 1"
+											}
+										}
+									],
+									"sid": 792823993652283
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 659229366323922
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 754984302563239,
+									"parameters": {
+										"text": "\"Hmm. Looks like you're out of survivors... Oh wait! One just arrived.\""
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "ColonistData",
+									"sid": 437390725199701,
+									"parameters": {
+										"width": "Self.Width + 1",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-at-xyz",
+									"objectClass": "ColonistData",
+									"sid": 989806561671923,
+									"parameters": {
+										"x": "ColonistData.Width - 1",
+										"y": "0",
+										"z": "ColonistData.Depth - 1",
+										"value": "zzPlayer_IDs_Names.At(0,floor(random(0,zzPlayer_IDs_Names.Height)))"
+									}
+								},
+								{
+									"id": "set-at-xyz",
+									"objectClass": "ColonistData",
+									"sid": 819379208946769,
+									"parameters": {
+										"x": "ColonistData.Width - 1",
+										"y": "1",
+										"z": "ColonistData.Depth - 1",
+										"value": "zzPlayer_IDs_Names.At(1,floor(random(0,zzPlayer_IDs_Names.Height)))"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 815227608844058,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 593897121658208,
+									"parameters": {
+										"name": "\"GFX_FadeOut\"",
+										"parameter-n": [
+											"1",
+											"5"
+										]
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 828454789628616,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 782421907958225
+								}
+							],
+							"sid": 573950990087767
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 431732616362097,
+							"parameters": {
+								"object": "GameOverOKButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "GameOverOKButton",
+							"sid": 422160810967236,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 651366637632132,
+							"parameters": {
+								"seconds": "0.2"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 732684937162853,
+							"parameters": {
+								"name": "\"Save_Colony\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "GameOverOKButton",
+							"sid": 597218079747923,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 909115131148219,
+							"parameters": {
+								"name": "\"GFX_FadeOut\"",
+								"parameter-n": [
+									"1",
+									"5"
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 557108495790037,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						}
+					],
+					"sid": 573763013522211
+				}
+			],
+			"sid": 850729528772188
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ID Arrays",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 596773227121359,
+							"parameters": {
+								"name": "\"Save_IDs\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 782953817331270,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "SaveData",
+									"sid": 421271077638056,
+									"parameters": {
+										"key": "\"IDs_NPC\"",
+										"value": "zzPlayer_IDs_NPC.AsJSON"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "SaveData",
+									"sid": 915674954290730,
+									"parameters": {
+										"key": "\"IDs_Zombie\"",
+										"value": "zzPlayer_IDs_Zombie.AsJSON"
+									}
+								}
+							],
+							"sid": 445620312068867
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 706946906913505,
+									"parameters": {
+										"key": "system_saveslot & \"IDsData\"",
+										"value": "SaveData.AsJSON"
+									}
+								}
+							],
+							"sid": 439922540766475
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 214394836491921,
+									"parameters": {
+										"variable": "system_fullsave",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 388819817876050,
+									"parameters": {
+										"name": "\"Save_Player\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 118158672175432
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 834456775094826,
+							"parameters": {
+								"name": "\"Load_IDs\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 119685357396808,
+							"parameters": {
+								"key": "system_saveslot & \"IDsData\""
+							}
+						}
+					],
+					"sid": 549207384907278
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 556864729599890,
+							"parameters": {
+								"key": "system_saveslot & \"IDsData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 365494825249690,
+							"parameters": {
+								"key": "system_saveslot & \"IDsData\""
+							}
+						}
+					],
+					"sid": 597882678491513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 503373712306738,
+							"parameters": {
+								"key": "system_saveslot & \"IDsData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "SaveData",
+							"sid": 418331574041710,
+							"parameters": {
+								"json": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 230678665478220,
+							"parameters": {
+								"json": "SaveData.Get(\"IDs_NPC\")"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "zzPlayer_IDs_Zombie",
+							"sid": 118838432196028,
+							"parameters": {
+								"json": "SaveData.Get(\"IDs_Zombie\")"
+							}
+						},
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 211715832670009,
+							"parameters": {
+								"tag": "\"IDs Loaded\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 649494768037934,
+							"parameters": {
+								"type": "log",
+								"message": "\"IDs Loaded\""
+							}
+						}
+					],
+					"sid": 211220566328222
+				}
+			],
+			"sid": 153978064936784
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "function",
+					"sid": 447624024569396,
+					"parameters": {
+						"name": "\"PLR_AddID\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 703712103355373,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "function",
+							"sid": 589242507068610,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"Zombie\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "zzPlayer_IDs_Zombie",
+							"sid": 786209928844401,
+							"parameters": {
+								"width": "Self.Width + 1",
+								"height": "Self.Height ",
+								"depth": "Self.Depth"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_Zombie",
+							"sid": 214477174281803,
+							"parameters": {
+								"x": "zzPlayer_IDs_Zombie.Width - 1",
+								"y": "0",
+								"value": "function.Param(1)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_Zombie",
+							"sid": 768523031079062,
+							"parameters": {
+								"x": "zzPlayer_IDs_Zombie.Width - 1",
+								"y": "1",
+								"value": "function.Param(2)"
+							}
+						}
+					],
+					"sid": 133543823335417
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-parameter",
+							"objectClass": "function",
+							"sid": 779215347036940,
+							"parameters": {
+								"index": "0",
+								"comparison": 0,
+								"value": "\"NPC\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 107736489559172,
+							"parameters": {
+								"width": "Self.Width + 1",
+								"height": "Self.Height ",
+								"depth": "Self.Depth"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 212926590809702,
+							"parameters": {
+								"x": "zzPlayer_IDs_NPC.Width - 1",
+								"y": "0",
+								"value": "function.Param(1)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 378209217073574,
+							"parameters": {
+								"x": "zzPlayer_IDs_NPC.Width - 1",
+								"y": "1",
+								"value": "function.Param(2)"
+							}
+						}
+					],
+					"sid": 931057062302995
+				}
+			]
+		}
+	],
+	"sid": 165551314658262
+}

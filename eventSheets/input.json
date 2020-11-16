@@ -1,0 +1,3981 @@
+{
+	"name": "Input",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "TODO - Remove Left2,Right2, etc"
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "comment",
+			"text": "Global Input"
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Enabled",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 624663298994592
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Type",
+			"type": "string",
+			"initialValue": "kbm",
+			"comment": "kbm, gamepad, touch",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 131462068945043
+		},
+		{
+			"eventType": "variable",
+			"name": "input_ActiveGamepad",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 621558860431855
+		},
+		{
+			"eventType": "comment",
+			"text": "Runtime Input"
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Left",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 351288853270859
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Right",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 919652126910574
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Up",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 418547235060456
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Down",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 915534000460838
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Jump",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 316340045448304
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Dodge",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 812962268522099
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Shoot",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 327004655359271
+		},
+		{
+			"eventType": "variable",
+			"name": "input_X1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 889208057538051
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Y1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 179549987109375
+		},
+		{
+			"eventType": "variable",
+			"name": "input_X2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 611975726264174
+		},
+		{
+			"eventType": "variable",
+			"name": "input_Y2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 658672529522104
+		},
+		{
+			"eventType": "comment",
+			"text": "Keys"
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Left",
+			"type": "number",
+			"initialValue": "65",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 619740532330866
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Left2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 539253121895012
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Right",
+			"type": "number",
+			"initialValue": "68",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 584269084665714
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Right2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 907255225439532
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Down",
+			"type": "number",
+			"initialValue": "83",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 899627472353202
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Down2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 868191538204390
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Up",
+			"type": "number",
+			"initialValue": "87",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 861555794058596
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Up2",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 844148144040818
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Jump",
+			"type": "number",
+			"initialValue": "87",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 353342407565958
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Jump2",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 827251824539574
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Dodge",
+			"type": "number",
+			"initialValue": "16",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 775762737620566
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Shoot",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 236111768118884
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Reload",
+			"type": "number",
+			"initialValue": "82",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 281363858674909
+		},
+		{
+			"eventType": "variable",
+			"name": "key_SwapWeapon",
+			"type": "number",
+			"initialValue": "81",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 426789084063800
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Interact",
+			"type": "number",
+			"initialValue": "69",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 698725079539316
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Pause",
+			"type": "number",
+			"initialValue": "27",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 160261429594703
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Ability1",
+			"type": "number",
+			"initialValue": "70",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 800294849693595
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Ability2",
+			"type": "number",
+			"initialValue": "71",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 625680333180587
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Attachment1",
+			"type": "number",
+			"initialValue": "17",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 791510471694402
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Attachment2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 648524971815573
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Weapon1",
+			"type": "number",
+			"initialValue": "49",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 497244619785897
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Weapon2",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 843574505752853
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Weapon3",
+			"type": "number",
+			"initialValue": "51",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 973579413435771
+		},
+		{
+			"eventType": "comment",
+			"text": "Gamepad Buttons"
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Left",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 817333399246211
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Right",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 539783249942326
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Down",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 349164789094826
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Up",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 137816092012470
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Jump",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 619881177265400
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Dodge",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 884906483183458
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Shoot",
+			"type": "number",
+			"initialValue": "7",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 146346320711366
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Reload",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 387694291962715
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_SwapWeapon",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 259651003886507
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Interact",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 540784174522023
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Pause",
+			"type": "number",
+			"initialValue": "9",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 421486850647425
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Ability1",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 708878035492595
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Ability2",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 498557640678415
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Attachment1",
+			"type": "number",
+			"initialValue": "14",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 383084449782050
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Attachment2",
+			"type": "number",
+			"initialValue": "15",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 320276151750479
+		},
+		{
+			"eventType": "comment",
+			"text": "Gamepad Axes"
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_X1_Deadzone",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "left stick",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 647372203560069
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Y1_Deadzone",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "left stick",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 279528061019173
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_X2_Deadzone",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "right stick",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 863912250514843
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Y2_Deadzone",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "right stick",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 916964851703293
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_X1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 232193845880128
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Y1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 763758894311446
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_X2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 984762039480813
+		},
+		{
+			"eventType": "variable",
+			"name": "gamepad_Y2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 492875411564252
+		},
+		{
+			"eventType": "comment",
+			"text": "Cursor"
+		},
+		{
+			"eventType": "variable",
+			"name": "cursor_Enabled",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 833222673820880
+		},
+		{
+			"eventType": "variable",
+			"name": "cursor_Custom",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 179902703283959
+		},
+		{
+			"eventType": "variable",
+			"name": "cursor_Hidden",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 391838349811385
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Cursor",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 722195458868738
+						}
+					],
+					"actions": [],
+					"sid": 324915629870540,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 199700378604301,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 498358229321489,
+									"parameters": {
+										"variable": "cursor_Enabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 354387973110342,
+									"disabled": true,
+									"parameters": {
+										"object-to-create": "Cursor",
+										"layer": "\"Cursor\"",
+										"x": "Mouse.X(\"Cursor\")",
+										"y": "Mouse.Y(\"Cursor\")"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 123934395905705,
+									"parameters": {
+										"object-to-create": "Cursor",
+										"layer": "\"Cursor\"",
+										"x": "0",
+										"y": "0"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 833739962605809,
+									"parameters": {
+										"group-name": "\"Cursor Runtime\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 558407551515647
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 549408404320295
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 459533991272264,
+									"parameters": {
+										"variable": "cursor_Enabled",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Cursor",
+									"sid": 499904660289108
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 514603791281377,
+									"parameters": {
+										"group-name": "\"Cursor Runtime\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 690779380104753
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 714856076885102
+						}
+					],
+					"actions": [],
+					"sid": 847939874002689,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 620368250691778,
+									"parameters": {
+										"variable": "cursor_Enabled",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 896002672490833,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 474060415330973,
+									"parameters": {
+										"variable": "cursor_Hidden",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 253800787809516,
+									"parameters": {
+										"cursor-style": "none"
+									}
+								}
+							],
+							"sid": 818776850941693,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Cursor Runtime",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 213560133393139,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Cursor",
+									"sid": 556709439217872,
+									"parameters": {
+										"x": "Mouse.x(\"Cursor\")",
+										"y": "Mouse.y(\"Cursor\")"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Player_Target",
+									"sid": 309226735879713,
+									"disabled": true,
+									"parameters": {
+										"x": "Cursor.X",
+										"y": "Cursor.Y"
+									}
+								}
+							],
+							"sid": 776852664030362,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 363556848398094,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 455021522178376,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Cursor",
+													"sid": 873655232555636,
+													"parameters": {
+														"animation": "\"Default\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Cursor",
+													"sid": 779051803369848,
+													"parameters": {
+														"animation": "\"Click\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 625018988619986
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 447524513477224
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Cursor",
+											"sid": 728811314792255,
+											"parameters": {
+												"animation": "\"Default\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 428348754453770
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 292454711994709
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 176805150225291,
+									"parameters": {
+										"variable": "cursor_Enabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 668331194710554,
+									"parameters": {
+										"cursor-style": "normal"
+									}
+								}
+							],
+							"sid": 942204217748783
+						}
+					],
+					"sid": 483929239826133
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Cursor Functions",
+					"description": "Are hide functions needed? Is update function needed?",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 776044975928407,
+									"parameters": {
+										"name": "\"Cursor_Enable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 778085893976815,
+									"parameters": {
+										"object-to-create": "Cursor",
+										"layer": "\"Cursor\"",
+										"x": "Mouse.X(\"Cursor\")",
+										"y": "Mouse.Y(\"Cursor\")"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 355795191125139,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"value": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 619532075996657,
+									"parameters": {
+										"name": "\"Cursor_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 939832193272785
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 944843413840449,
+									"parameters": {
+										"name": "\"Cursor_Disable\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Cursor",
+									"sid": 565740921190308
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 842056518204765,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"value": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 936862744642439,
+									"parameters": {
+										"name": "\"Cursor_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 218977443419069
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 747196483321379,
+									"parameters": {
+										"name": "\"Cursor_Show\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 349192301703325,
+									"parameters": {
+										"variable": "cursor_Hidden",
+										"value": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 337599051524198,
+									"parameters": {
+										"name": "\"Cursor_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 434527696710398
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 311221323387719,
+									"parameters": {
+										"name": "\"Cursor_Hide\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 399590229411492,
+									"parameters": {
+										"variable": "cursor_Hidden",
+										"value": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 342387647650886,
+									"parameters": {
+										"name": "\"Cursor_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 495793836436412
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 412919657212538,
+									"parameters": {
+										"name": "\"Cursor_Update\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 410181471934514,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 779397003794207,
+											"parameters": {
+												"variable": "cursor_Custom",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Cursor",
+											"sid": 505237511573122
+										}
+									],
+									"sid": 206255672446019
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 970301944329949,
+											"parameters": {
+												"variable": "cursor_Custom",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 957733360129825
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 748849781876289,
+											"parameters": {
+												"variable": "cursor_Hidden",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Cursor",
+											"sid": 421220078592512,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 712356842517009
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 840578613052283,
+											"parameters": {
+												"variable": "cursor_Hidden",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Cursor",
+											"sid": 195816764258028,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 283944225767068
+								}
+							]
+						}
+					],
+					"sid": 826399026063088
+				}
+			],
+			"sid": 742571453979379
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input Type",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Input Detection Gamepad",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 290590153009481,
+									"parameters": {
+										"gamepad": "input_ActiveGamepad"
+									}
+								},
+								{
+									"id": "on-gamepad-connected",
+									"objectClass": "Gamepad",
+									"sid": 938339579010437
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 595271928814737,
+									"parameters": {
+										"variable": "input_Type",
+										"value": "\"gamepad\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 563899852115316,
+									"parameters": {
+										"name": "\"Input_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 303257805164498,
+							"isOrBlock": true
+						}
+					],
+					"sid": 298457682186267
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Input Detection KBM",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-click",
+									"objectClass": "Mouse",
+									"sid": 659626695889347
+								},
+								{
+									"id": "on-gamepad-disconnected",
+									"objectClass": "Gamepad",
+									"sid": 231820334013440
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 829739592116966,
+									"parameters": {
+										"variable": "input_Type",
+										"value": "\"kbm\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 574338805247378,
+									"parameters": {
+										"name": "\"Input_Update\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 162020454656532,
+							"isOrBlock": true
+						}
+					],
+					"sid": 490550864129408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 535232344196718,
+							"parameters": {
+								"name": "\"Input_Update\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 286292971532093,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 304008013430237,
+									"parameters": {
+										"variable": "input_Type",
+										"comparison": 0,
+										"value": "\"gamepad\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Cursor",
+									"sid": 963874415608909
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 359195283604005,
+									"parameters": {
+										"group-name": "\"Cursor\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 368931739427782,
+									"parameters": {
+										"group-name": "\"Input Detection Gamepad\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 731838745971098,
+									"parameters": {
+										"group-name": "\"Input Detection KBM\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 210651793451033,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Controls switched to Gamepad!\""
+									}
+								}
+							],
+							"sid": 501028879709897
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 221991385812480,
+									"parameters": {
+										"variable": "input_Type",
+										"comparison": 0,
+										"value": "\"kbm\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Cursor",
+									"sid": 534962645463181
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 374410745273283,
+									"parameters": {
+										"object-to-create": "Cursor",
+										"layer": "\"Cursor\"",
+										"x": "Mouse.X(\"Cursor\")",
+										"y": "Mouse.Y(\"Cursor\")"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 800651742249068,
+									"parameters": {
+										"group-name": "\"Input Detection KBM\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 664046582684552,
+									"parameters": {
+										"group-name": "\"Input Detection Gamepad\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 823285569339087,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Controls switched to KBM!\""
+									}
+								}
+							],
+							"sid": 500101849110312,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 424735628217340,
+											"parameters": {
+												"variable": "cursor_Custom",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 876599034205320,
+											"parameters": {
+												"group-name": "\"Cursor\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 522938400353122
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 418284648777034
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input Axis",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 579164411429129
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 951825347981292,
+							"parameters": {
+								"variable": "input_Type",
+								"comparison": 0,
+								"value": "\"gamepad\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 585926783135510,
+							"disabled": true,
+							"parameters": {
+								"variable": "input_X1",
+								"value": "abs(Gamepad.Axis(input_ActiveGamepad,0)) < gamepad_X1_deadzone | distance(gamepad_X1,gamepad_Y1,Gamepad.Axis(input_ActiveGamepad,0),Gamepad.Axis(input_ActiveGamepad,1)) > 105 ? 0 : Gamepad.Axis(input_ActiveGamepad,0)"
+							}
+						}
+					],
+					"sid": 772106769127661,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "X1"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 519805323237194,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(input_ActiveGamepad,0))",
+										"comparison": 2,
+										"second-value": "gamepad_X1_Deadzone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 686764609273815,
+									"parameters": {
+										"variable": "input_X1",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 602655400878462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 635559350518456
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 514804114537941,
+									"parameters": {
+										"first-value": "distance(gamepad_X1,gamepad_Y1,Gamepad.Axis(input_ActiveGamepad,0),Gamepad.Axis(input_ActiveGamepad,1))",
+										"comparison": 4,
+										"second-value": "105"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 625185617747287,
+									"parameters": {
+										"variable": "input_X1",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 705521922188341
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 788940401487969
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 125949111050633,
+									"parameters": {
+										"variable": "input_X1",
+										"value": "Gamepad.Axis(input_ActiveGamepad,0)"
+									}
+								}
+							],
+							"sid": 749275046285914
+						},
+						{
+							"eventType": "comment",
+							"text": "Y1"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 993699305143743,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(input_ActiveGamepad,1))",
+										"comparison": 2,
+										"second-value": "gamepad_Y1_Deadzone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 659096104835767,
+									"parameters": {
+										"variable": "input_Y1",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 505683323155797
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 953273552063297
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 392518178873158,
+									"parameters": {
+										"first-value": "distance(gamepad_X1,gamepad_Y1,Gamepad.Axis(input_ActiveGamepad,0),Gamepad.Axis(input_ActiveGamepad,1))",
+										"comparison": 4,
+										"second-value": "105"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 703803278380633,
+									"parameters": {
+										"variable": "input_Y1",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 688004888357135
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 203930647184230
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 206424804320064,
+									"parameters": {
+										"variable": "input_Y1",
+										"value": "Gamepad.Axis(input_ActiveGamepad,1)"
+									}
+								}
+							],
+							"sid": 232760919799296
+						},
+						{
+							"eventType": "comment",
+							"text": "X2"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 267834282527375,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(input_ActiveGamepad,2))",
+										"comparison": 2,
+										"second-value": "gamepad_X2_Deadzone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 855487259330968,
+									"parameters": {
+										"variable": "input_X2",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 598613733652376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 812684785325843
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 469503634396355,
+									"parameters": {
+										"first-value": "distance(gamepad_X2,gamepad_Y2,Gamepad.Axis(input_ActiveGamepad,2),Gamepad.Axis(input_ActiveGamepad,3))",
+										"comparison": 4,
+										"second-value": "105"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 936835665255248,
+									"parameters": {
+										"variable": "input_X2",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 157352862072369
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 724272671236432
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 413344137274262,
+									"parameters": {
+										"variable": "input_X2",
+										"value": "Gamepad.Axis(input_ActiveGamepad,2)"
+									}
+								}
+							],
+							"sid": 454553558663411
+						},
+						{
+							"eventType": "comment",
+							"text": "Y2"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 531188295761979,
+									"parameters": {
+										"first-value": "abs(Gamepad.Axis(input_ActiveGamepad,3))",
+										"comparison": 2,
+										"second-value": "gamepad_Y2_Deadzone"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 142243421823873,
+									"parameters": {
+										"variable": "input_Y2",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 692508764898838
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 996331111711025
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 124370434749196,
+									"parameters": {
+										"first-value": "distance(gamepad_X2,gamepad_Y2,Gamepad.Axis(input_ActiveGamepad,2),Gamepad.Axis(input_ActiveGamepad,3))",
+										"comparison": 4,
+										"second-value": "105"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 117082591066663,
+									"parameters": {
+										"variable": "input_Y2",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 256552334072309
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 836938839181457
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 876978558955450,
+									"parameters": {
+										"variable": "input_Y2",
+										"value": "Gamepad.Axis(input_ActiveGamepad,3)"
+									}
+								}
+							],
+							"sid": 116702144187924
+						},
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 886530631050106,
+									"parameters": {
+										"variable": "gamepad_X1",
+										"value": "Gamepad.Axis(input_ActiveGamepad,0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 116745407483691,
+									"parameters": {
+										"variable": "gamepad_Y1",
+										"value": "Gamepad.Axis(input_ActiveGamepad,1)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 645244426874674,
+									"parameters": {
+										"variable": "gamepad_X2",
+										"value": "Gamepad.Axis(input_ActiveGamepad,2)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 242264395549713,
+									"parameters": {
+										"variable": "gamepad_Y2",
+										"value": "Gamepad.Axis(input_ActiveGamepad,3)"
+									}
+								}
+							],
+							"sid": 480275511066731
+						}
+					]
+				}
+			],
+			"sid": 548129257597609
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input Triggers",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Input Tiggers: Player",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_MoveLeft",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 864167390363318,
+											"parameters": {
+												"name": "\"Input_Left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 551131635189456,
+											"parameters": {
+												"variable": "input_Left",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 643106727894074
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 117261291213384,
+											"parameters": {
+												"keycode": "Key_Left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 957708982926176,
+											"parameters": {
+												"name": "\"Input_Left\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 610126869369795
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 607077825943554
+										},
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 552591483965593,
+											"parameters": {
+												"keycode": "Key_Left2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 355301501131229,
+											"parameters": {
+												"name": "\"Input_Left\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 569634143462538
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 306914491932534
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 466080990710438,
+											"parameters": {
+												"first-value": "input_X1",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 954061341397531,
+											"parameters": {
+												"name": "\"Input_Left\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 332662244694910
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 344512997357398
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 108592509653275,
+											"parameters": {
+												"variable": "input_Left",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 136688103044448
+								}
+							],
+							"sid": 151537084155591
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_MoveRight",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 629383977987953,
+											"parameters": {
+												"name": "\"Input_Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 879007035240927,
+											"parameters": {
+												"variable": "input_Right",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 641523903371545
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 575849785882837,
+											"parameters": {
+												"keycode": "Key_Right"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 743258229191376,
+											"parameters": {
+												"name": "\"Input_Right\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 855229557202746
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 836096881750811
+										},
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 726617674861160,
+											"parameters": {
+												"keycode": "Key_Right2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 179022306773545,
+											"parameters": {
+												"name": "\"Input_Right\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 621283774421768
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 768537171759320
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 330639648961953,
+											"parameters": {
+												"first-value": "input_X1",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 559868318035440,
+											"parameters": {
+												"name": "\"Input_Right\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 170487950707095
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 100426962711946
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 757478223453807,
+											"parameters": {
+												"variable": "input_Right",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 969429359169274
+								}
+							],
+							"sid": 551767834585521
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_MoveUp",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 399190805609041,
+											"parameters": {
+												"name": "\"Input_Up\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 429118628742089,
+											"parameters": {
+												"variable": "input_Up",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 164352599352971
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 181776723924376,
+											"parameters": {
+												"keycode": "key_Up"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 787026527226705,
+											"parameters": {
+												"name": "\"Input_Up\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 343337599910951
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 635353364921483
+										},
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 391457470069244,
+											"parameters": {
+												"keycode": "key_Up2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 751396917812544,
+											"parameters": {
+												"name": "\"Input_Up\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 514017631595006
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 780463068573148
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 691865019289606,
+											"parameters": {
+												"first-value": "input_Y1",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 105499194321377,
+											"parameters": {
+												"name": "\"Input_Up\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 775241239493138
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 683646221070653
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 478160455222061,
+											"parameters": {
+												"variable": "input_Up",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 257352264871275
+								}
+							],
+							"sid": 118491682800964
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_MoveDown",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 101314068052199,
+											"parameters": {
+												"name": "\"Input_Down\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 932047050321761,
+											"parameters": {
+												"variable": "input_Down",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 578560230025577
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 673771424010536,
+											"parameters": {
+												"keycode": "key_Down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 948989400280608,
+											"parameters": {
+												"name": "\"Input_Down\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 465574941581742
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 837453339163170
+										},
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 620265436986840,
+											"parameters": {
+												"keycode": "key_Down2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 486128609926322,
+											"parameters": {
+												"name": "\"Input_Down\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 749567668654789
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 210529109823091
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 822237621315116,
+											"parameters": {
+												"first-value": "input_Y1",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 800036811846520,
+											"parameters": {
+												"name": "\"Input_Down\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 496029740094419
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 475532163728514
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 601425627735537,
+											"parameters": {
+												"variable": "input_Down",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 734261521801762
+								}
+							],
+							"sid": 987452563193812
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Interact",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 106788749271195,
+											"parameters": {
+												"keycode": "key_Interact"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Interact",
+											"sid": 945477140550627
+										}
+									],
+									"sid": 485912293274936
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 873556465471827,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Interact"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Interact",
+											"sid": 866740667439034
+										}
+									],
+									"sid": 840507332694007
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Input_Interact_Mouse",
+									"description": "",
+									"isActiveOnStart": false,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-click",
+													"objectClass": "Mouse",
+													"sid": 839777257359736,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Input_Interact",
+													"sid": 281145143717709
+												}
+											],
+											"sid": 327128795970086
+										}
+									],
+									"sid": 953667748924673
+								}
+							],
+							"sid": 868545582033605
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_AimLeft",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 497566780779475,
+											"parameters": {
+												"first-value": "input_X2",
+												"comparison": 2,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 277683011512649,
+											"parameters": {
+												"name": "\"Input_AimLeft\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 671644017715167
+								}
+							],
+							"sid": 271171670443547
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_AimRight",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 426702828676421,
+											"parameters": {
+												"first-value": "input_X2",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 715453801862687,
+											"parameters": {
+												"name": "\"Input_AimRight\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 282023453047293
+								}
+							],
+							"sid": 880905642925121
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Jump",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 744284849615741,
+											"parameters": {
+												"name": "\"Input_Jump\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 250122803745026,
+											"parameters": {
+												"variable": "input_Jump",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 732695190748743
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 739443714923830,
+											"parameters": {
+												"keycode": "key_Jump"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 355270570845376,
+											"parameters": {
+												"name": "\"Input_Jump\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 604735988180701
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 189031852922067
+										},
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 397859517453289,
+											"parameters": {
+												"keycode": "key_Jump2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 812212712120686,
+											"parameters": {
+												"name": "\"Input_Jump\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 228571250500141
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 239980929192059
+										},
+										{
+											"id": "is-button-index-down",
+											"objectClass": "Gamepad",
+											"sid": 211056998986885,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Jump"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 714118676916282,
+											"parameters": {
+												"name": "\"Input_Jump\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 618672578854157
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 399227657305126
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 815547248575463,
+											"parameters": {
+												"variable": "input_Jump",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 503613425757010
+								}
+							],
+							"sid": 419765946386745
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Dodge",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 333616036711950,
+											"parameters": {
+												"name": "\"Input_Dodge\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 232900737432775,
+											"parameters": {
+												"variable": "input_Dodge",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 512949097072619
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 173097974747705,
+											"parameters": {
+												"keycode": "key_Dodge"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 398856499000317,
+											"parameters": {
+												"name": "\"Input_Dodge\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 537015056041844
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 919332617002025
+										},
+										{
+											"id": "is-button-index-down",
+											"objectClass": "Gamepad",
+											"sid": 299350172284550,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Dodge"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 361773667377376,
+											"parameters": {
+												"name": "\"Input_Dodge\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 435707961416024
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 998813479932055
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 293665544850534,
+											"parameters": {
+												"mouse-button": "right"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 131365168793156,
+											"parameters": {
+												"name": "\"Input_Dodge\"",
+												"parameter-n": [
+													"\"Mouse\""
+												]
+											}
+										}
+									],
+									"sid": 598090859589316,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 298372190118018
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 645099943798252,
+											"parameters": {
+												"variable": "input_Dodge",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 314744239158113
+								}
+							],
+							"sid": 490146956172403
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Shoot",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 949491946382921,
+											"parameters": {
+												"name": "\"Input_Shoot\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 141884227747050,
+											"parameters": {
+												"variable": "input_Shoot",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 442105872893920
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-code-is-down",
+											"objectClass": "Keyboard",
+											"sid": 201148310130947,
+											"parameters": {
+												"keycode": "key_Shoot"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 455985653919410,
+											"parameters": {
+												"name": "\"Input_Shoot\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 189758587418620
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 883968200706677
+										},
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 422547135630405,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 158201984464637,
+											"parameters": {
+												"name": "\"Input_Shoot\"",
+												"parameter-n": [
+													"\"Mouse\""
+												]
+											}
+										}
+									],
+									"sid": 315350866202290
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 710512037490112
+										},
+										{
+											"id": "is-button-index-down",
+											"objectClass": "Gamepad",
+											"sid": 522773990584470,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Shoot"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 148619774832613,
+											"parameters": {
+												"name": "\"Input_Shoot\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 304314971551139
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 570215187924021
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 946888819232675,
+											"disabled": true,
+											"parameters": {
+												"name": "\"Input_Shoot_End\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 481698478721626,
+											"parameters": {
+												"variable": "input_Shoot",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 469060598458454
+								}
+							],
+							"sid": 922980000008694
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Ability1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 404284531226122,
+											"parameters": {
+												"keycode": "key_Ability1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 144165100557920,
+											"parameters": {
+												"name": "\"Input_Ability1\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 398466080330586
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 289096182304729,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Ability1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 113609440779208,
+											"parameters": {
+												"name": "\"Input_Ability1\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 530708240406512
+								}
+							],
+							"sid": 810019815194215
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Ability2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 298228061991138,
+											"parameters": {
+												"keycode": "key_Ability2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 236422356898323,
+											"parameters": {
+												"name": "\"Input_Ability2\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 201226244064082
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 850801579712831,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Ability2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 406845729021375,
+											"parameters": {
+												"name": "\"Input_Ability2\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 328105423966491
+								}
+							],
+							"sid": 597333108696155
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Reload",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 847859850891873,
+											"parameters": {
+												"keycode": "key_Reload"
+											}
+										},
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 112664446745187,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Reload"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Reload",
+											"sid": 185707738281367
+										}
+									],
+									"sid": 338230325348989,
+									"isOrBlock": true
+								}
+							],
+							"sid": 507359117867179
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Swap",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 230849970805006,
+											"parameters": {
+												"keycode": "key_SwapWeapon"
+											}
+										},
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 415032219374136,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_SwapWeapon"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 518663676655276,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 854489233389059,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 689679139129818,
+											"parameters": {
+												"keycode": "key_Weapon1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 437802028834145,
+											"parameters": [
+												"1"
+											]
+										}
+									],
+									"sid": 946014185303871
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 658832768833324,
+											"parameters": {
+												"keycode": "key_Weapon2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 191557980318394,
+											"parameters": [
+												"2"
+											]
+										}
+									],
+									"sid": 765346196389033
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 942513771671146,
+											"parameters": {
+												"keycode": "key_Weapon3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 260495440935229,
+											"parameters": [
+												"3"
+											]
+										}
+									],
+									"sid": 342185337017130
+								}
+							],
+							"sid": 757075626242377
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Attachment1",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 835612615790064,
+											"parameters": {
+												"keycode": "key_Attachment1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 447815296155227,
+											"parameters": {
+												"name": "\"Input_Attachment1\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 605315187441363
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 395798457593987,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Attachment1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 406419550618078,
+											"parameters": {
+												"name": "\"Input_Attachment1\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 251622204806554
+								}
+							],
+							"sid": 176816934528958
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Attachment2",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 335399587403418,
+											"parameters": {
+												"keycode": "key_Attachment2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 535727102252540,
+											"parameters": {
+												"name": "\"Input_Attachment2\"",
+												"parameter-n": [
+													"\"Keyboard\""
+												]
+											}
+										}
+									],
+									"sid": 240047605023487
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-index-pressed",
+											"objectClass": "Gamepad",
+											"sid": 672674609573208,
+											"parameters": {
+												"gamepad": "input_ActiveGamepad",
+												"button-index": "gamepad_Attachment2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 368955443614483,
+											"parameters": {
+												"name": "\"Input_Attachment2\"",
+												"parameter-n": [
+													"\"Gamepad\""
+												]
+											}
+										}
+									],
+									"sid": 987715906191576
+								}
+							],
+							"sid": 437888811138951
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_MouseWheel",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 885520009997308,
+											"parameters": {
+												"direction": "up"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 295949342861145,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 629474942949065,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 365290237713354,
+											"parameters": {
+												"direction": "down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 910338870919128,
+											"parameters": [
+												"-1"
+											]
+										}
+									],
+									"sid": 812337388606448,
+									"isOrBlock": true
+								}
+							],
+							"sid": 376461457733855
+						}
+					],
+					"sid": 485297643162175
+				},
+				{
+					"eventType": "comment",
+					"text": "Todo"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Input Triggers: Menu",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [],
+					"sid": 654014286949531
+				}
+			],
+			"sid": 724800857449107
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Input Utility",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 695848918720819,
+							"parameters": {
+								"name": "\"Input_Idle\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-return-value",
+							"objectClass": "function",
+							"sid": 768275181431099,
+							"parameters": {
+								"value": "input_Left = 1 | input_Right = 1 ? 0 : 1"
+							}
+						}
+					],
+					"sid": 447817427776486
+				},
+				{
+					"eventType": "comment",
+					"text": "These are redundant and should be phased out"
+				},
+				{
+					"functionName": "Input_Mode",
+					"functionDescription": "",
+					"functionCategory": "Input",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "fMode",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 101374995057530
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 595643259337919,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Disable"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 865235476895234,
+									"parameters": {
+										"variable": "fMode",
+										"comparison": 0,
+										"value": "\"Disabled\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 510349898987527,
+									"parameters": {
+										"type": "log",
+										"message": "\"Input Disabled\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 539073317601652,
+									"parameters": {
+										"variable": "input_Enabled",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 830639937058251,
+									"parameters": {
+										"group-name": "\"Input Triggers\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 164326056621278,
+									"parameters": {
+										"variable": "input_Left",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 155331080080515,
+									"parameters": {
+										"variable": "input_Right",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 551308520086232,
+									"parameters": {
+										"variable": "input_Up",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 768125514707626,
+									"parameters": {
+										"variable": "input_Down",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 464576412987584,
+									"parameters": {
+										"variable": "input_Jump",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 835038608433797,
+									"parameters": {
+										"variable": "input_Dodge",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 560496782942005,
+									"parameters": {
+										"variable": "input_Shoot",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 417764693176641
+						},
+						{
+							"eventType": "comment",
+							"text": "Enable"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 818005145792059
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 347152172961351,
+									"parameters": {
+										"type": "log",
+										"message": "\"Input Enabled\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 304255902506102,
+									"parameters": {
+										"variable": "input_Enabled",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 565941406265410,
+									"parameters": {
+										"group-name": "\"Input Triggers\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 984975679799385,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 283275621992580,
+											"parameters": {
+												"variable": "fMode",
+												"comparison": 0,
+												"value": "\"Player\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 114645339514140,
+											"parameters": {
+												"group-name": "\"Input Triggers: Menu\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 568227764174238,
+											"parameters": {
+												"group-name": "\"Input Triggers: Player\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 202361450599154
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 170518135965629,
+											"parameters": {
+												"variable": "fMode",
+												"comparison": 0,
+												"value": "\"Menu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 882648885402489,
+											"parameters": {
+												"group-name": "\"Input Triggers: Player\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 980033817191841,
+											"parameters": {
+												"group-name": "\"Input Triggers: Menu\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 935750727282971
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 396635590464629
+		}
+	],
+	"sid": 695418689648861
+}

@@ -1,0 +1,452 @@
+{
+	"name": "Map Builder_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Map_E"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Effects"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Loader"
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_Region",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 113487363163757
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_Sector",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 107341140726232
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_debugMapBuilder",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 352792785357186
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_mapLayer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 116517813337142
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_gridSize",
+			"type": "number",
+			"initialValue": "9",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 435045977777167
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_nodeOffset",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 660129525084831
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_selectedNode",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 691687445546147
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_currentID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 252735916928179
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_loopX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 805167948449902
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_loopY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 626289518921837
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_pathRoll",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "1-4",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 642156161398931
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_path1Chance",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Out of 100",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 733289203706787
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_path2Chance",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "Out of 100",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 718012438933641
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_path3Chance",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "Out of 100",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 646236857703912
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_path4Chance",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "Out of 100",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 707608440759260
+		},
+		{
+			"eventType": "variable",
+			"name": "mapbuilder_SettlementID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 469511143920263
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Map Debugging",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 277771849707849,
+							"parameters": {
+								"key": 49
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 457480353147712,
+							"parameters": {
+								"name": "\"buildnodes\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "NodeSet",
+							"sid": 275059078092502
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MB_Error",
+							"sid": 981051371237813
+						}
+					],
+					"sid": 512192605736095,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 798744295165511,
+							"parameters": {
+								"key": 50
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 489048313180217,
+							"parameters": {
+								"name": "\"buildpaths\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 866404011211179,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 184313915551098,
+							"parameters": {
+								"key": 51
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 868511860700938,
+							"parameters": {
+								"name": "\"pathfinding\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MB_NodeSelector",
+							"sid": 254205596229235,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 306981151526780,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 764145447539364,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 417442496158925,
+							"disabled": true
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MB_Sector",
+							"sid": 872509249517818
+						},
+						{
+							"id": "destroy",
+							"objectClass": "NodeSet",
+							"sid": 909917117958975
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 601704404001839,
+							"parameters": {
+								"name": "\"MB_Load\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 420164343013115,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 708065842632063
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 989855151988608,
+							"parameters": {
+								"scale": "0.15"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 363045800545499,
+							"parameters": {
+								"layer": "\"Loader\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 216357996825995,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Path",
+							"sid": 835143715430156,
+							"parameters": {
+								"object": "Path"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 792590579083433,
+							"parameters": {
+								"object-to-create": "MB_Error",
+								"layer": "mapbuilder_mapLayer",
+								"x": "Path.X",
+								"y": "Path.Y"
+							}
+						}
+					],
+					"sid": 489781997824038,
+					"disabled": true
+				}
+			],
+			"sid": 896522979474991
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 497043965505095
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 914222018244047,
+					"parameters": {
+						"name": "\"Map_Choose_Settlements\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "clear",
+					"objectClass": "MB_IconData",
+					"sid": 397741207770608
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 346026666432729,
+					"parameters": {
+						"variable": "map_ActiveNode",
+						"value": "41"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 970053924755343,
+					"parameters": {
+						"variable": "map_SelectedNode",
+						"value": "41"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 828092949564950,
+					"parameters": {
+						"name": "\"Save_ActiveNode\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 107293329249477,
+					"parameters": {
+						"name": "\"buildmap\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 590871458975690
+		}
+	],
+	"sid": 398877555897335
+}

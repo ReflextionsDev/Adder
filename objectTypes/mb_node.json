@@ -1,0 +1,485 @@
+{
+	"name": "MB_Node",
+	"plugin-id": "Sprite",
+	"sid": 402627962546802,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 470739134375922
+		},
+		{
+			"name": "TopPath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 675706364852597
+		},
+		{
+			"name": "RightPath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 891505905678760
+		},
+		{
+			"name": "BottomPath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 711490258036508
+		},
+		{
+			"name": "LeftPath",
+			"type": "boolean",
+			"desc": "",
+			"sid": 466180406896380
+		},
+		{
+			"name": "PathCount",
+			"type": "number",
+			"desc": "",
+			"sid": 691274708345363
+		},
+		{
+			"name": "Valid",
+			"type": "boolean",
+			"desc": "Checked by pathfinding",
+			"sid": 671886484430828
+		},
+		{
+			"name": "TopPathID",
+			"type": "number",
+			"desc": "",
+			"sid": 580162667672604
+		},
+		{
+			"name": "RightPathID",
+			"type": "number",
+			"desc": "",
+			"sid": 545375195202685
+		},
+		{
+			"name": "BotPathID",
+			"type": "number",
+			"desc": "",
+			"sid": 459427923483637
+		},
+		{
+			"name": "LeftPathID",
+			"type": "number",
+			"desc": "",
+			"sid": 646716616913695
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 185305027031732
+		},
+		{
+			"name": "ZombieCount",
+			"type": "number",
+			"desc": "",
+			"sid": 894741795823963
+		},
+		{
+			"name": "NPCCount",
+			"type": "number",
+			"desc": "",
+			"sid": 604494520062957
+		},
+		{
+			"name": "MoneyCount",
+			"type": "number",
+			"desc": "",
+			"sid": 348710229829567
+		},
+		{
+			"name": "ThreatLevel",
+			"type": "number",
+			"desc": "",
+			"sid": 912201244229279
+		},
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 405512157076186
+		},
+		{
+			"name": "Cleared",
+			"type": "number",
+			"desc": "",
+			"sid": 261716429631423
+		},
+		{
+			"name": "CloseRange",
+			"type": "boolean",
+			"desc": "",
+			"sid": 825301496676560
+		},
+		{
+			"name": "FadeTag",
+			"type": "boolean",
+			"desc": "",
+			"sid": 357235929212163
+		},
+		{
+			"name": "Turned",
+			"type": "boolean",
+			"desc": "",
+			"sid": 702935164879718
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7942345,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Imagepoint 1",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Imagepoint 2",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Imagepoint 3",
+								"x": 0.5,
+								"y": 1
+							},
+							{
+								"name": "Imagepoint 4",
+								"x": 0,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 184406516038059,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2925464,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 211375040645678,
+				"name": "Valid",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconInfected.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 617359,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 577386732884163,
+				"name": "Infected",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconHomeBase.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8126217,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 385287973300324,
+				"name": "Home",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconNeutralSet.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3346111,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 597250044217935,
+				"name": "AS",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconHostileSet.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1087109,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 239115047932002,
+				"name": "HS",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8759498,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 315116506122881,
+				"name": "Outpost",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6984093,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 105870427301239,
+				"name": "Hazard",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9321388,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 355754248795139,
+				"name": "Exit",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconResearch.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2260833,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 126127747634477,
+				"name": "Tower1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconResearch.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5587253,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 812972346123207,
+				"name": "Tower2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconResearch.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3911655,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 834687238458019,
+				"name": "Tower3",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3348470,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 609262069197578,
+				"name": "Tower4",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "E:\\Users\\Nathan\\Downloads\\map\\IconSafeHouse.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 814258,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 841224099269653,
+				"name": "Safehouse",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

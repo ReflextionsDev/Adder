@@ -1,0 +1,300 @@
+{
+	"name": "zzCIV",
+	"plugin-id": "Sprite",
+	"sid": 499768790548893,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "State",
+			"type": "string",
+			"desc": "Idle, Roam, Chase, Attack, Death",
+			"sid": 895180416368305
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 707496673469326
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 576333109024853
+		},
+		{
+			"name": "Attacking",
+			"type": "boolean",
+			"desc": "",
+			"sid": 396135584989858
+		},
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 131308480174319
+		},
+		{
+			"name": "Attack",
+			"type": "number",
+			"desc": "",
+			"sid": 127965406415557
+		},
+		{
+			"name": "RoamRange",
+			"type": "number",
+			"desc": "",
+			"sid": 532802040368939
+		},
+		{
+			"name": "WaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 267300004865483
+		},
+		{
+			"name": "MinWaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 449379409189927
+		},
+		{
+			"name": "MaxWaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 271991604944363
+		},
+		{
+			"name": "RoamSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 917233586930007
+		},
+		{
+			"name": "FleeSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 716657195187855
+		},
+		{
+			"name": "Ally",
+			"type": "number",
+			"desc": "",
+			"sid": 462478105733662
+		},
+		{
+			"name": "Armed",
+			"type": "number",
+			"desc": "",
+			"sid": 238627980532887
+		},
+		{
+			"name": "Gun",
+			"type": "string",
+			"desc": "",
+			"sid": 368777181964158
+		},
+		{
+			"name": "SpriteID",
+			"type": "number",
+			"desc": "",
+			"sid": 201458152636166
+		},
+		{
+			"name": "ArmsID",
+			"type": "number",
+			"desc": "",
+			"sid": 762010265338230
+		},
+		{
+			"name": "GunID",
+			"type": "number",
+			"desc": "",
+			"sid": 268126978112653
+		},
+		{
+			"name": "MuzzleID",
+			"type": "number",
+			"desc": "",
+			"sid": 179449430420792
+		},
+		{
+			"name": "ClosingDistance",
+			"type": "number",
+			"desc": "",
+			"sid": 516961894422305
+		},
+		{
+			"name": "ClosingDistanceMin",
+			"type": "number",
+			"desc": "",
+			"sid": 141946042726934
+		},
+		{
+			"name": "MagLeft",
+			"type": "number",
+			"desc": "",
+			"sid": 145153335541789
+		},
+		{
+			"name": "MagSize",
+			"type": "number",
+			"desc": "",
+			"sid": 458686744416388
+		},
+		{
+			"name": "Shooting",
+			"type": "boolean",
+			"desc": "",
+			"sid": 728043650557364
+		},
+		{
+			"name": "Reloading",
+			"type": "boolean",
+			"desc": "",
+			"sid": 749846916979542
+		},
+		{
+			"name": "SMGInterval",
+			"type": "number",
+			"desc": "",
+			"sid": 322443340440053
+		},
+		{
+			"name": "SMGIntervalCurrent",
+			"type": "number",
+			"desc": "",
+			"sid": 937708161179893
+		},
+		{
+			"name": "Allegiance",
+			"type": "string",
+			"desc": "",
+			"sid": 213102753761263
+		},
+		{
+			"name": "FirstName",
+			"type": "string",
+			"desc": "",
+			"sid": 328314581853930
+		},
+		{
+			"name": "LastName",
+			"type": "string",
+			"desc": "",
+			"sid": 713939530683800
+		},
+		{
+			"name": "ShoeID",
+			"type": "number",
+			"desc": "",
+			"sid": 712025126586692
+		},
+		{
+			"name": "HeadID",
+			"type": "number",
+			"desc": "",
+			"sid": 979061545283802
+		},
+		{
+			"name": "TorsoID",
+			"type": "number",
+			"desc": "",
+			"sid": 186519105940816
+		},
+		{
+			"name": "LegsID",
+			"type": "number",
+			"desc": "",
+			"sid": 372464405937324
+		},
+		{
+			"name": "Dialogue",
+			"type": "string",
+			"desc": "",
+			"sid": 718109274147835
+		},
+		{
+			"name": "Survivor",
+			"type": "number",
+			"desc": "",
+			"sid": 936029624782311
+		},
+		{
+			"name": "Citizen",
+			"type": "number",
+			"desc": "",
+			"sid": 873229266171424
+		},
+		{
+			"name": "SpecialType",
+			"type": "number",
+			"desc": "",
+			"sid": 211917554115727
+		},
+		{
+			"name": "Walking",
+			"type": "boolean",
+			"desc": "",
+			"sid": 736660604854360
+		},
+		{
+			"name": "Label",
+			"type": "string",
+			"desc": "",
+			"sid": 514280761825402
+		},
+		{
+			"name": "QueueMirrored",
+			"type": "boolean",
+			"desc": "",
+			"sid": 491972549783490
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 121142529514812
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 879121437219763
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "PlayerDetection",
+			"sid": 991703549258584
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 14,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4986006,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 178182673577695,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

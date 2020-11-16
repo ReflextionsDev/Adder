@@ -1,0 +1,2879 @@
+{
+	"name": "Game Master",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Game"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "AI"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Loot"
+		},
+		{
+			"functionName": "Game Logic",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Enable",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"sid": 443519782877743
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 467544591492269,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 320107280242371,
+							"parameters": {
+								"variable": "Enable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 247261130123650,
+							"parameters": {
+								"group-name": "\"Player Events\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 739387095866850,
+							"parameters": {
+								"group-name": "\"AI Events\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 534981373448267,
+							"parameters": {
+								"group-name": "\"Loot Events\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 975686344457916,
+							"parameters": {
+								"group-name": "\"Game Events\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 347859516730977
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 403906982238771
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 815858005797860,
+							"parameters": {
+								"group-name": "\"Player Events\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 952177593387653,
+							"parameters": {
+								"group-name": "\"AI Events\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 669465606677048,
+							"parameters": {
+								"group-name": "\"Loot Events\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 249722414958603,
+							"parameters": {
+								"group-name": "\"Game Events\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 799653747144242
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Make modular"
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Doors, etc"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Bullet",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Bullet Functions",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "params: x, y, owner, damage, animation, h, angle, spread, knockback"
+								},
+								{
+									"eventType": "comment",
+									"text": "Todo - rename bullet_create"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 754036286269062,
+											"parameters": {
+												"name": "\"Create_Bullet\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 144525437811133,
+											"parameters": {
+												"variable": "stat_BulletsFired",
+												"value": "1"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 332298715189838,
+											"parameters": {
+												"object-to-create": "Bullet",
+												"layer": "\"Objects\"",
+												"x": "function.Param(0)",
+												"y": "function.Param(1)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bullet",
+											"sid": 368447641669652,
+											"parameters": {
+												"instance-variable": "Owner",
+												"value": "function.Param(2)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bullet",
+											"sid": 359656433235286,
+											"parameters": {
+												"instance-variable": "Damage",
+												"value": "function.Param(3)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Bullet",
+											"sid": 358364222815447,
+											"parameters": {
+												"animation": "function.Param(4)",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bullet",
+											"sid": 222622066760338,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "function.Param(5)"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Bullet",
+											"sid": 800451230351923,
+											"parameters": {
+												"angle": "function.Param(6)"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Bullet",
+											"sid": 661583090764780,
+											"parameters": {
+												"angle": "Self.Angle + random(-function.Param(7),function.Param(7))"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Bullet",
+											"sid": 905942720508138,
+											"parameters": {
+												"instance-variable": "Knockback",
+												"value": "function.Param(8)"
+											}
+										}
+									],
+									"sid": 853062727171882,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 616443009917567,
+													"parameters": {
+														"index": "2",
+														"comparison": 0,
+														"value": "\"Player\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bullet",
+													"sid": 636964790284740,
+													"parameters": {
+														"instance-variable": "canHeadshot",
+														"value": "Weapon_Player.canHeadshot"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bullet",
+													"sid": 215734065409354,
+													"parameters": {
+														"instance-variable": "canCripple",
+														"value": "Weapon_Player.canCripple"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bullet",
+													"sid": 511706347297486,
+													"parameters": {
+														"instance-variable": "canGib",
+														"value": "Weapon_Player.canGib"
+													}
+												}
+											],
+											"sid": 698696321026012
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 702390317790464,
+													"parameters": {
+														"object-to-create": "Bullet_Array",
+														"layer": "0",
+														"x": "0",
+														"y": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bullet_Array",
+													"sid": 957745749516912,
+													"parameters": {
+														"instance-variable": "BulletID",
+														"value": "Bullet.UID"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Bullet",
+													"sid": 182978895713598,
+													"parameters": {
+														"instance-variable": "ArrayID",
+														"value": "Bullet_Array.UID"
+													}
+												}
+											],
+											"sid": 939869735908028
+										}
+									]
+								}
+							],
+							"sid": 595064335102439
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Bullet",
+									"sid": 334543260118241,
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bullet",
+									"sid": 749845847511366,
+									"parameters": {
+										"instance-variable": "Owner",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 697382642664584
+								}
+							],
+							"sid": 764033205805617
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-outside-layout",
+									"objectClass": "Bullet",
+									"sid": 956945066793616
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 557581518671005
+								}
+							],
+							"sid": 917080841224383
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "Bullet",
+									"sid": 278365698344869
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Bullet_Array",
+									"sid": 915020486131601,
+									"parameters": {
+										"unique-id": "Bullet.ArrayID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet_Array",
+									"sid": 225031950644326
+								}
+							],
+							"sid": 820797908500308
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 969012980913478,
+									"parameters": {
+										"variable": "system_Pause",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 853115789245459,
+									"parameters": {
+										"object": "Bullet"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-at-angle",
+									"objectClass": "Bullet",
+									"sid": 854788054366429,
+									"parameters": {
+										"angle": "Bullet.Angle",
+										"distance": "gun_BulletSpeed*100*dt"
+									}
+								}
+							],
+							"sid": 967539398430545,
+							"children": [
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Bullet Animations",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Bullet",
+													"sid": 584567714395588,
+													"parameters": {
+														"animation": "\"Tracer\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 178017828203140,
+													"parameters": {
+														"object-to-create": "FX_BulletTracer",
+														"layer": "\"Objects\"",
+														"x": "Bullet.X",
+														"y": "Bullet.Y"
+													}
+												}
+											],
+											"sid": 630486644444714
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 965576876565623
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Bullet",
+													"sid": 370863046077031,
+													"parameters": {
+														"animation": "\"Dragon1\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 552913236311333,
+													"parameters": {
+														"object-to-create": "zz_Bullet_Trail2",
+														"layer": "\"Objects\"",
+														"x": "Bullet.X",
+														"y": "Bullet.Y"
+													}
+												}
+											],
+											"sid": 697437650134781
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 581224625355397
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Bullet",
+													"sid": 680834392040410,
+													"parameters": {
+														"animation": "\"Dragon2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 601902181048925,
+													"parameters": {
+														"object-to-create": "zz_Bullet_Trail3",
+														"layer": "\"Objects\"",
+														"x": "Bullet.X",
+														"y": "Bullet.Y"
+													}
+												}
+											],
+											"sid": 590616492828583
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 942490924055719
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Bullet",
+													"sid": 832027482163077,
+													"parameters": {
+														"animation": "\"Dragon3\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 543155926541869,
+													"parameters": {
+														"object-to-create": "zz_Bullet_Trail4",
+														"layer": "\"Objects\"",
+														"x": "Bullet.X",
+														"y": "Bullet.Y"
+													}
+												}
+											],
+											"sid": 438884113201662
+										}
+									],
+									"sid": 414799584246408
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Bullet Collision",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "bulletdamage",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 692639385814674
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "Bullet",
+													"sid": 558381432452485,
+													"parameters": {
+														"object": "Solids"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 850317329691617,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Solids",
+															"sid": 967371127131377,
+															"parameters": {
+																"instance-variable": "zz_form",
+																"comparison": 0,
+																"value": "\"floor\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 665845395277435,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-y",
+																	"objectClass": "Bullet",
+																	"sid": 653714807594474,
+																	"parameters": {
+																		"comparison": 5,
+																		"y-co-ordinate": "Solids.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 115788234799933,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.X",
+																			"Bullet.BBoxTop",
+																			"\"top\""
+																		]
+																	}
+																}
+															],
+															"sid": 391871673046828
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 135517427482650
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 562171029691986,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.X",
+																			"Bullet.BBoxBottom",
+																			"\"bottom\""
+																		]
+																	}
+																}
+															],
+															"sid": 548964847797525
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 604827149752390
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Solids",
+															"sid": 526218192392210,
+															"parameters": {
+																"instance-variable": "zz_form",
+																"comparison": 0,
+																"value": "\"wall\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 954751719134448,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-x",
+																	"objectClass": "Bullet",
+																	"sid": 384885554053738,
+																	"parameters": {
+																		"comparison": 3,
+																		"x-co-ordinate": "Solids.X"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 254093177797663,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.BBoxRight",
+																			"Bullet.Y",
+																			"\"right\""
+																		]
+																	}
+																}
+															],
+															"sid": 738514557354354
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 950191360891320
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 549197708321536,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.BBoxLeft",
+																			"Bullet.Y",
+																			"\"left\""
+																		]
+																	}
+																}
+															],
+															"sid": 915892800090190
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 626523706537029
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 112583076174371,
+															"parameters": {
+																"name": "\"FX_Impact\"",
+																"parameter-n": [
+																	"Bullet.X",
+																	"Bullet.Y",
+																	"\"center\""
+																]
+															}
+														}
+													],
+													"sid": 361446401086106
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Bullet",
+															"sid": 535185234555447
+														}
+													],
+													"sid": 243847102153356
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Bullet",
+													"sid": 206144282418405,
+													"parameters": {
+														"object": "Hurtbox"
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 751906628217326,
+													"parameters": {
+														"object": "Hurtbox"
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Bullet_Array",
+													"sid": 288552307951586,
+													"parameters": {
+														"unique-id": "Bullet.ArrayID"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "Bullet_Array",
+													"sid": 215010149005678,
+													"parameters": {
+														"value": "Hurtbox.NPC_ID"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Bullet_Array",
+													"sid": 108201524921304,
+													"parameters": {
+														"width": "Self.Width + 1",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "Bullet_Array",
+													"sid": 410148622323647,
+													"parameters": {
+														"x": "Self.Width - 1",
+														"y": "0",
+														"value": "Hurtbox.NPC_ID"
+													}
+												}
+											],
+											"sid": 807001729642859,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC",
+															"sid": 462936914038157,
+															"parameters": {
+																"unique-id": "Hurtbox.NPC_ID"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 208533001099577,
+															"parameters": {
+																"instance-variable": "HP",
+																"comparison": 4,
+																"value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 553714694500568,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 1,
+																"value": "\"Changing\""
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 941086810153148,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 1,
+																"value": "\"Death\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 458268343612512,
+															"parameters": {
+																"instance-variable": "LastHit",
+																"value": "Bullet.Owner"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 689169047281296,
+															"parameters": {
+																"variable": "bulletdamage",
+																"value": "Bullet.Damage*Hurtbox.MP"
+															}
+														}
+													],
+													"sid": 580117041478922,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "TODO"
+														},
+														{
+															"eventType": "comment",
+															"text": "helmet HP"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 534073638881977,
+																	"parameters": {
+																		"instance-variable": "Armor",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 632035470511232,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Bullet",
+																			"sid": 950397276146420,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 5,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "subtract-from-instvar",
+																			"objectClass": "Bullet",
+																			"sid": 741378026884055,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"sid": 632314407070356
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 373821344279626
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 255766779845767,
+																			"parameters": {
+																				"variable": "bulletdamage",
+																				"value": "bulletdamage*ArmorDamageMP"
+																			}
+																		},
+																		{
+																			"id": "subtract-from-instvar",
+																			"objectClass": "Bullet",
+																			"sid": 955339702842731,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"sid": 838056061371876
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 969823205659458
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Bullet",
+																	"sid": 180756925334622,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 156573100871064
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 855630984227981,
+																	"parameters": {
+																		"instance-variable": "Invincible",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Hurtbox",
+																	"sid": 386098045462715,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "bulletdamage"
+																	}
+																},
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "NPC",
+																	"sid": 397041900808582,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "bulletdamage"
+																	}
+																}
+															],
+															"sid": 722114170226927
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 961276235502488,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Head\""
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 731373917269374,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 554369332998839,
+																	"parameters": {
+																		"instance-variable": "canHeadshot",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 227679130960256,
+																	"parameters": {
+																		"instance-variable": "CanHeadshot",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-falling",
+																	"objectClass": "NPC",
+																	"sid": 939500632708741,
+																	"behaviorType": "Platform",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 659480135670132,
+																	"parameters": {
+																		"name": "\"NPC_Headshot\"",
+																		"parameter-n": [
+																			"NPC.UID"
+																		]
+																	}
+																}
+															],
+															"sid": 225183253305659
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 673360312816546
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 526795858929945,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Head\""
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 979977727616286,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 938350261181291,
+																	"parameters": {
+																		"instance-variable": "canHeadshot",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 169281381262128,
+																	"parameters": {
+																		"instance-variable": "Helmeted",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-falling",
+																	"objectClass": "NPC",
+																	"sid": 394754626078941,
+																	"behaviorType": "Platform",
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 489856364988837,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_ChangeClass",
+																	"sid": 288252138608325,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"Helmetless\"",
+																		"Bullet.X"
+																	]
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "Bullet",
+																	"sid": 622000932265849
+																}
+															],
+															"sid": 334416132790602
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 102711859939457
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 281161304709748,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Torso\""
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 873136754954531,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 935725015802141,
+																	"parameters": {
+																		"instance-variable": "canGib",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 611816227980808,
+																	"parameters": {
+																		"instance-variable": "CanGib",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-falling",
+																	"objectClass": "NPC",
+																	"sid": 254944296752172,
+																	"behaviorType": "Platform",
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 811054658947932,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_ChangeClass",
+																	"sid": 814255699323116,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"Gibbed\"",
+																		"0"
+																	]
+																}
+															],
+															"sid": 982566606098689
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 173122306202049
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 935088053549888,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Legs\""
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Hurtbox",
+																	"sid": 257730993523520,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 290434046472850,
+																	"parameters": {
+																		"instance-variable": "canCripple",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 676775832892961,
+																	"parameters": {
+																		"instance-variable": "CanCripple",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "is-falling",
+																	"objectClass": "NPC",
+																	"sid": 629603232881265,
+																	"behaviorType": "Platform",
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 726277021415874,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_ChangeClass",
+																	"sid": 969785205964465,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"Crawler\"",
+																		"0"
+																	]
+																}
+															],
+															"sid": 872060017139472
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 221826732526703
+																}
+															],
+															"actions": [],
+															"sid": 274513471381075,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-x",
+																			"objectClass": "Bullet",
+																			"sid": 374140288987473,
+																			"parameters": {
+																				"comparison": 3,
+																				"x-co-ordinate": "NPC.X"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 995017488934423,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Hit\"",
+																				"Bullet.BBoxRight",
+																				"Bullet.Y",
+																				"Bullet.Knockback"
+																			]
+																		}
+																	],
+																	"sid": 229292520639100
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 810012518025241
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 706790989868936,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Hit\"",
+																				"Bullet.BBoxLeft",
+																				"Bullet.Y",
+																				"Bullet.Knockback"
+																			]
+																		}
+																	],
+																	"sid": 994619677837003
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "TODO - Status Effects"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 278769236448061,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 531558023830027,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Bullet",
+																			"sid": 921820595474967,
+																			"parameters": {
+																				"instance-variable": "Burn",
+																				"comparison": 0,
+																				"value": "1"
+																			}
+																		},
+																		{
+																			"id": "is-boolean-instance-variable-set",
+																			"objectClass": "NPC",
+																			"sid": 404127968451152,
+																			"parameters": {
+																				"instance-variable": "OnFire"
+																			},
+																			"isInverted": true
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 448486471883820,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Fire\"",
+																				"0",
+																				"0",
+																				"0"
+																			]
+																		}
+																	],
+																	"sid": 357003518899207
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 554574431779317,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Bullet",
+																	"sid": 964670328233050
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 393764311069677
+																}
+															],
+															"sid": 731302618182776
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 331735463176764,
+																	"parameters": {
+																		"variable": "game_DamageTextEnabled",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 938289790409244,
+																	"parameters": {
+																		"object-to-create": "Debug_DamageText",
+																		"layer": "\"Objects\"",
+																		"x": "Bullet.X",
+																		"y": "Bullet.Y"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Debug_DamageText",
+																	"sid": 824212375539613,
+																	"parameters": {
+																		"text": "\"-\" & bulletdamage"
+																	}
+																}
+															],
+															"sid": 968528244943966
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Bullet",
+													"sid": 862628789449067,
+													"parameters": {
+														"object": "BulletTarget"
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 335646928250183,
+													"parameters": {
+														"object": "BulletTarget"
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Bullet_Array",
+													"sid": 853208180239287,
+													"parameters": {
+														"unique-id": "Bullet.ArrayID"
+													}
+												},
+												{
+													"id": "contains-value",
+													"objectClass": "Bullet_Array",
+													"sid": 126818225485283,
+													"parameters": {
+														"value": "BulletTarget.UID"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Bullet_Array",
+													"sid": 753466036830423,
+													"parameters": {
+														"width": "Self.Width + 1",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "Bullet_Array",
+													"sid": 147096034502635,
+													"parameters": {
+														"x": "Self.Width - 1",
+														"y": "0",
+														"value": "BulletTarget.UID"
+													}
+												}
+											],
+											"sid": 108926031179920,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "BulletTarget",
+															"sid": 159049147068729,
+															"parameters": {
+																"instance-variable": "TargetForm",
+																"comparison": 0,
+																"value": "\"Tile_Door\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Door",
+															"sid": 711664301293698,
+															"parameters": {
+																"unique-id": "BulletTarget.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 820089893420662,
+															"parameters": {
+																"variable": "bulletdamage",
+																"value": "ceil(Bullet.Damage/10)"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Door",
+															"sid": 222246741611651,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "bulletdamage"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 323942310692436,
+															"parameters": {
+																"name": "\"Door_UpdateAnim\"",
+																"parameter-n": [
+																	"Door.UID"
+																]
+															}
+														}
+													],
+													"sid": 430399326521675,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-x",
+																	"objectClass": "Bullet",
+																	"sid": 939681051827561,
+																	"parameters": {
+																		"comparison": 3,
+																		"x-co-ordinate": "Door.X"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 955714302006523,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.BBoxRight",
+																			"Bullet.Y",
+																			"\"right\""
+																		]
+																	}
+																}
+															],
+															"sid": 514822751172203
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 526444963650692
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 935916209855764,
+																	"parameters": {
+																		"name": "\"FX_Impact\"",
+																		"parameter-n": [
+																			"Bullet.BBoxLeft",
+																			"Bullet.Y",
+																			"\"left\""
+																		]
+																	}
+																}
+															],
+															"sid": 200941056190904
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Door",
+																	"sid": 830983514421340,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Wood\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Bullet",
+																	"sid": 570756262746248,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 404136347254537
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 430554724900607
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Bullet",
+																	"sid": 740507862570823,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 514771025043688
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 517400524275940,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Bullet",
+																	"sid": 493693356180524
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 367541189030937
+																}
+															],
+															"sid": 456002062947596
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 670300901291749,
+																	"parameters": {
+																		"variable": "game_DamageTextEnabled",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 872022657526804,
+																	"parameters": {
+																		"object-to-create": "Debug_DamageText",
+																		"layer": "\"Objects\"",
+																		"x": "Bullet.X",
+																		"y": "Bullet.Y"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Debug_DamageText",
+																	"sid": 463763945783946,
+																	"parameters": {
+																		"text": "\"-\" & bulletdamage"
+																	}
+																}
+															],
+															"sid": 545842721945346
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "TODO - Fix"
+												},
+												{
+													"eventType": "comment",
+													"text": "deprecated"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 353402906808056
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "BulletTarget",
+															"sid": 686726049296151,
+															"parameters": {
+																"instance-variable": "TargetForm",
+																"comparison": 0,
+																"value": "\"TargetDummy\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "zzzTargetDummy",
+															"sid": 961131381450494,
+															"parameters": {
+																"unique-id": "BulletTarget.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "zzzTargetDummy",
+															"sid": 993099133544888,
+															"parameters": {
+																"instance-variable": "CurrentDamage",
+																"value": "Bullet.Damage"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 712701744819034,
+															"parameters": {
+																"name": "\"TargetDummy_DisplayDamage\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "start-timer",
+															"objectClass": "zzzTargetDummy",
+															"sid": 133729208158697,
+															"behaviorType": "Timer",
+															"parameters": {
+																"duration": "1.0",
+																"type": "once",
+																"tag": "\"DamageTimeout\""
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Bullet",
+															"sid": 674687859609689,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 493169226887265,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 774676996931775,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Bullet",
+																	"sid": 302879001269390
+																},
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 170881837524578
+																}
+															],
+															"sid": 731570817314326
+														}
+													]
+												}
+											]
+										}
+									],
+									"sid": 607702991221054
+								}
+							]
+						}
+					],
+					"sid": 140376875223630
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Background",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Background Spawner",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "GroundHeight",
+									"type": "number",
+									"initialValue": "10000",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 170035545412971
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-start-of-layout",
+											"objectClass": "System",
+											"sid": 127748961068017
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 472104707281110,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 428808113460606,
+											"parameters": {
+												"name": "\"Spawn_BG\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 724473937117726
+								},
+								{
+									"eventType": "comment",
+									"text": "Can replace w/ create object name"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 881200671269558,
+											"parameters": {
+												"name": "\"Spawn_BG\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "BG",
+											"sid": 848196281479361
+										},
+										{
+											"id": "destroy",
+											"objectClass": "FG",
+											"sid": 190144489893403
+										}
+									],
+									"sid": 482845478348257,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 861726280807026,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"City\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 727481527434530,
+													"parameters": {
+														"object-to-create": "BG_City",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 692027353576035,
+													"parameters": {
+														"object-to-create": "FG_City",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_City",
+													"sid": 975226090122583,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_City",
+													"sid": 267055786910559,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "FG_Height"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 314279868062052,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Asphalt\""
+														]
+													}
+												}
+											],
+											"sid": 731313714130692
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 874528427821925,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"Industrial\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 213239909814265,
+													"parameters": {
+														"object-to-create": "BG_Industrial",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 198004071078798,
+													"parameters": {
+														"object-to-create": "FG_Industrial",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_Industrial",
+													"sid": 464690060100666,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_Industrial",
+													"sid": 607103117736586,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "FG_Height"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 680280986263959,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Asphalt\""
+														]
+													}
+												}
+											],
+											"sid": 566340285430120
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 145121056344426,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"Suburb\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 643367312095989,
+													"parameters": {
+														"object-to-create": "BG_Suburbs",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 598615455573175,
+													"parameters": {
+														"object-to-create": "FG_Suburbs",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_Suburbs",
+													"sid": 376940449676637,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_Suburbs",
+													"sid": 624854167857000,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "FG_Height"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 715069663162804,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Dirt\""
+														]
+													}
+												}
+											],
+											"sid": 227541856726671
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 475308215969239,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"Wastes\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 781485417040472,
+													"parameters": {
+														"object-to-create": "BG_Suburbs",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 909922539205252,
+													"parameters": {
+														"object-to-create": "FG_Wastes",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_Suburbs",
+													"sid": 253474383416307,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_Wastes",
+													"sid": 952329363417520,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "274"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 916006085821386,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Dirt\""
+														]
+													}
+												}
+											],
+											"sid": 328287598149286
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 628401689052003,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"Forest\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 939929528383766,
+													"parameters": {
+														"object-to-create": "BG_Forest",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 799905833244008,
+													"parameters": {
+														"object-to-create": "FG_Forest",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_Forest",
+													"sid": 882073107688493,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_Forest",
+													"sid": 902192101894279,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "FG_Height"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 284644934238373,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Grass\""
+														]
+													}
+												}
+											],
+											"sid": 580728553748594
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 435773661849987,
+													"parameters": {
+														"variable": "BG_Name",
+														"comparison": 0,
+														"value": "\"Mountain\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 423749239167089,
+													"parameters": {
+														"object-to-create": "BG_Mountain",
+														"layer": "\"BG\"",
+														"x": "BG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 392109506517316,
+													"parameters": {
+														"object-to-create": "FG_Mountain",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "BG_Mountain",
+													"sid": 613240918936923,
+													"parameters": {
+														"width": "BG_Width",
+														"height": "BG_Height"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "FG_Mountain",
+													"sid": 241464470288456,
+													"parameters": {
+														"width": "FG_Width",
+														"height": "FG_Height"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 847319659601417,
+													"parameters": {
+														"name": "\"Spawn_Background\"",
+														"parameter-n": [
+															"\"Grass\""
+														]
+													}
+												}
+											],
+											"sid": 416758646711787
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 401116245482196,
+											"parameters": {
+												"name": "\"Spawn_Background\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Ground_Asphalt",
+											"sid": 316145713404333
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Ground_Dirt",
+											"sid": 438600858232526
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Ground_Grass",
+											"sid": 681033118705584
+										}
+									],
+									"sid": 181988271682515,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 387015283667383,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Asphalt\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 518333896946180,
+													"parameters": {
+														"object-to-create": "Ground_Asphalt",
+														"layer": "\"Solid\"",
+														"x": "-200",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "Ground_Asphalt",
+													"sid": 498630484453533,
+													"parameters": {
+														"width": "10000"
+													}
+												}
+											],
+											"sid": 107479259902245
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 900242282071462,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Dirt\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 475639374366392,
+													"parameters": {
+														"object-to-create": "Ground_Dirt",
+														"layer": "\"Solid\"",
+														"x": "-200",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "Ground_Dirt",
+													"sid": 257125592154747,
+													"parameters": {
+														"width": "10000"
+													}
+												}
+											],
+											"sid": 635899992915526
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 506471670131454,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Grass\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 970842675273672,
+													"parameters": {
+														"object-to-create": "Ground_Grass",
+														"layer": "\"Solid\"",
+														"x": "-200",
+														"y": "GroundHeight"
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "Ground_Grass",
+													"sid": 562525768433667,
+													"parameters": {
+														"width": "10000"
+													}
+												}
+											],
+											"sid": 712844690705004
+										}
+									]
+								}
+							],
+							"sid": 357262300838228
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Clouds",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "Player",
+											"sid": 203000157275680
+										}
+									],
+									"actions": [],
+									"sid": 761618362272148,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 399086946898435,
+													"parameters": {
+														"count": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 251769744989147,
+													"parameters": {
+														"object-to-create": "Weather_Cloud",
+														"layer": "\"Clouds\"",
+														"x": "Player.X + random(-300,300)",
+														"y": "944 - random(200,800)"
+													}
+												}
+											],
+											"sid": 664819241497968,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "Weather_Cloud",
+											"sid": 993575353027030
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Weather_Cloud",
+											"sid": 107079973167441,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "-180"
+											}
+										},
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Weather_Cloud",
+											"sid": 466781495819148
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Weather_Cloud",
+											"sid": 827605555909417,
+											"parameters": {
+												"frame-number": "floor(random(0,9.9))"
+											}
+										},
+										{
+											"id": "set-speed",
+											"objectClass": "Weather_Cloud",
+											"sid": 134068581406716,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"speed": "random(5,15)"
+											}
+										}
+									],
+									"sid": 188134846001383,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 520512698598391,
+											"parameters": {
+												"interval-seconds": "random(8,15)"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 842868267031782,
+											"parameters": {
+												"first-value": "Player.Count",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 968371580645976,
+											"parameters": {
+												"object-to-create": "Weather_Cloud",
+												"layer": "\"Clouds\"",
+												"x": "Player.X + 300",
+												"y": "944 - random(200,800)"
+											}
+										}
+									],
+									"sid": 278430258989501,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "Weather_Cloud",
+											"sid": 900018894854185,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "Player.X - 500"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Weather_Cloud",
+											"sid": 885191741602984
+										}
+									],
+									"sid": 793693106761507,
+									"disabled": true
+								}
+							],
+							"sid": 938038308774883
+						}
+					],
+					"sid": 311385714184455
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Cleanup",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-outside-layout",
+									"objectClass": "Shell",
+									"sid": 486437114815955
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Shell",
+									"sid": 282445106923349
+								}
+							],
+							"sid": 803077318789309
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Shell",
+									"sid": 157184997906811
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 359618632771115,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-fade",
+									"objectClass": "Shell",
+									"sid": 808335197208476,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 273822629766880
+						}
+					],
+					"sid": 409686435646828
+				}
+			],
+			"sid": 154706756858438
+		}
+	],
+	"sid": 544190151353186
+}

@@ -1,0 +1,2097 @@
+{
+	"name": "Options__E",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "TODO"
+		},
+		{
+			"eventType": "comment",
+			"text": "Can I remove save include? Should be covered by Master. Need to pass options to master sheet."
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "comment",
+			"text": "Booleans (0 = false, 1 = true)"
+		},
+		{
+			"eventType": "variable",
+			"name": "options_DisplayKeycodes",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "BOOL, Toggles whether to display the keycodes of keys.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 1915679663346006
+		},
+		{
+			"eventType": "variable",
+			"name": "options_SaveEnabled",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "BOOL, Whether the layout is ready to save a new key or not.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 639024863116371
+		},
+		{
+			"eventType": "variable",
+			"name": "options_KeyInUse",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "BOOL, If true there is a conflicting key that must be dealt with.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 2141543574157035
+		},
+		{
+			"eventType": "comment",
+			"text": "Nums"
+		},
+		{
+			"eventType": "variable",
+			"name": "options_NewKey",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The new key to use, saved as keycode.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845777387592229
+		},
+		{
+			"eventType": "variable",
+			"name": "options_UIMode",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Which UI layer is visable, starting from 0.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 113230785168038
+		},
+		{
+			"eventType": "comment",
+			"text": "Strings"
+		},
+		{
+			"eventType": "variable",
+			"name": "options_ConflictingKey",
+			"type": "string",
+			"initialValue": "",
+			"comment": "The dictionary value already in use.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 7326937339922652
+		},
+		{
+			"eventType": "variable",
+			"name": "options_EmptyValues",
+			"type": "string",
+			"initialValue": "",
+			"comment": "A string of the dictionary values set to 0.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 7474970092444428
+		},
+		{
+			"eventType": "variable",
+			"name": "options_RedirectLayout",
+			"type": "string",
+			"initialValue": "Menu",
+			"comment": "The layout to go back to, usually the menu.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 316582927415636
+		},
+		{
+			"eventType": "comment",
+			"text": "We have to pin the list object because it doesn't scale like other objects"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 6400461216686962
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object",
+					"objectClass": "Options_ControlDropdown",
+					"sid": 6874483905931837,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "OptionsTXT_Save",
+						"mode": "position-angle"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 1870191658297694,
+					"parameters": {
+						"name": "\"OPT_ClearSelection\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 9374264620526828,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Fill the dictionary if empty. This shouldn't be needed because it's done in the menu, but works as a failsafe."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "Options_ControlList",
+							"sid": 6516314408140038
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 9806604284431702,
+							"parameters": {
+								"name": "\"OPT_ControlListReset\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 1921832741560256
+				},
+				{
+					"eventType": "comment",
+					"text": "If the dictionary is filled, update the display list."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 930395363663505
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 2577682162707708,
+							"parameters": {
+								"name": "\"OPT_ControlListUpdate\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 6352474734714564
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Misc",
+			"description": "Other events needed.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Update the new key if the layout is ready, and it is not the same key being used already."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 1152160951242461
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 9224378571072852,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 650172580242,
+							"parameters": {
+								"first-value": "Keyboard.LastKeyCode",
+								"comparison": 1,
+								"second-value": "Options_ControlList.Get(Options_ControlDropdown.SelectedText)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 6809409149158811,
+							"parameters": {
+								"variable": "options_SaveEnabled",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "OptionsTXT_Save",
+							"sid": 5352964503820994,
+							"parameters": {
+								"color": "rgb(0, 255, 51)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 5098097645235152,
+							"parameters": {
+								"variable": "options_NewKey",
+								"value": "Keyboard.LastKeyCode"
+							}
+						}
+					],
+					"sid": 8789434393734679,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 570113479891704,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_NewKey",
+									"sid": 4108628552233525,
+									"parameters": {
+										"text": "\"New Key: \" & Keyboard.StringFromKeyCode(Keyboard.LastKeyCode) & \" (\" & Keyboard.LastKeyCode & \")\""
+									}
+								}
+							],
+							"sid": 763064731568540
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 631126922445669
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_NewKey",
+									"sid": 705717990167986,
+									"parameters": {
+										"text": "\"New Key: \" & Keyboard.StringFromKeyCode(Keyboard.LastKeyCode)"
+									}
+								}
+							],
+							"sid": 534878693032885
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Gets the key that matches the list selection."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 1659772614750927
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "OptionsTXT_CurrentKey",
+							"sid": 3142576852683467,
+							"parameters": {
+								"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 5816057724525856,
+							"parameters": {
+								"name": "\"OPT_ClearSelection\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 5475279853548822,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 548651146127213,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 219986814521616,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+									}
+								}
+							],
+							"sid": 495729220019949
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 409466067637175
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 572522753803738,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText))"
+									}
+								}
+							],
+							"sid": 807235281005713
+						}
+					]
+				}
+			],
+			"sid": 1211323015417672
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Options Functions",
+			"description": "Various functions used by the options layout.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Updates the display list with the ControlList dictionary."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 2674200616392544,
+							"parameters": {
+								"name": "\"OPT_ControlListUpdate\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 415873940955579
+						}
+					],
+					"sid": 2066048028555409,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Options_ControlList",
+									"sid": 8961242820898006
+								}
+							],
+							"actions": [
+								{
+									"id": "add-item",
+									"objectClass": "Options_ControlDropdown",
+									"sid": 8046238546931814,
+									"parameters": {
+										"text": "Options_ControlList.CurrentKey"
+									}
+								}
+							],
+							"sid": 3787096489157682
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 774260237494946,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 770804472249815,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+									}
+								}
+							],
+							"sid": 634088146997401
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 188767570537332
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 132280137058368,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText))"
+									}
+								}
+							],
+							"sid": 747696242951737
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Clears the last selected key."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 5293074496169429,
+							"parameters": {
+								"name": "\"OPT_ClearSelection\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "OptionsTXT_NewKey",
+							"sid": 7905360203445757,
+							"parameters": {
+								"text": "\"Press any Key\""
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "OptionsTXT_Save",
+							"sid": 6697513311675209,
+							"parameters": {
+								"color": "rgb(150, 150, 150)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 6529342472921589,
+							"parameters": {
+								"variable": "options_SaveEnabled",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 3489885273860187
+				},
+				{
+					"eventType": "comment",
+					"text": "Opens the overwrite dialogue."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 8827331287833321,
+							"parameters": {
+								"name": "\"OPT_ShowOverwrite\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 9814133060070792,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 5240541975985365,
+							"parameters": {
+								"variable": "options_UIMode",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 5152673797099246,
+							"parameters": {
+								"layer": "\"UI2\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 613507754582315,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 9720430421789412,
+							"parameters": {
+								"mode": "disabled"
+							}
+						}
+					],
+					"sid": 8010499871702393,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 557282254960107,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_ConfirmDialouge",
+									"sid": 1946592892661711,
+									"parameters": {
+										"text": "\"'\" & options_conflictingKey & \"' is already using key \" & Keyboard.StringFromKeyCode(Keyboard.LastKeyCode) & \" (\" & Keyboard.LastKeyCode & \"). Would you like to overwrite it?\""
+									}
+								}
+							],
+							"sid": 897606605625926
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 602444672218721
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_ConfirmDialouge",
+									"sid": 758893577854006,
+									"parameters": {
+										"text": "\"'\" & options_conflictingKey & \"' is already using key \" & Keyboard.StringFromKeyCode(Keyboard.LastKeyCode) & \". Would you like to overwrite it?\""
+									}
+								}
+							],
+							"sid": 313743738198776
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Closes the overwrite dialogue."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 8915521343429495,
+							"parameters": {
+								"name": "\"OPT_CloseOverwrite\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 4661549353180759,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 6457211438296839,
+							"parameters": {
+								"layer": "\"UI2\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 2014965295533223,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 1678907284106643,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 172628628283515,
+							"parameters": {
+								"variable": "options_UIMode",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 3305166041665235
+				},
+				{
+					"eventType": "comment",
+					"text": "Opens the empty values dialouge."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 3587532913366305,
+							"parameters": {
+								"name": "\"OPT_ShowEmptyValues\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 6542697076102506,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 1424758290801431,
+							"parameters": {
+								"layer": "\"UI3\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 1653306833014941,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 7213483945475316,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 3188446170850725,
+							"parameters": {
+								"variable": "options_UIMode",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 6865776905473809
+				},
+				{
+					"eventType": "comment",
+					"text": "Closes the empty values dialouge."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 845312895709087,
+							"parameters": {
+								"name": "\"OPT_CloseEmptyValues\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 433917469444085,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 7714952954793934,
+							"parameters": {
+								"layer": "\"UI3\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 7314232858112049,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Options_ControlDropdown",
+							"sid": 2446125937156492,
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 4925311987759984,
+							"parameters": {
+								"variable": "options_UIMode",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 2415361432985311
+				}
+			],
+			"sid": 1245386310507041
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Options Buttons",
+			"description": "Layout logic.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Tests if any values are empty: if not return to the menu, else show the player."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 8760276369774296,
+							"parameters": {
+								"object": "OptionsTXT_Back"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 4738440401203216,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 8933377026495094,
+							"parameters": {
+								"variable": "options_EmptyValues",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 4824548352624045,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Options_ControlList",
+									"sid": 6352714053207408
+								}
+							],
+							"actions": [],
+							"sid": 4242779971931148,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-current-value",
+											"objectClass": "Options_ControlList",
+											"sid": 8324288894253824,
+											"parameters": {
+												"comparison": 0,
+												"value": "\"0\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 7813433198672718,
+											"parameters": {
+												"variable": "options_EmptyValues",
+												"value": "str(Options_ControlList.CurrentKey) & newline"
+											}
+										}
+									],
+									"sid": 591184360323697
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Save the game and return to the menu."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 7715065877934333,
+									"parameters": {
+										"variable": "options_EmptyValues",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 221164363055413,
+									"parameters": {
+										"variable": "menu_Save",
+										"value": "1"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 5762419584792921,
+									"parameters": {
+										"layout": "options_RedirectLayout"
+									}
+								}
+							],
+							"sid": 6095074051464732
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 1901707260109203
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_NullControls",
+									"sid": 6339275643512344,
+									"parameters": {
+										"text": "options_EmptyValues"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 7246264714947107,
+									"parameters": {
+										"name": "\"OPT_ShowEmptyValues\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 4259577225041136
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Simply resets the indivual control."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 1773810425654538,
+							"parameters": {
+								"object": "OptionsTXT_Reset"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 7276969572930673,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Options_ControlList",
+							"sid": 9236710301293028,
+							"parameters": {
+								"key": "Options_ControlDropdown.SelectedText",
+								"value": "Options_ControlListBackup.Get(Options_ControlDropdown.SelectedText)"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 3005556859462141,
+							"parameters": {
+								"name": "\"OPT_ClearSelection\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 9243875040743652,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 957703046510012,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 160532697752048,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+									}
+								}
+							],
+							"sid": 558293963479508
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 186920559589991
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 6037493146561243,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText))"
+									}
+								}
+							],
+							"sid": 970155423339481
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Resets ALL controls."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 5128913773609745,
+							"parameters": {
+								"object": "OptionsTXT_ResetAll"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 6269993503437166,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "Options_ControlList",
+							"sid": 8366424616466529
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 2518349642883782
+						}
+					],
+					"sid": 7902839503659222
+				},
+				{
+					"eventType": "comment",
+					"text": "Clears ALL controls."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 734690806152525,
+							"parameters": {
+								"object": "OptionsTXT_ClearAll"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 5555444655510099,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 5259424696302226,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Options_ControlList",
+									"sid": 5387924633291051
+								}
+							],
+							"actions": [
+								{
+									"id": "set-key",
+									"objectClass": "Options_ControlList",
+									"sid": 1131629248819681,
+									"parameters": {
+										"key": "Options_ControlList.CurrentKey",
+										"value": "\"0\""
+									}
+								}
+							],
+							"sid": 1828127480830129
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 4806041193639939,
+									"parameters": {
+										"name": "\"OPT_ControlListUpdate\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 4369131665595392
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Tests if there is any conflicting controls, saves if there is not, otherwise opens the overwrite dialogue."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 3404580579174455,
+							"parameters": {
+								"object": "OptionsTXT_Save"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 1688880824198661,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 9591598394996288,
+							"parameters": {
+								"variable": "options_SaveEnabled",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 6765902082378369,
+							"parameters": {
+								"variable": "options_KeyInUse",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 6860805117764318,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Options_ControlList",
+									"sid": 9537052328906822
+								}
+							],
+							"actions": [],
+							"sid": 5223487862299467,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-current-value",
+											"objectClass": "Options_ControlList",
+											"sid": 8823571109125193,
+											"parameters": {
+												"comparison": 0,
+												"value": "Keyboard.LastKeyCode"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 1961290253751578,
+											"parameters": {
+												"variable": "options_ConflictingKey",
+												"value": "str(Options_ControlList.CurrentKey)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 4246754821724888,
+											"parameters": {
+												"name": "\"OPT_ShowOverwrite\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 9412246012260740,
+											"parameters": {
+												"variable": "options_KeyInUse",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 3202036228302827
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 6666734572438693
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 8128533810990572,
+									"parameters": {
+										"variable": "options_KeyInUse",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-key",
+									"objectClass": "Options_ControlList",
+									"sid": 9546766736964656,
+									"parameters": {
+										"key": "Options_ControlDropdown.SelectedText",
+										"value": "options_newKey"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 2073070770236342,
+									"parameters": {
+										"name": "\"OPT_ClearSelection\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 7051696164812075,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 348565075898626,
+											"parameters": {
+												"variable": "options_DisplayKeycodes",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "OptionsTXT_CurrentKey",
+											"sid": 354980822776267,
+											"parameters": {
+												"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+											}
+										}
+									],
+									"sid": 879295089822898
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 631118831833667
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "OptionsTXT_CurrentKey",
+											"sid": 921987742352905,
+											"parameters": {
+												"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText))"
+											}
+										}
+									],
+									"sid": 895989345808549
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "On overwrite dialouge, saves new key and clears the one previously in use."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 1825868412623692,
+							"parameters": {
+								"object": "OptionsTXT_Confirm"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 8956846002371159,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Options_ControlList",
+							"sid": 630384035214838,
+							"parameters": {
+								"key": "options_conflictingKey",
+								"value": "\"0\""
+							}
+						},
+						{
+							"id": "set-key",
+							"objectClass": "Options_ControlList",
+							"sid": 9686788246733424,
+							"parameters": {
+								"key": "Options_ControlDropdown.SelectedText",
+								"value": "options_newKey"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 8320504680010637,
+							"parameters": {
+								"name": "\"OPT_ClearSelection\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 7496638219493853,
+							"parameters": {
+								"name": "\"OPT_CloseOverwrite\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 9107365266276080,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 237825343185033,
+									"parameters": {
+										"variable": "options_DisplayKeycodes",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 300311337437010,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) & \" (\" & Options_ControlList.Get(Options_ControlDropdown.SelectedText) & \")\" "
+									}
+								}
+							],
+							"sid": 562936178930905
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 748609002405961
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "OptionsTXT_CurrentKey",
+									"sid": 780490361736498,
+									"parameters": {
+										"text": "\"Current Key: \" & Keyboard.StringFromKeyCode(Options_ControlList.Get(Options_ControlDropdown.SelectedText)) "
+									}
+								}
+							],
+							"sid": 262063213882102
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Cancels the overwrite."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 2536445672145008,
+							"parameters": {
+								"object": "OptionsTXT_Cancel"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 3336591737409564,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 6664358904046905,
+							"parameters": {
+								"name": "\"OPT_CloseOverwrite\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 7091174223074928
+				},
+				{
+					"eventType": "comment",
+					"text": "Closes the empty values dialogue."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 4677156881879306,
+							"parameters": {
+								"object": "OptionsTXT_Return"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 862184456330858,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 3448813024148366,
+							"parameters": {
+								"name": "\"OPT_CloseEmptyValues\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 8381208907461105
+				}
+			],
+			"sid": 8218100603777115
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Options Cursor",
+			"description": "Mouse cursor changes on text hover.",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 48551484976526,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 8428224089119187,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 2491096546865505,
+									"parameters": {
+										"object": "OptionsTXT_Reset"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 6752790484209041,
+									"parameters": {
+										"object": "OptionsTXT_ResetAll"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 6584532407084202,
+									"parameters": {
+										"object": "OptionsTXT_Back"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 996450545519936,
+									"parameters": {
+										"object": "OptionsTXT_ClearAll"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 4322657315066505,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 1240962151652628,
+											"parameters": {
+												"variable": "options_SaveEnabled",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 2003347406910435,
+											"parameters": {
+												"object": "OptionsTXT_Save"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 406311730229631,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 128574385779736
+												}
+											],
+											"actions": [
+												{
+													"id": "set-cursor-style",
+													"objectClass": "Mouse",
+													"sid": 394154131409787,
+													"parameters": {
+														"cursor-style": "normal"
+													}
+												}
+											],
+											"sid": 849458588222765
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 2148104054622766,
+											"parameters": {
+												"variable": "options_SaveEnabled",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 615404517375438,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 2685217473803575
+												}
+											],
+											"actions": [
+												{
+													"id": "set-cursor-style",
+													"objectClass": "Mouse",
+													"sid": 9343707020472116,
+													"parameters": {
+														"cursor-style": "normal"
+													}
+												}
+											],
+											"sid": 273733057043959
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 268228273095266
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 1025514991542806,
+									"parameters": {
+										"object": "OptionsTXT_Reset"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 9399121719614504,
+									"parameters": {
+										"object": "OptionsTXT_ResetAll"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 675419000219807,
+									"parameters": {
+										"object": "OptionsTXT_ClearAll"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 5111774198459258,
+									"parameters": {
+										"object": "OptionsTXT_Back"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 4716707637404479,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 7779350389909719
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 6302376019968932,
+											"parameters": {
+												"cursor-style": "hand"
+											}
+										}
+									],
+									"sid": 2317401374346724
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 5811333665479445,
+									"parameters": {
+										"object": "OptionsTXT_Save"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 8487173037579259,
+									"parameters": {
+										"variable": "options_SaveEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 305787691338765,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 6696815746984904
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 9939747302663660,
+											"parameters": {
+												"cursor-style": "hand"
+											}
+										}
+									],
+									"sid": 7837298179865195
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 124047616171369,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 805628215054743,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 182434071996596,
+									"parameters": {
+										"object": "OptionsTXT_Confirm"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 518584291528172,
+									"parameters": {
+										"object": "OptionsTXT_Cancel"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 293957257769156,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 160714100816553
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 463386461076015,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 993843542756793
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 664332646523836,
+									"parameters": {
+										"object": "OptionsTXT_Confirm"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 419690709225661,
+									"parameters": {
+										"object": "OptionsTXT_Cancel"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 210736576564934,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 866477118683238
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 714890506803871,
+											"parameters": {
+												"cursor-style": "hand"
+											}
+										}
+									],
+									"sid": 291304236782069
+								}
+							],
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 655243055415272,
+							"parameters": {
+								"variable": "options_UIMode",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 621016496562684,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 815578413347537,
+									"parameters": {
+										"object": "OptionsTXT_Return"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 394214018985642,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 912837499305227
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 862683645865458,
+											"parameters": {
+												"cursor-style": "hand"
+											}
+										}
+									],
+									"sid": 764350676417819
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 235702152539545
+								}
+							],
+							"actions": [],
+							"sid": 825960204512391,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 376750612657501
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 515661743307479,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 778967641453964
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 3117756879454488
+		}
+	],
+	"sid": 531649722869286
+}

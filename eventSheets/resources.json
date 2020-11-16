@@ -1,0 +1,1261 @@
+{
+	"name": "Resources",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "util_FirstNames",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 944168066792362
+		},
+		{
+			"eventType": "variable",
+			"name": "util_LastNames",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 683564796326186
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Util NPCs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 810967753567437
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "NPC_Arms",
+							"sid": 690271524948590,
+							"disabled": true,
+							"parameters": {
+								"object": "NPC_Torso",
+								"image-point-optional": "1"
+							}
+						}
+					],
+					"sid": 126367364735934,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Shoes"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Shoes",
+									"sid": 163154516180361,
+									"parameters": {
+										"animation": "\"Idle\" & NPC_Shoes.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Shoes",
+									"sid": 207805197838976,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 899890890535248
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Shoes",
+									"sid": 372384745205320,
+									"parameters": {
+										"animation": "\"Walk\" & NPC_Shoes.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Shoes",
+									"sid": 106546694984205,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 1",
+										"y": "zzNPC_Sprite.Y - 30"
+									}
+								}
+							],
+							"sid": 196217759092744
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Shoes",
+									"sid": 119517774840219,
+									"parameters": {
+										"animation": "\"Hit\" & NPC_Shoes.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Shoes",
+									"sid": 892830801063019,
+									"parameters": {
+										"x": "zzNPC_Sprite.X - 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 939666790032569
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Shoes",
+									"sid": 676311184429782,
+									"parameters": {
+										"animation": "\"Death\" & NPC_Shoes.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Shoes",
+									"sid": 910767196735091,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 11",
+										"y": "zzNPC_Sprite.Y - 33"
+									}
+								}
+							],
+							"sid": 772760210348580
+						},
+						{
+							"eventType": "comment",
+							"text": "Head"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Head",
+									"sid": 887360358491182,
+									"parameters": {
+										"animation": "\"Idle\" & NPC_Head.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Head",
+									"sid": 382637280512650,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 502607707310144
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Head",
+									"sid": 828684661120634,
+									"parameters": {
+										"animation": "\"Walk\" & NPC_Head.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Head",
+									"sid": 766772431912937,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 1",
+										"y": "zzNPC_Sprite.Y - 30"
+									}
+								}
+							],
+							"sid": 595852451060058
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Head",
+									"sid": 785482833002637,
+									"parameters": {
+										"animation": "\"Hit\" & NPC_Head.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Head",
+									"sid": 504009820663888,
+									"parameters": {
+										"x": "zzNPC_Sprite.X - 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 871642376662978
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Head",
+									"sid": 844516319760253,
+									"parameters": {
+										"animation": "\"Death\" & NPC_Head.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Head",
+									"sid": 886193570170347,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 11",
+										"y": "zzNPC_Sprite.Y - 33"
+									}
+								}
+							],
+							"sid": 730020788545185
+						},
+						{
+							"eventType": "comment",
+							"text": "Torso"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Torso",
+									"sid": 435875053575086,
+									"parameters": {
+										"animation": "\"Idle\" & NPC_Torso.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Torso",
+									"sid": 803150535995387,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 506436071868898
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Torso",
+									"sid": 129208688707499,
+									"parameters": {
+										"animation": "\"Walk\" & NPC_Torso.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Torso",
+									"sid": 707817674412329,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 1",
+										"y": "zzNPC_Sprite.Y - 30"
+									}
+								}
+							],
+							"sid": 151753592011233
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Torso",
+									"sid": 466074734989054,
+									"parameters": {
+										"animation": "\"Hit\" & NPC_Torso.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Torso",
+									"sid": 560745185159408,
+									"parameters": {
+										"x": "zzNPC_Sprite.X - 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 759578622887725
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Torso",
+									"sid": 399629257924809,
+									"parameters": {
+										"animation": "\"Death\" & NPC_Torso.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Torso",
+									"sid": 769873724475442,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 11",
+										"y": "zzNPC_Sprite.Y - 33"
+									}
+								}
+							],
+							"sid": 166237335970338
+						},
+						{
+							"eventType": "comment",
+							"text": "Legs"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Legs",
+									"sid": 409196924429159,
+									"parameters": {
+										"animation": "\"Idle\" & NPC_Legs.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Legs",
+									"sid": 326777073733653,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 778342256752480
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Legs",
+									"sid": 833216085048490,
+									"parameters": {
+										"animation": "\"Walk\" & NPC_Legs.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Legs",
+									"sid": 285906022537157,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 1",
+										"y": "zzNPC_Sprite.Y - 30"
+									}
+								}
+							],
+							"sid": 213237733060614
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Legs",
+									"sid": 296345294390244,
+									"parameters": {
+										"animation": "\"Hit\" & NPC_Legs.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Legs",
+									"sid": 476683602468544,
+									"parameters": {
+										"x": "zzNPC_Sprite.X - 4",
+										"y": "zzNPC_Sprite.Y - 28"
+									}
+								}
+							],
+							"sid": 313257258459481
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "NPC_Legs",
+									"sid": 929506933797652,
+									"parameters": {
+										"animation": "\"Death\" & NPC_Legs.Type"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "NPC_Legs",
+									"sid": 976403624837445,
+									"parameters": {
+										"x": "zzNPC_Sprite.X + 11",
+										"y": "zzNPC_Sprite.Y - 33"
+									}
+								}
+							],
+							"sid": 916012801082312
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 230358311572683,
+							"parameters": {
+								"key": 49
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_Arms",
+							"sid": 523338297012635,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "zzNPC_Sprite",
+							"sid": 505044630971680,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Arms",
+							"sid": 361554539520002,
+							"parameters": {
+								"animation": "\"Idle1\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 963592510922668,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 647400808293094
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 376189971309063,
+							"parameters": {
+								"key": 50
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_Arms",
+							"sid": 175116227024858,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "zzNPC_Sprite",
+							"sid": 246838239540189,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Arms",
+							"sid": 807834814069964,
+							"parameters": {
+								"animation": "\"Walk2\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 736816473668801,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 900160612702855
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 389072124522905,
+							"parameters": {
+								"key": 51
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_Arms",
+							"sid": 550038163325934,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "zzNPC_Sprite",
+							"sid": 725429234014941,
+							"parameters": {
+								"animation": "\"Hit\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 570139446596397,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 898287571358271
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 856797316020073,
+							"parameters": {
+								"key": 52
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NPC_Arms",
+							"sid": 272751406623162,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "zzNPC_Sprite",
+							"sid": 922764351856342,
+							"parameters": {
+								"animation": "\"Death\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 965234161161922,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 877506629611150
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 626041848008852,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Legs",
+							"sid": 282779687464653,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type + 1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Torso",
+							"sid": 171687250594185,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type + 1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Head",
+							"sid": 842329053203069,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type + 1"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 290928990908361,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 570317922984335
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 125686974054332,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Legs",
+							"sid": 962631394579285,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type - 1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Torso",
+							"sid": 303769446096989,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type - 1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Head",
+							"sid": 449224815696425,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "Self.Type - 1"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 384849043751763,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 454755394891123
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 807489687155782,
+							"parameters": {
+								"name": "\"NPC_UpdateClothes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Shoes",
+							"sid": 957789399377578,
+							"parameters": {
+								"animation": "zzNPC_Sprite.AnimationName & NPC_Shoes.Type",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Head",
+							"sid": 321256286817386,
+							"parameters": {
+								"animation": "zzNPC_Sprite.AnimationName & NPC_Head.Type",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Torso",
+							"sid": 593997818897945,
+							"parameters": {
+								"animation": "zzNPC_Sprite.AnimationName & NPC_Torso.Type",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Legs",
+							"sid": 654187317547893,
+							"parameters": {
+								"animation": "zzNPC_Sprite.AnimationName & NPC_Legs.Type",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NPC_Arms",
+							"sid": 554801095465794,
+							"disabled": true,
+							"parameters": {
+								"animation": "zzNPC_Sprite.AnimationName & NPC_Torso.Type",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 656662449964234,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "NPC_Torso",
+									"sid": 410742559260987,
+									"parameters": {
+										"animation": "\"Civ_\" & zzNPC_Sprite.AnimationName & NPC_Torso.Type",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 504186234265409,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 485275778089232
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Util Names",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 412205387558200,
+							"parameters": {
+								"key": 70
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 711476037886746,
+							"parameters": {
+								"width": "Self.Width + 1",
+								"height": "Self.Height ",
+								"depth": "Self.Depth"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 705769423730958,
+							"parameters": {
+								"x": "0",
+								"y": "0",
+								"value": "\"Ya\""
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 242650663994905,
+							"parameters": {
+								"x": "0",
+								"y": "1",
+								"value": "\"Yeet\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 205233772202640,
+							"parameters": {
+								"width": "Self.Width  + 1",
+								"height": "Self.Height",
+								"depth": "Self.Depth"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 711605169307113,
+							"parameters": {
+								"x": "1",
+								"y": "0",
+								"value": "\"Ya2\""
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 198998713248736,
+							"parameters": {
+								"x": "1",
+								"y": "1",
+								"value": "\"Yeet2\""
+							}
+						}
+					],
+					"sid": 385686915251019
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 307133425798661,
+							"parameters": {
+								"key": 71
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "zzPlayer_IDs_NPC",
+							"sid": 225631458757186,
+							"disabled": true,
+							"parameters": {
+								"json": "Util_FirstName.AsJSON"
+							}
+						}
+					],
+					"sid": 648961780076800
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Util_SaveNames",
+							"sid": 965242644876294
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 971580000033826,
+							"parameters": {
+								"variable": "util_FirstNames",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 316266491529123,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 855444462625147,
+									"parameters": {
+										"count": "len(Util_FirstName.Text)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 358479935915080,
+									"parameters": {
+										"first-value": "mid(Util_FirstName.Text,loopindex,1)",
+										"comparison": 0,
+										"second-value": "newline"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 328716730777738,
+									"parameters": {
+										"variable": "util_FirstNames",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 335096999516072
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 315361522906086,
+									"parameters": {
+										"count": "len(Util_LastName.Text)"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 800176973727778,
+									"parameters": {
+										"first-value": "mid(Util_LastName.Text,loopindex,1)",
+										"comparison": 0,
+										"second-value": "newline"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 318688821738607,
+									"parameters": {
+										"variable": "util_LastNames",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 182510481037616
+						},
+						{
+							"eventType": "comment",
+							"text": "Make sure last names aren't empty when loading"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "zzPlayer_IDs_Names",
+									"sid": 225789017927761,
+									"parameters": {
+										"width": "Self.Width",
+										"height": "util_FirstNames",
+										"depth": "Self.Depth"
+									}
+								}
+							],
+							"sid": 587116743430426
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 748189973456038,
+									"parameters": {
+										"count": "util_FirstNames"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "zzPlayer_IDs_Names",
+									"sid": 174846496596787,
+									"parameters": {
+										"x": "0",
+										"y": "loopindex",
+										"value": "tokenat(Util_FirstName.Text,loopindex,newline)"
+									}
+								}
+							],
+							"sid": 909065275122195
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 870952979597394,
+									"parameters": {
+										"count": "util_LastNames"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xy",
+									"objectClass": "zzPlayer_IDs_Names",
+									"sid": 853051154331181,
+									"parameters": {
+										"x": "1",
+										"y": "loopindex",
+										"value": "tokenat(Util_LastName.Text,loopindex,newline)"
+									}
+								}
+							],
+							"sid": 974343366143103
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "download",
+									"objectClass": "zzPlayer_IDs_Names",
+									"sid": 936188811451621,
+									"parameters": {
+										"filename": "\"adder_names.json\""
+									}
+								}
+							],
+							"sid": 152077425096203
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Util_LoadNames",
+							"sid": 319186238034894
+						}
+					],
+					"actions": [
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 140335327484969,
+							"parameters": {
+								"tag": "\"Names\"",
+								"url": "Util_Loader.FileURLAt(0)"
+							}
+						}
+					],
+					"sid": 868701652533810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 801819965595641,
+							"parameters": {
+								"tag": "\"Names\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "zzPlayer_IDs_Names",
+							"sid": 898507980066775,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Util_FirstName",
+							"sid": 739990265099949,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Util_LastName",
+							"sid": 121882834985778,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 621139360030359,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 874229102178553,
+									"parameters": {
+										"count": "zzPlayer_IDs_Names.Height"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Util_FirstName",
+									"sid": 174756841535127,
+									"parameters": {
+										"text": "Self.text & zzPlayer_IDs_Names.At(0,loopindex) & newline "
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Util_LastName",
+									"sid": 262931933338629,
+									"parameters": {
+										"text": "Self.text & zzPlayer_IDs_Names.At(1,loopindex) & newline "
+									}
+								}
+							],
+							"sid": 666970857835645
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 651667417282700,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 110777997845858,
+							"parameters": {
+								"layout": "zzzCustomization"
+							}
+						}
+					],
+					"sid": 152440717225878
+				}
+			],
+			"sid": 122842061704780
+		}
+	],
+	"sid": 536429051982087
+}

@@ -1,0 +1,1358 @@
+{
+	"name": "Intro_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Level Master"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Intro Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "TODO: Verify MoveTo"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 418423588646364
+						}
+					],
+					"actions": [],
+					"sid": 884898431485080,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 162262646270390
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 243932859358571,
+									"parameters": {
+										"type": "log",
+										"message": "\"Build Finished\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 890325390022980,
+									"parameters": {
+										"name": "\"GFX_FadeIn\"",
+										"parameter-n": [
+											"0.5",
+											"3"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 618098161932350,
+									"parameters": {
+										"name": "\"TXT_Scene\"",
+										"parameter-n": [
+											"function.Call(\"getText\", \"introscene1\")",
+											"0.01",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 742700211628249,
+									"parameters": {
+										"variable": "level_Loaded",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 548260220455748,
+									"parameters": {
+										"variable": "map_LevelToBuild",
+										"value": "\"Intro\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 682208553704211,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"value": "0"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 327845459127529,
+									"parameters": {
+										"object-to-create": "Camera",
+										"layer": "\"Level\"",
+										"x": "200",
+										"y": "944"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Camera",
+									"sid": 772239301620734,
+									"disabled": true,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Camera",
+									"sid": 695865510954010
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 316509438126946,
+									"parameters": {
+										"instance-variable": "zzStartX",
+										"value": "Self.X"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Camera",
+									"sid": 923808384730156,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"enabled": true
+									}
+								},
+								{
+									"id": "set-max-speed",
+									"objectClass": "Camera",
+									"sid": 359296005892928,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"max-speed": "40"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "Camera",
+									"sid": 391352983053236,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "1250",
+										"y": "944",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Solid2Wall",
+									"sid": 772830870486273,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 520288036853152,
+									"parameters": {
+										"variable": "system_ZoomBase",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 648435211284088,
+									"parameters": {
+										"variable": "BG_Name",
+										"value": "\"Wastes\""
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 601377469719523,
+									"parameters": {
+										"name": "\"Spawn_BG\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 484981962725654
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 693388862973782,
+									"parameters": {
+										"object": "Door"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 575111845821712,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Door",
+											"sid": 693658516781515
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 875617171320167,
+											"parameters": {
+												"object-to-create": "Door_Scent",
+												"layer": "\"Objects\"",
+												"x": "Door.X",
+												"y": "Door.Y"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Door_Scent",
+											"sid": 223767160603703,
+											"parameters": {
+												"x": "Self.X - 12"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 181377569584239,
+											"parameters": {
+												"object-to-create": "Door_Scent",
+												"layer": "\"Objects\"",
+												"x": "Door.X",
+												"y": "Door.Y"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Door_Scent",
+											"sid": 139891794544052,
+											"parameters": {
+												"x": "Self.X + 4"
+											}
+										}
+									],
+									"sid": 579613319639911
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 301413539993187
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 770532424030452,
+											"parameters": {
+												"object-to-create": "Door_Scent",
+												"layer": "\"Objects\"",
+												"x": "Door.X",
+												"y": "Door.Y"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Door_Scent",
+											"sid": 521039345892708,
+											"parameters": {
+												"x": "Self.X - 4"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 619587819218242,
+											"parameters": {
+												"object-to-create": "Door_Scent",
+												"layer": "\"Objects\"",
+												"x": "Door.X",
+												"y": "Door.Y"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "Door_Scent",
+											"sid": 560557394991307,
+											"parameters": {
+												"x": "Self.X + 12"
+											}
+										}
+									],
+									"sid": 407109154478159
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-end-of-layout",
+							"objectClass": "System",
+							"sid": 533903313429944
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 665811908692927,
+							"parameters": {
+								"variable": "game_CleanupEnabled",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 551641448531140,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-platform",
+									"objectClass": "System",
+									"sid": 577841660439573,
+									"parameters": {
+										"platform": "ios"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 383731348370633,
+									"parameters": {
+										"variable": "system_ZoomBase",
+										"value": "zsystem_ZoomBasePhone"
+									}
+								}
+							],
+							"sid": 581375986201819
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 879730072227061
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 178540811794859,
+									"parameters": {
+										"variable": "system_ZoomBase",
+										"value": "system_ZoomBasePC"
+									}
+								}
+							],
+							"sid": 292686069448121
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 438896328824558,
+							"parameters": {
+								"variable": "system_ZoomBase",
+								"value": "1 - (0.7*((Camera.X-Camera.zzStartX)/(Camera.MoveTo.TargetX - Camera.zzStartX))) "
+							}
+						},
+						{
+							"callFunction": "Update_Zoom",
+							"sid": 990286345211345
+						}
+					],
+					"sid": 202651102531560
+				}
+			],
+			"sid": 197517439480844
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Intro Progression",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zombie",
+							"sid": 636357631993165,
+							"parameters": {
+								"object": "Marker"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 629755918058179,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Marker",
+									"sid": 860821585890085,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 705711231461309,
+									"parameters": {
+										"name": "\"GFX_Fade\"",
+										"parameter-n": [
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 840909615593599,
+									"parameters": {
+										"name": "\"TXT_Scene\"",
+										"parameter-n": [
+											"function.Call(\"getText\", \"introscene2\")",
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 961180792524595,
+									"parameters": {
+										"type": "log",
+										"message": "\"yeeet\""
+									}
+								}
+							],
+							"sid": 372663205032450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Marker",
+									"sid": 730753736902006,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 455539314564846,
+									"parameters": {
+										"name": "\"GFX_Fade\"",
+										"parameter-n": [
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 344971136539459,
+									"parameters": {
+										"name": "\"TXT_Scene\"",
+										"parameter-n": [
+											"function.Call(\"getText\", \"introscene3\")",
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 670858732203033,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 845363929010126,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"1"
+										]
+									}
+								}
+							],
+							"sid": 207156034217676
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Marker",
+									"sid": 831949881105498,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 485684928006374,
+									"parameters": {
+										"name": "\"GFX_Fade\"",
+										"parameter-n": [
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 158278341117757,
+									"parameters": {
+										"name": "\"TXT_Scene\"",
+										"parameter-n": [
+											"function.Call(\"getText\", \"introscene4\")",
+											"0.5",
+											"3",
+											"0.5"
+										]
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 685958717858048,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 750299965468088,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"2"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 745539901758943,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"3"
+										]
+									}
+								}
+							],
+							"sid": 521913934161902
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Marker",
+									"sid": 747959838901511
+								}
+							],
+							"sid": 442080403961718
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 648623961011534,
+							"parameters": {
+								"name": "\"Intro_Scene\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 759894054743759,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 657912699859309,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 709793335268385,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"10"
+										]
+									}
+								}
+							],
+							"sid": 660640984648238
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 934797618236150,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 527685174906081,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"11"
+										]
+									}
+								}
+							],
+							"sid": 499021790531146
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 617945444067988,
+									"parameters": {
+										"index": "0",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 928057000873769,
+									"parameters": {
+										"name": "\"Intro_Scene\"",
+										"parameter-n": [
+											"12"
+										]
+									}
+								}
+							],
+							"sid": 722993842660853,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 567188424257451,
+											"parameters": {
+												"object": "Door"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Door",
+											"sid": 592978327581492,
+											"parameters": {
+												"object": "Door_Range"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Door_Range",
+											"sid": 962817140993979,
+											"parameters": {
+												"object": "Door_Scent"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "Door",
+											"sid": 529247437766911,
+											"parameters": {
+												"collisions": "disabled"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Door",
+											"sid": 750431167299152,
+											"parameters": {
+												"animation": "\"WoodDestroy\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Door_Range",
+											"sid": 912090152853768
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Door_Scent",
+											"sid": 982486415609896
+										}
+									],
+									"sid": 412837930405300
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 791098735510295,
+									"parameters": {
+										"index": "0",
+										"comparison": 4,
+										"value": "9"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 956316545025678,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Marker",
+											"sid": 158653889369307,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "function.Param(0)"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 547128878641676,
+											"parameters": {
+												"object": "Marker"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 947349432956262,
+											"parameters": {
+												"object-to-create": "Zombie",
+												"layer": "\"Objects\"",
+												"x": "Marker.X",
+												"y": "Marker.Y"
+											}
+										}
+									],
+									"sid": 407263414720061,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Marker",
+													"sid": 302456356842767,
+													"parameters": {
+														"object": "Fog"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-fade",
+													"objectClass": "Fog",
+													"sid": 271703263731030,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 188605404859662
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Add Title Impact Noise"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Camera",
+							"sid": 132530066040307,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "500"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 714092978154119,
+							"parameters": {
+								"first-value": "Human.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 139183924860883
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 321197449560795,
+							"parameters": {
+								"name": "\"GFX_Fade\"",
+								"parameter-n": [
+									"1",
+									"60",
+									"0"
+								]
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 914985899096553,
+							"parameters": {
+								"name": "\"TXT_Scene\"",
+								"parameter-n": [
+									"function.Call(\"getText\", \"introscene5\")",
+									"1",
+									"3",
+									"1"
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 179138454112060,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 990064515637322,
+							"parameters": {
+								"name": "\"TXT_Scene\"",
+								"parameter-n": [
+									"function.Call(\"getText\", \"introscene6\")",
+									"1",
+									"3",
+									"1"
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 678530686720263,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 384980368082327,
+							"parameters": {
+								"name": "\"TXT_Scene\"",
+								"parameter-n": [
+									"\"TITLE\"",
+									"1",
+									"5",
+									"1"
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 691139837803496,
+							"parameters": {
+								"seconds": "8"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 533170576044563,
+							"parameters": {
+								"layout": "Tutorial"
+							}
+						}
+					],
+					"sid": 798029476717173
+				}
+			],
+			"sid": 355451949549478
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 574040647236259,
+					"parameters": {
+						"key": 27
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 486989619420210,
+					"parameters": {
+						"layout": "Tutorial"
+					}
+				}
+			],
+			"sid": 742338348681385
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Zombie",
+					"sid": 994886629660987
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "NPC_Sprite",
+					"sid": 500224367366307,
+					"parameters": {
+						"unique-id": "Zombie.zzSpriteID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombie",
+					"sid": 995408662196935,
+					"parameters": {
+						"instance-variable": "zzLevel",
+						"value": "floor(random(1,10.99))"
+					}
+				}
+			],
+			"sid": 707214995199843,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 100764212440292,
+							"parameters": {
+								"instance-variable": "zzLevel",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 139130337028868,
+							"parameters": {
+								"instance-variable": "zzLevel",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Sprite",
+							"sid": 833951416834213,
+							"parameters": {
+								"instance-variable": "zzVariant",
+								"value": "choose(1,2,3,4,5)"
+							}
+						}
+					],
+					"sid": 881577259906770,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 689918602019152
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 993817244137818,
+							"parameters": {
+								"instance-variable": "zzLevel",
+								"comparison": 0,
+								"value": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Sprite",
+							"sid": 927157718923912,
+							"parameters": {
+								"instance-variable": "zzVariant",
+								"value": "15"
+							}
+						}
+					],
+					"sid": 554598136000487
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 149048680046492
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC_Sprite",
+							"sid": 871289441281368,
+							"parameters": {
+								"instance-variable": "zzVariant",
+								"value": "ceil(Zombie.zzLevel/2) + 9"
+							}
+						}
+					],
+					"sid": 701228248410297
+				},
+				{
+					"eventType": "comment",
+					"text": "Init Stats"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 792792814763498,
+							"parameters": {
+								"instance-variable": "zzHP",
+								"value": "Self.zzHP"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 661162718666034,
+							"parameters": {
+								"instance-variable": "zzRoamSpeed",
+								"value": "Self.zzRoamSpeed*random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 449819437583185,
+							"parameters": {
+								"instance-variable": "zzChaseSpeed",
+								"value": "Self.zzChaseSpeed*random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 776691715693005,
+							"parameters": {
+								"instance-variable": "zzMaxHP",
+								"value": "Self.zzMaxHP*random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 486845576182212,
+							"parameters": {
+								"instance-variable": "zzHP",
+								"value": "Self.zzHP"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 458349809699096,
+							"parameters": {
+								"instance-variable": "zzAttack",
+								"value": "Self.zzAttack*random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 750315575770063,
+							"parameters": {
+								"instance-variable": "zzMoney",
+								"value": "Self.zzMoney*random(0.9,1.1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 194651289962657,
+							"parameters": {
+								"instance-variable": "zzEXP",
+								"value": "Self.zzEXP*random(0.9,1.1)"
+							}
+						}
+					],
+					"sid": 611886187409975
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 515436480443549,
+							"parameters": {
+								"instance-variable": "zzWalkType",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 784375708259378,
+							"parameters": {
+								"instance-variable": "zzRoamSpeed",
+								"value": "Self.zzRoamSpeed*0.60"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 868056995268710,
+							"parameters": {
+								"instance-variable": "zzChaseSpeed",
+								"value": "Self.zzChaseSpeed*0.60"
+							}
+						}
+					],
+					"sid": 564324749459934
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 782869630311170,
+							"parameters": {
+								"instance-variable": "zzWalkType",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 845469038694723,
+							"parameters": {
+								"instance-variable": "zzRoamSpeed",
+								"value": "Self.zzRoamSpeed*0.80"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 563528838635289,
+							"parameters": {
+								"instance-variable": "zzChaseSpeed",
+								"value": "Self.zzChaseSpeed*0.80"
+							}
+						}
+					],
+					"sid": 514672609857043
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 549282813809841,
+							"parameters": {
+								"instance-variable": "zzHP",
+								"value": "Self.zzMaxHP"
+							}
+						}
+					],
+					"sid": 486301165081124
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "NPC_Sprite",
+							"sid": 937584978014690,
+							"parameters": {
+								"frame-number": "floor(random(0,Self.AnimationFrameCount))"
+							}
+						}
+					],
+					"sid": 609591790394515
+				}
+			]
+		}
+	],
+	"sid": 181027375396108
+}

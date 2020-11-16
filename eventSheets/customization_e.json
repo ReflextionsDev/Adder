@@ -1,0 +1,1113 @@
+{
+	"name": "Customization_E",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "TODO"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "variable",
+			"name": "customization_ColonyNameMaxLength",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 481374618725284
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Colony Name",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-text-changed",
+							"objectClass": "UI_Customization_ColonyName",
+							"sid": 828089187813933
+						}
+					],
+					"actions": [],
+					"sid": 452563811083719,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 481607089523759,
+									"parameters": {
+										"first-value": "len(UI_Customization_ColonyName.Text)",
+										"comparison": 4,
+										"second-value": "Customization_ColonyNameMaxLength"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 328809741100120,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 490994567484684
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 915557312324617
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 938568477659478,
+									"parameters": {
+										"first-value": "len(UI_Customization_ColonyName.Text)",
+										"comparison": 2,
+										"second-value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 585939455247812,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 986202424897791
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 589309388683786
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 281873545447786,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 194064133420699
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 919321121193600,
+							"parameters": {
+								"object": "UI_Customization_ColonyRandom"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 634516006707099,
+							"parameters": {
+								"name": "\"Input_Customization_Randomize\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 379011080631994
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 389616968232415,
+							"parameters": {
+								"object": "UI_Customization_OK"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 700725405998946,
+							"parameters": {
+								"name": "\"Input_Customization_OK\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 274173222142120
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 455200125510712,
+							"parameters": {
+								"gamepad": "0",
+								"button": "button-a"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 151883755659807,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player_Target",
+									"sid": 999279268580065,
+									"parameters": {
+										"object": "UI_Customization_OK"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_Customization_OK",
+									"sid": 169840368479772,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 470161291198974,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_Customization_OK",
+									"sid": 625316769059950,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 682856098907538,
+									"parameters": {
+										"name": "\"Input_Customization_OK\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 946589190486973
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player_Target",
+									"sid": 579722236728026,
+									"parameters": {
+										"object": "UI_Customization_ColonyRandom"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_Customization_ColonyRandom",
+									"sid": 101096111545708,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 503156343714708,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_Customization_ColonyRandom",
+									"sid": 291934465517180,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 409760260998608,
+									"parameters": {
+										"name": "\"Input_Customization_Randomize\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 620207599667434
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 237975784483266,
+							"parameters": {
+								"name": "\"Input_Customization_Randomize\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 953180985536824,
+							"parameters": {
+								"layer": "\"ColonyName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_Customization_ColonyName",
+							"sid": 617754691523376,
+							"parameters": {
+								"text": "function.Call(\"getText\", \"colonyname\" & floor(random(1,10.9)))"
+							}
+						}
+					],
+					"sid": 305978305099737,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 467603667134590,
+									"parameters": {
+										"first-value": "len(UI_Customization_ColonyName.Text)",
+										"comparison": 4,
+										"second-value": "Customization_ColonyNameMaxLength"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 272991468193344,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 838896080272633
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 915068536244736
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 663056392831553,
+									"parameters": {
+										"first-value": "len(UI_Customization_ColonyName.Text)",
+										"comparison": 2,
+										"second-value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 700540493683599,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 143570994838600
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 567258473832555
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK",
+									"sid": 605980791596883,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 374545720072662
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 731881886295347,
+							"parameters": {
+								"name": "\"Input_Customization_OK\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 978607178114524,
+							"parameters": {
+								"layer": "\"ColonyName\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 444165851170552,
+							"parameters": {
+								"first-value": "len(UI_Customization_ColonyName.Text)",
+								"comparison": 3,
+								"second-value": "Customization_ColonyNameMaxLength"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 187348387684636,
+							"parameters": {
+								"first-value": "len(UI_Customization_ColonyName.Text)",
+								"comparison": 4,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 956437334319699,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "zzz_Colony",
+							"sid": 443340812718343,
+							"parameters": {
+								"instance-variable": "Name",
+								"value": "uppercase(UI_Customization_ColonyName.Text)"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 459728526703269,
+							"parameters": {
+								"name": "\"Save_Colony\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 743144166623727,
+							"parameters": {
+								"key": "system_saveslot & \"Region\" & mapbuilder_Region & \"Generated\" "
+							}
+						}
+					],
+					"sid": 680518551230810
+				}
+			],
+			"sid": 906843029213092
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Name",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-text-changed",
+							"objectClass": "UI_Customization_FirstName",
+							"sid": 368203161107203
+						},
+						{
+							"id": "on-text-changed",
+							"objectClass": "UI_Customization_LastName",
+							"sid": 255323852658807
+						}
+					],
+					"actions": [],
+					"sid": 141266589065389,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 646215929527617,
+									"parameters": {
+										"first-value": "len(UI_Customization_FirstName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 964592680918276,
+									"parameters": {
+										"first-value": "len(UI_Customization_LastName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 651973217989174,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 725043654050603
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 948856808488931
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 843022954391716,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 364373411220358
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 462059122079161,
+							"parameters": {
+								"object": "UI_Customization_RandomFirstName"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 687500702059479,
+							"parameters": {
+								"layer": "\"PlayerName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_Customization_FirstName",
+							"sid": 129925075038720,
+							"parameters": {
+								"text": "zzPlayer_IDs_Names.At(0,floor(random(0,zzPlayer_IDs_Names.Height)))"
+							}
+						}
+					],
+					"sid": 191905645328765,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 482239457986117,
+									"parameters": {
+										"first-value": "len(UI_Customization_FirstName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 871350662525610,
+									"parameters": {
+										"first-value": "len(UI_Customization_LastName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 791401362085324,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 295779359571595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 754763952136521
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 322620783973078,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 838893230448295
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 968762009669696,
+							"parameters": {
+								"object": "UI_Customization_RandomLastName"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 383462570079317,
+							"parameters": {
+								"layer": "\"PlayerName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_Customization_LastName",
+							"sid": 515903656610266,
+							"parameters": {
+								"text": "zzPlayer_IDs_Names.At(1,floor(random(0,zzPlayer_IDs_Names.Height)))"
+							}
+						}
+					],
+					"sid": 502143689854880,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 125774467238194,
+									"parameters": {
+										"first-value": "len(UI_Customization_FirstName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 940634377398562,
+									"parameters": {
+										"first-value": "len(UI_Customization_LastName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 337243925239253,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 683893508285455
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 791897006658059
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UI_Customization_OK2",
+									"sid": 775515204694748,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 707726892726173
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 222336347679838,
+							"parameters": {
+								"object": "UI_Customization_OK2"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 709182911653945,
+							"parameters": {
+								"layer": "\"PlayerName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 604126335433818,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 883980837107416,
+							"parameters": {
+								"layer": "\"PlayerName\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 674404142554115,
+							"parameters": {
+								"layer": "\"ColonyName\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 402784260932677,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 387424957179028,
+									"parameters": {
+										"first-value": "len(UI_Customization_FirstName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 426303649495958,
+									"parameters": {
+										"first-value": "len(UI_Customization_LastName.Text)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "zzz_Colony",
+									"sid": 596448619540631,
+									"parameters": {
+										"instance-variable": "FirstName",
+										"value": "UI_Customization_FirstName.Text"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "zzz_Colony",
+									"sid": 712264930556545,
+									"parameters": {
+										"instance-variable": "LastName",
+										"value": "UI_Customization_LastName.Text"
+									}
+								}
+							],
+							"sid": 263034716039644
+						}
+					]
+				}
+			],
+			"sid": 196894431188734
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 457958296953958,
+					"parameters": {
+						"object": "UI_Customization_Back"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 924595238764137,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 414829634300594,
+							"parameters": {
+								"layer": "\"PlayerName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 205975814989736,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 498480979092901,
+							"parameters": {
+								"layer": "\"PlayerName\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 496782937100578,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 117535232328689,
+							"parameters": {
+								"layer": "\"ColonyName\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 697839100585366,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 283017387878119,
+							"parameters": {
+								"layer": "\"ColonyName\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 911065996450957,
+							"parameters": {
+								"layer": "\"PlayerName\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 346167114619813,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 541041419676390,
+					"parameters": {
+						"key": "system_saveslot & \"Region\" & mapbuilder_Region & \"Generated\" "
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 956039627093665,
+					"parameters": {
+						"key": "system_saveslot & \"Region\" & mapbuilder_Region & \"Generated\" "
+					}
+				}
+			],
+			"sid": 896940983238124
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 446272442788242,
+					"parameters": {
+						"key": "system_saveslot & \"Region\" & mapbuilder_Region & \"Generated\" "
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 501639362904943,
+					"parameters": {
+						"layout": "zzzIntro"
+					}
+				}
+			],
+			"sid": 776994381577133
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 107708819479847,
+					"parameters": {
+						"key": "system_saveslot & \"Region\" & mapbuilder_Region & \"Generated\" "
+					}
+				}
+			],
+			"actions": [],
+			"sid": 820022173149574
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 168111627179393,
+					"parameters": {
+						"object": "Customization"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 612509894759577,
+					"parameters": {
+						"object": "Customization"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 704446642675535,
+					"parameters": {
+						"variable": "zzSystem_UsingGamepad",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Customization",
+					"sid": 553503178634959,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 969929967340233
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 594917964127134,
+					"parameters": {
+						"object": "Customization"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 947125453602560,
+					"parameters": {
+						"object": "Customization"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 813377078632641,
+					"parameters": {
+						"variable": "zzSystem_UsingGamepad",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Customization",
+					"sid": 627549506216173,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 194248744512667
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 524326179951439
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "UpgradeTXT_Static",
+					"sid": 414297222554617,
+					"parameters": {
+						"text": "function.Call(\"getText\", \"colonynameprompt\")"
+					}
+				}
+			],
+			"sid": 941903462109139
+		}
+	],
+	"sid": 131891434745272
+}

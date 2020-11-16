@@ -1,0 +1,76 @@
+{
+	"name": "End_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Saves"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 367203521086788
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "zzz_Colony",
+					"sid": 523775737788894,
+					"parameters": {
+						"instance-variable": "Research1Collected",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "zzz_Colony",
+					"sid": 111047956909376,
+					"parameters": {
+						"instance-variable": "Research2Collected",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "zzz_Colony",
+					"sid": 489283109359489,
+					"parameters": {
+						"instance-variable": "Research3Collected",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "zzz_Colony",
+					"sid": 994603954834038,
+					"parameters": {
+						"instance-variable": "Wins",
+						"value": "1"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 656393422083697,
+					"parameters": {
+						"name": "\"Save_Colony\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 468657833877418,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				}
+			],
+			"sid": 727986672495253
+		}
+	],
+	"sid": 402971290648973
+}

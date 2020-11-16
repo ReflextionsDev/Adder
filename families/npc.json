@@ -1,0 +1,513 @@
+{
+	"name": "NPC",
+	"plugin-id": "Sprite",
+	"sid": 643447417629230,
+	"instanceVariables": [
+		{
+			"name": "PresetLabel",
+			"type": "string",
+			"desc": "",
+			"sid": 571477855232036
+		},
+		{
+			"name": "HasClothes",
+			"type": "number",
+			"desc": "",
+			"sid": 648586619374138
+		},
+		{
+			"name": "Weapon",
+			"type": "string",
+			"desc": "",
+			"sid": 303051456906861
+		},
+		{
+			"name": "CanHeadshot",
+			"type": "number",
+			"desc": "",
+			"sid": 278076292624090
+		},
+		{
+			"name": "CanGib",
+			"type": "number",
+			"desc": "",
+			"sid": 371866822649794
+		},
+		{
+			"name": "CanCripple",
+			"type": "number",
+			"desc": "",
+			"sid": 539536619234520
+		},
+		{
+			"name": "Flammable",
+			"type": "boolean",
+			"desc": "",
+			"sid": 482276952175812
+		},
+		{
+			"name": "Helmeted",
+			"type": "number",
+			"desc": "",
+			"sid": 756066420827297
+		},
+		{
+			"name": "HurtboxHead_ID",
+			"type": "number",
+			"desc": "",
+			"sid": 368385573482828
+		},
+		{
+			"name": "HurtboxHead_HP",
+			"type": "number",
+			"desc": "",
+			"sid": 719623427885048
+		},
+		{
+			"name": "HurtboxHead_MP",
+			"type": "number",
+			"desc": "",
+			"sid": 574194433281916
+		},
+		{
+			"name": "HurtboxHead_Armor",
+			"type": "number",
+			"desc": "",
+			"sid": 680918762832673
+		},
+		{
+			"name": "HurtboxHead_Width",
+			"type": "number",
+			"desc": "",
+			"sid": 375817223793046
+		},
+		{
+			"name": "HurtboxHead_Height",
+			"type": "number",
+			"desc": "",
+			"sid": 632879858672549
+		},
+		{
+			"name": "HurtboxTorso_ID",
+			"type": "number",
+			"desc": "",
+			"sid": 996703628875987
+		},
+		{
+			"name": "HurtboxTorso_HP",
+			"type": "number",
+			"desc": "",
+			"sid": 457479378951837
+		},
+		{
+			"name": "HurtboxTorso_MP",
+			"type": "number",
+			"desc": "",
+			"sid": 551324355900504
+		},
+		{
+			"name": "HurtboxTorso_Armor",
+			"type": "number",
+			"desc": "",
+			"sid": 891253314133188
+		},
+		{
+			"name": "HurtboxTorso_Width",
+			"type": "number",
+			"desc": "",
+			"sid": 195378152208350
+		},
+		{
+			"name": "HurtboxTorso_Height",
+			"type": "number",
+			"desc": "",
+			"sid": 888477120975432
+		},
+		{
+			"name": "HurtboxLegs_ID",
+			"type": "number",
+			"desc": "",
+			"sid": 374917521090436
+		},
+		{
+			"name": "HurtboxLegs_HP",
+			"type": "number",
+			"desc": "",
+			"sid": 592049690404392
+		},
+		{
+			"name": "HurtboxLegs_MP",
+			"type": "number",
+			"desc": "",
+			"sid": 492391690399484
+		},
+		{
+			"name": "HurtboxLegs_Armor",
+			"type": "number",
+			"desc": "",
+			"sid": 672906347239406
+		},
+		{
+			"name": "HurtboxLegs_Width",
+			"type": "number",
+			"desc": "",
+			"sid": 664907031638470
+		},
+		{
+			"name": "HurtboxLegs_Height",
+			"type": "number",
+			"desc": "",
+			"sid": 222304618284521
+		},
+		{
+			"name": "Level",
+			"type": "number",
+			"desc": "",
+			"sid": 812123981463844
+		},
+		{
+			"name": "Race",
+			"type": "string",
+			"desc": "Human, Zombie",
+			"sid": 341935665700930
+		},
+		{
+			"name": "Class",
+			"type": "string",
+			"desc": "Faction Subtype",
+			"sid": 610164062154009
+		},
+		{
+			"name": "State",
+			"type": "string",
+			"desc": "",
+			"sid": 193096545193522
+		},
+		{
+			"name": "Skintone",
+			"type": "string",
+			"desc": "",
+			"sid": 154532660284311
+		},
+		{
+			"name": "SpriteID",
+			"type": "number",
+			"desc": "",
+			"sid": 119762576021067
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 359519425884422
+		},
+		{
+			"name": "MaxHP",
+			"type": "number",
+			"desc": "",
+			"sid": 562983220454094
+		},
+		{
+			"name": "RoamSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 102547275063461
+		},
+		{
+			"name": "ChaseSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 601075301438972
+		},
+		{
+			"name": "RoamRange",
+			"type": "number",
+			"desc": "",
+			"sid": 649110442788424
+		},
+		{
+			"name": "WalkType",
+			"type": "number",
+			"desc": "",
+			"sid": 112474285080403
+		},
+		{
+			"name": "Attack",
+			"type": "number",
+			"desc": "",
+			"sid": 401184650626327
+		},
+		{
+			"name": "FirstLand",
+			"type": "boolean",
+			"desc": "",
+			"sid": 301650349898891
+		},
+		{
+			"name": "OnFire",
+			"type": "boolean",
+			"desc": "",
+			"sid": 437346383041889
+		},
+		{
+			"name": "FireID",
+			"type": "number",
+			"desc": "",
+			"sid": 582241680801770
+		},
+		{
+			"name": "HitTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 998308616549590
+		},
+		{
+			"name": "ChaseID",
+			"type": "number",
+			"desc": "",
+			"sid": 627204080307816
+		},
+		{
+			"name": "zzChaseDoor",
+			"type": "boolean",
+			"desc": "",
+			"sid": 741892079387483
+		},
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"sid": 811034628397762
+		},
+		{
+			"name": "WaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 750955173440349
+		},
+		{
+			"name": "MinWaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 179292559393802
+		},
+		{
+			"name": "MaxWaitTime",
+			"type": "number",
+			"desc": "",
+			"sid": 795063668645712
+		},
+		{
+			"name": "HasLimp",
+			"type": "number",
+			"desc": "",
+			"sid": 399098968194663
+		},
+		{
+			"name": "Loot_XP",
+			"type": "number",
+			"desc": "",
+			"sid": 901710816864008
+		},
+		{
+			"name": "Loot_Money",
+			"type": "number",
+			"desc": "",
+			"sid": 442573016732908
+		},
+		{
+			"name": "Loot_Health",
+			"type": "number",
+			"desc": "",
+			"sid": 317756879317596
+		},
+		{
+			"name": "Loot_Ammo",
+			"type": "number",
+			"desc": "",
+			"sid": 575721311379339
+		},
+		{
+			"name": "Loot_AmmoType",
+			"type": "string",
+			"desc": "",
+			"sid": 237154072929946
+		},
+		{
+			"name": "ArmsID",
+			"type": "number",
+			"desc": "Human Only",
+			"sid": 270062029559886
+		},
+		{
+			"name": "HeadID",
+			"type": "number",
+			"desc": "",
+			"sid": 204042869021996
+		},
+		{
+			"name": "TorsoID",
+			"type": "number",
+			"desc": "",
+			"sid": 971528776845598
+		},
+		{
+			"name": "LegsID",
+			"type": "number",
+			"desc": "",
+			"sid": 357984393606374
+		},
+		{
+			"name": "ShoesID",
+			"type": "number",
+			"desc": "",
+			"sid": 479532974011503
+		},
+		{
+			"name": "Invincible",
+			"type": "number",
+			"desc": "",
+			"sid": 885589891789356
+		},
+		{
+			"name": "zzzDisposition",
+			"type": "string",
+			"desc": "Allied, Neutral, Hostile",
+			"sid": 454655532129058
+		},
+		{
+			"name": "zzzSubclass",
+			"type": "string",
+			"desc": "",
+			"sid": 885516171494655
+		},
+		{
+			"name": "zzzDialogue",
+			"type": "string",
+			"desc": "",
+			"sid": 303454232252753
+		},
+		{
+			"name": "zzzDialogueTag",
+			"type": "string",
+			"desc": "",
+			"sid": 842583774368072
+		},
+		{
+			"name": "zzzDialogueIndex",
+			"type": "number",
+			"desc": "",
+			"sid": 768840794879735
+		},
+		{
+			"name": "zzzDialougeWait",
+			"type": "number",
+			"desc": "",
+			"sid": 265931149143553
+		},
+		{
+			"name": "zzzDialogueStarted",
+			"type": "number",
+			"desc": "",
+			"sid": 198404732442526
+		},
+		{
+			"name": "MinAttackBuffer",
+			"type": "number",
+			"desc": "",
+			"sid": 995346305398510
+		},
+		{
+			"name": "MaxAttacKBuffer",
+			"type": "number",
+			"desc": "",
+			"sid": 348234531394354
+		},
+		{
+			"name": "KnockbackResistance",
+			"type": "number",
+			"desc": "On a scale 1-100",
+			"sid": 541307697810217
+		},
+		{
+			"name": "Stationary",
+			"type": "boolean",
+			"desc": "",
+			"sid": 426764265397439
+		},
+		{
+			"name": "SpawnMirrored",
+			"type": "number",
+			"desc": "",
+			"sid": 450809457815274
+		},
+		{
+			"name": "Annoyed",
+			"type": "number",
+			"desc": "",
+			"sid": 880392836703766
+		},
+		{
+			"name": "Fleeing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 219689079884087
+		},
+		{
+			"name": "LastHit",
+			"type": "string",
+			"desc": "",
+			"sid": 136628953745108
+		},
+		{
+			"name": "PinnedTextUID",
+			"type": "number",
+			"desc": "",
+			"sid": 326838868493372
+		},
+		{
+			"name": "WorldObjUID",
+			"type": "number",
+			"desc": "",
+			"sid": 213260004220775
+		},
+		{
+			"name": "FlinchThreshold",
+			"type": "number",
+			"desc": "",
+			"sid": 219697799330410
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 902850982462991
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "Vision",
+			"sid": 835569738010346
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "zzzHearing",
+			"sid": 824892407690123
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "Proximity",
+			"sid": 928197277814531
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 221710260316197
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Human",
+		"Zombie"
+	]
+}

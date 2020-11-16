@@ -1,0 +1,802 @@
+{
+	"name": "Options",
+	"layers": [
+		{
+			"name": "BG",
+			"overriden": 1,
+			"instances": [],
+			"sid": 4363425477293932,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.8588235294117647,
+				0.9058823529411765,
+				0.9568627450980393,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 0.05,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI1",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Options_ControlDropdown",
+					"properties": {
+						"items": "Null",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"type": "dropdown-list",
+						"multi-select": false,
+						"auto-font-size": true,
+						"id": ""
+					},
+					"uid": 106,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 44.897369385,
+						"y": 48.762454987,
+						"width": 113.061485291,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "OptionsTXT_Back",
+					"properties": {
+						"text": "Back",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 14.25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0,
+							0.25882352941176473,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 82,
+					"instanceVariables": {
+						"Selected": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 269.202301025,
+						"y": 155.023040771,
+						"width": 65.181121826,
+						"height": 30.031829834,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_CurrentKey",
+					"properties": {
+						"text": "Current Key: A (65)",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 83,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 161.202301025,
+						"y": 91.301742554,
+						"width": 275,
+						"height": 31.546508789,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_NewKey",
+					"properties": {
+						"text": "New Key: D (68)",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 84,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 161.202301025,
+						"y": 122.893234253,
+						"width": 266.938476563,
+						"height": 31.195983887,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Save",
+					"properties": {
+						"text": "Save",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 14.25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							1,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 108,
+					"instanceVariables": {
+						"Selected": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 197.006011963,
+						"y": 59.57213974,
+						"width": 53.25,
+						"height": 35.5,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Reset",
+					"properties": {
+						"text": "Reset",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 14.25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.2,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 112,
+					"instanceVariables": {
+						"Selected": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 257.505340576,
+						"y": 59.076095581,
+						"width": 53.25,
+						"height": 35.5,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_ResetAll",
+					"properties": {
+						"text": "Reset ALL",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 14.25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.2,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 113,
+					"instanceVariables": {
+						"Selected": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 59.202293396,
+						"y": 155.023040771,
+						"width": 81.990310669,
+						"height": 28.840705872,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_ClearAll",
+					"properties": {
+						"text": "Clear ALL",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 14.25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.2,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 118,
+					"instanceVariables": {
+						"Selected": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 164.202301025,
+						"y": 155.023040771,
+						"width": 81.990310669,
+						"height": 28.840705872,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Header",
+					"properties": {
+						"text": "Options",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.4,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 142,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 159.202301025,
+						"y": 26.023044586,
+						"width": 194.220001221,
+						"height": 32.124000549,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 1909155314870418,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI2",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "OptionsTXT_ConfirmDialouge",
+					"properties": {
+						"text": "\"Text Left\" is already using key \"A\" (51). Would you like to swap it with \"Walk Right?",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 9.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 116,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 142,
+						"y": 53.25,
+						"width": 248.5,
+						"height": 53.25,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Confirm",
+					"properties": {
+						"text": "Yes",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							1,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 115,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 88.75,
+						"y": 106.5,
+						"width": 88.75,
+						"height": 35.5,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Cancel",
+					"properties": {
+						"text": "Cancel",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 117,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 195.25,
+						"y": 106.5,
+						"width": 88.75,
+						"height": 35.5,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 4162420781121254,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0,
+				0,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI3",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "OptionsTXT_SaveError",
+					"properties": {
+						"text": "Unable to save. The following controls have not been set:",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 9.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 121,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 142,
+						"y": 29.528739929,
+						"width": 248.5,
+						"height": 53.25,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_Return",
+					"properties": {
+						"text": "Back",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 15.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0,
+							0.2,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 119,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 252.768005371,
+						"y": 146.15234375,
+						"width": 64.215332031,
+						"height": 31.99508667,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "OptionsTXT_NullControls",
+					"properties": {
+						"text": "Unable to save. The following controls have not been set:",
+						"enable-bbcode": false,
+						"font": "Impact",
+						"size": 9.75,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.2,
+							1,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 120,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 142,
+						"y": 132.749420166,
+						"width": 105.849182129,
+						"height": 156.645751953,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 3609684329740896,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0,
+				0,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Cursor",
+			"overriden": 1,
+			"instances": [],
+			"sid": 938977089296811,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 3366735253800876,
+	"nonworld-instances": [
+		{
+			"type": "Options_ControlList",
+			"properties": {},
+			"uid": 79,
+			"instanceVariables": {}
+		},
+		{
+			"type": "Options_ControlListBackup",
+			"properties": {},
+			"uid": 114,
+			"instanceVariables": {}
+		}
+	],
+	"effectTypes": [],
+	"width": 320,
+	"height": 180,
+	"unboundedScrolling": true,
+	"eventSheet": "Options__E"
+}
