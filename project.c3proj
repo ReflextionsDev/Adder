@@ -192,14 +192,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
-			"author": "Scirra",
-			"version": "r225",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "PlatformInfo",
 			"name": "Platform info",
 			"author": "Scirra",
@@ -408,7 +400,6 @@
 			"Stairs_Wood2",
 			"Editor_Room_Preset",
 			"Sprite12",
-			"Tilemap2",
 			"Sprite13",
 			"Sprite14",
 			"AngledCrown_Wood1",
@@ -428,7 +419,8 @@
 			"Editor_AngledRoom_Floor",
 			"Editor_AngledRoom_WP",
 			"PlatformInfo",
-			"FadeTween"
+			"FadeTween",
+			"Map_Data"
 		],
 		"subfolders": [
 			{
@@ -720,19 +712,11 @@
 				"subfolders": [
 					{
 						"items": [
-							"MB_NodeData",
-							"MB_PathBotData",
-							"MB_PathLeftData",
-							"MB_PathRightData",
-							"MB_PathTopData",
 							"MB_SavedMaps",
-							"MB_SectorData",
 							"MB_AS",
-							"MB_HS",
 							"MB_IconData",
-							"NodeNames",
-							"SectorCount",
-							"zzzTurnedSettlements"
+							"MB_NodeNames",
+							"MB_SectorCount"
 						],
 						"subfolders": [],
 						"name": "MB Dictionarys"
@@ -1444,7 +1428,7 @@
 			"PlayerUI_Ammo",
 			"PlayerUI_Health",
 			"Zombie_Full",
-			"NodeSet",
+			"MB_NodeSet",
 			"Path",
 			"PanIgnore",
 			"Tiles",
@@ -1512,7 +1496,7 @@
 		"subfolders": [
 			{
 				"items": [
-					"Hub",
+					"Level",
 					"Test"
 				],
 				"subfolders": [],
@@ -1691,11 +1675,12 @@
 		"subfolders": [
 			{
 				"items": [
-					"Map_E",
+					"Map Master",
 					"Test_E",
 					"Map Builder_E",
 					"Overworld_E",
-					"Hub_E"
+					"Level_E",
+					"Hub"
 				],
 				"subfolders": [],
 				"name": "Layouts"
@@ -2669,7 +2654,7 @@
 		"authorWebsite": "",
 		"appId": "Adder",
 		"pixelRounding": false,
-		"useLoaderLayout": false,
+		"useLoaderLayout": true,
 		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",

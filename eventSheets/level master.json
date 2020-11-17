@@ -187,1027 +187,7 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "Debug For testing"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 593241050291373
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 885013573444608,
-					"parameters": {
-						"variable": "level_Loaded",
-						"value": "1"
-					}
-				},
-				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 436182827446427,
-					"parameters": {
-						"name": "\"Loader_Disable\"",
-						"parameter-n": []
-					}
-				}
-			],
-			"sid": 643740780756221
-		},
-		{
-			"eventType": "comment",
 			"text": "TODO"
-		},
-		{
-			"eventType": "group",
-			"disabled": true,
-			"title": "End Zone",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-screen",
-							"objectClass": "Player_Sprite",
-							"sid": 687101110967460,
-							"isInverted": true
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 779919156264292,
-							"parameters": {
-								"first-value": "level_Loaded",
-								"comparison": 0,
-								"second-value": "1"
-							}
-						},
-						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 215008352646535
-						}
-					],
-					"actions": [],
-					"sid": 742635258569446,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 680371079764672,
-									"parameters": {
-										"comparison": 2,
-										"x-co-ordinate": "0"
-									}
-								},
-								{
-									"id": "compare-x",
-									"objectClass": "Player",
-									"sid": 306326463246126,
-									"parameters": {
-										"comparison": 4,
-										"x-co-ordinate": "Camera_EndZone.X + Camera_EndZone.Width"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 191053736952955,
-									"parameters": {
-										"name": "\"GFX_FadeOut\"",
-										"parameter-n": [
-											"0.5",
-											"99"
-										]
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 252478863699174,
-									"parameters": {
-										"name": "\"Music_Stop\"",
-										"parameter-n": []
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Camera",
-									"sid": 905158115737545,
-									"parameters": {
-										"instance-variable": "mode",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 912555770416475,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 833846594899624,
-											"parameters": {
-												"variable": "map_LevelToBuild",
-												"comparison": 1,
-												"value": "\"Base\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 671111200688488,
-											"parameters": {
-												"variable": "map_NodeToClear",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 768171542506982,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 121180257935541,
-											"parameters": {
-												"variable": "zzplayer_WeaponToUnlock",
-												"comparison": 1,
-												"value": "\"\""
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 496048526990713,
-											"parameters": {
-												"variable": "zzplayer_WeaponToUnlock",
-												"comparison": 1,
-												"value": "\"Collected\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 159930107217286,
-											"parameters": {
-												"name": "\"GUN_Unlock\"",
-												"parameter-n": [
-													"zzplayer_WeaponToUnlock"
-												]
-											}
-										}
-									],
-									"sid": 171079438623308,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 134765664059915,
-											"parameters": {
-												"variable": "map_LevelToBuild",
-												"comparison": 0,
-												"value": "\"HS\""
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 208274254010132,
-											"parameters": {
-												"variable": "zzgame_TurnedHostile",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "zzz_Colony",
-											"sid": 858287515677733,
-											"parameters": {
-												"instance-variable": "AlliedSettlements",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 495535249231673,
-									"disabled": true
-								},
-								{
-									"eventType": "comment",
-									"text": "deprecated"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 886295364692263,
-											"parameters": {
-												"variable": "zzzlevel_AddSurvivor",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-size",
-											"objectClass": "ColonistData",
-											"sid": 754338927423218,
-											"parameters": {
-												"width": "Self.Width + 1",
-												"height": "Self.Height",
-												"depth": "self.Depth"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 112907369741058,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "0",
-												"value": "ColonistQueue.At(0,0)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 108172407106793,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "1",
-												"value": "ColonistQueue.At(0,1)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 657928090895820,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "2",
-												"value": "ColonistQueue.At(0,2)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 275193629955186,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "3",
-												"value": "ColonistQueue.At(0,3)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 755511796922335,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "4",
-												"value": "ColonistQueue.At(0,4)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 680966055681011,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "5",
-												"value": "ColonistQueue.At(0,5)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 683031098925882,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "6",
-												"value": "ColonistQueue.At(0,6)"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "ColonistData",
-											"sid": 600658316173513,
-											"parameters": {
-												"x": "Self.Width - 1",
-												"y": "7",
-												"value": "choose(\"Pistol\",\"SMG\",\"Shotgun\",\"Rifle\")"
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "zzz_Colony",
-											"sid": 729433032641747,
-											"parameters": {
-												"instance-variable": "Citizens",
-												"value": "1"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 584223197229779,
-											"parameters": {
-												"name": "\"Save_Survivors\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 715637168084050,
-											"parameters": {
-												"name": "\"Save_Colony\"",
-												"parameter-n": []
-											}
-										}
-									],
-									"sid": 651908328627124
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 654979679598218,
-											"parameters": {
-												"object-to-create": "Solid2Wall",
-												"layer": "\"Objects\"",
-												"x": "Player.X - Player.Width",
-												"y": "Player.Y"
-											}
-										},
-										{
-											"id": "set-width",
-											"objectClass": "Solid2Wall",
-											"sid": 713080858569140,
-											"parameters": {
-												"width": "Player.Width"
-											}
-										},
-										{
-											"id": "set-height",
-											"objectClass": "Solid2Wall",
-											"sid": 313850586485658,
-											"parameters": {
-												"height": "300"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Solid2Wall",
-											"sid": 930566188052485,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 363851656279069,
-											"parameters": {
-												"name": "\"UI_HideControls\"",
-												"parameter-n": []
-											}
-										}
-									],
-									"sid": 860510685083180,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 137565432973865,
-													"parameters": {
-														"first-value": "left(map_LevelToBuild,5)",
-														"comparison": 0,
-														"second-value": "\"Tower\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 713371145115493,
-											"disabled": true,
-											"children": [
-												{
-													"eventType": "variable",
-													"name": "datacount",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 330384098180908
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Player",
-															"sid": 462137870774888,
-															"parameters": {
-																"instance-variable": "zzResearchData1",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 858444819607933,
-															"parameters": {
-																"instance-variable": "zzResearchData1",
-																"value": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "zzz_Colony",
-															"sid": 698562531237473,
-															"parameters": {
-																"instance-variable": "Research1Collected",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 963521670944331,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Player",
-															"sid": 876099458356174,
-															"parameters": {
-																"instance-variable": "zzzResearchData2",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 206465477302364,
-															"parameters": {
-																"instance-variable": "zzzResearchData2",
-																"value": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "zzz_Colony",
-															"sid": 400625459317228,
-															"parameters": {
-																"instance-variable": "Research2Collected",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 901560873417902,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Player",
-															"sid": 164662177750991,
-															"parameters": {
-																"instance-variable": "zzzResearchData3",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 359611364028050,
-															"parameters": {
-																"instance-variable": "zzzResearchData3",
-																"value": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "zzz_Colony",
-															"sid": 716691781385770,
-															"parameters": {
-																"instance-variable": "Research3Collected",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 315768996142957,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Player",
-															"sid": 357160346233618,
-															"parameters": {
-																"instance-variable": "zzzResearchData4",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 622478609731302,
-															"parameters": {
-																"instance-variable": "zzzResearchData4",
-																"value": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "zzz_Colony",
-															"sid": 300086195587011,
-															"parameters": {
-																"instance-variable": "Research4Collected",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 578485297481994,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "zzz_Colony",
-															"sid": 703709743590564,
-															"parameters": {
-																"instance-variable": "Research1Collected",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 180467507965047,
-															"parameters": {
-																"variable": "datacount",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 584383301285122,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "zzz_Colony",
-															"sid": 188994091276302,
-															"parameters": {
-																"instance-variable": "Research2Collected",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 618217480385522,
-															"parameters": {
-																"variable": "datacount",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 459779837603310,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "zzz_Colony",
-															"sid": 352072538425937,
-															"parameters": {
-																"instance-variable": "Research3Collected",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 227813773352402,
-															"parameters": {
-																"variable": "datacount",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 480659707677297,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "zzz_Colony",
-															"sid": 456450120746542,
-															"parameters": {
-																"instance-variable": "Research4Collected",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 215816094030428,
-															"parameters": {
-																"variable": "datacount",
-																"value": "1"
-															}
-														}
-													],
-													"sid": 560933261027371,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 476037055895162,
-															"parameters": {
-																"first-value": "datacount",
-																"comparison": 5,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-key",
-															"objectClass": "zzDialogue",
-															"sid": 391144230019448,
-															"parameters": {
-																"key": "\"doc\"",
-																"value": "5 +datacount"
-															}
-														}
-													],
-													"sid": 115666486365509,
-													"disabled": true
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 299276138114138,
-													"parameters": {
-														"name": "\"GFX_FadeOut\"",
-														"parameter-n": [
-															"0.5",
-															"99"
-														]
-													}
-												}
-											],
-											"sid": 414793151709971,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 780605806187566,
-													"parameters": {
-														"object": "Loot"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Loot",
-													"sid": 570800834746187,
-													"parameters": {
-														"instance-variable": "State",
-														"comparison": 0,
-														"value": "\"Move\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 436367876962574,
-													"parameters": {
-														"name": "\"Loot_Collect\"",
-														"parameter-n": [
-															"Loot.UID"
-														]
-													}
-												}
-											],
-											"sid": 224259772568400,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 376604141567632,
-													"parameters": {
-														"seconds": "0.5"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 444092789296371,
-													"parameters": {
-														"name": "\"Save\"",
-														"parameter-n": []
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 583149235309260,
-													"parameters": {
-														"seconds": "0.5"
-													}
-												},
-												{
-													"id": "set-group-active",
-													"objectClass": "System",
-													"sid": 949081518342134,
-													"parameters": {
-														"group-name": "\"Save Check\"",
-														"state": "activated"
-													}
-												}
-											],
-											"sid": 629421441816062,
-											"disabled": true
-										}
-									]
-								}
-							],
-							"isOrBlock": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-end-of-layout",
-							"objectClass": "System",
-							"sid": 834589652525712
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 944175525371205,
-							"parameters": {
-								"name": "\"Weather_Stop\"",
-								"parameter-n": []
-							}
-						},
-						{
-							"id": "remove-all-effects",
-							"objectClass": "Audio",
-							"sid": 317314680286283,
-							"parameters": {
-								"tag": "\"fire\""
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Audio",
-							"sid": 614984125167920,
-							"parameters": {
-								"tag": "\"fire\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 356313685081232,
-							"parameters": {
-								"variable": "vfx_ScreenShake",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 799117717423522,
-							"parameters": {
-								"variable": "map_ArmsAnim",
-								"value": "Player_Arms.AnimationName"
-							}
-						}
-					],
-					"sid": 422468416639950,
-					"disabled": true
-				},
-				{
-					"eventType": "group",
-					"disabled": true,
-					"title": "Save Check",
-					"description": "",
-					"isActiveOnStart": false,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 852239526258874,
-									"parameters": {
-										"variable": "system_fullsave",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 581687582974846,
-									"parameters": {
-										"variable": "system_fullsave",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 383803657845733,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-group-active",
-											"objectClass": "System",
-											"sid": 314881977763900,
-											"parameters": {
-												"group-name": "\"Outro \""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 962741619067559,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 433870433031325
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 445925793017449,
-											"parameters": {
-												"first-value": "LayoutName",
-												"comparison": 0,
-												"second-value": "\"Tutorial\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 137626831851301,
-											"parameters": {
-												"layout": "Map Builder"
-											}
-										}
-									],
-									"sid": 178290485781906,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 949907002931385
-										}
-									],
-									"actions": [
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 591403194369499,
-											"parameters": {
-												"layout": "Overworld"
-											}
-										}
-									],
-									"sid": 929925626078811,
-									"disabled": true
-								}
-							]
-						}
-					],
-					"sid": 301702913764836
-				}
-			],
-			"sid": 266985323763745
 		},
 		{
 			"eventType": "group",
@@ -1972,7 +952,7 @@
 																	"objectClass": "System",
 																	"sid": 513747976991047,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "100 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2000,7 +980,7 @@
 																	"objectClass": "System",
 																	"sid": 867860297659417,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "200 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2028,7 +1008,7 @@
 																	"objectClass": "System",
 																	"sid": 604681341076266,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "300 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2056,7 +1036,7 @@
 																	"objectClass": "System",
 																	"sid": 659349872378799,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "400 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2084,7 +1064,7 @@
 																	"objectClass": "System",
 																	"sid": 537731276873889,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "500 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2112,7 +1092,7 @@
 																	"objectClass": "System",
 																	"sid": 426580959908349,
 																	"parameters": {
-																		"variable": "game_Level",
+																		"variable": "zzzgame_Level",
 																		"value": "600 + floor(random(1,level_count+0.9))"
 																	}
 																}
@@ -2143,7 +1123,7 @@
 															"objectClass": "System",
 															"sid": 259682643347850,
 															"parameters": {
-																"variable": "game_Level",
+																"variable": "zzzgame_Level",
 																"value": "\"100\" & right(Map_LevelToBuild,1)"
 															}
 														}
@@ -2171,7 +1151,7 @@
 															"objectClass": "System",
 															"sid": 264064873573104,
 															"parameters": {
-																"variable": "game_Level",
+																"variable": "zzzgame_Level",
 																"value": "zzz_Colony.Level"
 															}
 														}
@@ -2777,7 +1757,7 @@
 													"parameters": {
 														"name": "\"LVL_SaveSolids\"",
 														"parameter-n": [
-															"game_Level",
+															"zzzgame_Level",
 															"Solid2Wall.IID",
 															"Solid2Wall.X - BuildingSpawnPoint.X",
 															"Solid2Wall.Y - BuildingSpawnPoint.Y",
@@ -2822,7 +1802,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Door\"",
 																	"Door.IID",
 																	"Door.X - BuildingSpawnPoint.X",
@@ -2858,7 +1838,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FilterOut\"",
 																	"Tile_FilterOut.IID",
 																	"Tile_FilterOut.X - BuildingSpawnPoint.X",
@@ -2893,7 +1873,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Ladder\"",
 																	"Tile_Ladder.IID",
 																	"Tile_Ladder.X - BuildingSpawnPoint.X",
@@ -2929,7 +1909,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_LadderBot\"",
 																	"Tile_LadderBot.IID",
 																	"Tile_LadderBot.X - BuildingSpawnPoint.X",
@@ -2965,7 +1945,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_LadderTop\"",
 																	"Tile_LadderTop.IID",
 																	"Tile_LadderTop.X - BuildingSpawnPoint.X",
@@ -3001,7 +1981,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Window\"",
 																	"Tile_Window.IID",
 																	"Tile_Window.X - BuildingSpawnPoint.X",
@@ -3049,7 +2029,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FloorA\"",
 																	"Tile_FloorA.IID",
 																	"Tile_FloorA.X - BuildingSpawnPoint.X",
@@ -3084,7 +2064,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FloorB\"",
 																	"Tile_FloorB.IID",
 																	"Tile_FloorB.X - BuildingSpawnPoint.X",
@@ -3119,7 +2099,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FloorC\"",
 																	"Tile_FloorC.IID",
 																	"Tile_FloorC.X - BuildingSpawnPoint.X",
@@ -3154,7 +2134,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FloorD\"",
 																	"Tile_FloorD.IID",
 																	"Tile_FloorD.X - BuildingSpawnPoint.X",
@@ -3189,7 +2169,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_FloorE\"",
 																	"Tile_FloorE.IID",
 																	"Tile_FloorE.X - BuildingSpawnPoint.X",
@@ -3224,7 +2204,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallA\"",
 																	"TIle_WallA.IID",
 																	"TIle_WallA.X - BuildingSpawnPoint.X",
@@ -3259,7 +2239,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallB\"",
 																	"TIle_WallB.IID",
 																	"TIle_WallB.X - BuildingSpawnPoint.X",
@@ -3294,7 +2274,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallC\"",
 																	"TIle_WallC.IID",
 																	"TIle_WallC.X - BuildingSpawnPoint.X",
@@ -3329,7 +2309,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallD\"",
 																	"TIle_WallD.IID",
 																	"TIle_WallD.X - BuildingSpawnPoint.X",
@@ -3364,7 +2344,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallE\"",
 																	"TIle_WallE.IID",
 																	"TIle_WallE.X - BuildingSpawnPoint.X",
@@ -3399,7 +2379,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_WallF\"",
 																	"TIle_WallF.IID",
 																	"TIle_WallF.X - BuildingSpawnPoint.X",
@@ -3434,7 +2414,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Floor\"",
 																	"Tile_Floor.IID",
 																	"Tile_Floor.X - BuildingSpawnPoint.X",
@@ -3470,7 +2450,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Wall\"",
 																	"Tile_Wall.IID",
 																	"Tile_Wall.X - BuildingSpawnPoint.X",
@@ -3506,7 +2486,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Roof\"",
 																	"Tile_Roof.IID",
 																	"Tile_Roof.X - BuildingSpawnPoint.X",
@@ -3542,7 +2522,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_RoofCap\"",
 																	"Tile_RoofCap.IID",
 																	"Tile_RoofCap.X - BuildingSpawnPoint.X",
@@ -3578,7 +2558,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_Shadow\"",
 																	"Tile_Shadow.IID",
 																	"Tile_Shadow.X - BuildingSpawnPoint.X",
@@ -3614,7 +2594,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_BGA\"",
 																	"Tile_BGA.IID",
 																	"Tile_BGA.X - BuildingSpawnPoint.X",
@@ -3649,7 +2629,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_BGB\"",
 																	"Tile_BGB.IID",
 																	"Tile_BGB.X - BuildingSpawnPoint.X",
@@ -3684,7 +2664,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_BGC\"",
 																	"Tile_BGC.IID",
 																	"Tile_BGC.X - BuildingSpawnPoint.X",
@@ -3719,7 +2699,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveTiles\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Tile_BGD\"",
 																	"Tile_BGD.IID",
 																	"Tile_BGD.X - BuildingSpawnPoint.X",
@@ -3767,7 +2747,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Ladder\"",
 																	"Ladder.IID",
 																	"Ladder.X - BuildingSpawnPoint.X",
@@ -3802,7 +2782,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"JumpThrough\"",
 																	"JumpThrough.IID",
 																	"JumpThrough.X - BuildingSpawnPoint.X",
@@ -3837,7 +2817,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"DoorRange\"",
 																	"Door_Range.IID",
 																	"Door_Range.X - BuildingSpawnPoint.X",
@@ -3872,7 +2852,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"Fog\"",
 																	"Fog.IID",
 																	"Fog.X - BuildingSpawnPoint.X",
@@ -3907,7 +2887,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"FogConnector\"",
 																	"FogConnector.IID",
 																	"FogConnector.X - BuildingSpawnPoint.X",
@@ -3942,7 +2922,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"FogFilter\"",
 																	"zzFogFilter.IID",
 																	"zzFogFilter.X - BuildingSpawnPoint.X",
@@ -3977,7 +2957,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"ZombieSpawn\"",
 																	"Spawn_Generic.IID",
 																	"Spawn_Generic.X - BuildingSpawnPoint.X",
@@ -4012,7 +2992,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"SpawnSpecial\"",
 																	"zzSpawn_Vendor.IID",
 																	"zzSpawn_Vendor.X - BuildingSpawnPoint.X",
@@ -4049,7 +3029,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"LootSpawn\"",
 																	"Loot_ContainerSpawn.IID",
 																	"Loot_ContainerSpawn.X - BuildingSpawnPoint.X",
@@ -4086,7 +3066,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"EndPoint\"",
 																	"BuildingEndPoint.IID",
 																	"BuildingEndPoint.X - BuildingSpawnPoint.X",
@@ -4121,7 +3101,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"AmmoInteract\"",
 																	"Shop_Interact.IID",
 																	"Shop_Interact.X - BuildingSpawnPoint.X",
@@ -4157,7 +3137,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"ShopFont\"",
 																	"Shop_Font.IID",
 																	"shop_font.X -BuildingSpawnPoint.X",
@@ -4195,7 +3175,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"LadderSaftey\"",
 																	"LadderSaftey.IID",
 																	"LadderSaftey.X - BuildingSpawnPoint.X",
@@ -4230,7 +3210,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"ResearchData\"",
 																	"ResearchData.IID",
 																	"ResearchData.X - BuildingSpawnPoint.X",
@@ -4265,7 +3245,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"ResearchDataSprite\"",
 																	"ResearchDataSprite.IID",
 																	"ResearchDataSprite.X - BuildingSpawnPoint.X",
@@ -4300,7 +3280,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"UpgradeSign\"",
 																	"UpgradeSign.IID",
 																	"UpgradeSign.X - BuildingSpawnPoint.X",
@@ -4337,7 +3317,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"StatsBoard\"",
 																	"Stats_Board.IID",
 																	"Stats_Board.X - BuildingSpawnPoint.X",
@@ -4372,7 +3352,7 @@
 															"parameters": {
 																"name": "\"LVL_SaveObjects\"",
 																"parameter-n": [
-																	"game_Level",
+																	"zzzgame_Level",
 																	"\"SurvivorSpawn\"",
 																	"Spawn_Survivor.IID",
 																	"Spawn_Survivor.X - BuildingSpawnPoint.X",
@@ -4454,7 +3434,7 @@
 											"sid": 888499898305367,
 											"parameters": {
 												"tag": "\"LevelSolidData\"",
-												"url": "\"level\" & game_Level & \"soliddata.json\""
+												"url": "\"level\" & zzzgame_Level & \"soliddata.json\""
 											}
 										},
 										{
@@ -4471,7 +3451,7 @@
 											"sid": 147613559221488,
 											"parameters": {
 												"tag": "\"LevelObjectData\"",
-												"url": "\"level\" & game_Level & \"objectdata.json\""
+												"url": "\"level\" & zzzgame_Level & \"objectdata.json\""
 											}
 										},
 										{
@@ -4488,7 +3468,7 @@
 											"sid": 147067614654616,
 											"parameters": {
 												"tag": "\"LevelTileData\"",
-												"url": "\"level\" & game_Level & \"tiledata.json\""
+												"url": "\"level\" & zzzgame_Level & \"tiledata.json\""
 											}
 										},
 										{
@@ -4679,7 +3659,7 @@
 											"objectClass": "System",
 											"sid": 523085172156706,
 											"parameters": {
-												"variable": "game_Level",
+												"variable": "zzzgame_Level",
 												"value": "1"
 											}
 										},
@@ -4778,7 +3758,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 598725130476346,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_SolidData\"",
+												"key": "\"Level\" & zzzgame_Level & \"_SolidData\"",
 												"value": "LVL_SolidData.AsJSON"
 											}
 										}
@@ -4809,7 +3789,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 669167597953351,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_SolidData\""
+												"key": "\"Level\" & zzzgame_Level & \"_SolidData\""
 											}
 										}
 									],
@@ -4824,7 +3804,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 732623781067480,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_SolidData\""
+												"key": "\"Level\" & zzzgame_Level & \"_SolidData\""
 											}
 										}
 									],
@@ -4895,7 +3875,7 @@
 													"objectClass": "Solid2Wall",
 													"sid": 554916035101362,
 													"parameters": {
-														"width": "LVL_SolidData.Get(\"Level\" & game_Level & \"_ID\" & (loopindex) & \"_Width\")"
+														"width": "LVL_SolidData.Get(\"Level\" & zzzgame_Level & \"_ID\" & (loopindex) & \"_Width\")"
 													}
 												},
 												{
@@ -4903,7 +3883,7 @@
 													"objectClass": "Solid2Wall",
 													"sid": 805477860515548,
 													"parameters": {
-														"height": "LVL_SolidData.Get(\"Level\" & game_Level & \"_ID\" & (loopindex) & \"_Height\")"
+														"height": "LVL_SolidData.Get(\"Level\" & zzzgame_Level & \"_ID\" & (loopindex) & \"_Height\")"
 													}
 												},
 												{
@@ -4911,7 +3891,7 @@
 													"objectClass": "Solid2Wall",
 													"sid": 843967090475923,
 													"parameters": {
-														"angle": "LVL_SolidData.Get(\"Level\" & game_Level & \"_ID\" & (loopindex) & \"_Angle\")"
+														"angle": "LVL_SolidData.Get(\"Level\" & zzzgame_Level & \"_ID\" & (loopindex) & \"_Angle\")"
 													}
 												},
 												{
@@ -5309,7 +4289,7 @@
 													"objectClass": "LocalStorage",
 													"sid": 421663075028690,
 													"parameters": {
-														"key": "\"Level\" & game_Level & \"_TileData\"",
+														"key": "\"Level\" & zzzgame_Level & \"_TileData\"",
 														"value": "LVL_TileData.AsJSON"
 													}
 												}
@@ -5342,7 +4322,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 476522853940902,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_TileData\""
+												"key": "\"Level\" & zzzgame_Level & \"_TileData\""
 											}
 										}
 									],
@@ -5357,7 +4337,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 863646406649021,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_TileData\""
+												"key": "\"Level\" & zzzgame_Level & \"_TileData\""
 											}
 										}
 									],
@@ -5415,7 +4395,7 @@
 													"objectClass": "System",
 													"sid": 212412403992946,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_BGA_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_BGA_ObjCount\")"
 													}
 												}
 											],
@@ -5427,8 +4407,8 @@
 													"parameters": {
 														"object-to-create": "Tile_BGA",
 														"layer": "\"LevelBG\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5436,7 +4416,7 @@
 													"objectClass": "Tile_BGA",
 													"sid": 338388347821558,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5444,7 +4424,7 @@
 													"objectClass": "Tile_BGA",
 													"sid": 852269237496611,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5452,7 +4432,7 @@
 													"objectClass": "Tile_BGA",
 													"sid": 147552058617504,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5471,7 +4451,7 @@
 													"objectClass": "System",
 													"sid": 967083304294591,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_BGB_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_BGB_ObjCount\")"
 													}
 												}
 											],
@@ -5483,8 +4463,8 @@
 													"parameters": {
 														"object-to-create": "Tile_BGB",
 														"layer": "\"LevelBG\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5492,7 +4472,7 @@
 													"objectClass": "Tile_BGB",
 													"sid": 277703872412090,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5500,7 +4480,7 @@
 													"objectClass": "Tile_BGB",
 													"sid": 669653346738905,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5508,7 +4488,7 @@
 													"objectClass": "Tile_BGB",
 													"sid": 602303994788765,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5527,7 +4507,7 @@
 													"objectClass": "System",
 													"sid": 362047725053567,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_BGC_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_BGC_ObjCount\")"
 													}
 												}
 											],
@@ -5539,8 +4519,8 @@
 													"parameters": {
 														"object-to-create": "Tile_BGC",
 														"layer": "\"LevelBG\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5548,7 +4528,7 @@
 													"objectClass": "Tile_BGC",
 													"sid": 898748708511510,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5556,7 +4536,7 @@
 													"objectClass": "Tile_BGC",
 													"sid": 995066900538655,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5564,7 +4544,7 @@
 													"objectClass": "Tile_BGC",
 													"sid": 731282543347084,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5583,7 +4563,7 @@
 													"objectClass": "System",
 													"sid": 621181657240240,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_BGD_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_BGD_ObjCount\")"
 													}
 												}
 											],
@@ -5595,8 +4575,8 @@
 													"parameters": {
 														"object-to-create": "Tile_BGD",
 														"layer": "\"LevelBG\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5604,7 +4584,7 @@
 													"objectClass": "Tile_BGD",
 													"sid": 846138062885753,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5612,7 +4592,7 @@
 													"objectClass": "Tile_BGD",
 													"sid": 111618043838056,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5620,7 +4600,7 @@
 													"objectClass": "Tile_BGD",
 													"sid": 528997699375694,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5639,7 +4619,7 @@
 													"objectClass": "System",
 													"sid": 539183705641933,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Shadow_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Shadow_ObjCount\")"
 													}
 												}
 											],
@@ -5651,8 +4631,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Shadow",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5660,7 +4640,7 @@
 													"objectClass": "Tile_Shadow",
 													"sid": 795685565222656,
 													"parameters": {
-														"frame-number": "int(LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_InitialFrame\"))"
+														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_InitialFrame\"))"
 													}
 												},
 												{
@@ -5668,7 +4648,7 @@
 													"objectClass": "Tile_Shadow",
 													"sid": 964739982906653,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5676,7 +4656,7 @@
 													"objectClass": "Tile_Shadow",
 													"sid": 407529759857522,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5684,7 +4664,7 @@
 													"objectClass": "Tile_Shadow",
 													"sid": 112155724950393,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5704,7 +4684,7 @@
 													"objectClass": "System",
 													"sid": 319265008253436,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Wall_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Wall_ObjCount\")"
 													}
 												}
 											],
@@ -5716,8 +4696,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Wall",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5725,7 +4705,7 @@
 													"objectClass": "Tile_Wall",
 													"sid": 494470845415774,
 													"parameters": {
-														"frame-number": "int(LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_InitialFrame\"))"
+														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_InitialFrame\"))"
 													}
 												},
 												{
@@ -5733,7 +4713,7 @@
 													"objectClass": "Tile_Wall",
 													"sid": 794650693978601,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5741,7 +4721,7 @@
 													"objectClass": "Tile_Wall",
 													"sid": 305777921960457,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5749,7 +4729,7 @@
 													"objectClass": "Tile_Wall",
 													"sid": 531052730577296,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5768,7 +4748,7 @@
 													"objectClass": "System",
 													"sid": 322367581356602,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallA_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallA_ObjCount\")"
 													}
 												}
 											],
@@ -5780,8 +4760,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallA",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5789,7 +4769,7 @@
 													"objectClass": "TIle_WallA",
 													"sid": 544789547488474,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5797,7 +4777,7 @@
 													"objectClass": "TIle_WallA",
 													"sid": 853306130018377,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5805,7 +4785,7 @@
 													"objectClass": "TIle_WallA",
 													"sid": 284994356361293,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5824,7 +4804,7 @@
 													"objectClass": "System",
 													"sid": 180903921297737,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallB_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallB_ObjCount\")"
 													}
 												}
 											],
@@ -5836,8 +4816,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallB",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5845,7 +4825,7 @@
 													"objectClass": "TIle_WallB",
 													"sid": 650657696033053,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5853,7 +4833,7 @@
 													"objectClass": "TIle_WallB",
 													"sid": 443004523974482,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5861,7 +4841,7 @@
 													"objectClass": "TIle_WallB",
 													"sid": 891195440218886,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5880,7 +4860,7 @@
 													"objectClass": "System",
 													"sid": 525797853347356,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallC_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallC_ObjCount\")"
 													}
 												}
 											],
@@ -5892,8 +4872,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallC",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5901,7 +4881,7 @@
 													"objectClass": "TIle_WallC",
 													"sid": 337443570532502,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5909,7 +4889,7 @@
 													"objectClass": "TIle_WallC",
 													"sid": 636702490648862,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5917,7 +4897,7 @@
 													"objectClass": "TIle_WallC",
 													"sid": 434928489611422,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5936,7 +4916,7 @@
 													"objectClass": "System",
 													"sid": 671136824518122,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallD_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallD_ObjCount\")"
 													}
 												}
 											],
@@ -5948,8 +4928,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallD",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -5957,7 +4937,7 @@
 													"objectClass": "TIle_WallD",
 													"sid": 292364643124739,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -5965,7 +4945,7 @@
 													"objectClass": "TIle_WallD",
 													"sid": 347114412956212,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -5973,7 +4953,7 @@
 													"objectClass": "TIle_WallD",
 													"sid": 314386097204312,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -5992,7 +4972,7 @@
 													"objectClass": "System",
 													"sid": 993985215015770,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallE_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallE_ObjCount\")"
 													}
 												}
 											],
@@ -6004,8 +4984,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallE",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6013,7 +4993,7 @@
 													"objectClass": "TIle_WallE",
 													"sid": 976342461421390,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6021,7 +5001,7 @@
 													"objectClass": "TIle_WallE",
 													"sid": 563804278373319,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6029,7 +5009,7 @@
 													"objectClass": "TIle_WallE",
 													"sid": 493275150540096,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6048,7 +5028,7 @@
 													"objectClass": "System",
 													"sid": 803752803811125,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_WallF_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_WallF_ObjCount\")"
 													}
 												}
 											],
@@ -6060,8 +5040,8 @@
 													"parameters": {
 														"object-to-create": "TIle_WallF",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6069,7 +5049,7 @@
 													"objectClass": "TIle_WallF",
 													"sid": 736446016386340,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6077,7 +5057,7 @@
 													"objectClass": "TIle_WallF",
 													"sid": 273316057818331,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6085,7 +5065,7 @@
 													"objectClass": "TIle_WallF",
 													"sid": 199966275325304,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6108,7 +5088,7 @@
 													"objectClass": "System",
 													"sid": 273863598515402,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Door_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Door_ObjCount\")"
 													}
 												}
 											],
@@ -6120,8 +5100,8 @@
 													"parameters": {
 														"object-to-create": "Door",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6129,7 +5109,7 @@
 													"objectClass": "Door",
 													"sid": 275010367698440,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6137,7 +5117,7 @@
 													"objectClass": "Door",
 													"sid": 883484421940365,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6145,7 +5125,7 @@
 													"objectClass": "Door",
 													"sid": 590104208743375,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -6153,7 +5133,7 @@
 													"objectClass": "Door",
 													"sid": 378575082021985,
 													"parameters": {
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X"
 													}
 												},
 												{
@@ -6162,7 +5142,7 @@
 													"sid": 827217988381905,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_InitialFrame\")"
+														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_InitialFrame\")"
 													}
 												},
 												{
@@ -6190,7 +5170,7 @@
 													"objectClass": "System",
 													"sid": 317953120145645,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Filter_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Filter_ObjCount\")"
 													}
 												}
 											],
@@ -6202,8 +5182,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FilterOut",
 														"layer": "\"LevelBG\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6211,7 +5191,7 @@
 													"objectClass": "Tile_FilterOut",
 													"sid": 339074809960304,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6219,7 +5199,7 @@
 													"objectClass": "Tile_FilterOut",
 													"sid": 799987831500346,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6227,7 +5207,7 @@
 													"objectClass": "Tile_FilterOut",
 													"sid": 321512086437621,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6246,7 +5226,7 @@
 													"objectClass": "System",
 													"sid": 792172986551581,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Ladder_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Ladder_ObjCount\")"
 													}
 												}
 											],
@@ -6258,8 +5238,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Ladder",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6267,7 +5247,7 @@
 													"objectClass": "Tile_Ladder",
 													"sid": 563219066997581,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6275,7 +5255,7 @@
 													"objectClass": "Tile_Ladder",
 													"sid": 897598399895954,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6283,7 +5263,7 @@
 													"objectClass": "Tile_Ladder",
 													"sid": 293099918391476,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -6292,7 +5272,7 @@
 													"sid": 491477357340483,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
+														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
 													}
 												},
 												{
@@ -6320,7 +5300,7 @@
 													"objectClass": "System",
 													"sid": 253909271168592,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_LadderBot_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_LadderBot_ObjCount\")"
 													}
 												}
 											],
@@ -6332,8 +5312,8 @@
 													"parameters": {
 														"object-to-create": "Tile_LadderBot",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6341,7 +5321,7 @@
 													"objectClass": "Tile_LadderBot",
 													"sid": 836668354523493,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6349,7 +5329,7 @@
 													"objectClass": "Tile_LadderBot",
 													"sid": 356582039001502,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6357,7 +5337,7 @@
 													"objectClass": "Tile_LadderBot",
 													"sid": 113717488540360,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -6366,7 +5346,7 @@
 													"sid": 389397093338024,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
+														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
 													}
 												},
 												{
@@ -6394,7 +5374,7 @@
 													"objectClass": "System",
 													"sid": 682838516179677,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_LadderTop_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_LadderTop_ObjCount\")"
 													}
 												}
 											],
@@ -6406,8 +5386,8 @@
 													"parameters": {
 														"object-to-create": "Tile_LadderTop",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6415,7 +5395,7 @@
 													"objectClass": "Tile_LadderTop",
 													"sid": 513114870888471,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6423,7 +5403,7 @@
 													"objectClass": "Tile_LadderTop",
 													"sid": 449411684965040,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6431,7 +5411,7 @@
 													"objectClass": "Tile_LadderTop",
 													"sid": 517548705648360,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -6440,7 +5420,7 @@
 													"sid": 642063044303953,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
+														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
 													}
 												},
 												{
@@ -6468,7 +5448,7 @@
 													"objectClass": "System",
 													"sid": 259155087111872,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_FloorA_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_FloorA_ObjCount\")"
 													}
 												}
 											],
@@ -6480,8 +5460,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FloorA",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6489,7 +5469,7 @@
 													"objectClass": "Tile_FloorA",
 													"sid": 794982334535079,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6497,7 +5477,7 @@
 													"objectClass": "Tile_FloorA",
 													"sid": 896721932592106,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6505,7 +5485,7 @@
 													"objectClass": "Tile_FloorA",
 													"sid": 538921910560126,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6524,7 +5504,7 @@
 													"objectClass": "System",
 													"sid": 574164223877576,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_FloorB_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_FloorB_ObjCount\")"
 													}
 												}
 											],
@@ -6536,8 +5516,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FloorB",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6545,7 +5525,7 @@
 													"objectClass": "Tile_FloorB",
 													"sid": 329198715954510,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6553,7 +5533,7 @@
 													"objectClass": "Tile_FloorB",
 													"sid": 289257130930421,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6561,7 +5541,7 @@
 													"objectClass": "Tile_FloorB",
 													"sid": 146086703804896,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6580,7 +5560,7 @@
 													"objectClass": "System",
 													"sid": 252973758026987,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_FloorC_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_FloorC_ObjCount\")"
 													}
 												}
 											],
@@ -6592,8 +5572,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FloorC",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6601,7 +5581,7 @@
 													"objectClass": "Tile_FloorC",
 													"sid": 419126841913836,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6609,7 +5589,7 @@
 													"objectClass": "Tile_FloorC",
 													"sid": 817264152662907,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6617,7 +5597,7 @@
 													"objectClass": "Tile_FloorC",
 													"sid": 561209207917349,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6636,7 +5616,7 @@
 													"objectClass": "System",
 													"sid": 794041333510369,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_FloorD_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_FloorD_ObjCount\")"
 													}
 												}
 											],
@@ -6648,8 +5628,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FloorD",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6657,7 +5637,7 @@
 													"objectClass": "Tile_FloorD",
 													"sid": 448261563628797,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6665,7 +5645,7 @@
 													"objectClass": "Tile_FloorD",
 													"sid": 407183193586945,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6673,7 +5653,7 @@
 													"objectClass": "Tile_FloorD",
 													"sid": 988057130155547,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6692,7 +5672,7 @@
 													"objectClass": "System",
 													"sid": 984445197744609,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_FloorE_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_FloorE_ObjCount\")"
 													}
 												}
 											],
@@ -6704,8 +5684,8 @@
 													"parameters": {
 														"object-to-create": "Tile_FloorE",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6713,7 +5693,7 @@
 													"objectClass": "Tile_FloorE",
 													"sid": 160625818319265,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6721,7 +5701,7 @@
 													"objectClass": "Tile_FloorE",
 													"sid": 813752131831573,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6729,7 +5709,7 @@
 													"objectClass": "Tile_FloorE",
 													"sid": 822859093121747,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6748,7 +5728,7 @@
 													"objectClass": "System",
 													"sid": 859981077024714,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Floor_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Floor_ObjCount\")"
 													}
 												}
 											],
@@ -6760,8 +5740,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Floor",
 														"layer": "\"Fog\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6769,7 +5749,7 @@
 													"objectClass": "Tile_Floor",
 													"sid": 999117525059441,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6777,7 +5757,7 @@
 													"objectClass": "Tile_Floor",
 													"sid": 609708381369853,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6785,7 +5765,7 @@
 													"objectClass": "Tile_Floor",
 													"sid": 539276794583223,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -6793,7 +5773,7 @@
 													"objectClass": "Tile_Floor",
 													"sid": 998767417331483,
 													"parameters": {
-														"frame-number": "int(LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_InitialFrame\"))"
+														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_InitialFrame\"))"
 													}
 												}
 											],
@@ -6812,7 +5792,7 @@
 													"objectClass": "System",
 													"sid": 226598855431579,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Window_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Window_ObjCount\")"
 													}
 												}
 											],
@@ -6824,8 +5804,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Window",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6833,7 +5813,7 @@
 													"objectClass": "Tile_Window",
 													"sid": 697371051967171,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6841,7 +5821,7 @@
 													"objectClass": "Tile_Window",
 													"sid": 548152132020078,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6849,7 +5829,7 @@
 													"objectClass": "Tile_Window",
 													"sid": 270158347763361,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6868,7 +5848,7 @@
 													"objectClass": "System",
 													"sid": 847682706065186,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_Roof_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_Roof_ObjCount\")"
 													}
 												}
 											],
@@ -6880,8 +5860,8 @@
 													"parameters": {
 														"object-to-create": "Tile_Roof",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6889,7 +5869,7 @@
 													"objectClass": "Tile_Roof",
 													"sid": 243872114530502,
 													"parameters": {
-														"frame-number": "int(LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_InitialFrame\"))"
+														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_InitialFrame\"))"
 													}
 												},
 												{
@@ -6897,7 +5877,7 @@
 													"objectClass": "Tile_Roof",
 													"sid": 499400054561575,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6905,7 +5885,7 @@
 													"objectClass": "Tile_Roof",
 													"sid": 142704178846333,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6913,7 +5893,7 @@
 													"objectClass": "Tile_Roof",
 													"sid": 332316601382701,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -6932,7 +5912,7 @@
 													"objectClass": "System",
 													"sid": 627615337367801,
 													"parameters": {
-														"count": "LVL_TileData.Get(\"Level\" & game_Level & \"_Tile_RoofCap_ObjCount\")"
+														"count": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_Tile_RoofCap_ObjCount\")"
 													}
 												}
 											],
@@ -6944,8 +5924,8 @@
 													"parameters": {
 														"object-to-create": "Tile_RoofCap",
 														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -6953,7 +5933,7 @@
 													"objectClass": "Tile_RoofCap",
 													"sid": 831381834081874,
 													"parameters": {
-														"frame-number": "int(LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_InitialFrame\"))"
+														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_InitialFrame\"))"
 													}
 												},
 												{
@@ -6961,7 +5941,7 @@
 													"objectClass": "Tile_RoofCap",
 													"sid": 838463940187973,
 													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -6969,7 +5949,7 @@
 													"objectClass": "Tile_RoofCap",
 													"sid": 299034102681249,
 													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -6977,7 +5957,7 @@
 													"objectClass": "Tile_RoofCap",
 													"sid": 771991026632818,
 													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & game_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7332,7 +6312,7 @@
 													"objectClass": "LocalStorage",
 													"sid": 166748028546591,
 													"parameters": {
-														"key": "\"Level\" & game_Level & \"_ObjectData\"",
+														"key": "\"Level\" & zzzgame_Level & \"_ObjectData\"",
 														"value": "LVL_ObjectData.AsJSON"
 													}
 												}
@@ -7372,7 +6352,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 752019928375824,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_ObjectData\""
+												"key": "\"Level\" & zzzgame_Level & \"_ObjectData\""
 											}
 										}
 									],
@@ -7387,7 +6367,7 @@
 											"objectClass": "LocalStorage",
 											"sid": 627227161470588,
 											"parameters": {
-												"key": "\"Level\" & game_Level & \"_ObjectData\""
+												"key": "\"Level\" & zzzgame_Level & \"_ObjectData\""
 											}
 										}
 									],
@@ -7441,7 +6421,7 @@
 													"objectClass": "System",
 													"sid": 328044910888651,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_Ladder_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_Ladder_ObjCount\")"
 													}
 												}
 											],
@@ -7453,8 +6433,8 @@
 													"parameters": {
 														"object-to-create": "Ladder",
 														"layer": "\"Level\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7462,7 +6442,7 @@
 													"objectClass": "Ladder",
 													"sid": 816738738202559,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7470,7 +6450,7 @@
 													"objectClass": "Ladder",
 													"sid": 512508230984495,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7478,7 +6458,7 @@
 													"objectClass": "Ladder",
 													"sid": 624457937506337,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7497,7 +6477,7 @@
 													"objectClass": "System",
 													"sid": 601361128757851,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_JumpThrough_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_JumpThrough_ObjCount\")"
 													}
 												}
 											],
@@ -7509,8 +6489,8 @@
 													"parameters": {
 														"object-to-create": "JumpThrough",
 														"layer": "\"Level\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7518,7 +6498,7 @@
 													"objectClass": "JumpThrough",
 													"sid": 341304392949537,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7526,7 +6506,7 @@
 													"objectClass": "JumpThrough",
 													"sid": 263080248087085,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7534,7 +6514,7 @@
 													"objectClass": "JumpThrough",
 													"sid": 571110895031303,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7553,7 +6533,7 @@
 													"objectClass": "System",
 													"sid": 975929967144267,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_DoorRange_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_DoorRange_ObjCount\")"
 													}
 												}
 											],
@@ -7565,8 +6545,8 @@
 													"parameters": {
 														"object-to-create": "Door_Range",
 														"layer": "\"Level\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7574,7 +6554,7 @@
 													"objectClass": "Door_Range",
 													"sid": 868268102383117,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7582,7 +6562,7 @@
 													"objectClass": "Door_Range",
 													"sid": 925942780310377,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7590,7 +6570,7 @@
 													"objectClass": "Door_Range",
 													"sid": 667952390084839,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7609,7 +6589,7 @@
 													"objectClass": "System",
 													"sid": 272131913430460,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_Fog_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_Fog_ObjCount\")"
 													}
 												}
 											],
@@ -7621,8 +6601,8 @@
 													"parameters": {
 														"object-to-create": "Fog",
 														"layer": "\"Fog\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7630,7 +6610,7 @@
 													"objectClass": "Fog",
 													"sid": 683012247140864,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7638,7 +6618,7 @@
 													"objectClass": "Fog",
 													"sid": 650969190841288,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7646,7 +6626,7 @@
 													"objectClass": "Fog",
 													"sid": 165952889661325,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7665,7 +6645,7 @@
 													"objectClass": "System",
 													"sid": 675894678890405,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_Fog_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_Fog_ObjCount\")"
 													}
 												}
 											],
@@ -7677,8 +6657,8 @@
 													"parameters": {
 														"object-to-create": "FogConnector",
 														"layer": "\"Fog\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7686,7 +6666,7 @@
 													"objectClass": "FogConnector",
 													"sid": 473817733780993,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7694,7 +6674,7 @@
 													"objectClass": "FogConnector",
 													"sid": 872340659646107,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7702,7 +6682,7 @@
 													"objectClass": "FogConnector",
 													"sid": 878399728945535,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7721,7 +6701,7 @@
 													"objectClass": "System",
 													"sid": 770886435551014,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_FogFilter_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_FogFilter_ObjCount\")"
 													}
 												}
 											],
@@ -7733,8 +6713,8 @@
 													"parameters": {
 														"object-to-create": "zzFogFilter",
 														"layer": "\"Fog\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7742,7 +6722,7 @@
 													"objectClass": "zzFogFilter",
 													"sid": 544273568654278,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7750,7 +6730,7 @@
 													"objectClass": "zzFogFilter",
 													"sid": 907864480320112,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7758,7 +6738,7 @@
 													"objectClass": "zzFogFilter",
 													"sid": 748220641189733,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7777,7 +6757,7 @@
 													"objectClass": "System",
 													"sid": 648184953680746,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_ZombieSpawn_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_ZombieSpawn_ObjCount\")"
 													}
 												}
 											],
@@ -7789,8 +6769,8 @@
 													"parameters": {
 														"object-to-create": "Spawn_Generic",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7798,7 +6778,7 @@
 													"objectClass": "Spawn_Generic",
 													"sid": 236820163387691,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7806,7 +6786,7 @@
 													"objectClass": "Spawn_Generic",
 													"sid": 399640464974196,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7814,7 +6794,7 @@
 													"objectClass": "Spawn_Generic",
 													"sid": 863828988811961,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7833,7 +6813,7 @@
 													"objectClass": "System",
 													"sid": 820452645921276,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_LootSpawn_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_LootSpawn_ObjCount\")"
 													}
 												}
 											],
@@ -7845,8 +6825,8 @@
 													"parameters": {
 														"object-to-create": "Loot_ContainerSpawn",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7854,7 +6834,7 @@
 													"objectClass": "Loot_ContainerSpawn",
 													"sid": 506126230751397,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7862,7 +6842,7 @@
 													"objectClass": "Loot_ContainerSpawn",
 													"sid": 459276556410351,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7870,7 +6850,7 @@
 													"objectClass": "Loot_ContainerSpawn",
 													"sid": 646801906486328,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -7879,7 +6859,7 @@
 													"sid": 646935572369197,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Type\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Type\")"
 													}
 												},
 												{
@@ -7888,7 +6868,7 @@
 													"sid": 524803238533234,
 													"parameters": {
 														"instance-variable": "Size",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Size\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Size\")"
 													}
 												}
 											],
@@ -7907,7 +6887,7 @@
 													"objectClass": "System",
 													"sid": 570639303154361,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_EndPoint_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_EndPoint_ObjCount\")"
 													}
 												}
 											],
@@ -7919,8 +6899,8 @@
 													"parameters": {
 														"object-to-create": "BuildingEndPoint",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7928,7 +6908,7 @@
 													"objectClass": "BuildingEndPoint",
 													"sid": 612627770328832,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7936,7 +6916,7 @@
 													"objectClass": "BuildingEndPoint",
 													"sid": 331588522847635,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -7944,7 +6924,7 @@
 													"objectClass": "BuildingEndPoint",
 													"sid": 198322806579884,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -7963,7 +6943,7 @@
 													"objectClass": "System",
 													"sid": 259160597061127,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_AmmoInteract_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_AmmoInteract_ObjCount\")"
 													}
 												}
 											],
@@ -7975,8 +6955,8 @@
 													"parameters": {
 														"object-to-create": "Shop_Interact",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -7984,7 +6964,7 @@
 													"objectClass": "Shop_Interact",
 													"sid": 380633360004661,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -7992,7 +6972,7 @@
 													"objectClass": "Shop_Interact",
 													"sid": 286182931033977,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8000,7 +6980,7 @@
 													"objectClass": "Shop_Interact",
 													"sid": 487553413423367,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -8009,7 +6989,7 @@
 													"sid": 929659156921891,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Type\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Type\")"
 													}
 												}
 											],
@@ -8028,7 +7008,7 @@
 													"objectClass": "System",
 													"sid": 687182349372915,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_ShopFont_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_ShopFont_ObjCount\")"
 													}
 												}
 											],
@@ -8040,8 +7020,8 @@
 													"parameters": {
 														"object-to-create": "Shop_Font",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8049,7 +7029,7 @@
 													"objectClass": "Shop_Font",
 													"sid": 911540421695875,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8057,7 +7037,7 @@
 													"objectClass": "Shop_Font",
 													"sid": 817259321152023,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8065,7 +7045,7 @@
 													"objectClass": "Shop_Font",
 													"sid": 411610117200615,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -8073,7 +7053,7 @@
 													"objectClass": "Shop_Font",
 													"sid": 882013853697888,
 													"parameters": {
-														"text": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Text\")"
+														"text": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Text\")"
 													}
 												}
 											],
@@ -8092,7 +7072,7 @@
 													"objectClass": "System",
 													"sid": 773003723907122,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_LadderSaftey_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_LadderSaftey_ObjCount\")"
 													}
 												}
 											],
@@ -8104,8 +7084,8 @@
 													"parameters": {
 														"object-to-create": "LadderSaftey",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8113,7 +7093,7 @@
 													"objectClass": "LadderSaftey",
 													"sid": 368511063332960,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8121,7 +7101,7 @@
 													"objectClass": "LadderSaftey",
 													"sid": 680641218174824,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8129,7 +7109,7 @@
 													"objectClass": "LadderSaftey",
 													"sid": 756609360132354,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -8148,7 +7128,7 @@
 													"objectClass": "System",
 													"sid": 736215916957063,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_ResearchData_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_ResearchData_ObjCount\")"
 													}
 												}
 											],
@@ -8160,8 +7140,8 @@
 													"parameters": {
 														"object-to-create": "ResearchData",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8169,7 +7149,7 @@
 													"objectClass": "ResearchData",
 													"sid": 183387981681452,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8177,7 +7157,7 @@
 													"objectClass": "ResearchData",
 													"sid": 494030918328631,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8185,7 +7165,7 @@
 													"objectClass": "ResearchData",
 													"sid": 828239573794669,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -8200,7 +7180,7 @@
 													"objectClass": "System",
 													"sid": 620914801661633,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_ResearchDataSprite_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_ResearchDataSprite_ObjCount\")"
 													}
 												}
 											],
@@ -8212,8 +7192,8 @@
 													"parameters": {
 														"object-to-create": "ResearchDataSprite",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8221,7 +7201,7 @@
 													"objectClass": "ResearchDataSprite",
 													"sid": 102710468484414,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8229,7 +7209,7 @@
 													"objectClass": "ResearchDataSprite",
 													"sid": 378747318048537,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8237,7 +7217,7 @@
 													"objectClass": "ResearchDataSprite",
 													"sid": 699082781394111,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												}
 											],
@@ -8256,7 +7236,7 @@
 													"objectClass": "System",
 													"sid": 863425963181303,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_SpawnSpecial_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_SpawnSpecial_ObjCount\")"
 													}
 												}
 											],
@@ -8268,8 +7248,8 @@
 													"parameters": {
 														"object-to-create": "zzSpawn_Vendor",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8277,7 +7257,7 @@
 													"objectClass": "zzSpawn_Vendor",
 													"sid": 706303193831826,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8285,7 +7265,7 @@
 													"objectClass": "zzSpawn_Vendor",
 													"sid": 509390719484100,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Height\")"
 													}
 												},
 												{
@@ -8293,7 +7273,7 @@
 													"objectClass": "zzSpawn_Vendor",
 													"sid": 795786567991609,
 													"parameters": {
-														"angle": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Angle\")"
+														"angle": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Angle\")"
 													}
 												},
 												{
@@ -8302,7 +7282,7 @@
 													"sid": 729105259974348,
 													"parameters": {
 														"instance-variable": "Type",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Type\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Type\")"
 													}
 												},
 												{
@@ -8311,7 +7291,7 @@
 													"sid": 949990631810739,
 													"parameters": {
 														"instance-variable": "Label",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Size\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Size\")"
 													}
 												}
 											],
@@ -8330,7 +7310,7 @@
 													"objectClass": "System",
 													"sid": 185918397375806,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_UpgradeSign_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_UpgradeSign_ObjCount\")"
 													}
 												}
 											],
@@ -8342,8 +7322,8 @@
 													"parameters": {
 														"object-to-create": "UpgradeSign",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8352,7 +7332,7 @@
 													"sid": 162995413579472,
 													"parameters": {
 														"instance-variable": "Cost",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Type\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Type\")"
 													}
 												},
 												{
@@ -8361,7 +7341,7 @@
 													"sid": 609851372588005,
 													"parameters": {
 														"instance-variable": "Label",
-														"value": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Size\")"
+														"value": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Size\")"
 													}
 												}
 											],
@@ -8380,7 +7360,7 @@
 													"objectClass": "System",
 													"sid": 496490409805257,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_StatsBoard_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_StatsBoard_ObjCount\")"
 													}
 												}
 											],
@@ -8392,8 +7372,8 @@
 													"parameters": {
 														"object-to-create": "Stats_Board",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8401,7 +7381,7 @@
 													"objectClass": "Stats_Board",
 													"sid": 462421544376408,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8409,7 +7389,7 @@
 													"objectClass": "Stats_Board",
 													"sid": 436972194226392,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Height\")"
 													}
 												}
 											],
@@ -8428,7 +7408,7 @@
 													"objectClass": "System",
 													"sid": 340384391951326,
 													"parameters": {
-														"count": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_SurvivorSpawn_ObjCount\")"
+														"count": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_SurvivorSpawn_ObjCount\")"
 													}
 												}
 											],
@@ -8440,8 +7420,8 @@
 													"parameters": {
 														"object-to-create": "Spawn_Survivor",
 														"layer": "\"Objects\"",
-														"x": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
+														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
+														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y"
 													}
 												},
 												{
@@ -8449,7 +7429,7 @@
 													"objectClass": "Spawn_Survivor",
 													"sid": 745639152717172,
 													"parameters": {
-														"width": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Width\")"
+														"width": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Width\")"
 													}
 												},
 												{
@@ -8457,7 +7437,7 @@
 													"objectClass": "Spawn_Survivor",
 													"sid": 159384057211280,
 													"parameters": {
-														"height": "LVL_ObjectData.Get(\"Level\" & game_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Height\")"
+														"height": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Height\")"
 													}
 												}
 											],

@@ -1,0 +1,427 @@
+{
+	"name": "Level_E",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "level_type",
+			"type": "string",
+			"initialValue": "Hub",
+			"comment": "Hub, Shop, World, Boss",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 152131517993076
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "comment",
+			"text": "May be deprecated"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Level Master"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 429071307283827
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Level Loaded",
+							"sid": 906401170184310
+						}
+					],
+					"sid": 738650093412789
+				}
+			],
+			"sid": 642148160644641
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 617725056306460
+				}
+			],
+			"actions": [],
+			"sid": 557089707574391,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 613077132577327,
+							"parameters": {
+								"variable": "level_type",
+								"comparison": 0,
+								"value": "\"Hub\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 673279293475440,
+							"parameters": {
+								"group-name": "\"Hub Events\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 273955264844122
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 404707273038396
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 610795805073417,
+							"parameters": {
+								"group-name": "\"Hub Events\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 166394347013096
+				}
+			]
+		},
+		{
+			"functionName": "Level Loaded",
+			"functionDescription": "",
+			"functionCategory": "Level",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "Game Logic",
+					"sid": 253513640218751,
+					"parameters": [
+						true
+					]
+				},
+				{
+					"callFunction": "Input_Mode",
+					"sid": 530491204185853,
+					"parameters": [
+						"\"Player\""
+					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 260016809141993,
+					"parameters": {
+						"variable": "level_Loaded",
+						"value": "1"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 268559509025896,
+					"parameters": {
+						"name": "\"Loader_Disable\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 106359113107716
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "End Zone",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Player_Sprite",
+							"sid": 687101110967460,
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 779919156264292,
+							"parameters": {
+								"first-value": "level_Loaded",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 215008352646535
+						}
+					],
+					"actions": [],
+					"sid": 742635258569446,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 680371079764672,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "0"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Player",
+									"sid": 306326463246126,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Camera_EndZone.X + Camera_EndZone.Width"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 253152500261114,
+									"parameters": {
+										"instance-variable": "InvincibilityTimer",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "Input_Mode",
+									"sid": 424664767622838,
+									"parameters": [
+										"\"Disabled\""
+									]
+								},
+								{
+									"callFunction": "FX_StopAll",
+									"sid": 637617297868516
+								},
+								{
+									"callFunction": "VFX_FadeOut",
+									"sid": 706050408635043,
+									"parameters": [
+										"0",
+										"1"
+									]
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Camera",
+									"sid": 905158115737545,
+									"parameters": {
+										"instance-variable": "mode",
+										"value": "0"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 652487072289008,
+									"parameters": {
+										"object-to-create": "Solid2Wall",
+										"layer": "\"Objects\"",
+										"x": "Player.X - Player.Width",
+										"y": "Player.Y"
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Solid2Wall",
+									"sid": 747825048079252,
+									"parameters": {
+										"width": "Player.Width"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Solid2Wall",
+									"sid": 570507875288509,
+									"parameters": {
+										"height": "300"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Solid2Wall",
+									"sid": 111937315949600,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 885302776284572,
+									"parameters": {
+										"variable": "map_ArmsAnim",
+										"value": "Player_Arms.AnimationName"
+									}
+								}
+							],
+							"sid": 912555770416475,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 780605806187566,
+											"parameters": {
+												"object": "Loot"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Loot",
+											"sid": 570800834746187,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 0,
+												"value": "\"Move\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 436367876962574,
+											"parameters": {
+												"name": "\"Loot_Collect\"",
+												"parameter-n": [
+													"Loot.UID"
+												]
+											}
+										}
+									],
+									"sid": 224259772568400
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 749144360348101,
+											"parameters": {
+												"seconds": "1"
+											}
+										}
+									],
+									"sid": 490315804729368,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 684878240057198,
+													"parameters": {
+														"variable": "level_type",
+														"comparison": 0,
+														"value": "\"Hub\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 880216993608054,
+													"parameters": {
+														"layout": "Map Builder"
+													}
+												}
+											],
+											"sid": 346605155574528
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 769756451290247
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 511652751272558,
+													"parameters": {
+														"variable": "map_NodeToClear",
+														"value": "1"
+													}
+												},
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 503723627357443,
+													"parameters": {
+														"layout": "Overworld"
+													}
+												}
+											],
+											"sid": 232407769480659
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						}
+					]
+				}
+			],
+			"sid": 266985323763745
+		}
+	],
+	"sid": 633432288946114
+}

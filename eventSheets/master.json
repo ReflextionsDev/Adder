@@ -9085,38 +9085,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-created",
-					"objectClass": "OBJ_Diag",
-					"sid": 719958105527364
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 376108357601768,
-					"parameters": {
-						"seconds": "0"
-					}
-				},
-				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 686558828762811,
-					"parameters": {
-						"name": "\"Diag_Load\"",
-						"parameter-n": [
-							"OBJ_Diag.UID"
-						]
-					}
-				}
-			],
-			"sid": 952611652321530
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 709488428040586
@@ -9144,44 +9112,10 @@
 						"0",
 						"0.5"
 					]
-				},
-				{
-					"callFunction": "VFX_FadeIn",
-					"sid": 335194831879181,
-					"disabled": true,
-					"parameters": [
-						"0.5",
-						"0.5"
-					]
 				}
 			],
 			"sid": 102179084372163,
 			"isOrBlock": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "PushOutSolid",
-					"sid": 670868763078966,
-					"parameters": {
-						"object": "Solids"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "push-out-solid",
-					"objectClass": "PushOutSolid",
-					"sid": 255967454184757,
-					"behaviorType": "Custom",
-					"parameters": {
-						"direction": "nearest"
-					}
-				}
-			],
-			"sid": 179553280150970
 		}
 	],
 	"sid": 350183298465580
