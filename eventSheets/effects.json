@@ -44,10 +44,91 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Effects Global",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "FX_StopAll",
+					"functionDescription": "",
+					"functionCategory": "Effects",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "VFX_StopAll",
+							"sid": 364275660780649
+						},
+						{
+							"callFunction": "SFX_StopAll",
+							"sid": 919786003349006
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 416899116169948,
+							"parameters": {
+								"name": "\"Weather_Stop\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 336526436195412,
+							"parameters": {
+								"name": "\"Music_Stop\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 850604079876949
+				}
+			],
+			"sid": 163057081213777
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Video Effects",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Video Effects Global",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "VFX_StopAll",
+							"functionDescription": "",
+							"functionCategory": "Effects",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 782838106905190,
+									"parameters": {
+										"variable": "vfx_ScreenShake",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 148330210930258
+						}
+					],
+					"sid": 368651394381267
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
@@ -418,6 +499,12 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "stop-all-tweens",
+									"objectClass": "FadeTween",
+									"sid": 675851266471701,
+									"behaviorType": "Tween"
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 739285364745814,
@@ -495,6 +582,12 @@
 							"eventType": "function-block",
 							"conditions": [],
 							"actions": [
+								{
+									"id": "stop-all-tweens",
+									"objectClass": "FadeTween",
+									"sid": 701155986691993,
+									"behaviorType": "Tween"
+								},
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
@@ -3625,6 +3718,45 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SFX Global",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "SFX_StopAll",
+							"functionDescription": "",
+							"functionCategory": "Effects",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "remove-all-effects",
+									"objectClass": "Audio",
+									"sid": 608301828489355,
+									"parameters": {
+										"tag": "\"fire\""
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 260406665819475,
+									"parameters": {
+										"tag": "\"fire\""
+									}
+								}
+							],
+							"sid": 924395635671731
+						}
+					],
+					"sid": 568345645390590
+				},
 				{
 					"eventType": "group",
 					"disabled": false,

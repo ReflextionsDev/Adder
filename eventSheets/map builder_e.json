@@ -3,23 +3,11 @@
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Saves"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Map_E"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Effects"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Loader"
+			"includeSheet": "Map Master"
 		},
 		{
 			"eventType": "variable",
-			"name": "mapbuilder_Region",
+			"name": "zzzmapbuilder_Region",
 			"type": "number",
 			"initialValue": "1",
 			"comment": "",
@@ -179,6 +167,56 @@
 		},
 		{
 			"eventType": "group",
+			"disabled": false,
+			"title": "Map Debug",
+			"description": "Toggle for visibility of map builder",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 557150285720629
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 412414226712646,
+							"parameters": {
+								"layer": "\"Fade\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 150525499831973,
+							"parameters": {
+								"name": "\"Loader_Disable\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 787775513235330,
+							"parameters": {
+								"layer": "\"Map\"",
+								"scale": "0.4"
+							}
+						}
+					],
+					"sid": 952069667077824
+				}
+			],
+			"sid": 291228781651418
+		},
+		{
+			"eventType": "group",
 			"disabled": true,
 			"title": "Map Debugging",
 			"description": "",
@@ -208,7 +246,7 @@
 						},
 						{
 							"id": "destroy",
-							"objectClass": "NodeSet",
+							"objectClass": "MB_NodeSet",
 							"sid": 275059078092502
 						},
 						{
@@ -306,7 +344,7 @@
 						},
 						{
 							"id": "destroy",
-							"objectClass": "NodeSet",
+							"objectClass": "MB_NodeSet",
 							"sid": 909917117958975
 						},
 						{
@@ -398,6 +436,7 @@
 					"id": "call-function",
 					"objectClass": "function",
 					"sid": 914222018244047,
+					"disabled": true,
 					"parameters": {
 						"name": "\"Map_Choose_Settlements\"",
 						"parameter-n": []
@@ -411,25 +450,26 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 346026666432729,
+					"sid": 608558378517896,
 					"parameters": {
 						"variable": "map_ActiveNode",
-						"value": "41"
+						"value": "1"
 					}
 				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 970053924755343,
+					"sid": 956556990627736,
 					"parameters": {
 						"variable": "map_SelectedNode",
-						"value": "41"
+						"value": "1"
 					}
 				},
 				{
 					"id": "call-function",
 					"objectClass": "function",
 					"sid": 828092949564950,
+					"disabled": true,
 					"parameters": {
 						"name": "\"Save_ActiveNode\"",
 						"parameter-n": []

@@ -3,19 +3,7 @@
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Loader"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Map_E"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Saves"
-		},
-		{
-			"eventType": "include",
-			"includeSheet": "Effects"
+			"includeSheet": "Map Master"
 		},
 		{
 			"eventType": "comment",
@@ -196,6 +184,156 @@
 			"sid": 312203698738345
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Overworld Debug",
+			"description": "Toggle for visibility of map builder",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 851896833474034
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 441796409661301,
+							"parameters": {
+								"layer": "\"Fade\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 752824158962788,
+							"parameters": {
+								"name": "\"Loader_Disable\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 784936605927827,
+							"parameters": {
+								"layer": "\"Map\"",
+								"scale": "0.4"
+							}
+						}
+					],
+					"sid": 794743709228007
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 537633077545206,
+							"parameters": {
+								"key": 67
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "MB_Icon",
+							"sid": 585462386980408,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PathSprites",
+							"sid": 831835167745476,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MB_NodeSprite",
+							"sid": 684086318515894,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MapFog",
+							"sid": 971479070578425
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MapFogCorner",
+							"sid": 552382941018228
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MapFogBorder",
+							"sid": 946091619442816
+						}
+					],
+					"sid": 319381654778797
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 831549237611896,
+							"parameters": {
+								"key": 82
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 297790846131652
+						}
+					],
+					"sid": 359418829329596
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 864161169811136,
+							"parameters": {
+								"key": 74
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "download",
+							"objectClass": "Map_Data",
+							"sid": 839225223333188,
+							"parameters": {
+								"filename": "\"MapData.json\""
+							}
+						}
+					],
+					"sid": 296429561804656
+				}
+			],
+			"sid": 590101826273166
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -209,6 +347,7 @@
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 274899271803501,
+					"disabled": true,
 					"parameters": {
 						"layer": "\"Loader\"",
 						"visibility": "visible"
@@ -218,6 +357,7 @@
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 181550485224942,
+					"disabled": true,
 					"parameters": {
 						"variable": "zzzlevel_TurnedSettlement",
 						"value": "0"
@@ -1670,7 +1810,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Overworld Tutorial",
 			"description": "TODO",
 			"isActiveOnStart": true,
@@ -1724,6 +1864,7 @@
 						}
 					],
 					"sid": 817546655619246,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1749,7 +1890,8 @@
 									}
 								}
 							],
-							"sid": 124785945818248
+							"sid": 124785945818248,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1775,7 +1917,8 @@
 									}
 								}
 							],
-							"sid": 179556212538984
+							"sid": 179556212538984,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1801,7 +1944,8 @@
 									}
 								}
 							],
-							"sid": 533527469714634
+							"sid": 533527469714634,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1827,7 +1971,8 @@
 									}
 								}
 							],
-							"sid": 307557635022647
+							"sid": 307557635022647,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1853,7 +1998,8 @@
 									}
 								}
 							],
-							"sid": 715931115589328
+							"sid": 715931115589328,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1879,7 +2025,8 @@
 									}
 								}
 							],
-							"sid": 578531001579827
+							"sid": 578531001579827,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1905,7 +2052,8 @@
 									}
 								}
 							],
-							"sid": 575587622012246
+							"sid": 575587622012246,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1921,7 +2069,8 @@
 									}
 								}
 							],
-							"sid": 509946053335642
+							"sid": 509946053335642,
+							"disabled": true
 						}
 					]
 				}
