@@ -420,7 +420,9 @@
 			"Editor_AngledRoom_WP",
 			"PlatformInfo",
 			"FadeTween",
-			"Map_Data"
+			"Map_Data",
+			"MapCenter",
+			"MapFog2"
 		],
 		"subfolders": [
 			{
@@ -713,13 +715,13 @@
 					{
 						"items": [
 							"MB_SavedMaps",
-							"MB_AS",
 							"MB_IconData",
 							"MB_NodeNames",
-							"MB_SectorCount"
+							"zzzMB_SectorCount",
+							"MB_SectorPool"
 						],
 						"subfolders": [],
-						"name": "MB Dictionarys"
+						"name": "MB_Data"
 					}
 				],
 				"name": "Map Builder"
@@ -1671,16 +1673,18 @@
 		]
 	},
 	"eventSheets": {
-		"items": [],
+		"items": [
+			"Level Master"
+		],
 		"subfolders": [
 			{
 				"items": [
 					"Map Master",
 					"Test_E",
-					"Map Builder_E",
 					"Overworld_E",
-					"Level_E",
-					"Hub"
+					"Menu_E",
+					"Options__E",
+					"Map Builder_E"
 				],
 				"subfolders": [],
 				"name": "Layouts"
@@ -1690,7 +1694,8 @@
 					"Master",
 					"Variables",
 					"Loader",
-					"Preload_E"
+					"Preload_E",
+					"Level_E"
 				],
 				"subfolders": [],
 				"name": "Game"
@@ -1707,7 +1712,8 @@
 							"AI",
 							"Player",
 							"Loot",
-							"Game Master"
+							"Game Master",
+							"Hub"
 						],
 						"subfolders": [],
 						"name": "Game Systems"
@@ -1717,16 +1723,12 @@
 			},
 			{
 				"items": [
-					"Options__E",
 					"Customization_E",
 					"End_E",
 					"Intro_E",
 					"Tutorial_E",
-					"LevelBuilder_E",
-					"Menu_E",
 					"Deprecated",
 					"Disabled",
-					"Level Master",
 					"zzzColony"
 				],
 				"subfolders": [],
@@ -1736,7 +1738,8 @@
 				"items": [
 					"Resources",
 					"Hotspot Tool",
-					"Level Editor_E"
+					"Level Editor_E",
+					"LevelBuilder_E"
 				],
 				"subfolders": [],
 				"name": "Util"
@@ -2585,7 +2588,13 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "SectorPool.json",
+					"type": "application/json",
+					"sid": 813871550421817
+				}
+			],
 			"subfolders": [
 				{
 					"items": [

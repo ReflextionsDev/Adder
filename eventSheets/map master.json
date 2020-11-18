@@ -34,10 +34,20 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "Consider converting functions to built in, to improve load times"
+					"text": "Consider converting all map functions to built in, to improve load times"
 				}
 			],
 			"sid": 350104981642452
+		},
+		{
+			"eventType": "variable",
+			"name": "SectorFrame",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 650453998724185
 		},
 		{
 			"eventType": "group",
@@ -94,7 +104,7 @@
 						},
 						{
 							"id": "clear",
-							"objectClass": "MB_SectorCount",
+							"objectClass": "zzzMB_SectorCount",
 							"sid": 992363091352586,
 							"parameters": {
 								"value": "0"
@@ -102,7 +112,7 @@
 						},
 						{
 							"id": "set-size",
-							"objectClass": "MB_SectorCount",
+							"objectClass": "zzzMB_SectorCount",
 							"sid": 632613549036303,
 							"parameters": {
 								"width": "6",
@@ -1019,6 +1029,14 @@
 					],
 					"actions": [
 						{
+							"id": "load",
+							"objectClass": "MB_SectorPool",
+							"sid": 385001170251557,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 541345612866855,
@@ -1045,9 +1063,9 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 643076777297039,
+									"sid": 816592163840324,
 									"parameters": {
-										"count": "3"
+										"count": "mapbuilder_gridSize/3"
 									}
 								}
 							],
@@ -1070,9 +1088,9 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 118910549527383,
+											"sid": 904765603054735,
 											"parameters": {
-												"count": "3"
+												"count": "mapbuilder_gridSize/3"
 											}
 										}
 									],
@@ -1121,256 +1139,12 @@
 										{
 											"eventType": "block",
 											"conditions": [],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "MB_Sector",
-													"sid": 317512281604476,
-													"parameters": {
-														"frame-number": "choose(0,1,2,3,5,6)"
-													}
-												},
-												{
-													"id": "move-to-bottom",
-													"objectClass": "MB_Sector",
-													"sid": 221450433225879
-												}
-											],
+											"actions": [],
 											"sid": 951801233369139,
 											"children": [
 												{
 													"eventType": "comment",
-													"text": "City"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 124799590858859,
-															"parameters": {
-																"comparison": 0,
-																"number": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 769533703269701,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"City\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 409246711854416,
-															"parameters": {
-																"x": "0",
-																"value": "MB_SectorCount.At(0) + 1"
-															}
-														}
-													],
-													"sid": 437808142619587
-												},
-												{
-													"eventType": "comment",
-													"text": "Industrial"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 493070079715078,
-															"parameters": {
-																"comparison": 0,
-																"number": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 797981617778931,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"Industrial\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 455088311525239,
-															"parameters": {
-																"x": "1",
-																"value": "MB_SectorCount.At(1) + 1"
-															}
-														}
-													],
-													"sid": 745236662705250
-												},
-												{
-													"eventType": "comment",
-													"text": "Suburb"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 271476510889829,
-															"parameters": {
-																"comparison": 0,
-																"number": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 972340599091289,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"Suburb\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 235201818392035,
-															"parameters": {
-																"x": "2",
-																"value": "MB_SectorCount.At(2) + 1"
-															}
-														}
-													],
-													"sid": 471451131636640
-												},
-												{
-													"eventType": "comment",
-													"text": "Wastes"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 360620212446787,
-															"parameters": {
-																"comparison": 0,
-																"number": "3"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 959049581277115,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"Wastes\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 982310051649499,
-															"parameters": {
-																"x": "3",
-																"value": "MB_SectorCount.At(3) + 1"
-															}
-														}
-													],
-													"sid": 798298944781542
-												},
-												{
-													"eventType": "comment",
-													"text": "Forest"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 164171347856752,
-															"parameters": {
-																"comparison": 0,
-																"number": "4"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 288763022553414,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"Forest\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 165095922348674,
-															"parameters": {
-																"x": "4",
-																"value": "MB_SectorCount.At(4) + 1"
-															}
-														}
-													],
-													"sid": 440751124375058
-												},
-												{
-													"eventType": "comment",
-													"text": "Mountain"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-animation-frame",
-															"objectClass": "MB_Sector",
-															"sid": 949126900627371,
-															"parameters": {
-																"comparison": 0,
-																"number": "5"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "MB_Sector",
-															"sid": 138963016147905,
-															"parameters": {
-																"instance-variable": "Name",
-																"value": "\"Mountain\""
-															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 350975169974939,
-															"parameters": {
-																"x": "5",
-																"value": "MB_SectorCount.At(5) + 1"
-															}
-														}
-													],
-													"sid": 691677281109485
+													"text": "Spawn Sector"
 												},
 												{
 													"eventType": "block",
@@ -1378,11 +1152,11 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "MB_Sector",
-															"sid": 964075760103137,
+															"sid": 662902465157934,
 															"parameters": {
 																"instance-variable": "ID",
 																"comparison": 0,
-																"value": "5"
+																"value": "1"
 															}
 														}
 													],
@@ -1390,7 +1164,7 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "MB_Sector",
-															"sid": 804779336426572,
+															"sid": 811285602791578,
 															"parameters": {
 																"frame-number": "4"
 															}
@@ -1398,23 +1172,223 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "MB_Sector",
-															"sid": 864543932011628,
+															"sid": 880955236343226,
 															"parameters": {
 																"instance-variable": "Name",
 																"value": "\"Forest\""
 															}
-														},
-														{
-															"id": "set-at-x",
-															"objectClass": "MB_SectorCount",
-															"sid": 961272014138683,
-															"parameters": {
-																"x": "4",
-																"value": "MB_SectorCount.At(4) + 1"
-															}
 														}
 													],
-													"sid": 850510722700708
+													"sid": 753761128712811
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 470730461490391
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 769847873837566,
+															"parameters": {
+																"variable": "SectorFrame",
+																"value": "floor(random(0,MB_SectorPool.Width))"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "MB_Sector",
+															"sid": 356612914648216,
+															"parameters": {
+																"frame-number": "MB_SectorPool.At(SectorFrame)"
+															}
+														},
+														{
+															"id": "move-to-bottom",
+															"objectClass": "MB_Sector",
+															"sid": 554668722942621
+														}
+													],
+													"sid": 245785772101091,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 526689585236614,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 425552323600719,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"City\""
+																	}
+																}
+															],
+															"sid": 217575180555485
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 436560633331562,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 332097111189188,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"Industrial\""
+																	}
+																}
+															],
+															"sid": 311796848106240
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 185545801200747,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 911699975313518,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"Suburb\""
+																	}
+																}
+															],
+															"sid": 193795900059845
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 869357994507470,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "3"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 496996706597011,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"Wastes\""
+																	}
+																}
+															],
+															"sid": 829613806398348
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 953715245874472,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "4"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 208889227494272,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"Forest\""
+																	}
+																}
+															],
+															"sid": 475215706129465
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-animation-frame",
+																	"objectClass": "MB_Sector",
+																	"sid": 589487114821307,
+																	"parameters": {
+																		"comparison": 0,
+																		"number": "5"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "MB_Sector",
+																	"sid": 678863002001255,
+																	"parameters": {
+																		"instance-variable": "Name",
+																		"value": "\"Mountain\""
+																	}
+																}
+															],
+															"sid": 155792921041721
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "delete",
+																	"objectClass": "MB_SectorPool",
+																	"sid": 194496809405357,
+																	"parameters": {
+																		"index": "SectorFrame",
+																		"axis": "x"
+																	}
+																}
+															],
+															"sid": 303272817372680
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -1465,7 +1439,7 @@
 													"conditions": [
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 200762660446131,
 															"parameters": {
 																"value": "4"
@@ -1473,7 +1447,7 @@
 														},
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 624505867284150,
 															"parameters": {
 																"value": "5"
@@ -1481,7 +1455,7 @@
 														},
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 629627379158479,
 															"parameters": {
 																"value": "6"
@@ -1489,7 +1463,7 @@
 														},
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 709377068741543,
 															"parameters": {
 																"value": "7"
@@ -1497,7 +1471,7 @@
 														},
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 197900731763087,
 															"parameters": {
 																"value": "8"
@@ -1505,7 +1479,7 @@
 														},
 														{
 															"id": "contains-value",
-															"objectClass": "MB_SectorCount",
+															"objectClass": "zzzMB_SectorCount",
 															"sid": 915601313000047,
 															"parameters": {
 																"value": "9"
@@ -1552,6 +1526,23 @@
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 272155131913296,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 798993725553113,
+									"parameters": {
+										"name": "\"Map_InitShops\"",
+										"parameter-n": []
+									}
+								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -1627,6 +1618,214 @@
 					"children": [
 						{
 							"eventType": "comment",
+							"text": "Threat Level"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "MB_Node",
+									"sid": 578564412101170,
+									"parameters": {
+										"object": "MB_Threat"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "MB_Node",
+									"sid": 721948944002557,
+									"parameters": {
+										"instance-variable": "ThreatLevel",
+										"value": "MB_Threat.Level"
+									}
+								}
+							],
+							"sid": 698917700813333
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "MB_Node",
+									"sid": 598626219030717,
+									"parameters": {
+										"object": "MB_Sector"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 325417826196725,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 764048167700324,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"City\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 299164090481946,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "5"
+											}
+										}
+									],
+									"sid": 367168464116709
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 614513277500634,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Industrial\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 149966099163041,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "4"
+											}
+										}
+									],
+									"sid": 279143964251334
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 633818381948855,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Suburb\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 173982341367583,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "3"
+											}
+										}
+									],
+									"sid": 647577398722944
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 357818999354452,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Wastes\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 657278156122150,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 877024027178588
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 243643123597576,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Mountain\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 837503467261015,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 333602598422685
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Sector",
+											"sid": 377784774733623,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Forest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "MB_Node",
+											"sid": 576927899225808,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 602446032998458
+								}
+							]
+						},
+						{
+							"eventType": "comment",
 							"text": "Hub"
 						},
 						{
@@ -1635,11 +1834,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 285284743655918,
+									"sid": 106298779456948,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
-										"value": "1"
+										"value": "mapbuilder_nodeBase"
 									}
 								}
 							],
@@ -1647,17 +1846,16 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 921006758886279,
+									"sid": 936729431701710,
 									"parameters": {
 										"instance-variable": "Name",
-										"value": "\"Base1\""
+										"value": "\"BaseName\""
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
 									"sid": 457372970799008,
-									"disabled": true,
 									"parameters": {
 										"instance-variable": "Type",
 										"value": "\"Base\""
@@ -1666,10 +1864,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 298319707563071,
+									"sid": 338580360672065,
 									"parameters": {
-										"instance-variable": "Type",
-										"value": "\"Home\""
+										"instance-variable": "ThreatLevel",
+										"value": "0"
 									}
 								}
 							],
@@ -1685,11 +1883,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 836539753707237,
+									"sid": 230020316584691,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
-										"value": "81"
+										"value": "mapbuilder_nodeBoss"
 									}
 								}
 							],
@@ -1697,7 +1895,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 388898641238733,
+									"sid": 336749637116486,
 									"parameters": {
 										"instance-variable": "Type",
 										"value": "\"Boss\""
@@ -1706,18 +1904,18 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 631729483583630,
+									"sid": 659141911418759,
 									"parameters": {
 										"instance-variable": "Name",
 										"value": "\"Research\" & floor(random(1,10.9))"
 									}
 								}
 							],
-							"sid": 506571959695422
+							"sid": 404602413760409
 						},
 						{
 							"eventType": "comment",
-							"text": "Human Settlements"
+							"text": "Shops"
 						},
 						{
 							"eventType": "block",
@@ -1725,7 +1923,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 258074554116036,
+									"sid": 327113109550143,
 									"parameters": {
 										"first-value": "function.Call(\"Map_IDisAS\",MB_Node.ID)",
 										"comparison": 0,
@@ -1737,222 +1935,24 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 326381152771671,
+									"sid": 247776931850046,
 									"parameters": {
 										"instance-variable": "Type",
 										"value": "\"Shop\""
 									}
-								}
-							],
-							"sid": 495387876925814
-						},
-						{
-							"eventType": "comment",
-							"text": "Threat Level"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+								},
 								{
-									"id": "is-overlapping-another-object",
+									"id": "set-instvar-value",
 									"objectClass": "MB_Node",
-									"sid": 874589170453531,
-									"parameters": {
-										"object": "MB_Threat"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "MB_Node",
-									"sid": 513667517268507,
+									"sid": 590188649469250,
 									"parameters": {
 										"instance-variable": "ThreatLevel",
-										"value": "MB_Threat.Level"
+										"value": "0"
 									}
 								}
 							],
-							"sid": 632298221308649
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "MB_Node",
-									"sid": 612800152485991,
-									"parameters": {
-										"object": "MB_Sector"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 866129155986879,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 286302727618621,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"City\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 873122582369292,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "5"
-											}
-										}
-									],
-									"sid": 174429615528579
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 331625480387819,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"Industrial\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 534874431127859,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "4"
-											}
-										}
-									],
-									"sid": 615017089859771
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 858317463482247,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"Suburb\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 877118293418968,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "3"
-											}
-										}
-									],
-									"sid": 373590092733560
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 248476896642469,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"Wastes\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 314086452392687,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "2"
-											}
-										}
-									],
-									"sid": 410728910956445
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 291626609520144,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"Mountain\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 504590330399721,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 278421508741562
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Sector",
-											"sid": 342998811743240,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 0,
-												"value": "\"Forest\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "MB_Node",
-											"sid": 807654259063407,
-											"parameters": {
-												"instance-variable": "ThreatLevel",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 284895481427335
-								}
-							]
+							"sid": 848918596491144,
+							"disabled": true
 						},
 						{
 							"eventType": "comment",
@@ -2008,6 +2008,95 @@
 								}
 							],
 							"sid": 314709338910625
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 296168307687028,
+							"parameters": {
+								"name": "\"Map_InitShops\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 387347588042058,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 802622828678561,
+									"parameters": {
+										"object": "MB_Sector"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "MB_Node",
+									"sid": 118262661556130,
+									"parameters": {
+										"object": "MB_Sector"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 867658370771884,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "mapbuilder_nodeBase"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 562695132597356,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "mapbuilder_nodeBoss"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 211363163724291,
+									"parameters": {
+										"object": "MB_Node"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MB_Node",
+									"sid": 775289464734409,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Shop\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MB_Node",
+									"sid": 154421750543460,
+									"parameters": {
+										"instance-variable": "ThreatLevel",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 943020427236637
 						}
 					]
 				},
@@ -3185,414 +3274,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Settlement Selection",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 398241202836471,
-							"parameters": {
-								"name": "\"Map_Choose_Settlements\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "clear",
-							"objectClass": "MB_AS",
-							"sid": 940486244523072,
-							"parameters": {
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "MB_AS",
-							"sid": 664489627469061,
-							"parameters": {
-								"width": "0",
-								"height": "1",
-								"depth": "1"
-							}
-						}
-					],
-					"sid": 737420597057219,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "repeat",
-									"objectClass": "System",
-									"sid": 576771439908134,
-									"parameters": {
-										"count": "5"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 291336608876618,
-									"parameters": {
-										"name": "\"Map_Choose_AS\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 732642114741704
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 321836551885534,
-							"parameters": {
-								"name": "\"Map_Choose_AS\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 327389213440536,
-							"parameters": {
-								"variable": "mapbuilder_SettlementID",
-								"value": "floor(random(1,81.9))"
-							}
-						}
-					],
-					"sid": 687124361190028,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 210103527748530,
-									"parameters": {
-										"first-value": "function.Call(\"Map_IDisPopulated\")",
-										"comparison": 0,
-										"second-value": "\"True\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 873994176341077,
-									"parameters": {
-										"name": "\"Map_Choose_AS\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 897133827081273
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 163470714852742
-								}
-							],
-							"actions": [
-								{
-									"id": "push",
-									"objectClass": "MB_AS",
-									"sid": 371461392266494,
-									"parameters": {
-										"where": "back",
-										"value": "mapbuilder_settlementID",
-										"axis": "x"
-									}
-								}
-							],
-							"sid": 399316991467354
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 176437781949606,
-							"parameters": {
-								"name": "\"Map_IDisPopulated\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 122052991941935,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 291878988453480,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 485418473159775,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "9"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 935630195893461,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "73"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 267440891057093,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "81"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 362548601443579,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "41"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 530022024902579,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "MB_AS.At(0,0,0)"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 933804640379568,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "MB_AS.At(1,0,0)"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 732344915734404,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "MB_AS.At(2,0,0)"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 552498129954136,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "MB_AS.At(3,0,0)"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 854143884475191,
-									"parameters": {
-										"variable": "mapbuilder_SettlementID",
-										"comparison": 0,
-										"value": "MB_AS.At(4,0,0)"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-return-value",
-									"objectClass": "function",
-									"sid": 731569237836725,
-									"parameters": {
-										"value": "\"True\""
-									}
-								}
-							],
-							"sid": 375657384598718,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 120628307771014
-								}
-							],
-							"actions": [
-								{
-									"id": "set-return-value",
-									"objectClass": "function",
-									"sid": 798726830223981,
-									"parameters": {
-										"value": "\"False\""
-									}
-								}
-							],
-							"sid": 917995946437354
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 496649880067908,
-							"parameters": {
-								"name": "\"Map_IDisAS\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 976522288267267,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 457835534163572,
-									"parameters": {
-										"first-value": "function.Param(0)",
-										"comparison": 0,
-										"second-value": "MB_AS.At(0,0,0)"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 638501764283510,
-									"parameters": {
-										"first-value": "function.Param(0)",
-										"comparison": 0,
-										"second-value": "MB_AS.At(1,0,0)"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 207237400052127,
-									"parameters": {
-										"first-value": "function.Param(0)",
-										"comparison": 0,
-										"second-value": "MB_AS.At(2,0,0)"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 213160329809885,
-									"parameters": {
-										"first-value": "function.Param(0)",
-										"comparison": 0,
-										"second-value": "MB_AS.At(3,0,0)"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 193669290072236,
-									"parameters": {
-										"first-value": "function.Param(0)",
-										"comparison": 0,
-										"second-value": "MB_AS.At(4,0,0)"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-return-value",
-									"objectClass": "function",
-									"sid": 524943274000445,
-									"parameters": {
-										"value": "\"True\""
-									}
-								}
-							],
-							"sid": 248831209598180,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 784024272573310
-								}
-							],
-							"actions": [
-								{
-									"id": "set-return-value",
-									"objectClass": "function",
-									"sid": 408772192984996,
-									"parameters": {
-										"value": "\"False\""
-									}
-								}
-							],
-							"sid": 242861615750853
-						}
-					]
-				}
-			],
-			"sid": 506758476937337
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Save / Load",
 			"description": "",
 			"isActiveOnStart": true,
@@ -3857,51 +3538,33 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 925290767256096,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Map Builder\""
+									}
+								}
+							],
 							"actions": [
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 177348339850037,
+									"sid": 686753794602193,
 									"parameters": {
 										"seconds": "0"
 									}
 								},
 								{
-									"id": "set-item",
-									"objectClass": "LocalStorage",
-									"sid": 409297484633175,
-									"parameters": {
-										"key": "system_saveslot & \"Region\" & zzzmapbuilder_Region & \"Generated\"",
-										"value": "\"1\""
-									}
+									"callFunction": "Map_Built",
+									"sid": 589895051185309
 								}
 							],
-							"sid": 832256329106315,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 130417797647646,
-											"parameters": {
-												"first-value": "LayoutName",
-												"comparison": 0,
-												"second-value": "\"Map Builder\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "Map_Built",
-											"sid": 153761649400252
-										}
-									],
-									"sid": 926874665789563
-								}
-							]
+							"sid": 832256329106315
 						}
 					]
 				},
@@ -3918,6 +3581,17 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 529188510102010,
+							"parameters": {
+								"object-to-create": "MapCenter",
+								"layer": "\"Map\"",
+								"x": "448",
+								"y": "448"
+							}
+						},
 						{
 							"id": "call-function",
 							"objectClass": "function",
@@ -4049,9 +3723,26 @@
 								{
 									"id": "call-function",
 									"objectClass": "function",
-									"sid": 523752860878216,
+									"sid": 768700386257364,
 									"parameters": {
 										"name": "\"map_drawPlayer\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 509532604919569,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 206765017449394,
+									"parameters": {
+										"name": "\"MAP_LoadIcons\"",
 										"parameter-n": []
 									}
 								},
@@ -4059,6 +3750,7 @@
 									"id": "wait-for-signal",
 									"objectClass": "System",
 									"sid": 419479461890676,
+									"disabled": true,
 									"parameters": {
 										"tag": "\"Icons Loaded\""
 									}
@@ -4081,6 +3773,14 @@
 									}
 								},
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 118846417631664,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
 									"id": "wait-for-signal",
 									"objectClass": "System",
 									"sid": 152410519101394,
@@ -4098,9 +3798,18 @@
 									}
 								},
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 735042240393264,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
 									"id": "wait-for-signal",
 									"objectClass": "System",
 									"sid": 517596353096055,
+									"disabled": true,
 									"parameters": {
 										"tag": "\"Roads Hidden\""
 									}
@@ -4116,151 +3825,6 @@
 								}
 							],
 							"sid": 265622638203085
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 153448418089928,
-							"parameters": {
-								"name": "\"MAP_Loaded\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 370793687644868,
-							"parameters": {
-								"variable": "map_Loading",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 121607607565033,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 821017846928026,
-									"parameters": {
-										"variable": "map_NodeToClear",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 977846733299913,
-									"parameters": {
-										"name": "\"MB_Save\"",
-										"parameter-n": []
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 979385356478015,
-									"parameters": {
-										"variable": "map_NodeToClear",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 109615519473145
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 542819457455921,
-									"parameters": {
-										"group-name": "\"Visible Icons\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 501109272435303,
-									"parameters": {
-										"group-name": "\"Fog Checks\"",
-										"state": "deactivated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 478632752669549,
-									"parameters": {
-										"group-name": "\"Pan\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 762324010942005,
-									"parameters": {
-										"group-name": "\"Overworld Interact\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Player_Sprite",
-									"sid": 525034003587096
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Player_Arms",
-									"sid": 205458373887441
-								},
-								{
-									"callFunction": "VFX_FadeIn",
-									"sid": 248207408276102,
-									"disabled": true,
-									"parameters": [
-										"0",
-										"0.5"
-									]
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 192151314134193,
-									"disabled": true,
-									"parameters": {
-										"layer": "\"Loader\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 896246322003786,
-									"disabled": true,
-									"parameters": {
-										"group-name": "\"Loader\"",
-										"state": "deactivated"
-									}
-								}
-							],
-							"sid": 594822098745533
 						}
 					]
 				},
@@ -4361,9 +3925,9 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 412030799302413,
+											"sid": 591226726008589,
 											"parameters": {
-												"count": "3"
+												"count": "mapbuilder_gridSize/3"
 											}
 										}
 									],
@@ -4386,9 +3950,9 @@
 												{
 													"id": "repeat",
 													"objectClass": "System",
-													"sid": 320021618658453,
+													"sid": 352082736775853,
 													"parameters": {
-														"count": "3"
+														"count": "mapbuilder_gridSize/3"
 													}
 												}
 											],
@@ -4824,9 +4388,9 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 452440337128893,
+											"sid": 433684498665482,
 											"parameters": {
-												"count": "81"
+												"count": "mapbuilder_gridSize*mapbuilder_gridSize"
 											}
 										}
 									],
@@ -5257,6 +4821,756 @@
 					"sid": 172055492880033
 				},
 				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Paths",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Path Bot",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "MAP_SavePathsBot",
+									"functionDescription": "Automatically converted from 'MAP_SavePathsBot'",
+									"functionCategory": "Map",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 1",
+											"sid": 208131545060477
+										},
+										{
+											"name": "X",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 2",
+											"sid": 257771163504262
+										},
+										{
+											"name": "Y",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 3",
+											"sid": 537379172415121
+										},
+										{
+											"name": "Valid",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 4",
+											"sid": 375392732942739
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 165037495586912,
+											"parameters": {
+												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_X\"",
+												"value": "X"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 213975004025596,
+											"parameters": {
+												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_Y\"",
+												"value": "Y"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 989303822316574,
+											"parameters": {
+												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_Valid\"",
+												"value": "Valid"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 113910375139084,
+											"parameters": {
+												"key": "\"PathBot\" & \"_ObjCount\"",
+												"value": "MB_PathBot.Count"
+											}
+										}
+									],
+									"sid": 349688099756547
+								},
+								{
+									"functionName": "MAP_LoadPathsBot",
+									"functionDescription": "Automatically converted from 'MAP_LoadPathsBot'",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 980081619581707,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 649418387864363,
+													"parameters": {
+														"count": "Map_Data.Get(\"PathBot\" & \"_ObjCount\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 170033831337665,
+													"parameters": {
+														"object-to-create": "MB_PathBot",
+														"layer": "\"Map\"",
+														"x": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex) & \"_X\")",
+														"y": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex) & \"_Y\")"
+													}
+												}
+											],
+											"sid": 169707248330817,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 212076888944432,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathBot",
+															"sid": 131509194110420,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 998572237245437
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 557216405858073,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathBot",
+															"sid": 751960258915003,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 207293415013739
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 662201800174800
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Path Top",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "MAP_SavePathsTop",
+									"functionDescription": "Automatically converted from 'MAP_SavePathsTop'",
+									"functionCategory": "Map",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 1",
+											"sid": 537095325453866
+										},
+										{
+											"name": "X",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 2",
+											"sid": 323295537950451
+										},
+										{
+											"name": "Y",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 3",
+											"sid": 440319042628741
+										},
+										{
+											"name": "Valid",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 4",
+											"sid": 629809914075534
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 142940330804885,
+											"parameters": {
+												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_X\"",
+												"value": "X"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 870437904234430,
+											"parameters": {
+												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_Y\"",
+												"value": "Y"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 615135333018146,
+											"parameters": {
+												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_Valid\"",
+												"value": "Valid"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 243979073827484,
+											"parameters": {
+												"key": "\"PathTop\" & \"_ObjCount\"",
+												"value": "MB_PathTop.Count"
+											}
+										}
+									],
+									"sid": 573073282168149
+								},
+								{
+									"functionName": "MAP_LoadPathsTop",
+									"functionDescription": "Automatically converted from 'MAP_LoadPathsTop'",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 747757533115396,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 119595083309021,
+													"parameters": {
+														"count": "Map_Data.Get(\"PathTop\" & \"_ObjCount\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 803744452061928,
+													"parameters": {
+														"object-to-create": "MB_PathTop",
+														"layer": "\"Map\"",
+														"x": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex) & \"_X\")",
+														"y": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex) & \"_Y\")"
+													}
+												}
+											],
+											"sid": 307632175010563,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 912764425651248,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathTop",
+															"sid": 250514757838187,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 897040592207827
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 264031957076588,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathTop",
+															"sid": 552763346728905,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 417203507500422
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 961601708255223
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Path Left",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "MAP_SavePathsLeft",
+									"functionDescription": "Automatically converted from 'MAP_SavePathsLeft'",
+									"functionCategory": "Map",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 1",
+											"sid": 733999196082509
+										},
+										{
+											"name": "X",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 2",
+											"sid": 416466588259541
+										},
+										{
+											"name": "Y",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 3",
+											"sid": 600038387484157
+										},
+										{
+											"name": "Valid",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 4",
+											"sid": 397013265542158
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 163972887167285,
+											"parameters": {
+												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_X\"",
+												"value": "X"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 991363150520066,
+											"parameters": {
+												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_Y\"",
+												"value": "Y"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 513980469425421,
+											"parameters": {
+												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_Valid\"",
+												"value": "Valid"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 287073020046804,
+											"parameters": {
+												"key": "\"PathLeft\" & \"_ObjCount\"",
+												"value": "MB_PathLeft.Count"
+											}
+										}
+									],
+									"sid": 573143630596161
+								},
+								{
+									"functionName": "MAP_LoadPathsLeft",
+									"functionDescription": "Automatically converted from 'MAP_LoadPathsLeft'",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 320373481614017,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 434114137362589,
+													"parameters": {
+														"count": "Map_Data.Get(\"PathLeft\" & \"_ObjCount\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 862288214495437,
+													"parameters": {
+														"object-to-create": "MB_PathLeft",
+														"layer": "\"Map\"",
+														"x": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex) & \"_X\")",
+														"y": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex) & \"_Y\")"
+													}
+												}
+											],
+											"sid": 192554795925653,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 218024775583588,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathLeft",
+															"sid": 501128769027064,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 163561337517231
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 274645369022638,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathLeft",
+															"sid": 568708779704666,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 657388515382037
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 830564651308590
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Path Right",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "MAP_SavePathsRight",
+									"functionDescription": "Automatically converted from 'MAP_SavePathsRight'",
+									"functionCategory": "Map",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 1",
+											"sid": 545014207109305
+										},
+										{
+											"name": "X",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 2",
+											"sid": 624466342076044
+										},
+										{
+											"name": "Y",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 3",
+											"sid": 300315028091109
+										},
+										{
+											"name": "Valid",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 4",
+											"sid": 984087344682360
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 450268781282157,
+											"parameters": {
+												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_X\"",
+												"value": "X"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 186226914924569,
+											"parameters": {
+												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_Y\"",
+												"value": "Y"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 979370229026177,
+											"parameters": {
+												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_Valid\"",
+												"value": "Valid"
+											}
+										},
+										{
+											"id": "add-key",
+											"objectClass": "Map_Data",
+											"sid": 724786605575673,
+											"parameters": {
+												"key": "\"PathRight\" & \"_ObjCount\"",
+												"value": "MB_PathRight.Count"
+											}
+										}
+									],
+									"sid": 168130422310884
+								},
+								{
+									"functionName": "MAP_LoadPathsRight",
+									"functionDescription": "Automatically converted from 'MAP_LoadPathsRight'",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 856732711894313,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "repeat",
+													"objectClass": "System",
+													"sid": 317171976391281,
+													"parameters": {
+														"count": "Map_Data.Get(\"PathRight\" & \"_ObjCount\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 975065380846425,
+													"parameters": {
+														"object-to-create": "MB_PathRight",
+														"layer": "\"Map\"",
+														"x": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex) & \"_X\")",
+														"y": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex) & \"_Y\")"
+													}
+												}
+											],
+											"sid": 339570821004462,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 632717415105661,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathRight",
+															"sid": 769780936421950,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 851901345433918
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 154065144602350,
+															"parameters": {
+																"first-value": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "MB_PathRight",
+															"sid": 811621490585793,
+															"parameters": {
+																"instance-variable": "Valid",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 276689269796143
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 754862428011875
+						}
+					],
+					"sid": 652495649921047
+				},
+				{
 					"eventType": "comment",
 					"text": "This is finnicky? "
 				},
@@ -5280,21 +5594,21 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "MB_Icon",
-											"sid": 226999997660284,
+											"sid": 220466419109572,
 											"parameters": {
 												"instance-variable": "ID",
 												"comparison": 0,
-												"value": "0"
+												"value": "mapbuilder_nodeBase - 1"
 											}
 										},
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "MB_Icon",
-											"sid": 104575579392085,
+											"sid": 779991009450049,
 											"parameters": {
 												"instance-variable": "ID",
 												"comparison": 0,
-												"value": "80"
+												"value": "mapbuilder_nodeBoss - 1"
 											}
 										}
 									],
@@ -5400,9 +5714,9 @@
 										{
 											"id": "repeat",
 											"objectClass": "System",
-											"sid": 355088275501610,
+											"sid": 780604771180288,
 											"parameters": {
-												"count": "81"
+												"count": "mapbuilder_gridSize*mapbuilder_gridSize"
 											}
 										},
 										{
@@ -5546,1129 +5860,16 @@
 											}
 										}
 									],
-									"sid": 567810837925780
+									"sid": 567810837925780,
+									"disabled": true
 								}
 							]
 						}
 					],
 					"sid": 693831624488716
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Paths",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Path Bot",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"functionName": "MAP_SavePathsBot",
-									"functionDescription": "Automatically converted from 'MAP_SavePathsBot'",
-									"functionCategory": "Map",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [
-										{
-											"name": "ID",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 1",
-											"sid": 208131545060477
-										},
-										{
-											"name": "X",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 2",
-											"sid": 257771163504262
-										},
-										{
-											"name": "Y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 3",
-											"sid": 537379172415121
-										},
-										{
-											"name": "Valid",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsBot' parameter 4",
-											"sid": 375392732942739
-										}
-									],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 958615332497076,
-											"parameters": {
-												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_X\"",
-												"value": "X"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 641605715918695,
-											"parameters": {
-												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_Y\"",
-												"value": "Y"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 134558931618934,
-											"parameters": {
-												"key": "((\"PathBot\" & \"_ID\") & ID) & \"_Valid\"",
-												"value": "Valid"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 762122431685514,
-											"parameters": {
-												"key": "\"PathBot\" & \"_ObjCount\"",
-												"value": "MB_PathBot.Count"
-											}
-										}
-									],
-									"sid": 999644158511556
-								},
-								{
-									"functionName": "MAP_LoadPathsBot",
-									"functionDescription": "Automatically converted from 'MAP_LoadPathsBot'",
-									"functionCategory": "",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [],
-									"sid": 718688871649123,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 352007241203485,
-													"parameters": {
-														"count": "Map_Data.Get(\"PathBot\" & \"_ObjCount\")"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 188180998566076,
-													"parameters": {
-														"object-to-create": "MB_PathBot",
-														"layer": "\"Map\"",
-														"x": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex) & \"_X\")",
-														"y": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex) & \"_Y\")"
-													}
-												}
-											],
-											"sid": 855010025137663,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 270438235752505,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathBot",
-															"sid": 409270526928836,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 186152687359358
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 135397208552688,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathBot\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathBot",
-															"sid": 813311907207848,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 520571991527077
-												}
-											]
-										}
-									]
-								}
-							],
-							"sid": 918771984737849
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Path Top",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"functionName": "MAP_SavePathsTop",
-									"functionDescription": "Automatically converted from 'MAP_SavePathsTop'",
-									"functionCategory": "Map",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [
-										{
-											"name": "ID",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 1",
-											"sid": 537095325453866
-										},
-										{
-											"name": "X",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 2",
-											"sid": 323295537950451
-										},
-										{
-											"name": "Y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 3",
-											"sid": 440319042628741
-										},
-										{
-											"name": "Valid",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsTop' parameter 4",
-											"sid": 629809914075534
-										}
-									],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 507683226952739,
-											"parameters": {
-												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_X\"",
-												"value": "X"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 915063328706404,
-											"parameters": {
-												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_Y\"",
-												"value": "Y"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 786598951968276,
-											"parameters": {
-												"key": "((\"PathTop\" & \"_ID\") & ID) & \"_Valid\"",
-												"value": "Valid"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 945841735905074,
-											"parameters": {
-												"key": "\"PathTop\" & \"_ObjCount\"",
-												"value": "MB_PathTop.Count"
-											}
-										}
-									],
-									"sid": 367046792733105
-								},
-								{
-									"functionName": "MAP_LoadPathsTop",
-									"functionDescription": "Automatically converted from 'MAP_LoadPathsTop'",
-									"functionCategory": "",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [],
-									"sid": 694288319022166,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 809154636770737,
-													"parameters": {
-														"count": "Map_Data.Get(\"PathTop\" & \"_ObjCount\")"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 437504411849899,
-													"parameters": {
-														"object-to-create": "MB_PathTop",
-														"layer": "\"Map\"",
-														"x": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex) & \"_X\")",
-														"y": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex) & \"_Y\")"
-													}
-												}
-											],
-											"sid": 604444045150565,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 531699193351791,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathTop",
-															"sid": 409911338772571,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 444917732733627
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 769626560561433,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathTop\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathTop",
-															"sid": 985281436928052,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 736037249385706
-												}
-											]
-										}
-									]
-								}
-							],
-							"sid": 181417428721764
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Path Left",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"functionName": "MAP_SavePathsLeft",
-									"functionDescription": "Automatically converted from 'MAP_SavePathsLeft'",
-									"functionCategory": "Map",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [
-										{
-											"name": "ID",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 1",
-											"sid": 733999196082509
-										},
-										{
-											"name": "X",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 2",
-											"sid": 416466588259541
-										},
-										{
-											"name": "Y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 3",
-											"sid": 600038387484157
-										},
-										{
-											"name": "Valid",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsLeft' parameter 4",
-											"sid": 397013265542158
-										}
-									],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 646336587228561,
-											"parameters": {
-												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_X\"",
-												"value": "X"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 511898509514050,
-											"parameters": {
-												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_Y\"",
-												"value": "Y"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 203704330265963,
-											"parameters": {
-												"key": "((\"PathLeft\" & \"_ID\") & ID) & \"_Valid\"",
-												"value": "Valid"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 404796443359799,
-											"parameters": {
-												"key": "\"PathLeft\" & \"_ObjCount\"",
-												"value": "MB_PathLeft.Count"
-											}
-										}
-									],
-									"sid": 511421530214176
-								},
-								{
-									"functionName": "MAP_LoadPathsLeft",
-									"functionDescription": "Automatically converted from 'MAP_LoadPathsLeft'",
-									"functionCategory": "",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [],
-									"sid": 980913607507762,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 923894944479862,
-													"parameters": {
-														"count": "Map_Data.Get(\"PathLeft\" & \"_ObjCount\")"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 777736321885824,
-													"parameters": {
-														"object-to-create": "MB_PathLeft",
-														"layer": "\"Map\"",
-														"x": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex) & \"_X\")",
-														"y": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex) & \"_Y\")"
-													}
-												}
-											],
-											"sid": 287003122613150,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 790288812019938,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathLeft",
-															"sid": 781632844869399,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 262708324964213
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 231462697692989,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathLeft\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathLeft",
-															"sid": 185160341978880,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 933775995179541
-												}
-											]
-										}
-									]
-								}
-							],
-							"sid": 460863665773139
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Path Right",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"functionName": "MAP_SavePathsRight",
-									"functionDescription": "Automatically converted from 'MAP_SavePathsRight'",
-									"functionCategory": "Map",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [
-										{
-											"name": "ID",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 1",
-											"sid": 545014207109305
-										},
-										{
-											"name": "X",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 2",
-											"sid": 624466342076044
-										},
-										{
-											"name": "Y",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 3",
-											"sid": 300315028091109
-										},
-										{
-											"name": "Valid",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "Automatically converted from 'MAP_SavePathsRight' parameter 4",
-											"sid": 984087344682360
-										}
-									],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 128466051409156,
-											"parameters": {
-												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_X\"",
-												"value": "X"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 512594396953274,
-											"parameters": {
-												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_Y\"",
-												"value": "Y"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 454934413838147,
-											"parameters": {
-												"key": "((\"PathRight\" & \"_ID\") & ID) & \"_Valid\"",
-												"value": "Valid"
-											}
-										},
-										{
-											"id": "add-key",
-											"objectClass": "Map_Data",
-											"sid": 799904549794765,
-											"parameters": {
-												"key": "\"PathRight\" & \"_ObjCount\"",
-												"value": "MB_PathRight.Count"
-											}
-										}
-									],
-									"sid": 863906541763876
-								},
-								{
-									"functionName": "MAP_LoadPathsRight",
-									"functionDescription": "Automatically converted from 'MAP_LoadPathsRight'",
-									"functionCategory": "",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [],
-									"sid": 966386869226246,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "repeat",
-													"objectClass": "System",
-													"sid": 582204333207672,
-													"parameters": {
-														"count": "Map_Data.Get(\"PathRight\" & \"_ObjCount\")"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 811557679024389,
-													"parameters": {
-														"object-to-create": "MB_PathRight",
-														"layer": "\"Map\"",
-														"x": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex) & \"_X\")",
-														"y": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex) & \"_Y\")"
-													}
-												}
-											],
-											"sid": 850692562965171,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 707534241787979,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathRight",
-															"sid": 611593209752414,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 961128232421365
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 648342219168551,
-															"parameters": {
-																"first-value": "Map_Data.Get(\"PathRight\" & \"_ID\" & (loopindex+1) & \"_Valid\")",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "MB_PathRight",
-															"sid": 451569642822878,
-															"parameters": {
-																"instance-variable": "Valid",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 512081823732066
-												}
-											]
-										}
-									]
-								}
-							],
-							"sid": 653126458714417
-						}
-					],
-					"sid": 242059807676623
 				}
 			],
 			"sid": 863063273451772
-		},
-		{
-			"eventType": "comment",
-			"text": ""
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Map Sprites",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 825651141723318,
-							"parameters": {
-								"name": "\"map_drawPlayer\"\r\n"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MB_Node",
-							"sid": 779687728503438,
-							"parameters": {
-								"instance-variable": "ID",
-								"comparison": 0,
-								"value": "Map_ActiveNode"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 388703862751775,
-							"parameters": {
-								"object-to-create": "Player_Sprite",
-								"layer": "\"Map\"",
-								"x": "MB_Node.X",
-								"y": "MB_Node.Y + MB_Node.Height/2 - 32"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Player_Sprite",
-							"sid": 538798506565673,
-							"parameters": {
-								"animation": "\"Idle\" & zzplayer_Skin",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 922922479330421,
-							"parameters": {
-								"object-to-create": "Player_Arms",
-								"layer": "\"Map\"",
-								"x": "Player_Sprite.ImagePointX(1)",
-								"y": "Player_Sprite.ImagePointY(1)"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Player_Arms",
-							"sid": 880797038394673,
-							"parameters": {
-								"animation": "map_ArmsAnim",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-scale",
-							"objectClass": "Player_Sprite",
-							"sid": 916048378145315,
-							"parameters": {
-								"scale": "2"
-							}
-						},
-						{
-							"id": "set-scale",
-							"objectClass": "Player_Arms",
-							"sid": 581617840300706,
-							"parameters": {
-								"scale": "2"
-							}
-						},
-						{
-							"id": "scroll-to-object",
-							"objectClass": "System",
-							"sid": 495133927183761,
-							"parameters": {
-								"object": "Player_Sprite"
-							}
-						},
-						{
-							"id": "set-position-to-another-object",
-							"objectClass": "Player_Arms",
-							"sid": 350329395939781,
-							"parameters": {
-								"object": "Player_Sprite",
-								"image-point-optional": "1"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "map_travel",
-							"sid": 389774279022873,
-							"parameters": {
-								"x": "MB_Node.X ",
-								"y": "MB_Node.Y "
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 861731633746957,
-							"parameters": {
-								"group-name": "\"Player Movement\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 303664409271531,
-							"parameters": {
-								"seconds": "0"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 195885778482888,
-							"parameters": {
-								"name": "\"map_hilightTravels\"",
-								"parameter-n": []
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 330663736049864,
-							"parameters": {
-								"seconds": "0"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 683070534528798,
-							"parameters": {
-								"name": "\"Map_Draw_Sprites\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 241838579161981
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 170046793568836,
-							"parameters": {
-								"name": "\"Map_Draw_Sprites\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 436207322979853,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 595798685322669,
-									"parameters": {
-										"object": "MB_PathTop"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 473674446780492,
-									"parameters": {
-										"object-to-create": "MB_PathTop2",
-										"layer": "\"Map\"",
-										"x": "MB_PathTop.X",
-										"y": "MB_PathTop.Y"
-									}
-								}
-							],
-							"sid": 688326657979167
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 526529696156587,
-									"parameters": {
-										"object": "MB_PathBot"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 576013366324376,
-									"parameters": {
-										"object-to-create": "MB_PathBot2",
-										"layer": "\"Map\"",
-										"x": "MB_PathBot.X",
-										"y": "MB_PathBot.Y"
-									}
-								}
-							],
-							"sid": 575126231498528
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 226518250097932,
-									"parameters": {
-										"object": "MB_PathLeft"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 429219291513514,
-									"parameters": {
-										"object-to-create": "MB_PathLeft2",
-										"layer": "\"Map\"",
-										"x": "MB_PathLeft.X",
-										"y": "MB_PathLeft.Y"
-									}
-								}
-							],
-							"sid": 175033372930275
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 418335501762918,
-									"parameters": {
-										"object": "MB_PathRight"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 417899025956532,
-									"parameters": {
-										"object-to-create": "MB_PathRight2",
-										"layer": "\"Map\"",
-										"x": "MB_PathRight.X",
-										"y": "MB_PathRight.Y"
-									}
-								}
-							],
-							"sid": 685141851693400
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 482339720885431,
-									"parameters": {
-										"object": "MB_Node"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 965888414457393,
-									"parameters": {
-										"object-to-create": "MB_NodeSprite",
-										"layer": "\"Map\"",
-										"x": "MB_Node.X",
-										"y": "MB_Node.Y"
-									}
-								},
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 157944484198837,
-									"parameters": {
-										"object-to-create": "MB_Icon",
-										"layer": "\"Map\"",
-										"x": "MB_Node.X",
-										"y": "MB_Node.Y + 2"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "MB_Icon",
-									"sid": 114072533842092,
-									"parameters": {
-										"animation": "MB_Node.AnimationName",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 942271801046808
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 309752825284659,
-									"parameters": {
-										"group-name": "\"Visible Icons\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 474067492628613,
-									"parameters": {
-										"name": "\"MAP_LoadIcons\"",
-										"parameter-n": [
-											"zzzmapbuilder_Region"
-										]
-									}
-								}
-							],
-							"sid": 197732551489116
-						}
-					]
-				}
-			],
-			"sid": 988260845889010
 		},
 		{
 			"eventType": "group",
@@ -6690,7 +5891,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "MapFogBorder",
-									"sid": 164347682043664,
+									"sid": 211296009543357,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -6700,10 +5901,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "MapFogBorder",
-									"sid": 897145161720952
+									"sid": 552743116599769
 								}
 							],
-							"sid": 950697786216533
+							"sid": 258543256219684
 						},
 						{
 							"eventType": "block",
@@ -6711,17 +5912,17 @@
 								{
 									"id": "is-outside-layout",
 									"objectClass": "MapFogBorder",
-									"sid": 289098069386295
+									"sid": 831635960147708
 								}
 							],
 							"actions": [
 								{
 									"id": "destroy",
 									"objectClass": "MapFogBorder",
-									"sid": 798941920026649
+									"sid": 215282401728600
 								}
 							],
-							"sid": 486251837862545
+							"sid": 231895327862674
 						},
 						{
 							"eventType": "block",
@@ -6729,7 +5930,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "MapFogCorner",
-									"sid": 406116566216627,
+									"sid": 648737001411772,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -6739,10 +5940,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "MapFogCorner",
-									"sid": 442250477277571
+									"sid": 739718098844233
 								}
 							],
-							"sid": 764446783221633
+							"sid": 211761597760496
 						},
 						{
 							"eventType": "block",
@@ -6750,20 +5951,20 @@
 								{
 									"id": "is-outside-layout",
 									"objectClass": "MapFogCorner",
-									"sid": 624955817274411
+									"sid": 921397076178548
 								}
 							],
 							"actions": [
 								{
 									"id": "destroy",
 									"objectClass": "MapFogCorner",
-									"sid": 131259930023187
+									"sid": 391481848795895
 								}
 							],
-							"sid": 796705197064417
+							"sid": 672274394238526
 						}
 					],
-					"sid": 216488714000003
+					"sid": 747398684506421
 				},
 				{
 					"eventType": "block",
@@ -6771,7 +5972,7 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 740102938103975,
+							"sid": 406681618831447,
 							"parameters": {
 								"name": "\"Map_BuildFog\""
 							}
@@ -6781,14 +5982,14 @@
 						{
 							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 519590994119890,
+							"sid": 385851052075214,
 							"parameters": {
 								"group-name": "\"Fog Checks\"",
 								"state": "activated"
 							}
 						}
 					],
-					"sid": 851027269511741,
+					"sid": 402045101488998,
 					"children": [
 						{
 							"eventType": "block",
@@ -6796,7 +5997,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 328524885216644,
+									"sid": 269221421122380,
 									"parameters": {
 										"object": "MB_Node"
 									}
@@ -6806,7 +6007,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 320952173367778,
+									"sid": 406062385618910,
 									"parameters": {
 										"object-to-create": "MapFog",
 										"layer": "\"Map\"",
@@ -6815,7 +6016,7 @@
 									}
 								}
 							],
-							"sid": 693824007071504
+							"sid": 748349742228305
 						},
 						{
 							"eventType": "block",
@@ -6823,7 +6024,7 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 540950537633579,
+									"sid": 181081148757205,
 									"parameters": {
 										"count": "mapbuilder_gridSize + 2"
 									}
@@ -6831,7 +6032,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 951517725618413,
+									"sid": 836372841254168,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
@@ -6843,7 +6044,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 181457747748860,
+									"sid": 644120658321058,
 									"parameters": {
 										"object-to-create": "MapFog",
 										"layer": "\"Map\"",
@@ -6854,7 +6055,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 578625456272990,
+									"sid": 140362448084145,
 									"parameters": {
 										"object-to-create": "MapFog",
 										"layer": "\"Map\"",
@@ -6863,7 +6064,7 @@
 									}
 								}
 							],
-							"sid": 943465536505089
+							"sid": 164752765544133
 						},
 						{
 							"eventType": "block",
@@ -6871,7 +6072,7 @@
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 193014702035076,
+									"sid": 166303867460385,
 									"parameters": {
 										"count": "mapbuilder_gridSize "
 									}
@@ -6879,7 +6080,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 706514140248925,
+									"sid": 188435383887799,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
@@ -6891,7 +6092,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 169990870400804,
+									"sid": 493842601449130,
 									"parameters": {
 										"object-to-create": "MapFog",
 										"layer": "\"Map\"",
@@ -6902,7 +6103,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 735920954158199,
+									"sid": 537960144212639,
 									"parameters": {
 										"object-to-create": "MapFog",
 										"layer": "\"Map\"",
@@ -6911,7 +6112,7 @@
 									}
 								}
 							],
-							"sid": 873986319547935
+							"sid": 212595864484769
 						},
 						{
 							"eventType": "block",
@@ -6919,7 +6120,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 623858890471119,
+									"sid": 186124619540635,
 									"parameters": {
 										"instance-variable": "Cleared",
 										"comparison": 0,
@@ -6929,7 +6130,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "MB_Node",
-									"sid": 328785802784963,
+									"sid": 386024342659662,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -6939,10 +6140,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "MapFog",
-									"sid": 613645730817565
+									"sid": 945286057889492
 								}
 							],
-							"sid": 200455231820815
+							"sid": 774483129552536
 						},
 						{
 							"eventType": "block",
@@ -6950,46 +6151,26 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 616747533194733,
+									"sid": 226974938316896,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
-										"value": "1"
+										"value": "mapbuilder_nodeBase"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "MB_Node",
-									"sid": 910059382996832,
+									"sid": 463256684776697,
 									"parameters": {
 										"instance-variable": "ID",
 										"comparison": 0,
-										"value": "9"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "MB_Node",
-									"sid": 490996286792198,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "73"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "MB_Node",
-									"sid": 186693416304884,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "81"
+										"value": "mapbuilder_nodeBoss"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 630818739510119,
+							"sid": 200693121637553,
 							"children": [
 								{
 									"eventType": "block",
@@ -6997,7 +6178,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "MB_Node",
-											"sid": 646432963451792,
+											"sid": 525695575474926,
 											"parameters": {
 												"object": "MapFog"
 											}
@@ -7007,10 +6188,10 @@
 										{
 											"id": "destroy",
 											"objectClass": "MapFog",
-											"sid": 427457020593073
+											"sid": 560374008534926
 										}
 									],
-									"sid": 330840920796169
+									"sid": 827912121842613
 								}
 							],
 							"isOrBlock": true
@@ -7022,7 +6203,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 876571667790517,
+									"sid": 842872978405354,
 									"parameters": {
 										"seconds": "0"
 									}
@@ -7030,14 +6211,14 @@
 								{
 									"id": "call-function",
 									"objectClass": "function",
-									"sid": 763622789098450,
+									"sid": 418886674103329,
 									"parameters": {
 										"name": "\"Map_BuildFog2\"",
 										"parameter-n": []
 									}
 								}
 							],
-							"sid": 105292069127939
+							"sid": 187599893838384
 						}
 					]
 				},
@@ -7047,14 +6228,14 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 140094573937990,
+							"sid": 654096112972511,
 							"parameters": {
 								"name": "\"Map_BuildFog2\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 707241745524869,
+					"sid": 832451937598785,
 					"children": [
 						{
 							"eventType": "block",
@@ -7062,7 +6243,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 394851418318230,
+									"sid": 301806548547831,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -7072,7 +6253,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 485768290402794,
+									"sid": 591772126410715,
 									"parameters": {
 										"object-to-create": "MapFogBorder",
 										"layer": "\"Map\"",
@@ -7083,7 +6264,7 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogBorder",
-									"sid": 776388260512739,
+									"sid": 713425299157545,
 									"parameters": {
 										"angle": "0"
 									}
@@ -7091,7 +6272,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 550945276691199,
+									"sid": 175321576418321,
 									"parameters": {
 										"object-to-create": "MapFogBorder",
 										"layer": "\"Map\"",
@@ -7102,7 +6283,7 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogBorder",
-									"sid": 987997312246558,
+									"sid": 909257146096906,
 									"parameters": {
 										"angle": "90"
 									}
@@ -7110,7 +6291,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 981934863412525,
+									"sid": 825137574418162,
 									"parameters": {
 										"object-to-create": "MapFogBorder",
 										"layer": "\"Map\"",
@@ -7121,7 +6302,7 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogBorder",
-									"sid": 121651023977059,
+									"sid": 981691763882671,
 									"parameters": {
 										"angle": "180"
 									}
@@ -7129,7 +6310,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 565687525954152,
+									"sid": 711609169263399,
 									"parameters": {
 										"object-to-create": "MapFogBorder",
 										"layer": "\"Map\"",
@@ -7140,13 +6321,13 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogBorder",
-									"sid": 521344413478682,
+									"sid": 113926883151410,
 									"parameters": {
 										"angle": "270"
 									}
 								}
 							],
-							"sid": 595282965643783
+							"sid": 780174737872051
 						},
 						{
 							"eventType": "block",
@@ -7155,7 +6336,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 599456771888058,
+									"sid": 178305498888419,
 									"parameters": {
 										"seconds": "0"
 									}
@@ -7163,14 +6344,14 @@
 								{
 									"id": "call-function",
 									"objectClass": "function",
-									"sid": 906981322784165,
+									"sid": 351744996555581,
 									"parameters": {
 										"name": "\"Map_BuildFog3\"",
 										"parameter-n": []
 									}
 								}
 							],
-							"sid": 311806838575537
+							"sid": 159283133389197
 						}
 					]
 				},
@@ -7180,14 +6361,14 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 733601399984548,
+							"sid": 384613768037764,
 							"parameters": {
 								"name": "\"Map_BuildFog3\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 978602244447494,
+					"sid": 667492264482626,
 					"children": [
 						{
 							"eventType": "block",
@@ -7195,7 +6376,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 108634651757655,
+									"sid": 194689642313386,
 									"parameters": {
 										"object": "MapFogBorder"
 									}
@@ -7203,7 +6384,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 807191842227400,
+									"sid": 945835114987682,
 									"parameters": {
 										"first-value": "mapfogborder.Angle",
 										"comparison": 0,
@@ -7215,7 +6396,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 972561002034272,
+									"sid": 358613947936275,
 									"parameters": {
 										"object-to-create": "MapFogCorner",
 										"layer": "\"Map\"",
@@ -7226,7 +6407,7 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogCorner",
-									"sid": 849308903755313,
+									"sid": 578770030409185,
 									"parameters": {
 										"angle": "90"
 									}
@@ -7234,7 +6415,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 183633232480607,
+									"sid": 395619451024899,
 									"parameters": {
 										"object-to-create": "MapFogCorner",
 										"layer": "\"Map\"",
@@ -7245,13 +6426,13 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogCorner",
-									"sid": 447822009317510,
+									"sid": 525445157080513,
 									"parameters": {
 										"angle": "180"
 									}
 								}
 							],
-							"sid": 535934712442544
+							"sid": 388370827848704
 						},
 						{
 							"eventType": "block",
@@ -7259,7 +6440,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 622883979953715,
+									"sid": 331356252218167,
 									"parameters": {
 										"object": "MapFogBorder"
 									}
@@ -7267,7 +6448,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 353185350445597,
+									"sid": 305846945965349,
 									"parameters": {
 										"first-value": "mapfogborder.Angle",
 										"comparison": 0,
@@ -7279,7 +6460,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 794354991120128,
+									"sid": 548007785156584,
 									"parameters": {
 										"object-to-create": "MapFogCorner",
 										"layer": "\"Map\"",
@@ -7290,7 +6471,7 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogCorner",
-									"sid": 998201252593520,
+									"sid": 601777417409118,
 									"parameters": {
 										"angle": "0"
 									}
@@ -7298,7 +6479,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 332761035888973,
+									"sid": 478994968752584,
 									"parameters": {
 										"object-to-create": "MapFogCorner",
 										"layer": "\"Map\"",
@@ -7309,13 +6490,13 @@
 								{
 									"id": "set-angle",
 									"objectClass": "MapFogCorner",
-									"sid": 637534846677170,
+									"sid": 394303055232519,
 									"parameters": {
 										"angle": "270"
 									}
 								}
 							],
-							"sid": 347799262438832
+							"sid": 353145434019109
 						},
 						{
 							"eventType": "block",
@@ -7324,142 +6505,15 @@
 								{
 									"id": "signal",
 									"objectClass": "System",
-									"sid": 511789229452369,
+									"sid": 493472188181690,
 									"parameters": {
 										"tag": "\"Fog Built\""
 									}
 								}
 							],
-							"sid": 296714291074295
+							"sid": 721340982854906
 						}
 					]
-				}
-			],
-			"sid": 814999862124151
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Player Movement",
-			"description": "",
-			"isActiveOnStart": false,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "TODO: Verify MoveTo"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Player_Sprite",
-							"sid": 708722812635279,
-							"behaviorType": "MoveTo"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "MapCursor",
-							"sid": 471511345560970,
-							"parameters": {
-								"x": "player_sprite.X",
-								"y": "player_sprite.y"
-							}
-						},
-						{
-							"id": "scroll-to-object",
-							"objectClass": "System",
-							"sid": 296850151758579,
-							"parameters": {
-								"object": "MapCursor"
-							}
-						}
-					],
-					"sid": 140477429162213,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Player_Sprite",
-									"sid": 775183183119751,
-									"parameters": {
-										"object": "MB_Node"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "map_travel",
-									"sid": 665668733868499,
-									"parameters": {
-										"x": "MB_Node.X ",
-										"y": "MB_Node.Y "
-									}
-								}
-							],
-							"sid": 516194214535137
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "MB_Node",
-									"sid": 112764687876117,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "Map_ActiveNode"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "MB_Node",
-									"sid": 676918412210372,
-									"parameters": {
-										"object": "MB_Icon"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Player_Target",
-									"sid": 376309647038090,
-									"parameters": {
-										"x": "lerp(Self.X,CanvasToLayerX(\"Cursor\",LayerToCanvasX(\"map\", MB_Icon.x, MB_Icon.y) ,LayerToCanvasY(\"map\", MB_Icon.x, MB_Icon.y)),0.1)",
-										"y": "lerp(Self.Y,CanvasToLayerY(\"Cursor\",LayerToCanvasX(\"map\", MB_Icon.x, MB_Icon.y - MB_Icon.Height/2) ,LayerToCanvasY(\"map\", MB_Icon.x, MB_Icon.y - MB_Icon.Height/2)),0.1)"
-									}
-								}
-							],
-							"sid": 879804794792481
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-position-to-another-object",
-							"objectClass": "Player_Arms",
-							"sid": 253074368186389,
-							"parameters": {
-								"object": "Player_Sprite",
-								"image-point-optional": "1"
-							}
-						}
-					],
-					"sid": 399531090913725
-				},
-				{
-					"eventType": "comment",
-					"text": "TODO: Verify MoveTo"
 				},
 				{
 					"eventType": "block",
@@ -7467,883 +6521,14 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 664986612318318,
-							"parameters": {
-								"name": "\"map_Enter\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MB_Node",
-							"sid": 864425752523578,
-							"parameters": {
-								"instance-variable": "ID",
-								"comparison": 0,
-								"value": "Map_ActiveNode"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 680161924255510,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "MB_Node",
-									"sid": 260169457220262,
-									"parameters": {
-										"object": "map_travel"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "MB_Node",
-									"sid": 503776375901235,
-									"parameters": {
-										"object": "map_travelselector"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-enabled",
-									"objectClass": "Player_Sprite",
-									"sid": 411541524386989,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"enabled": true
-									}
-								},
-								{
-									"id": "move-to-position",
-									"objectClass": "Player_Sprite",
-									"sid": 669177922580773,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"x": "MB_Node.X",
-										"y": "MB_Node.Y + MB_Node.Height/2 - 32",
-										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Player_Sprite",
-									"sid": 730277966839772,
-									"parameters": {
-										"animation": "\"Walk\" & zzplayer_Skin",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 387883808815700
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 197215181841498
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "VFX_FadeOut",
-									"sid": 373482710069776,
-									"disabled": true,
-									"parameters": [
-										"99",
-										"0.5"
-									]
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 728705872212253,
-									"parameters": {
-										"name": "\"Music_Stop\"",
-										"parameter-n": []
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 563038004701747,
-									"parameters": {
-										"seconds": "0.5"
-									}
-								},
-								{
-									"id": "set-max-speed",
-									"objectClass": "Player_Sprite",
-									"sid": 878260290904212,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"max-speed": "2000"
-									}
-								},
-								{
-									"id": "set-speed",
-									"objectClass": "Player_Sprite",
-									"sid": 683661180194279,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"speed": "Self.MoveTo.MaxSpeed"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "Player_Sprite",
-									"sid": 500728147824802,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"enabled": true
-									}
-								},
-								{
-									"id": "move-to-position",
-									"objectClass": "Player_Sprite",
-									"sid": 769100823800475,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"x": "MB_Node.X",
-										"y": "MB_Node.Y + MB_Node.Height/2 - 32",
-										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Player_Sprite",
-									"sid": 348672293090843,
-									"parameters": {
-										"animation": "\"Walk\" & zzplayer_Skin",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 484119521404902
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 356483858428079,
-									"parameters": {
-										"first-value": "MB_Node.X",
-										"comparison": 4,
-										"second-value": "player_sprite.X"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-mirrored",
-									"objectClass": "Player_Sprite",
-									"sid": 733889754758303,
-									"parameters": {
-										"state": "not-mirrored"
-									}
-								},
-								{
-									"id": "set-mirrored",
-									"objectClass": "Player_Arms",
-									"sid": 124542059322716,
-									"parameters": {
-										"state": "not-mirrored"
-									}
-								}
-							],
-							"sid": 987004156959569
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 530621161347822,
-									"parameters": {
-										"first-value": "MB_Node.X",
-										"comparison": 2,
-										"second-value": "player_sprite.X"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-mirrored",
-									"objectClass": "Player_Sprite",
-									"sid": 555553749478571,
-									"parameters": {
-										"state": "mirrored"
-									}
-								},
-								{
-									"id": "set-mirrored",
-									"objectClass": "Player_Arms",
-									"sid": 419306535638835,
-									"parameters": {
-										"state": "mirrored"
-									}
-								}
-							],
-							"sid": 173309082023915
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "TODO: Verify MoveTo"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-arrived",
-							"objectClass": "Player_Sprite",
-							"sid": 210071754623925,
-							"behaviorType": "MoveTo"
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 389825258848359,
-							"parameters": {
-								"variable": "map_Loading",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Player_Sprite",
-							"sid": 981958186578201,
-							"parameters": {
-								"animation": "\"Idle\" & zzplayer_Skin",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 928915330091505,
-							"parameters": {
-								"seconds": "0.2"
-							}
-						}
-					],
-					"sid": 451985047533753,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "MB_Node",
-									"sid": 674838191955834,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "Map_ActiveNode"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 161234391931902,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "MB_Node",
-											"sid": 964894952918328,
-											"parameters": {
-												"object": "MB_Sector"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 702410274427242,
-											"parameters": {
-												"variable": "BG_Name",
-												"value": "MB_Sector.Name"
-											}
-										}
-									],
-									"sid": 557214493919885
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 607463095242404,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Infected\""
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 112200933400599,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"AS\""
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 558963008907993,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Tower1\""
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 651971613211084,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Tower2\""
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 267907377013042,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Tower3\""
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 445427240089055,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Tower4\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "map_travel",
-											"sid": 209570685482181
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 132393201814959,
-											"parameters": {
-												"name": "\"MB_Save\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"callFunction": "VFX_FadeOut",
-											"sid": 139739807225546,
-											"disabled": true,
-											"parameters": [
-												"5",
-												"0.5"
-											]
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 635783919658345,
-											"parameters": {
-												"variable": "map_LevelToBuild",
-												"value": "MB_Node.Type"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 288721700114119,
-											"parameters": {
-												"variable": "map_LevelName",
-												"value": "MB_Node.Name"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 503625548441264,
-											"parameters": {
-												"variable": "map_LevelDifficulty",
-												"value": "MB_Node.ThreatLevel"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 622408620586053,
-											"parameters": {
-												"seconds": "0.5"
-											}
-										},
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 384513976688103,
-											"parameters": {
-												"layout": "Level"
-											}
-										}
-									],
-									"sid": 948813856103003,
-									"isOrBlock": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 489820056315229
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Node",
-											"sid": 371207214457216,
-											"parameters": {
-												"instance-variable": "Type",
-												"comparison": 0,
-												"value": "\"Home\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "map_travel",
-											"sid": 150936661755526
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 142158599312053,
-											"parameters": {
-												"name": "\"MB_Save\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"callFunction": "VFX_FadeOut",
-											"sid": 734386125015639,
-											"disabled": true,
-											"parameters": [
-												"5",
-												"0.5"
-											]
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 866580868112369,
-											"parameters": {
-												"seconds": "0.5"
-											}
-										}
-									],
-									"sid": 183943597340692
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 475816806736460
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 565514233099630,
-											"parameters": {
-												"name": "\"map_hilightTravels\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 275995561732322,
-											"parameters": {
-												"variable": "map_Loading",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 606390286860599
-								}
-							]
-						}
-					]
-				}
-			],
-			"sid": 141243150306892
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Overworld Functions",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 327102880424747,
-							"parameters": {
-								"name": "\"map_hilightTravels\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "map_travelselector",
-							"sid": 335870385163229
-						}
-					],
-					"sid": 640759679807643,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "map_travel",
-									"sid": 153936173291448,
-									"parameters": {
-										"object": "MB_Node"
-									}
-								},
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 640808046071932,
-									"parameters": {
-										"object": "MB_Node"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 462513666281343,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "Right"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 752797234711668,
-											"parameters": {
-												"first-value": "MB_Node.X",
-												"comparison": 4,
-												"second-value": "player_sprite.X"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "MB_Node",
-											"sid": 726651433490004,
-											"parameters": {
-												"instance-variable": "LeftPath"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 317035215924971,
-											"parameters": {
-												"object-to-create": "map_travelselector",
-												"layer": "\"Map\"",
-												"x": "MB_Node.X",
-												"y": "MB_Node.Y"
-											}
-										},
-										{
-											"id": "move-to-bottom",
-											"objectClass": "map_travelselector",
-											"sid": 517955421967762
-										}
-									],
-									"sid": 230825933814596
-								},
-								{
-									"eventType": "comment",
-									"text": "Left"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 930900319472724,
-											"parameters": {
-												"first-value": "MB_Node.X",
-												"comparison": 2,
-												"second-value": "player_sprite.X"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "MB_Node",
-											"sid": 545565944134996,
-											"parameters": {
-												"instance-variable": "RightPath"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 544932689251003,
-											"parameters": {
-												"object-to-create": "map_travelselector",
-												"layer": "\"Map\"",
-												"x": "MB_Node.X",
-												"y": "MB_Node.Y"
-											}
-										},
-										{
-											"id": "move-to-bottom",
-											"objectClass": "map_travelselector",
-											"sid": 686762643432219
-										}
-									],
-									"sid": 646546185310109
-								},
-								{
-									"eventType": "comment",
-									"text": "Top"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 747030959198107,
-											"parameters": {
-												"first-value": "MB_Node.Y",
-												"comparison": 2,
-												"second-value": "player_sprite.Y - 31"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "MB_Node",
-											"sid": 212069819146728,
-											"parameters": {
-												"instance-variable": "BottomPath"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 418058369655327,
-											"parameters": {
-												"object-to-create": "map_travelselector",
-												"layer": "\"Map\"",
-												"x": "MB_Node.X",
-												"y": "MB_Node.Y"
-											}
-										},
-										{
-											"id": "move-to-bottom",
-											"objectClass": "map_travelselector",
-											"sid": 101664843915908
-										}
-									],
-									"sid": 527534568812611
-								},
-								{
-									"eventType": "comment",
-									"text": "Bottom"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 652875944692572,
-											"parameters": {
-												"first-value": "MB_Node.Y",
-												"comparison": 4,
-												"second-value": "player_sprite.Y + 31"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "MB_Node",
-											"sid": 575677823964709,
-											"parameters": {
-												"instance-variable": "TopPath"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 595221963508550,
-											"parameters": {
-												"object-to-create": "map_travelselector",
-												"layer": "\"Map\"",
-												"x": "MB_Node.X",
-												"y": "MB_Node.Y"
-											}
-										},
-										{
-											"id": "move-to-bottom",
-											"objectClass": "map_travelselector",
-											"sid": 498814307565498
-										}
-									],
-									"sid": 452396621414392
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "map_travelselector",
-							"sid": 966090693702854,
-							"parameters": {
-								"object": "MB_Icon"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-opacity",
-							"objectClass": "MB_Icon",
-							"sid": 377784545247721,
-							"disabled": true,
-							"parameters": {
-								"opacity": "100"
-							}
-						}
-					],
-					"sid": 675376930914670,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "MB_Icon",
-									"sid": 751381465411530,
-									"parameters": {
-										"object": "MB_Node"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "MB_Node",
-									"sid": 823549771058956,
-									"parameters": {
-										"instance-variable": "Cleared",
-										"comparison": 1,
-										"value": "-1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "MB_Node",
-									"sid": 534476328946763,
-									"parameters": {
-										"instance-variable": "Cleared",
-										"value": "-1"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "MB_Icon",
-									"sid": 950523677079195,
-									"parameters": {
-										"instance-variable": "FadeTag",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 266340396940255
-						}
-					],
-					"isOrBlock": true
-				}
-			],
-			"sid": 172333784953789
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Map Fog",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 858281258494533,
+							"sid": 515145319897960,
 							"parameters": {
 								"name": "\"Map_HideRoads\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 180293181132016,
+					"sid": 758973127719707,
 					"children": [
 						{
 							"eventType": "block",
@@ -8351,7 +6536,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 562226508561918,
+									"sid": 102666675810865,
 									"parameters": {
 										"object": "PathSprites"
 									}
@@ -8359,7 +6544,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "PathSprites",
-									"sid": 831911935852592,
+									"sid": 365831314240429,
 									"parameters": {
 										"object": "MB_Icon"
 									}
@@ -8369,10 +6554,10 @@
 								{
 									"id": "destroy",
 									"objectClass": "PathSprites",
-									"sid": 657725051785117
+									"sid": 237669300832311
 								}
 							],
-							"sid": 335290020838315,
+							"sid": 896204931870445,
 							"disabled": true,
 							"children": [
 								{
@@ -8381,7 +6566,7 @@
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 516754745443588,
+											"sid": 928742062720877,
 											"parameters": {
 												"object": "MB_Icon"
 											}
@@ -8389,7 +6574,7 @@
 										{
 											"id": "compare-opacity",
 											"objectClass": "MB_Icon",
-											"sid": 321321193752935,
+											"sid": 647409527495150,
 											"parameters": {
 												"comparison": 0,
 												"opacity": "100"
@@ -8400,14 +6585,14 @@
 										{
 											"id": "add-to-instvar",
 											"objectClass": "PathSprites",
-											"sid": 939369252957658,
+											"sid": 511607670686768,
 											"parameters": {
 												"instance-variable": "VisibleIcons",
 												"value": "1"
 											}
 										}
 									],
-									"sid": 764248979309379,
+									"sid": 223237948037470,
 									"disabled": true
 								},
 								{
@@ -8416,7 +6601,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "PathSprites",
-											"sid": 154226689477119,
+											"sid": 918697204491573,
 											"parameters": {
 												"instance-variable": "VisibleIcons",
 												"comparison": 0,
@@ -8428,13 +6613,13 @@
 										{
 											"id": "set-visible",
 											"objectClass": "PathSprites",
-											"sid": 809787654629722,
+											"sid": 487349678844553,
 											"parameters": {
 												"visibility": "invisible"
 											}
 										}
 									],
-									"sid": 336759836882704,
+									"sid": 660505422371224,
 									"disabled": true
 								}
 							]
@@ -8445,7 +6630,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 265518329798645,
+									"sid": 106190832123521,
 									"parameters": {
 										"object": "PathSprites"
 									}
@@ -8453,7 +6638,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "PathSprites",
-									"sid": 187724845546978,
+									"sid": 109791070379363,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -8463,13 +6648,13 @@
 								{
 									"id": "set-visible",
 									"objectClass": "PathSprites",
-									"sid": 604730197380413,
+									"sid": 366217927736154,
 									"parameters": {
 										"visibility": "invisible"
 									}
 								}
 							],
-							"sid": 872848171013146
+							"sid": 407764821505472
 						},
 						{
 							"eventType": "block",
@@ -8477,7 +6662,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 102697471850429,
+									"sid": 900269885822329,
 									"parameters": {
 										"object": "MB_NodeSprite"
 									}
@@ -8485,7 +6670,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "MB_NodeSprite",
-									"sid": 294992617404065,
+									"sid": 627843525328285,
 									"parameters": {
 										"object": "MapFog"
 									}
@@ -8495,13 +6680,13 @@
 								{
 									"id": "set-visible",
 									"objectClass": "MB_NodeSprite",
-									"sid": 849160760053880,
+									"sid": 161763963523583,
 									"parameters": {
 										"visibility": "invisible"
 									}
 								}
 							],
-							"sid": 360903335118144
+							"sid": 233728158721323
 						},
 						{
 							"eventType": "block",
@@ -8510,139 +6695,380 @@
 								{
 									"id": "signal",
 									"objectClass": "System",
-									"sid": 668774244904699,
+									"sid": 278617745937345,
 									"disabled": true,
 									"parameters": {
 										"tag": "\"Roads Hidden\""
 									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 264136651744011,
-									"parameters": {
-										"name": "\"MAP_Loaded\"",
-										"parameter-n": []
-									}
 								}
 							],
-							"sid": 416358471112807
+							"sid": 814524608926207
 						}
 					]
 				}
 			],
-			"sid": 761656738875471
+			"sid": 343616388687626
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-destroyed",
-					"objectClass": "zzzFadeIn",
-					"sid": 815840323182832
-				}
-			],
-			"actions": [],
-			"sid": 994093056908652,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Map Sprites",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "MB_Icon",
-							"sid": 720354239609457,
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 963941952883520,
 							"parameters": {
-								"instance-variable": "FadeTag"
+								"name": "\"map_drawPlayer\"\r\n"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MB_Node",
+							"sid": 339117818059303,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "Map_ActiveNode"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "start-fade",
-							"objectClass": "MB_Icon",
-							"sid": 736534495234072,
-							"behaviorType": "Fade"
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 636441148121919,
+							"parameters": {
+								"object-to-create": "Player_Sprite",
+								"layer": "\"Map\"",
+								"x": "MB_Node.X",
+								"y": "MB_Node.Y + MB_Node.Height/2 - 32"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Sprite",
+							"sid": 614740635696341,
+							"parameters": {
+								"animation": "\"Idle\" & PlayerData.Skin",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 909805362755791,
+							"parameters": {
+								"object-to-create": "Player_Arms",
+								"layer": "\"Map\"",
+								"x": "Player_Sprite.ImagePointX(1)",
+								"y": "Player_Sprite.ImagePointY(1)"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Arms",
+							"sid": 257379442858562,
+							"parameters": {
+								"animation": "map_ArmsAnim",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Player_Sprite",
+							"sid": 555584831376024,
+							"parameters": {
+								"scale": "2"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Player_Arms",
+							"sid": 859496271175174,
+							"parameters": {
+								"scale": "2"
+							}
+						},
+						{
+							"id": "scroll-to-object",
+							"objectClass": "System",
+							"sid": 745215899813683,
+							"parameters": {
+								"object": "Player_Sprite"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Player_Arms",
+							"sid": 100996350284027,
+							"parameters": {
+								"object": "Player_Sprite",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "map_travel",
+							"sid": 213341849597608,
+							"parameters": {
+								"x": "MB_Node.X ",
+								"y": "MB_Node.Y "
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 993919171046902,
+							"parameters": {
+								"group-name": "\"Player Movement\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 706988348525284,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 498569690334090,
+							"parameters": {
+								"name": "\"map_hilightTravels\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 824872530767697,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 953709522422068,
+							"parameters": {
+								"name": "\"Map_Draw_Sprites\"",
+								"parameter-n": []
+							}
 						}
 					],
-					"sid": 462044537266317
+					"sid": 543860057145466
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 848652502957487,
-							"parameters": {
-								"variable": "cursor_Custom",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
+							"id": "on-function",
 							"objectClass": "function",
-							"sid": 695964193098242,
+							"sid": 704799543439654,
 							"parameters": {
-								"name": "\"UpdateCursor\"",
-								"parameter-n": [
-									"\"On\""
-								]
+								"name": "\"Map_Draw_Sprites\""
 							}
 						}
 					],
-					"sid": 963045221279820
-				}
-			]
-		},
-		{
-			"functionName": "Map_Built",
-			"functionDescription": "",
-			"functionCategory": "Map",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"callFunction": "VFX_FadeOut",
-					"sid": 497143728413952,
-					"parameters": [
-						"0",
-						"0.5"
+					"actions": [],
+					"sid": 524745315756933,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 132796566801567,
+									"parameters": {
+										"object": "MB_PathTop"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 647172292589314,
+									"parameters": {
+										"object-to-create": "MB_PathTop2",
+										"layer": "\"Map\"",
+										"x": "MB_PathTop.X",
+										"y": "MB_PathTop.Y"
+									}
+								}
+							],
+							"sid": 514662723326296
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 886533765339898,
+									"parameters": {
+										"object": "MB_PathBot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 968628230631042,
+									"parameters": {
+										"object-to-create": "MB_PathBot2",
+										"layer": "\"Map\"",
+										"x": "MB_PathBot.X",
+										"y": "MB_PathBot.Y"
+									}
+								}
+							],
+							"sid": 221712428931936
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 247062853706534,
+									"parameters": {
+										"object": "MB_PathLeft"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 994300084525770,
+									"parameters": {
+										"object-to-create": "MB_PathLeft2",
+										"layer": "\"Map\"",
+										"x": "MB_PathLeft.X",
+										"y": "MB_PathLeft.Y"
+									}
+								}
+							],
+							"sid": 225500744116288
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 412673082217726,
+									"parameters": {
+										"object": "MB_PathRight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 933932726448875,
+									"parameters": {
+										"object-to-create": "MB_PathRight2",
+										"layer": "\"Map\"",
+										"x": "MB_PathRight.X",
+										"y": "MB_PathRight.Y"
+									}
+								}
+							],
+							"sid": 254927129294518
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 669970244023920,
+									"parameters": {
+										"object": "MB_Node"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 393042173761989,
+									"parameters": {
+										"object-to-create": "MB_NodeSprite",
+										"layer": "\"Map\"",
+										"x": "MB_Node.X",
+										"y": "MB_Node.Y"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 389560191967218,
+									"parameters": {
+										"object-to-create": "MB_Icon",
+										"layer": "\"Map\"",
+										"x": "MB_Node.X",
+										"y": "MB_Node.Y + 2"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "MB_Icon",
+									"sid": 656734698188185,
+									"parameters": {
+										"animation": "MB_Node.AnimationName",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 438608589612551
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 300662728386323,
+									"parameters": {
+										"group-name": "\"Visible Icons\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 179705869928544,
+									"disabled": true,
+									"parameters": {
+										"name": "\"MAP_LoadIcons\"",
+										"parameter-n": [
+											"zzzmapbuilder_Region"
+										]
+									}
+								}
+							],
+							"sid": 130296634077996
+						}
 					]
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 740841071976734,
-					"parameters": {
-						"type": "log",
-						"message": "\"Dab\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 866478017078616,
-					"parameters": {
-						"seconds": "0.5"
-					}
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 987837835970454,
-					"parameters": {
-						"layout": "Overworld"
-					}
 				}
 			],
-			"sid": 567266751673469
+			"sid": 446658960737182
 		}
 	],
 	"sid": 602768983597774
