@@ -1,0 +1,170 @@
+{
+	"name": "Menu Master",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "ondialogopened0",
+					"objectClass": "MenuDialog",
+					"sid": 540670101458303,
+					"behaviorType": "Dialog"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "MenuDialog",
+					"sid": 109638793994642,
+					"parameters": {
+						"instance-variable": "Opened",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 569214539545224
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "ondialogclosed1",
+					"objectClass": "MenuDialog",
+					"sid": 707561576687465,
+					"behaviorType": "Dialog"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "MenuDialog",
+					"sid": 750282153483750,
+					"parameters": {
+						"instance-variable": "Opened",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 860285976351422
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 738904756754113,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 335430226838721,
+					"parameters": {
+						"key": 8
+					}
+				}
+			],
+			"actions": [],
+			"sid": 237234891790378,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuDialog",
+							"sid": 690411995804670,
+							"parameters": {
+								"instance-variable": "Opened",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "isparent1",
+							"objectClass": "Menu_Exit",
+							"sid": 793407253673914,
+							"behaviorType": "GameObject",
+							"parameters": {
+								"parent_name0": "MenuDialog.GameObject.name"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulateclick",
+							"objectClass": "Menu_Exit",
+							"sid": 957701716467911,
+							"behaviorType": "Button"
+						}
+					],
+					"sid": 625214372798504
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 753591525917009,
+					"parameters": {
+						"key": 13
+					}
+				},
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 833560126656428,
+					"parameters": {
+						"keycode": "key_Interact"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 834688723856866,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MenuDialog",
+							"sid": 816099252582825,
+							"parameters": {
+								"instance-variable": "Opened",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "isparent1",
+							"objectClass": "Menu_OK",
+							"sid": 834245868292847,
+							"behaviorType": "GameObject",
+							"parameters": {
+								"parent_name0": "MenuDialog.GameObject.name"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulateclick",
+							"objectClass": "Menu_OK",
+							"sid": 124337887021053,
+							"behaviorType": "Button"
+						}
+					],
+					"sid": 420522212508803
+				}
+			],
+			"isOrBlock": true
+		}
+	],
+	"sid": 563386887771641
+}

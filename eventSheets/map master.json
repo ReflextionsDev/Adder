@@ -103,24 +103,6 @@
 							}
 						},
 						{
-							"id": "clear",
-							"objectClass": "zzzMB_SectorCount",
-							"sid": 992363091352586,
-							"parameters": {
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "zzzMB_SectorCount",
-							"sid": 632613549036303,
-							"parameters": {
-								"width": "6",
-								"height": "1",
-								"depth": "1"
-							}
-						},
-						{
 							"id": "call-function",
 							"objectClass": "function",
 							"sid": 711400935712391,
@@ -1177,6 +1159,11 @@
 																"instance-variable": "Name",
 																"value": "\"Forest\""
 															}
+														},
+														{
+															"id": "move-to-bottom",
+															"objectClass": "MB_Sector",
+															"sid": 833428694499434
 														}
 													],
 													"sid": 753761128712811
@@ -1429,76 +1416,6 @@
 														}
 													],
 													"sid": 459461368516271
-												},
-												{
-													"eventType": "comment",
-													"text": "Restart is too many sectors are repeated"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 200762660446131,
-															"parameters": {
-																"value": "4"
-															}
-														},
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 624505867284150,
-															"parameters": {
-																"value": "5"
-															}
-														},
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 629627379158479,
-															"parameters": {
-																"value": "6"
-															}
-														},
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 709377068741543,
-															"parameters": {
-																"value": "7"
-															}
-														},
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 197900731763087,
-															"parameters": {
-																"value": "8"
-															}
-														},
-														{
-															"id": "contains-value",
-															"objectClass": "zzzMB_SectorCount",
-															"sid": 915601313000047,
-															"parameters": {
-																"value": "9"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 283449732269699,
-															"parameters": {
-																"name": "\"pathfindfail\"",
-																"parameter-n": []
-															}
-														}
-													],
-													"sid": 726886465264057,
-													"isOrBlock": true
 												}
 											]
 										}
@@ -3758,7 +3675,15 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 994454698246189,
+									"sid": 797304847306922,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 790599400225141,
 									"parameters": {
 										"seconds": "0"
 									}
@@ -3775,7 +3700,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 118846417631664,
+									"sid": 976770560768668,
 									"parameters": {
 										"seconds": "0"
 									}
@@ -5582,71 +5507,6 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Visible Icons",
-							"description": "",
-							"isActiveOnStart": false,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Icon",
-											"sid": 220466419109572,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "mapbuilder_nodeBase - 1"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "MB_Icon",
-											"sid": 779991009450049,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "mapbuilder_nodeBoss - 1"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 401811065959876,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-opacity",
-													"objectClass": "MB_Icon",
-													"sid": 504122585593535,
-													"parameters": {
-														"comparison": 1,
-														"opacity": "100"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "MB_Icon",
-													"sid": 238009315123248,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 463646065669507
-										}
-									],
-									"isOrBlock": true
-								}
-							],
-							"sid": 729451252359609
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -5864,6 +5724,71 @@
 									"disabled": true
 								}
 							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Visible Icons",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Icon",
+											"sid": 220466419109572,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "mapbuilder_nodeBase - 1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Icon",
+											"sid": 779991009450049,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "mapbuilder_nodeBoss - 1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 401811065959876,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "MB_Icon",
+													"sid": 504122585593535,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "100"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "MB_Icon",
+													"sid": 238009315123248,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 463646065669507
+										}
+									],
+									"isOrBlock": true
+								}
+							],
+							"sid": 729451252359609
 						}
 					],
 					"sid": 693831624488716

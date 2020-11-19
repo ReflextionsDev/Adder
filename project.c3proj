@@ -199,6 +199,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "aekiro_proui",
+			"name": "ProUI",
+			"author": "Aekiro",
+			"version": "1.73",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "MoveTo",
 			"name": "Move To",
@@ -228,6 +236,14 @@
 			"name": "Fade",
 			"author": "Scirra",
 			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "aekiro_gameobject",
+			"name": "Game Object",
+			"author": "Aekiro",
+			"version": "1.73",
 			"bundled": false
 		},
 		{
@@ -343,6 +359,22 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "aekiro_button",
+			"name": "Button",
+			"author": "Aekiro",
+			"version": "1.73",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "aekiro_dialog",
+			"name": "Dialog",
+			"author": "Aekiro",
+			"version": "1.73",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "glowhorizontal",
 			"name": "Glow horizontal",
@@ -422,7 +454,9 @@
 			"FadeTween",
 			"Map_Data",
 			"MapCenter",
-			"MapFog2"
+			"MapFog2",
+			"Menu_BG",
+			"ProUI"
 		],
 		"subfolders": [
 			{
@@ -437,7 +471,7 @@
 					"Debug_SF",
 					"Debug_SF2",
 					"AJAX",
-					"Text_Worldzz",
+					"Text_Menu",
 					"PauseFont",
 					"Audio",
 					"SaveData",
@@ -708,8 +742,7 @@
 					"MapFogBorder",
 					"MapFog",
 					"MapFogCorner",
-					"MB_Threat",
-					"mb_IconTutorial"
+					"MB_Threat"
 				],
 				"subfolders": [
 					{
@@ -717,7 +750,6 @@
 							"MB_SavedMaps",
 							"MB_IconData",
 							"MB_NodeNames",
-							"zzzMB_SectorCount",
 							"MB_SectorPool"
 						],
 						"subfolders": [],
@@ -966,7 +998,7 @@
 							"GameOverOKButton",
 							"GameOverTitleBG2",
 							"GameOverTitleBG",
-							"Map_Ok",
+							"Menu_OK",
 							"Shop_HealingOk"
 						],
 						"subfolders": [],
@@ -1010,7 +1042,7 @@
 					"Stats_Board",
 					"HouseSign",
 					"House_TXT",
-					"Shop_SkillsBG",
+					"Menu_MapBG",
 					"Shop_AmmoExit",
 					"Shop_AmmoSign",
 					"StatTXT",
@@ -1022,7 +1054,7 @@
 					"Shop_AmmoBG",
 					"Pause_Exit",
 					"Shop_AmmoBG2",
-					"Map_Exit",
+					"Menu_Exit",
 					"Shop_MasteryGun",
 					"UpgradeSign",
 					"Shop_HealingExit",
@@ -1489,7 +1521,9 @@
 			"Editor_Texture",
 			"Editor_Arrays",
 			"Editor_PrefabOptions",
-			"PushOutSolid"
+			"PushOutSolid",
+			"MenuButtons",
+			"MenuDialog"
 		],
 		"subfolders": []
 	},
@@ -1674,7 +1708,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Level Master"
+			"Level Master",
+			"Menu Master"
 		],
 		"subfolders": [
 			{

@@ -232,7 +232,7 @@
 							"objectClass": "System",
 							"sid": 994201772526475,
 							"parameters": {
-								"object-to-create": "Text_Worldzz",
+								"object-to-create": "Text_Menu",
 								"layer": "\"Fog\"",
 								"x": "TutorialSign.X",
 								"y": "TutorialSign.Y - TutorialSign.Height - 32"
@@ -240,7 +240,7 @@
 						},
 						{
 							"id": "set-width",
-							"objectClass": "Text_Worldzz",
+							"objectClass": "Text_Menu",
 							"sid": 883060246321428,
 							"parameters": {
 								"width": "150"
@@ -248,7 +248,7 @@
 						},
 						{
 							"id": "set-height",
-							"objectClass": "Text_Worldzz",
+							"objectClass": "Text_Menu",
 							"sid": 665587775650478,
 							"parameters": {
 								"height": "96"
@@ -260,7 +260,7 @@
 							"sid": 723920698821523,
 							"parameters": {
 								"instance-variable": "TextID",
-								"value": "Text_Worldzz.UID"
+								"value": "Text_Menu.UID"
 							}
 						}
 					],
@@ -312,7 +312,7 @@
 											"actions": [
 												{
 													"id": "set-text",
-													"objectClass": "Text_Worldzz",
+													"objectClass": "Text_Menu",
 													"sid": 508900332113965,
 													"parameters": {
 														"text": "function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"A\"))"
@@ -333,7 +333,7 @@
 											"actions": [
 												{
 													"id": "set-text",
-													"objectClass": "Text_Worldzz",
+													"objectClass": "Text_Menu",
 													"sid": 850786680120320,
 													"parameters": {
 														"text": "function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"gamepad_tut\" & TutorialSign.ID & \"B\")) "
@@ -373,7 +373,7 @@
 											"actions": [
 												{
 													"id": "set-text",
-													"objectClass": "Text_Worldzz",
+													"objectClass": "Text_Menu",
 													"sid": 852866300915486,
 													"parameters": {
 														"text": "function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"A\"))"
@@ -394,7 +394,7 @@
 											"actions": [
 												{
 													"id": "set-text",
-													"objectClass": "Text_Worldzz",
+													"objectClass": "Text_Menu",
 													"sid": 660010951869513,
 													"parameters": {
 														"text": "function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"pc_tut\" & TutorialSign.ID & \"B\")) "
@@ -476,7 +476,7 @@
 									"actions": [
 										{
 											"id": "set-text",
-											"objectClass": "Text_Worldzz",
+											"objectClass": "Text_Menu",
 											"sid": 347316425590284,
 											"parameters": {
 												"text": "function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"A\"))"
@@ -498,7 +498,7 @@
 									"actions": [
 										{
 											"id": "set-text",
-											"objectClass": "Text_Worldzz",
+											"objectClass": "Text_Menu",
 											"sid": 204869913047559,
 											"parameters": {
 												"text": "function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"A\")) & \"'\" & function.Call(\"Tut_GetKey\",function.Call(\"getText\", (\"tut\" & TutorialSign.ID))) & \"'\" & function.Call(\"getText\", (\"touch_tut\" & TutorialSign.ID & \"B\")) "
@@ -533,7 +533,7 @@
 						},
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Text_Worldzz",
+							"objectClass": "Text_Menu",
 							"sid": 397328659648204,
 							"parameters": {
 								"unique-id": "TutorialSign.TextID"
@@ -543,7 +543,7 @@
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "Text_Worldzz",
+							"objectClass": "Text_Menu",
 							"sid": 656491317589691
 						}
 					],

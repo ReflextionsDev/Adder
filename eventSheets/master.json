@@ -713,6 +713,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "Menu Master"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "Game Master"
 		},
 		{
@@ -5516,6 +5520,11 @@
 								"name": "\"Camera_ScaleLayers\"",
 								"parameter-n": []
 							}
+						},
+						{
+							"id": "init",
+							"objectClass": "ProUI",
+							"sid": 379946301475207
 						}
 					],
 					"sid": 376170984639616
@@ -7935,117 +7944,6 @@
 								}
 							],
 							"sid": 587003583723778
-						},
-						{
-							"eventType": "comment",
-							"text": "Deprecated?"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 527556992494972,
-									"parameters": {
-										"name": "\"TXT_Scene\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 227824348124963,
-									"parameters": {
-										"object-to-create": "Text_Worldzz",
-										"layer": "\"Fade\"",
-										"x": "160",
-										"y": "90"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 375145241958613,
-									"parameters": {
-										"variable": "scenetextid",
-										"value": "Text_Worldzz.UID"
-									}
-								},
-								{
-									"id": "set-size",
-									"objectClass": "Text_Worldzz",
-									"sid": 788967300898834,
-									"parameters": {
-										"width": "280",
-										"height": "180"
-									}
-								},
-								{
-									"id": "set-scale",
-									"objectClass": "Text_Worldzz",
-									"sid": 589639024318496,
-									"parameters": {
-										"scale": "0.3"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Text_Worldzz",
-									"sid": 167345131476695,
-									"parameters": {
-										"text": "function.Param(0)"
-									}
-								},
-								{
-									"id": "set-fade-in-time",
-									"objectClass": "Text_Worldzz",
-									"sid": 492342606906840,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-in-time": "function.Param(1)"
-									}
-								},
-								{
-									"id": "set-wait-time",
-									"objectClass": "Text_Worldzz",
-									"sid": 230912778150068,
-									"behaviorType": "Fade",
-									"parameters": {
-										"wait-time": "function.Param(2)"
-									}
-								},
-								{
-									"id": "set-fade-out-time",
-									"objectClass": "Text_Worldzz",
-									"sid": 641825016546099,
-									"behaviorType": "Fade",
-									"parameters": {
-										"fade-out-time": "function.Param(3)"
-									}
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "Text_Worldzz",
-									"sid": 275455768763344,
-									"behaviorType": "Fade"
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 341053803572742,
-									"parameters": {
-										"seconds": "1.0"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Bullet",
-									"sid": 300875100528373
-								}
-							],
-							"sid": 744009584981415
 						}
 					],
 					"sid": 866821534489021
