@@ -94,7 +94,7 @@
 				{
 					"type": "map_currentnode",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Default",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -197,7 +197,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 448.486832,
+						"x": 448,
 						"y": -1182,
 						"width": 1024,
 						"height": 2204,
@@ -255,7 +255,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 447.524415,
+						"x": 448,
 						"y": 2022.000357,
 						"width": 1024,
 						"height": 2156,
@@ -310,9 +310,7 @@
 						"live-preview": false
 					},
 					"uid": 12198,
-					"instanceVariables": {
-						"Opened": 0
-					},
+					"instanceVariables": {},
 					"behaviors": {
 						"GameObject": {
 							"properties": {
@@ -334,6 +332,9 @@
 								"close-button-name": "",
 								"is-modal": "yes"
 							}
+						},
+						"NoSave": {
+							"properties": {}
 						},
 						"Sine": {
 							"properties": {
@@ -407,6 +408,9 @@
 								"focus-color": "",
 								"ignore-input": "auto"
 							}
+						},
+						"NoSave": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -466,6 +470,9 @@
 								"focus-color": "",
 								"ignore-input": "auto"
 							}
+						},
+						"NoSave": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -658,62 +665,6 @@
 			"global": false
 		},
 		{
-			"name": "UI",
-			"overriden": 1,
-			"instances": [],
-			"sid": 754379308119065,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				1,
-				1,
-				1,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 0,
-			"forceOwnTexture": false,
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"global": false
-		},
-		{
-			"name": "Cursor",
-			"overriden": 1,
-			"instances": [],
-			"sid": 974476886972630,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.12156862745098039,
-				0.1450980392156863,
-				0.19215686274509805,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 0,
-			"forceOwnTexture": false,
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"global": false
-		},
-		{
 			"name": "Fade",
 			"overriden": 1,
 			"instances": [],
@@ -736,6 +687,34 @@
 			"parallaxX": 0,
 			"parallaxY": 0,
 			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Cursor",
+			"overriden": 1,
+			"instances": [],
+			"sid": 381901254239286,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"useRenderCells": false,
 			"blendMode": "normal",

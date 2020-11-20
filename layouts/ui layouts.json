@@ -5150,9 +5150,7 @@
 						"live-preview": false
 					},
 					"uid": 714,
-					"instanceVariables": {
-						"Opened": 0
-					},
+					"instanceVariables": {},
 					"behaviors": {
 						"GameObject": {
 							"properties": {
@@ -5174,6 +5172,9 @@
 								"close-button-name": "",
 								"is-modal": "no"
 							}
+						},
+						"NoSave": {
+							"properties": {}
 						},
 						"Sine": {
 							"properties": {
@@ -5622,9 +5623,7 @@
 						"live-preview": false
 					},
 					"uid": 12314,
-					"instanceVariables": {
-						"Opened": 0
-					},
+					"instanceVariables": {},
 					"behaviors": {
 						"GameObject": {
 							"properties": {
@@ -5646,6 +5645,9 @@
 								"close-button-name": "",
 								"is-modal": "no"
 							}
+						},
+						"NoSave": {
+							"properties": {}
 						},
 						"Sine": {
 							"properties": {
@@ -6412,39 +6414,6 @@
 						"y": 328,
 						"width": 512,
 						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Menu_BG",
-					"properties": {
-						"left-margin": 24,
-						"right-margin": 24,
-						"top-margin": 24,
-						"bottom-margin": 24,
-						"edges": "tile",
-						"fill": "tile",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 927,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": -142,
-						"y": -217,
-						"width": 247,
-						"height": 94,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -9208,13 +9177,334 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 0,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": true
+		},
+		{
+			"name": "Menus",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Menu_BG",
+					"properties": {
+						"left-margin": 24,
+						"right-margin": 24,
+						"top-margin": 24,
+						"bottom-margin": 24,
+						"edges": "tile",
+						"fill": "tile",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 927,
+					"instanceVariables": {},
+					"behaviors": {},
+					"sceneGraphData": {
+						"uid": 927,
+						"children": [
+							{
+								"uid": 1573,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true
+								}
+							},
+							{
+								"uid": 1568,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true
+								}
+							},
+							{
+								"uid": 1575,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"d": true
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true
+						}
+					},
+					"world": {
+						"x": 183.76851851851853,
+						"y": 101.4537037037037,
+						"width": 247,
+						"height": 94,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Menu_OK",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1568,
+					"instanceVariables": {},
+					"behaviors": {
+						"GameObject": {
+							"properties": {
+								"name": "",
+								"parent-name": "",
+								"parent-layer": false
+							}
+						},
+						"Button": {
+							"properties": {
+								"isenabled": "true",
+								"normal-frame": "0",
+								"hover-frame": "1",
+								"clicked-frame": "2",
+								"disabled-frame": "",
+								"focus-frame": "",
+								"click-sound": "",
+								"hover-sound": "",
+								"focus-sound": "",
+								"click-animation": "none",
+								"hover-animation": "down",
+								"focus-animation": "none",
+								"normal-color": "",
+								"hover-color": "",
+								"clicked-color": "",
+								"disabled-color": "",
+								"focus-color": "",
+								"ignore-input": "auto"
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"sceneGraphData": {
+						"uid": 1568,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true
+						}
+					},
+					"world": {
+						"x": 367.77083333333337,
+						"y": 251.6412037037037,
+						"width": 90,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Menu_Exit",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1573,
+					"instanceVariables": {},
+					"behaviors": {
+						"GameObject": {
+							"properties": {
+								"name": "",
+								"parent-name": "",
+								"parent-layer": false
+							}
+						},
+						"Button": {
+							"properties": {
+								"isenabled": "true",
+								"normal-frame": "0",
+								"hover-frame": "1",
+								"clicked-frame": "2",
+								"disabled-frame": "",
+								"focus-frame": "",
+								"click-sound": "",
+								"hover-sound": "",
+								"focus-sound": "",
+								"click-animation": "none",
+								"hover-animation": "down",
+								"focus-animation": "none",
+								"normal-color": "",
+								"hover-color": "",
+								"clicked-color": "",
+								"disabled-color": "",
+								"focus-color": "",
+								"ignore-input": "auto"
+							}
+						},
+						"NoSave": {
+							"properties": {}
+						}
+					},
+					"sceneGraphData": {
+						"uid": 1573,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true
+						}
+					},
+					"world": {
+						"x": 245.94907407407408,
+						"y": 254.82407407407408,
+						"width": 90,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text_Menu",
+					"properties": {
+						"text": "STUNK!",
+						"enable-bbcode": false,
+						"character-width": 49,
+						"character-height": 59,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>%",
+						"spacing-data": "",
+						"scale": 0.3,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 1575,
+					"instanceVariables": {
+						"Tag": "",
+						"ID": 2
+					},
+					"behaviors": {
+						"GameObject": {
+							"properties": {
+								"name": "",
+								"parent-name": "",
+								"parent-layer": false
+							}
+						}
+					},
+					"sceneGraphData": {
+						"uid": 1575,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"d": true
+						}
+					},
+					"world": {
+						"x": 309.3071621627611,
+						"y": 150.2024974965804,
+						"width": 256,
+						"height": 30.140014648,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.0057750017633145245,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 519680203866974,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
 		}
 	],
 	"sid": 394959482119839,

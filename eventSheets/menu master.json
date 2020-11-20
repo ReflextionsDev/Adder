@@ -5,52 +5,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "ondialogopened0",
-					"objectClass": "MenuDialog",
-					"sid": 540670101458303,
-					"behaviorType": "Dialog"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "MenuDialog",
-					"sid": 109638793994642,
-					"parameters": {
-						"instance-variable": "Opened",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 569214539545224
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "ondialogclosed1",
-					"objectClass": "MenuDialog",
-					"sid": 707561576687465,
-					"behaviorType": "Dialog"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "MenuDialog",
-					"sid": 750282153483750,
-					"parameters": {
-						"instance-variable": "Opened",
-						"value": "0"
-					}
-				}
-			],
-			"sid": 860285976351422
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
 					"sid": 738904756754113,
@@ -65,6 +19,14 @@
 					"parameters": {
 						"key": 8
 					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 886065189787950,
+					"parameters": {
+						"key": 9
+					}
 				}
 			],
 			"actions": [],
@@ -74,14 +36,10 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "isopened2",
 							"objectClass": "MenuDialog",
-							"sid": 690411995804670,
-							"parameters": {
-								"instance-variable": "Opened",
-								"comparison": 0,
-								"value": "1"
-							}
+							"sid": 928911925065763,
+							"behaviorType": "Dialog"
 						},
 						{
 							"id": "isparent1",
@@ -91,6 +49,11 @@
 							"parameters": {
 								"parent_name0": "MenuDialog.GameObject.name"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Menu_Exit",
+							"sid": 681742710789292
 						}
 					],
 					"actions": [
@@ -133,14 +96,10 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "isopened2",
 							"objectClass": "MenuDialog",
-							"sid": 816099252582825,
-							"parameters": {
-								"instance-variable": "Opened",
-								"comparison": 0,
-								"value": "1"
-							}
+							"sid": 495664648325342,
+							"behaviorType": "Dialog"
 						},
 						{
 							"id": "isparent1",
@@ -150,6 +109,11 @@
 							"parameters": {
 								"parent_name0": "MenuDialog.GameObject.name"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Menu_OK",
+							"sid": 692283471234137
 						}
 					],
 					"actions": [

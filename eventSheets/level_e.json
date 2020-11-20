@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "level_type",
+			"name": "level_Type",
 			"type": "string",
 			"initialValue": "Hub",
 			"comment": "Hub, Shop, World, Boss",
@@ -82,7 +82,7 @@
 							"objectClass": "System",
 							"sid": 613077132577327,
 							"parameters": {
-								"variable": "level_type",
+								"variable": "level_Type",
 								"comparison": 0,
 								"value": "\"Hub\""
 							}
@@ -135,13 +135,6 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
-				{
-					"callFunction": "Game Logic",
-					"sid": 253513640218751,
-					"parameters": [
-						true
-					]
-				},
 				{
 					"callFunction": "Input_Mode",
 					"sid": 530491204185853,
@@ -372,7 +365,7 @@
 													"objectClass": "System",
 													"sid": 684878240057198,
 													"parameters": {
-														"variable": "level_type",
+														"variable": "level_Type",
 														"comparison": 0,
 														"value": "\"Hub\""
 													}

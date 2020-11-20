@@ -2,6 +2,24 @@
 	"name": "Master",
 	"events": [
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 462717720990484
+				}
+			],
+			"actions": [
+				{
+					"id": "init",
+					"objectClass": "ProUI",
+					"sid": 652399006327806
+				}
+			],
+			"sid": 510670441256953
+		},
+		{
 			"eventType": "comment",
 			"text": "These vars should be elsewhere"
 		},
@@ -33,7 +51,7 @@
 			"eventType": "variable",
 			"name": "HeadlessChance",
 			"type": "number",
-			"initialValue": "10",
+			"initialValue": "3",
 			"comment": "Percentage",
 			"isStatic": false,
 			"isConstant": false,
@@ -5520,11 +5538,6 @@
 								"name": "\"Camera_ScaleLayers\"",
 								"parameter-n": []
 							}
-						},
-						{
-							"id": "init",
-							"objectClass": "ProUI",
-							"sid": 379946301475207
 						}
 					],
 					"sid": 376170984639616
@@ -6494,6 +6507,7 @@
 							"id": "set-layer-scale",
 							"objectClass": "System",
 							"sid": 309737807813967,
+							"disabled": true,
 							"parameters": {
 								"layer": "\"Cursor\"",
 								"scale": "LayerScale(\"BG\")"
@@ -6503,6 +6517,7 @@
 							"id": "set-layer-scale",
 							"objectClass": "System",
 							"sid": 116349467198037,
+							"disabled": true,
 							"parameters": {
 								"layer": "\"Loader\"",
 								"scale": "LayerScale(\"BG\")"
@@ -6515,6 +6530,10 @@
 							"parameters": {
 								"scale": "1/LayerScale(\"BG\")"
 							}
+						},
+						{
+							"callFunction": "Update_Zoom",
+							"sid": 781315947808734
 						}
 					],
 					"sid": 615248915315029
@@ -6845,12 +6864,6 @@
 									"sid": 860055926452267
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 578162825011777
 						}
 					],
 					"sid": 328462453277098

@@ -664,6 +664,16 @@
 			"sid": 391838349811385
 		},
 		{
+			"eventType": "variable",
+			"name": "cursor_Scale",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 354713255632727
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Cursor",
@@ -710,7 +720,7 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 354387973110342,
+									"sid": 139485521898351,
 									"disabled": true,
 									"parameters": {
 										"object-to-create": "Cursor",
@@ -728,6 +738,14 @@
 										"layer": "\"Cursor\"",
 										"x": "0",
 										"y": "0"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Cursor",
+									"sid": 297483584481873,
+									"parameters": {
+										"scale": "cursor_Scale"
 									}
 								},
 								{
@@ -874,13 +892,12 @@
 									}
 								},
 								{
-									"id": "set-position",
-									"objectClass": "Player_Target",
-									"sid": 309226735879713,
+									"id": "set-scale",
+									"objectClass": "Cursor",
+									"sid": 855189805875387,
 									"disabled": true,
 									"parameters": {
-										"x": "Cursor.X",
-										"y": "Cursor.Y"
+										"scale": "cursor_Scale*(1/system_ZoomBase)"
 									}
 								}
 							],
