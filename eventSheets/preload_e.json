@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "firstLayout",
 			"type": "string",
-			"initialValue": "Menu",
+			"initialValue": "MainMenu",
 			"comment": "Level Editor, Level",
 			"isStatic": false,
 			"isConstant": false,
@@ -72,23 +72,61 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 832729601357104,
+					"sid": 539526080751215,
 					"parameters": {
 						"variable": "system_MapScale",
 						"value": "system_MapScalePC"
 					}
-				},
-				{
-					"callFunction": "VFX_FadeIn",
-					"sid": 235968623370042,
-					"parameters": [
-						"0",
-						"0.5"
-					]
 				}
 			],
 			"sid": 102400103592279,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "Map Functions"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 483118058047078,
+							"parameters": {
+								"name": "\"\"",
+								"string": "\"Map_Ok\"",
+								"function": "\"Map_Ok\""
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 969523242007929,
+							"parameters": {
+								"name": "\"\"",
+								"string": "\"Map_Exit\"",
+								"function": "\"Map_Exit\""
+							}
+						}
+					],
+					"sid": 276898167579630
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "VFX_FadeIn",
+							"sid": 152218638004701,
+							"parameters": [
+								"0",
+								"0.5"
+							]
+						}
+					],
+					"sid": 704134089068897
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -282,7 +320,7 @@
 							"objectClass": "System",
 							"sid": 321821455242845,
 							"parameters": {
-								"layout": "Menu"
+								"layout": "MainMenu"
 							}
 						}
 					],
@@ -306,7 +344,7 @@
 							"objectClass": "System",
 							"sid": 284005425701430,
 							"parameters": {
-								"layout": "Menu"
+								"layout": "MainMenu"
 							}
 						}
 					],
@@ -374,7 +412,7 @@
 									"objectClass": "System",
 									"sid": 457239846260073,
 									"parameters": {
-										"layout": "Menu"
+										"layout": "MainMenu"
 									}
 								}
 							],

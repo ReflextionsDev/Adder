@@ -1,0 +1,528 @@
+{
+	"name": "MainMenu_E",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MAINMENU NOTES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Base the background on the last level the player played, OR just use the hub world as the menu. Overlay buttons on top, the spawn in player on play. or load last save."
+				},
+				{
+					"eventType": "comment",
+					"text": "Convert title and buttons to sprite font, localization support"
+				},
+				{
+					"eventType": "comment",
+					"text": "Button transitions"
+				},
+				{
+					"eventType": "comment",
+					"text": "Background - last level played, artwork, build a random level and pan the camera around, or do hub"
+				},
+				{
+					"eventType": "comment",
+					"text": "Music"
+				}
+			],
+			"sid": 913909096099137
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "variable",
+			"name": "menu_Save",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "BOOL, Triggered after leaving the options layout. ",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 993224698404777
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 480227679261595
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "VFX_FadeIn",
+					"sid": 935325266315969,
+					"parameters": [
+						"vfx_FadeWaitTime",
+						"vfx_FadeInTime"
+					]
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 799185570640905,
+					"parameters": {
+						"name": "\"Loader_Disable\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 305115209961196,
+					"parameters": {
+						"variable": "system_SaveLoaded",
+						"value": "0"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 329861767440237,
+					"parameters": {
+						"name": "\"Music_Start\"",
+						"parameter-n": [
+							"\"Theme\""
+						]
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 910003531196471,
+					"parameters": {
+						"group-name": "\"Menu Buttons\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 658705017392999,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 871443901427709,
+							"parameters": {
+								"variable": "menu_Save",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 147342883664256,
+							"parameters": {
+								"key": "\"ControlData\"",
+								"value": "Options_ControlList.AsJSON"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 144484768312254,
+							"parameters": {
+								"variable": "menu_Save",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 406142895000145,
+							"parameters": {
+								"variable": "system_ControlDataLoaded",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 971323221062770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "MainMenuTXT_Header",
+							"sid": 423403360794380,
+							"parameters": {
+								"unique-id": "2195"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "MainMenuTXT_Header",
+							"sid": 193224238339152,
+							"parameters": {
+								"text": "\"V. \" & projectversion"
+							}
+						}
+					],
+					"sid": 897604595004536
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "MainMenuTXT_Header",
+							"sid": 951949588353674,
+							"parameters": {
+								"unique-id": "4720"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "MainMenuTXT_Header",
+							"sid": 637401231008014,
+							"parameters": {
+								"text": "\"V. \" & projectversion"
+							}
+						}
+					],
+					"sid": 678992430905408
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MainMenu Buttons",
+			"description": "Needs Gamepad Support",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 5070525874137153,
+							"parameters": {
+								"object": "MainMenuTXT_Play"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MainMenu_Nav",
+							"sid": 933379781220588,
+							"parameters": [
+								"\"Play\""
+							]
+						}
+					],
+					"sid": 8201625598304979
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 2520300411731361,
+							"parameters": {
+								"object": "MainMenuTXT_Options"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MainMenu_Nav",
+							"sid": 704954240087704,
+							"parameters": [
+								"\"Options\""
+							]
+						}
+					],
+					"sid": 1267193783500296
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 3585080247239462,
+							"parameters": {
+								"object": "MainMenuTXT_Quit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MainMenu_Nav",
+							"sid": 921707738373482,
+							"parameters": [
+								"\"Quit\""
+							]
+						}
+					],
+					"sid": 4789971445888478
+				}
+			],
+			"sid": 235544672545681
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MainMenu Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "MainMenu_Nav",
+					"functionDescription": "",
+					"functionCategory": "Layout",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 465103576080863
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 994340135473055,
+							"parameters": {
+								"group-name": "\"Menu Buttons\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 945614575700303,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 603459287574496,
+									"parameters": {
+										"variable": "Button",
+										"comparison": 0,
+										"value": "\"Quit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "close",
+									"objectClass": "Browser",
+									"sid": 316929605021953
+								}
+							],
+							"sid": 601111204365479
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 534639869679520
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "VFX_FadeOut",
+									"sid": 391599912137151,
+									"parameters": [
+										"0",
+										"0.5"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 676856108971067,
+									"parameters": {
+										"seconds": "0.6"
+									}
+								}
+							],
+							"sid": 106429697868970,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 244437302693754,
+											"parameters": {
+												"variable": "Button",
+												"comparison": 0,
+												"value": "\"Play\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 626727750226970,
+											"parameters": {
+												"name": "\"Loader_Enable\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 469833515380331,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 506327577030361,
+													"parameters": {
+														"variable": "system_SaveData",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Load",
+													"sid": 877098343171966
+												}
+											],
+											"sid": 646503388125792
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 194882502157553
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "MainMenu_FirstPlay",
+													"sid": 156434192312980
+												}
+											],
+											"sid": 877366190228886
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 289552267023493
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 901791144256038,
+											"parameters": {
+												"variable": "Button",
+												"comparison": 0,
+												"value": "\"Options\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 480978770178776,
+											"parameters": {
+												"layout": "Options"
+											}
+										}
+									],
+									"sid": 139536032390551
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Replace w/ Tutorial/Intro Level"
+				},
+				{
+					"functionName": "MainMenu_FirstPlay",
+					"functionDescription": "",
+					"functionCategory": "Layout",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 639874837051469,
+							"parameters": {
+								"layout": "Level"
+							}
+						}
+					],
+					"sid": 609550033846419
+				}
+			],
+			"sid": 874829744662842
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-load-failed",
+					"objectClass": "System",
+					"sid": 475825063801369
+				}
+			],
+			"actions": [
+				{
+					"id": "alert",
+					"objectClass": "Browser",
+					"sid": 335720154241503,
+					"parameters": {
+						"message": "\"No save data found! If this is your first run, ignore this. Otherwise your save data may be corrupted. Exit the game to avoid overwriting data.\" "
+					}
+				},
+				{
+					"callFunction": "MainMenu_FirstPlay",
+					"sid": 619532987221741
+				}
+			],
+			"sid": 759288295948474
+		}
+	],
+	"sid": 573607313438243
+}

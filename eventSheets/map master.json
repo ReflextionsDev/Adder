@@ -40,16 +40,6 @@
 			"sid": 350104981642452
 		},
 		{
-			"eventType": "variable",
-			"name": "SectorFrame",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 650453998724185
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Map Builder",
@@ -1183,7 +1173,7 @@
 															"objectClass": "System",
 															"sid": 769847873837566,
 															"parameters": {
-																"variable": "SectorFrame",
+																"variable": "mapbuilder_SectorFrame",
 																"value": "floor(random(0,MB_SectorPool.Width))"
 															}
 														},
@@ -1192,7 +1182,7 @@
 															"objectClass": "MB_Sector",
 															"sid": 356612914648216,
 															"parameters": {
-																"frame-number": "MB_SectorPool.At(SectorFrame)"
+																"frame-number": "MB_SectorPool.At(mapbuilder_SectorFrame)"
 															}
 														},
 														{
@@ -1368,7 +1358,7 @@
 																	"objectClass": "MB_SectorPool",
 																	"sid": 194496809405357,
 																	"parameters": {
-																		"index": "SectorFrame",
+																		"index": "mapbuilder_SectorFrame",
 																		"axis": "x"
 																	}
 																}
@@ -5526,7 +5516,73 @@
 									}
 								}
 							],
-							"sid": 949793399777633
+							"sid": 949793399777633,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "MB_Icon",
+											"sid": 482425037949013,
+											"parameters": {
+												"object": "MB_Node"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Node",
+											"sid": 163837736177091,
+											"parameters": {
+												"instance-variable": "Cleared",
+												"comparison": 0,
+												"value": "-1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 560649315651209,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "MB_Node",
+													"sid": 230595768260861,
+													"parameters": {
+														"instance-variable": "FadeTag"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "MB_Icon",
+													"sid": 254834860225863,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 332036514310508
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 366426684799992
+												}
+											],
+											"actions": [],
+											"sid": 400088416169410
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -6517,8 +6573,7 @@
 											}
 										}
 									],
-									"sid": 223237948037470,
-									"disabled": true
+									"sid": 223237948037470
 								},
 								{
 									"eventType": "block",

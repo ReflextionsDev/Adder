@@ -2,6 +2,10 @@
 	"name": "Master",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "This may cause launch bug"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -12,12 +16,38 @@
 			],
 			"actions": [
 				{
-					"id": "init",
-					"objectClass": "ProUI",
-					"sid": 652399006327806
+					"callFunction": "Menu_HideAll",
+					"sid": 692730974333591
 				}
 			],
 			"sid": 510670441256953
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-load-complete",
+					"objectClass": "System",
+					"sid": 151003778911950
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 148849706515090,
+					"parameters": {
+						"variable": "system_SaveLoaded",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "Menu_HideAll",
+					"sid": 467842129239555
+				}
+			],
+			"sid": 711342197730725,
+			"isOrBlock": true
 		},
 		{
 			"eventType": "comment",
@@ -7633,7 +7663,8 @@
 											}
 										}
 									],
-									"sid": 858338771384525
+									"sid": 858338771384525,
+									"disabled": true
 								}
 							]
 						},
@@ -7687,7 +7718,8 @@
 									}
 								}
 							],
-							"sid": 874090756020549
+							"sid": 874090756020549,
+							"disabled": true
 						},
 						{
 							"eventType": "group",
@@ -7696,6 +7728,16 @@
 							"description": "",
 							"isActiveOnStart": false,
 							"children": [
+								{
+									"eventType": "variable",
+									"name": "BannerSpeed",
+									"type": "number",
+									"initialValue": "5",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 833026626901066
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -7714,138 +7756,24 @@
 										{
 											"id": "set-speed",
 											"objectClass": "BG_Banner",
-											"sid": 318373034027155,
+											"sid": 263754439401099,
 											"behaviorType": "Bullet",
 											"parameters": {
-												"speed": "abs(Self.X - 320)*6 + 15"
+												"speed": "abs(Self.X - 320)*BannerSpeed + 15"
 											}
 										},
 										{
 											"id": "set-speed",
 											"objectClass": "Text_Banner",
-											"sid": 424447365917948,
+											"sid": 472615632259804,
 											"behaviorType": "Bullet",
 											"parameters": {
-												"speed": "abs(Self.X - 320)*6 + 15"
+												"speed": "abs(Self.X - 320)*BannerSpeed + 15"
 											}
 										}
 									],
 									"sid": 188071496644565,
 									"children": [
-										{
-											"eventType": "comment",
-											"text": "TODO"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 920154961539908,
-													"parameters": {
-														"first-value": "BG_Banner.X ",
-														"comparison": 4,
-														"second-value": "320"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 154798058070713,
-											"disabled": true,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 765816062680757,
-															"parameters": {
-																"variable": "level_ControlsInitialized",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 932938747498894,
-													"disabled": true,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 892267364198196,
-																	"parameters": {
-																		"first-value": "LayoutName",
-																		"comparison": 0,
-																		"second-value": "\"Base\""
-																	}
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "zzz_Colony",
-																	"sid": 750039926721541,
-																	"parameters": {
-																		"instance-variable": "Income",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 166552783997310,
-																	"parameters": {
-																		"name": "\"Base_Income\"",
-																		"parameter-n": []
-																	}
-																}
-															],
-															"sid": 901624562691071,
-															"disabled": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 672568666200884
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 502782216442347,
-																	"parameters": {
-																		"variable": "level_ControlsInitialized",
-																		"value": "1"
-																	}
-																},
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 451354416083185,
-																	"parameters": {
-																		"name": "\"UI_ShowControls\"",
-																		"parameter-n": []
-																	}
-																}
-															],
-															"sid": 246434072040614,
-															"disabled": true
-														}
-													]
-												}
-											]
-										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -7879,7 +7807,8 @@
 													}
 												}
 											],
-											"sid": 687048458655553
+											"sid": 687048458655553,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -7914,7 +7843,8 @@
 													}
 												}
 											],
-											"sid": 657316959223928
+											"sid": 657316959223928,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -8991,29 +8921,6 @@
 				}
 			],
 			"sid": 437585890140946
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-load-complete",
-					"objectClass": "System",
-					"sid": 819250453174931
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 894844582365885,
-					"parameters": {
-						"variable": "system_SaveLoaded",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 102179084372163,
-			"isOrBlock": true
 		}
 	],
 	"sid": 350183298465580

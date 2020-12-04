@@ -199,14 +199,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "aekiro_proui",
-			"name": "ProUI",
-			"author": "Aekiro",
-			"version": "1.73",
-			"bundled": true
-		},
-		{
 			"type": "behavior",
 			"id": "MoveTo",
 			"name": "Move To",
@@ -237,14 +229,6 @@
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "aekiro_gameobject",
-			"name": "Game Object",
-			"author": "Aekiro",
-			"version": "1.73",
-			"bundled": true
 		},
 		{
 			"type": "behavior",
@@ -359,30 +343,6 @@
 			"bundled": false
 		},
 		{
-			"type": "behavior",
-			"id": "aekiro_button",
-			"name": "Button",
-			"author": "Aekiro",
-			"version": "1.73",
-			"bundled": true
-		},
-		{
-			"type": "behavior",
-			"id": "NoSave",
-			"name": "No save",
-			"author": "Scirra",
-			"version": "r225",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "aekiro_dialog",
-			"name": "Dialog",
-			"author": "Aekiro",
-			"version": "1.76",
-			"bundled": true
-		},
-		{
 			"type": "effect",
 			"id": "glowhorizontal",
 			"name": "Glow horizontal",
@@ -464,7 +424,10 @@
 			"MapCenter",
 			"MapFog2",
 			"Menu_BG",
-			"ProUI"
+			"Menu_Container",
+			"Menu_Tween",
+			"Menu_MapMenu",
+			"Menu_ButtonHitBox"
 		],
 		"subfolders": [
 			{
@@ -894,10 +857,10 @@
 				"subfolders": [
 					{
 						"items": [
-							"MenuTXT_Options",
-							"MenuTXT_Play",
-							"MenuTXT_Quit",
-							"MenuTXT_Header"
+							"MainMenuTXT_Options",
+							"MainMenuTXT_Play",
+							"MainMenuTXT_Quit",
+							"MainMenuTXT_Header"
 						],
 						"subfolders": [],
 						"name": "Menu"
@@ -1479,7 +1442,7 @@
 			"Debug",
 			"Player_Text",
 			"LevelUpBG",
-			"Shop_BTNS",
+			"Shop_BTNSzzz",
 			"LevelUpMeters",
 			"LevelUpTXT",
 			"LevelUpIcons",
@@ -1530,8 +1493,10 @@
 			"Editor_Arrays",
 			"Editor_PrefabOptions",
 			"PushOutSolid",
-			"MenuButtons",
-			"MenuDialog"
+			"Menu_Buttons",
+			"Menu_Containers",
+			"Menu_9P",
+			"Menu_Sprites"
 		],
 		"subfolders": []
 	},
@@ -1549,7 +1514,7 @@
 			{
 				"items": [
 					"Preload",
-					"Menu",
+					"MainMenu",
 					"Options",
 					"Overworld"
 				],
@@ -1558,8 +1523,8 @@
 			},
 			{
 				"items": [
-					"Map Builder",
 					"Resource",
+					"Map Builder",
 					"UI Layouts",
 					"Hotspot Tool",
 					"Level Editor"
@@ -1725,7 +1690,7 @@
 					"Map Master",
 					"Test_E",
 					"Overworld_E",
-					"Menu_E",
+					"MainMenu_E",
 					"Options__E",
 					"Map Builder_E"
 				],
@@ -1782,7 +1747,7 @@
 					"Resources",
 					"Hotspot Tool",
 					"Level Editor_E",
-					"LevelBuilder_E"
+					"zzzLevelBuilder_E"
 				],
 				"subfolders": [],
 				"name": "Util"

@@ -2,6 +2,20 @@
 	"name": "Menu Master",
 	"events": [
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MENU NOTES",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Consider supporting text animations"
+				}
+			],
+			"sid": 643908675917503
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -36,35 +50,38 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "isopened2",
-							"objectClass": "MenuDialog",
-							"sid": 928911925065763,
-							"behaviorType": "Dialog"
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Menu_Containers",
+							"sid": 372084637446280,
+							"parameters": {
+								"instance-variable": "Menu_Opened"
+							}
 						},
 						{
-							"id": "isparent1",
-							"objectClass": "Menu_Exit",
-							"sid": 793407253673914,
-							"behaviorType": "GameObject",
+							"id": "pick-children",
+							"objectClass": "Menu_Containers",
+							"sid": 488093394520381,
 							"parameters": {
-								"parent_name0": "MenuDialog.GameObject.name"
+								"child": "Menu_Exit",
+								"which": "all"
 							}
 						},
 						{
 							"id": "is-visible",
 							"objectClass": "Menu_Exit",
-							"sid": 681742710789292
+							"sid": 105151458496251
 						}
 					],
 					"actions": [
 						{
-							"id": "simulateclick",
-							"objectClass": "Menu_Exit",
-							"sid": 957701716467911,
-							"behaviorType": "Button"
+							"callFunction": "Button_Click",
+							"sid": 785296090474986,
+							"parameters": [
+								"Menu_Exit.Name"
+							]
 						}
 					],
-					"sid": 625214372798504
+					"sid": 692000925232406
 				}
 			],
 			"isOrBlock": true
@@ -96,38 +113,2985 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "isopened2",
-							"objectClass": "MenuDialog",
-							"sid": 495664648325342,
-							"behaviorType": "Dialog"
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Menu_Containers",
+							"sid": 657704041118517,
+							"parameters": {
+								"instance-variable": "Menu_Opened"
+							}
 						},
 						{
-							"id": "isparent1",
-							"objectClass": "Menu_OK",
-							"sid": 834245868292847,
-							"behaviorType": "GameObject",
+							"id": "pick-children",
+							"objectClass": "Menu_Containers",
+							"sid": 189973924656512,
 							"parameters": {
-								"parent_name0": "MenuDialog.GameObject.name"
+								"child": "Menu_OK",
+								"which": "all"
 							}
 						},
 						{
 							"id": "is-visible",
 							"objectClass": "Menu_OK",
-							"sid": 692283471234137
+							"sid": 437907663681560
 						}
 					],
 					"actions": [
 						{
-							"id": "simulateclick",
-							"objectClass": "Menu_OK",
-							"sid": 124337887021053,
-							"behaviorType": "Button"
+							"callFunction": "Button_Click",
+							"sid": 848719037215680,
+							"parameters": [
+								"Menu_OK.Name"
+							]
 						}
 					],
-					"sid": 420522212508803
+					"sid": 291079003045009
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Menu Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Open Anim"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 296727317749604,
+							"parameters": {
+								"key": 81
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 118074437484563,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"ScaleDown\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 163924829248880,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 663260489284579,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 411346360209764,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 548669330350005,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"ScaleUp\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 205199155506933,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 863205144499899,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 709253266280180,
+							"parameters": {
+								"key": 69
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 903708022307369,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"SlideDown\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 959486272421433,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 327025739223951,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 862609137497432,
+							"parameters": {
+								"key": 82
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 284194445448248,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"SlideLeft\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 565972874942489,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 433016854886234,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 615684876129423,
+							"parameters": {
+								"key": 84
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 153419643600580,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"SlideRight\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 129650783686701,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 870123508009844,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 908732191217541,
+							"parameters": {
+								"key": 89
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 876861937793512,
+							"parameters": {
+								"instance-variable": "Open_Animation",
+								"value": "\"SlideUp\""
+							}
+						},
+						{
+							"callFunction": "Menu_Open",
+							"sid": 299576933707889,
+							"parameters": [
+								"\"Test\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 497441130709189,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 564058893999526,
+							"parameters": {
+								"key": 85
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "Menu_Containers",
+							"sid": 863101122412536,
+							"parameters": {
+								"instance-variable": "Open_Fade"
+							}
+						}
+					],
+					"sid": 504700294187109,
+					"disabled": true
+				},
+				{
+					"eventType": "comment",
+					"text": "Close Anim"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 589079369063914,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 254345114940879,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"ScaleDown\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 272167464323699,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 631152551038898,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 307250028917438,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 409422563482011,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"ScaleUp\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 342311228785947,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 870692017137912,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 577518610374302,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 129436211577580,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"SlideDown\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 176395702129637,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 137192162771133,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 190878403861509,
+							"parameters": {
+								"key": 70
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 628022375788181,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"SlideLeft\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 866468864233628,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 548746043448643,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 813530494037968,
+							"parameters": {
+								"key": 71
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 525211235470351,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"SlideRight\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 730082440624013,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 414389616640901,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 313168662288672,
+							"parameters": {
+								"key": 72
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Menu_Containers",
+							"sid": 922255006725135,
+							"parameters": {
+								"instance-variable": "Close_Animation",
+								"value": "\"SlideUp\""
+							}
+						},
+						{
+							"callFunction": "Menu_Close",
+							"sid": 786745615591521,
+							"parameters": [
+								"\"Test\""
+							]
+						}
+					],
+					"sid": 147281310562979,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 117770556045372,
+							"parameters": {
+								"key": 74
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "Menu_Containers",
+							"sid": 438551565785273,
+							"parameters": {
+								"instance-variable": "Close_Fade"
+							}
+						}
+					],
+					"sid": 735272517152466,
+					"disabled": true
+				}
+			],
+			"sid": 720867107709088
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-any-playing",
+							"objectClass": "Menu_Tween",
+							"sid": 408390254128218,
+							"behaviorType": "Tween"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 362521900176527,
+							"parameters": {
+								"layer": "\"Menus\"",
+								"scale": "Menu_Tween.Width/Menu_Tween.ImageWidth"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 441969729996285,
+							"parameters": {
+								"layer": "\"Menus\"",
+								"opacity": "Menu_Tween.Opacity"
+							}
+						}
+					],
+					"sid": 215316735301893
+				}
+			],
+			"sid": 657965173184388
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Menu_HideAll",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 646174467696524,
+							"parameters": {
+								"object": "Menu_Containers"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Menu_Containers",
+							"sid": 473525888235948,
+							"parameters": {
+								"x": "-99999",
+								"y": "-99999"
+							}
+						}
+					],
+					"sid": 488941285706148
+				},
+				{
+					"functionName": "Menu_Open",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Menu_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 906195225304283
+						},
+						{
+							"name": "Centered",
+							"type": "boolean",
+							"initialValue": "true",
+							"comment": "",
+							"sid": 293815761078777
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 466623491802016
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 139686154529055
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Menu_HideAll",
+							"sid": 450274994955587
+						},
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "Menu_Tween",
+							"sid": 616572194667613,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 927655931145232,
+							"parameters": {
+								"layer": "\"Menus\"",
+								"scale": "1"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Menu_Tween",
+							"sid": 776970783976456,
+							"parameters": {
+								"scale": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Menu_Tween",
+							"sid": 241534705852365,
+							"parameters": {
+								"width": "Self.ImageWidth",
+								"height": "Self.ImageHeight"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 601035063117405,
+							"disabled": true,
+							"parameters": {
+								"seconds": "1"
+							}
+						}
+					],
+					"sid": 169416088365168,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "TargetX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 647124223875921
+						},
+						{
+							"eventType": "variable",
+							"name": "TargetY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 124989638666194
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Containers",
+									"sid": 844171819266520,
+									"parameters": {
+										"instance-variable": "Menu_Name",
+										"comparison": 0,
+										"value": "Menu_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Menu_Containers",
+									"sid": 467554614970756,
+									"parameters": {
+										"instance-variable": "Menu_Opened",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 632004514806950,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 521869509448740,
+											"parameters": {
+												"instance-variable": "Open_Sound",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 276491582891616
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Menu_Containers",
+											"sid": 130679678887450,
+											"parameters": {
+												"instance-variable": "Open_Fade"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Menu_Tween",
+											"sid": 117698478595091,
+											"parameters": {
+												"opacity": "0"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Tween",
+											"sid": 473881886416875,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Opacity\"",
+												"property": "offsetOpacity",
+												"end-value": "100",
+												"time": "Menu_Containers.Open_Duration",
+												"ease": "easeinoutquad",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 341483539348557
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 136092625730264
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Menu_Tween",
+											"sid": 419569200279475,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-layer-opacity",
+											"objectClass": "System",
+											"sid": 539639169497906,
+											"parameters": {
+												"layer": "\"Menus\"",
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 521896140045836
+								},
+								{
+									"eventType": "comment",
+									"text": "Position"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 503899222137577,
+											"parameters": {
+												"variable": "Centered"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 606476264005802,
+											"disabled": true,
+											"parameters": {
+												"variable": "TargetX",
+												"value": "ViewportLeft(\"Menus\")+ViewportWidth(\"Menus\")/2"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 513961886671362,
+											"disabled": true,
+											"parameters": {
+												"variable": "TargetY",
+												"value": "ViewportTop(\"Menus\")+ViewportHeight(\"Menus\")/2"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 928023380449901,
+											"parameters": {
+												"variable": "TargetX",
+												"value": "ViewportLeft(\"Loader\")+ViewportWidth(\"Loader\")/2"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 759917564172206,
+											"parameters": {
+												"variable": "TargetY",
+												"value": "ViewportTop(\"Loader\")+ViewportHeight(\"Loader\")/2"
+											}
+										}
+									],
+									"sid": 998115997358049
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 126104704143971
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 759675699443943,
+											"parameters": {
+												"variable": "TargetX",
+												"value": "X"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 780894269280883,
+											"parameters": {
+												"variable": "TargetY",
+												"value": "Y"
+											}
+										}
+									],
+									"sid": 546890441972946
+								},
+								{
+									"eventType": "comment",
+									"text": "Animation"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 789745539644870,
+											"parameters": {
+												"first-value": "Menu_Containers.Open_Animation =\"ScaleDown\" | Menu_Containers.Open_Animation =\"ScaleUp\" ? 1 : 0",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Menu_Containers",
+											"sid": 338220149747075,
+											"parameters": {
+												"x": "TargetX",
+												"y": "TargetY"
+											}
+										}
+									],
+									"sid": 353416721106302,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 337841678207475,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"ScaleUp\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-scale",
+													"objectClass": "Menu_Tween",
+													"sid": 608681979842513,
+													"parameters": {
+														"scale": "0"
+													}
+												},
+												{
+													"id": "tween-two-properties",
+													"objectClass": "Menu_Tween",
+													"sid": 562518349826551,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"Size\"",
+														"property": "size",
+														"end-x": "Self.ImageWidth",
+														"end-y": "Self.ImageHeight",
+														"time": "Menu_Containers.Open_Duration",
+														"ease": "easeinoutquad",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 925728827462696
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 398846459938658
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 356376304661635,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"ScaleDown\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-scale",
+													"objectClass": "Menu_Tween",
+													"sid": 528305519964496,
+													"parameters": {
+														"scale": "10"
+													}
+												},
+												{
+													"id": "tween-two-properties",
+													"objectClass": "Menu_Tween",
+													"sid": 372828226554740,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"Size\"",
+														"property": "size",
+														"end-x": "Self.ImageWidth",
+														"end-y": "Self.ImageHeight",
+														"time": "Menu_Containers.Open_Duration",
+														"ease": "easeinoutquad",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 421541489724339
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 946157997354334
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 168835877683022,
+											"parameters": {
+												"first-value": "Menu_Containers.Open_Animation = \"SlideLeft\" | Menu_Containers.Open_Animation = \"SlideRight\" ? 1 : 0",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 469082899614023,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 421466029773634,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"SlideLeft\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Menu_Containers",
+													"sid": 297040255188969,
+													"parameters": {
+														"x": "ViewportRight(\"Loader\") + Self.Width/2",
+														"y": "TargetY"
+													}
+												}
+											],
+											"sid": 589723250647259
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 512543386179081
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 858724427418176,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"SlideRight\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Menu_Containers",
+													"sid": 293461615166530,
+													"parameters": {
+														"x": "ViewportLeft(\"Loader\") - Self.Width/2",
+														"y": "TargetY"
+													}
+												}
+											],
+											"sid": 289958866678020
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Containers",
+													"sid": 310458592072435,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"X\"",
+														"property": "offsetX",
+														"end-value": "TargetX",
+														"time": "Self.Open_Duration",
+														"ease": "easeoutquint",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 711357412191360
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 151555704584793
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 869058844514628,
+											"parameters": {
+												"first-value": "Menu_Containers.Open_Animation = \"SlideUp\" | Menu_Containers.Open_Animation = \"SlideDown\" ? 1 : 0",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 974065695931053,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 401746995158323,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"SlideUp\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Menu_Containers",
+													"sid": 161953260026151,
+													"parameters": {
+														"x": "TargetX",
+														"y": "ViewportBottom(\"Loader\") + Self.Height/2"
+													}
+												}
+											],
+											"sid": 869924257700745
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 426555488214802
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Menu_Containers",
+													"sid": 500370274146361,
+													"parameters": {
+														"instance-variable": "Open_Animation",
+														"comparison": 0,
+														"value": "\"SlideDown\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Menu_Containers",
+													"sid": 138605452588738,
+													"parameters": {
+														"x": "TargetX",
+														"y": "ViewportTop(\"Loader\") - Self.Height/2"
+													}
+												}
+											],
+											"sid": 279430036123100
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Containers",
+													"sid": 406580672097011,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"Y\"",
+														"property": "offsetY",
+														"end-value": "TargetY",
+														"time": "Self.Open_Duration",
+														"ease": "easeoutquint",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 390641365511594
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Enable Buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Menu_Containers",
+											"sid": 197062573700083,
+											"parameters": {
+												"child": "Menu_Buttons",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Menu_Buttons",
+											"sid": 609393058009548,
+											"parameters": {
+												"instance-variable": "Enabled",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Menu_Buttons",
+											"sid": 235237929507624,
+											"parameters": {
+												"instance-variable": "Mode",
+												"value": "\"Normal\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Menu_Buttons",
+											"sid": 740219269232542,
+											"parameters": {
+												"instance-variable": "StartX",
+												"value": "Menu_Containers.X - Self.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Menu_Buttons",
+											"sid": 522011979897999,
+											"parameters": {
+												"instance-variable": "StartY",
+												"value": "Menu_Containers.Y - Self.Y"
+											}
+										}
+									],
+									"sid": 772203720271704
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Menu_Close",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Menu_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 569306601724110
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "stop-all-tweens",
+							"objectClass": "Menu_Tween",
+							"sid": 849127169576399,
+							"behaviorType": "Tween"
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 392262941464846,
+							"parameters": {
+								"layer": "\"Menus\"",
+								"scale": "1"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Menu_Tween",
+							"sid": 630437107662461,
+							"parameters": {
+								"scale": "1"
+							}
+						}
+					],
+					"sid": 491890974217624,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Containers",
+									"sid": 301911655850433,
+									"parameters": {
+										"instance-variable": "Menu_Name",
+										"comparison": 0,
+										"value": "Menu_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Menu_Containers",
+									"sid": 266446434413185,
+									"parameters": {
+										"instance-variable": "Menu_Opened",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 594964952650109,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 647668848683700,
+											"parameters": {
+												"instance-variable": "Close_Sound",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 316253096787507
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Menu_Containers",
+											"sid": 750476242819891,
+											"parameters": {
+												"instance-variable": "Close_Fade"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Menu_Tween",
+											"sid": 310287344160010,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Tween",
+											"sid": 355491485983571,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Opacity\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "Menu_Containers.Close_Duration",
+												"ease": "easeinoutquad",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 649532618286951
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 408799149721550
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Menu_Tween",
+											"sid": 184346319203135,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-layer-opacity",
+											"objectClass": "System",
+											"sid": 341169135484355,
+											"parameters": {
+												"layer": "\"Menus\"",
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 479599120653941
+								},
+								{
+									"eventType": "comment",
+									"text": "Animation"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 623065160387555,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"ScaleUp\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Menu_Tween",
+											"sid": 240062458505665,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Size\"",
+												"property": "size",
+												"end-x": "Self.ImageWidth*10",
+												"end-y": "Self.ImageHeight*10",
+												"time": "Menu_Containers.Open_Duration",
+												"ease": "easeinoutquad",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 714291377619029
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 650684284061125
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 934137698597269,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"ScaleDown\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Menu_Tween",
+											"sid": 268965867862822,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Size\"",
+												"property": "size",
+												"end-x": "0",
+												"end-y": "0",
+												"time": "Menu_Containers.Open_Duration",
+												"ease": "easeinoutquad",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 360691326473582
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 701324947662725
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 257736946622352,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"SlideLeft\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Containers",
+											"sid": 187327302013385,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"X\"",
+												"property": "offsetX",
+												"end-value": "ViewportLeft(\"Loader\") - Self.Width/2",
+												"time": "Self.Close_Duration",
+												"ease": "easeoutquint",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 866966919653784
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 260275900697707
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 921387501233557,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"SlideRight\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Containers",
+											"sid": 890397126237987,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"X\"",
+												"property": "offsetX",
+												"end-value": "ViewportRight(\"Loader\") + Self.Width/2",
+												"time": "Self.Close_Duration",
+												"ease": "easeoutquint",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 255199579102050
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 114158178353863
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 816449007344958,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"SlideUp\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Containers",
+											"sid": 361686911651475,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Y\"",
+												"property": "offsetY",
+												"end-value": "ViewportTop(\"Loader\") - Self.Height/2",
+												"time": "Self.Close_Duration",
+												"ease": "easeoutquint",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 270390195986434
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 305531058500534
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 485500316430867,
+											"parameters": {
+												"instance-variable": "Close_Animation",
+												"comparison": 0,
+												"value": "\"SlideDown\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Menu_Containers",
+											"sid": 903152115036310,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Y\"",
+												"property": "offsetY",
+												"end-value": "ViewportBottom(\"Loader\") + Self.Height/2",
+												"time": "Self.Close_Duration",
+												"ease": "easeoutquint",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 985032904414970
+								},
+								{
+									"eventType": "comment",
+									"text": "Disable Buttons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Menu_Containers",
+											"sid": 930588853523558,
+											"parameters": {
+												"child": "Menu_Buttons",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Menu_Buttons",
+											"sid": 295201500859801,
+											"parameters": {
+												"instance-variable": "Enabled",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 251798716876626
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 168524637818750
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button Events",
+			"description": "TODO - Gamepad Simulation",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-button-released",
+							"objectClass": "Mouse",
+							"sid": 916456900377749,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 855278748494811,
+							"parameters": {
+								"object": "Menu_ButtonHitBox"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Menu_ButtonHitBox",
+							"sid": 187010098807019,
+							"parameters": {
+								"object": "Menu_Buttons"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Menu_Buttons",
+							"sid": 123049342819630,
+							"parameters": {
+								"instance-variable": "Enabled"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Button_Click",
+							"sid": 396598082184552,
+							"parameters": [
+								"Menu_Buttons.Name"
+							]
+						}
+					],
+					"sid": 508913624581160
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 682541359341550,
+							"parameters": {
+								"object": "Menu_Buttons"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Menu_Buttons",
+							"sid": 925980722743768,
+							"parameters": {
+								"object": "Menu_ButtonHitBox"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 369572860145118,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Menu_Buttons",
+									"sid": 772389346175610,
+									"parameters": {
+										"instance-variable": "Enabled"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 253136851946722,
+									"parameters": {
+										"object": "Menu_ButtonHitBox"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 158017205017479,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "mouse-button-is-down",
+											"objectClass": "Mouse",
+											"sid": 203468294443282,
+											"parameters": {
+												"mouse-button": "left"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Menu_Buttons",
+											"sid": 433407505185208
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Menu_Buttons",
+											"sid": 773658631084738,
+											"parameters": {
+												"frame-number": "Self.Frame_Click"
+											}
+										}
+									],
+									"sid": 193148325717475
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 553541125428753
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Menu_Buttons",
+											"sid": 538644427761320,
+											"parameters": {
+												"frame-number": "Self.Frame_Hover"
+											}
+										}
+									],
+									"sid": 842502052260773,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 995511842802347
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Button_Hover",
+													"sid": 133145082900776,
+													"parameters": [
+														"Menu_Buttons.Name"
+													]
+												}
+											],
+											"sid": 415248788946786
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 818018630420015
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "Menu_Buttons",
+									"sid": 131708677004046,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "Self.Name"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 653410435299153,
+									"parameters": {
+										"instance-variable": "Mode",
+										"comparison": 1,
+										"value": "\"Normal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-tweens",
+									"objectClass": "Menu_Buttons",
+									"sid": 839856018835282,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "Self.Name"
+									}
+								}
+							],
+							"sid": 330452846410123,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 140210394599846,
+											"parameters": {
+												"instance-variable": "Mode",
+												"comparison": 0,
+												"value": "\"Hover\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Button_Tween",
+											"sid": 297893408999262,
+											"parameters": [
+												"Menu_Buttons.Name",
+												"Menu_Buttons.Tween_Hover",
+												true
+											]
+										}
+									],
+									"sid": 926071955236582
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 651631154129183
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 812481378918308,
+											"parameters": {
+												"instance-variable": "Mode",
+												"comparison": 0,
+												"value": "\"Clicked\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Button_Tween",
+											"sid": 147581828938099,
+											"parameters": [
+												"Menu_Buttons.Name",
+												"Menu_Buttons.Tween_Click",
+												true
+											]
+										}
+									],
+									"sid": 827413778568387
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Menu_Buttons",
+											"sid": 378932408741334,
+											"parameters": {
+												"instance-variable": "Enabled"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Menu_Buttons",
+											"sid": 510197033028259,
+											"parameters": {
+												"frame-number": "Self.Frame_Normal"
+											}
+										}
+									],
+									"sid": 293377100363192
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 918604239957548
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Menu_Buttons",
+											"sid": 795851207356377,
+											"parameters": {
+												"frame-number": "Self.Frame_Disabled"
+											}
+										}
+									],
+									"sid": 662455712858745
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Menu_Buttons",
+											"sid": 191196615160022,
+											"parameters": {
+												"instance-variable": "Mode",
+												"value": "\"Normal\""
+											}
+										}
+									],
+									"sid": 100245130578327
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 253979321684093
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Button Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Button_Enable",
+					"functionDescription": "",
+					"functionCategory": "Menu",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 124805940822061
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 977974437290068,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 620515303445632,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "Button_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Menu_Buttons",
+									"sid": 108183596972421,
+									"parameters": {
+										"instance-variable": "Enabled",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 629786178643218
+						}
+					]
+				},
+				{
+					"functionName": "Button_Disable",
+					"functionDescription": "",
+					"functionCategory": "Menu",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 207869151574515
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 233945841012567,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 232686707353764,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "Button_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Menu_Buttons",
+									"sid": 813541306492531,
+									"parameters": {
+										"instance-variable": "Enabled",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 890906393207038
+						}
+					]
+				},
+				{
+					"functionName": "Button_Hover",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 749625191453471
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 855390062539164,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 726238333062523,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "Button_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Menu_Buttons",
+									"sid": 236909419034291,
+									"parameters": {
+										"instance-variable": "Mode",
+										"value": "\"Hover\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Menu_Buttons",
+									"sid": 738743554326381,
+									"parameters": {
+										"scale": "1"
+									}
+								}
+							],
+							"sid": 518046337165123,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 280585976899271,
+											"parameters": {
+												"instance-variable": "Sound_Hover",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 674927426475803
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 221695666562036,
+											"parameters": {
+												"instance-variable": "Tween_Hover",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Button_Tween",
+											"sid": 322619938128811,
+											"parameters": [
+												"Button_Name",
+												"Menu_Buttons.Tween_Hover",
+												false
+											]
+										}
+									],
+									"sid": 210668823390750
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Button_Click",
+					"functionDescription": "",
+					"functionCategory": "Menu",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 230763810193027
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 778906318711872,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 118644488979358,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "Button_Name"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Menu_Buttons",
+									"sid": 211556105974007,
+									"parameters": {
+										"frame-number": "Self.Frame_Click"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Menu_Buttons",
+									"sid": 100029324723427,
+									"parameters": {
+										"instance-variable": "Mode",
+										"value": "\"Clicked\""
+									}
+								},
+								{
+									"id": "call-mapped-function",
+									"objectClass": "Functions",
+									"sid": 624164271131071,
+									"parameters": {
+										"name": "\"\"",
+										"string": "Button_Name",
+										"forward-params": "0"
+									}
+								}
+							],
+							"sid": 232694337682438,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Menu_Buttons",
+											"sid": 762301404654974,
+											"parameters": {
+												"instance-variable": "ButtonOneClick"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Menu_Buttons",
+											"sid": 440890228580613,
+											"parameters": {
+												"instance-variable": "Enabled",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "Button_Tween",
+											"sid": 604617803113548,
+											"parameters": [
+												"Menu_Buttons.Name",
+												"Menu_Buttons.Tween_Hover",
+												true
+											]
+										}
+									],
+									"sid": 167306688223543
+								},
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 714804990666101,
+											"parameters": {
+												"instance-variable": "Sound_Click",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 876279051542834
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Buttons",
+											"sid": 164060716325225,
+											"parameters": {
+												"instance-variable": "Tween_Click",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Button_Tween",
+											"sid": 793981606202021,
+											"parameters": [
+												"Menu_Buttons.Name",
+												"Menu_Buttons.Tween_Click",
+												false
+											]
+										}
+									],
+									"sid": 829875739445623
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Button_Tween",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Button_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 185300415472076
+						},
+						{
+							"name": "Button_Tween",
+							"type": "string",
+							"initialValue": "",
+							"comment": "Click, Hover, Normal",
+							"sid": 139674838087848
+						},
+						{
+							"name": "Reverse",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 973024305936978
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 194672563854282,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "TweenDistance",
+							"type": "number",
+							"initialValue": "5",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 651333398000081
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Buttons",
+									"sid": 120105509007492,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "Button_Name"
+									}
+								},
+								{
+									"id": "pick-parent",
+									"objectClass": "Menu_Buttons",
+									"sid": 403289751301158,
+									"parameters": {
+										"parent": "Menu_Containers",
+										"which": "top"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 299319211530825,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 893817553162455,
+											"parameters": {
+												"variable": "Reverse"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Menu_Buttons",
+											"sid": 870422986755875,
+											"parameters": {
+												"x": "Menu_Containers.X - Self.StartX",
+												"y": "Menu_Containers.Y - Self.StartY"
+											}
+										}
+									],
+									"sid": 694627741245851
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 699840434148643,
+											"parameters": {
+												"variable": "Button_Tween",
+												"comparison": 0,
+												"value": "\"Scale\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 226310866372343,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 653644478313863,
+													"parameters": {
+														"variable": "Reverse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-two-properties",
+													"objectClass": "Menu_Buttons",
+													"sid": 355137034576094,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "size",
+														"end-x": "Self.ImageWidth*1.1",
+														"end-y": "Self.ImageHeight*1.1",
+														"time": "Self.Tween_Duration",
+														"ease": "easeoutbounce",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 126413826300453
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 527325064281856
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-two-properties",
+													"objectClass": "Menu_Buttons",
+													"sid": 968939632997684,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "size",
+														"end-x": "Self.ImageWidth",
+														"end-y": "Self.ImageHeight",
+														"time": "Self.Tween_Duration",
+														"ease": "easeoutquint",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 470274665796908
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 682791218239064
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 487967326552007,
+											"parameters": {
+												"variable": "Button_Tween",
+												"comparison": 0,
+												"value": "\"Up\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 806802169258612,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 293552721001898,
+													"parameters": {
+														"variable": "Reverse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 265273177487978,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetY",
+														"end-value": "(Menu_Containers.Y - Self.StartY) - TweenDistance",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 448672278967815
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 728999801067102
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 258943859830481,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetY",
+														"end-value": "Menu_Containers.Y - Self.StartY",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 640285197529483
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 385859930763705
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 938375439275429,
+											"parameters": {
+												"variable": "Button_Tween",
+												"comparison": 0,
+												"value": "\"Down\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 481152346665361,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 360530931520093,
+													"parameters": {
+														"variable": "Reverse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 161418004051603,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetY",
+														"end-value": "(Menu_Containers.Y - Self.StartY) + TweenDistance",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 567700897207828
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 122959968365236
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 134040192318555,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetY",
+														"end-value": "Menu_Containers.Y - Self.StartY",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 989723066091653
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 414251915708728
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 779896286160313,
+											"parameters": {
+												"variable": "Button_Tween",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 316072077016286,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 681092458491576,
+													"parameters": {
+														"variable": "Reverse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 518335337057588,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetX",
+														"end-value": "(Menu_Containers.X - Self.StartX) + TweenDistance",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 309042056148380
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 117730842905991
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 133314472406607,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetX",
+														"end-value": "Menu_Containers.X - Self.StartX",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 972997565045011
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 872148674688395
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 453437702562008,
+											"parameters": {
+												"variable": "Button_Tween",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 943225789673076,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 764231097657185,
+													"parameters": {
+														"variable": "Reverse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 820813723379038,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetX",
+														"end-value": "(Menu_Containers.X - Self.StartX) - TweenDistance",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 200069377403012
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 204000360130058
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Menu_Buttons",
+													"sid": 302238541073885,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "Self.Name",
+														"property": "offsetX",
+														"end-value": "Menu_Containers.X - Self.StartX",
+														"time": "Self.Tween_Duration",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												}
+											],
+											"sid": 636778518322667
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 875793676116866
 		}
 	],
 	"sid": 563386887771641

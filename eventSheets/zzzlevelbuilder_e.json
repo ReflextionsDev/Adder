@@ -1,0 +1,567 @@
+{
+	"name": "zzzLevelBuilder_E",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Level Master"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LevelBuilder Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 767542721506476,
+							"parameters": {
+								"key": 84
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 190780642927204,
+							"parameters": {
+								"name": "\"LVL_Save\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 581787312943737
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 276412710330937,
+							"parameters": {
+								"key": 89
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 895633415515926,
+							"parameters": {
+								"name": "\"LVL_Load\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 848639862869376
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 259741977918259,
+							"parameters": {
+								"key": 85
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "download",
+							"objectClass": "LVL_SolidData",
+							"sid": 153119985852902,
+							"parameters": {
+								"filename": "\"Level\" & LayoutName & \"SolidData\""
+							}
+						},
+						{
+							"id": "download",
+							"objectClass": "LVL_TileData",
+							"sid": 813203640741276,
+							"parameters": {
+								"filename": "\"Level\" & LayoutName & \"TileData\""
+							}
+						},
+						{
+							"id": "download",
+							"objectClass": "LVL_ObjectData",
+							"sid": 253704987861823,
+							"parameters": {
+								"filename": "\"Level\" & LayoutName & \"ObjectData\""
+							}
+						}
+					],
+					"sid": 317827227102016
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 612552305821338,
+							"parameters": {
+								"key": 67
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Ladder",
+							"sid": 249266849173799
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Door_Range",
+							"sid": 500563484523959
+						},
+						{
+							"id": "destroy",
+							"objectClass": "JumpThrough",
+							"sid": 554141048294769
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Fog",
+							"sid": 353576470113018
+						},
+						{
+							"id": "destroy",
+							"objectClass": "zzFogFilter",
+							"sid": 109825981622029
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Tiles",
+							"sid": 295364847204386
+						},
+						{
+							"id": "destroy",
+							"objectClass": "TileBGs",
+							"sid": 864890133241973
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Solid2Wall",
+							"sid": 913244971759444
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Spawn_Generic",
+							"sid": 220672865615348
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Zombie_Full",
+							"sid": 136175830903899
+						},
+						{
+							"id": "destroy",
+							"objectClass": "BuildingEndPoint",
+							"sid": 137312011136034
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Shop_Font",
+							"sid": 834930695073965
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Shop_Interact",
+							"sid": 232497474298975
+						},
+						{
+							"id": "destroy",
+							"objectClass": "LadderSaftey",
+							"sid": 495668540517132
+						},
+						{
+							"id": "destroy",
+							"objectClass": "zzSpawn_Vendor",
+							"sid": 956049591980518
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Spawn_Survivor",
+							"sid": 326223132471473
+						},
+						{
+							"id": "destroy",
+							"objectClass": "ResearchData",
+							"sid": 976806334787821
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Stats_Board",
+							"sid": 786913799804427
+						},
+						{
+							"id": "destroy",
+							"objectClass": "ResearchDataSprite",
+							"sid": 667297380846086
+						}
+					],
+					"sid": 553397745032449
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 273599332643967,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 830088835338613,
+							"parameters": {
+								"layout": "str(int(LayoutName) + 1)"
+							}
+						}
+					],
+					"sid": 181399404144177
+				}
+			],
+			"sid": 778330868456439
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 391297761534721
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 354692634682656,
+					"parameters": {
+						"variable": "input_Enabled",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 246301268060947,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Ground_Grass",
+					"sid": 140245075468555
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Ground_Dirt",
+					"sid": 921094381134071
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Ground_Asphalt",
+					"sid": 855403697416687
+				}
+			],
+			"sid": 248451422345965
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 509871284295787
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Camera",
+					"sid": 677926024030324,
+					"parameters": {
+						"instance-variable": "mode",
+						"value": "2"
+					}
+				}
+			],
+			"sid": 300516840053660,
+			"disabled": true
+		},
+		{
+			"eventType": "variable",
+			"name": "AutomatedSaving",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 453979547556361
+		},
+		{
+			"eventType": "variable",
+			"name": "AutomatedIndex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 500267883728265
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 244716903657566,
+					"parameters": {
+						"key": 220
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 402010728553750,
+					"parameters": {
+						"variable": "AutomatedSaving",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 665605820162670,
+					"parameters": {
+						"variable": "AutomatedIndex",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 295658712047514,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 340667859673552,
+					"parameters": {
+						"name": "\"LVL_Save\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 811585430208540,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_SolidData",
+					"sid": 411580989594242,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"SolidData\""
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_TileData",
+					"sid": 118781472433799,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"TileData\""
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_ObjectData",
+					"sid": 508087421849667,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"ObjectData\""
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 201896686359966,
+					"parameters": {
+						"layout": "str(int(LayoutName) + 1)"
+					}
+				}
+			],
+			"sid": 127145248243466
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 452640861750395
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 563854364564767,
+					"parameters": {
+						"variable": "AutomatedSaving",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 888790364848251,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 776869864257056,
+					"parameters": {
+						"name": "\"LVL_Save\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 591189978717206,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_SolidData",
+					"sid": 457528951400651,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"SolidData\""
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_TileData",
+					"sid": 602184038536693,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"TileData\""
+					}
+				},
+				{
+					"id": "download",
+					"objectClass": "LVL_ObjectData",
+					"sid": 152301886373304,
+					"parameters": {
+						"filename": "\"Level\" & LayoutName & \"ObjectData\""
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 783424513315921,
+					"parameters": {
+						"variable": "AutomatedIndex",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 290374086398927,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 773235186364092,
+							"parameters": {
+								"variable": "AutomatedIndex",
+								"comparison": 2,
+								"value": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 263975223069521,
+							"parameters": {
+								"layout": "str(int(LayoutName) + 1)"
+							}
+						}
+					],
+					"sid": 744216933270727
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 334994282601856
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 840907466947276,
+							"parameters": {
+								"variable": "AutomatedIndex",
+								"value": "0"
+							}
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 518025994278185,
+							"parameters": {
+								"layout": "str(((int(left(LayoutName,1))+1)*100) + 1)"
+							}
+						}
+					],
+					"sid": 332391345584534
+				}
+			]
+		}
+	],
+	"sid": 182794462007181
+}
