@@ -424,7 +424,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Solid",
+					"type": "Solid_LevelFloor",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -434,7 +434,7 @@
 					},
 					"uid": 1518,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "floor"
 					},
 					"behaviors": {
 						"Solid": {
@@ -442,29 +442,15 @@
 								"enabled": true,
 								"tags": ""
 							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
 						}
 					},
 					"world": {
 						"x": 1256,
 						"y": 1032,
-						"width": 2616,
-						"height": 176,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 20.928,
+						"height": 1.408,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -476,7 +462,7 @@
 					}
 				},
 				{
-					"type": "Solid",
+					"type": "Solid_LevelFloor",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -486,7 +472,7 @@
 					},
 					"uid": 1519,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "floor"
 					},
 					"behaviors": {
 						"Solid": {
@@ -494,29 +480,15 @@
 								"enabled": true,
 								"tags": ""
 							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
 						}
 					},
 					"world": {
 						"x": -12,
 						"y": 512,
-						"width": 32,
-						"height": 1022,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 0.256,
+						"height": 8.176,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -528,7 +500,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -538,27 +510,13 @@
 					},
 					"uid": 1520,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -580,7 +538,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -590,27 +548,13 @@
 					},
 					"uid": 1521,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -632,7 +576,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -642,27 +586,13 @@
 					},
 					"uid": 1522,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -684,7 +614,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -694,27 +624,13 @@
 					},
 					"uid": 1532,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -736,7 +652,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -746,27 +662,13 @@
 					},
 					"uid": 1534,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -788,7 +690,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -798,27 +700,13 @@
 					},
 					"uid": 1535,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -840,7 +728,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -850,27 +738,13 @@
 					},
 					"uid": 1536,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -892,7 +766,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -902,27 +776,13 @@
 					},
 					"uid": 1537,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -944,7 +804,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -954,27 +814,13 @@
 					},
 					"uid": 1538,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -996,7 +842,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1006,27 +852,13 @@
 					},
 					"uid": 1539,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1048,7 +880,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1058,27 +890,13 @@
 					},
 					"uid": 1540,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1100,7 +918,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1110,27 +928,13 @@
 					},
 					"uid": 1542,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1152,7 +956,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1162,27 +966,13 @@
 					},
 					"uid": 1543,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1204,7 +994,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1214,27 +1004,13 @@
 					},
 					"uid": 1544,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1256,7 +1032,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1266,27 +1042,13 @@
 					},
 					"uid": 1545,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1308,7 +1070,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1318,27 +1080,13 @@
 					},
 					"uid": 1546,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1360,7 +1108,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1370,27 +1118,13 @@
 					},
 					"uid": 1547,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1412,7 +1146,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1422,27 +1156,13 @@
 					},
 					"uid": 1548,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1464,7 +1184,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1474,27 +1194,13 @@
 					},
 					"uid": 1549,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1516,7 +1222,7 @@
 					}
 				},
 				{
-					"type": "Solid2Wall",
+					"type": "Solid_Wall",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1526,27 +1232,13 @@
 					},
 					"uid": 1550,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "wall"
 					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
 								"enabled": true,
 								"tags": ""
-							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
 							}
 						}
 					},
@@ -1568,7 +1260,7 @@
 					}
 				},
 				{
-					"type": "Solid",
+					"type": "Solid_LevelFloor",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1578,7 +1270,7 @@
 					},
 					"uid": 4194,
 					"instanceVariables": {
-						"zz_form": "floor"
+						"form": "floor"
 					},
 					"behaviors": {
 						"Solid": {
@@ -1586,29 +1278,15 @@
 								"enabled": true,
 								"tags": ""
 							}
-						},
-						"Physics": {
-							"properties": {
-								"immovable": true,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": false,
-								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
-								"linear-damping": 0,
-								"angular-damping": 0.01,
-								"bullet": false,
-								"enabled": true
-							}
 						}
 					},
 					"world": {
 						"x": 2520,
 						"y": 576,
-						"width": 32,
-						"height": 1022,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 0.256,
+						"height": 8.176,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
