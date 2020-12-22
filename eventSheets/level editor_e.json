@@ -2,6 +2,10 @@
 	"name": "Level Editor_E",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "Should redo previews to not run this actual layout, but automatically export and load the level, this way I can remove redundant layers"
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Master"
 		},
@@ -73,128 +77,7 @@
 				}
 			],
 			"actions": [],
-			"sid": 920317470212343,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Editor_TextureBG",
-							"sid": 976246849095601,
-							"parameters": {
-								"instance-variable": "Scrollbar"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 453711845145383,
-							"parameters": {
-								"object": "Editor_TextureBG"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 789824454449459,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Editor_TextureBG",
-									"sid": 495488348681594,
-									"parameters": {
-										"instance-variable": "Label",
-										"comparison": 0,
-										"value": "\"Wallpaper\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "move-to-layer",
-									"objectClass": "Editor_TextureBG",
-									"sid": 510290636277900,
-									"parameters": {
-										"layer": "\"Objects\""
-									}
-								},
-								{
-									"id": "move-to-bottom",
-									"objectClass": "Editor_TextureBG",
-									"sid": 214452397615166
-								}
-							],
-							"sid": 802563332901933
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Editor_TextureBG",
-									"sid": 362257615951224,
-									"parameters": {
-										"instance-variable": "Label",
-										"comparison": 0,
-										"value": "\"Crown\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "move-to-layer",
-									"objectClass": "Editor_TextureBG",
-									"sid": 606675004144805,
-									"parameters": {
-										"layer": "\"Objects\""
-									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Editor_TextureBG",
-									"sid": 161731349080509
-								}
-							],
-							"sid": 702392487696678
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Editor_TextureBG",
-									"sid": 745341620573286,
-									"parameters": {
-										"instance-variable": "Label",
-										"comparison": 0,
-										"value": "\"AngledCrown\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "move-to-layer",
-									"objectClass": "Editor_TextureBG",
-									"sid": 471085357413119,
-									"parameters": {
-										"layer": "\"Objects\""
-									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Editor_TextureBG",
-									"sid": 930966789191963
-								}
-							],
-							"sid": 461058776966130
-						}
-					]
-				}
-			]
+			"sid": 920317470212343
 		},
 		{
 			"eventType": "block",
@@ -912,6 +795,317 @@
 				}
 			],
 			"sid": 996947444195641
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 210657353965269
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 990679779857583,
+					"parameters": {
+						"tag": "\"Level\"",
+						"file": "tilemap.json"
+					}
+				}
+			],
+			"sid": 471697083277018
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 231105677936929,
+					"parameters": {
+						"tag": "\"Level\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 830272210709352
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 834535692365776,
+					"parameters": {
+						"object": "HoleCover"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 230376114371093,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 950488818822759,
+							"parameters": {
+								"first-value": "Player.Y",
+								"comparison": 2,
+								"second-value": "HoleCover.Y - 6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PLR_ChangeLayer",
+							"sid": 417081057046628,
+							"parameters": [
+								"\"Default\""
+							]
+						}
+					],
+					"sid": 339571555946982
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 217253895801377
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PLR_ChangeLayer",
+							"sid": 546747002654283,
+							"parameters": [
+								"\"Under\""
+							]
+						}
+					],
+					"sid": 948070027494027
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 831329940205355,
+					"parameters": {
+						"object": "ZFixer"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PLR_ChangeLayer",
+					"sid": 557585108280192,
+					"parameters": [
+						"\"Default\""
+					]
+				}
+			],
+			"sid": 318408250159786
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 735605481811363,
+					"parameters": {
+						"object": "LadderCover"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PLR_ChangeLayer",
+					"sid": 974371572674488,
+					"parameters": [
+						"\"Under\""
+					]
+				}
+			],
+			"sid": 248330562109664
+		},
+		{
+			"eventType": "comment",
+			"text": "do dis"
+		},
+		{
+			"eventType": "comment",
+			"text": "Add animation conditions"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 508229214052334,
+					"parameters": {
+						"object": "HoleBG"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "HoleBG",
+					"sid": 728129797259418,
+					"parameters": {
+						"instance-variable": "Hazard"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Solids",
+					"sid": 901242659765726,
+					"parameters": {
+						"unique-id": "HoleBG.SolidUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "HoleCover",
+					"sid": 814018107619201,
+					"parameters": {
+						"unique-id": "HoleBG.CoverUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-speed",
+					"objectClass": "HoleBG",
+					"sid": 835356126015030,
+					"parameters": {
+						"speed": "20"
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "HoleCover",
+					"sid": 864243515390585,
+					"parameters": {
+						"speed": "20"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Solids",
+					"sid": 748413504386392
+				}
+			],
+			"sid": 108029264570077
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 773263069945796,
+					"parameters": {
+						"object": "HoleBG"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "HoleBG",
+					"sid": 253343360242331,
+					"parameters": {
+						"instance-variable": "Hazard"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Solids",
+					"sid": 120191648477869,
+					"parameters": {
+						"unique-id": "HoleBG.SolidUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "HoleCover",
+					"sid": 768598087990697,
+					"parameters": {
+						"unique-id": "HoleBG.CoverUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-speed",
+					"objectClass": "HoleBG",
+					"sid": 920187754134258,
+					"parameters": {
+						"speed": "20"
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "HoleCover",
+					"sid": 789243786721048,
+					"parameters": {
+						"speed": "20"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Solids",
+					"sid": 950221239430040
+				}
+			],
+			"sid": 616835473899199,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-animation-finished",
+					"objectClass": "HoleBG",
+					"sid": 988861476936754
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "HoleBG",
+					"sid": 582062428260179,
+					"parameters": {
+						"instance-variable": "Hazard"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Solids",
+					"sid": 411486699602022,
+					"parameters": {
+						"unique-id": "HoleBG.SolidUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Solids",
+					"sid": 731533501650120
+				}
+			],
+			"sid": 829711733561471,
+			"disabled": true
 		}
 	],
 	"sid": 414210566204978

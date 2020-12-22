@@ -14055,14 +14055,14 @@
 										{
 											"id": "on-function",
 											"objectClass": "function",
-											"sid": 648906177243908,
+											"sid": 290092632262083,
 											"parameters": {
 												"name": "\"PLR_FaceX\""
 											}
 										}
 									],
 									"actions": [],
-									"sid": 366570709616344,
+									"sid": 657171099710509,
 									"children": [
 										{
 											"eventType": "block",
@@ -14070,7 +14070,7 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 870096419982882,
+													"sid": 973151357755126,
 													"parameters": {
 														"first-value": "function.Param(0)",
 														"comparison": 4,
@@ -14079,7 +14079,7 @@
 												}
 											],
 											"actions": [],
-											"sid": 791474498878941,
+											"sid": 170275432752490,
 											"children": [
 												{
 													"eventType": "block",
@@ -14087,14 +14087,14 @@
 														{
 															"id": "is-mirrored",
 															"objectClass": "Player",
-															"sid": 156420866456091
+															"sid": 437899148346724
 														}
 													],
 													"actions": [
 														{
 															"id": "call-function",
 															"objectClass": "function",
-															"sid": 726298902716553,
+															"sid": 300854883399484,
 															"parameters": {
 																"name": "\"PLR_Mirrored\"",
 																"parameter-n": [
@@ -14103,7 +14103,7 @@
 															}
 														}
 													],
-													"sid": 534747784945042
+													"sid": 467885081726363
 												}
 											]
 										},
@@ -14113,12 +14113,12 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 417121267260763
+													"sid": 347532089333644
 												},
 												{
 													"id": "is-mirrored",
 													"objectClass": "Player",
-													"sid": 315123441067282,
+													"sid": 235546278968574,
 													"isInverted": true
 												}
 											],
@@ -14126,7 +14126,7 @@
 												{
 													"id": "call-function",
 													"objectClass": "function",
-													"sid": 869460561919220,
+													"sid": 105574104237149,
 													"parameters": {
 														"name": "\"PLR_Mirrored\"",
 														"parameter-n": [
@@ -14135,7 +14135,7 @@
 													}
 												}
 											],
-											"sid": 374351602278926
+											"sid": 330460141308148
 										}
 									]
 								}
@@ -17758,6 +17758,154 @@
 								}
 							],
 							"sid": 474545895034151
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Z Order",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "PLR_ChangeLayer",
+									"functionDescription": "",
+									"functionCategory": "Player",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "Layer",
+											"type": "string",
+											"initialValue": "",
+											"comment": "Normal, Under",
+											"sid": 470515306042325
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 849210751520441,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 134408113220537,
+													"parameters": {
+														"variable": "Layer",
+														"comparison": 0,
+														"value": "\"Default\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Holster2",
+													"sid": 256676186857721,
+													"parameters": {
+														"layer": "\"Player\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Sprite",
+													"sid": 291959107636189,
+													"parameters": {
+														"layer": "\"Player\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Holster1",
+													"sid": 355685106053548,
+													"parameters": {
+														"layer": "\"Player\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Arms2",
+													"sid": 691249561820918,
+													"parameters": {
+														"layer": "\"Player\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Arms",
+													"sid": 361993324576785,
+													"parameters": {
+														"layer": "\"Player\""
+													}
+												}
+											],
+											"sid": 448903038211197
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 617931809436035,
+													"parameters": {
+														"variable": "Layer",
+														"comparison": 0,
+														"value": "\"Under\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Holster2",
+													"sid": 844894843994546,
+													"parameters": {
+														"layer": "\"Player_Under\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Sprite",
+													"sid": 366783565911142,
+													"parameters": {
+														"layer": "\"Player_Under\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Holster1",
+													"sid": 574997627144332,
+													"parameters": {
+														"layer": "\"Player_Under\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Arms2",
+													"sid": 959755052389015,
+													"parameters": {
+														"layer": "\"Player_Under\""
+													}
+												},
+												{
+													"id": "move-to-layer",
+													"objectClass": "Player_Arms",
+													"sid": 646807297428549,
+													"parameters": {
+														"layer": "\"Player_Under\""
+													}
+												}
+											],
+											"sid": 810125878268681
+										}
+									]
+								}
+							],
+							"sid": 696685362011343
 						}
 					],
 					"sid": 163279012911858
@@ -17765,6 +17913,10 @@
 				{
 					"eventType": "comment",
 					"text": "Should maybe be in different event sheet"
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO - Add sounds (WorldInteractSound)"
 				},
 				{
 					"eventType": "group",
@@ -18855,6 +19007,10 @@
 										},
 										{
 											"eventType": "comment",
+											"text": "Trapdoors"
+										},
+										{
+											"eventType": "comment",
 											"text": "Weapons and Weapon Mods"
 										},
 										{
@@ -19469,6 +19625,351 @@
 												}
 											],
 											"sid": 586593317925830
+										},
+										{
+											"eventType": "comment",
+											"text": "Open Objects"
+										},
+										{
+											"eventType": "comment",
+											"text": "May have to not use hiearchy"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 538428023880066
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "OBJ_World",
+													"sid": 212736046130824,
+													"parameters": {
+														"instance-variable": "WorldInteractType",
+														"comparison": 0,
+														"value": "\"open\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 869312674154515,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 353737155986026,
+															"parameters": {
+																"first-value": "tokenat(OBJ_World.AnimationName,1,\"_\")",
+																"comparison": 0,
+																"second-value": "\"open\""
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 553792382962650,
+															"parameters": {
+																"first-value": "tokenat(OBJ_World.AnimationName,1,\"_\")",
+																"comparison": 0,
+																"second-value": "\"Open\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "OBJ_World",
+															"sid": 352505037136893,
+															"parameters": {
+																"animation": "tokenat(Self.AnimationName,0,\"_\") & \"_close\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 108820167801331,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 916246721460483
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "OBJ_World",
+															"sid": 343942829254818,
+															"parameters": {
+																"animation": "tokenat(Self.AnimationName,0,\"_\") & \"_open\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 504391922569985
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Trapdoor",
+															"sid": 898187089835943,
+															"parameters": {
+																"unique-id": "OBJ_World.UID"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 525430208141962,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 630078867034683,
+																	"parameters": {
+																		"first-value": "tokenat(Trapdoor.AnimationName,1,\"_\")",
+																		"comparison": 0,
+																		"second-value": "\"Open\""
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 829595273551151,
+																	"parameters": {
+																		"first-value": "tokenat(Trapdoor.AnimationName,1,\"_\")",
+																		"comparison": 0,
+																		"second-value": "\"open\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 371177668262564,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "JumpThrough",
+																			"sid": 817953899788810,
+																			"parameters": {
+																				"unique-id": "Trapdoor.JumpThroughUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-collisions-enabled",
+																			"objectClass": "JumpThrough",
+																			"sid": 556404624380365,
+																			"parameters": {
+																				"collisions": "enabled"
+																			}
+																		}
+																	],
+																	"sid": 593382064297898
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "Solid_PlayerFloor",
+																			"sid": 331527718985884,
+																			"parameters": {
+																				"unique-id": "Trapdoor.SolidFloorUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-collisions-enabled",
+																			"objectClass": "Solid_PlayerFloor",
+																			"sid": 530268709223943,
+																			"parameters": {
+																				"collisions": "disabled"
+																			}
+																		}
+																	],
+																	"sid": 609068284152672
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "Trapdoor_Ladder",
+																			"sid": 923950458156868,
+																			"parameters": {
+																				"unique-id": "Trapdoor.LadderTopUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-visible",
+																			"objectClass": "Trapdoor_Ladder",
+																			"sid": 216445713321454,
+																			"parameters": {
+																				"visibility": "visible"
+																			}
+																		}
+																	],
+																	"sid": 257578802440113
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "HoleOutline",
+																			"sid": 744572047784620,
+																			"parameters": {
+																				"unique-id": "Trapdoor.OutlineUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-visible",
+																			"objectClass": "HoleOutline",
+																			"sid": 368288223140656,
+																			"parameters": {
+																				"visibility": "visible"
+																			}
+																		}
+																	],
+																	"sid": 335369658404868
+																}
+															],
+															"isOrBlock": true
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 967320326671769
+																}
+															],
+															"actions": [],
+															"sid": 589624359934265,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "Solid_PlayerFloor",
+																			"sid": 604951864679972,
+																			"parameters": {
+																				"unique-id": "Trapdoor.SolidFloorUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-collisions-enabled",
+																			"objectClass": "Solid_PlayerFloor",
+																			"sid": 824406150003558,
+																			"parameters": {
+																				"collisions": "enabled"
+																			}
+																		}
+																	],
+																	"sid": 679187691766799
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "JumpThrough",
+																			"sid": 686449780250012,
+																			"parameters": {
+																				"unique-id": "Trapdoor.JumpThroughUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-collisions-enabled",
+																			"objectClass": "JumpThrough",
+																			"sid": 415175678714193,
+																			"parameters": {
+																				"collisions": "disabled"
+																			}
+																		}
+																	],
+																	"sid": 603147883426640
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "Trapdoor_Ladder",
+																			"sid": 570088368211869,
+																			"parameters": {
+																				"unique-id": "Trapdoor.LadderTopUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-visible",
+																			"objectClass": "Trapdoor_Ladder",
+																			"sid": 227702086772014,
+																			"parameters": {
+																				"visibility": "invisible"
+																			}
+																		}
+																	],
+																	"sid": 577836604635799
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-unique-id",
+																			"objectClass": "HoleOutline",
+																			"sid": 405759841339950,
+																			"parameters": {
+																				"unique-id": "Trapdoor.OutlineUID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-visible",
+																			"objectClass": "HoleOutline",
+																			"sid": 975165799605252,
+																			"parameters": {
+																				"visibility": "invisible"
+																			}
+																		}
+																	],
+																	"sid": 514401816952629
+																}
+															]
+														}
+													]
+												}
+											]
 										},
 										{
 											"eventType": "comment",
