@@ -1,10 +1,3 @@
-Hatch object to put into carpet, adds see through (can have a hatch door, or just regular hole)
-cannot roll and land after dodge through?
-ladder can be elevator shafts too... (can I filter to?)
-
-
-
-
 [LAYERS]
 DecordFG
 <Player>
@@ -16,148 +9,12 @@ Tile_Detail
 Tile_Shadows
 Tile_BG
 
+	
+[TODO]
 
 
-[TRAPDOOR]
-Trapdoor clipping problem, potential solutions:
-- Switch left piece z order based on players y height, if below floor peice start to overlap 
-	- (but then it would overlap zombies and stuff)
-- Make left piece invisbile, then visible when player is going under... (would still need floor piece?)
-- Make wide enough that this won't happen (then I just need a bottom piece)
-- 
 
-
-
-Cut Hole
-Hazard Hole
-Trap Hole (leaves, weak floorboards)? (cracked floor) (debris?)
-Hatch
-
-
-Cellar Door (double width)
-Double Hole
-
-
-[]
-Gaps
-
-[]
-Elevator Shaft
-Elevator Doors
-(Vent Systems?
-
-
-,.
-slow player down slightly when back walking
-slow player down when goin up stairs, but speed up when going down
-(disable dodge on stairs, but allow the player to slide down the stairs)
-
-
-detail breaks (handrail, molding, etc)
-
-before doing big asset request, ask for some artistic direction or advice... from someone?
-
-==========
-wide putin powerup
-
-1/1000 chance of rtr death sound
-
-
-
-
-Doors are busted af
-
-
-
-Assemble the trapdoor stuff, and the frames, and then make automated spawners for them 
-(automatically handles layers too) (automatically hiearchs)
-
-
-trapdoors
-- hole type / size
-- door or no?
-- trapdoor texture
-- floor texture (can I make this a visual selection or hiearchy?) (disable transform with parent) (just assigned uids)
-- ladder type / if at all
-- cover/jump through? (or is this part of ladder?)
-
-
-
-
-(trapdoor outline)
-
-
-C3: cannot edit heirchy relations at runtime (disable transforms etc)
-
-
-========
-Trapdoor vars:
-JumpThroughUID
-27417
-
-SolidUID
-28155
-
-LadderTopUID
-28154
-
-Jum
-
-
-
-
-
->
-bug if player climbs ladder while shooting, reload ui is stuck
-
-fall through platforms should stop player roll / slide
-
->
-organize notes
-Post C3 stuff
-organize files
-fix drive / cloud stuff
-
-
-=======
-
-need a filter for every hazard animation
-
-
-
-
-.
-make a flooring reference guide on asset layout, then can fill in as a property of hole or something
-
-
-trapdoor outlines not working
-
-
-
-MOVE HOLES TO SHADOW TILE LAYER!!
-What about animated ones?
-Animated tiles...
-
-
-(get functional first)
-after all is there>
-make pipeline more effecient
-
-
-zombies and hoeles?
-
-
-(seperate player arms in zorder sorting)?``
-(based on playeraim Y)
-(also effect should maybe move to player layer)
-(offset of -6)6w5435
-
-(weapon z order stuff would be fixed if player was forced to climb)
-
-(walkers need a backwards headshot animation)
-
-(hazard 1 hole too small)
-(player should maybe be able to shoot holes to break them, can then use strategeically)
-
-
+[PASTEBIN]
+key prompts appear? (like on door, trap door)
+dead cells style (X to Open)
 
