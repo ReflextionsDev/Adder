@@ -2977,6 +2977,27 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Sprite",
+															"sid": 678783733800696,
+															"parameters": {
+																"unique-id": "NPC.SpriteID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "move-to-top",
+															"objectClass": "NPC_Sprite",
+															"sid": 105074341291871
+														}
+													],
+													"sid": 483190895545926
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
 															"id": "compare-two-values",
 															"objectClass": "System",
 															"sid": 980010426231935,
@@ -5198,6 +5219,27 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Sprite",
+													"sid": 515058116511366,
+													"parameters": {
+														"unique-id": "NPC.SpriteID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-top",
+													"objectClass": "NPC_Sprite",
+													"sid": 643364419291850
+												}
+											],
+											"sid": 547448792646042
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 562255603686517,
@@ -5845,19 +5887,11 @@
 															}
 														},
 														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Door_Scent",
-															"sid": 833634956296461,
-															"parameters": {
-																"object": "Door_Range"
-															}
-														},
-														{
 															"id": "pick-by-unique-id",
 															"objectClass": "Door",
-															"sid": 411214559620866,
+															"sid": 861806045294858,
 															"parameters": {
-																"unique-id": "Door_Range.DoorID"
+																"unique-id": "Door_Scent.DoorID"
 															}
 														}
 													],
@@ -7534,7 +7568,7 @@
 														{
 															"id": "has-los-to-object",
 															"objectClass": "NPC",
-															"sid": 778970341559942,
+															"sid": 477003210542516,
 															"behaviorType": "Vision",
 															"parameters": {
 																"object": "Zombie_PriorityTarget",
@@ -7605,18 +7639,6 @@
 																}
 															],
 															"sid": 812781973326753
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 974003549341852
-																}
-															],
-															"actions": [],
-															"sid": 257061710282222
 														}
 													]
 												},
@@ -7631,7 +7653,7 @@
 														{
 															"id": "has-los-to-object",
 															"objectClass": "NPC",
-															"sid": 937680189554005,
+															"sid": 340888308142594,
 															"behaviorType": "Proximity",
 															"parameters": {
 																"object": "Zombie_PriorityTarget",
@@ -7711,18 +7733,6 @@
 																}
 															],
 															"sid": 205455596407137
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 590141204156947
-																}
-															],
-															"actions": [],
-															"sid": 213945529057563
 														}
 													]
 												},
@@ -7745,19 +7755,11 @@
 															}
 														},
 														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Door_Scent",
-															"sid": 649982305613846,
-															"parameters": {
-																"object": "Door_Range"
-															}
-														},
-														{
 															"id": "pick-by-unique-id",
 															"objectClass": "Door",
-															"sid": 925051902119079,
+															"sid": 577753134931085,
 															"parameters": {
-																"unique-id": "Door_Range.DoorID"
+																"unique-id": "Door_Scent.DoorID"
 															}
 														},
 														{
@@ -7907,19 +7909,11 @@
 															}
 														},
 														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Door_Scent",
-															"sid": 360163830146408,
-															"parameters": {
-																"object": "Door_Range"
-															}
-														},
-														{
 															"id": "pick-by-unique-id",
 															"objectClass": "Door",
-															"sid": 572617977744593,
+															"sid": 716920974196296,
 															"parameters": {
-																"unique-id": "Door_Range.DoorID"
+																"unique-id": "Door_Scent.DoorID"
 															}
 														},
 														{
@@ -11046,15 +11040,6 @@
 												"0",
 												"0"
 											]
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "NPC_Sprite",
-											"sid": 711679726739559,
-											"parameters": {
-												"instance-variable": "DiagText",
-												"value": "\"\""
-											}
 										}
 									],
 									"sid": 669727693406039
@@ -12876,6 +12861,33 @@
 												}
 											],
 											"sid": 472897419258033
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 495457999971694,
+													"parameters": {
+														"instance-variable": "DiagLock",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC_WorldObj",
+													"sid": 568450191276372,
+													"parameters": {
+														"instance-variable": "DiagLock",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 513990687027453
 										}
 									],
 									"isOrBlock": true

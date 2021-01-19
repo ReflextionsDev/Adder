@@ -775,6 +775,15 @@
 										"instance-variable": "CoyoteTime",
 										"value": "PlayerData_Default.CoyoteTime + PlayerData_Bonus.CoyoteTime"
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerData",
+									"sid": 973142211442775,
+									"parameters": {
+										"instance-variable": "SlideSpeed",
+										"value": "PlayerData_Default.SlideSpeed + PlayerData_Bonus.SlideSpeed"
+									}
 								}
 							],
 							"sid": 905850302440144,
@@ -2521,16 +2530,6 @@
 													"isInverted": true
 												},
 												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 469414568804036,
-													"parameters": {
-														"first-value": "Player.DodgeTimer",
-														"comparison": 3,
-														"second-value": "0"
-													}
-												},
-												{
 													"id": "compare-instance-variable",
 													"objectClass": "Player",
 													"sid": 790397223292839,
@@ -2541,20 +2540,126 @@
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 340572762475770,
+											"children": [
 												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 940745510317737,
-													"parameters": {
-														"name": "\"PLR_ChangeState\"",
-														"parameter-n": [
-															"\"Dodge\""
-														]
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 352409593493159,
+															"parameters": {
+																"instance-variable": "OnStairs"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 987473753597764,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 767336846159068,
+																	"parameters": {
+																		"first-value": "Player.DodgeTimer",
+																		"comparison": 3,
+																		"second-value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 497971051056730,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Dodge\""
+																		]
+																	}
+																}
+															],
+															"sid": 322522003003118
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 442832456820053
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 800323987763762,
+															"parameters": {
+																"instance-variable": "CanSlide"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Player",
+															"sid": 947921580219767,
+															"parameters": {
+																"instance-variable": "SlideCooldown",
+																"comparison": 0,
+																"value": "0"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 591241322026953,
+															"parameters": {
+																"animation": "\"SlideLoop\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 257731634143228,
+															"parameters": {
+																"animation": "\"IntoSlide\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 593675268687008,
+															"parameters": {
+																"animation": "\"OutSlideA\" & PlayerData.Skin"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 951393146295576,
+															"parameters": {
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"Slide\""
+																]
+															}
+														}
+													],
+													"sid": 136448372989318
 												}
-											],
-											"sid": 340572762475770
+											]
 										}
 									],
 									"sid": 971691991836625
@@ -3719,6 +3824,15 @@
 											],
 											"actions": [
 												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 863711386379040,
+													"parameters": {
+														"name": "\"PLR_Input_Enable\"",
+														"parameter-n": []
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Player_Sprite",
 													"sid": 395548829800905,
@@ -3825,6 +3939,15 @@
 													"behaviorType": "Platform",
 													"parameters": {
 														"max-fall-speed": "PlayerData.MaxFallSpeed"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 878288343711771,
+													"parameters": {
+														"instance-variable": "IsPushThrough",
+														"value": "false"
 													}
 												},
 												{
@@ -4060,6 +4183,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "set-vector-x",
+													"objectClass": "Player",
+													"sid": 389125341521984,
+													"behaviorType": "Platform",
+													"parameters": {
+														"vector-x": "0"
+													}
+												},
 												{
 													"id": "call-function",
 													"objectClass": "function",
@@ -4574,6 +4706,255 @@
 													]
 												}
 											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Slides"
+										},
+										{
+											"eventType": "comment",
+											"text": "Add slide speed"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 355697598289351,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Slide\""
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 156127893855468,
+													"parameters": {
+														"first-value": "function.Call(\"Input_Idle\")",
+														"comparison": 0,
+														"second-value": "0"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 937213130907206,
+													"parameters": {
+														"first-value": "abs(Player.Platform.VectorX)",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 343720074614072,
+													"parameters": {
+														"instance-variable": "SlideCooldown",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 753479151185906,
+													"parameters": {
+														"instance-variable": "Sliding",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-max-speed",
+													"objectClass": "Player",
+													"sid": 573282424803034,
+													"behaviorType": "Platform",
+													"parameters": {
+														"max-speed": "PlayerData.SlideSpeed"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 123772331593940,
+													"parameters": {
+														"group-name": "\"Player Slide\"",
+														"state": "activated"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 508544622661332,
+													"parameters": {
+														"name": "\"PLR_DestroyFX\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 925648932856115,
+													"parameters": {
+														"name": "\"PLR_ChangeState\"",
+														"parameter-n": [
+															"\"Disable\""
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 370448090398364,
+													"parameters": {
+														"name": "\"SFX_Dodge\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 399999818923805,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 315786880520472,
+															"parameters": {
+																"first-value": "Player.Platform.VectorX",
+																"comparison": 4,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 174971465309435,
+															"parameters": {
+																"name": "\"PLR_FaceX\"",
+																"parameter-n": [
+																	"Player.X + 10"
+																]
+															}
+														}
+													],
+													"sid": 836024359216868
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 566375141224872,
+															"parameters": {
+																"first-value": "Player.Platform.VectorX",
+																"comparison": 2,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 558611417914499,
+															"parameters": {
+																"name": "\"PLR_FaceX\"",
+																"parameter-n": [
+																	"Player.X - 10"
+																]
+															}
+														}
+													],
+													"sid": 301069356872089
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player_Sprite",
+															"sid": 956336537550866,
+															"parameters": {
+																"animation": "\"IntoSlide\" & PlayerData.Skin",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 635768396235903
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 906214488559468,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"ExitSlide\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 545098570733518,
+													"parameters": {
+														"instance-variable": "Sliding",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 417904231327166,
+													"parameters": {
+														"group-name": "\"Player Slide\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_Sprite",
+													"sid": 613665372647401,
+													"parameters": {
+														"animation": "\"OutSlide\" & PlayerData.Skin",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 333617728333817,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 235984904941545,
+													"parameters": {
+														"instance-variable": "SlideCooldown",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 239918699517692
 										},
 										{
 											"eventType": "comment",
@@ -5200,6 +5581,172 @@
 												}
 											],
 											"sid": 386753348657641
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 415824925461981,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"SimRight\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 430400771361158,
+													"parameters": {
+														"name": "\"PLR_FaceX\"",
+														"parameter-n": [
+															"Player.X + 10"
+														]
+													}
+												},
+												{
+													"id": "simulate-control",
+													"objectClass": "Player",
+													"sid": 290808528310107,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "right"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 228504922226447,
+													"parameters": {
+														"group-name": "\"Animation Runtime\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-ignoring-input",
+													"objectClass": "Player",
+													"sid": 538645277391551,
+													"behaviorType": "Platform",
+													"parameters": {
+														"input": "start-ignoring"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_Sprite",
+													"sid": 437475187561724,
+													"parameters": {
+														"animation": "\"Walk\" & PlayerData.Skin",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 577323735026252,
+													"parameters": {
+														"name": "\"PLR_Input_Disable\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 899116065012983,
+													"parameters": {
+														"instance-variable": "IsPushThrough",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 721375522838052
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 313304162133806,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"SimLeft\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 786683796007070,
+													"parameters": {
+														"name": "\"PLR_FaceX\"",
+														"parameter-n": [
+															"Player.X - 10"
+														]
+													}
+												},
+												{
+													"id": "simulate-control",
+													"objectClass": "Player",
+													"sid": 366735047752106,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "left"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 412826852332986,
+													"parameters": {
+														"group-name": "\"Animation Runtime\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-ignoring-input",
+													"objectClass": "Player",
+													"sid": 391302261881005,
+													"behaviorType": "Platform",
+													"parameters": {
+														"input": "start-ignoring"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_Sprite",
+													"sid": 501706557078205,
+													"parameters": {
+														"animation": "\"Walk\" & PlayerData.Skin",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 523730946930452,
+													"parameters": {
+														"name": "\"PLR_Input_Disable\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 984225137426587,
+													"parameters": {
+														"instance-variable": "IsPushThrough",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 700719075210938
 										}
 									]
 								}
@@ -5437,10 +5984,10 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Player",
-															"sid": 501245888179240,
+															"sid": 886426462993605,
 															"parameters": {
 																"instance-variable": "MaxMovementSpeed",
-																"value": "PlayerData.StrafeSpeed"
+																"value": "PlayerData.MaxSpeed"
 															}
 														}
 													],
@@ -5478,10 +6025,10 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Player",
-															"sid": 711417986577147,
+															"sid": 194684024818700,
 															"parameters": {
 																"instance-variable": "MaxMovementSpeed",
-																"value": "PlayerData.MaxSpeed"
+																"value": "PlayerData.StrafeSpeed"
 															}
 														}
 													],
@@ -6136,19 +6683,40 @@
 											}
 										}
 									],
-									"actions": [
-										{
-											"id": "set-vector-x",
-											"objectClass": "Player",
-											"sid": 140808439787431,
-											"behaviorType": "Platform",
-											"parameters": {
-												"vector-x": "0"
-											}
-										}
-									],
+									"actions": [],
 									"sid": 308175017165052,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Why was this a condition?"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Player",
+													"sid": 553774388618644,
+													"parameters": {
+														"instance-variable": "OnStairs"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-vector-x",
+													"objectClass": "Player",
+													"sid": 203484013042466,
+													"behaviorType": "Platform",
+													"parameters": {
+														"vector-x": "0"
+													}
+												}
+											],
+											"sid": 437800004899912,
+											"disabled": true
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -6205,9 +6773,49 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 842376944143402,
+															"parameters": {
+																"instance-variable": "CanSlide"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Player",
+															"sid": 334585296054932,
+															"parameters": {
+																"instance-variable": "SlideCooldown",
+																"comparison": 0,
+																"value": "0"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 581015450421662,
+															"parameters": {
+																"variable": "input_Dodge",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 213502387591362
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 858174518116877
+														},
+														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 223449483528655,
+															"sid": 343017686717064,
 															"parameters": {
 																"first-value": "Player.FallDistance",
 																"comparison": 4,
@@ -6219,7 +6827,7 @@
 														{
 															"id": "call-function",
 															"objectClass": "function",
-															"sid": 812717671968504,
+															"sid": 535874687727651,
 															"parameters": {
 																"name": "\"PLR_ChangeState\"",
 																"parameter-n": [
@@ -6228,7 +6836,7 @@
 															}
 														}
 													],
-													"sid": 629643134952428
+													"sid": 248376367717105
 												}
 											]
 										},
@@ -6518,7 +7126,7 @@
 							"eventType": "group",
 							"disabled": false,
 							"title": "Player Dodge",
-							"description": "TODO - Modular control inputs (func(input_right))",
+							"description": "",
 							"isActiveOnStart": false,
 							"children": [
 								{
@@ -6974,6 +7582,397 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "Player Slide",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Sprite",
+											"sid": 708235643884320,
+											"parameters": {
+												"animation": "\"SlideLoop\"  & PlayerData.Skin"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Player_Sprite",
+											"sid": 390276509045363,
+											"parameters": {
+												"animation": "\"IntoSlide\"  & PlayerData.Skin"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Player",
+											"sid": 389835213120581,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "CanSlide"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 197674706099991,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 608268316610639,
+													"parameters": {
+														"first-value": "Player.Platform.VectorX",
+														"comparison": 4,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Player",
+													"sid": 787893479634825,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "right"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "Player",
+													"sid": 619957259895020,
+													"disabled": true,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 590493404283707,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-function",
+															"objectClass": "function",
+															"sid": 776796499673227,
+															"parameters": {
+																"name": "\"Input_Left\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 585929975413379,
+															"parameters": {
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"ExitSlide\""
+																]
+															}
+														}
+													],
+													"sid": 614471940562773
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 187121720681299
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 784232898888732,
+													"parameters": {
+														"first-value": "Player.Platform.VectorX",
+														"comparison": 2,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Player",
+													"sid": 832383962596160,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "left"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "Player",
+													"sid": 649002327143923,
+													"disabled": true,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 544140655622283,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-function",
+															"objectClass": "function",
+															"sid": 816218199693214,
+															"parameters": {
+																"name": "\"Input_Right\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 341633961973209,
+															"parameters": {
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"ExitSlide\""
+																]
+															}
+														}
+													],
+													"sid": 341883967739668
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 659994418163756
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Player_Sprite",
+													"sid": 851195548824967,
+													"parameters": {
+														"comparison": 4,
+														"number": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 956428932711141,
+													"parameters": {
+														"name": "\"PLR_ChangeState\"",
+														"parameter-n": [
+															"\"ExitSlide\""
+														]
+													}
+												}
+											],
+											"sid": 473634563658245
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-function",
+													"objectClass": "function",
+													"sid": 418308070732159,
+													"parameters": {
+														"name": "\"Input_Jump\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 511304407822866,
+													"parameters": {
+														"name": "\"PLR_ChangeState\"",
+														"parameter-n": [
+															"\"ExitSlide\""
+														]
+													}
+												}
+											],
+											"sid": 206788807869268
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 989615331963104
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 928125598586900,
+											"parameters": {
+												"name": "\"PLR_ChangeState\"",
+												"parameter-n": [
+													"\"ExitSlide\""
+												]
+											}
+										}
+									],
+									"sid": 162338440388764
+								}
+							],
+							"sid": 392219786862688
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Player_Sprite",
+									"sid": 900772913534186,
+									"parameters": {
+										"animation": "\"OutSlide\" & PlayerData.Skin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 403132868874485,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 272252896131321,
+									"parameters": {
+										"name": "\"PLR_ChangeState\"",
+										"parameter-n": [
+											"\"Enable\""
+										]
+									}
+								}
+							],
+							"sid": 951831599482727
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Player_Sprite",
+									"sid": 227138573830442,
+									"parameters": {
+										"animation": "\"IntoSlide\" & PlayerData.Skin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player_Sprite",
+									"sid": 211457358615393,
+									"parameters": {
+										"animation": "\"SlideLoop\" & PlayerData.Skin",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 323901208808832
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 256359067601931,
+									"parameters": {
+										"interval-seconds": "0.02"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 141608350390051,
+									"parameters": {
+										"first-value": "Player_Sprite.AnimationName",
+										"comparison": 0,
+										"second-value": "\"SlideLoop\" & PlayerData.Skin"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 727453576714482,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 767145818738417
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "\"FX_SlideDust\"",
+											"sid": 619113599490159,
+											"parameters": [
+												"1"
+											]
+										}
+									],
+									"sid": 994323908034848
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 297229906962666
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "\"FX_SlideDust\"",
+											"sid": 953197547222459,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 721529743544452
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Player Hit",
 							"description": "",
 							"isActiveOnStart": true,
@@ -7171,6 +8170,14 @@
 															"sid": 494091508334193,
 															"parameters": {
 																"object": "Door"
+															}
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Player_Arms",
+															"sid": 807671697111636,
+															"parameters": {
+																"object": "Window"
 															}
 														}
 													],
@@ -13782,17 +14789,6 @@
 									],
 									"actions": [
 										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 247220620131978,
-											"parameters": {
-												"name": "\"PLR_ChangeState\"",
-												"parameter-n": [
-													"\"Enable\""
-												]
-											}
-										},
-										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Player",
 											"sid": 569818774088645,
@@ -16308,3966 +17304,6 @@
 						}
 					],
 					"sid": 493548132371968
-				},
-				{
-					"eventType": "comment",
-					"text": "Should maybe be in different event sheet"
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Player Environment",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Fog",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Player",
-											"sid": 277207015694314,
-											"parameters": {
-												"object": "Fog"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 346682721536567,
-											"parameters": {
-												"name": "\"Fog_Destroy\"",
-												"parameter-n": [
-													"Fog.UID"
-												]
-											}
-										}
-									],
-									"sid": 954502240859648
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 679174776993710,
-											"parameters": {
-												"name": "\"Fog_Destroy\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Fog",
-											"sid": 255060813975957,
-											"parameters": {
-												"unique-id": "Fog.UID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "start-fade",
-											"objectClass": "Fog",
-											"sid": 994894858859158,
-											"behaviorType": "Fade"
-										}
-									],
-									"sid": 703386242222711,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Fog",
-													"sid": 308284919172225,
-													"parameters": {
-														"object": "FogConnector"
-													}
-												},
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 563987682705930,
-													"parameters": {
-														"object": "FogConnector"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 958886942534328,
-													"parameters": {
-														"name": "\"Fog_DestroyConnector\"",
-														"parameter-n": [
-															"FogConnector.UID"
-														]
-													}
-												}
-											],
-											"sid": 841823803735464
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 930299058449134,
-											"parameters": {
-												"name": "\"Fog_DestroyConnector\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "FogConnector",
-											"sid": 296974737428843,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 314752528251242,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "FogConnector",
-													"sid": 714707392601101,
-													"parameters": {
-														"object": "Fog"
-													}
-												},
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 585309405552755,
-													"parameters": {
-														"object": "Fog"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "start-fade",
-													"objectClass": "Fog",
-													"sid": 128376139559702,
-													"behaviorType": "Fade"
-												}
-											],
-											"sid": 545555134346116
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "destroy",
-													"objectClass": "FogConnector",
-													"sid": 222128474215543
-												}
-											],
-											"sid": 319966864156259
-										}
-									]
-								}
-							],
-							"sid": 614723609656281
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Ladder",
-							"description": "TODO - Auto place ladder sticks",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Player",
-											"sid": 106063278372081,
-											"parameters": {
-												"object": "LadderSaftey"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "LadderSaftey",
-											"sid": 694240794738198
-										}
-									],
-									"sid": 597280562592464
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player",
-											"sid": 682589036193975,
-											"parameters": {
-												"object": "Ladder"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 107770273451144,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 636531134575975,
-													"parameters": {
-														"variable": "input_Up",
-														"comparison": 0,
-														"value": "1"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Player",
-													"sid": 113310910046977,
-													"parameters": {
-														"instance-variable": "AllowMovement",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 817485645602717,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 745505947487700,
-															"parameters": {
-																"first-value": "abs(input_X1)",
-																"comparison": 3,
-																"second-value": "90"
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Player_Sprite",
-															"sid": 327429178881227,
-															"parameters": {
-																"animation": "\"Land\"  & PlayerData.Skin"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Player_Sprite",
-															"sid": 769538313679949,
-															"parameters": {
-																"animation": "\"Die\"  & PlayerData.Skin"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "is-boolean-instance-variable-set",
-															"objectClass": "Player",
-															"sid": 331370972196937,
-															"parameters": {
-																"instance-variable": "zzzUsingAbility1"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "is-boolean-instance-variable-set",
-															"objectClass": "Player",
-															"sid": 264326149056890,
-															"parameters": {
-																"instance-variable": "zzUsingAbility2"
-															},
-															"isInverted": true
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "Player",
-															"sid": 721000776535352,
-															"parameters": {
-																"instance-variable": "Parachute",
-																"value": "false"
-															}
-														},
-														{
-															"id": "set-vector-y",
-															"objectClass": "Player",
-															"sid": 801677024652802,
-															"behaviorType": "Platform",
-															"parameters": {
-																"vector-y": "-100"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 182987707846137,
-															"parameters": {
-																"instance-variable": "FallDistance",
-																"value": "0"
-															}
-														},
-														{
-															"id": "set-x",
-															"objectClass": "Player",
-															"sid": 342821858561128,
-															"parameters": {
-																"x": "Ladder.X"
-															}
-														},
-														{
-															"id": "set-group-active",
-															"objectClass": "System",
-															"sid": 838866145522787,
-															"parameters": {
-																"group-name": "\"Jump Sim\"",
-																"state": "activated"
-															}
-														},
-														{
-															"id": "set-animation-frame",
-															"objectClass": "TouchUI_JumpSprite",
-															"sid": 494161274649238,
-															"parameters": {
-																"frame-number": "1"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Player",
-															"sid": 907521816613963,
-															"parameters": {
-																"instance-variable": "FallStartY",
-																"value": "Player.Y"
-															}
-														}
-													],
-													"sid": 661090205698003,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "Player",
-																	"sid": 766668245060201,
-																	"parameters": {
-																		"instance-variable": "Climbing"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 952899835251738,
-																	"parameters": {
-																		"name": "\"PLR_ChangeState\"",
-																		"parameter-n": [
-																			"\"Climb\""
-																		]
-																	}
-																}
-															],
-															"sid": 168064959751016
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 117073403678573
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Player",
-													"sid": 854101195099276,
-													"parameters": {
-														"instance-variable": "Climbing"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Player",
-													"sid": 240467501630942,
-													"parameters": {
-														"instance-variable": "Climbing",
-														"value": "false"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Player",
-													"sid": 960507495994253,
-													"parameters": {
-														"instance-variable": "Handling",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Player",
-													"sid": 823846673876250,
-													"parameters": {
-														"instance-variable": "HandlingTimer",
-														"value": "Weapon_Player.Handling"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 959244155334712,
-													"parameters": {
-														"seconds": "0"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 573166865449951,
-													"parameters": {
-														"name": "\"PLR_ChangeState\"",
-														"parameter-n": [
-															"\"Enable\""
-														]
-													}
-												}
-											],
-											"sid": 676815782287653
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 696925889328590
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Player",
-											"sid": 902544592192856,
-											"parameters": {
-												"instance-variable": "Climbing"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Player",
-											"sid": 775397229204182,
-											"parameters": {
-												"instance-variable": "Climbing",
-												"value": "false"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 234960015611638,
-											"parameters": {
-												"seconds": "0"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 348623898541341,
-											"parameters": {
-												"name": "\"PLR_ChangeState\"",
-												"parameter-n": [
-													"\"Enable\""
-												]
-											}
-										}
-									],
-									"sid": 618763236904488
-								}
-							],
-							"sid": 305262153585038
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Doors",
-							"description": "TODO - Adjust health values n stuff",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-created",
-											"objectClass": "Door",
-											"sid": 949480116143153
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 860225308821485,
-											"parameters": {
-												"seconds": "0"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 401975755918362,
-											"parameters": {
-												"object-to-create": "Door_Range",
-												"layer": "Door.LayerName",
-												"x": "Door.ImagePointX(1)",
-												"y": "Door.ImagePointY(1)",
-												"create-hierarchy": false
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Door",
-											"sid": 452342566507028,
-											"parameters": {
-												"instance-variable": "RangeID",
-												"value": "Door_Range.UID"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Door_Range",
-											"sid": 279705871071968,
-											"parameters": {
-												"instance-variable": "DoorID",
-												"value": "Door.UID"
-											}
-										},
-										{
-											"id": "set-width",
-											"objectClass": "Door_Range",
-											"sid": 449635426973911,
-											"parameters": {
-												"width": "32"
-											}
-										}
-									],
-									"sid": 255217572530166,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-mirrored",
-													"objectClass": "Door",
-													"sid": 710522653025458
-												}
-											],
-											"actions": [
-												{
-													"id": "set-mirrored",
-													"objectClass": "Door_Range",
-													"sid": 617971418700251,
-													"parameters": {
-														"state": "mirrored"
-													}
-												}
-											],
-											"sid": 883144263986046
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-collision-with-another-object",
-											"objectClass": "Player",
-											"sid": 573111260654847,
-											"parameters": {
-												"object": "Door"
-											}
-										},
-										{
-											"id": "is-enabled",
-											"objectClass": "Door",
-											"sid": 443178776879169,
-											"behaviorType": "Solid"
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Door",
-											"sid": 348003265278041,
-											"parameters": {
-												"instance-variable": "Locked"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Door",
-											"sid": 305479076003366,
-											"parameters": {
-												"instance-variable": "Closed",
-												"value": "false"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 934122702562710,
-											"parameters": {
-												"name": "\"Door_Interact\"",
-												"parameter-n": [
-													"Door.UID"
-												]
-											}
-										}
-									],
-									"sid": 745519833236311
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 413481727885948,
-											"parameters": {
-												"name": "\"Door_Interact\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door",
-											"sid": 404209427510308,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Door",
-											"sid": 247985722673556,
-											"parameters": {
-												"instance-variable": "WorldEnabled",
-												"value": "false"
-											}
-										}
-									],
-									"sid": 291467557308774,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Door",
-													"sid": 329501665010061,
-													"parameters": {
-														"instance-variable": "Closed"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Door",
-													"sid": 665584428442953,
-													"parameters": {
-														"animation": "Door.Type & \"Open\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 480510458186532,
-													"behaviorType": "Physics",
-													"parameters": {
-														"mode": "disabled"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 694917957052977,
-													"behaviorType": "Solid",
-													"parameters": {
-														"state": "disabled"
-													}
-												},
-												{
-													"id": "set-collisions-enabled",
-													"objectClass": "Door",
-													"sid": 691462839707284,
-													"parameters": {
-														"collisions": "disabled"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 375303183485498,
-													"parameters": {
-														"name": "\"SFX_DoorOpen\"",
-														"parameter-n": []
-													}
-												}
-											],
-											"sid": 100791601913876,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Door_Range",
-															"sid": 663284988226642,
-															"parameters": {
-																"unique-id": "Door.RangeID"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 137025679599066,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "Door_Range",
-																	"sid": 233494281245231,
-																	"parameters": {
-																		"object": "Door_Scent"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "destroy",
-																	"objectClass": "Door_Scent",
-																	"sid": 837231702994940
-																}
-															],
-															"sid": 464491246793960
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "Door_Range",
-																	"sid": 945760070952049,
-																	"parameters": {
-																		"object": "Fog"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 434434556054058,
-																	"parameters": {
-																		"name": "\"Fog_Destroy\"",
-																		"parameter-n": [
-																			"Fog.UID"
-																		]
-																	}
-																}
-															],
-															"sid": 167161777946966
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 456416576678737
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Door",
-													"sid": 921192167541069,
-													"parameters": {
-														"animation": "Door.Type & \"Closing\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 319738624831430,
-													"parameters": {
-														"name": "\"SFX_DoorClose\"",
-														"parameter-n": []
-													}
-												}
-											],
-											"sid": 948668628662003,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Door_Range",
-															"sid": 455857856799526,
-															"parameters": {
-																"unique-id": "Door.RangeID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "Door_Range",
-															"sid": 735519080036584,
-															"parameters": {
-																"instance-variable": "WorldEnabled",
-																"value": "false"
-															}
-														}
-													],
-													"sid": 370700957988659
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-animation-finished",
-											"objectClass": "Door",
-											"sid": 666646560485386,
-											"parameters": {
-												"animation": "Door.Type & \"Closing\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-collisions-enabled",
-											"objectClass": "Door",
-											"sid": 749077054012106,
-											"parameters": {
-												"collisions": "enabled"
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Door",
-											"sid": 851219350014515,
-											"parameters": {
-												"instance-variable": "WorldEnabled",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 401983015938427,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Door",
-													"sid": 950261915184834,
-													"parameters": {
-														"object": "NPC"
-													}
-												},
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Door",
-													"sid": 110491269636425,
-													"parameters": {
-														"object": "Player"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Door",
-													"sid": 607441883105183,
-													"parameters": {
-														"instance-variable": "Closed",
-														"value": "false"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 248911407925723,
-													"parameters": {
-														"name": "\"Door_Interact\"",
-														"parameter-n": [
-															"Door.UID"
-														]
-													}
-												}
-											],
-											"sid": 636536810854142,
-											"isOrBlock": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 865884167980155
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Door",
-													"sid": 286812619463538,
-													"parameters": {
-														"animation": "Door.Type & \"Closed\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 288201561393744,
-													"behaviorType": "Physics",
-													"parameters": {
-														"mode": "enabled"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 398017197019558,
-													"behaviorType": "Solid",
-													"parameters": {
-														"state": "enabled"
-													}
-												},
-												{
-													"id": "set-collisions-enabled",
-													"objectClass": "Door",
-													"sid": 879677899174588,
-													"parameters": {
-														"collisions": "enabled"
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 159243552041811,
-													"parameters": {
-														"object-to-create": "Door_Scent",
-														"layer": "Door.LayerName",
-														"x": "Door.ImagePointX(1) - 8",
-														"y": "Door.Y - 5",
-														"create-hierarchy": false
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 902880363173078,
-													"parameters": {
-														"object-to-create": "Door_Scent",
-														"layer": "Door.LayerName",
-														"x": "Door.ImagePointX(1) + 8",
-														"y": "Door.Y - 5",
-														"create-hierarchy": false
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 632622023974365,
-													"parameters": {
-														"name": "\"Door_UpdateAnim\"",
-														"parameter-n": [
-															"Door.UID"
-														]
-													}
-												}
-											],
-											"sid": 979515962901379
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-animation-finished",
-											"objectClass": "Door",
-											"sid": 328793991883796,
-											"parameters": {
-												"animation": "Door.Type & \"Open\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Range",
-											"sid": 473018694707696,
-											"parameters": {
-												"unique-id": "Door.RangeID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Door_Range",
-											"sid": 550243519401614,
-											"parameters": {
-												"instance-variable": "WorldEnabled",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 608787170745422
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 517460100107850,
-											"parameters": {
-												"name": "\"Door_UpdateAnim\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door",
-											"sid": 210371202267444,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 522915731358631,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Door",
-													"sid": 825889463344449,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 3,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Door",
-													"sid": 160557959848177,
-													"parameters": {
-														"animation": "Door.Type & \"Destroy\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 616688848062801,
-													"behaviorType": "Physics",
-													"parameters": {
-														"mode": "disabled"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Door",
-													"sid": 983071499567056,
-													"behaviorType": "Solid",
-													"parameters": {
-														"state": "disabled"
-													}
-												},
-												{
-													"id": "set-collisions-enabled",
-													"objectClass": "Door",
-													"sid": 361156257430204,
-													"parameters": {
-														"collisions": "disabled"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 932729626042146,
-													"parameters": {
-														"name": "\"SFX_DoorDestroy\"",
-														"parameter-n": []
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 972113142094555,
-													"parameters": {
-														"name": "\"VFX_Screenshake\"",
-														"parameter-n": [
-															"1",
-															"0.2"
-														]
-													}
-												}
-											],
-											"sid": 492064942429408,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Door_Range",
-															"sid": 843728456948436,
-															"parameters": {
-																"unique-id": "Door.RangeID"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 118876948528133,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "Door_Range",
-																	"sid": 651028110979609,
-																	"parameters": {
-																		"object": "Door_Scent"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "destroy",
-																	"objectClass": "Door_Scent",
-																	"sid": 663573235426874
-																}
-															],
-															"sid": 130849638037448
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "Door_Range",
-																	"sid": 187836936037358,
-																	"parameters": {
-																		"object": "Fog"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 584380880027320,
-																	"parameters": {
-																		"name": "\"Fog_Destroy\"",
-																		"parameter-n": [
-																			"Fog.UID"
-																		]
-																	}
-																}
-															],
-															"sid": 502900932364191
-														},
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [
-																{
-																	"id": "destroy",
-																	"objectClass": "Door_Range",
-																	"sid": 989926985457882
-																},
-																{
-																	"id": "set-collisions-enabled",
-																	"objectClass": "Door",
-																	"sid": 955745264464048,
-																	"parameters": {
-																		"collisions": "disabled"
-																	}
-																},
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "Door",
-																	"sid": 231907810109853,
-																	"parameters": {
-																		"instance-variable": "WorldEnabled",
-																		"value": "false"
-																	}
-																},
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 806816596353745,
-																	"parameters": {
-																		"name": "\"OBJ_Deselect\"",
-																		"parameter-n": [
-																			"Door.UID"
-																		]
-																	}
-																}
-															],
-															"sid": 802096399616911
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 818924161465757
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Door",
-													"sid": 387130009317062,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 3,
-														"value": "ceil(Self.MaxHP*0.25)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Door",
-													"sid": 394116530555413,
-													"parameters": {
-														"frame-number": "3"
-													}
-												}
-											],
-											"sid": 577504324188227
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 330608475440189
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Door",
-													"sid": 656385211483110,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 3,
-														"value": "ceil(Self.MaxHP*0.50)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Door",
-													"sid": 838379671025465,
-													"parameters": {
-														"frame-number": "2"
-													}
-												}
-											],
-											"sid": 587918800324744
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 210607457340634
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Door",
-													"sid": 747252234045442,
-													"parameters": {
-														"instance-variable": "HP",
-														"comparison": 3,
-														"value": "ceil(Self.MaxHP*0.75)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Door",
-													"sid": 688145856676544,
-													"parameters": {
-														"frame-number": "1"
-													}
-												}
-											],
-											"sid": 261666417133420
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 837653735686863,
-											"parameters": {
-												"name": "\"Door_Unlock\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door",
-											"sid": 713161151397277,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Door",
-											"sid": 458448145575277,
-											"parameters": {
-												"instance-variable": "WorldHoverText",
-												"value": "\"\""
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Door",
-											"sid": 966593063769639,
-											"parameters": {
-												"instance-variable": "Locked",
-												"value": "false"
-											}
-										}
-									],
-									"sid": 708242285737577,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Text_World",
-													"sid": 586283784708491,
-													"parameters": {
-														"instance-variable": "Tag",
-														"comparison": 0,
-														"value": "\"Hover\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-wait-time",
-													"objectClass": "Text_World",
-													"sid": 579388406111414,
-													"behaviorType": "Fade",
-													"parameters": {
-														"wait-time": "0"
-													}
-												}
-											],
-											"sid": 626271300395318
-										}
-									]
-								}
-							],
-							"sid": 474545895034151
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Z Order",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"functionName": "PLR_ChangeLayer",
-									"functionDescription": "",
-									"functionCategory": "Player",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [
-										{
-											"name": "Layer",
-											"type": "string",
-											"initialValue": "",
-											"comment": "Normal, Under",
-											"sid": 470515306042325
-										}
-									],
-									"eventType": "function-block",
-									"conditions": [],
-									"actions": [],
-									"sid": 849210751520441,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 134408113220537,
-													"parameters": {
-														"variable": "Layer",
-														"comparison": 0,
-														"value": "\"Default\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Holster2",
-													"sid": 256676186857721,
-													"parameters": {
-														"layer": "\"Player\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Sprite",
-													"sid": 291959107636189,
-													"parameters": {
-														"layer": "\"Player\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Holster1",
-													"sid": 355685106053548,
-													"parameters": {
-														"layer": "\"Player\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Arms2",
-													"sid": 691249561820918,
-													"parameters": {
-														"layer": "\"Player\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Arms",
-													"sid": 361993324576785,
-													"parameters": {
-														"layer": "\"Player\""
-													}
-												}
-											],
-											"sid": 448903038211197
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 617931809436035,
-													"parameters": {
-														"variable": "Layer",
-														"comparison": 0,
-														"value": "\"Under\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Holster2",
-													"sid": 844894843994546,
-													"parameters": {
-														"layer": "\"Player_Under\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Sprite",
-													"sid": 366783565911142,
-													"parameters": {
-														"layer": "\"Player_Under\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Holster1",
-													"sid": 574997627144332,
-													"parameters": {
-														"layer": "\"Player_Under\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Arms2",
-													"sid": 959755052389015,
-													"parameters": {
-														"layer": "\"Player_Under\""
-													}
-												},
-												{
-													"id": "move-to-layer",
-													"objectClass": "Player_Arms",
-													"sid": 646807297428549,
-													"parameters": {
-														"layer": "\"Player_Under\""
-													}
-												}
-											],
-											"sid": 810125878268681
-										}
-									]
-								}
-							],
-							"sid": 696685362011343
-						}
-					],
-					"sid": 163279012911858
-				},
-				{
-					"eventType": "comment",
-					"text": "Should maybe be in different event sheet"
-				},
-				{
-					"eventType": "comment",
-					"text": "TODO - Add sounds (WorldInteractSound)"
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Player World Objects",
-					"description": "TODO - Object Art",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Object Selection",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Player",
-											"sid": 278144939134338,
-											"parameters": {
-												"instance-variable": "AllowInteractWorld",
-												"comparison": 0,
-												"value": "1"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 352239339071116,
-											"parameters": {
-												"instance-variable": "WorldEnabled"
-											}
-										},
-										{
-											"id": "pick-nearestfurthest",
-											"objectClass": "OBJ_World",
-											"sid": 229888237805031,
-											"parameters": {
-												"which": "nearest",
-												"x": "Player.X",
-												"y": "Player.Y"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_Range",
-											"sid": 313621127840150,
-											"parameters": {
-												"object": "OBJ_World"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 424699630738888,
-											"parameters": {
-												"instance-variable": "WorldTouched"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 630256594588022,
-											"parameters": {
-												"name": "\"OBJ_Deselect_All\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "OBJ_World",
-											"sid": 596781656256111,
-											"parameters": {
-												"instance-variable": "WorldTouched",
-												"value": "true"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 367637581063796,
-											"parameters": {
-												"name": "\"OBJ_Touch\"",
-												"parameter-n": [
-													"OBJ_World.UID"
-												]
-											}
-										}
-									],
-									"sid": 106840156185944
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 275103845715575,
-											"parameters": {
-												"instance-variable": "WorldTouched"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_Range",
-											"sid": 788776983334685,
-											"parameters": {
-												"object": "OBJ_World"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 589630638772917,
-											"parameters": {
-												"name": "\"OBJ_Deselect_All\"",
-												"parameter-n": []
-											}
-										}
-									],
-									"sid": 243572408401372
-								}
-							],
-							"sid": 468728678861483
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Object Functions",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 512823507162004,
-											"parameters": {
-												"name": "\"OBJ_Deselect\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "OBJ_World",
-											"sid": 498881903398583,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "OBJ_World",
-											"sid": 541849015669647,
-											"parameters": {
-												"instance-variable": "WorldTouched",
-												"value": "false"
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 686861353421750,
-											"parameters": {
-												"name": "\"FX_Outline_Disable\"",
-												"parameter-n": [
-													"OBJ_World.UID"
-												]
-											}
-										}
-									],
-									"sid": 638530305325747
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 106702977865057,
-											"parameters": {
-												"name": "\"OBJ_Deselect_All\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 873257073525399,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 417342344238012,
-													"parameters": {
-														"object": "OBJ_World"
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "OBJ_World",
-													"sid": 797374424114442,
-													"parameters": {
-														"instance-variable": "WorldTouched"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 833105364818034,
-													"parameters": {
-														"name": "\"OBJ_Deselect\"",
-														"parameter-n": [
-															"OBJ_World.UID"
-														]
-													}
-												}
-											],
-											"sid": 425094004508809
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Text_World",
-													"sid": 817279000287595,
-													"parameters": {
-														"instance-variable": "Tag",
-														"comparison": 0,
-														"value": "\"Hover\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-wait-time",
-													"objectClass": "Text_World",
-													"sid": 112618046737519,
-													"behaviorType": "Fade",
-													"parameters": {
-														"wait-time": "0"
-													}
-												}
-											],
-											"sid": 339551950347294,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Text",
-													"sid": 445092677565761,
-													"parameters": {
-														"instance-variable": "Style",
-														"comparison": 0,
-														"value": "\"World\""
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Text_World",
-													"sid": 125625004421262,
-													"parameters": {
-														"instance-variable": "Tag",
-														"comparison": 1,
-														"value": "\"Bark\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-wait-time",
-													"objectClass": "Text",
-													"sid": 825253727194793,
-													"behaviorType": "Fade",
-													"parameters": {
-														"wait-time": "0"
-													}
-												}
-											],
-											"sid": 678675575576298
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 883484076906286,
-											"parameters": {
-												"name": "\"OBJ_Destroy\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 630962571921582,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Object",
-													"sid": 506767057749408,
-													"parameters": {
-														"unique-id": "function.Param(0)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 320738255822377,
-													"parameters": {
-														"name": "\"SFX_Swap\"",
-														"parameter-n": []
-													}
-												},
-												{
-													"id": "destroy",
-													"objectClass": "Object",
-													"sid": 848289566532939
-												}
-											],
-											"sid": 275539764704001
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 534208377685701
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "OBJ_World",
-													"sid": 682119748995453,
-													"parameters": {
-														"unique-id": "function.Param(0)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "destroy",
-													"objectClass": "OBJ_World",
-													"sid": 884627984231447
-												}
-											],
-											"sid": 849170061410242
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-destroyed",
-											"objectClass": "OBJ_World",
-											"sid": 371703907140309
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 669437624217946,
-											"parameters": {
-												"name": "\"OBJ_Deselect\"",
-												"parameter-n": [
-													"OBJ_World.UID"
-												]
-											}
-										}
-									],
-									"sid": 325260277888022
-								}
-							],
-							"sid": 177147364236573
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Object Interactions",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "pickuptext",
-									"type": "string",
-									"initialValue": "",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 146005914250772
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 835217493279872,
-											"parameters": {
-												"name": "\"OBJ_Touch\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "OBJ_World",
-											"sid": 901418828625765,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 758480955706115,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "OBJ_World",
-													"sid": 112340094070700,
-													"parameters": {
-														"instance-variable": "WorldHoverOutline"
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "OBJ_Outline",
-													"sid": 230777464634848,
-													"parameters": {
-														"instance-variable": "Outlined"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "OBJ_Outline",
-													"sid": 980217549073153,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 116506557080679,
-													"parameters": {
-														"name": "\"FX_Outline_Enable\"",
-														"parameter-n": [
-															"OBJ_World.UID"
-														]
-													}
-												}
-											],
-											"sid": 259519953469604
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 294831892660814,
-													"parameters": {
-														"instance-variable": "WorldBark",
-														"comparison": 1,
-														"value": "\"\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 268213022149686,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Text",
-															"sid": 900084089201036,
-															"parameters": {
-																"instance-variable": "Style",
-																"comparison": 0,
-																"value": "\"World\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-wait-time",
-															"objectClass": "Text",
-															"sid": 539624251415704,
-															"behaviorType": "Fade",
-															"parameters": {
-																"wait-time": "0"
-															}
-														}
-													],
-													"sid": 634667949366124
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Text",
-															"sid": 270749553520254,
-															"parameters": {
-																"unique-id": "function.Call(\"Text_Draw\",OBJ_World.X,OBJ_World.Y - Player.Height*1.5,\"Fog\",OBJ_World.UID,\"Bark\",\"\",function.Call(\"Text_GetString\",OBJ_World.WorldBark),0.2,1,0.2,7,0.5,\"World\")"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "pin-to-object",
-															"objectClass": "Text",
-															"sid": 474567726019557,
-															"behaviorType": "Pin",
-															"parameters": {
-																"pin-to": "OBJ_World",
-																"mode": "position-only"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "OBJ_Diag",
-															"sid": 935709278942772,
-															"parameters": {
-																"instance-variable": "DiagUID",
-																"value": "Text.UID"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "OBJ_World",
-															"sid": 779051898791156,
-															"parameters": {
-																"instance-variable": "WorldBark",
-																"value": "\"\""
-															}
-														}
-													],
-													"sid": 383401509138863,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "NPC_WorldObj",
-																	"sid": 612316552872088,
-																	"parameters": {
-																		"instance-variable": "WorldInteractType",
-																		"comparison": 0,
-																		"value": "\"pickup\""
-																	}
-																},
-																{
-																	"id": "pick-by-unique-id",
-																	"objectClass": "NPC_WorldObj",
-																	"sid": 684000043552735,
-																	"parameters": {
-																		"unique-id": "OBJ_World.UID"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 662436979504142
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 277685419426544
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "OBJ_World",
-																	"sid": 680427341005573,
-																	"parameters": {
-																		"instance-variable": "WorldTouched",
-																		"value": "false"
-																	}
-																},
-																{
-																	"id": "set-boolean-instvar",
-																	"objectClass": "OBJ_World",
-																	"sid": 761238801070806,
-																	"parameters": {
-																		"instance-variable": "WorldEnabled",
-																		"value": "false"
-																	}
-																}
-															],
-															"sid": 729040485511997
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 274448018030627
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 433074188503838,
-													"parameters": {
-														"instance-variable": "WorldHoverText",
-														"comparison": 1,
-														"value": "\"\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 513807948705075,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Text",
-															"sid": 346555931058107,
-															"parameters": {
-																"instance-variable": "Style",
-																"comparison": 0,
-																"value": "\"World\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-wait-time",
-															"objectClass": "Text",
-															"sid": 882265149916356,
-															"disabled": true,
-															"behaviorType": "Fade",
-															"parameters": {
-																"wait-time": "0"
-															}
-														},
-														{
-															"id": "set-fade-out-time",
-															"objectClass": "Text_World",
-															"sid": 576856815649710,
-															"behaviorType": "Fade",
-															"parameters": {
-																"fade-out-time": "0.2"
-															}
-														},
-														{
-															"id": "set-wait-time",
-															"objectClass": "Text_World",
-															"sid": 465381857793310,
-															"behaviorType": "Fade",
-															"parameters": {
-																"wait-time": "0"
-															}
-														}
-													],
-													"sid": 871867399663589
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Object",
-															"sid": 435571035886946,
-															"parameters": {
-																"unique-id": "OBJ_World.UID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Object",
-															"sid": 271947472778757,
-															"parameters": {
-																"instance-variable": "WorldHoverText",
-																"value": "function.Call(\"Text_GetString\",lowercase(Self.Type)) & \": \""
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Object",
-															"sid": 334782888195390,
-															"parameters": {
-																"instance-variable": "WorldHoverText",
-																"value": "Self.WorldHoverText & function.Call(\"Text_GetString\",lowercase(Self.Subtype))"
-															}
-														}
-													],
-													"sid": 516158751626263,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "pick-by-unique-id",
-																	"objectClass": "Text",
-																	"sid": 720056124622434,
-																	"parameters": {
-																		"unique-id": "function.Call(\"Text_Draw\",OBJ_World.X,OBJ_World.Y - Player.Height*1.5,\"Fog\",OBJ_World.UID,\"Hover\",\"\",OBJ_World.WorldHoverText,0.2,1,0.2,600,0.5,\"World\")"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "pin-to-object",
-																	"objectClass": "Text",
-																	"sid": 734989604089170,
-																	"behaviorType": "Pin",
-																	"parameters": {
-																		"pin-to": "OBJ_World",
-																		"mode": "position-only"
-																	}
-																},
-																{
-																	"id": "set-instvar-value",
-																	"objectClass": "OBJ_Diag",
-																	"sid": 329887489982019,
-																	"parameters": {
-																		"instance-variable": "DiagUID",
-																		"value": "Text.UID"
-																	}
-																}
-															],
-															"sid": 988654661621736
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 737780593612635
-														}
-													],
-													"actions": [],
-													"sid": 121932055959844,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "pick-by-unique-id",
-																	"objectClass": "Text",
-																	"sid": 587153109265099,
-																	"parameters": {
-																		"unique-id": "function.Call(\"Text_Draw\",OBJ_World.X,OBJ_World.Y - Player.Height*1.5,\"Fog\",OBJ_World.UID,\"Hover\",\"\",function.Call(\"Text_GetString\",OBJ_World.WorldHoverText),0.2,1,0.2,600,0.5,\"World\")"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "pin-to-object",
-																	"objectClass": "Text",
-																	"sid": 741856378181298,
-																	"behaviorType": "Pin",
-																	"parameters": {
-																		"pin-to": "OBJ_World",
-																		"mode": "position-only"
-																	}
-																},
-																{
-																	"id": "set-instvar-value",
-																	"objectClass": "OBJ_Diag",
-																	"sid": 132986820503197,
-																	"parameters": {
-																		"instance-variable": "DiagUID",
-																		"value": "Text.UID"
-																	}
-																}
-															],
-															"sid": 868067250572916
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Object",
-													"sid": 760302663539759,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Object",
-													"sid": 631097582332991,
-													"parameters": {
-														"instance-variable": "Type",
-														"comparison": 0,
-														"value": "\"Weapon\""
-													}
-												},
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Object",
-													"sid": 641582378284468,
-													"parameters": {
-														"instance-variable": "HasAmmo"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "WeaponParent",
-													"sid": 762309684650241,
-													"parameters": {
-														"instance-variable": "Name",
-														"comparison": 0,
-														"value": "Object.SubType"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 641744274765893,
-													"parameters": {
-														"name": "\"PLR_ModAmmo\"",
-														"parameter-n": [
-															"WeaponParent.BaseAmmo",
-															"WeaponParent.AmmoType"
-														]
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 971360772622749,
-													"parameters": {
-														"name": "\"Loot_Display\"",
-														"parameter-n": [
-															"\"Ammo\"",
-															"WeaponParent.BaseAmmo",
-															"WeaponParent.AmmoType"
-														]
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Object",
-													"sid": 883266483958177,
-													"parameters": {
-														"instance-variable": "HasAmmo",
-														"value": "false"
-													}
-												}
-											],
-											"sid": 103209257752159
-										}
-									]
-								},
-								{
-									"functionName": "Input_Interact",
-									"functionDescription": "Automatically converted from 'Input_Interact'",
-									"functionCategory": "",
-									"functionReturnType": "none",
-									"functionIsAsync": false,
-									"functionParameters": [],
-									"eventType": "function-block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Player",
-											"sid": 726740347966015,
-											"parameters": {
-												"instance-variable": "AllowInteractWorld",
-												"comparison": 0,
-												"value": "1"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Player_Range",
-											"sid": 260840963357189,
-											"parameters": {
-												"object": "OBJ_World"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 129323921007485,
-											"parameters": {
-												"instance-variable": "WorldEnabled"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 834555114081051,
-											"parameters": {
-												"instance-variable": "WorldTouched"
-											}
-										},
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "OBJ_World",
-											"sid": 501663716001404,
-											"parameters": {
-												"instance-variable": "WorldCanInteract"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 998674686994368,
-									"children": [
-										{
-											"eventType": "comment",
-											"text": "Doors"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Door",
-													"sid": 980527587233868,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 765589316356267,
-											"children": [
-												{
-													"eventType": "comment",
-													"text": "TODO - Locked SFX"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-boolean-instance-variable-set",
-															"objectClass": "Door",
-															"sid": 389056442200302,
-															"parameters": {
-																"instance-variable": "Locked"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 156970725699403
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 677458516271636
-														}
-													],
-													"actions": [
-														{
-															"id": "toggle-boolean-instvar",
-															"objectClass": "Door",
-															"sid": 193461504243914,
-															"parameters": {
-																"instance-variable": "Closed"
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 243738887051951,
-															"parameters": {
-																"name": "\"Door_Interact\"",
-																"parameter-n": [
-																	"Door.UID"
-																]
-															}
-														}
-													],
-													"sid": 991930681837770
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 651508434199426
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Door_Range",
-													"sid": 616243872740293,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 681983237178046,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Door",
-															"sid": 918268378837025,
-															"parameters": {
-																"unique-id": "Door_Range.DoorID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "toggle-boolean-instvar",
-															"objectClass": "Door",
-															"sid": 879388699095438,
-															"parameters": {
-																"instance-variable": "Closed"
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 610234822527033,
-															"parameters": {
-																"name": "\"Door_Interact\"",
-																"parameter-n": [
-																	"Door.UID"
-																]
-															}
-														}
-													],
-													"sid": 381518315402705
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Trapdoors"
-										},
-										{
-											"eventType": "comment",
-											"text": "Weapons and Weapon Mods"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 375846307115071
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Object",
-													"sid": 756061166998907,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 268285681095238,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Object",
-															"sid": 671775266745459,
-															"parameters": {
-																"instance-variable": "Type",
-																"comparison": 0,
-																"value": "\"Weapon\""
-															}
-														}
-													],
-													"actions": [],
-													"sid": 262636463644271,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 485488499684483,
-																	"parameters": {
-																		"instance-variable": "WeaponID",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 803533526283779,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-instance-variable",
-																			"objectClass": "Weapon_Player",
-																			"sid": 637815975257136,
-																			"parameters": {
-																				"instance-variable": "DualSupported",
-																				"comparison": 0,
-																				"value": "1"
-																			}
-																		},
-																		{
-																			"id": "compare-two-values",
-																			"objectClass": "System",
-																			"sid": 322212088257211,
-																			"parameters": {
-																				"first-value": "Object.Subtype",
-																				"comparison": 0,
-																				"second-value": "Weapon_Player.Name"
-																			}
-																		}
-																	],
-																	"actions": [],
-																	"sid": 381715207658893
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 671850722966206
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-instvar-value",
-																			"objectClass": "Object",
-																			"sid": 568425159952880,
-																			"parameters": {
-																				"instance-variable": "WeaponID",
-																				"value": "Weapon.Count"
-																			}
-																		},
-																		{
-																			"id": "call-function",
-																			"objectClass": "function",
-																			"sid": 322302770692978,
-																			"parameters": {
-																				"name": "\"Weapon_Add\"",
-																				"parameter-n": [
-																					"Object.Subtype",
-																					"Object.WeaponID"
-																				]
-																			}
-																		}
-																	],
-																	"sid": 310904721687407
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 999766567481305,
-																	"parameters": {
-																		"name": "\"PLR_PickupWeapon\"",
-																		"parameter-n": [
-																			"Object.WeaponID",
-																			"Object.Subtype"
-																		]
-																	}
-																},
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 770469482056135,
-																	"parameters": {
-																		"name": "\"OBJ_Destroy\"",
-																		"parameter-n": [
-																			"OBJ_World.UID"
-																		]
-																	}
-																},
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 652442642000213,
-																	"parameters": {
-																		"name": "\"OBJ_Deselect_All\"",
-																		"parameter-n": []
-																	}
-																}
-															],
-															"sid": 802641200684432
-														}
-													]
-												},
-												{
-													"eventType": "comment",
-													"text": "TODO - Add mod caps, Add incompatibility messages/sounds or remove burst fire mod"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 783225216908190
-														},
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Object",
-															"sid": 672981510162274,
-															"parameters": {
-																"instance-variable": "Type",
-																"comparison": 0,
-																"value": "\"WeaponMod\""
-															}
-														}
-													],
-													"actions": [],
-													"sid": 942848220870153,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 585430061946433,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"BurstCount\""
-																	}
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Weapon_Player",
-																	"sid": 980846297184028,
-																	"parameters": {
-																		"instance-variable": "Mode",
-																		"comparison": 0,
-																		"value": "\"burst\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 258873936218839,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_BurstCount & \" (\" & round((Weapon_Player.BurstCount + game_ModBonus_BurstCount)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 726681186992205
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 497384671671844
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 441958372060274,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Interval\""
-																	}
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Weapon_Player",
-																	"sid": 595465571669098,
-																	"parameters": {
-																		"instance-variable": "Mode",
-																		"comparison": 1,
-																		"value": "\"semiauto\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 950120034837872,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"-\" & int((game_ModBonus_Interval)*100) & \"% (\" & round((Weapon_Player.Interval + game_ModBonus_Interval)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 797025553252827
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 901575841663029
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 663504733900734,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Damage\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 734485921912540,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_Damage & \" (\" & round((Weapon_Player.Damage + game_ModBonus_Damage)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 246882312328346
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 639556950215560
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 302046697452063,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Knockback\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 920185139122373,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_Knockback & \" (\" & round((Weapon_Player.Knockback + game_ModBonus_Knockback)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 903588576631709
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 107395984623683
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 280226454915933,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Spread\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 603202808652749,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"-\" & int((game_ModBonus_Spread)*100) & \"% (\" & round((Weapon_Player.Spread + game_ModBonus_Spread)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 594526394388809
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 918736932961933
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 805931992757703,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Magsize\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 817475879738873,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_MagSize & \" (\" & round((Weapon_Player.MagSize + game_ModBonus_MagSize)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 296792331915263
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 467109622874653
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 366108031799911,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Reload\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 831759712324226,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"-\" & int((game_ModBonus_Reload)*100) & \"% (\" & round((Weapon_Player.Reload + game_ModBonus_Reload)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 339553761999414
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 684493902594179
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 969985933165593,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Handling\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 715816531572576,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"-\" & int((game_ModBonus_Handling)*100) & \"% (\" & round((Weapon_Player.Handling + game_ModBonus_Handling)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 607177286780859
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 213236564036195
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 621436537847381,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"Penetration\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 581043688569813,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_Penetration & \" (\" & round((Weapon_Player.Penetration + game_ModBonus_Penetration)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 975589495466062
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 663065735842346
-																},
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Object",
-																	"sid": 443040166104910,
-																	"parameters": {
-																		"instance-variable": "Subtype",
-																		"comparison": 0,
-																		"value": "\"ShotCount\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 495341013516686,
-																	"parameters": {
-																		"name": "\"OBJ_ModPickup\"",
-																		"parameter-n": [
-																			"OBJ_World.UID",
-																			"\"+\" & game_ModBonus_ShotCount & \" (\" & round((Weapon_Player.ShotCount + game_ModBonus_ShotCount)*1000)/1000 & \")\""
-																		]
-																	}
-																}
-															],
-															"sid": 296640797045472
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Loot"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 145297461507460
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Loot_Container",
-													"sid": 289941654883473,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "start-fade",
-													"objectClass": "Loot_Container",
-													"sid": 207043601072563,
-													"behaviorType": "Fade"
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Loot_Container",
-													"sid": 415154330996755,
-													"parameters": {
-														"instance-variable": "WorldEnabled",
-														"value": "false"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 378914552403811,
-													"parameters": {
-														"name": "\"OBJ_Deselect_All\"",
-														"parameter-n": []
-													}
-												},
-												{
-													"callFunction": "Loot_Create",
-													"sid": 844030178868647,
-													"parameters": [
-														"Loot_Container.Type",
-														"Loot_Container.Value",
-														"Loot_Container.X +  Loot_Container.Width/2",
-														"Loot_Container.Y - Loot_Container.Height/2",
-														"Loot_Container.SubType"
-													]
-												}
-											],
-											"sid": 586593317925830
-										},
-										{
-											"eventType": "comment",
-											"text": "Open Objects"
-										},
-										{
-											"eventType": "comment",
-											"text": "May have to not use hiearchy"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 538428023880066
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 212736046130824,
-													"parameters": {
-														"instance-variable": "WorldInteractType",
-														"comparison": 0,
-														"value": "\"open\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 869312674154515,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 353737155986026,
-															"parameters": {
-																"first-value": "tokenat(OBJ_World.AnimationName,1,\"_\")",
-																"comparison": 0,
-																"second-value": "\"open\""
-															}
-														},
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 553792382962650,
-															"parameters": {
-																"first-value": "tokenat(OBJ_World.AnimationName,1,\"_\")",
-																"comparison": 0,
-																"second-value": "\"Open\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-animation",
-															"objectClass": "OBJ_World",
-															"sid": 352505037136893,
-															"parameters": {
-																"animation": "tokenat(Self.AnimationName,0,\"_\") & \"_close\"",
-																"from": "beginning"
-															}
-														}
-													],
-													"sid": 108820167801331,
-													"isOrBlock": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 916246721460483
-														}
-													],
-													"actions": [
-														{
-															"id": "set-animation",
-															"objectClass": "OBJ_World",
-															"sid": 343942829254818,
-															"parameters": {
-																"animation": "tokenat(Self.AnimationName,0,\"_\") & \"_open\"",
-																"from": "beginning"
-															}
-														}
-													],
-													"sid": 504391922569985
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "Trapdoor",
-															"sid": 898187089835943,
-															"parameters": {
-																"unique-id": "OBJ_World.UID"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 525430208141962,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 630078867034683,
-																	"parameters": {
-																		"first-value": "tokenat(Trapdoor.AnimationName,1,\"_\")",
-																		"comparison": 0,
-																		"second-value": "\"Open\""
-																	}
-																},
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 829595273551151,
-																	"parameters": {
-																		"first-value": "tokenat(Trapdoor.AnimationName,1,\"_\")",
-																		"comparison": 0,
-																		"second-value": "\"open\""
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 371177668262564,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "JumpThrough",
-																			"sid": 817953899788810,
-																			"parameters": {
-																				"unique-id": "Trapdoor.JumpThroughUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-collisions-enabled",
-																			"objectClass": "JumpThrough",
-																			"sid": 556404624380365,
-																			"parameters": {
-																				"collisions": "enabled"
-																			}
-																		}
-																	],
-																	"sid": 593382064297898
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "Solid_PlayerFloor",
-																			"sid": 331527718985884,
-																			"parameters": {
-																				"unique-id": "Trapdoor.SolidFloorUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-collisions-enabled",
-																			"objectClass": "Solid_PlayerFloor",
-																			"sid": 530268709223943,
-																			"parameters": {
-																				"collisions": "disabled"
-																			}
-																		}
-																	],
-																	"sid": 609068284152672
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "Trapdoor_Ladder",
-																			"sid": 923950458156868,
-																			"parameters": {
-																				"unique-id": "Trapdoor.LadderTopUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-visible",
-																			"objectClass": "Trapdoor_Ladder",
-																			"sid": 216445713321454,
-																			"parameters": {
-																				"visibility": "visible"
-																			}
-																		}
-																	],
-																	"sid": 257578802440113
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "HoleOutline",
-																			"sid": 744572047784620,
-																			"parameters": {
-																				"unique-id": "Trapdoor.OutlineUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-visible",
-																			"objectClass": "HoleOutline",
-																			"sid": 368288223140656,
-																			"parameters": {
-																				"visibility": "visible"
-																			}
-																		}
-																	],
-																	"sid": 335369658404868
-																}
-															],
-															"isOrBlock": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 967320326671769
-																}
-															],
-															"actions": [],
-															"sid": 589624359934265,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "Solid_PlayerFloor",
-																			"sid": 604951864679972,
-																			"parameters": {
-																				"unique-id": "Trapdoor.SolidFloorUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-collisions-enabled",
-																			"objectClass": "Solid_PlayerFloor",
-																			"sid": 824406150003558,
-																			"parameters": {
-																				"collisions": "enabled"
-																			}
-																		}
-																	],
-																	"sid": 679187691766799
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "JumpThrough",
-																			"sid": 686449780250012,
-																			"parameters": {
-																				"unique-id": "Trapdoor.JumpThroughUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-collisions-enabled",
-																			"objectClass": "JumpThrough",
-																			"sid": 415175678714193,
-																			"parameters": {
-																				"collisions": "disabled"
-																			}
-																		}
-																	],
-																	"sid": 603147883426640
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "Trapdoor_Ladder",
-																			"sid": 570088368211869,
-																			"parameters": {
-																				"unique-id": "Trapdoor.LadderTopUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-visible",
-																			"objectClass": "Trapdoor_Ladder",
-																			"sid": 227702086772014,
-																			"parameters": {
-																				"visibility": "invisible"
-																			}
-																		}
-																	],
-																	"sid": 577836604635799
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "pick-by-unique-id",
-																			"objectClass": "HoleOutline",
-																			"sid": 405759841339950,
-																			"parameters": {
-																				"unique-id": "Trapdoor.OutlineUID"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-visible",
-																			"objectClass": "HoleOutline",
-																			"sid": 975165799605252,
-																			"parameters": {
-																				"visibility": "invisible"
-																			}
-																		}
-																	],
-																	"sid": 514401816952629
-																}
-															]
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Diag Objects"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 843267817998472
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 269275319533460,
-													"parameters": {
-														"instance-variable": "WorldInteractType",
-														"comparison": 0,
-														"value": "\"dialogue\""
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Player",
-													"sid": 286325835313242,
-													"parameters": {
-														"instance-variable": "AllowInteractDiag",
-														"comparison": 0,
-														"value": "1"
-													}
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "OBJ_Diag",
-													"sid": 145939899595565,
-													"parameters": {
-														"unique-id": "OBJ_World.UID"
-													}
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_Diag",
-													"sid": 732822249531691,
-													"parameters": {
-														"instance-variable": "DiagWait",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "Diag_Start",
-													"sid": 159285865737218,
-													"parameters": [
-														"OBJ_World.UID"
-													]
-												}
-											],
-											"sid": 685956061237336
-										},
-										{
-											"eventType": "comment",
-											"text": "Civ Rescue - Deprecated?"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 591365594058446
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 431815175664522,
-													"parameters": {
-														"instance-variable": "WorldInteractType",
-														"comparison": 0,
-														"value": "\"pickup\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 517068150642087,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-unique-id",
-															"objectClass": "NPC_WorldObj",
-															"sid": 863110350440209,
-															"parameters": {
-																"unique-id": "OBJ_World.UID"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-instvar",
-															"objectClass": "NPC_WorldObj",
-															"sid": 389339750978546,
-															"parameters": {
-																"instance-variable": "WorldEnabled",
-																"value": "false"
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 393376285032132,
-															"parameters": {
-																"name": "\"OBJ_Deselect_All\"",
-																"parameter-n": []
-															}
-														},
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 574771905979710,
-															"parameters": {
-																"name": "\"NPC_Rescue\"",
-																"parameter-n": [
-																	"NPC_WorldObj.ParentID"
-																]
-															}
-														}
-													],
-													"sid": 145179317073885
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 319330553469769,
-															"disabled": true,
-															"parameters": {
-																"name": "\"OBJ_Destroy\"",
-																"parameter-n": [
-																	"OBJ_World.UID"
-																]
-															}
-														}
-													],
-													"sid": 579302520943291
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Menu Objects"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 724244346792025
-												},
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 982507800832937,
-													"parameters": {
-														"instance-variable": "WorldInteractType",
-														"comparison": 0,
-														"value": "\"menu\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 535091100356334
-										},
-										{
-											"eventType": "comment",
-											"text": "Modify"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "OBJ_World",
-													"sid": 448681889647998,
-													"parameters": {
-														"instance-variable": "WorldInteractType",
-														"comparison": 0,
-														"value": "\"modify\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 774383049190915,
-													"parameters": {
-														"name": "\"OBJ_Deselect_All\"",
-														"parameter-n": []
-													}
-												}
-											],
-											"sid": 187608906751944,
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 370488836207717,
-											"parameters": {
-												"name": "\"OBJ_ModPickup\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Object",
-											"sid": 383216936110647,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 251137292177529,
-											"parameters": {
-												"name": "\"PLR_WeaponMod\"",
-												"parameter-n": [
-													"PlayerData.WeaponCurrent",
-													"Object.Subtype"
-												]
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "Player_TextMod",
-											"sid": 641713861250379,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Player_TextMod",
-											"sid": 258277992613947,
-											"parameters": {
-												"text": "function.Param(1)"
-											}
-										},
-										{
-											"id": "restart-fade",
-											"objectClass": "Player_TextMod",
-											"sid": 266182295421267,
-											"behaviorType": "Fade"
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 134577834808988,
-											"parameters": {
-												"name": "\"OBJ_Destroy\"",
-												"parameter-n": [
-													"function.Param(0)"
-												]
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 213863039067066,
-											"parameters": {
-												"name": "\"OBJ_Deselect_All\"",
-												"parameter-n": []
-											}
-										}
-									],
-									"sid": 359149747196543
-								}
-							],
-							"sid": 131885816199151
-						}
-					],
-					"sid": 623497782733769
 				}
 			],
 			"sid": 850427652281153

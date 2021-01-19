@@ -3993,6 +3993,134 @@
 							]
 						}
 					]
+				},
+				{
+					"functionName": "Input_ReturnKeyCode",
+					"functionDescription": "",
+					"functionCategory": "Input",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "String",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 637179174233810
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 776368367138100,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 178394301760366,
+									"parameters": {
+										"variable": "String",
+										"comparison": 0,
+										"value": "\"interact\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 153864389487460,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 915078035723200,
+											"parameters": {
+												"variable": "input_Type",
+												"comparison": 0,
+												"value": "\"gamepad\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 906848785111493,
+											"parameters": {
+												"value": "\"button_\" & gamepad_Interact"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 317901453178549,
+											"parameters": {
+												"type": "log",
+												"message": "\"button_\" & gamepad_Interact"
+											}
+										}
+									],
+									"sid": 547421553896335
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 618702051044205
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 611412851495447,
+											"parameters": {
+												"value": "\"key_\" & key_Interact"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 174139883193683,
+											"parameters": {
+												"type": "log",
+												"message": "\"key_\" & key_Interact"
+											}
+										}
+									],
+									"sid": 502420427794509
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 824961718902474
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 478733100576282,
+									"parameters": {
+										"type": "log",
+										"message": "String"
+									}
+								}
+							],
+							"sid": 851413534457131
+						}
+					]
 				}
 			],
 			"sid": 396635590464629

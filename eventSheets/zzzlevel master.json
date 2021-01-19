@@ -1,0 +1,180 @@
+{
+	"name": "zzzLevel Master",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "TODO "
+		},
+		{
+			"eventType": "variable",
+			"name": "zzzlevel_LeaderSpawned",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 978690073676530
+		},
+		{
+			"eventType": "variable",
+			"name": "zzzlevel_ControlsInitialized",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 291371919964166
+		},
+		{
+			"eventType": "variable",
+			"name": "zzzlevel_AddSurvivor",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 777264255211996
+		},
+		{
+			"eventType": "variable",
+			"name": "zzzlevel_TurnedSettlement",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 981733242247960
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 482436096991767
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 261836570496449,
+					"parameters": {
+						"variable": "system_Pause",
+						"value": "0"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 416805207730606,
+					"parameters": {
+						"name": "\"UI_HideControls\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 671197927134354,
+					"parameters": {
+						"name": "\"Loader_Enable\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 982455333253407,
+					"parameters": {
+						"variable": "zzgame_TurnedHostile",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 901345042195717,
+					"parameters": {
+						"variable": "zzgame_DialogueDisplayed",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 431419021884013,
+					"parameters": {
+						"variable": "zzzlevel_LeaderSpawned",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 336186441751591,
+					"parameters": {
+						"variable": "zzzlevel_ControlsInitialized",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 674370843920723,
+					"parameters": {
+						"variable": "zzzlevel_AddSurvivor",
+						"value": "0"
+					}
+				},
+				{
+					"id": "clear",
+					"objectClass": "ColonistQueue",
+					"sid": 497798368648112,
+					"parameters": {
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 501265787702797,
+					"parameters": {
+						"layer": "\"Pause\"",
+						"scale": "system_ZoomMenus"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 283624851884490,
+					"parameters": {
+						"layer": "\"GameOver\"",
+						"scale": "system_ZoomMenus"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Camera",
+					"sid": 547982011469848,
+					"parameters": {
+						"instance-variable": "mode",
+						"value": "1"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 335260973125755,
+					"parameters": {
+						"name": "\"Level_Music\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 422023287701595,
+			"disabled": true
+		}
+	],
+	"sid": 514438196991525
+}

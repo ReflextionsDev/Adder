@@ -1963,6 +1963,95 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "SlideDust",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-animation-finished",
+									"objectClass": "FX_SlideDust",
+									"sid": 647465584038572
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "FX_SlideDust",
+									"sid": 476968071343982
+								}
+							],
+							"sid": 170769461799396
+						},
+						{
+							"functionName": "\"FX_SlideDust\"",
+							"functionDescription": "",
+							"functionCategory": "Effects",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Mirrored",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 526178091472629
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 122597738554176,
+									"parameters": {
+										"object-to-create": "FX_SlideDust",
+										"layer": "\"Player\"",
+										"x": "Player_Sprite.ImagePointX(\"SlideDust\")",
+										"y": "Player_Sprite.ImagePointY(\"SlideDust\")",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 756174266380502,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 337027159915029,
+											"parameters": {
+												"variable": "Mirrored",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "FX_SlideDust",
+											"sid": 779459884338126,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 432233035635535
+								}
+							]
+						}
+					],
+					"sid": 253823476898569
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Rescue",
 					"description": "",
 					"isActiveOnStart": true,
@@ -2338,6 +2427,14 @@
 									}
 								},
 								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "OBJ_Outline",
+									"sid": 268261847330993,
+									"parameters": {
+										"instance-variable": "OutlineAllowed"
+									}
+								},
+								{
 									"id": "pick-by-unique-id",
 									"objectClass": "OBJ_Outline",
 									"sid": 987380143009933,
@@ -2541,62 +2638,6 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 656917603886798
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Range",
-											"sid": 699690299008559,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 822124882962337,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Door",
-													"sid": 138716238105668,
-													"parameters": {
-														"unique-id": "Door_Range.DoorID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-effect-enabled",
-													"objectClass": "Door",
-													"sid": 742139139999614,
-													"parameters": {
-														"mode": "enable",
-														"effect": "\"Outline\""
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Door",
-													"sid": 348666249038617,
-													"parameters": {
-														"instance-variable": "Outlined",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 674383245479295
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
 											"sid": 822395686970665
 										}
 									],
@@ -2757,62 +2798,6 @@
 												}
 											],
 											"sid": 688657176467115
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 875103425017506
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Door_Range",
-											"sid": 143423516825272,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 338171111549151,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Door",
-													"sid": 753338713272338,
-													"parameters": {
-														"unique-id": "Door_Range.DoorID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-effect-enabled",
-													"objectClass": "Door",
-													"sid": 368844247772560,
-													"parameters": {
-														"mode": "disable",
-														"effect": "\"Outline\""
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Door",
-													"sid": 762895858118945,
-													"parameters": {
-														"instance-variable": "Outlined",
-														"value": "false"
-													}
-												}
-											],
-											"sid": 256210110127016
 										}
 									]
 								},

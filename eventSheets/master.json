@@ -4571,6 +4571,111 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
+									"sid": 919466944779827,
+									"parameters": {
+										"key": 49
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 191326285469936,
+									"parameters": {
+										"time-scale": "0.1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 573772008316942,
+									"parameters": {
+										"name": "\"Debug_Text\"",
+										"parameter-n": [
+											"\"Timescale: \" & timescale"
+										]
+									}
+								}
+							],
+							"sid": 914726137865917
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 478097750951536,
+									"parameters": {
+										"key": 50
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 581121930620991,
+									"parameters": {
+										"time-scale": "0.2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 132077635860542,
+									"parameters": {
+										"name": "\"Debug_Text\"",
+										"parameter-n": [
+											"\"Timescale: \" & timescale"
+										]
+									}
+								}
+							],
+							"sid": 537839486070355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 894687129261279,
+									"parameters": {
+										"key": 51
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 890817076297887,
+									"parameters": {
+										"time-scale": "0.25"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 590098946432052,
+									"parameters": {
+										"name": "\"Debug_Text\"",
+										"parameter-n": [
+											"\"Timescale: \" & timescale"
+										]
+									}
+								}
+							],
+							"sid": 486304217455208
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
 									"sid": 114066080409535,
 									"parameters": {
 										"key": 52
@@ -8037,7 +8142,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 946183689715347,
+									"parameters": {
+										"type": "log",
+										"message": "\"yeet\""
+									}
+								}
+							],
 							"sid": 553398785974709,
 							"children": [
 								{
@@ -8337,9 +8452,9 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "Text",
-											"sid": 154421597677148,
+											"sid": 251495804113033,
 											"parameters": {
-												"unique-id": "function.Call(\"Text_Draw\",OBJ_Diag.X,OBJ_Diag.Y - Player.Height*1.5,\"Fog\",OBJ_Diag.UID,\"diag\",\"\",OBJ_Diag.DiagText,0.2,1,0.5,7,0.5,\"World\")"
+												"unique-id": "function.Call(\"Text_Draw\",OBJ_Diag.X,OBJ_Diag.Y - Player.Height*1.5,\"Effects\",OBJ_Diag.UID,\"diag\",\"\",OBJ_Diag.DiagText,0.2,1,0.5,7,0.5,\"World\")"
 											}
 										}
 									],
@@ -8440,39 +8555,6 @@
 													"OBJ_Diag.UID"
 												]
 											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 993867554368433,
-											"parameters": {
-												"name": "\"PLR_DiagLock\"",
-												"parameter-n": []
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 446129090612364,
-											"parameters": {
-												"name": "\"PLR_FaceX\"",
-												"parameter-n": [
-													"OBJ_Diag.X"
-												]
-											}
-										},
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 808123648158550,
-											"parameters": {
-												"name": "\"Camera_Mode\"",
-												"parameter-n": [
-													"2",
-													"OBJ_Diag.X",
-													"OBJ_Diag.Y"
-												]
-											}
 										}
 									],
 									"sid": 834540706698029,
@@ -8481,42 +8563,112 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC_WorldObj",
-													"sid": 250861902820016,
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "OBJ_Diag",
+													"sid": 943724909445117,
 													"parameters": {
-														"unique-id": "OBJ_Diag.UID"
-													}
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC",
-													"sid": 706372512142932,
-													"parameters": {
-														"unique-id": "NPC_WorldObj.ParentID"
-													}
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC_Sprite",
-													"sid": 178553405607953,
-													"disabled": true,
-													"parameters": {
-														"unique-id": "OBJ_Diag.UID"
+														"instance-variable": "DiagLock"
 													}
 												}
 											],
 											"actions": [
 												{
-													"callFunction": "NPC_FaceX",
-													"sid": 691992514140092,
-													"parameters": [
-														"NPC.UID",
-														"Player.X"
-													]
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 242539743862549,
+													"parameters": {
+														"name": "\"PLR_ChangeState\"",
+														"parameter-n": [
+															"\"Enable\""
+														]
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 803688121050824,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 887230008956771,
+													"parameters": {
+														"name": "\"PLR_DiagLock\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 785287030563888,
+													"parameters": {
+														"name": "\"PLR_FaceX\"",
+														"parameter-n": [
+															"OBJ_Diag.X"
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 449131658757159,
+													"parameters": {
+														"name": "\"Camera_Mode\"",
+														"parameter-n": [
+															"2",
+															"OBJ_Diag.X",
+															"OBJ_Diag.Y"
+														]
+													}
 												}
 											],
-											"sid": 140857019204269
+											"sid": 513193244934652,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_WorldObj",
+															"sid": 874204702995671,
+															"parameters": {
+																"unique-id": "OBJ_Diag.UID"
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC",
+															"sid": 904955706707413,
+															"parameters": {
+																"unique-id": "NPC_WorldObj.ParentID"
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Sprite",
+															"sid": 937168558326318,
+															"disabled": true,
+															"parameters": {
+																"unique-id": "OBJ_Diag.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "NPC_FaceX",
+															"sid": 719105847245517,
+															"parameters": [
+																"NPC.UID",
+																"Player.X"
+															]
+														}
+													],
+													"sid": 340919749119042
+												}
+											]
 										}
 									]
 								},

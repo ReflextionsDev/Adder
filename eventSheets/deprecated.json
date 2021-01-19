@@ -3365,6 +3365,179 @@
 					"sid": 931057062302995
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 595976270729878,
+					"parameters": {
+						"key": 88
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tile_Shadow",
+					"sid": 494796550124683,
+					"parameters": {
+						"unique-id": "28168"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 607559015013259,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "y",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 458870106498824
+				},
+				{
+					"eventType": "variable",
+					"name": "x",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 163396835823210
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 231907963570076,
+							"parameters": {
+								"count": "Tile_Shadow.Width/24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 575410972181186,
+							"parameters": {
+								"variable": "x",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 983196764289701,
+							"parameters": {
+								"variable": "y",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 649474870197607,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 805324572102998,
+									"parameters": {
+										"count": "Tile_Shadow.Height/24"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 165163069273214,
+									"parameters": {
+										"variable": "y",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 254560393800930,
+									"parameters": {
+										"type": "log",
+										"message": "\"Loop: \"  & loopindex & \"|\" & x & \"|\" & y"
+									}
+								}
+							],
+							"sid": 904836113874655,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-tile-at",
+											"objectClass": "Tile_Shadow",
+											"sid": 127923909740602,
+											"parameters": {
+												"tile-x": "x",
+												"tile-y": "y",
+												"comparison": 0,
+												"tile": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 555715232018529,
+											"parameters": {
+												"object-to-create": "NPC_Sprite",
+												"layer": "Tile_Shadow.LayerName",
+												"x": "Tile_Shadow.PositionToTileX(x)",
+												"y": "Tile_Shadow.PositionToTileX(y)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "erase-tile",
+											"objectClass": "Tile_Shadow",
+											"sid": 981564209220349,
+											"parameters": {
+												"tile-x": "x",
+												"tile-y": "y"
+											}
+										}
+									],
+									"sid": 102018072894825
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 432268532596668,
+							"parameters": {
+								"type": "warn",
+								"message": "\"LOOP DONE\""
+							}
+						}
+					],
+					"sid": 558768189347563
+				}
+			]
 		}
 	],
 	"sid": 165551314658262

@@ -11,6 +11,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "Level Master"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "AI"
 		},
 		{
@@ -143,6 +147,10 @@
 					"sid": 799653747144242
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Consolidate all cleanup events (shells, blood fx, corpses)"
 		},
 		{
 			"eventType": "comment",
@@ -474,6 +482,10 @@
 							],
 							"sid": 967539398430545,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO"
+								},
 								{
 									"eventType": "group",
 									"disabled": false,
@@ -1673,6 +1685,10 @@
 											"sid": 108926031179920,
 											"children": [
 												{
+													"eventType": "comment",
+													"text": "TODO - Bullet Holes"
+												},
+												{
 													"eventType": "block",
 													"conditions": [
 														{
@@ -1731,67 +1747,11 @@
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "compare-x",
-																	"objectClass": "Bullet",
-																	"sid": 939681051827561,
-																	"parameters": {
-																		"comparison": 3,
-																		"x-co-ordinate": "Door.X"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 955714302006523,
-																	"parameters": {
-																		"name": "\"FX_Impact\"",
-																		"parameter-n": [
-																			"Bullet.BBoxRight",
-																			"Bullet.Y",
-																			"\"right\""
-																		]
-																	}
-																}
-															],
-															"sid": 514822751172203
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 526444963650692
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 935916209855764,
-																	"parameters": {
-																		"name": "\"FX_Impact\"",
-																		"parameter-n": [
-																			"Bullet.BBoxLeft",
-																			"Bullet.Y",
-																			"\"left\""
-																		]
-																	}
-																}
-															],
-															"sid": 200941056190904
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "Door",
 																	"sid": 830983514421340,
 																	"parameters": {
-																		"instance-variable": "Type",
+																		"instance-variable": "Material",
 																		"comparison": 0,
 																		"value": "\"Wood\""
 																	}
@@ -1851,14 +1811,79 @@
 																	"id": "destroy",
 																	"objectClass": "Bullet",
 																	"sid": 493693356180524
-																},
-																{
-																	"id": "stop-loop",
-																	"objectClass": "System",
-																	"sid": 367541189030937
 																}
 															],
-															"sid": 456002062947596
+															"sid": 456002062947596,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-x",
+																			"objectClass": "Bullet",
+																			"sid": 333636248020687,
+																			"parameters": {
+																				"comparison": 3,
+																				"x-co-ordinate": "Door.X"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 731907502927157,
+																			"parameters": {
+																				"name": "\"FX_Impact\"",
+																				"parameter-n": [
+																					"Bullet.BBoxRight",
+																					"Bullet.Y",
+																					"\"right\""
+																				]
+																			}
+																		}
+																	],
+																	"sid": 283925207463224
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 236822724708021
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 571330365903693,
+																			"parameters": {
+																				"name": "\"FX_Impact\"",
+																				"parameter-n": [
+																					"Bullet.BBoxLeft",
+																					"Bullet.Y",
+																					"\"left\""
+																				]
+																			}
+																		}
+																	],
+																	"sid": 248392531620385
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "stop-loop",
+																			"objectClass": "System",
+																			"sid": 200812901277061
+																		}
+																	],
+																	"sid": 399580781376608
+																}
+															]
 														},
 														{
 															"eventType": "block",
@@ -1897,6 +1922,336 @@
 																}
 															],
 															"sid": 545842721945346
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "need injured anims"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "BulletTarget",
+															"sid": 712913456898678,
+															"parameters": {
+																"instance-variable": "TargetForm",
+																"comparison": 0,
+																"value": "\"Window\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Window",
+															"sid": 983515030582081,
+															"parameters": {
+																"unique-id": "BulletTarget.UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 226140747868103,
+															"parameters": {
+																"variable": "bulletdamage",
+																"value": "ceil(Bullet.Damage/10)"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Window",
+															"sid": 394688807869426,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "bulletdamage"
+															}
+														}
+													],
+													"sid": 329408144439303,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Window",
+																	"sid": 602970337410836,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "\"Window_Destroy\"",
+																	"sid": 594528983394774,
+																	"parameters": [
+																		"Window.UID"
+																	]
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 185447628714967,
+																	"parameters": {
+																		"name": "\"VFX_Screenshake\"",
+																		"parameter-n": [
+																			"0.5",
+																			"0.2"
+																		]
+																	}
+																}
+															],
+															"sid": 506696469988481
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 204558139109122
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Bullet",
+																	"sid": 694106831266986,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 456697612625588,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Window",
+																			"sid": 425975618061111,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 3,
+																				"value": "ceil(Self.MaxHP*0.25)"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation-frame",
+																			"objectClass": "Window",
+																			"sid": 625843045055680,
+																			"parameters": {
+																				"frame-number": "3"
+																			}
+																		}
+																	],
+																	"sid": 944753413544696
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 985794805532975
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Window",
+																			"sid": 143377393235214,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 3,
+																				"value": "ceil(Self.MaxHP*0.50)"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation-frame",
+																			"objectClass": "Window",
+																			"sid": 335043552223438,
+																			"parameters": {
+																				"frame-number": "2"
+																			}
+																		}
+																	],
+																	"sid": 977773216629747
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 367354358472084
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Window",
+																			"sid": 355949255127050,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 3,
+																				"value": "ceil(Self.MaxHP*0.75)"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation-frame",
+																			"objectClass": "Window",
+																			"sid": 602174250677177,
+																			"parameters": {
+																				"frame-number": "1"
+																			}
+																		}
+																	],
+																	"sid": 613998576892869
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Bullet",
+																	"sid": 640925729406458,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"comparison": 3,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Bullet",
+																	"sid": 339641671329365
+																}
+															],
+															"sid": 980058749410685,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-x",
+																			"objectClass": "Bullet",
+																			"sid": 591628099909231,
+																			"parameters": {
+																				"comparison": 3,
+																				"x-co-ordinate": "Window.X"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 457734771348279,
+																			"parameters": {
+																				"name": "\"FX_Impact\"",
+																				"parameter-n": [
+																					"Bullet.BBoxRight",
+																					"Bullet.Y",
+																					"\"right\""
+																				]
+																			}
+																		}
+																	],
+																	"sid": 283900973080136
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 703931854523847
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 712883452958311,
+																			"parameters": {
+																				"name": "\"FX_Impact\"",
+																				"parameter-n": [
+																					"Bullet.BBoxLeft",
+																					"Bullet.Y",
+																					"\"left\""
+																				]
+																			}
+																		}
+																	],
+																	"sid": 343904294305473
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "stop-loop",
+																			"objectClass": "System",
+																			"sid": 695550159472851
+																		}
+																	],
+																	"sid": 675235012505864
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 748508585697519,
+																	"parameters": {
+																		"variable": "game_DamageTextEnabled",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 280725595974219,
+																	"parameters": {
+																		"object-to-create": "Debug_DamageText",
+																		"layer": "\"Objects\"",
+																		"x": "Bullet.X",
+																		"y": "Bullet.Y",
+																		"create-hierarchy": false
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Debug_DamageText",
+																	"sid": 455947147984987,
+																	"parameters": {
+																		"text": "\"-\" & bulletdamage"
+																	}
+																}
+															],
+															"sid": 856432037359012
 														}
 													]
 												},

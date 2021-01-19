@@ -1346,7 +1346,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1388,18 +1388,6 @@
 					"uid": 22012,
 					"instanceVariables": {
 						"TargetForm": "Tile_Door",
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
-						"DiagUID": 0,
-						"DiagText": "",
-						"DiagTag": "",
-						"DiagIndex": 0,
-						"DiagWait": 0,
-						"DiagStarted": 0,
-						"zzzDiagCanInteract": 0,
-						"zzzzNearest": false,
-						"DestroyAfterDiag": false,
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -1408,26 +1396,18 @@
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
-						"Type": "Metal",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Material": "Metal",
+						"HP": 10,
+						"MaxHP": 10,
+						"Locked": false,
+						"Closed": true,
 						"OriginalX": 0,
 						"OriginalY": 0,
-						"HP": 10,
-						"Closed": true,
-						"MaxHP": 10,
-						"RangeID": 0,
-						"Locked": false
+						"RangeID": 0
 					},
 					"behaviors": {
-						"Diag_Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 0.5,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						},
 						"Solid": {
 							"properties": {
 								"enabled": true,
@@ -1449,27 +1429,13 @@
 							}
 						}
 					},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 864,
 						"y": 968,
-						"width": -12,
-						"height": 58,
-						"originX": 0.166667,
-						"originY": 0.982759,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -3124,7 +3090,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -3155,7 +3121,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -5222,18 +5188,6 @@
 					"uid": 22790,
 					"instanceVariables": {
 						"TargetForm": "Tile_Door",
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
-						"DiagUID": 0,
-						"DiagText": "",
-						"DiagTag": "",
-						"DiagIndex": 0,
-						"DiagWait": 0,
-						"DiagStarted": 0,
-						"zzzDiagCanInteract": 0,
-						"zzzzNearest": false,
-						"DestroyAfterDiag": false,
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -5242,26 +5196,18 @@
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
-						"Type": "Metal",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Material": "Metal",
+						"HP": 10,
+						"MaxHP": 10,
+						"Locked": false,
+						"Closed": true,
 						"OriginalX": 0,
 						"OriginalY": 0,
-						"HP": 10,
-						"Closed": true,
-						"MaxHP": 10,
-						"RangeID": 0,
-						"Locked": false
+						"RangeID": 0
 					},
 					"behaviors": {
-						"Diag_Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 0.5,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						},
 						"Solid": {
 							"properties": {
 								"enabled": true,
@@ -5283,27 +5229,13 @@
 							}
 						}
 					},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 1472,
 						"y": 968,
-						"width": 12,
-						"height": 58,
-						"originX": 0.166667,
-						"originY": 0.982759,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -5315,7 +5247,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5331,9 +5263,9 @@
 					"world": {
 						"x": 912,
 						"y": 792,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5346,38 +5278,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22792,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 912,
-						"y": 696,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5393,10 +5294,10 @@
 					"world": {
 						"x": 912,
 						"y": 800,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -5408,7 +5309,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5424,9 +5325,9 @@
 					"world": {
 						"x": 912,
 						"y": 760,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5439,7 +5340,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5455,9 +5356,9 @@
 					"world": {
 						"x": 912,
 						"y": 728,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5470,7 +5371,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5486,9 +5387,9 @@
 					"world": {
 						"x": 1392,
 						"y": 792,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5501,38 +5402,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22797,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1392,
-						"y": 696,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5548,10 +5418,10 @@
 					"world": {
 						"x": 1392,
 						"y": 800,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -5563,7 +5433,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5579,9 +5449,9 @@
 					"world": {
 						"x": 1392,
 						"y": 760,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5594,7 +5464,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5610,9 +5480,9 @@
 					"world": {
 						"x": 1392,
 						"y": 728,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5625,7 +5495,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5641,9 +5511,9 @@
 					"world": {
 						"x": 1296,
 						"y": 960,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5656,38 +5526,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22802,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1296,
-						"y": 864,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5703,10 +5542,10 @@
 					"world": {
 						"x": 1296,
 						"y": 968,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -5718,7 +5557,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5734,9 +5573,9 @@
 					"world": {
 						"x": 1296,
 						"y": 928,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5749,7 +5588,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5765,9 +5604,9 @@
 					"world": {
 						"x": 1296,
 						"y": 896,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5780,7 +5619,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5796,9 +5635,9 @@
 					"world": {
 						"x": 1160,
 						"y": 960,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5811,38 +5650,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22807,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1160,
-						"y": 864,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5858,10 +5666,10 @@
 					"world": {
 						"x": 1160,
 						"y": 968,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -5873,7 +5681,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5889,9 +5697,9 @@
 					"world": {
 						"x": 1160,
 						"y": 928,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5904,7 +5712,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -5920,9 +5728,9 @@
 					"world": {
 						"x": 1160,
 						"y": 896,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -5997,7 +5805,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6013,9 +5821,9 @@
 					"world": {
 						"x": 1216,
 						"y": 872,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6028,38 +5836,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22814,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1216,
-						"y": 776,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6075,10 +5852,10 @@
 					"world": {
 						"x": 1216,
 						"y": 880,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -6090,7 +5867,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6106,9 +5883,9 @@
 					"world": {
 						"x": 1216,
 						"y": 840,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6121,7 +5898,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6137,9 +5914,9 @@
 					"world": {
 						"x": 1216,
 						"y": 808,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6183,7 +5960,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6199,9 +5976,9 @@
 					"world": {
 						"x": 872,
 						"y": 872,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6214,38 +5991,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22820,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 872,
-						"y": 776,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6261,10 +6007,10 @@
 					"world": {
 						"x": 872,
 						"y": 880,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -6276,7 +6022,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6292,9 +6038,9 @@
 					"world": {
 						"x": 872,
 						"y": 840,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6307,7 +6053,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6323,9 +6069,9 @@
 					"world": {
 						"x": 872,
 						"y": 808,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6464,7 +6210,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6480,9 +6226,9 @@
 					"world": {
 						"x": 1152,
 						"y": 712,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6495,38 +6241,7 @@
 					}
 				},
 				{
-					"type": "Tile_LadderTop",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Wood",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 22862,
-					"instanceVariables": {
-						"Type": "Metal"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1152,
-						"y": 616,
-						"width": 32,
-						"height": 16,
-						"originX": 0.0625,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Tile_LadderBot",
+					"type": "Ladder_Bot",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6542,10 +6257,10 @@
 					"world": {
 						"x": 1152,
 						"y": 720,
-						"width": 32,
-						"height": 8,
-						"originX": 0.0625,
-						"originY": 0.875,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -6557,7 +6272,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6573,9 +6288,9 @@
 					"world": {
 						"x": 1152,
 						"y": 680,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6588,7 +6303,7 @@
 					}
 				},
 				{
-					"type": "Tile_Ladder",
+					"type": "LadderMid",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Wood",
@@ -6604,9 +6319,9 @@
 					"world": {
 						"x": 1152,
 						"y": 648,
-						"width": 32,
-						"height": 32,
-						"originX": 0.0625,
+						"width": 24,
+						"height": 48,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -6692,18 +6407,6 @@
 					"uid": 22836,
 					"instanceVariables": {
 						"TargetForm": "Tile_Door",
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
-						"DiagUID": 0,
-						"DiagText": "",
-						"DiagTag": "",
-						"DiagIndex": 0,
-						"DiagWait": 0,
-						"DiagStarted": 0,
-						"zzzDiagCanInteract": 0,
-						"zzzzNearest": false,
-						"DestroyAfterDiag": false,
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -6712,26 +6415,18 @@
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
-						"Type": "Metal",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Material": "Metal",
+						"HP": 10,
+						"MaxHP": 10,
+						"Locked": false,
+						"Closed": true,
 						"OriginalX": 0,
 						"OriginalY": 0,
-						"HP": 10,
-						"Closed": true,
-						"MaxHP": 10,
-						"RangeID": 0,
-						"Locked": false
+						"RangeID": 0
 					},
 					"behaviors": {
-						"Diag_Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 0.5,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						},
 						"Solid": {
 							"properties": {
 								"enabled": true,
@@ -6753,27 +6448,13 @@
 							}
 						}
 					},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 976,
 						"y": 800,
-						"width": -12,
-						"height": 58,
-						"originX": 0.166667,
-						"originY": 0.982759,
+						"width": 24,
+						"height": 96,
+						"originX": 0,
+						"originY": 1,
 						"color": [
 							1,
 							1,
@@ -8552,7 +8233,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8583,7 +8264,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8614,7 +8295,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8645,7 +8326,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8676,7 +8357,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8707,7 +8388,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8738,7 +8419,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8769,7 +8450,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8800,7 +8481,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8831,7 +8512,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8862,7 +8543,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8893,7 +8574,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8924,7 +8605,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8955,7 +8636,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -8986,7 +8667,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9017,7 +8698,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9048,7 +8729,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9079,7 +8760,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9110,7 +8791,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9141,7 +8822,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9172,7 +8853,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9203,7 +8884,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9234,7 +8915,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9265,7 +8946,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9296,7 +8977,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9327,7 +9008,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9358,7 +9039,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9389,7 +9070,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9420,7 +9101,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9451,7 +9132,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9482,7 +9163,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9513,7 +9194,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9544,7 +9225,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9575,7 +9256,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9606,7 +9287,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9637,7 +9318,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9668,7 +9349,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9699,7 +9380,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9730,7 +9411,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9761,7 +9442,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9792,7 +9473,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9823,7 +9504,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -9854,7 +9535,7 @@
 					}
 				},
 				{
-					"type": "Tile_Shadow",
+					"type": "Tile_Shadowz",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -10372,40 +10053,25 @@
 					},
 					"uid": 22949,
 					"instanceVariables": {
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
 						"WorldEnabled": false,
 						"WorldBark": "",
-						"WorldHoverOutline": true,
+						"WorldHoverOutline": false,
 						"WorldHoverText": "",
 						"WorldCanInteract": true,
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
 						"DoorID": 0
 					},
 					"behaviors": {},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 832,
 						"y": 968,
-						"width": 56,
+						"width": 24,
 						"height": 56,
-						"originX": 0.5,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -10428,40 +10094,25 @@
 					},
 					"uid": 22950,
 					"instanceVariables": {
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
 						"WorldEnabled": false,
 						"WorldBark": "",
-						"WorldHoverOutline": true,
+						"WorldHoverOutline": false,
 						"WorldHoverText": "",
 						"WorldCanInteract": true,
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
 						"DoorID": 0
 					},
 					"behaviors": {},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 1448,
 						"y": 968,
-						"width": 56,
+						"width": 24,
 						"height": 56,
-						"originX": 0.5,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,
@@ -10484,40 +10135,25 @@
 					},
 					"uid": 22951,
 					"instanceVariables": {
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
 						"WorldEnabled": false,
 						"WorldBark": "",
-						"WorldHoverOutline": true,
+						"WorldHoverOutline": false,
 						"WorldHoverText": "",
 						"WorldCanInteract": true,
 						"WorldTouched": false,
 						"WorldInteractType": "modify",
 						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
 						"DoorID": 0
 					},
 					"behaviors": {},
-					"effects": {
-						"Outline": {
-							"parameters": {
-								"Just outline": 0,
-								"Width": 1,
-								"Color": [
-									1,
-									1,
-									1,
-									1
-								]
-							}
-						}
-					},
 					"world": {
 						"x": 944,
 						"y": 800,
-						"width": 56,
+						"width": 24,
 						"height": 56,
-						"originX": 0.5,
+						"originX": 0,
 						"originY": 1,
 						"color": [
 							1,

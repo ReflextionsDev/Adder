@@ -7,7 +7,47 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Level Master"
+			"includeSheet": "zzzLevel Master"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 285543078227320
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 261744176863602,
+					"parameters": {
+						"variable": "system_StringsLoaded",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 752480430269161,
+					"parameters": {
+						"variable": "firstLayout",
+						"value": "\"Test\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 402306447344016,
+					"parameters": {
+						"layout": "Preload"
+					}
+				}
+			],
+			"sid": 789748672094036
 		}
 	],
 	"sid": 230117356542059

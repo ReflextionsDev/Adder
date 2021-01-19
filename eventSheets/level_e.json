@@ -143,7 +143,7 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Level Master"
+			"includeSheet": "zzzLevel Master"
 		},
 		{
 			"eventType": "group",
@@ -2185,7 +2185,7 @@
 																	"Door.Width",
 																	"Door.Height",
 																	"Door.Angle",
-																	"Door.Type"
+																	"Door.Material"
 																]
 															}
 														}
@@ -2236,7 +2236,7 @@
 															"objectClass": "System",
 															"sid": 495752003399079,
 															"parameters": {
-																"object": "Tile_Ladder"
+																"object": "LadderMid"
 															}
 														}
 													],
@@ -2250,13 +2250,13 @@
 																"parameter-n": [
 																	"zzzgame_Level",
 																	"\"Tile_Ladder\"",
-																	"Tile_Ladder.IID",
-																	"Tile_Ladder.X - BuildingSpawnPoint.X",
-																	"Tile_Ladder.Y - BuildingSpawnPoint.Y",
-																	"Tile_Ladder.Width",
-																	"Tile_Ladder.Height",
-																	"Tile_Ladder.Angle",
-																	"Tile_Ladder.Type"
+																	"LadderMid.IID",
+																	"LadderMid.X - BuildingSpawnPoint.X",
+																	"LadderMid.Y - BuildingSpawnPoint.Y",
+																	"LadderMid.Width",
+																	"LadderMid.Height",
+																	"LadderMid.Angle",
+																	"LadderMid.Type"
 																]
 															}
 														}
@@ -2272,7 +2272,7 @@
 															"objectClass": "System",
 															"sid": 806478711040790,
 															"parameters": {
-																"object": "Tile_LadderBot"
+																"object": "Ladder_Bot"
 															}
 														}
 													],
@@ -2286,54 +2286,18 @@
 																"parameter-n": [
 																	"zzzgame_Level",
 																	"\"Tile_LadderBot\"",
-																	"Tile_LadderBot.IID",
-																	"Tile_LadderBot.X - BuildingSpawnPoint.X",
-																	"Tile_LadderBot.Y - BuildingSpawnPoint.Y",
-																	"Tile_LadderBot.Width",
-																	"Tile_LadderBot.Height",
-																	"Tile_LadderBot.Angle",
-																	"Tile_LadderBot.Type"
+																	"Ladder_Bot.IID",
+																	"Ladder_Bot.X - BuildingSpawnPoint.X",
+																	"Ladder_Bot.Y - BuildingSpawnPoint.Y",
+																	"Ladder_Bot.Width",
+																	"Ladder_Bot.Height",
+																	"Ladder_Bot.Angle",
+																	"Ladder_Bot.Type"
 																]
 															}
 														}
 													],
 													"sid": 660666845488642,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "for-each",
-															"objectClass": "System",
-															"sid": 507673138172547,
-															"parameters": {
-																"object": "Tile_LadderTop"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 344978000533234,
-															"parameters": {
-																"name": "\"LVL_SaveTiles\"",
-																"parameter-n": [
-																	"zzzgame_Level",
-																	"\"Tile_LadderTop\"",
-																	"Tile_LadderTop.IID",
-																	"Tile_LadderTop.X - BuildingSpawnPoint.X",
-																	"Tile_LadderTop.Y - BuildingSpawnPoint.Y",
-																	"Tile_LadderTop.Width",
-																	"Tile_LadderTop.Height",
-																	"Tile_LadderTop.Angle",
-																	"Tile_LadderTop.Type"
-																]
-															}
-														}
-													],
-													"sid": 257244436727387,
 													"disabled": true
 												},
 												{
@@ -2921,7 +2885,7 @@
 															"objectClass": "System",
 															"sid": 546733833968049,
 															"parameters": {
-																"object": "Tile_Shadow"
+																"object": "Tile_Shadowz"
 															}
 														}
 													],
@@ -2935,13 +2899,13 @@
 																"parameter-n": [
 																	"zzzgame_Level",
 																	"\"Tile_Shadow\"",
-																	"Tile_Shadow.IID",
-																	"Tile_Shadow.X - BuildingSpawnPoint.X",
-																	"Tile_Shadow.Y - BuildingSpawnPoint.Y",
-																	"Tile_Shadow.Width",
-																	"Tile_Shadow.Height",
-																	"Tile_Shadow.Angle",
-																	"Tile_Shadow.InitialFrame"
+																	"Tile_Shadowz.IID",
+																	"Tile_Shadowz.X - BuildingSpawnPoint.X",
+																	"Tile_Shadowz.Y - BuildingSpawnPoint.Y",
+																	"Tile_Shadowz.Width",
+																	"Tile_Shadowz.Height",
+																	"Tile_Shadowz.Angle",
+																	"Tile_Shadowz.InitialFrame"
 																]
 															}
 														}
@@ -4442,16 +4406,7 @@
 													"sid": 282970789904518,
 													"parameters": {
 														"key": "\"Level\" & function.Param(0) & \"_Tile_Ladder_ObjCount\"",
-														"value": "Tile_Ladder.Count"
-													}
-												},
-												{
-													"id": "add-key",
-													"objectClass": "LVL_TileData",
-													"sid": 918183133392706,
-													"parameters": {
-														"key": "\"Level\" & function.Param(0) & \"_Tile_LadderTop_ObjCount\"",
-														"value": "Tile_LadderTop.Count"
+														"value": "LadderMid.Count"
 													}
 												},
 												{
@@ -4460,7 +4415,7 @@
 													"sid": 478996886346569,
 													"parameters": {
 														"key": "\"Level\" & function.Param(0) & \"_Tile_LadderBot_ObjCount\"",
-														"value": "Tile_LadderBot.Count"
+														"value": "Ladder_Bot.Count"
 													}
 												},
 												{
@@ -4568,7 +4523,7 @@
 													"sid": 844242463865967,
 													"parameters": {
 														"key": "\"Level\" & function.Param(0) & \"_Tile_Shadow_ObjCount\"",
-														"value": "Tile_Shadow.Count"
+														"value": "Tile_Shadowz.Count"
 													}
 												},
 												{
@@ -5009,7 +4964,7 @@
 													"objectClass": "System",
 													"sid": 636616492256636,
 													"parameters": {
-														"object-to-create": "Tile_Shadow",
+														"object-to-create": "Tile_Shadowz",
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
@@ -5018,7 +4973,7 @@
 												},
 												{
 													"id": "set-animation-frame",
-													"objectClass": "Tile_Shadow",
+													"objectClass": "Tile_Shadowz",
 													"sid": 795685565222656,
 													"parameters": {
 														"frame-number": "int(LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_InitialFrame\"))"
@@ -5026,7 +4981,7 @@
 												},
 												{
 													"id": "set-width",
-													"objectClass": "Tile_Shadow",
+													"objectClass": "Tile_Shadowz",
 													"sid": 964739982906653,
 													"parameters": {
 														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Width\")"
@@ -5034,7 +4989,7 @@
 												},
 												{
 													"id": "set-height",
-													"objectClass": "Tile_Shadow",
+													"objectClass": "Tile_Shadowz",
 													"sid": 407529759857522,
 													"parameters": {
 														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Height\")"
@@ -5042,7 +4997,7 @@
 												},
 												{
 													"id": "set-angle",
-													"objectClass": "Tile_Shadow",
+													"objectClass": "Tile_Shadowz",
 													"sid": 112155724950393,
 													"parameters": {
 														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Angle\")"
@@ -5530,7 +5485,7 @@
 													"objectClass": "Door",
 													"sid": 827217988381905,
 													"parameters": {
-														"instance-variable": "Type",
+														"instance-variable": "Material",
 														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_InitialFrame\")"
 													}
 												},
@@ -5539,7 +5494,7 @@
 													"objectClass": "Door",
 													"sid": 890783918169544,
 													"parameters": {
-														"animation": "Door.Type & \"Closed\"",
+														"animation": "Door.Material & \"Closed\"",
 														"from": "beginning"
 													}
 												}
@@ -5626,7 +5581,7 @@
 													"objectClass": "System",
 													"sid": 285198445851756,
 													"parameters": {
-														"object-to-create": "Tile_Ladder",
+														"object-to-create": "LadderMid",
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
@@ -5635,7 +5590,7 @@
 												},
 												{
 													"id": "set-width",
-													"objectClass": "Tile_Ladder",
+													"objectClass": "LadderMid",
 													"sid": 563219066997581,
 													"parameters": {
 														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Width\")"
@@ -5643,7 +5598,7 @@
 												},
 												{
 													"id": "set-height",
-													"objectClass": "Tile_Ladder",
+													"objectClass": "LadderMid",
 													"sid": 897598399895954,
 													"parameters": {
 														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Height\")"
@@ -5651,7 +5606,7 @@
 												},
 												{
 													"id": "set-angle",
-													"objectClass": "Tile_Ladder",
+													"objectClass": "LadderMid",
 													"sid": 293099918391476,
 													"parameters": {
 														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Angle\")"
@@ -5659,7 +5614,7 @@
 												},
 												{
 													"id": "set-instvar-value",
-													"objectClass": "Tile_Ladder",
+													"objectClass": "LadderMid",
 													"sid": 491477357340483,
 													"parameters": {
 														"instance-variable": "Type",
@@ -5668,7 +5623,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "Tile_Ladder",
+													"objectClass": "LadderMid",
 													"sid": 828778099717538,
 													"parameters": {
 														"animation": "Self.Type",
@@ -5701,7 +5656,7 @@
 													"objectClass": "System",
 													"sid": 743121636485692,
 													"parameters": {
-														"object-to-create": "Tile_LadderBot",
+														"object-to-create": "Ladder_Bot",
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
@@ -5710,7 +5665,7 @@
 												},
 												{
 													"id": "set-width",
-													"objectClass": "Tile_LadderBot",
+													"objectClass": "Ladder_Bot",
 													"sid": 836668354523493,
 													"parameters": {
 														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Width\")"
@@ -5718,7 +5673,7 @@
 												},
 												{
 													"id": "set-height",
-													"objectClass": "Tile_LadderBot",
+													"objectClass": "Ladder_Bot",
 													"sid": 356582039001502,
 													"parameters": {
 														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Height\")"
@@ -5726,7 +5681,7 @@
 												},
 												{
 													"id": "set-angle",
-													"objectClass": "Tile_LadderBot",
+													"objectClass": "Ladder_Bot",
 													"sid": 113717488540360,
 													"parameters": {
 														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Angle\")"
@@ -5734,7 +5689,7 @@
 												},
 												{
 													"id": "set-instvar-value",
-													"objectClass": "Tile_LadderBot",
+													"objectClass": "Ladder_Bot",
 													"sid": 389397093338024,
 													"parameters": {
 														"instance-variable": "Type",
@@ -5743,7 +5698,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "Tile_LadderBot",
+													"objectClass": "Ladder_Bot",
 													"sid": 916967659381979,
 													"parameters": {
 														"animation": "Self.Type",
@@ -5770,62 +5725,7 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 940959434098235,
-													"parameters": {
-														"object-to-create": "Tile_LadderTop",
-														"layer": "\"Level\"",
-														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
-														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
-													}
-												},
-												{
-													"id": "set-width",
-													"objectClass": "Tile_LadderTop",
-													"sid": 513114870888471,
-													"parameters": {
-														"width": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Width\")"
-													}
-												},
-												{
-													"id": "set-height",
-													"objectClass": "Tile_LadderTop",
-													"sid": 449411684965040,
-													"parameters": {
-														"height": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Height\")"
-													}
-												},
-												{
-													"id": "set-angle",
-													"objectClass": "Tile_LadderTop",
-													"sid": 517548705648360,
-													"parameters": {
-														"angle": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderTop\" & \"_\" & loopindex & \"_Angle\")"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Tile_LadderTop",
-													"sid": 642063044303953,
-													"parameters": {
-														"instance-variable": "Type",
-														"value": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_InitialFrame\")"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Tile_LadderTop",
-													"sid": 919526335689101,
-													"parameters": {
-														"animation": "Self.Type",
-														"from": "beginning"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 245339453323331,
 											"disabled": true
 										},
@@ -7942,6 +7842,160 @@
 				}
 			],
 			"sid": 655659669825409
+		},
+		{
+			"eventType": "comment",
+			"text": "Level load mechanism - use familise"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 581593999574976,
+					"parameters": {
+						"key": 84
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "recreate-initial-objects",
+					"objectClass": "System",
+					"sid": 482610820697068,
+					"disabled": true,
+					"parameters": {
+						"object": "Tile_BG",
+						"from-x": "0",
+						"from-y": "0",
+						"to-x": "5000",
+						"to-y": "5000",
+						"source-layout": "\"Level Demo\"",
+						"source-layer": "-1",
+						"offset-x": "0",
+						"offset-y": "9000",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "recreate-initial-objects",
+					"objectClass": "System",
+					"sid": 697585473031657,
+					"parameters": {
+						"object": "Door",
+						"from-x": "0",
+						"from-y": "0",
+						"to-x": "5000",
+						"to-y": "5000",
+						"source-layout": "\"Level Demo\"",
+						"source-layer": "-1",
+						"offset-x": "0",
+						"offset-y": "9000",
+						"create-hierarchy": true
+					}
+				}
+			],
+			"sid": 768406347852465
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 887888036771914,
+					"parameters": {
+						"key": 89
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "recreate-initial-objects",
+					"objectClass": "System",
+					"sid": 710427318286343,
+					"parameters": {
+						"object": "Door",
+						"from-x": "0",
+						"from-y": "0",
+						"to-x": "5000",
+						"to-y": "5000",
+						"source-layout": "\"Level Demo\"",
+						"source-layer": "-1",
+						"offset-x": "0",
+						"offset-y": "9000",
+						"create-hierarchy": true
+					}
+				}
+			],
+			"sid": 593676501287988
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 944287334409471,
+					"parameters": {
+						"key": 81
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "recreate-initial-objects",
+					"objectClass": "System",
+					"sid": 435865842461662,
+					"parameters": {
+						"object": "DoorKey",
+						"from-x": "0",
+						"from-y": "0",
+						"to-x": "5000",
+						"to-y": "5000",
+						"source-layout": "\"Level Demo\"",
+						"source-layer": "-1",
+						"offset-x": "0",
+						"offset-y": "9000",
+						"create-hierarchy": true
+					}
+				}
+			],
+			"sid": 425639506879001
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 216163728216439,
+					"parameters": {
+						"key": 90
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "recreate-initial-objects",
+					"objectClass": "System",
+					"sid": 479599573326851,
+					"parameters": {
+						"object": "DoorKey",
+						"from-x": "0",
+						"from-y": "0",
+						"to-x": "5000",
+						"to-y": "5000",
+						"source-layout": "\"Level Demo\"",
+						"source-layer": "-1",
+						"offset-x": "0",
+						"offset-y": "9000",
+						"create-hierarchy": false
+					}
+				}
+			],
+			"sid": 258751514107104
 		}
 	],
 	"sid": 633432288946114
