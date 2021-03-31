@@ -1,2 +1,54 @@
 [TODO]
 
+[PASTEBIN]
+
+fix hitboxes
+add drop state and animation
+add land state and animation
+
+
+zealots stuck under trapdoors
+
+
+
+- every so and so, remove first elemont from scent tracker?? for refresh.. (on enter a room, refresh?)
+
+
+
+email raf - tricky bugs
+(ask concernedape for advice? lol)
+
+[walk anim reset when zombies change from chase to inspect, also sync animations... need buffer)
+[z order - zombies are under ladder when they come up]
+
+[zealots need climb anim]
+[zealots need hit anim]
+
+=======
+
+primary problem is scents overriding drop, but shouldn't they be marked as investigated once they've been reached???
+
+
+.. now scent is marked 
+
+what if only mark scent if, zomb drops on it (now it's never marked checked tho)
+
+---
+
+[zombies don't follow player down (scent marked as checked already) may need to switch to overlap
+
+
+
+[zealots don't persist if you fake them out on ldader, or shoot them on the way up] (CNR)
+
+ 
+[zombies glide over drop point, or go into attack anim] - seems to happen if another zombie is in chase
+[if zombie is spawned overlapping scent, they go bonk]
+
+
+[zombies now bork at the bottom of ladders] - esp if you jump up onto ladder while they chase
+[zombies keep trying to get up if trapdoor is closed]
+[can close trap door on zombies if they're coming up / should be blocked]
+ 
+ (check if on jump through) > can climb > drop 
+ on drop, other LOS stuff needs to be ignored
