@@ -1,0 +1,2431 @@
+{
+	"name": "Horde",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "music, ammo, weaps, don't reset"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_kills",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 599411232044793
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_wave",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 125287821974117
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_intermission",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 213720666008128
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_wavequeued",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 553149021753979
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_zombies",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 212585425215096
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_zombiesmax",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 329976468158966
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_zombiesremaining",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 133320517225641
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_zombiesperwave",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 381588124152320
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_bgm",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 489700326925964
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_mode",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 296086904573138
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_lootchance",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 742792417156555
+		},
+		{
+			"eventType": "variable",
+			"name": "horde_ready",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 711023389664332
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 883959308188631
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 347656270486194
+				},
+				{
+					"callFunction": "Horde_InitEnemies",
+					"sid": 251329104575597
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 309371162307660,
+					"parameters": {
+						"tag": "\"BGM\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 327019212366069,
+					"parameters": {
+						"tag": "\"AMB1\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 907923548056745,
+					"parameters": {
+						"variable": "horde_bgm",
+						"value": "\"None\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 131633812283723,
+					"parameters": {
+						"audio-file": "amb_wind",
+						"loop": "looping",
+						"volume": "0",
+						"tag-optional": "\"AMB1\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 627981348512502,
+					"parameters": {
+						"variable": "horde_mode",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 752397490865426,
+					"parameters": {
+						"variable": "BG_Name",
+						"value": "\"Mountain\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 778666777678140,
+					"parameters": {
+						"variable": "GroundHeight",
+						"value": "Editor_Settings.GroundHeight"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 122823692218329,
+					"parameters": {
+						"name": "\"Spawn_BG\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 472564852079897,
+					"parameters": {
+						"variable": "level_Loaded",
+						"value": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Horde_TextWave",
+					"sid": 678308920162700
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 712052583461756,
+					"parameters": {
+						"variable": "horde_ready",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 237729016056015,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 382798794185134,
+					"parameters": {
+						"audio-file": "amb_creepy",
+						"loop": "looping",
+						"volume": "-5",
+						"tag-optional": "\"BGM\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 456183345432223,
+					"parameters": {
+						"variable": "horde_bgm",
+						"value": "\"Ambient\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 389829557263566,
+					"parameters": {
+						"seconds": "5"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 107183772124788,
+					"parameters": {
+						"tag": "\"BGM\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 745722913730480,
+					"parameters": {
+						"audio-file": "Mountain",
+						"loop": "looping",
+						"volume": "-5",
+						"tag-optional": "\"BGM\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 123026309539382,
+					"parameters": {
+						"variable": "horde_bgm",
+						"value": "\"Mountain\""
+					}
+				}
+			],
+			"sid": 301710230754109
+		},
+		{
+			"functionName": "Horde_UpdateText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Horde_Text",
+					"sid": 496983664991800,
+					"parameters": {
+						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentCooldown,0,Equipment_Current.Cooldown)"
+					}
+				}
+			],
+			"sid": 993970265315197
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 747482342680937,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Horde_Text",
+					"sid": 550105455113974,
+					"parameters": {
+						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentCooldown,0,Equipment_Current.Cooldown)"
+					}
+				}
+			],
+			"sid": 930550580212255
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "comment",
+			"text": "make var"
+		},
+		{
+			"eventType": "comment",
+			"text": "can mess with spawn time later"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 562821313553102,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 223912786585120,
+					"parameters": {
+						"object": "Horde_SpawnPoint"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 105020946020120,
+					"parameters": {
+						"first-value": "horde_zombies",
+						"comparison": 2,
+						"second-value": "horde_zombiesmax"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 100117205614775,
+					"parameters": {
+						"first-value": "horde_zombiesremaining",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 718560137076652,
+					"parameters": {
+						"object-to-create": "Zombie",
+						"layer": "\"Objects\"",
+						"x": "Horde_SpawnPoint.X",
+						"y": "Horde_SpawnPoint.Y",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombie",
+					"sid": 290035207214461,
+					"disabled": true,
+					"parameters": {
+						"instance-variable": "Class",
+						"value": "choose(\"Soldier\",\"Walker\",\"Walker\",\"Walker\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Zombie",
+					"sid": 345857670093949,
+					"parameters": {
+						"instance-variable": "Class",
+						"value": "Horde_SpawnPool.At(floor(random(0,Horde_SpawnPool.Width+0.999)))"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 207930015255060,
+					"parameters": {
+						"variable": "horde_zombies",
+						"value": "1"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 357392438881514,
+					"parameters": {
+						"variable": "horde_zombiesremaining",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 777912372031428
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Object",
+					"sid": 282134087362840
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 170479914390839,
+					"parameters": {
+						"seconds": "60"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Object",
+					"sid": 651023239979097
+				}
+			],
+			"sid": 584560766790662
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 689484069986996,
+					"parameters": {
+						"first-value": "horde_ready",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 438082497556119,
+					"parameters": {
+						"first-value": "horde_zombies",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 951321636768558,
+					"parameters": {
+						"first-value": "horde_wavequeued",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 965302510689804,
+					"parameters": {
+						"first-value": "horde_zombiesremaining",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 793847781087287
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 146872828048136,
+					"parameters": {
+						"seconds": "horde_intermission"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 131966530195166,
+					"parameters": {
+						"variable": "horde_wavequeued",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 358731242990241
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 850157550214713,
+					"parameters": {
+						"first-value": "horde_zombies",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 137589956642633,
+					"parameters": {
+						"first-value": "horde_wavequeued",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 642258963562838,
+					"parameters": {
+						"first-value": "horde_zombiesremaining",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Horde_NewWave",
+					"sid": 907132727489641
+				}
+			],
+			"sid": 526587122332738
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Add new types"
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO - Type percentage?"
+		},
+		{
+			"functionName": "Horde_InitEnemies",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "Horde_ResetEnemies",
+					"sid": 509226674725171
+				},
+				{
+					"callFunction": "Horde_AddEnemy",
+					"sid": 376380572877401,
+					"parameters": [
+						"\"Walker\"",
+						"100"
+					]
+				},
+				{
+					"callFunction": "Horde_AddEnemy",
+					"sid": 822924539889883,
+					"parameters": [
+						"\"WalkerCrawler\"",
+						"25"
+					]
+				},
+				{
+					"callFunction": "Horde_AddEnemy",
+					"sid": 824929169078605,
+					"parameters": [
+						"\"WalkerGibbed\"",
+						"20"
+					]
+				},
+				{
+					"callFunction": "Horde_ShufflePool",
+					"sid": 402609695196856
+				}
+			],
+			"sid": 385499842598467
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 902176551947250,
+					"parameters": {
+						"key": 89
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 984537227932194,
+					"parameters": {
+						"type": "warn",
+						"message": "Horde_SpawnPool.At(floor(random(0,Horde_SpawnPool.Width+0.999)))"
+					}
+				}
+			],
+			"sid": 693793858544999,
+			"disabled": true
+		},
+		{
+			"functionName": "Horde_AddEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Type",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 253511005880450
+				},
+				{
+					"name": "Chance",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 570413639749531
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Horde_EnemyPool",
+					"sid": 192479214167961,
+					"parameters": {
+						"width": "Self.Width + 1",
+						"height": "Self.Height",
+						"depth": "Self.Depth"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "Horde_EnemyPool",
+					"sid": 930109625795591,
+					"parameters": {
+						"x": "Horde_EnemyPool.Width - 1",
+						"y": "0",
+						"value": "Type"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "Horde_EnemyPool",
+					"sid": 757374329071884,
+					"parameters": {
+						"x": "Horde_EnemyPool.Width - 1",
+						"y": "1",
+						"value": "Chance"
+					}
+				}
+			],
+			"sid": 350636536501889
+		},
+		{
+			"eventType": "comment",
+			"text": "reset this"
+		},
+		{
+			"eventType": "variable",
+			"name": "j",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 751283798344184
+		},
+		{
+			"functionName": "Horde_ShufflePool",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 590202833381206,
+					"parameters": {
+						"variable": "j",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Horde_SpawnPool",
+					"sid": 515087970486832,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 355644750594564,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 898012708937705,
+							"parameters": {
+								"count": "Horde_EnemyPool.Width"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 303532049097249,
+							"parameters": {
+								"variable": "j",
+								"value": "loopindex"
+							}
+						}
+					],
+					"sid": 370550522743073,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 282043079510391,
+									"parameters": {
+										"count": "Horde_EnemyPool.At(j,1)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Horde_SpawnPool",
+									"sid": 247196948980430,
+									"parameters": {
+										"width": "Self.Width + 1",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Horde_SpawnPool",
+									"sid": 654996882186296,
+									"parameters": {
+										"x": "Self.Width - 1",
+										"y": "0",
+										"value": "Horde_EnemyPool.At(j,0)"
+									}
+								}
+							],
+							"sid": 655744535388016
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 685198358098899,
+							"parameters": {
+								"name": "\"Shuffle_Array\"",
+								"parameter-n": [
+									"Horde_SpawnPool.UID"
+								]
+							}
+						}
+					],
+					"sid": 585630834130868
+				}
+			]
+		},
+		{
+			"functionName": "Horde_ResetEnemies",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Horde_EnemyPool",
+					"sid": 970160381820964,
+					"parameters": {
+						"width": "0",
+						"height": "Self.Height",
+						"depth": "Self.Height"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Horde_SpawnPool",
+					"sid": 564911638016492,
+					"parameters": {
+						"width": "0",
+						"height": "Self.Height",
+						"depth": "Self.Height"
+					}
+				}
+			],
+			"sid": 584255266686802
+		},
+		{
+			"functionName": "Horde_NewWave",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 634184681101760,
+					"parameters": {
+						"variable": "horde_wavequeued",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 148496131989348,
+					"parameters": {
+						"variable": "horde_wave",
+						"value": "1"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 606969596459472,
+					"parameters": {
+						"object-to-create": "Horde_TextWave",
+						"layer": "\"UI\"",
+						"x": "120",
+						"y": "120",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Horde_TextWave",
+					"sid": 276284785448508,
+					"parameters": {
+						"text": "\"WAVE: \" & horde_wave"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 653201438727072,
+					"parameters": {
+						"audio-file": "newwave",
+						"loop": "not-looping",
+						"volume": "-5",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 385432326282817,
+					"parameters": {
+						"variable": "horde_zombies",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 446048840398249,
+					"parameters": {
+						"variable": "horde_zombiesmax",
+						"value": "horde_wave*horde_zombiesperwave"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 493644106665509,
+					"parameters": {
+						"variable": "horde_zombiesremaining",
+						"value": "horde_zombiesmax"
+					}
+				}
+			],
+			"sid": 809038901255693,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 697219140252128,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 944572053710435,
+							"parameters": [
+								"\"WalkerHeadless\"",
+								"10"
+							]
+						}
+					],
+					"sid": 107591528297652
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 376938037841317,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 300080069876248,
+							"parameters": [
+								"\"SoldierHelmetlessCrawler\"",
+								"25"
+							]
+						},
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 906242862073960,
+							"parameters": [
+								"\"Zealot\"",
+								"50"
+							]
+						}
+					],
+					"sid": 493779306242598
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 526941253932443,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 930987654742159,
+							"parameters": [
+								"\"SoldierHelmetless\"",
+								"50"
+							]
+						}
+					],
+					"sid": 934217601509356
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 755355339813547,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 848401666208606,
+							"parameters": [
+								"\"Soldier\"",
+								"50"
+							]
+						},
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 535623300913361,
+							"parameters": [
+								"\"SoldierCrawler\"",
+								"25"
+							]
+						}
+					],
+					"sid": 472265695288212
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 929593576882305,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 348507690240395,
+							"parameters": [
+								"\"Riot\"",
+								"40"
+							]
+						}
+					],
+					"sid": 658419998932963
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 857618058309772,
+							"parameters": {
+								"variable": "horde_wave",
+								"comparison": 0,
+								"value": "7"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Horde_AddEnemy",
+							"sid": 479644947534675,
+							"parameters": [
+								"\"Brute\"",
+								"25"
+							]
+						}
+					],
+					"sid": 973160157569926
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Horde_ShufflePool",
+							"sid": 376094064103294
+						}
+					],
+					"sid": 445437004499399
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 847877226394588,
+					"parameters": {
+						"key": 77
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 515387470499672,
+					"parameters": {
+						"tag": "\"BGM\""
+					}
+				}
+			],
+			"sid": 780414919230823,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 214006709420458,
+							"parameters": {
+								"variable": "horde_bgm",
+								"comparison": 0,
+								"value": "\"None\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 621189363356542,
+							"parameters": {
+								"audio-file": "Mountain",
+								"loop": "looping",
+								"volume": "-5",
+								"tag-optional": "\"BGM\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 127662794320785,
+							"parameters": {
+								"variable": "horde_bgm",
+								"value": "\"Mountain\""
+							}
+						}
+					],
+					"sid": 603258326488752
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 336867914960637
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 518905085212495,
+							"parameters": {
+								"variable": "horde_bgm",
+								"comparison": 0,
+								"value": "\"Mountain\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 491982524087583,
+							"parameters": {
+								"audio-file": "Wastes",
+								"loop": "looping",
+								"volume": "-5",
+								"tag-optional": "\"BGM\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 383923009050269,
+							"parameters": {
+								"variable": "horde_bgm",
+								"value": "\"Wastes\""
+							}
+						}
+					],
+					"sid": 330370798711169
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 799112471795260
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 146127608398280,
+							"parameters": {
+								"variable": "horde_bgm",
+								"comparison": 0,
+								"value": "\"Wastes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 210274827245646,
+							"parameters": {
+								"audio-file": "amb_creepy",
+								"loop": "looping",
+								"volume": "-5",
+								"tag-optional": "\"BGM\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 981724913155766,
+							"parameters": {
+								"variable": "horde_bgm",
+								"value": "\"Ambient\""
+							}
+						}
+					],
+					"sid": 267533327015088
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 836771300347831
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 503021217729133,
+							"parameters": {
+								"variable": "horde_bgm",
+								"comparison": 0,
+								"value": "\"Ambient\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 422359911884857,
+							"parameters": {
+								"variable": "horde_bgm",
+								"value": "\"None\""
+							}
+						}
+					],
+					"sid": 414928864041806
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Horde_UpdateText",
+							"sid": 179733845849413
+						}
+					],
+					"sid": 584574400228687
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "spawn chance?"
+		},
+		{
+			"functionName": "\"Horde_SpawnLoot\"",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 737265595612297
+				},
+				{
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 773325682443307
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 752000787762652,
+					"parameters": {
+						"first-value": "floor(random(0,100.99))",
+						"comparison": 3,
+						"second-value": "horde_lootchance"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 717715224780803,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 432363965857779,
+							"parameters": {
+								"first-value": "floor(random(0,6))",
+								"comparison": 2,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 562249223110266,
+							"parameters": {
+								"object-to-create": "Loot_ContainerSpawn",
+								"layer": "\"Objects\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Loot_ContainerSpawn",
+							"sid": 484955362580541,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "\"random\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Loot_ContainerSpawn",
+							"sid": 343195908554765,
+							"parameters": {
+								"instance-variable": "Size",
+								"value": "choose(\"small\",\"med\",\"large\")"
+							}
+						}
+					],
+					"sid": 364357823635502
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 329021426419412
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 447710911813325,
+							"parameters": {
+								"object-to-create": "Object",
+								"layer": "\"Objects\"",
+								"x": "x",
+								"y": "y",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 365563114387423,
+							"parameters": {
+								"instance-variable": "Type",
+								"value": "choose(\"Weapon\",\"WeaponMod\",\"WeaponMod\",\"Equipment\")"
+							}
+						}
+					],
+					"sid": 630502568207693,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Object",
+									"sid": 142987055158035,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Weapon\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Object",
+									"sid": 233259187471675,
+									"parameters": {
+										"animation": "\"Weapon\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 143203493882366,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "choose(\"SMG\",\"BurstPistol\",\"Shotgun\",\"Rifle\")"
+									}
+								}
+							],
+							"sid": 391426616929420
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 455219496529128
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Object",
+									"sid": 304262365063176,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"WeaponMod\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Object",
+									"sid": 148862176408084,
+									"parameters": {
+										"animation": "\"WeaponMod\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 760965559215923,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "choose(\"Damage\",\"Interval\",\"Knockback\",\"Spread\",\"Magsize\",\"Reload\",\"Handling\",\"Penetration\",\"ShotCount\",\"BurstCount\")"
+									}
+								}
+							],
+							"sid": 467915975187066
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 456517120704350
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Object",
+									"sid": 845957278382015,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Equipment\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Object",
+									"sid": 677305565674080,
+									"parameters": {
+										"animation": "\"Equipment\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 201106863945859,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Grenade\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 811798427632827,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Axe\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 708981992137121,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Molotov\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 130283553780226,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Supply Beacon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 709182891381927,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Claymore\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 547654185769923,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "\"Turret\""
+									}
+								}
+							],
+							"sid": 677842495756012
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_AmmoPrice",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 657187877387739
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_BulletPrice",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 387761631400323
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_AmmoPrice_Light",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 643201805889676
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_AmmoPrice_Medium",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 408160608249291
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_AmmoPrice_Heavy",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 784157526631603
+		},
+		{
+			"eventType": "variable",
+			"name": "Horde_AmmoPrice_Light4",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 538885685480885
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 634464062458056,
+					"parameters": {
+						"object": "Horde_AmmoStore"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 850202624901814,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 468678468457962,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 1,
+								"value": "\"infinite\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 237472444315375,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 142324529849432,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"light\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 404378320294048,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 126575305522705
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 148888568714173
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 914716578595846,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"medium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 238187587961589,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 323119325093083
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 382568060170138
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 201880487237365,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"heavy\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 871440384023841,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 779158033968886
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 389197256756850
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 886692988380345,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"shell\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 745229509627531,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 281267809771007
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 228257497488474
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 617296961598631,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"explosive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 179797769053846,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 425814709540907
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 909036831527468
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Weapon_Player",
+									"sid": 206349484699491,
+									"parameters": {
+										"instance-variable": "AmmoType",
+										"comparison": 0,
+										"value": "\"special\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 205124673458267,
+									"parameters": {
+										"variable": "Horde_BulletPrice",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 111631739276842
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 137560326155300,
+									"parameters": {
+										"variable": "Horde_AmmoPrice",
+										"value": "ceil(Weapon_Player.Magsize*Horde_BulletPrice)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Horde_StoreText",
+									"sid": 929455220756469,
+									"parameters": {
+										"text": "\"Ammo: $\" & horde_ammoprice"
+									}
+								}
+							],
+							"sid": 733586809637924
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 846190224958248
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Horde_StoreText",
+							"sid": 479407002212601,
+							"parameters": {
+								"text": "\"Can't Buy\""
+							}
+						}
+					],
+					"sid": 290492363312978
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Horde_StoreText",
+							"sid": 639845389928366,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 279741634161155
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 388452882597641
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Horde_StoreText",
+					"sid": 468680883477504,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 197553185797173
+		},
+		{
+			"eventType": "comment",
+			"text": "should make shop funcitons for purchase and stuff"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "function",
+					"sid": 360821972558442,
+					"parameters": {
+						"name": "\"PLR_Interact\""
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 577166929433816,
+					"parameters": {
+						"object": "Horde_AmmoStore"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Weapon_Player",
+					"sid": 851670817792923,
+					"parameters": {
+						"instance-variable": "AmmoType",
+						"comparison": 1,
+						"value": "\"infinite\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 230214122521760,
+					"parameters": {
+						"first-value": "PlayerData.Money",
+						"comparison": 5,
+						"second-value": "Horde_AmmoPrice"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerData",
+					"sid": 713171976155232,
+					"parameters": {
+						"instance-variable": "Money",
+						"value": "Horde_AmmoPrice"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 267609681583199,
+					"parameters": {
+						"audio-file": "purchase",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 185149636098071,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 124192796240715,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"light\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 281313199825413,
+							"parameters": {
+								"instance-variable": "Ammo_Light",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 892979041827886
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 472636381691769
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 992695371220693,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"medium\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 425796308380018,
+							"parameters": {
+								"instance-variable": "Ammo_Medium",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 735035145762362
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 922609277542129
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 597890424124416,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"heavy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 953639262262704,
+							"parameters": {
+								"instance-variable": "Ammo_Heavy",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 116939000129635
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 878118906483586
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 738224700406407,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"shell\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 129936618883671,
+							"parameters": {
+								"instance-variable": "Ammo_Shell",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 220952738225985
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 141673819988691
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 232943396935882,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"explosive\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 499850120615819,
+							"parameters": {
+								"instance-variable": "Ammo_Explosive",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 984513077297042
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 718646671890418
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Weapon_Player",
+							"sid": 458589173199148,
+							"parameters": {
+								"instance-variable": "AmmoType",
+								"comparison": 0,
+								"value": "\"special\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Weapon_Player",
+							"sid": 267797308769777,
+							"parameters": {
+								"instance-variable": "Ammo_Special",
+								"value": "Weapon_Player.Magsize"
+							}
+						}
+					],
+					"sid": 674384556894583
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "TEMP LEVELLING"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 814833656812909
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerData",
+					"sid": 592498400185212,
+					"parameters": {
+						"instance-variable": "Level_XPNeeded",
+						"value": "50"
+					}
+				}
+			],
+			"sid": 232559064050761
+		},
+		{
+			"eventType": "comment",
+			"text": "needs sound"
+		},
+		{
+			"functionName": "PLR_LevelUp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerData",
+					"sid": 124685939663085,
+					"parameters": {
+						"instance-variable": "Level_XPThisLevel",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerData",
+					"sid": 772042161441943,
+					"parameters": {
+						"instance-variable": "HP",
+						"value": "PlayerData.MaxHP"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 308243157671716,
+					"parameters": {
+						"name": "\"FX_LevelUp\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 336203098220858
+		},
+		{
+			"functionName": "PLR_AddXP",
+			"functionDescription": "",
+			"functionCategory": "PLR",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "PlayerData",
+					"sid": 135783671600335,
+					"parameters": {
+						"instance-variable": "Level_XPTotal",
+						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "PlayerData",
+					"sid": 208315776074147,
+					"parameters": {
+						"instance-variable": "Level_XPThisLevel",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 975563031459720,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerData",
+							"sid": 925936862669243,
+							"parameters": {
+								"instance-variable": "Level_XPNeeded",
+								"comparison": 3,
+								"value": "PlayerData.Level_XPThisLevel"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PLR_LevelUp",
+							"sid": 772788716631610
+						}
+					],
+					"sid": 551205942947340
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 344538582919659
+						}
+					],
+					"actions": [],
+					"sid": 315490008715866
+				}
+			]
+		}
+	],
+	"sid": 144403547987558
+}

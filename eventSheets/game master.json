@@ -161,6 +161,16 @@
 			"text": "TODO - Doors, etc"
 		},
 		{
+			"eventType": "variable",
+			"name": "GroundHeight",
+			"type": "number",
+			"initialValue": "9984",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 205431765209073
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game Events",
@@ -2387,16 +2397,6 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "variable",
-									"name": "GroundHeight",
-									"type": "number",
-									"initialValue": "10000",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 170035545412971
-								},
-								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -2772,6 +2772,32 @@
 													}
 												},
 												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 808405497869935,
+													"disabled": true,
+													"parameters": {
+														"object-to-create": "FG_Forest",
+														"layer": "\"Tile_BG\"",
+														"x": "FG_X",
+														"y": "GroundHeight",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 356477038831365,
+													"disabled": true,
+													"parameters": {
+														"object-to-create": "FG_Forest",
+														"layer": "\"BG2\"",
+														"x": "FG_X",
+														"y": "CanvasToLayerY(\"Tile_BG\",LayerToCanvasX(\"BG2\",FG_X,GroundHeight) ,LayerToCanvasY(\"BG2\",FG_X,GroundHeight))",
+														"create-hierarchy": false
+													}
+												},
+												{
 													"id": "set-size",
 													"objectClass": "BG_Forest",
 													"sid": 882073107688493,
@@ -2906,6 +2932,7 @@
 										}
 									],
 									"sid": 181988271682515,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -2943,7 +2970,8 @@
 													}
 												}
 											],
-											"sid": 107479259902245
+											"sid": 107479259902245,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -2981,7 +3009,8 @@
 													}
 												}
 											],
-											"sid": 635899992915526
+											"sid": 635899992915526,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3019,9 +3048,65 @@
 													}
 												}
 											],
-											"sid": 712844690705004
+											"sid": 712844690705004,
+											"disabled": true
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 984249712328261,
+											"parameters": {
+												"key": 86
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "FG_Forest",
+											"sid": 831674735630845,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"BG2\""
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 915536124402441,
+											"disabled": true,
+											"parameters": {
+												"object-to-create": "FG_Forest",
+												"layer": "\"BG2\"",
+												"x": "FG_X",
+												"y": "CanvasToLayerY(\"Tile_BG\",LayerToCanvasX(\"BG2\",FG_X,GroundHeight) ,LayerToCanvasY(\"BG2\",FG_X,GroundHeight))",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "FG_Forest",
+											"sid": 660193136042220,
+											"disabled": true,
+											"parameters": {
+												"y": "CanvasToLayerY(\"BG2\",LayerToCanvasX(\"Tile_BG\",FG_X,GroundHeight) ,LayerToCanvasY(\"Tile_BG\",FG_X,GroundHeight))"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "BG_Forest",
+											"sid": 946696400192069,
+											"parameters": {
+												"y": "CanvasToLayerY(\"BG\",LayerToCanvasX(\"Tile_BG\",FG_X,GroundHeight) ,LayerToCanvasY(\"Tile_BG\",FG_X,GroundHeight))"
+											}
+										}
+									],
+									"sid": 145486620748885
 								}
 							],
 							"sid": 357262300838228

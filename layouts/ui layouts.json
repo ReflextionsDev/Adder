@@ -6114,8 +6114,8 @@
 						}
 					},
 					"world": {
-						"x": 64,
-						"y": 328,
+						"x": 81,
+						"y": 338,
 						"width": 512,
 						"height": 32,
 						"originX": 0,
@@ -6124,6 +6124,176 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text_EquipCooldown",
+					"properties": {
+						"text": "Equipment: 00",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 27605,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 0,
+						"width": 252,
+						"height": 87,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Horde_Text",
+					"properties": {
+						"text": "Wave: 0 | Kills: 0 | BGM: Ambient",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 28373,
+					"instanceVariables": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "none",
+								"top-edge": "window-bottom",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": -64,
+						"y": 288,
+						"width": 768,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9019607843137255,
+							0,
+							0,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Horde_TextWave",
+					"properties": {
+						"text": "WAVE 1",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 2,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 28380,
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0.5,
+								"wait-time": 1,
+								"fade-out-time": 2,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 4,
+								"Color": [
+									0,
+									0,
+									0,
+									1
+								]
+							}
+						},
+						"BlurHorizontal": {
+							"parameters": {
+								"intensity": 0.4
+							}
+						},
+						"BlurVertical": {
+							"parameters": {
+								"intensity": 0.4
+							}
+						},
+						"HexagonalPixellate": {
+							"parameters": {
+								"scale": 4
+							}
+						},
+						"Noise": {
+							"parameters": {
+								"intensity": 0.4,
+								"color": 1
+							}
+						}
+					},
+					"world": {
+						"x": 120,
+						"y": 120,
+						"width": 432,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9019607843137255,
+							0,
+							0,
 							1
 						],
 						"angle": 0,

@@ -109,6 +109,20 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "tempvalue",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 757169997737769
+		},
+		{
+			"eventType": "comment",
+			"text": "Debug"
+		},
+		{
+			"eventType": "variable",
 			"name": "debug_CategoryTitle",
 			"type": "string",
 			"initialValue": "",
@@ -131,7 +145,7 @@
 			"eventType": "variable",
 			"name": "debug_CategoryLimit",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "4",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -159,13 +173,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "tempvalue",
+			"name": "debug_bg",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 465142972850518
+			"sid": 550913895215594
 		},
 		{
 			"eventType": "comment",
@@ -196,6 +210,10 @@
 						{
 							"eventType": "comment",
 							"text": "Params - Cur Value, Max"
+						},
+						{
+							"eventType": "comment",
+							"text": "I don't need this, use clamp()"
 						},
 						{
 							"eventType": "block",
@@ -925,6 +943,37 @@
 														"pin-to": "NPC",
 														"mode": "position-angle"
 													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 592459966530610,
+													"parameters": {
+														"object-to-create": "Debug_StateText",
+														"layer": "\"Objects\"",
+														"x": "NPC.X",
+														"y": "NPC.Y + 24",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Debug_StateText",
+													"sid": 181033121938121,
+													"parameters": {
+														"instance-variable": "NPCID",
+														"value": "NPC.UID"
+													}
+												},
+												{
+													"id": "pin-to-object",
+													"objectClass": "Debug_StateText",
+													"sid": 724212259872920,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "NPC",
+														"mode": "position-angle"
+													}
 												}
 											],
 											"sid": 899781697890751
@@ -1007,6 +1056,75 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 506503496579919,
+									"parameters": {
+										"variable": "system_Debug",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 631579718745952,
+									"parameters": {
+										"object": "Debug_StateText"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 870301210115849,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC",
+											"sid": 972798327516427,
+											"parameters": {
+												"unique-id": "Debug_StateText.NPCID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Debug_StateText",
+											"sid": 320341840451667,
+											"parameters": {
+												"text": "NPC.State"
+											}
+										}
+									],
+									"sid": 207831643986042
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 274417052673253
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Debug_StateText",
+											"sid": 490702810528298
+										}
+									],
+									"sid": 538965071078905
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "on-created",
 									"objectClass": "NPC",
 									"sid": 413180329155750
@@ -1053,6 +1171,37 @@
 										"pin-to": "NPC",
 										"mode": "position-angle"
 									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 588667812061914,
+									"parameters": {
+										"object-to-create": "Debug_StateText",
+										"layer": "\"Objects\"",
+										"x": "NPC.X",
+										"y": "NPC.Y + 24",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Debug_StateText",
+									"sid": 765943349425040,
+									"parameters": {
+										"instance-variable": "NPCID",
+										"value": "NPC.UID"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "Debug_StateText",
+									"sid": 938308743680240,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "NPC",
+										"mode": "position-angle"
+									}
 								}
 							],
 							"sid": 393642063974847
@@ -1092,6 +1241,11 @@
 									"id": "destroy",
 									"objectClass": "Debug_HealthText",
 									"sid": 868171905865581
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Debug_StateText",
+									"sid": 267966881829198
 								},
 								{
 									"id": "set-eventvar-value",
@@ -1144,9 +1298,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Debug_SF",
-											"sid": 769899338003343,
+											"sid": 162201138324219,
 											"parameters": {
-												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle)"
+												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle)"
 											}
 										}
 									],
@@ -1749,10 +1903,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 548922952615196,
+											"sid": 289857034018766,
 											"parameters": {
 												"variable": "debug_SpawnerLimit",
-												"value": "11"
+												"value": "12"
 											}
 										}
 									],
@@ -2069,6 +2223,32 @@
 												}
 											],
 											"sid": 156167788704744
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 427187950761463,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "12"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 453161558839614,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Zealot\""
+													}
+												}
+											],
+											"sid": 617989933359050
 										}
 									]
 								},
@@ -2939,6 +3119,200 @@
 											"sid": 919783568343470
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 624044717893422,
+											"parameters": {
+												"variable": "debug_Category",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 283302455369683,
+											"parameters": {
+												"variable": "debug_CategoryTitle",
+												"value": "\"Equipment\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 996755266876241,
+											"parameters": {
+												"variable": "debug_SpawnerLimit",
+												"value": "5"
+											}
+										}
+									],
+									"sid": 433488207257376,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 525405624160992,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 426887089667380,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Grenade\""
+													}
+												}
+											],
+											"sid": 634034318090864
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 620999254524452,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 332585299317787,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Axe\""
+													}
+												}
+											],
+											"sid": 198199333774971
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 448829865071791,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 594984677793625,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Molotov\""
+													}
+												}
+											],
+											"sid": 747772641338933
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 495625911622988,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 566666069163889,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Supply Beacon\""
+													}
+												}
+											],
+											"sid": 868782648109177
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 121281029867657,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 459612117071369,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Claymore\""
+													}
+												}
+											],
+											"sid": 858065462148884
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 127493303147623,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 913170500196721,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Turret\""
+													}
+												}
+											],
+											"sid": 384277132571661
+										}
+									]
 								}
 							]
 						},
@@ -3321,10 +3695,10 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Zombie",
-													"sid": 489829520160737,
+													"sid": 322267717656294,
 													"parameters": {
 														"instance-variable": "Class",
-														"value": "\"SoldierHelmetlesscrawler\""
+														"value": "\"SoldierHelmetlessCrawler\""
 													}
 												}
 											],
@@ -3446,6 +3820,45 @@
 												}
 											],
 											"sid": 199345850635333
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 500445242373637,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "12"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 787607416564142,
+													"parameters": {
+														"object-to-create": "Zombie",
+														"layer": "\"Objects\"",
+														"x": "Mouse.X(\"Objects\")",
+														"y": "Mouse.Y(\"Objects\")",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Zombie",
+													"sid": 240282885196438,
+													"parameters": {
+														"instance-variable": "Class",
+														"value": "\"Zealot\""
+													}
+												}
+											],
+											"sid": 531270662805634
 										},
 										{
 											"eventType": "block",
@@ -4552,6 +4965,486 @@
 											"sid": 720685021208987
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 165504883634712,
+											"parameters": {
+												"variable": "debug_Category",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 224926685594843,
+											"parameters": {
+												"object-to-create": "Object",
+												"layer": "\"Objects\"",
+												"x": "Mouse.X(\"Objects\")",
+												"y": "Mouse.Y(\"Objects\")",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Object",
+											"sid": 497740072179055,
+											"parameters": {
+												"animation": "\"Equipment\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Object",
+											"sid": 704865620715762,
+											"parameters": {
+												"instance-variable": "Type",
+												"value": "\"Equipment\""
+											}
+										}
+									],
+									"sid": 670119132411417,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 317676991210834,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 872470810292136,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Grenade\""
+													}
+												}
+											],
+											"sid": 211009423526017
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 858056888417100,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 619711925966300,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Axe\""
+													}
+												}
+											],
+											"sid": 157994912713760
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 729696346569346,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 281401650905802,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Molotov\""
+													}
+												}
+											],
+											"sid": 866582009478627
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 692069116479640,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 167667405592499,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Supply Beacon\""
+													}
+												}
+											],
+											"sid": 311987402918591
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 142620339782514,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 525116793884150,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Claymore\""
+													}
+												}
+											],
+											"sid": 735890759846162
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 364603079311802,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 679486851632229,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "\"Turret\""
+													}
+												}
+											],
+											"sid": 659507660709260
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 785081955782615,
+													"parameters": {
+														"name": "\"Debug_Text\"",
+														"parameter-n": [
+															"\"Spawned Weapon Mod: \" & Object.Subtype & \"'\""
+														]
+													}
+												}
+											],
+											"sid": 618848958312422
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 391278529383650,
+									"parameters": {
+										"key": 66
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 360604814651809,
+									"parameters": {
+										"name": "\"Spawn_BG\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 106266785616172,
+									"parameters": {
+										"variable": "GroundHeight",
+										"value": "Editor_Settings.GroundHeight"
+									}
+								}
+							],
+							"sid": 118562006318677,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 675056222110179,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 408009947130747,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"Forest\""
+											}
+										}
+									],
+									"sid": 488509373050559,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 514488341043810,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 338280805049381,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"Suburb\""
+											}
+										}
+									],
+									"sid": 529169407790040,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 612641017600583,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 675402869247755,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"Wastes\""
+											}
+										}
+									],
+									"sid": 700706649418870,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 416778082826536,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 285224075144539,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"City\""
+											}
+										}
+									],
+									"sid": 524335926597011,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 511682463264166,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 622562987558088,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"Industrial\""
+											}
+										}
+									],
+									"sid": 788236660722528,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 270679342410968,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 0,
+												"value": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 358144383534305,
+											"parameters": {
+												"variable": "BG_Name",
+												"value": "\"Mountain\""
+											}
+										}
+									],
+									"sid": 238900439614103,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 134379920968519,
+											"parameters": {
+												"variable": "debug_bg",
+												"value": "debug_bg + 1"
+											}
+										}
+									],
+									"sid": 184347531725638,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 942068764179409,
+											"parameters": {
+												"variable": "debug_bg",
+												"comparison": 4,
+												"value": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 419184702842635,
+											"parameters": {
+												"variable": "debug_bg",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 521673807641366,
+									"disabled": true
 								}
 							]
 						}
@@ -4957,6 +5850,10 @@
 									],
 									"actions": [
 										{
+											"type": "comment",
+											"text": "can use clamp here lol"
+										},
+										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 450283946018597,
@@ -5042,6 +5939,119 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Debug Teleport",
+							"description": "Disable on Export",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "Editor_Teleport",
+											"sid": 385612581056625
+										},
+										{
+											"id": "is-on-layer",
+											"objectClass": "Editor_Teleport",
+											"sid": 669527264049484,
+											"parameters": {
+												"layer": "\"Editor_Core\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "push",
+											"objectClass": "Editor_TeleportsList",
+											"sid": 889655868408985,
+											"parameters": {
+												"where": "back",
+												"value": "Editor_Teleport.UID",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 261861237005789
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 979500348656988,
+											"parameters": {
+												"key": 84
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Editor_Teleport",
+											"sid": 729867129486309,
+											"parameters": {
+												"unique-id": "Editor_TeleportsList.At(debug_TeleportIndex)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Player",
+											"sid": 857716886490346,
+											"parameters": {
+												"object": "Editor_Teleport",
+												"image-point-optional": "0"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 572357174849435,
+											"parameters": {
+												"variable": "debug_TeleportIndex",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 254372058205680,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 331089002372484,
+													"parameters": {
+														"first-value": "debug_TeleportIndex",
+														"comparison": 5,
+														"second-value": "Editor_TeleportsList.Width"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 322818185988171,
+													"parameters": {
+														"variable": "debug_TeleportIndex",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 309686871323354
+										}
+									]
+								}
+							],
+							"sid": 717769515409312
+						},
 						{
 							"eventType": "group",
 							"disabled": true,
@@ -5964,6 +6974,16 @@
 			"sid": 725423497198198
 		},
 		{
+			"eventType": "variable",
+			"name": "system_layerscale",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 910194030643052
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Camera",
@@ -6576,111 +7596,200 @@
 						{
 							"id": "set-layer-scale",
 							"objectClass": "System",
-							"sid": 267999417750148,
+							"sid": 454582373208363,
+							"parameters": {
+								"layer": "\"BG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 811132210629022,
 							"parameters": {
 								"layer": "\"BG2\"",
-								"scale": "LayerScale(\"BG\")"
+								"scale": "system_layerscale"
 							}
 						},
 						{
 							"id": "set-layer-scale",
 							"objectClass": "System",
-							"sid": 183336930745120,
-							"parameters": {
-								"layer": "\"LevelBG\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 244560894837117,
-							"parameters": {
-								"layer": "\"Solid\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 128903464732606,
-							"parameters": {
-								"layer": "\"Level\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 139873564061614,
-							"parameters": {
-								"layer": "\"Objects\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 193835076826233,
-							"parameters": {
-								"layer": "\"Player_HP\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 943820600579127,
-							"parameters": {
-								"layer": "\"Player_Ammo\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 582273126098147,
-							"parameters": {
-								"layer": "\"Player\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 332559615741938,
-							"parameters": {
-								"layer": "\"Fog\"",
-								"scale": "LayerScale(\"BG\")"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 799876952005289,
+							"sid": 206863344863338,
 							"parameters": {
 								"layer": "\"Clouds\"",
-								"scale": "LayerScale(\"BG\")"
+								"scale": "system_layerscale"
 							}
 						},
 						{
 							"id": "set-layer-scale",
 							"objectClass": "System",
-							"sid": 309737807813967,
-							"disabled": true,
+							"sid": 416574141064835,
+							"parameters": {
+								"layer": "\"Tile_BG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 829301309142816,
+							"parameters": {
+								"layer": "\"Tile_Shadow\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 302696249859191,
+							"parameters": {
+								"layer": "\"Tile_Detail\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 821402000330546,
+							"parameters": {
+								"layer": "\"Prefabs\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 936851288113238,
+							"parameters": {
+								"layer": "\"Solid\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 519970056357682,
+							"parameters": {
+								"layer": "\"Zones\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 319519792353077,
+							"parameters": {
+								"layer": "\"Decor_BG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 212155762158219,
+							"parameters": {
+								"layer": "\"NPC_Under\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 478698283634945,
+							"parameters": {
+								"layer": "\"Player_Under\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 943485662988752,
+							"parameters": {
+								"layer": "\"Decor_BG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 820934069120628,
+							"parameters": {
+								"layer": "\"Decor_MG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 629364684167854,
+							"parameters": {
+								"layer": "\"Objects\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 623312060616063,
+							"parameters": {
+								"layer": "\"Player_HP\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 145986301148386,
+							"parameters": {
+								"layer": "\"Player_Ammo\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 655612935327918,
+							"parameters": {
+								"layer": "\"Player\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 657759539357598,
+							"parameters": {
+								"layer": "\"Decor_FG\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 905155700099663,
+							"parameters": {
+								"layer": "\"Fog\"",
+								"scale": "system_layerscale"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 677549495043671,
 							"parameters": {
 								"layer": "\"Cursor\"",
-								"scale": "LayerScale(\"BG\")"
+								"scale": "system_layerscale"
 							}
 						},
 						{
 							"id": "set-layer-scale",
 							"objectClass": "System",
-							"sid": 116349467198037,
+							"sid": 548362387812811,
 							"disabled": true,
 							"parameters": {
 								"layer": "\"Loader\"",
-								"scale": "LayerScale(\"BG\")"
+								"scale": "system_layerscale"
 							}
 						},
 						{
@@ -6825,11 +7934,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 212980790177167,
+									"sid": 812676945929866,
 									"parameters": {
 										"first-value": "(system_ZoomBase*system_ZoomFactor)*100",
 										"comparison": 1,
-										"second-value": "round(LayerScale(\"BG\")*100)"
+										"second-value": "round(system_layerscale*100)"
 									}
 								}
 							],
@@ -6837,10 +7946,10 @@
 								{
 									"id": "set-layer-scale",
 									"objectClass": "System",
-									"sid": 828554033054497,
+									"sid": 670974676158408,
 									"parameters": {
-										"layer": "\"BG\"",
-										"scale": "lerp(LayerScale(\"BG\"),system_ZoomBase*system_ZoomFactor,0.05)"
+										"layer": "system_layerscale",
+										"scale": "lerp(system_layerscale,system_ZoomBase*system_ZoomFactor,0.05)"
 									}
 								},
 								{
@@ -6982,9 +8091,9 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 701333692870630,
+											"sid": 727259093726511,
 											"parameters": {
-												"first-value": "round(LayerScale(\"BG\")*100)",
+												"first-value": "round(system_layerscale*100)",
 												"comparison": 5,
 												"second-value": "system_ZoomBase*100"
 											}

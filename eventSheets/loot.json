@@ -887,12 +887,14 @@
 												},
 												{
 													"callFunction": "SFX_Exp",
-													"sid": 302355874148092
+													"sid": 302355874148092,
+													"disabled": true
 												},
 												{
 													"id": "call-function",
 													"objectClass": "function",
 													"sid": 877296920958527,
+													"disabled": true,
 													"parameters": {
 														"name": "\"Loot_Display\"",
 														"parameter-n": [
@@ -964,6 +966,37 @@
 											],
 											"sid": 843952101648344,
 											"disabled": true
+										},
+										{
+											"eventType": "comment",
+											"text": "temp"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "SFX_Exp",
+													"sid": 657563587849019
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 960304593830544,
+													"parameters": {
+														"name": "\"Loot_Display\"",
+														"parameter-n": [
+															"\"XP\"",
+															"Loot.Value"
+														]
+													}
+												},
+												{
+													"callFunction": "PLR_AddXP",
+													"sid": 193883984473511
+												}
+											],
+											"sid": 223186893715605
 										}
 									]
 								},
