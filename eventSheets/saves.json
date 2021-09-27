@@ -3,6 +3,206 @@
 	"events": [
 		{
 			"eventType": "group",
+			"disabled": true,
+			"title": "Save Events",
+			"description": "Temporarily Disabled",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 251289741421138,
+							"parameters": {
+								"name": "\"Save\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "SaveData",
+							"sid": 253347065483871,
+							"parameters": {
+								"key": "\"SurvivorData\"",
+								"value": "ColonistData.AsJSON"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 478459220596916,
+							"parameters": {
+								"key": "\"SaveData\"",
+								"value": "SaveData.AsJSON"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 868697660672031,
+							"parameters": {
+								"type": "log",
+								"message": "\"Game Saved\""
+							}
+						}
+					],
+					"sid": 605858338263195,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 329327936327541,
+							"parameters": {
+								"name": "\"Load\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 766322793708444,
+							"parameters": {
+								"variable": "system_SaveLoaded",
+								"value": "0"
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 456427672047136,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"sid": 294249003118801,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 835086124133685,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 843086038778449,
+							"parameters": {
+								"type": "warn",
+								"message": "\"Save data does not exist\""
+							}
+						}
+					],
+					"sid": 236511438440737,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 526065472614266,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 348304177158666,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"sid": 457971708566248,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 699961637346029,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "SaveData",
+							"sid": 445316628618579,
+							"parameters": {
+								"json": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "ColonistData",
+							"sid": 870988939006045,
+							"parameters": {
+								"json": "SaveData.Get(\"SurvivorData\")"
+							}
+						}
+					],
+					"sid": 565510901404538,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 564675742851916,
+									"parameters": {
+										"variable": "system_SaveLoaded",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 126509625772220,
+									"parameters": {
+										"type": "log",
+										"message": "\"Game Loaded\""
+									}
+								}
+							],
+							"sid": 470705747244687,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 710594077709333
+		},
+		{
+			"eventType": "group",
 			"disabled": false,
 			"title": "Save TODO",
 			"description": "",
@@ -28,6 +228,10 @@
 			"sid": 472286014309791
 		},
 		{
+			"eventType": "comment",
+			"text": "Save Data"
+		},
+		{
 			"eventType": "variable",
 			"name": "system_SaveString",
 			"type": "string",
@@ -49,33 +253,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "system_SaveVersion",
-			"type": "number",
-			"initialValue": "1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 314757014566587
-		},
-		{
-			"eventType": "variable",
-			"name": "system_SaveData",
+			"name": "system_SaveChecked",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 317290579200303
+			"sid": 312721129734387
 		},
 		{
 			"eventType": "variable",
-			"name": "system_SaveDataChecked",
+			"name": "system_SaveExists",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 691023000518708
+			"sid": 411272316013154
 		},
 		{
 			"eventType": "variable",
@@ -88,14 +282,18 @@
 			"sid": 154144843410533
 		},
 		{
+			"eventType": "comment",
+			"text": "Other Data"
+		},
+		{
 			"eventType": "variable",
-			"name": "system_ControlDataLoaded",
+			"name": "system_ControlsLoaded",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 491724009177324
+			"sid": 670574141921312
 		},
 		{
 			"eventType": "variable",
@@ -105,7 +303,27 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 174471096218177
+			"sid": 502070725782952
+		},
+		{
+			"eventType": "variable",
+			"name": "system_JSONsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 339775306793584
+		},
+		{
+			"eventType": "variable",
+			"name": "system_LevelListsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 628911812168508
 		},
 		{
 			"eventType": "group",
@@ -115,7 +333,7 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"functionName": "Save",
+					"functionName": "System_SaveGame",
 					"functionDescription": "",
 					"functionCategory": "System",
 					"functionReturnType": "none",
@@ -142,6 +360,15 @@
 							}
 						},
 						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 817611269406708,
+							"parameters": {
+								"key": "\"SaveVersion\"",
+								"value": "projectversion"
+							}
+						},
+						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 788599659746890,
@@ -152,6 +379,27 @@
 						}
 					],
 					"sid": 110865398166336
+				},
+				{
+					"functionName": "System_LoadGame",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 407647169011048,
+							"parameters": {
+								"slot": "system_SaveString & system_SaveSlot"
+							}
+						}
+					],
+					"sid": 856610219327094
 				}
 			],
 			"sid": 151927584804174
@@ -181,7 +429,7 @@
 							"objectClass": "System",
 							"sid": 703191882052512,
 							"parameters": {
-								"variable": "system_SaveData",
+								"variable": "system_SaveExists",
 								"value": "0"
 							}
 						},
@@ -190,7 +438,7 @@
 							"objectClass": "System",
 							"sid": 974052454071267,
 							"parameters": {
-								"variable": "system_SaveDataChecked",
+								"variable": "system_SaveChecked",
 								"value": "1"
 							}
 						}
@@ -215,7 +463,7 @@
 							"objectClass": "System",
 							"sid": 715313827278090,
 							"parameters": {
-								"variable": "system_SaveData",
+								"variable": "system_SaveExists",
 								"value": "1"
 							}
 						},
@@ -224,7 +472,7 @@
 							"objectClass": "System",
 							"sid": 431599978082571,
 							"parameters": {
-								"variable": "system_SaveDataChecked",
+								"variable": "system_SaveChecked",
 								"value": "1"
 							}
 						}
@@ -320,12 +568,16 @@
 							"objectClass": "System",
 							"sid": 711610394371399,
 							"parameters": {
-								"variable": "system_ControlDataLoaded",
+								"variable": "system_ControlsLoaded",
 								"value": "1"
 							}
 						}
 					],
 					"sid": 719975384893769
+				},
+				{
+					"eventType": "comment",
+					"text": "should prob have it's own function"
 				},
 				{
 					"eventType": "block",
@@ -649,7 +901,7 @@
 									"objectClass": "System",
 									"sid": 879531606239571,
 									"parameters": {
-										"variable": "system_ControlDataLoaded",
+										"variable": "system_ControlsLoaded",
 										"value": "1"
 									}
 								}
@@ -706,173 +958,362 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
-			"title": "Save Events",
-			"description": "Temporarily Disabled",
+			"disabled": false,
+			"title": "JSONs",
+			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 198449308689362,
-							"parameters": {
-								"name": "\"Save\""
-							}
-						}
-					],
+					"functionName": "System_LoadJSONs",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "add-key",
-							"objectClass": "SaveData",
-							"sid": 670377670319112,
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 515825106890621,
 							"parameters": {
-								"key": "\"SurvivorData\"",
-								"value": "ColonistData.AsJSON"
-							}
-						},
-						{
-							"id": "set-item",
-							"objectClass": "LocalStorage",
-							"sid": 136519701859683,
-							"parameters": {
-								"key": "\"SaveData\"",
-								"value": "SaveData.AsJSON"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 881332302493673,
-							"parameters": {
-								"type": "log",
-								"message": "\"Game Saved\""
+								"tag": "\"loadLevelRef\"",
+								"file": "LevelRef.json"
 							}
 						}
 					],
-					"sid": 729288836045204,
-					"disabled": true
+					"sid": 710327615265946
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 284424840690741,
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 926557665521135,
 							"parameters": {
-								"name": "\"Load\""
+								"tag": "\"loadLevelRef\""
 							}
 						}
 					],
 					"actions": [
+						{
+							"id": "load",
+							"objectClass": "LevelRef",
+							"sid": 748204291457413,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 891350702532422,
+							"parameters": {
+								"tag": "\"loadBiomePresets\"",
+								"file": "BiomePresets.json"
+							}
+						}
+					],
+					"sid": 978395963518731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 344521002802260,
+							"parameters": {
+								"tag": "\"loadBiomePresets\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "BiomePresets",
+							"sid": 864099476514353,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 531569893502053,
+							"parameters": {
+								"tag": "\"loadEventDB\"",
+								"file": "EventDB.json"
+							}
+						}
+					],
+					"sid": 553135258207375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 807117663532297,
+							"parameters": {
+								"tag": "\"loadEventDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "EventDB",
+							"sid": 190576918707305,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 192170305152290,
+							"parameters": {
+								"tag": "\"loadEffectDB\"",
+								"file": "EventDB.json"
+							}
+						}
+					],
+					"sid": 329643714479720
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 311164659738539,
+							"parameters": {
+								"tag": "\"loadEffectDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "EffectDB",
+							"sid": 943445880043087,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Must Come Last"
+						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 463708658708156,
+							"sid": 796278092098602,
 							"parameters": {
-								"variable": "system_SaveLoaded",
-								"value": "0"
+								"variable": "system_JSONsLoaded",
+								"value": "1"
 							}
 						},
 						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 382193966635517,
-							"parameters": {
-								"key": "\"SaveData\""
-							}
+							"callFunction": "System_LoadLevelLists",
+							"sid": 480407908456930
 						}
 					],
-					"sid": 569180857881301,
-					"disabled": true
-				},
+					"sid": 404866664784814
+				}
+			],
+			"sid": 512538539991907
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Lists",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-item-missing",
-							"objectClass": "LocalStorage",
-							"sid": 867191272301313,
-							"parameters": {
-								"key": "\"SaveData\""
-							}
-						}
-					],
+					"functionName": "System_LoadLevelLists",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 884938018019464,
-							"parameters": {
-								"type": "warn",
-								"message": "\"Save data does not exist\""
-							}
+							"id": "destroy",
+							"objectClass": "BiomeLevelList",
+							"sid": 836491551298673
 						}
 					],
-					"sid": 618065869302462,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 765254123361895,
-							"parameters": {
-								"key": "\"SaveData\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "get-item",
-							"objectClass": "LocalStorage",
-							"sid": 365234872490578,
-							"parameters": {
-								"key": "\"SaveData\""
-							}
-						}
-					],
-					"sid": 285136387901494,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-item-get",
-							"objectClass": "LocalStorage",
-							"sid": 783476411577473,
-							"parameters": {
-								"key": "\"SaveData\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "load",
-							"objectClass": "SaveData",
-							"sid": 944028032773149,
-							"parameters": {
-								"json": "LocalStorage.ItemValue"
-							}
-						},
-						{
-							"id": "load",
-							"objectClass": "ColonistData",
-							"sid": 182899952510622,
-							"parameters": {
-								"json": "SaveData.Get(\"SurvivorData\")"
-							}
-						}
-					],
-					"sid": 127229257141320,
-					"disabled": true,
+					"sid": 607624460891684,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 812410718455247,
+									"parameters": {
+										"where": "back",
+										"value": "\"Forest\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 544883095085340,
+									"parameters": {
+										"where": "back",
+										"value": "\"Mountain\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 143505331324871,
+									"parameters": {
+										"where": "back",
+										"value": "\"Suburb\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 301725805252352,
+									"parameters": {
+										"where": "back",
+										"value": "\"Wastes\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 715639491046203,
+									"parameters": {
+										"where": "back",
+										"value": "\"Industrial\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 203590774871578,
+									"parameters": {
+										"where": "back",
+										"value": "\"City\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 150813449627470,
+									"parameters": {
+										"where": "back",
+										"value": "\"Test\"",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 115445055166397
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "BiomeList",
+									"sid": 343024110098936,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 666956235378826,
+									"parameters": {
+										"object-to-create": "BiomeLevelList",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "BiomeLevelList",
+									"sid": 763478124263773,
+									"parameters": {
+										"instance-variable": "Biome",
+										"value": "BiomeList.CurValue"
+									}
+								}
+							],
+							"sid": 320808152251333,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "LevelRef",
+											"sid": 788710529301981,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 845222361980185,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 517315944634697,
+													"parameters": {
+														"first-value": "LevelRef.At(LevelRef.CurX,BiomeList.CurX+6)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "push",
+													"objectClass": "BiomeLevelList",
+													"sid": 504307998377704,
+													"parameters": {
+														"where": "back",
+														"value": "LevelRef.At(LevelRef.CurX,0)",
+														"axis": "x"
+													}
+												}
+											],
+											"sid": 660004035494572
+										}
+									]
+								}
+							]
+						},
 						{
 							"eventType": "block",
 							"conditions": [],
@@ -880,50 +1321,19 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 620430910379163,
+									"sid": 479819743133183,
 									"parameters": {
-										"variable": "system_SaveLoaded",
+										"variable": "system_LevelListsLoaded",
 										"value": "1"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 572363122879686,
-									"parameters": {
-										"type": "log",
-										"message": "\"Game Loaded\""
 									}
 								}
 							],
-							"sid": 754277018624365,
-							"disabled": true
+							"sid": 898563481122704
 						}
 					]
 				}
 			],
-			"sid": 857362588480406
-		},
-		{
-			"functionName": "Load",
-			"functionDescription": "",
-			"functionCategory": "System",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "System",
-					"sid": 106191704544886,
-					"parameters": {
-						"slot": "system_SaveString & system_SaveSlot"
-					}
-				}
-			],
-			"sid": 769544728899120
+			"sid": 131125866774576
 		}
 	],
 	"sid": 380589850307613

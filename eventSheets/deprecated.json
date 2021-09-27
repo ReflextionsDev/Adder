@@ -42,6 +42,76 @@
 			"sid": 927553635566256
 		},
 		{
+			"eventType": "variable",
+			"name": "player_ThrowStrength",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 432256267961962
+		},
+		{
+			"eventType": "variable",
+			"name": "player_ThrowStrengthBonus",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 801433446510453
+		},
+		{
+			"eventType": "variable",
+			"name": "player_ThrowAngleWeight",
+			"type": "number",
+			"initialValue": "65",
+			"comment": "For the equation",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 182733598427995
+		},
+		{
+			"eventType": "variable",
+			"name": "player_ThrowMultiplier",
+			"type": "number",
+			"initialValue": "0.1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 721877193770428
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_ThrowClampMin",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 120528001625920
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_ThrowClampMax",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 637838784392433
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_ThrowAngle",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 110522909996401
+		},
+		{
 			"eventType": "group",
 			"disabled": true,
 			"title": "Lighting",
@@ -125,7 +195,7 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 875324185568706
 						}
 					],
@@ -137,8 +207,8 @@
 							"parameters": {
 								"object-to-create": "zzfogReveal4",
 								"layer": "\"Shade\"",
-								"x": "Bullet.X",
-								"y": "Bullet.Y",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
 								"create-hierarchy": false
 							}
 						},
@@ -148,7 +218,7 @@
 							"sid": 496741457741513,
 							"behaviorType": "Pin",
 							"parameters": {
-								"pin-to": "Bullet",
+								"pin-to": "Projectile",
 								"mode": "position-angle"
 							}
 						},
@@ -159,8 +229,8 @@
 							"parameters": {
 								"object-to-create": "zzfogReveal3",
 								"layer": "\"Shade\"",
-								"x": "Bullet.X",
-								"y": "Bullet.Y",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
 								"create-hierarchy": false
 							}
 						},
@@ -170,7 +240,7 @@
 							"sid": 903214851689119,
 							"behaviorType": "Pin",
 							"parameters": {
-								"pin-to": "Bullet",
+								"pin-to": "Projectile",
 								"mode": "position-angle"
 							}
 						}
@@ -183,7 +253,7 @@
 					"conditions": [
 						{
 							"id": "on-destroyed",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 286997666898640
 						}
 					],
@@ -3923,13 +3993,8 @@
 					}
 				},
 				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 671197927134354,
-					"parameters": {
-						"name": "\"Loader_Enable\"",
-						"parameter-n": []
-					}
+					"callFunction": "System_LoaderEnable",
+					"sid": 737970537334170
 				},
 				{
 					"id": "set-eventvar-value",
@@ -4090,7 +4155,7 @@
 									"objectClass": "System",
 									"sid": 278141842453309,
 									"parameters": {
-										"variable": "level_BuildLoopActive",
+										"variable": "zzzlevel_BuildLoopActive",
 										"value": "1"
 									}
 								}
@@ -4107,7 +4172,7 @@
 											"parameters": {
 												"first-value": "BuildingSpawnPoint.X",
 												"comparison": 2,
-												"second-value": "level_length"
+												"second-value": "zzzlevel_Length"
 											}
 										}
 									],
@@ -4154,7 +4219,7 @@
 													"objectClass": "System",
 													"sid": 516272264102674,
 													"parameters": {
-														"variable": "level_BuildType",
+														"variable": "zzzlevel_BuildType",
 														"value": "choose(1,2,2)"
 													}
 												}
@@ -4206,7 +4271,7 @@
 													"objectClass": "System",
 													"sid": 510047380810381,
 													"parameters": {
-														"variable": "level_BuildType",
+														"variable": "zzzlevel_BuildType",
 														"value": "1"
 													}
 												}
@@ -4259,7 +4324,7 @@
 															"objectClass": "System",
 															"sid": 223959593425322,
 															"parameters": {
-																"variable": "level_BuildType",
+																"variable": "zzzlevel_BuildType",
 																"value": "3"
 															}
 														}
@@ -4314,7 +4379,7 @@
 															"objectClass": "System",
 															"sid": 183079121502830,
 															"parameters": {
-																"variable": "level_BuildType",
+																"variable": "zzzlevel_BuildType",
 																"value": "3"
 															}
 														}
@@ -4362,7 +4427,7 @@
 													"objectClass": "System",
 													"sid": 106511299273319,
 													"parameters": {
-														"variable": "level_BuildType",
+														"variable": "zzzlevel_BuildType",
 														"comparison": 0,
 														"value": "1"
 													}
@@ -4420,7 +4485,7 @@
 																	"objectClass": "System",
 																	"sid": 725253090575267,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"Forest\""
 																	}
@@ -4433,7 +4498,7 @@
 																	"sid": 513747976991047,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "100 + floor(random(1,level_count+0.9))"
+																		"value": "100 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4447,7 +4512,7 @@
 																	"objectClass": "System",
 																	"sid": 335922993733222,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"Mountain\""
 																	}
@@ -4460,7 +4525,7 @@
 																	"sid": 867860297659417,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "200 + floor(random(1,level_count+0.9))"
+																		"value": "200 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4474,7 +4539,7 @@
 																	"objectClass": "System",
 																	"sid": 628990056000569,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"Suburb\""
 																	}
@@ -4487,7 +4552,7 @@
 																	"sid": 604681341076266,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "300 + floor(random(1,level_count+0.9))"
+																		"value": "300 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4501,7 +4566,7 @@
 																	"objectClass": "System",
 																	"sid": 716856211768989,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"Wastes\""
 																	}
@@ -4514,7 +4579,7 @@
 																	"sid": 659349872378799,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "400 + floor(random(1,level_count+0.9))"
+																		"value": "400 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4528,7 +4593,7 @@
 																	"objectClass": "System",
 																	"sid": 861100283862400,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"Industrial\""
 																	}
@@ -4541,7 +4606,7 @@
 																	"sid": 537731276873889,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "500 + floor(random(1,level_count+0.9))"
+																		"value": "500 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4555,7 +4620,7 @@
 																	"objectClass": "System",
 																	"sid": 836705105566828,
 																	"parameters": {
-																		"variable": "BG_Name",
+																		"variable": "level_Biome",
 																		"comparison": 0,
 																		"value": "\"City\""
 																	}
@@ -4568,7 +4633,7 @@
 																	"sid": 426580959908349,
 																	"parameters": {
 																		"variable": "zzzgame_Level",
-																		"value": "600 + floor(random(1,level_count+0.9))"
+																		"value": "600 + floor(random(1,zzzlevel_Count+0.9))"
 																	}
 																}
 															],
@@ -4682,7 +4747,7 @@
 													"objectClass": "System",
 													"sid": 548821840955805,
 													"parameters": {
-														"variable": "level_BuildType",
+														"variable": "zzzlevel_BuildType",
 														"comparison": 0,
 														"value": "2"
 													}
@@ -4770,7 +4835,7 @@
 													"objectClass": "System",
 													"sid": 446194614134065,
 													"parameters": {
-														"variable": "level_BuildType",
+														"variable": "zzzlevel_BuildType",
 														"comparison": 0,
 														"value": "3"
 													}
@@ -4961,13 +5026,8 @@
 											}
 										},
 										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 467035946819876,
-											"parameters": {
-												"name": "\"Loader_Disable\"",
-												"parameter-n": []
-											}
+											"callFunction": "System_LoaderDisable",
+											"sid": 298804395987508
 										},
 										{
 											"id": "call-function",
@@ -5108,7 +5168,7 @@
 									"objectClass": "System",
 									"sid": 481143237322888,
 									"parameters": {
-										"variable": "level_BuildType",
+										"variable": "zzzlevel_BuildType",
 										"value": "0"
 									}
 								}
@@ -5125,7 +5185,7 @@
 											"parameters": {
 												"first-value": "BuildingSpawnPoint.X",
 												"comparison": 2,
-												"second-value": "level_length"
+												"second-value": "zzzlevel_Length"
 											}
 										}
 									],
@@ -10776,7 +10836,7 @@
 															"objectClass": "System",
 															"sid": 198924597571911,
 															"parameters": {
-																"variable": "level_BuildLoopActive",
+																"variable": "zzzlevel_BuildLoopActive",
 																"comparison": 0,
 																"value": "1"
 															}
@@ -11022,6 +11082,4510 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 965388292074576
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "throw strength different for pc / controller?"
+		},
+		{
+			"eventType": "comment",
+			"text": "Deprecated"
+		},
+		{
+			"eventType": "comment",
+			"text": "should all be family vars"
+		},
+		{
+			"eventType": "comment",
+			"text": "move to deprecated"
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Old  Equipment",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Equipment Test",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "zzzEquip_Grenade",
+									"sid": 100080031654177
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 127602929612085,
+									"parameters": {
+										"object-to-create": "zzzEquip_Axe",
+										"layer": "zzzEquip_Grenade.LayerName",
+										"x": "zzzEquip_Grenade.X",
+										"y": "zzzEquip_Grenade.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 874052194273826
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 900952172662056
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 724205113551434,
+									"parameters": {
+										"object": "zzzEquip_Grenade",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 545171263623027,
+									"disabled": true,
+									"parameters": {
+										"angle": "zzzEquip_Grenade.Angle"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 315369770389093,
+									"parameters": {
+										"where": "in-front",
+										"object": "zzzEquip_Grenade"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "zzzEquip_Grenade",
+									"sid": 356606273592541,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 990515380295385
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 322800854084429,
+									"parameters": {
+										"key": 67
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "inherit equipment"
+								},
+								{
+									"callFunction": "Projectile_Create",
+									"sid": 600816264097075,
+									"disabled": true,
+									"parameters": [
+										"\"kunai\"",
+										"\"Physics\"",
+										"\"Player\"",
+										"\"PlayerWeapon\"",
+										"Player_Arms.ImagePointX(1)",
+										"Player_Arms.ImagePointY(1)",
+										"1",
+										"Weapon_Player.Damage",
+										"Weapon_Player.Penetration",
+										"50",
+										"Player_Arms.Angle",
+										"Weapon_Player.Spread",
+										"0",
+										"Weapon_Player.Knockback",
+										"Weapon_Player.Knockup",
+										"Weapon_Player.canHeadshot",
+										"Weapon_Player.canCripple",
+										"Weapon_Player.canGib",
+										"Weapon_Player.ParticlePrefab",
+										"\"\"",
+										"0.05 + ((player_ThrowStrength*(100-player_ThrowAngleWeight) + (player_ThrowStrengthBonus*player_ThrowAngleWeight))/100)  *player_ThrowMultiplier",
+										"180 + abs(Player_ThrowAngle)",
+										"1500",
+										"\"FX_ImpactSmoke\"",
+										"0",
+										"0",
+										"0",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"\"\""
+									]
+								},
+								{
+									"callFunction": "Projectile_Create",
+									"sid": 458424097298371,
+									"disabled": true,
+									"parameters": [
+										"\"kunai\"",
+										"\"Bullet\"",
+										"\"Player\"",
+										"\"PlayerWeapon\"",
+										"Player_Arms.ImagePointX(1)",
+										"Player_Arms.ImagePointY(1)",
+										"1",
+										"Weapon_Player.Damage",
+										"Weapon_Player.Penetration",
+										"50",
+										"Player_Arms.Angle",
+										"Weapon_Player.Spread",
+										"0",
+										"Weapon_Player.Knockback",
+										"Weapon_Player.Knockup",
+										"Weapon_Player.canHeadshot",
+										"Weapon_Player.canCripple",
+										"Weapon_Player.canGib",
+										"Weapon_Player.ParticlePrefab",
+										"\"\"",
+										"0.05 + ((player_ThrowStrength*(100-player_ThrowAngleWeight) + (player_ThrowStrengthBonus*player_ThrowAngleWeight))/100)  *player_ThrowMultiplier",
+										"180 + abs(Player_ThrowAngle)",
+										"1500",
+										"\"FX_ImpactSmoke\"",
+										"0",
+										"0",
+										"0",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"\"\""
+									]
+								},
+								{
+									"callFunction": "Projectile_Create",
+									"sid": 153877154084344,
+									"disabled": true,
+									"parameters": [
+										"\"kunai\"",
+										"\"Physics\"",
+										"\"Player\"",
+										"\"PlayerWeapon\"",
+										"Player_Arms.ImagePointX(1)",
+										"Player_Arms.ImagePointY(1)",
+										"1",
+										"Weapon_Player.Damage",
+										"Weapon_Player.Penetration",
+										"50",
+										"Player_Arms.Angle",
+										"Weapon_Player.Spread",
+										"0",
+										"Weapon_Player.Knockback",
+										"Weapon_Player.Knockup",
+										"Weapon_Player.canHeadshot",
+										"Weapon_Player.canCripple",
+										"Weapon_Player.canGib",
+										"Weapon_Player.ParticlePrefab",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"\"FX_ImpactSmoke\"",
+										"0",
+										"0",
+										"0",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"\"\""
+									]
+								},
+								{
+									"callFunction": "Projectile_Create",
+									"sid": 273097112006300,
+									"disabled": true,
+									"parameters": [
+										"\"kunai\"",
+										"\"Bullet\"",
+										"\"Player\"",
+										"\"PlayerWeapon\"",
+										"Player_Arms.ImagePointX(1)",
+										"Player_Arms.ImagePointY(1)",
+										"1",
+										"Weapon_Player.Damage",
+										"Weapon_Player.Penetration",
+										"300",
+										"Player_Arms.Angle",
+										"Weapon_Player.Spread",
+										"0",
+										"Weapon_Player.Knockback",
+										"Weapon_Player.Knockup",
+										"Weapon_Player.canHeadshot",
+										"Weapon_Player.canCripple",
+										"Weapon_Player.canGib",
+										"Weapon_Player.ParticlePrefab",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"\"FX_ImpactSmoke\"",
+										"0",
+										"0",
+										"0",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"\"\""
+									]
+								}
+							],
+							"sid": 163527333454196,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 398777950897305,
+											"parameters": {
+												"object": "Projectile"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "Projectile",
+											"sid": 350370590024443,
+											"parameters": {
+												"x": "Cursor.X",
+												"y": "Cursor.Y"
+											}
+										},
+										{
+											"id": "set-gravity",
+											"objectClass": "Projectile",
+											"sid": 284801031683352,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"gravity": "200"
+											}
+										}
+									],
+									"sid": 501651687455932,
+									"disabled": true
+								}
+							]
+						}
+					],
+					"sid": 747602512671950
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Equipment Throwables",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 922764324033180
+								}
+							],
+							"actions": [
+								{
+									"id": "enabledisable-collisions",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 862972935309863,
+									"behaviorType": "Physics",
+									"parameters": {
+										"object": "Shell",
+										"state": "disable"
+									}
+								},
+								{
+									"id": "enabledisable-collisions",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 195151927744182,
+									"behaviorType": "Physics",
+									"parameters": {
+										"object": "Object",
+										"state": "disable"
+									}
+								}
+							],
+							"sid": 128255241141577,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 335622756712386,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "apply-impulse-at-angle",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 901870575149770,
+											"disabled": true,
+											"behaviorType": "Physics",
+											"parameters": {
+												"impulse": "0.05 + ((player_ThrowStrength*(100-player_ThrowAngleWeight) + (player_ThrowStrengthBonus*player_ThrowAngleWeight))/100)  *player_ThrowMultiplier",
+												"angle": "Player_ThrowAngle",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "apply-impulse-at-angle",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 704445925168278,
+											"behaviorType": "Physics",
+											"parameters": {
+												"impulse": "0.1",
+												"angle": "Player_ThrowAngle",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-angular-velocity",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 853508364799651,
+											"behaviorType": "Physics",
+											"parameters": {
+												"angular-velocity": "1500"
+											}
+										}
+									],
+									"sid": 587997992971119,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 351874722517322
+										}
+									],
+									"actions": [
+										{
+											"id": "apply-impulse-at-angle",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 681115127271080,
+											"behaviorType": "Physics",
+											"parameters": {
+												"impulse": "0.05 + ((player_ThrowStrength*(100-player_ThrowAngleWeight) + (player_ThrowStrengthBonus*player_ThrowAngleWeight))/100)  *player_ThrowMultiplier",
+												"angle": "180 + abs(Player_ThrowAngle)",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-angular-velocity",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 875546516685354,
+											"behaviorType": "Physics",
+											"parameters": {
+												"angular-velocity": "-1500"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 986536266442132,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 804215374547883,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 132163203779400,
+											"disabled": true,
+											"parameters": {
+												"type": "warn",
+												"message": "\"Final Strength: \" & 0.05 + ((player_ThrowStrength*(100-player_ThrowAngleWeight) + (player_ThrowStrengthBonus*player_ThrowAngleWeight))/100)  *player_ThrowMultiplier"
+											}
+										}
+									],
+									"sid": 604021156767296,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 650631880766816,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"Grenade\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 644926516587015,
+											"parameters": {
+												"seconds": "1"
+											}
+										}
+									],
+									"sid": 719367174190385,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "zzzEquipment_Throwable",
+													"sid": 642559357195982,
+													"parameters": {
+														"instance-variable": "Primed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "zzzEquipment_Throwable",
+													"sid": 750770283542463,
+													"parameters": {
+														"instance-variable": "Primed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 392362630828480,
+											"disabled": true
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 194514186014772
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Explosives",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 181334278743886,
+									"parameters": {
+										"object": "Solids"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 897160098492988,
+									"parameters": {
+										"name": "\"SFX_Bounce\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 187469413272478,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 943121318064857,
+											"parameters": {
+												"instance-variable": "PrimeOnBounce"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 431240789871981,
+											"parameters": {
+												"instance-variable": "Primed"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 968336015796493,
+											"parameters": {
+												"instance-variable": "Primed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 841265853498313,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 651442538161081
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 426771242408928,
+											"parameters": {
+												"instance-variable": "Primed"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Solids",
+											"sid": 607608887667773,
+											"parameters": {
+												"instance-variable": "form",
+												"comparison": 0,
+												"value": "\"floor\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 476553036481545,
+											"parameters": {
+												"instance-variable": "SpawnY",
+												"value": "zzzEquipment_Throwable.Y + zzzEquipment_Throwable.Height"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "zzzEquipment_Throwable",
+											"sid": 873672595220607
+										}
+									],
+									"sid": 890801002126301,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 352388067774222
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "zzzEquipment_Throwable",
+									"sid": 159105047795230,
+									"parameters": {
+										"instance-variable": "ExplodeOnDestroy"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "FX_Explosion",
+									"sid": 505891467839819,
+									"parameters": [
+										"zzzEquipment_Throwable.X",
+										"zzzEquipment_Throwable.SpawnY"
+									]
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 120910292870543,
+									"parameters": {
+										"name": "\"Explosion_Hitbox\"",
+										"parameter-n": [
+											"zzzEquipment_Throwable.X",
+											"zzzEquipment_Throwable.Y"
+										]
+									}
+								}
+							],
+							"sid": 506310679645659,
+							"disabled": true
+						}
+					],
+					"sid": 182379020265232
+				},
+				{
+					"eventType": "comment",
+					"text": "may work w/ later... how do I deal with slopes?"
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Explosion Hitbox",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Knot working atm?"
+						},
+						{
+							"eventType": "comment",
+							"text": "explosion needs to be modular with damage and stuff"
+						},
+						{
+							"eventType": "comment",
+							"text": "explosion and hurtboxes?"
+						},
+						{
+							"eventType": "comment",
+							"text": "each hitbox does damage YIKES!"
+						},
+						{
+							"eventType": "comment",
+							"text": "use new functions"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 860790586992823,
+									"parameters": {
+										"name": "\"Explosion_Hitbox\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 774713738671544,
+									"parameters": {
+										"object-to-create": "ExplosionOrigin",
+										"layer": "\"Player\"",
+										"x": "function.Param(0)",
+										"y": "function.Param(1)",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 421137001479188,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "ExplosionHitbox",
+									"sid": 305034753362693
+								}
+							],
+							"sid": 655743058743229,
+							"disabled": true,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "ExplosionOrigin",
+									"sid": 714190412924213
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ExplosionOrigin",
+									"sid": 854692910695299,
+									"parameters": {
+										"instance-variable": "OriginID",
+										"value": "Self.UID"
+									}
+								}
+							],
+							"sid": 206540575894211,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "ExplosionOrigin",
+											"sid": 649836616401949,
+											"parameters": {
+												"object": "Door"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "ExplosionOrigin",
+											"sid": 610132335392216
+										}
+									],
+									"sid": 769512009378314,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 515081461450264
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "ExplosionOrigin",
+											"sid": 171895936882807,
+											"parameters": {
+												"object": "Tile_Roof"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "ExplosionOrigin",
+											"sid": 457455636635087
+										}
+									],
+									"sid": 419411952195599,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 195105705952363
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 497373157585454,
+											"parameters": {
+												"name": "\"Explosion_Hitbox_Left\"",
+												"parameter-n": [
+													"ExplosionOrigin.X - 1",
+													"ExplosionOrigin.Y",
+													"ExplosionOrigin.UID"
+												]
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 920705980853052,
+											"parameters": {
+												"name": "\"Explosion_Hitbox_Right\"",
+												"parameter-n": [
+													"ExplosionOrigin.X + 1",
+													"ExplosionOrigin.Y",
+													"ExplosionOrigin.UID"
+												]
+											}
+										}
+									],
+									"sid": 154754553426494,
+									"disabled": true
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ExplosionHitbox",
+									"sid": 317260299708191,
+									"parameters": {
+										"object": "Zombie"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 684927294803244,
+									"parameters": {
+										"instance-variable": "zzhitbyexplosionID",
+										"comparison": 1,
+										"value": "ExplosionHitbox.OriginID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 154921765488987,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 329418269025638,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 322963582950289,
+									"parameters": {
+										"instance-variable": "zzhitbyexplosionID",
+										"value": "ExplosionHitbox.OriginID"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 580207431126822,
+									"disabled": true,
+									"parameters": {
+										"seconds": "0.04"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Zombie",
+									"sid": 498945880332852,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"value": "ExplosionOrigin.Damage"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Zombie",
+									"sid": 116233558547623,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "ExplosionOrigin.Damage"
+									}
+								},
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 436588979909843,
+									"parameters": [
+										"Zombie.UID",
+										"\"Hit\"",
+										"ExplosionOrigin.UID",
+										"ExplosionOrigin.Y",
+										"ExplosionOrigin.Knockback"
+									]
+								}
+							],
+							"sid": 935080124027799,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 638849433413020,
+											"parameters": {
+												"instance-variable": "zzHP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 979132422845369,
+											"disabled": true,
+											"parameters": {
+												"name": "\"Zombie_Hit\"",
+												"parameter-n": [
+													"Zombie.UID",
+													"ExplosionOrigin.X",
+													"ExplosionOrigin.Knockback"
+												]
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 168572233503078,
+											"parameters": {
+												"name": "\"Zombie_Hit\"",
+												"parameter-n": [
+													"Zombie.UID",
+													"ExplosionOrigin.X",
+													"ExplosionOrigin.Knockback"
+												]
+											}
+										}
+									],
+									"sid": 160708043529113
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 329420143909931
+										}
+									],
+									"actions": [],
+									"sid": 183710563265513,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Projectile",
+													"sid": 208045270259523,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "NPC.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 169575750813692,
+													"parameters": [
+														"NPC.UID",
+														"\"Hit\"",
+														"Projectile.BBoxRight",
+														"Projectile.Y",
+														"Projectile.Knockback"
+													]
+												}
+											],
+											"sid": 946681961640386
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 752082478978384
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 373791982479163,
+													"parameters": [
+														"NPC.UID",
+														"\"Hit\"",
+														"Projectile.BBoxLeft",
+														"Projectile.Y",
+														"Projectile.Knockback"
+													]
+												}
+											],
+											"sid": 276787335415322
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 896956978888065,
+											"parameters": {
+												"instance-variable": "zzHP",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 698942151252997,
+											"parameters": {
+												"instance-variable": "zzState",
+												"comparison": 1,
+												"value": "\"Death\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 666985437930630,
+											"parameters": {
+												"name": "\"Zombie_Kill\"",
+												"parameter-n": [
+													"Zombie.UID"
+												]
+											}
+										}
+									],
+									"sid": 183228418085346
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Explosion Left",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "ExplosionLeft",
+											"sid": 625020780968101
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 600688307661452,
+											"parameters": {
+												"seconds": "0.02"
+											}
+										}
+									],
+									"sid": 124409035368487,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 784864923988939,
+													"parameters": {
+														"object": "Door"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 977593426498937
+												}
+											],
+											"sid": 202213651247629,
+											"disabled": true
+										},
+										{
+											"eventType": "comment",
+											"text": "needs big work"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 342626895593414
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 463131899571013,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 601682366564845,
+													"parameters": {
+														"comparison": 5,
+														"number": "0"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 539243422686727,
+													"parameters": {
+														"comparison": 3,
+														"number": "23"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 818228236151114
+												}
+											],
+											"sid": 111605178086810,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 478690848583331
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 957245807217306,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 106956696343679,
+													"parameters": {
+														"comparison": 5,
+														"number": "25"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 519215890919660,
+													"parameters": {
+														"comparison": 3,
+														"number": "39"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 922529663445279
+												}
+											],
+											"sid": 519152770022615,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 786028285531511
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 993038032054274,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 181706177282809,
+													"parameters": {
+														"comparison": 5,
+														"number": "62"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 515134111816579,
+													"parameters": {
+														"comparison": 3,
+														"number": "67"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 370990443404965
+												}
+											],
+											"sid": 559563693221597,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 774625824846924
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 700351908465911,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 725940599689203,
+													"parameters": {
+														"comparison": 5,
+														"number": "87"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 977121774345349,
+													"parameters": {
+														"comparison": 3,
+														"number": "113"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 238477506312481
+												}
+											],
+											"sid": 204686911326355,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 844933365251112
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 482606806277962,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 305084670141088,
+													"parameters": {
+														"comparison": 5,
+														"number": "115"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 663452694795680,
+													"parameters": {
+														"comparison": 3,
+														"number": "133"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 308701148770448
+												}
+											],
+											"sid": 169024100697774,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 114866965258988
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 133002173549658,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 958164395046603,
+													"parameters": {
+														"comparison": 5,
+														"number": "135"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 263922025630332,
+													"parameters": {
+														"comparison": 3,
+														"number": "142"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 726120713350094
+												}
+											],
+											"sid": 562522639862106,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 740404221020303
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionLeft",
+													"sid": 979556486597569,
+													"parameters": {
+														"object": "Tile_Roof"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionLeft",
+													"sid": 343948303471977
+												}
+											],
+											"sid": 795309505817198,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 855405813799515
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "ExplosionOrigin",
+													"sid": 452754128716981,
+													"parameters": {
+														"instance-variable": "Left",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 588817232541280,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "ExplosionOrigin",
+															"sid": 721110959415312,
+															"parameters": {
+																"instance-variable": "Left",
+																"comparison": 2,
+																"value": "8"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 587254325250622,
+															"parameters": {
+																"name": "\"Explosion_Hitbox_Left\"",
+																"parameter-n": [
+																	"ExplosionLeft.X - ExplosionLeft.Width",
+																	"ExplosionLeft.Y",
+																	"ExplosionLeft.OriginID"
+																]
+															}
+														}
+													],
+													"sid": 527672506047562,
+													"disabled": true
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 266560860153265,
+											"parameters": {
+												"name": "\"Explosion_Hitbox_Left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 466318390251107,
+											"parameters": {
+												"object-to-create": "ExplosionLeft",
+												"layer": "\"Player\"",
+												"x": "function.Param(0) ",
+												"y": "function.Param(1)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ExplosionLeft",
+											"sid": 812897373280045,
+											"parameters": {
+												"instance-variable": "OriginID",
+												"value": "function.Param(2)"
+											}
+										}
+									],
+									"sid": 567223455288244,
+									"disabled": true,
+									"isOrBlock": true
+								}
+							],
+							"sid": 740470768514390
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Explosion Right",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "ExplosionRight",
+											"sid": 700861415140814
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 572426318174826,
+											"parameters": {
+												"seconds": "0.02"
+											}
+										}
+									],
+									"sid": 373062062814935,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 538266266378852,
+													"parameters": {
+														"object": "Door"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 552332657888828
+												}
+											],
+											"sid": 878815231350423,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 962029704835793
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 299692440784639,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 281675076575480,
+													"parameters": {
+														"comparison": 5,
+														"number": "0"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 229821129351160,
+													"parameters": {
+														"comparison": 3,
+														"number": "23"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 577825658673666
+												}
+											],
+											"sid": 618934944887755,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 452774734538400
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 802130293385156,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 105630905279359,
+													"parameters": {
+														"comparison": 5,
+														"number": "25"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 389138742164696,
+													"parameters": {
+														"comparison": 3,
+														"number": "39"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 717548887153017
+												}
+											],
+											"sid": 914839448251832,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 738699073366153
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 972373719265067,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 398281401467247,
+													"parameters": {
+														"comparison": 5,
+														"number": "62"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 316570600714661,
+													"parameters": {
+														"comparison": 3,
+														"number": "67"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 248142121849454
+												}
+											],
+											"sid": 805186780356728,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 690996595820115
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 869557955191630,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 546995536447332,
+													"parameters": {
+														"comparison": 5,
+														"number": "87"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 475481742928183,
+													"parameters": {
+														"comparison": 3,
+														"number": "113"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 323507075582220
+												}
+											],
+											"sid": 666703229257605,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 161549785622118
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 118433551491172,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 760011592826754,
+													"parameters": {
+														"comparison": 5,
+														"number": "115"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 435626454600529,
+													"parameters": {
+														"comparison": 3,
+														"number": "133"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 516982328475975
+												}
+											],
+											"sid": 998824099234580,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 662217156185153
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 425001677039318,
+													"parameters": {
+														"object": "Tile_Wall"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 348366815329209,
+													"parameters": {
+														"comparison": 5,
+														"number": "135"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Tile_Wall",
+													"sid": 437094168573304,
+													"parameters": {
+														"comparison": 3,
+														"number": "142"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 405835865384610
+												}
+											],
+											"sid": 379120211719150,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 562122007369612
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "ExplosionRight",
+													"sid": 174428365104972,
+													"parameters": {
+														"object": "Tile_Roof"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ExplosionRight",
+													"sid": 180232207446590
+												}
+											],
+											"sid": 690526960898987,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 851472085181032
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "ExplosionOrigin",
+													"sid": 357924015224622,
+													"parameters": {
+														"instance-variable": "Right",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 921840920176834,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "ExplosionOrigin",
+															"sid": 379924216320151,
+															"parameters": {
+																"instance-variable": "Right",
+																"comparison": 2,
+																"value": "8"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 239960354473318,
+															"parameters": {
+																"name": "\"Explosion_Hitbox_Right\"",
+																"parameter-n": [
+																	"ExplosionRight.X + ExplosionRight.Width",
+																	"ExplosionRight.Y",
+																	"ExplosionRight.OriginID"
+																]
+															}
+														}
+													],
+													"sid": 100653894475979,
+													"disabled": true
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 679300604600698,
+											"parameters": {
+												"name": "\"Explosion_Hitbox_Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 964106559214565,
+											"parameters": {
+												"object-to-create": "ExplosionRight",
+												"layer": "\"Player\"",
+												"x": "function.Param(0) ",
+												"y": "function.Param(1)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "ExplosionRight",
+											"sid": 515482455005964,
+											"parameters": {
+												"instance-variable": "OriginID",
+												"value": "function.Param(2)"
+											}
+										}
+									],
+									"sid": 158009124409793,
+									"disabled": true,
+									"isOrBlock": true
+								}
+							],
+							"sid": 521451065602346
+						}
+					],
+					"sid": 829116184535922
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Axe",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 901056829332235
+								}
+							],
+							"actions": [],
+							"sid": 988880132716067,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 518192131693697,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "zzzEquip_Axe",
+											"sid": 345258495229882,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "-25"
+											}
+										}
+									],
+									"sid": 773852949157310
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 402325455803639
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "zzzEquip_Axe",
+											"sid": 692933940156498,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "zzzEquip_Axe",
+											"sid": 395558375238589,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "205"
+											}
+										}
+									],
+									"sid": 727228565732501
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 515882513702465,
+											"parameters": {
+												"seconds": "0.02"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquip_Axe",
+											"sid": 425696221718721,
+											"parameters": {
+												"instance-variable": "zzTimer",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 111167322609108
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 400135042333909,
+									"parameters": {
+										"object": "Zombie"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 773382071073312,
+									"parameters": {
+										"object": "Zombie"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 619172638986138,
+									"parameters": {
+										"instance-variable": "zzTimer",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 936780980492850,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 109352028353326
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Zombie",
+									"sid": 853934550853068,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"value": "zzzEquip_Axe.zzzDamage"
+									}
+								}
+							],
+							"sid": 277615598142230,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 748792070442300,
+											"parameters": {
+												"instance-variable": "zzHP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 277776997969145,
+											"parameters": {
+												"name": "\"Zombie_Hit\"",
+												"parameter-n": [
+													"Zombie.UID",
+													"zzzEquip_Axe.X",
+													"zzzEquip_Axe.zzzKnockback"
+												]
+											}
+										}
+									],
+									"sid": 819364908690714,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 612821192561171,
+											"parameters": {
+												"instance-variable": "zzHP",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Zombie",
+											"sid": 962962288907761,
+											"parameters": {
+												"instance-variable": "zzState",
+												"comparison": 1,
+												"value": "\"Death\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 658726958986706,
+											"parameters": {
+												"name": "\"Zombie_Kill\"",
+												"parameter-n": [
+													"Zombie.UID"
+												]
+											}
+										}
+									],
+									"sid": 388197795542869,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 203853213785928
+										}
+									],
+									"sid": 317727567103122,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 858357550501008,
+									"parameters": {
+										"object": "Solid_LevelFloor"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 235149288615646,
+									"parameters": {
+										"object": "Solid_Wall"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 212996672593320,
+									"parameters": {
+										"object": "Door"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 211612917436969
+								}
+							],
+							"sid": 143706442510788,
+							"disabled": true,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "zzzEquip_Axe",
+									"sid": 764722829602171
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 553759149769214,
+									"parameters": {
+										"name": "\"SFX_AxeHit\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 657620082444136,
+							"disabled": true
+						}
+					],
+					"sid": 756652621041770
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Turret",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "TurretGun",
+									"sid": 475275793237503
+								}
+							],
+							"actions": [
+								{
+									"id": "add-obstacle",
+									"objectClass": "TurretGun",
+									"sid": 446146712465488,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"obstacle": "JumpThrough"
+									}
+								},
+								{
+									"id": "add-obstacle",
+									"objectClass": "TurretGun",
+									"sid": 704367889883816,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"obstacle": "Solids"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 560264705085437,
+									"parameters": {
+										"object-to-create": "zzTurret_MuzzleFlash",
+										"layer": "TurretGun.LayerName",
+										"x": "TurretGun.ImagePointX(2)",
+										"y": "TurretGun.ImagePointy(2)",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 266523371330246,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Turret",
+									"sid": 830578375476310
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 855296043408610,
+									"parameters": {
+										"name": "\"SFX_BuildTurret\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 435589257750140,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "TurretGun",
+									"sid": 117722428714919,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Zombie",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TurretGun",
+									"sid": 790892203244756,
+									"parameters": {
+										"instance-variable": "Ammo",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "TurretGun",
+									"sid": 766333351245643,
+									"parameters": {
+										"animation": "\"Fire\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 295395022536873,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 839977456439621,
+											"parameters": {
+												"first-value": "Zombie.X",
+												"comparison": 2,
+												"second-value": "TurretGun.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "TurretGun",
+											"sid": 765617158124221,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "zzTurret_MuzzleFlash",
+											"sid": 384380475685074,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "TurretSmoke",
+											"sid": 283269904978790,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 731898833656253,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 552338840607165,
+											"parameters": {
+												"first-value": "Zombie.X",
+												"comparison": 5,
+												"second-value": "TurretGun.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "TurretGun",
+											"sid": 699935882681159,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "zzTurret_MuzzleFlash",
+											"sid": 788209562070558,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "TurretSmoke",
+											"sid": 171311782344594,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 677819016913958,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "zzTurret_MuzzleFlash",
+											"sid": 805899698251665,
+											"parameters": {
+												"x": "TurretGun.ImagePointX(2)",
+												"y": "TurretGun.ImagePointY(2)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 485777442625123,
+											"parameters": {
+												"name": "\"Turret_Shoot\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 724288439824320,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "TurretGun",
+									"sid": 739256264232951,
+									"parameters": {
+										"animation": "\"Fire\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "TurretGun",
+									"sid": 980631867895746,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 383902607516755,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 324325314721187,
+									"parameters": {
+										"name": "\"Turret_Shoot\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 921472358657227,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TurretGun",
+											"sid": 393744746396064,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TurretGun",
+											"sid": 920348620713459,
+											"parameters": {
+												"instance-variable": "IntervalCurrent",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 896054067201338,
+											"parameters": {
+												"object-to-create": "Projectile",
+												"layer": "\"Objects\"",
+												"x": "TurretGun.ImagePointX(1)",
+												"y": "TurretGun.ImagePointY(1)",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Projectile",
+											"sid": 898630881558425,
+											"parameters": {
+												"instance-variable": "Faction",
+												"value": "\"Turret\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Projectile",
+											"sid": 708655859155691,
+											"parameters": {
+												"instance-variable": "zzzDamage",
+												"value": "TurretGun.Damage + Player.zzBonus_Attack"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "zzTurret_MuzzleFlash",
+											"sid": 856996279027837,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "zzTurret_MuzzleFlash",
+											"sid": 237042894874354,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "TurretGun",
+											"sid": 482704127263421,
+											"parameters": {
+												"instance-variable": "IntervalCurrent",
+												"value": "Self.Interval"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 161176436535700,
+											"parameters": {
+												"name": "\"GFX_Screenshake\"",
+												"parameter-n": [
+													"0.5",
+													"0.2"
+												]
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 299052794496826,
+											"parameters": {
+												"name": "\"SFX_SMGShot\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 994257419079729,
+											"parameters": {
+												"variable": "stat_BulletsFired",
+												"value": "1"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "TurretGun",
+											"sid": 713151357705541,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 796624023359945,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-mirrored",
+													"objectClass": "TurretGun",
+													"sid": 761754771274379
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle",
+													"objectClass": "Projectile",
+													"sid": 558669824214689,
+													"parameters": {
+														"angle": "Self.Angle - 180"
+													}
+												}
+											],
+											"sid": 193175109280377,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 507983712801274,
+													"parameters": {
+														"seconds": "0.02"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "zzTurret_MuzzleFlash",
+													"sid": 152882235783540,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 269708754256245,
+													"parameters": {
+														"object-to-create": "TurretSmoke",
+														"layer": "\"Player\"",
+														"x": "TurretGun.ImagePointX(1)",
+														"y": "TurretGun.ImagePointY(1)",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "TurretSmoke",
+													"sid": 693469564040593,
+													"parameters": {
+														"opacity": "50"
+													}
+												}
+											],
+											"sid": 940007817616838,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TurretGun",
+											"sid": 346569353281161,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "TurretGun",
+											"sid": 488087464697739,
+											"parameters": {
+												"animation": "\"Default\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 412418648517463,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 834308423588631,
+									"parameters": {
+										"interval-seconds": "0.02"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TurretGun",
+									"sid": 195764842161259,
+									"parameters": {
+										"instance-variable": "IntervalCurrent",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "TurretGun",
+									"sid": 840220709894861,
+									"parameters": {
+										"instance-variable": "IntervalCurrent",
+										"value": "0.02"
+									}
+								}
+							],
+							"sid": 483971106813687,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Turret",
+									"sid": 638061516642454,
+									"parameters": {
+										"animation": "\"Default\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Turret",
+									"sid": 793225436130958,
+									"parameters": {
+										"animation": "\"Base\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 241636426479599,
+									"parameters": {
+										"object-to-create": "TurretGun",
+										"layer": "\"Player\"",
+										"x": "Turret.X",
+										"y": "Turret.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 725651656519849,
+							"disabled": true
+						}
+					],
+					"sid": 285319511054182
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Claymore",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "Weap_Claymore",
+									"sid": 513189494827135
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 302091848479580,
+									"parameters": {
+										"object-to-create": "FX_ExplosionFlatBig",
+										"layer": "\"Fog\"",
+										"x": "Weap_Claymore.X",
+										"y": "Weap_Claymore.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 966825647246441,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Zombie",
+									"sid": 986379150963340,
+									"parameters": {
+										"object": "Weap_Claymore"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ExplosionHitbox",
+									"sid": 916645156453758,
+									"parameters": {
+										"object": "Weap_Claymore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Weap_Claymore",
+									"sid": 207062029767007
+								}
+							],
+							"sid": 422932917929275,
+							"disabled": true,
+							"isOrBlock": true
+						}
+					],
+					"sid": 819136910724032
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Supply Drop",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 397457124463027
+								}
+							],
+							"actions": [
+								{
+									"id": "enabledisable-collisions",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 838677856005819,
+									"behaviorType": "Physics2",
+									"parameters": {
+										"object": "Shell",
+										"state": "disable"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 494250008030298,
+									"parameters": {
+										"where": "behind",
+										"object": "Player_Sprite"
+									}
+								}
+							],
+							"sid": 335125252660325,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 713358944801363,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "apply-impulse-at-angle",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 609955780873989,
+											"behaviorType": "Physics2",
+											"parameters": {
+												"impulse": "0.04",
+												"angle": "-45",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-angular-velocity",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 499938861270943,
+											"behaviorType": "Physics2",
+											"parameters": {
+												"angular-velocity": "1500"
+											}
+										}
+									],
+									"sid": 605626854717283,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "Player_Sprite",
+											"sid": 472056544198571
+										}
+									],
+									"actions": [
+										{
+											"id": "apply-impulse-at-angle",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 929015243085556,
+											"behaviorType": "Physics2",
+											"parameters": {
+												"impulse": "0.04",
+												"angle": "-135",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-angular-velocity",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 751511117249049,
+											"behaviorType": "Physics2",
+											"parameters": {
+												"angular-velocity": "-1500"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 146459180501957,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 527873143342462,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 257964092666478,
+									"parameters": {
+										"object": "Solid_Wall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 665865883270617,
+									"parameters": {
+										"name": "\"SFX_Bounce\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 315333082405032,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-height",
+											"objectClass": "Solid_Wall",
+											"sid": 369203892376857,
+											"parameters": {
+												"comparison": 2,
+												"height": "Self.Width"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 212087866476314,
+											"parameters": {
+												"first-value": "Solid_Wall.Angle",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 548374734569361,
+											"parameters": {
+												"instance-variable": "zzzSpawnY",
+												"value": "Solid_Wall.Y - Solid_Wall.Height/2"
+											}
+										}
+									],
+									"sid": 680683288607772,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 411244328098222
+										},
+										{
+											"id": "compare-height",
+											"objectClass": "Solid_Wall",
+											"sid": 860169230399040,
+											"parameters": {
+												"comparison": 4,
+												"height": "Self.Width"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 930440178048109,
+											"parameters": {
+												"first-value": "Solid_Wall.Angle",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 760241463203034,
+											"parameters": {
+												"instance-variable": "zzzSpawnY",
+												"value": "Solid_Wall.Y"
+											}
+										}
+									],
+									"sid": 767909977021734,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 323891152433046,
+													"parameters": {
+														"first-value": "Solid_Wall.Angle",
+														"comparison": 4,
+														"second-value": "270"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "zzzEquip_Beacon",
+													"sid": 435601370356012,
+													"parameters": {
+														"instance-variable": "zzzSpawnY",
+														"value": "Solid_Wall.Y - Solid_Wall.Width"
+													}
+												}
+											],
+											"sid": 870056149382965,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 761570848695639,
+									"parameters": {
+										"object": "Solid_LevelFloor"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 704002212824230,
+									"parameters": {
+										"name": "\"SFX_Bounce\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 846686100043368,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-height",
+											"objectClass": "Solid_LevelFloor",
+											"sid": 981219126314350,
+											"parameters": {
+												"comparison": 2,
+												"height": "Self.Width"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 560538408865417,
+											"parameters": {
+												"first-value": "Solid_LevelFloor.Angle",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 172778225234116,
+											"parameters": {
+												"instance-variable": "zzzSpawnY",
+												"value": "Solid_LevelFloor.Y - Solid_LevelFloor.Height/2"
+											}
+										}
+									],
+									"sid": 736719446335975,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 619441334184970
+										},
+										{
+											"id": "compare-height",
+											"objectClass": "Solid_LevelFloor",
+											"sid": 702404607372314,
+											"parameters": {
+												"comparison": 4,
+												"height": "Self.Width"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 979346933553832,
+											"parameters": {
+												"first-value": "Solid_LevelFloor.Angle",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 764205238647972,
+											"parameters": {
+												"instance-variable": "zzzSpawnY",
+												"value": "Solid_LevelFloor.Y - Solid_LevelFloor.Height/2"
+											}
+										}
+									],
+									"sid": 398770481206352,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 766381819443855,
+									"parameters": {
+										"name": "\"Beacon_Start\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 864691664151366,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 1,
+										"second-value": "\"Base\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 715185171335941,
+									"parameters": {
+										"object-to-create": "FX_BeaconSmoke",
+										"layer": "\"Objects\"",
+										"x": "zzzEquip_Beacon.X",
+										"y": "zzzEquip_Beacon.zzzSpawnY",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 973828119085849,
+									"parameters": {
+										"where": "behind",
+										"object": "zzzEquip_Beacon"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 307644143118808,
+									"parameters": {
+										"name": "\"SFX_BeaconSmoke\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 522282165635334,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-velocity",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 213692336175267,
+									"behaviorType": "Physics2",
+									"parameters": {
+										"which": "overall-velocity",
+										"comparison": 2,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 657614034307935,
+									"parameters": {
+										"instance-variable": "zzzPopped"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 992409765835100,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 1,
+										"second-value": "\"Base\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 856030374710117,
+									"parameters": {
+										"name": "\"Beacon_Start\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 979691270461275,
+									"parameters": {
+										"instance-variable": "zzzPopped",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 478511682294599,
+									"parameters": {
+										"group-name": "\"Beacon Timer\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 279987459039692,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 666421012052882,
+									"parameters": {
+										"animation": "\"Default\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 207086610807598,
+									"parameters": {
+										"animation": "\"Loop\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 737778507246376,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 780853128250616,
+									"parameters": {
+										"animation": "\"Destroy\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 730033350341653
+								}
+							],
+							"sid": 237614850307694,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 106827523228201,
+									"parameters": {
+										"name": "\"Supply_Drop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "SupplyDrop",
+									"sid": 554301480049374
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 122874512519402,
+									"parameters": {
+										"object-to-create": "SupplyDrop",
+										"layer": "\"Objects\"",
+										"x": "function.Param(0)",
+										"y": "function.Param(0) - 500",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 535866312898297,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-landed",
+									"objectClass": "SupplyDrop",
+									"sid": 890221391325334,
+									"behaviorType": "Platform"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "SupplyDrop",
+									"sid": 429801856641100,
+									"parameters": {
+										"animation": "\"Land\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 946806360219473,
+									"parameters": {
+										"name": "\"SFX_ChestLand\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 519556554300408,
+									"parameters": {
+										"name": "\"GFX_Screenshake\"",
+										"parameter-n": [
+											"1",
+											"0.25"
+										]
+									}
+								}
+							],
+							"sid": 844975696381423,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "SupplyDrop",
+									"sid": 391177277006719,
+									"parameters": {
+										"animation": "\"Land\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "SupplyDrop",
+									"sid": 726743208164642,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 197413151798306,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Player",
+									"sid": 612150384647907,
+									"parameters": {
+										"object": "SupplyDrop"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "SupplyDrop",
+									"sid": 168557191583826,
+									"parameters": {
+										"animation": "\"Default\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SupplyDrop",
+									"sid": 930236586592533,
+									"parameters": {
+										"instance-variable": "Weapon",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "SupplyDrop",
+									"sid": 593014688080613,
+									"parameters": {
+										"animation": "\"Open\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 600009715990007,
+									"parameters": {
+										"name": "\"Supply_Open\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 147647489371801,
+									"parameters": {
+										"name": "\"SFX_ChestOpen\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 781212726207164,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 233303238437560,
+									"parameters": {
+										"name": "\"Supply_Open\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 522710245219298,
+									"parameters": {
+										"name": "\"EXP_Create\"",
+										"parameter-n": [
+											"25",
+											"SupplyDrop.X + random(-30,30)",
+											"SupplyDrop.Y - random(16,20)"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 162232673411946,
+									"parameters": {
+										"name": "\"MNY_Create\"",
+										"parameter-n": [
+											"25",
+											"SupplyDrop.X + random(-30,30)",
+											"SupplyDrop.Y - random(16,20)"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 433506979022597,
+									"parameters": {
+										"name": "\"AMM_Create\"",
+										"parameter-n": [
+											"25",
+											"SupplyDrop.X + random(-30,30)",
+											"SupplyDrop.Y - random(16,20)"
+										]
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 729178430974767,
+									"parameters": {
+										"name": "\"HP_Create\"",
+										"parameter-n": [
+											"25",
+											"SupplyDrop.X + random(-30,30)",
+											"SupplyDrop.Y - random(16,20)"
+										]
+									}
+								}
+							],
+							"sid": 367182383024689,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 332091318393488,
+									"parameters": {
+										"name": "\"Beacon_Kill\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 884162177863671,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "FX_BeaconSmoke",
+									"sid": 680274225999106,
+									"parameters": {
+										"animation": "\"Destroy\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "zzzEquip_Beacon",
+									"sid": 151645266701077,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 623009141709771,
+									"parameters": {
+										"name": "\"SFX_BeaconSmokeStop\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 727521288845031,
+							"disabled": true
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Beacon Timer",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 853618050054180,
+											"parameters": {
+												"first-value": "zzzEquip_Beacon.Count",
+												"comparison": 4,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 351171092341123,
+											"parameters": {
+												"interval-seconds": "0.02"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "zzzEquip_Beacon",
+											"sid": 393696941829218,
+											"parameters": {
+												"instance-variable": "zzzTimer",
+												"value": "0.02"
+											}
+										}
+									],
+									"sid": 862508257085653,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "zzzEquip_Beacon",
+													"sid": 747251724553043,
+													"parameters": {
+														"instance-variable": "zzzTimer",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 888278226561651,
+													"parameters": {
+														"name": "\"Supply_Drop\"",
+														"parameter-n": [
+															"zzzEquip_Beacon.X",
+															"zzzEquip_Beacon.Y"
+														]
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 917347716739384,
+													"parameters": {
+														"name": "\"Beacon_Kill\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 214061649188939,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 467766908088279,
+															"parameters": {
+																"group-name": "\"Beacon Timer\"",
+																"state": "deactivated"
+															}
+														}
+													],
+													"sid": 435819708174434,
+													"disabled": true
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 145710318241752
+						}
+					],
+					"sid": 462656067572570
+				}
+			],
+			"sid": 263629907747301
+		},
+		{
+			"eventType": "comment",
+			"text": "could make this a group"
+		},
+		{
+			"eventType": "comment",
+			"text": "use - make function"
+		},
+		{
+			"eventType": "comment",
+			"text": "ALWAYS ONN?"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Player",
+					"sid": 568891911695766,
+					"parameters": {
+						"instance-variable": "UsingEquipment"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 812914911441953,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Player_Sprite",
+							"sid": 174858234601707,
+							"parameters": {
+								"animation": "\"Throw\" & PlayerData.Skin"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Player_Sprite",
+							"sid": 826174040776291,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 768148094712175
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 924633524837122,
+							"parameters": {
+								"name": "\"VFX_Screenshake\"",
+								"parameter-n": [
+									"0.25",
+									"0.2"
+								]
+							}
+						},
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 597751463640262,
+							"parameters": {
+								"object-name": "\"Equip_\" & Equipment_Current.Name",
+								"layer": "\"Player\"",
+								"x": "Player_Sprite.ImagePointX(1)",
+								"y": "Player_Sprite.ImagePointY(1)",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 975175459804940,
+					"disabled": true
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 283166357420174,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 541303473370433,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player_Sprite",
+									"sid": 169748417508248,
+									"parameters": {
+										"animation": "\"Claymore\" & Player.zzSkin"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Player_Sprite",
+									"sid": 101091506450524,
+									"parameters": {
+										"comparison": 0,
+										"number": "13"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 946053431922472
+								}
+							],
+							"actions": [],
+							"sid": 981783612340190,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 883422030823189,
+											"parameters": {
+												"instance-variable": "zzzAbility1",
+												"comparison": 0,
+												"value": "\"Claymore\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 488159674521359,
+											"parameters": {
+												"object-to-create": "Weap_Claymore",
+												"layer": "\"Player\"",
+												"x": "Player_Sprite.ImagePointX(5)",
+												"y": "Player_Sprite.ImagePointY(5)",
+												"create-hierarchy": false
+											}
+										}
+									],
+									"sid": 849369696873581
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player_Sprite",
+									"sid": 600373201465391,
+									"parameters": {
+										"animation": "\"Turret\" & Player.zzSkin"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Player_Sprite",
+									"sid": 769892329056812,
+									"parameters": {
+										"comparison": 0,
+										"number": "8"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 434415046139309
+								}
+							],
+							"actions": [],
+							"sid": 910402301985222,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 720069981213969,
+											"parameters": {
+												"instance-variable": "zzzAbility1",
+												"comparison": 0,
+												"value": "\"Turret\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 399597680896188,
+											"parameters": {
+												"object-to-create": "Turret",
+												"layer": "\"Player\"",
+												"x": "Player_Sprite.ImagePointX(5)",
+												"y": "Player_Sprite.ImagePointY(5)",
+												"create-hierarchy": false
+											}
+										}
+									],
+									"sid": 597775767839858
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player_Sprite",
+									"sid": 492924957651076,
+									"parameters": {
+										"animation": "\"Claymore\" & Player.zzSkin"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player_Sprite",
+									"sid": 687820486719653,
+									"parameters": {
+										"animation": "\"Turret\" & Player.zzSkin"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 187957839756275,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Player_Sprite",
+											"sid": 270371644190508,
+											"parameters": {
+												"comparison": 0,
+												"number": "7"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 818836411375829
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 994863127386449,
+											"parameters": {
+												"name": "\"GFX_Screenshake\"",
+												"parameter-n": [
+													"0.5",
+													"0.2"
+												]
+											}
+										}
+									],
+									"sid": 774271888945108
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 310484265283547,
+									"parameters": {
+										"instance-variable": "zzzAbility1",
+										"comparison": 0,
+										"value": "\"Claymore\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 239337561671129,
+									"parameters": {
+										"variable": "zzability_IntervalCurrent1",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 304454022476396,
+									"parameters": {
+										"name": "\"PLR_ChangeState\"",
+										"parameter-n": [
+											"\"Plant\"",
+											"\"Claymore\""
+										]
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 618883063166750,
+									"parameters": {
+										"variable": "zzability_IntervalCurrent1",
+										"value": "zzability_ClaymoreInterval"
+									}
+								}
+							],
+							"sid": 954727581148326
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 337830416765473,
+									"parameters": {
+										"instance-variable": "zzzAbility1",
+										"comparison": 0,
+										"value": "\"Turret\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 213179348981143,
+									"parameters": {
+										"variable": "zzability_IntervalCurrent1",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Turret",
+									"sid": 797206062146420
+								},
+								{
+									"id": "destroy",
+									"objectClass": "TurretGun",
+									"sid": 859971247730889
+								},
+								{
+									"id": "destroy",
+									"objectClass": "zzTurret_MuzzleFlash",
+									"sid": 606856779663937
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 894925844718538,
+									"parameters": {
+										"name": "\"PLR_ChangeState\"",
+										"parameter-n": [
+											"\"Plant\"",
+											"\"Turret\""
+										]
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 927825944226857,
+									"parameters": {
+										"variable": "zzability_IntervalCurrent1",
+										"value": "zzability_TurretInterval"
+									}
+								}
+							],
+							"sid": 168253794923139
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "PLR_EquipmentUseOLD",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 896108742315802,
+					"disabled": true,
+					"parameters": {
+						"variable": "player_ThrowStrength",
+						"value": "(1/90)*(Player.Width > 0 ? Player_Arms.Angle > 90 ? 405 - Player_Arms.Angle : abs(Player_Arms.Angle - 45) : Player_Arms.Angle - 135)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 264438183132553,
+					"disabled": true,
+					"parameters": {
+						"variable": "player_ThrowStrengthBonus",
+						"value": "abs(Player_Target.X < Player.X ? clamp(input_X2,-100,-Player_ThrowClampMin) : clamp(input_X2,Player_ThrowClampMin,100))/100"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 648872910352096,
+					"disabled": true,
+					"parameters": {
+						"variable": "Player_ThrowAngle",
+						"value": "angle(0,0,Gamepad.Axis(input_ActiveGamepad,2),Gamepad.Axis(input_ActiveGamepad,3))"
+					}
+				}
+			],
+			"sid": 831562270533000,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 206589936092147,
+							"parameters": {
+								"first-value": "input_Type",
+								"comparison": 0,
+								"second-value": "\"kbm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 451338855220419,
+							"parameters": {
+								"variable": "player_ThrowStrength",
+								"value": "clamp((clamp(distance(Player_Aim.X,Player_Aim.Y,Cursor.X,Cursor.Y),0,300)/300)*100,Player_ThrowClampMin,Player_ThrowClampMax)/100"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 587043701312474,
+							"disabled": true,
+							"parameters": {
+								"variable": "player_ThrowStrength",
+								"value": "clamp(distance(Player_Aim.X,Player_Aim.Y,Cursor.X,Cursor.Y),Player_ThrowClampMin,110)/100"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 120835443447525,
+							"disabled": true,
+							"parameters": {
+								"type": "warn",
+								"message": "distance(Player_Aim.X,Player_Aim.Y,Cursor.X,Cursor.Y)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 774133125460189,
+							"disabled": true,
+							"parameters": {
+								"type": "warn",
+								"message": "(clamp(distance(Player_Aim.X,Player_Aim.Y,Cursor.X,Cursor.Y),0,300)/300)*100"
+							}
+						}
+					],
+					"sid": 443041602652223
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 263097143247575
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 825003922456259,
+							"parameters": {
+								"first-value": "input_Type",
+								"comparison": 0,
+								"second-value": "\"gamepad\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 743026502626014,
+							"parameters": {
+								"variable": "player_ThrowStrength",
+								"value": "clamp(distance(0,0,Gamepad.Axis(input_ActiveGamepad,2),Gamepad.Axis(input_ActiveGamepad,3)),Player_ThrowClampMin,Player_ThrowClampMax)/100"
+							}
+						}
+					],
+					"sid": 511989880373206,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 223583632700402,
+							"parameters": {
+								"variable": "player_ThrowStrengthBonus",
+								"value": "(1/90)*(Player.Width > 0 ? Player_Arms.Angle > 90 ? 405 - Player_Arms.Angle : abs(Player_Arms.Angle - 45) : Player_Arms.Angle - 135)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 776205480558524,
+							"parameters": {
+								"variable": "Player_ThrowAngle",
+								"value": "-(((Player.Width > 0 ? (Player_Arms.Angle > 90 ? 405 - Player_Arms.Angle : abs(Player_Arms.Angle - 45)) : Player_Arms.Angle - 135)/2) + 5)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 464881294879894,
+							"parameters": {
+								"type": "log",
+								"message": "\"Throw Strength: \" & player_ThrowStrength & \" | Throw Bonus: \" & player_ThrowStrengthBonus & \" | Throw Angle: \" & Player_ThrowAngle"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 864582756298223,
+							"parameters": {
+								"name": "\"PLR_ChangeState\"",
+								"parameter-n": [
+									"Equipment_Current.Animation",
+									"Equipment_Current.Name"
+								]
+							}
+						},
+						{
+							"callFunction": "PLR_EquipmentResetCooldown",
+							"sid": 227179794274685
+						}
+					],
+					"sid": 318882243583222
 				}
 			]
 		}

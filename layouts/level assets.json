@@ -1055,8 +1055,10 @@
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": false
 		},
 		{
@@ -5914,8 +5916,8 @@
 					},
 					"uid": 2177,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false
 					},
 					"behaviors": {
@@ -6828,7 +6830,6 @@
 					},
 					"uid": 28294,
 					"instanceVariables": {
-						"TargetForm": "Tile_Door",
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": false,
@@ -6839,6 +6840,7 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
+						"TargetForm": "Tile_Door",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -6947,6 +6949,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -11249,7 +11262,7 @@
 					}
 				},
 				{
-					"type": "Chunk",
+					"type": "Terrain",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Flat",
@@ -11259,8 +11272,8 @@
 					},
 					"uid": 26942,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false,
 						"Angled": false
 					},
@@ -11304,7 +11317,7 @@
 					}
 				},
 				{
-					"type": "Chunk",
+					"type": "Terrain",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Down",
@@ -11314,8 +11327,8 @@
 					},
 					"uid": 27007,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false,
 						"Angled": false
 					},
@@ -11359,7 +11372,7 @@
 					}
 				},
 				{
-					"type": "Chunk",
+					"type": "Terrain",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Up",
@@ -11369,8 +11382,8 @@
 					},
 					"uid": 27015,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false,
 						"Angled": false
 					},
@@ -11447,7 +11460,7 @@
 					}
 				},
 				{
-					"type": "Chunk",
+					"type": "Terrain",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Flat",
@@ -11457,8 +11470,8 @@
 					},
 					"uid": 27079,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false,
 						"Angled": false
 					},
@@ -11502,7 +11515,7 @@
 					}
 				},
 				{
-					"type": "Chunk",
+					"type": "Terrain",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Flat",
@@ -11512,8 +11525,8 @@
 					},
 					"uid": 27084,
 					"instanceVariables": {
-						"form": "floor",
 						"DownSlopeRight2": false,
+						"form": "floor",
 						"DownSlopeRight": false,
 						"Angled": false
 					},
@@ -11577,8 +11590,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": false
 		}
 	],
@@ -11588,5 +11603,7 @@
 	"width": 1280,
 	"height": 5000,
 	"unboundedScrolling": true,
+	"vpX": 0.5,
+	"vpY": 0.5,
 	"eventSheet": null
 }

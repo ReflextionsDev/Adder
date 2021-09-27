@@ -185,18 +185,16 @@
 									"objectClass": "System",
 									"sid": 648435211284088,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"value": "\"Wastes\""
 									}
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 601377469719523,
-									"parameters": {
-										"name": "\"Spawn_BG\"",
-										"parameter-n": []
-									}
+									"callFunction": "Level_SpawnBG",
+									"sid": 986770316003926,
+									"parameters": [
+										"\"\""
+									]
 								}
 							],
 							"sid": 484981962725654
@@ -367,7 +365,7 @@
 									"sid": 383731348370633,
 									"parameters": {
 										"variable": "system_ZoomBase",
-										"value": "zsystem_ZoomBasePhone"
+										"value": "system_ZoomBasePhone"
 									}
 								}
 							],

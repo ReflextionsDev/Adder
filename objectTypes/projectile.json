@@ -1,0 +1,517 @@
+{
+	"name": "Projectile",
+	"plugin-id": "Sprite",
+	"sid": 657979022144873,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 735368045801650
+		},
+		{
+			"name": "Speed",
+			"type": "number",
+			"desc": "",
+			"sid": 827522674891578
+		},
+		{
+			"name": "Knockback",
+			"type": "number",
+			"desc": "",
+			"sid": 221113552033598
+		},
+		{
+			"name": "Faction",
+			"type": "string",
+			"desc": "",
+			"sid": 127440496859340
+		},
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 621056992323668
+		},
+		{
+			"name": "ArrayID",
+			"type": "number",
+			"desc": "",
+			"sid": 323080074955334
+		},
+		{
+			"name": "zzzDamage",
+			"type": "number",
+			"desc": "",
+			"sid": 743507626850367
+		},
+		{
+			"name": "zzzShotgun",
+			"type": "boolean",
+			"desc": "",
+			"sid": 930988635245019
+		},
+		{
+			"name": "Knockup",
+			"type": "number",
+			"desc": "",
+			"sid": 785967759465825
+		},
+		{
+			"name": "SpawnOrigin",
+			"type": "string",
+			"desc": "",
+			"sid": 694995786653358
+		},
+		{
+			"name": "ParticlePrefab",
+			"type": "string",
+			"desc": "",
+			"sid": 298148665635714
+		},
+		{
+			"name": "EffectPrefab",
+			"type": "string",
+			"desc": "",
+			"sid": 991296553642717
+		},
+		{
+			"name": "Form",
+			"type": "string",
+			"desc": "",
+			"sid": 933670313424656
+		},
+		{
+			"name": "ImpactFX",
+			"type": "string",
+			"desc": "",
+			"sid": 694569860599879
+		},
+		{
+			"name": "SplitsLeft",
+			"type": "number",
+			"desc": "",
+			"sid": 807767738995679
+		},
+		{
+			"name": "SplitChild",
+			"type": "number",
+			"desc": "",
+			"sid": 820058478230870
+		},
+		{
+			"name": "BouncesLeft",
+			"type": "number",
+			"desc": "",
+			"sid": 724145790678164
+		},
+		{
+			"name": "Physics_TrueAngle",
+			"type": "boolean",
+			"desc": "",
+			"sid": 856648592616056
+		},
+		{
+			"name": "Physics_SpawnVy",
+			"type": "number",
+			"desc": "",
+			"sid": 831010659367000
+		},
+		{
+			"name": "ImpactTypeAI",
+			"type": "string",
+			"desc": "",
+			"sid": 211608246674796
+		},
+		{
+			"name": "ImpactTypeEnv",
+			"type": "string",
+			"desc": "",
+			"sid": 160444286003925
+		},
+		{
+			"name": "IgnoreAI",
+			"type": "boolean",
+			"desc": "",
+			"sid": 883573200050214
+		},
+		{
+			"name": "TriggerEvents",
+			"type": "string",
+			"desc": "",
+			"sid": 199847153836108
+		},
+		{
+			"name": "TriggerEffects",
+			"type": "string",
+			"desc": "",
+			"sid": 905012826953961
+		},
+		{
+			"name": "TriggerDamage",
+			"type": "number",
+			"desc": "",
+			"sid": 100085904772554
+		},
+		{
+			"name": "TriggerRange",
+			"type": "number",
+			"desc": "",
+			"sid": 766826033557500
+		},
+		{
+			"name": "TriggerFX",
+			"type": "string",
+			"desc": "",
+			"sid": 206546258233646
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 631464853290468
+		},
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 882089493844999
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 876589250170552
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "glowhorizontal",
+			"name": "GlowHorizontal"
+		},
+		{
+			"effectId": "glowvertical",
+			"name": "GlowVertical"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2234839,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.151786,
+								0.770834,
+								0.15625,
+								0.777778,
+								0.875,
+								0,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 385434099100664,
+				"name": "bullet",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 344007,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.151786,
+								0.770834,
+								0.15625,
+								0.777778,
+								0.875,
+								0,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 927711621322087,
+				"name": "Tracer",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7748256,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.151786,
+								0.770834,
+								0.15625,
+								0.777778,
+								0.875,
+								0,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 856398838906307,
+				"name": "Dragon1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2482843,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.151786,
+								0.770834,
+								0.15625,
+								0.777778,
+								0.875,
+								0,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 594122538144837,
+				"name": "Dragon2",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1382951,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.151786,
+								0.770834,
+								0.15625,
+								0.777778,
+								0.875,
+								0,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 573708790287690,
+				"name": "Dragon3",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 6,
+						"originX": 0.9411764705882353,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6213046,
+						"collisionPoly": {
+							"points": [
+								0.5294117647058824,
+								0.16666666666666666,
+								0.9411764705882353,
+								0.16666666666666666,
+								0.9411764705882353,
+								0.8333333333333334,
+								0.5294117647058824,
+								0.8333333333333334
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 144602704202103,
+				"name": "kunai",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			},
+			{
+				"frames": [
+					{
+						"width": 12,
+						"height": 11,
+						"originX": 0.5833333333333334,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2182940,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.18181818181818182,
+								0.8333333333333333,
+								0.18181818181818182,
+								0.8333333333333333,
+								0.8181818181818181,
+								0.25,
+								0.8181818181818181
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 986144355937615,
+				"name": "grenade",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			},
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 7,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4141600,
+						"collisionPoly": {
+							"points": [
+								0.1,
+								0.14285714285714285,
+								0.9,
+								0.14285714285714285,
+								0.9,
+								0.8571428571428572,
+								0.1,
+								0.8571428571428572
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 234417692832569,
+				"name": "brick",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			},
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 6,
+						"originX": 0.8823529411764706,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9450438,
+						"collisionPoly": {
+							"points": [
+								0.5294117647058824,
+								0.16666666666666666,
+								0.9411764705882353,
+								0.16666666666666666,
+								0.9411764705882353,
+								0.8333333333333334,
+								0.5294117647058824,
+								0.8333333333333334
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 240696262922250,
+				"name": "kunai_stuck",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			}
+		],
+		"subfolders": []
+	}
+}

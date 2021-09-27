@@ -25,8 +25,10 @@
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -1088,8 +1090,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": true,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -3459,8 +3463,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -4401,8 +4407,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -4951,8 +4959,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -5356,8 +5366,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -5647,8 +5659,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -5972,8 +5986,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -6131,7 +6147,7 @@
 					}
 				},
 				{
-					"type": "Text_EquipCooldown",
+					"type": "zzzText_EquipCooldown",
 					"properties": {
 						"text": "Equipment: 00",
 						"enable-bbcode": false,
@@ -6200,8 +6216,8 @@
 						}
 					},
 					"world": {
-						"x": -64,
-						"y": 288,
+						"x": -48,
+						"y": -96,
 						"width": 768,
 						"height": 72,
 						"originX": 0,
@@ -6284,8 +6300,8 @@
 						}
 					},
 					"world": {
-						"x": 120,
-						"y": 120,
+						"x": 132,
+						"y": -192,
 						"width": 432,
 						"height": 72,
 						"originX": 0,
@@ -6321,8 +6337,10 @@
 			"parallaxY": 0,
 			"scaleRate": 0,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -8846,8 +8864,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -8855,7 +8875,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "LoadingSprite",
+					"type": "LoaderSprite",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Idle4",
@@ -8864,11 +8884,14 @@
 						"live-preview": false
 					},
 					"uid": 28,
-					"instanceVariables": {
-						"HitboxID": 0,
-						"Variant": 0
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
 					},
-					"behaviors": {},
 					"world": {
 						"x": 318.500003,
 						"y": 184,
@@ -8906,22 +8929,12 @@
 					},
 					"uid": 29,
 					"instanceVariables": {
-						"ID": 0
+						"Dots": 0
 					},
 					"behaviors": {
-						"Pin": {
+						"Tween": {
 							"properties": {
-								"destroy": false
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0.5,
-								"wait-time": 4,
-								"fade-out-time": 0.5,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
+								"enabled": true
 							}
 						}
 					},
@@ -8963,8 +8976,10 @@
 			"parallaxY": 0,
 			"scaleRate": 0,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -9027,8 +9042,10 @@
 			"parallaxY": 0,
 			"scaleRate": 0,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -9055,8 +9072,10 @@
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		},
 		{
@@ -9158,6 +9177,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9200,6 +9230,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9242,6 +9283,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9329,6 +9381,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9393,6 +9456,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9457,6 +9531,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9526,6 +9611,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9615,6 +9711,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9729,6 +9836,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9771,6 +9889,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9813,6 +9942,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9922,6 +10062,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -9986,6 +10137,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -10050,6 +10212,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -10104,6 +10277,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -10158,6 +10342,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -10212,6 +10407,17 @@
 							"a": true,
 							"d": true,
 							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"previewSceneGraph": false
 						}
 					},
 					"world": {
@@ -10252,8 +10458,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": true
 		}
 	],
@@ -10308,5 +10516,7 @@
 	"width": 640,
 	"height": 360,
 	"unboundedScrolling": true,
+	"vpX": 0.5,
+	"vpY": 0.5,
 	"eventSheet": "Menu Master"
 }

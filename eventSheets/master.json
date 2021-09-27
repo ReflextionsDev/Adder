@@ -204,156 +204,116 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Wrap Around Inc / Decr"
-						},
-						{
-							"eventType": "comment",
-							"text": "Params - Cur Value, Max"
-						},
-						{
-							"eventType": "comment",
-							"text": "I don't need this, use clamp()"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+							"functionName": "Math_Wrap",
+							"functionDescription": "",
+							"functionCategory": "System",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
 								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 756321365186342,
-									"parameters": {
-										"name": "\"Math_Increment\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 598377233252047,
-									"parameters": {
-										"variable": "tempvalue",
-										"value": "function.Param(0) + 1"
-									}
-								}
-							],
-							"sid": 121733709737870,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 385143920680293,
-											"parameters": {
-												"variable": "tempvalue",
-												"comparison": 4,
-												"value": "function.Param(1)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 954995766824693,
-											"parameters": {
-												"variable": "tempvalue",
-												"value": "0"
-											}
-										}
-									],
-									"sid": 247252076508475
+									"name": "Value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 534265370285253
 								},
 								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-return-value",
-											"objectClass": "function",
-											"sid": 699585254615458,
-											"parameters": {
-												"value": "tempvalue"
-											}
-										}
-									],
-									"sid": 381770363656579
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Params - Cur Value, Max"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"name": "MinValue",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 573660427816231
+								},
 								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 686387241766503,
-									"parameters": {
-										"name": "\"Math_Decrement\""
-									}
+									"name": "MaxValue",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 247114651574757
 								}
 							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 202771026545462,
-									"parameters": {
-										"variable": "tempvalue",
-										"value": "function.Param(0) - 1"
-									}
-								}
-							],
-							"sid": 945621418178904,
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 814321380551353,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
+											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 572925441167348,
+											"sid": 128629477066985,
 											"parameters": {
-												"variable": "tempvalue",
+												"first-value": "Value",
 												"comparison": 2,
-												"value": "0"
+												"second-value": "MinValue"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 219775685519057,
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 555848516885396,
 											"parameters": {
-												"variable": "tempvalue",
-												"value": "function.Param(1)"
+												"value": "MaxValue"
 											}
 										}
 									],
-									"sid": 860761425774898
+									"sid": 287343773007172
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-return-value",
-											"objectClass": "function",
-											"sid": 823956047480839,
+											"id": "else",
+											"objectClass": "System",
+											"sid": 337257166149364
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 121476567284841,
 											"parameters": {
-												"value": "tempvalue"
+												"first-value": "Value",
+												"comparison": 4,
+												"second-value": "MaxValue"
 											}
 										}
 									],
-									"sid": 555471613801667
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 905615619181696,
+											"parameters": {
+												"value": "MinValue"
+											}
+										}
+									],
+									"sid": 582002770295374
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 411773393291949
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 838936815456087,
+											"parameters": {
+												"value": "Value"
+											}
+										}
+									],
+									"sid": 540681541852011
 								}
 							]
 						}
@@ -367,6 +327,10 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "there's gotta be a better way lmao"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -608,7 +572,60 @@
 					"children": [
 						{
 							"eventType": "comment",
+							"text": "could possibly combine all arrays into a super function (array_manipulate) or something"
+						},
+						{
+							"eventType": "comment",
 							"text": "Params - Array ID"
+						},
+						{
+							"functionName": "Array_GetRandomElement",
+							"functionDescription": "X Only",
+							"functionCategory": "System",
+							"functionReturnType": "any",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ArrayUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 527109524144942
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 919485538974101,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 411003798754214,
+											"parameters": {
+												"object": "Arrays",
+												"expression": "Arrays.UID",
+												"comparison": 0,
+												"value": "ArrayUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 878693436628615,
+											"parameters": {
+												"value": "Arrays.At((random(0,(Arrays.Width-0.001))))"
+											}
+										}
+									],
+									"sid": 364629156637664
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1324,9 +1341,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Debug_SF",
-											"sid": 172919614101149,
+											"sid": 410491541940477,
 											"parameters": {
-												"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount"
+												"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount & newline & newline & \"Equipment: \" & PlayerData.Equipment & newline & \"Equipment CD: \" & (str(int(Player.Timer.CurrentTime(\"EquipmentCooldown\"))) & \".\" & zeropad(int(Player.Timer.CurrentTime(\"EquipmentCooldown\")*100)%100,2) & \"/\" & Equipment_Current.Cooldown)"
 											}
 										}
 									],
@@ -3390,7 +3407,71 @@
 													}
 												}
 											],
-											"sid": 728230222545684
+											"sid": 728230222545684,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "key-is-down",
+															"objectClass": "Keyboard",
+															"sid": 407020047782765,
+															"parameters": {
+																"key": 16
+															}
+														}
+													],
+													"actions": [],
+													"sid": 480036534000581,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "repeat",
+																	"objectClass": "System",
+																	"sid": 205561281516314,
+																	"parameters": {
+																		"count": "10"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 551239068843040,
+																	"parameters": {
+																		"seconds": "0.02"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 260909934285183,
+																	"parameters": {
+																		"object-to-create": "Zombie",
+																		"layer": "\"Objects\"",
+																		"x": "Mouse.X(\"Objects\")",
+																		"y": "Mouse.Y(\"Objects\")",
+																		"create-hierarchy": false
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Zombie",
+																	"sid": 113110817944001,
+																	"parameters": {
+																		"instance-variable": "Class",
+																		"value": "\"Walker\""
+																	}
+																}
+															],
+															"sid": 372092687323691
+														}
+													]
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -5212,13 +5293,11 @@
 							],
 							"actions": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 360604814651809,
-									"parameters": {
-										"name": "\"Spawn_BG\"",
-										"parameter-n": []
-									}
+									"callFunction": "Level_SpawnBG",
+									"sid": 860985737848670,
+									"parameters": [
+										"\"\""
+									]
 								},
 								{
 									"id": "set-eventvar-value",
@@ -5253,7 +5332,7 @@
 											"objectClass": "System",
 											"sid": 408009947130747,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"Forest\""
 											}
 										}
@@ -5281,7 +5360,7 @@
 											"objectClass": "System",
 											"sid": 338280805049381,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"Suburb\""
 											}
 										}
@@ -5309,7 +5388,7 @@
 											"objectClass": "System",
 											"sid": 675402869247755,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"Wastes\""
 											}
 										}
@@ -5337,7 +5416,7 @@
 											"objectClass": "System",
 											"sid": 285224075144539,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"City\""
 											}
 										}
@@ -5365,7 +5444,7 @@
 											"objectClass": "System",
 											"sid": 622562987558088,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"Industrial\""
 											}
 										}
@@ -5393,7 +5472,7 @@
 											"objectClass": "System",
 											"sid": 358144383534305,
 											"parameters": {
-												"variable": "BG_Name",
+												"variable": "level_Biome",
 												"value": "\"Mountain\""
 											}
 										}
@@ -6552,14 +6631,6 @@
 									"id": "destroy",
 									"objectClass": "Debug_SF2",
 									"sid": 615167893708603
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Debug_SF2",
-									"sid": 690434074049574,
-									"parameters": {
-										"text": "zzzTargetDummy.CurrentDamage"
-									}
 								}
 							],
 							"sid": 491046605351301
@@ -6570,7 +6641,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "zz_Debug Target Dummy",
+					"title": "Debug Level",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -6578,65 +6649,27 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-timer",
-									"objectClass": "zzzTargetDummy",
-									"sid": 369379220932081,
-									"behaviorType": "Timer",
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 141161854129006,
 									"parameters": {
-										"tag": "\"DamageTimeout\""
+										"key": 84
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "zzzTargetDummy",
-									"sid": 333329001067394,
-									"parameters": {
-										"instance-variable": "CurrentDamage",
-										"value": "0"
-									}
+									"callFunction": "Builder_SpawnPrefab",
+									"sid": 114164239614287,
+									"parameters": [
+										"level_DebugLevel"
+									]
 								}
 							],
-							"sid": 677452041235513
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 456289901066958,
-									"parameters": {
-										"name": "\"TargetDummy_DisplayDamage\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 979656554191299,
-									"parameters": {
-										"seconds": "0"
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 917376418033365,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Damage: \" & zzzTargetDummy.CurrentDamage"
-										]
-									}
-								}
-							],
-							"sid": 756737356975485
+							"sid": 542486238079662
 						}
 					],
-					"sid": 861845588870327
+					"sid": 610622936866577
 				},
 				{
 					"eventType": "block",
@@ -6652,7 +6685,7 @@
 					],
 					"actions": [
 						{
-							"callFunction": "Save",
+							"callFunction": "System_SaveGame",
 							"sid": 695914611402965
 						}
 					],
@@ -6672,11 +6705,29 @@
 					],
 					"actions": [
 						{
-							"callFunction": "Load",
+							"callFunction": "System_LoadGame",
 							"sid": 203274516395551
 						}
 					],
 					"sid": 948270710988947
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 684043219519657
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "System_FirstLoad",
+							"sid": 968690756928376
+						}
+					],
+					"sid": 861562908215037,
+					"disabled": true
 				}
 			],
 			"sid": 775469364677446
@@ -9256,6 +9307,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 946183689715347,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"yeet\""
@@ -10212,6 +10264,241 @@
 				}
 			],
 			"sid": 437585890140946
+		},
+		{
+			"functionName": "PLR_LevelUp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerData",
+					"sid": 124685939663085,
+					"parameters": {
+						"instance-variable": "Level_XPThisLevel",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerData",
+					"sid": 772042161441943,
+					"parameters": {
+						"instance-variable": "HP",
+						"value": "PlayerData.MaxHP"
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "function",
+					"sid": 308243157671716,
+					"parameters": {
+						"name": "\"FX_LevelUp\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 336203098220858,
+			"disabled": true
+		},
+		{
+			"functionName": "PLR_AddXP",
+			"functionDescription": "",
+			"functionCategory": "PLR",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "PlayerData",
+					"sid": 135783671600335,
+					"parameters": {
+						"instance-variable": "Level_XPTotal",
+						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "PlayerData",
+					"sid": 208315776074147,
+					"parameters": {
+						"instance-variable": "Level_XPThisLevel",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 975563031459720,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerData",
+							"sid": 925936862669243,
+							"parameters": {
+								"instance-variable": "Level_XPNeeded",
+								"comparison": 3,
+								"value": "PlayerData.Level_XPThisLevel"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PLR_LevelUp",
+							"sid": 772788716631610
+						}
+					],
+					"sid": 551205942947340,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 344538582919659
+						}
+					],
+					"actions": [],
+					"sid": 315490008715866,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"functionName": "System_LayoutReady",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "System_LoaderDisable",
+					"sid": 511334487127838
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 969491284490670,
+					"parameters": {
+						"seconds": "system_LoaderFadeOut"
+					}
+				},
+				{
+					"callFunction": "VFX_FadeIn",
+					"sid": 826412756419967,
+					"parameters": [
+						"vfx_FadeWaitTime",
+						"vfx_FadeInTime"
+					]
+				}
+			],
+			"sid": 771220143318840
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Spawn_PlayerSpawnOverride",
+					"sid": 228069080572018
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 382741399158479,
+					"parameters": {
+						"group-name": "\"Player Spawn Override\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 651300766877839,
+					"parameters": {
+						"type": "log",
+						"message": "\"ovverwritee spanwed\""
+					}
+				}
+			],
+			"sid": 590890803567772
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Spawn Override",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 570363263186432,
+							"parameters": {
+								"first-value": "Player.Count",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 288424058854762,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Player",
+							"sid": 238489355505408,
+							"parameters": {
+								"x": "Spawn_PlayerSpawnOverride.X",
+								"y": "Spawn_PlayerSpawnOverride.Y"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Spawn_PlayerSpawnOverride",
+							"sid": 956823443251493,
+							"disabled": true
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 424850563612263,
+							"parameters": {
+								"group-name": "\"Player Spawn Override\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 633772155200155
+				}
+			],
+			"sid": 984719963842056
 		}
 	],
 	"sid": 350183298465580

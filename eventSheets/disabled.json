@@ -16064,7 +16064,7 @@
 						},
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 648015165843299,
 							"parameters": {
 								"object": "Human"
@@ -16077,10 +16077,10 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 581443400346086,
 							"parameters": {
-								"instance-variable": "Owner",
+								"instance-variable": "Faction",
 								"comparison": 1,
 								"value": "\"NPC\""
 							}
@@ -16154,7 +16154,7 @@
 											"objectClass": "Human",
 											"sid": 202949435743434,
 											"parameters": {
-												"object": "TileBGs"
+												"object": "zzzTileBGs"
 											}
 										}
 									],
@@ -16234,12 +16234,12 @@
 													"sid": 138363400581577,
 													"parameters": {
 														"instance-variable": "zzHP",
-														"value": "Bullet.zDamage"
+														"value": "Projectile.zzzDamage"
 													}
 												},
 												{
 													"id": "subtract-from-instvar",
-													"objectClass": "Bullet",
+													"objectClass": "Projectile",
 													"sid": 506308644045265,
 													"parameters": {
 														"instance-variable": "HP",
@@ -16254,8 +16254,8 @@
 														"name": "\"NPC_Hit\"",
 														"parameter-n": [
 															"Human.UID",
-															"Bullet.X",
-															"Bullet.Knockback",
+															"Projectile.X",
+															"Projectile.Knockback",
 															"1"
 														]
 													}
@@ -16312,7 +16312,7 @@
 															"conditions": [
 																{
 																	"id": "is-animation-playing",
-																	"objectClass": "Bullet",
+																	"objectClass": "Projectile",
 																	"sid": 161362713149280,
 																	"parameters": {
 																		"animation": "\"Dragon1\""
@@ -16320,7 +16320,7 @@
 																},
 																{
 																	"id": "is-animation-playing",
-																	"objectClass": "Bullet",
+																	"objectClass": "Projectile",
 																	"sid": 224395039250296,
 																	"parameters": {
 																		"animation": "\"Dragon3\""
@@ -16328,7 +16328,7 @@
 																},
 																{
 																	"id": "is-animation-playing",
-																	"objectClass": "Bullet",
+																	"objectClass": "Projectile",
 																	"sid": 556612767661599,
 																	"parameters": {
 																		"animation": "\"Dragon2\""
@@ -16407,7 +16407,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Bullet",
+											"objectClass": "Projectile",
 											"sid": 890921391330772,
 											"parameters": {
 												"instance-variable": "HP",
@@ -16419,7 +16419,7 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "Bullet",
+											"objectClass": "Projectile",
 											"sid": 195592061219407
 										},
 										{
@@ -16450,7 +16450,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 741172049677173,
 							"parameters": {
 								"object": "Player"
@@ -16458,10 +16458,10 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Bullet",
+							"objectClass": "Projectile",
 							"sid": 647691467850023,
 							"parameters": {
-								"instance-variable": "Owner",
+								"instance-variable": "Faction",
 								"comparison": 0,
 								"value": "\"NPC\""
 							}
@@ -16500,7 +16500,7 @@
 									"callFunction": "PLR_Hit",
 									"sid": 219287553744788,
 									"parameters": [
-										"Bullet.zDamage"
+										"Projectile.zzzDamage"
 									]
 								}
 							],
@@ -16512,7 +16512,7 @@
 									"conditions": [
 										{
 											"id": "compare-x",
-											"objectClass": "Bullet",
+											"objectClass": "Projectile",
 											"sid": 231535251151764,
 											"parameters": {
 												"comparison": 5,
@@ -16527,7 +16527,7 @@
 											"sid": 491314412820823,
 											"behaviorType": "Platform",
 											"parameters": {
-												"vector-x": "Self.Platform.VectorX - Bullet.Knockback"
+												"vector-x": "Self.Platform.VectorX - Projectile.Knockback"
 											}
 										}
 									],
@@ -16539,7 +16539,7 @@
 									"conditions": [
 										{
 											"id": "compare-x",
-											"objectClass": "Bullet",
+											"objectClass": "Projectile",
 											"sid": 365330870668228,
 											"parameters": {
 												"comparison": 2,
@@ -16554,7 +16554,7 @@
 											"sid": 582502293147840,
 											"behaviorType": "Platform",
 											"parameters": {
-												"vector-x": "Self.Platform.VectorX + Bullet.Knockback"
+												"vector-x": "Self.Platform.VectorX + Projectile.Knockback"
 											}
 										}
 									],
@@ -16567,7 +16567,7 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "Bullet",
+											"objectClass": "Projectile",
 											"sid": 729645284475454
 										}
 									],
@@ -16603,18 +16603,16 @@
 							"objectClass": "System",
 							"sid": 914821991384352,
 							"parameters": {
-								"variable": "BG_Name",
+								"variable": "level_Biome",
 								"value": "\"Forest\""
 							}
 						},
 						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 560778743055053,
-							"parameters": {
-								"name": "\"Spawn_BG\"",
-								"parameter-n": []
-							}
+							"callFunction": "Level_SpawnBG",
+							"sid": 505669771591381,
+							"parameters": [
+								"\"\""
+							]
 						},
 						{
 							"id": "set-layer-visible",
@@ -33816,7 +33814,7 @@
 						},
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Equip_Molotov",
+							"objectClass": "zzzEquip_Molotov",
 							"sid": 535385572349861,
 							"parameters": {
 								"object": "Door"
@@ -33824,7 +33822,7 @@
 						},
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Equip_Grenade",
+							"objectClass": "zzzEquip_Grenade",
 							"sid": 139826902154759,
 							"parameters": {
 								"object": "Door"
@@ -33832,7 +33830,7 @@
 						},
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Equip_Axe",
+							"objectClass": "zzzEquip_Axe",
 							"sid": 116758493987106,
 							"parameters": {
 								"object": "Door"
@@ -34697,6 +34695,576 @@
 			],
 			"sid": 294226488145901,
 			"disabled": true
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Preload Disabled",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 123145449521170,
+							"parameters": {
+								"key": "\"GamepadRecommended\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 559711328362521,
+							"parameters": {
+								"layout": "MainMenu"
+							}
+						}
+					],
+					"sid": 478099698472126
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 933593076520603,
+							"parameters": {
+								"key": "\"GamepadRecommended\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 940586588935015,
+							"parameters": {
+								"layout": "MainMenu"
+							}
+						}
+					],
+					"sid": 624193329476785
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "zzzFadeOut",
+							"sid": 676050230170416
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 305809690877310,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						}
+					],
+					"sid": 718478815581467,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 618694442240410,
+									"parameters": {
+										"variable": "system_Platform",
+										"comparison": 0,
+										"value": "\"PC\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "check-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 891555277994874,
+									"parameters": {
+										"key": "\"GamepadRecommended\""
+									}
+								}
+							],
+							"sid": 145542944109005
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 662221880344244
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 453227323620719,
+									"parameters": {
+										"layout": "MainMenu"
+									}
+								}
+							],
+							"sid": 402705868960859
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Loader Finished",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 767390599076119,
+									"parameters": {
+										"first-value": "loadingprogress",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 797056499509925,
+									"parameters": {
+										"first-value": "system_StringsLoaded",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 582939081739137,
+									"parameters": {
+										"name": "\"GFX_FadeOut\"",
+										"parameter-n": [
+											"0.5",
+											"99"
+										]
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 370234042130421,
+									"parameters": {
+										"group-name": "\"Loader Finished\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 405074586575743
+						}
+					],
+					"sid": 656492045106633
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Customization",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 943917576622110,
+									"parameters": {
+										"key": "system_saveslot & \"Customization\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 378641594907117,
+									"parameters": {
+										"variable": "zzz_HasCustomization",
+										"value": "1"
+									}
+								},
+								{
+									"id": "check-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 158169624208095,
+									"parameters": {
+										"key": "system_saveslot & \"StatData\""
+									}
+								}
+							],
+							"sid": 694461864415364,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-missing",
+									"objectClass": "LocalStorage",
+									"sid": 355689858636651,
+									"parameters": {
+										"key": "system_saveslot & \"Customization\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 146838082933480,
+									"parameters": {
+										"group-name": "\"Loader Finished\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 914167959471354,
+							"disabled": true
+						}
+					],
+					"sid": 286182539088309
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Map Tut",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-exists",
+									"objectClass": "LocalStorage",
+									"sid": 849433082520632,
+									"parameters": {
+										"key": "system_saveslot & \"MapTut\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 364377385002043,
+									"parameters": {
+										"variable": "zzSystem_MapTutorialDisplayed",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 799349836248648,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-item-missing",
+									"objectClass": "LocalStorage",
+									"sid": 859681209445907,
+									"parameters": {
+										"key": "system_saveslot & \"MapTut\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 404122332664361,
+									"parameters": {
+										"variable": "zzSystem_MapTutorialDisplayed",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 720906114886914,
+							"disabled": true
+						}
+					],
+					"sid": 850653613258156
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Stat Data",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 660671776831143,
+									"parameters": {
+										"variable": "zzzsystem_StatsLoaded",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 974493334526361,
+									"parameters": {
+										"group-name": "\"Stat Data\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 606498674217906,
+									"parameters": {
+										"group-name": "\"Loader Finished\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 845201206404205,
+							"disabled": true
+						}
+					],
+					"sid": 319295787663560
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TEMP Loader",
+					"description": "To be replace with master loader",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 697088645523539
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 218365966853163,
+									"parameters": {
+										"tag": "\"load_strings\"",
+										"url": "\"strings.\" & language & \".xml\""
+									}
+								}
+							],
+							"sid": 681384704610016
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 143229141639566,
+									"parameters": {
+										"tag": "\"load_strings\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "XML_Strings",
+									"sid": 588831535693053,
+									"parameters": {
+										"xml": "AJAX.LastData"
+									}
+								}
+							],
+							"sid": 580639875802835,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "TODO - Runtime obj diags need to be loaded?"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 785662176828968,
+											"parameters": {
+												"object": "OBJ_Diag"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 940810605713726,
+											"parameters": {
+												"name": "\"Diag_Load\"",
+												"parameter-n": [
+													"OBJ_Diag.UID"
+												]
+											}
+										}
+									],
+									"sid": 281929532021896
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "request-url",
+											"objectClass": "AJAX",
+											"sid": 897032853058211,
+											"parameters": {
+												"tag": "\"load_firstnamesF\"",
+												"url": "\"names_first_f.\" & language & \".xml\""
+											}
+										}
+									],
+									"sid": 222850715920527
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 888530392867582,
+									"parameters": {
+										"tag": "\"load_firstnamesF\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "XML_FirstNamesF",
+									"sid": 117525398604906,
+									"parameters": {
+										"xml": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 323571255087377,
+									"parameters": {
+										"tag": "\"load_firstnamesM\"",
+										"url": "\"names_first_m.\" & language & \".xml\""
+									}
+								}
+							],
+							"sid": 224554302304571
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 127857059326301,
+									"parameters": {
+										"tag": "\"load_firstnamesM\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "XML_FirstNamesM",
+									"sid": 868836363196553,
+									"parameters": {
+										"xml": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 516325016010033,
+									"parameters": {
+										"tag": "\"load_lastnames\"",
+										"url": "\"names_last.\" & language & \".xml\""
+									}
+								}
+							],
+							"sid": 813411587200152
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 473302768998819,
+									"parameters": {
+										"tag": "\"load_lastnames\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "XML_LastNames",
+									"sid": 824879376556596,
+									"parameters": {
+										"xml": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 776461764766054,
+									"parameters": {
+										"variable": "system_StringsLoaded",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 905820237244089
+						}
+					],
+					"sid": 817359223198756
+				}
+			],
+			"sid": 268836976288734
 		}
 	],
 	"sid": 978178450793379

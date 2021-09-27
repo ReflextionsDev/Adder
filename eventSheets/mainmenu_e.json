@@ -2,6 +2,14 @@
 	"name": "MainMenu_E",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Master"
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "MAINMENU NOTES",
@@ -32,10 +40,6 @@
 			"sid": 913909096099137
 		},
 		{
-			"eventType": "include",
-			"includeSheet": "Master"
-		},
-		{
 			"eventType": "variable",
 			"name": "menu_Save",
 			"type": "number",
@@ -55,23 +59,6 @@
 				}
 			],
 			"actions": [
-				{
-					"callFunction": "VFX_FadeIn",
-					"sid": 935325266315969,
-					"parameters": [
-						"vfx_FadeWaitTime",
-						"vfx_FadeInTime"
-					]
-				},
-				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 799185570640905,
-					"parameters": {
-						"name": "\"Loader_Disable\"",
-						"parameter-n": []
-					}
-				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
@@ -100,6 +87,10 @@
 						"group-name": "\"Menu Buttons\"",
 						"state": "activated"
 					}
+				},
+				{
+					"callFunction": "System_LayoutReady",
+					"sid": 502727978769431
 				}
 			],
 			"sid": 658705017392999,
@@ -142,7 +133,7 @@
 							"objectClass": "System",
 							"sid": 406142895000145,
 							"parameters": {
-								"variable": "system_ControlDataLoaded",
+								"variable": "system_ControlsLoaded",
 								"value": "1"
 							}
 						}
@@ -288,7 +279,7 @@
 				{
 					"functionName": "MainMenu_Nav",
 					"functionDescription": "",
-					"functionCategory": "Layout",
+					"functionCategory": "Menu",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -383,13 +374,8 @@
 									],
 									"actions": [
 										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 626727750226970,
-											"parameters": {
-												"name": "\"Loader_Enable\"",
-												"parameter-n": []
-											}
+											"callFunction": "System_LoaderEnable",
+											"sid": 978121521911721
 										}
 									],
 									"sid": 469833515380331,
@@ -402,7 +388,7 @@
 													"objectClass": "System",
 													"sid": 506327577030361,
 													"parameters": {
-														"variable": "system_SaveData",
+														"variable": "system_SaveExists",
 														"comparison": 0,
 														"value": "1"
 													}
@@ -410,7 +396,7 @@
 											],
 											"actions": [
 												{
-													"callFunction": "Load",
+													"callFunction": "System_LoadGame",
 													"sid": 877098343171966
 												}
 											],
@@ -477,7 +463,7 @@
 				{
 					"functionName": "MainMenu_FirstPlay",
 					"functionDescription": "",
-					"functionCategory": "Layout",
+					"functionCategory": "Menu",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [],
@@ -485,9 +471,18 @@
 					"conditions": [],
 					"actions": [
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 670066741281744,
+							"parameters": {
+								"variable": "level_Type",
+								"value": "\"Hub\""
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 639874837051469,
+							"sid": 551487579947295,
 							"parameters": {
 								"layout": "Level"
 							}
@@ -522,6 +517,96 @@
 				}
 			],
 			"sid": 759288295948474
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 802959530381134,
+					"parameters": {
+						"object": "MainMenuDebugTXT"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 756894339172623,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MainMenuDebugTXT",
+							"sid": 389914711455165,
+							"parameters": {
+								"text-to-compare": "\"Hub\"",
+								"case-sensitivity": "ignore-case"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 931817642121835,
+							"parameters": {
+								"variable": "level_Type",
+								"value": "\"World\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 647972542624342,
+							"parameters": {
+								"variable": "level_Biome",
+								"value": "MainMenuDebugTXT.Text"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 433404885542959,
+							"parameters": {
+								"layout": "Level"
+							}
+						}
+					],
+					"sid": 612896364677242
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 725790934702677,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 984757185227148,
+					"parameters": {
+						"type": "log",
+						"message": "Functions.Builder_GetPrefab"
+					}
+				}
+			],
+			"sid": 496443182082745
 		}
 	],
 	"sid": 573607313438243

@@ -654,7 +654,7 @@
 					"eventType": "group",
 					"disabled": false,
 					"title": "Effect Fade",
-					"description": "Consider making this based on layer opacity",
+					"description": "",
 					"isActiveOnStart": true,
 					"children": [
 						{
@@ -1275,72 +1275,379 @@
 					"eventType": "group",
 					"disabled": false,
 					"title": "Impact",
-					"description": "TODO - Support impact types",
+					"description": "",
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
+							"functionName": "FX_Impact",
+							"functionDescription": "",
+							"functionCategory": "Effects",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
 								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 183119299285651,
-									"parameters": {
-										"name": "\"FX_Impact\""
-									}
+									"name": "Name",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 917467817972116
+								},
+								{
+									"name": "Animation",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 313749868247781
+								},
+								{
+									"name": "X",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 235601735963452
+								},
+								{
+									"name": "Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 428925966068698
 								}
 							],
+							"eventType": "function-block",
+							"conditions": [],
 							"actions": [
 								{
-									"id": "create-object",
+									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 928097293752938,
+									"sid": 311778020465866,
 									"parameters": {
-										"object-to-create": "FX_BulletImpact",
-										"layer": "\"Player\"",
-										"x": "function.Param(0)",
-										"y": "function.Param(1)",
+										"object-name": "Name",
+										"layer": "game_EffectsLayer",
+										"x": "X",
+										"y": "Y",
 										"create-hierarchy": false
 									}
+								}
+							],
+							"sid": 375334079403879,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Animation"
 								},
 								{
-									"id": "set-animation",
-									"objectClass": "FX_BulletImpact",
-									"sid": 462754696288967,
-									"parameters": {
-										"animation": "function.Param(2) & \"1\"",
-										"from": "beginning"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 641411456652705,
+											"parameters": {
+												"object": "FX"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 459336870920665,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 311479092327570,
+													"parameters": {
+														"variable": "Animation",
+														"comparison": 0,
+														"value": "\"center\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 135078754105316,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "FX",
+															"sid": 985075234574198,
+															"parameters": {
+																"instance-variable": "CenterVariants",
+																"comparison": 2,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "FX",
+															"sid": 676904461231358,
+															"parameters": {
+																"animation": "\"center1\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 448581283376440
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 881980756023989
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "FX",
+															"sid": 940182130137186,
+															"parameters": {
+																"animation": "\"center\" & floor(random(1,(FX.CenterVariants + 0.999)))",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 287952770248367
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 506765046275267
+												}
+											],
+											"actions": [],
+											"sid": 460759709447403,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "FX",
+															"sid": 868835119951548,
+															"parameters": {
+																"instance-variable": "WallVariants",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "FX",
+															"sid": 269572771743435,
+															"parameters": {
+																"animation": "\"wall1\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 938357092138585
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 436041327589207
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "FX",
+															"sid": 523450630091124,
+															"parameters": {
+																"animation": "\"wall\" & floor(random(1,(FX.WallVariants + 0.999)))",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 420836723208078
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 444673491066990,
+															"parameters": {
+																"variable": "Animation",
+																"comparison": 0,
+																"value": "\"left\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "FX",
+															"sid": 840489126481935,
+															"parameters": {
+																"angle": "90"
+															}
+														}
+													],
+													"sid": 766373252351151
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 208178326769544,
+															"parameters": {
+																"variable": "Animation",
+																"comparison": 0,
+																"value": "\"right\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "FX",
+															"sid": 604538704790047,
+															"parameters": {
+																"angle": "270"
+															}
+														}
+													],
+													"sid": 161360596813260
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 357070225066553,
+															"parameters": {
+																"variable": "Animation",
+																"comparison": 0,
+																"value": "\"bottom\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "FX",
+															"sid": 636670382187604,
+															"parameters": {
+																"angle": "0"
+															}
+														}
+													],
+													"sid": 782449936326843
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 901332655191521,
+															"parameters": {
+																"variable": "Animation",
+																"comparison": 0,
+																"value": "\"top\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "FX",
+															"sid": 206248905417295,
+															"parameters": {
+																"angle": "180"
+															}
+														}
+													],
+													"sid": 256321609953797
+												}
+											]
+										}
+									]
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 980667334652936,
-									"parameters": {
-										"name": "\"SFX_SurfaceImpact\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 871003602901965
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"eventType": "comment",
+									"text": "Sound - Hardcoded based on FX sprite"
+								},
 								{
-									"id": "on-any-animation-finished",
-									"objectClass": "FX_BulletImpact",
-									"sid": 547184185578870
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 372050539786066,
+											"parameters": {
+												"variable": "Name",
+												"comparison": 0,
+												"value": "\"FX_BulletImpact\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SFX_Play",
+											"sid": 329605235731627,
+											"parameters": [
+												"\"ricochet\""
+											]
+										}
+									],
+									"sid": 290122644429018
+								},
 								{
-									"id": "destroy",
-									"objectClass": "FX_BulletImpact",
-									"sid": 166196853032038
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 739694352981898
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 897898550343927,
+											"parameters": {
+												"variable": "Name",
+												"comparison": 0,
+												"value": "\"FX_DustImpact\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SFX_Play",
+											"sid": 192900462740013,
+											"parameters": [
+												"\"ricochet\""
+											]
+										}
+									],
+									"sid": 794350123215212
 								}
-							],
-							"sid": 266100021461672
+							]
 						}
 					],
 					"sid": 105184452158471
@@ -2993,7 +3300,7 @@
 									"objectClass": "System",
 									"sid": 213253823703608,
 									"parameters": {
-										"object-to-create": "FX_Explosion",
+										"object-to-create": "FX_ExplosionFlatBig",
 										"layer": "\"Player\"",
 										"x": "X",
 										"y": "Y",
@@ -3712,7 +4019,7 @@
 									"objectClass": "System",
 									"sid": 626361406254880,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"Forest\""
 									}
@@ -3746,7 +4053,7 @@
 									"objectClass": "System",
 									"sid": 815166431000497,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"Mountain\""
 									}
@@ -3780,7 +4087,7 @@
 									"objectClass": "System",
 									"sid": 415604404336222,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"Suburb\""
 									}
@@ -3814,7 +4121,7 @@
 									"objectClass": "System",
 									"sid": 892592959310840,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"Wastes\""
 									}
@@ -3848,7 +4155,7 @@
 									"objectClass": "System",
 									"sid": 533867573703136,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"City\""
 									}
@@ -3877,7 +4184,7 @@
 									"objectClass": "System",
 									"sid": 258599815891319,
 									"parameters": {
-										"variable": "BG_Name",
+										"variable": "level_Biome",
 										"comparison": 0,
 										"value": "\"Industrial\""
 									}
@@ -3945,6 +4252,81 @@
 								}
 							],
 							"sid": 924395635671731
+						},
+						{
+							"eventType": "comment",
+							"text": "Ideally, replace all with this master func"
+						},
+						{
+							"eventType": "comment",
+							"text": "Elses may be ineffecient, but switch statements aren't possible"
+						},
+						{
+							"eventType": "comment",
+							"text": "optimize by putting most common sounds up top, and least at bottom"
+						},
+						{
+							"functionName": "SFX_Play",
+							"functionDescription": "",
+							"functionCategory": "Effects",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Sound",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 308190010907308
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 146266180661614,
+									"parameters": {
+										"variable": "audio_SFXEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 827429988166201,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 811262559143301,
+											"parameters": {
+												"first-value": "Sound",
+												"comparison": 0,
+												"second-value": "\"ricochet\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 617855398837318,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"ricochet_\" & floor(random(1,4.99))",
+												"loop": "not-looping",
+												"volume": "Audio_SFXLevel",
+												"tag-optional": "\"impact\""
+											}
+										}
+									],
+									"sid": 244276917129418
+								}
+							]
 						}
 					],
 					"sid": 568345645390590
@@ -4512,7 +4894,8 @@
 									}
 								}
 							],
-							"sid": 978863733926692
+							"sid": 978863733926692,
+							"disabled": true
 						}
 					],
 					"sid": 617599494401059
@@ -6939,7 +7322,7 @@
 									"objectClass": "Weather",
 									"sid": 154888909904970,
 									"parameters": {
-										"object": "TileBGs"
+										"object": "zzzTileBGs"
 									}
 								},
 								{

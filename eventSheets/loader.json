@@ -2,28 +2,28 @@
 	"name": "Loader",
 	"events": [
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Loader TODO",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Replace text with sprite font, localization support"
-				}
-			],
-			"sid": 857154668831834
-		},
-		{
 			"eventType": "variable",
-			"name": "loader_dots",
+			"name": "system_LoaderFadeIn",
 			"type": "number",
-			"initialValue": "1",
+			"initialValue": "0.5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 524424679271250
+			"sid": 689899807258231
+		},
+		{
+			"eventType": "comment",
+			"text": "Change to 0 if this become annoying"
+		},
+		{
+			"eventType": "variable",
+			"name": "system_LoaderFadeOut",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 611482607305190
 		},
 		{
 			"eventType": "block",
@@ -36,15 +36,6 @@
 			],
 			"actions": [
 				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 883761747862384,
-					"parameters": {
-						"group-name": "\"Loader\"",
-						"state": "activated"
-					}
-				},
-				{
 					"id": "set-layer-scale",
 					"objectClass": "System",
 					"sid": 457464110736918,
@@ -52,89 +43,172 @@
 						"layer": "\"Loader\"",
 						"scale": "system_ZoomMenus"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LoaderTXT",
+					"sid": 228005310144184,
+					"parameters": {
+						"instance-variable": "Dots",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "LoaderSprite",
+					"sid": 897532388737406,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "LoaderTXT",
+					"sid": 147709498420028,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"callFunction": "System_LoaderEnable",
+					"sid": 499288504884788
 				}
 			],
 			"sid": 274779552385024
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-function",
-					"objectClass": "function",
-					"sid": 839175566539311,
-					"parameters": {
-						"name": "\"Loader_Disable\""
-					}
-				}
-			],
+			"functionName": "System_LoaderEnable",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 163664624728152,
-					"parameters": {
-						"group-name": "\"Loader\"",
-						"state": "deactivated"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "LoaderTXT",
-					"sid": 608503973347979,
-					"disabled": true
-				},
-				{
-					"id": "destroy",
-					"objectClass": "LoadingSprite",
-					"sid": 953599771995139,
-					"disabled": true
-				},
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 771525058277011,
+					"sid": 733302011405395,
 					"parameters": {
 						"layer": "\"Loader\"",
-						"visibility": "invisible"
+						"visibility": "visible"
 					}
-				}
-			],
-			"sid": 581011028885582
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-function",
-					"objectClass": "function",
-					"sid": 795766397712910,
-					"parameters": {
-						"name": "\"Loader_Enable\""
-					}
-				}
-			],
-			"actions": [
+				},
 				{
 					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 853092961224883,
+					"sid": 941726421806460,
 					"parameters": {
 						"group-name": "\"Loader\"",
 						"state": "activated"
 					}
 				},
 				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 363391373954829,
+					"id": "tween-one-property",
+					"objectClass": "LoaderSprite",
+					"sid": 130422528907576,
+					"behaviorType": "Tween",
 					"parameters": {
-						"layer": "\"Loader\"",
-						"visibility": "visible"
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "system_LoaderFadeIn",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderTXT",
+					"sid": 268567097356867,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "system_LoaderFadeIn",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
 					}
 				}
 			],
-			"sid": 998752246044841
+			"sid": 274882275563406
+		},
+		{
+			"functionName": "System_LoaderDisable",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 997983866210823,
+					"parameters": {
+						"group-name": "\"Loader\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderSprite",
+					"sid": 761146261954794,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "system_LoaderFadeOut",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderTXT",
+					"sid": 801300650056698,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "system_LoaderFadeOut",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 278551875793619,
+					"parameters": {
+						"seconds": "system_LoaderFadeOut"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 669315800742567,
+					"parameters": {
+						"layer": "\"Loader\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 992573109045122
 		},
 		{
 			"eventType": "group",
@@ -147,31 +221,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 710744091974597
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 474064712484310,
-							"parameters": {
-								"variable": "loader_dots",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 939937868212945
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "every-x-seconds",
 							"objectClass": "System",
-							"sid": 541570303059933,
+							"sid": 182676608033389,
 							"parameters": {
 								"interval-seconds": "0.2"
 							}
@@ -181,72 +233,32 @@
 						{
 							"id": "set-text",
 							"objectClass": "LoaderTXT",
-							"sid": 974315452891596,
+							"sid": 447653787258789,
 							"parameters": {
 								"text": "\"LOADING\""
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "LoaderTXT",
+							"sid": 742959634154697,
+							"parameters": {
+								"instance-variable": "Dots",
+								"value": "Functions.Math_Wrap(LoaderTXT.Dots + 1,0,3)"
+							}
 						}
 					],
-					"sid": 290559884749758,
+					"sid": 469834900880165,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 247188951628980,
-									"parameters": {
-										"variable": "loader_dots",
-										"comparison": 0,
-										"value": "3"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 166521342079758,
-									"parameters": {
-										"variable": "loader_dots",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 182496072967621
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 365983021687474
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 149955790672372,
-									"parameters": {
-										"variable": "loader_dots",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 556089544282194
-						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "repeat",
 									"objectClass": "System",
-									"sid": 257225517054586,
+									"sid": 952819588565188,
 									"parameters": {
-										"count": "loader_dots"
+										"count": "LoaderTXT.Dots"
 									}
 								}
 							],
@@ -254,24 +266,24 @@
 								{
 									"id": "append-text",
 									"objectClass": "LoaderTXT",
-									"sid": 310116421759296,
+									"sid": 470790630083576,
 									"parameters": {
 										"text": "\".\""
 									}
 								}
 							],
-							"sid": 136482903706140
+							"sid": 343217036438767
 						}
 					]
 				}
 			],
-			"sid": 655817145924838
+			"sid": 940693883953905
 		},
 		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Loader Font Importer",
-			"description": "To be replaced",
+			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -282,7 +294,7 @@
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
-					"sid": 563293395043936
+					"sid": 748699345771143
 				},
 				{
 					"eventType": "block",
@@ -290,14 +302,14 @@
 						{
 							"id": "on-created",
 							"objectClass": "LoaderTXT",
-							"sid": 225647802460625
+							"sid": 528533170580121
 						}
 					],
 					"actions": [
 						{
 							"id": "load",
 							"objectClass": "SpriteFontImporter",
-							"sid": 500457331091347,
+							"sid": 954281590304861,
 							"parameters": {
 								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[2,10,1],\"\"data\"\":[[[4],[19],[20],[25],[29],[34],[38],[39],[43],[47]],[[\"\"%\"\"],[\"\"£€\"\"],[\"\"Iil.:!'|\"\"],[\"\"j1,;()[]`\"\"],[\"\"rt-\\\"\"°+=<>\"\"],[\"\"EFLcf_~\\\\/\"\"],[\"\"ABCDGHJKNOPQRSTUZabdeghknopqsuvxyz02345689#&*$\"\"],[\"\"7\"\"],[\"\"VX?\"\"],[\"\"MWYmw@\"\"]]]}\""
 							}
@@ -305,26 +317,22 @@
 						{
 							"id": "set-character-width",
 							"objectClass": "LoaderTXT",
-							"sid": 764284737789763,
+							"sid": 791605440058833,
 							"parameters": {
 								"character": "\" \"",
 								"width": "SF_Width"
 							}
 						}
 					],
-					"sid": 893820134658642,
+					"sid": 263242630510837,
 					"children": [
-						{
-							"eventType": "comment",
-							"text": "Loop through the array and set the widths."
-						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "for",
 									"objectClass": "System",
-									"sid": 741375392579851,
+									"sid": 291271447399079,
 									"parameters": {
 										"name": "\"y\"",
 										"start-index": "0",
@@ -336,19 +344,19 @@
 								{
 									"id": "set-character-width",
 									"objectClass": "LoaderTXT",
-									"sid": 472239238177849,
+									"sid": 224510810951972,
 									"parameters": {
 										"character": "SpriteFontImporter.At(1, loopindex(\"y\"))",
 										"width": "SpriteFontImporter.At(0, loopindex(\"y\"))"
 									}
 								}
 							],
-							"sid": 961170989617656
+							"sid": 909909556782497
 						}
 					]
 				}
 			],
-			"sid": 110591583751468
+			"sid": 513454102003326
 		}
 	],
 	"sid": 259786733945737

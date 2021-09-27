@@ -385,7 +385,8 @@
 						"CanSlide": false,
 						"OnStairsUID": 0,
 						"SlideCooldown": 0,
-						"EquipmentCooldown": 0
+						"EquipmentReady": 1,
+						"EquipmentAnimation": ""
 					},
 					"behaviors": {
 						"Custom": {
@@ -517,6 +518,9 @@
 					"uid": 19,
 					"instanceVariables": {
 						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1,
 						"Owner": "",
 						"OwnerID": 0
 					},
@@ -952,7 +956,7 @@
 					}
 				},
 				{
-					"type": "Equip_Grenade",
+					"type": "zzzEquip_Grenade",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1069,10 +1073,10 @@
 					}
 				},
 				{
-					"type": "Bullet",
+					"type": "Projectile",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Default",
+						"initial-animation": "bullet",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1086,15 +1090,66 @@
 						"canGib": 0,
 						"canCripple": 0,
 						"canHeadshot": 0,
+						"Type": "Bullet",
 						"Speed": 0,
 						"Knockback": 100,
-						"Owner": "Player",
+						"Faction": "Player",
 						"HP": 1,
-						"zDamage": 1,
-						"zShotgun": false,
-						"ArrayID": 0
+						"ArrayID": 0,
+						"zzzDamage": 1,
+						"zzzShotgun": false,
+						"Knockup": 0,
+						"SpawnOrigin": "",
+						"ParticlePrefab": "",
+						"EffectPrefab": "",
+						"Form": "",
+						"ImpactFX": "",
+						"SplitsLeft": 0,
+						"SplitChild": 0,
+						"BouncesLeft": 0,
+						"Physics_TrueAngle": true,
+						"Physics_SpawnVy": 0,
+						"ImpactTypeAI": "",
+						"ImpactTypeEnv": "",
+						"IgnoreAI": false,
+						"TriggerEvents": "",
+						"TriggerEffects": "",
+						"TriggerDamage": 0,
+						"TriggerRange": 0,
+						"TriggerFX": ""
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": true,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": true,
+								"enabled": false
+							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 0,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
 					"effects": {
 						"GlowHorizontal": {
 							"parameters": {
@@ -1135,7 +1190,10 @@
 					},
 					"uid": 78,
 					"instanceVariables": {
-						"DestroyOnAnyAnimFinished": true
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1
 					},
 					"behaviors": {},
 					"world": {
@@ -1234,7 +1292,9 @@
 						"LegsID": 0,
 						"HeadID": 0,
 						"zzOutlineActive": 0,
-						"Fading": false
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
 					},
 					"behaviors": {
 						"Fade": {
@@ -2883,7 +2943,6 @@
 					},
 					"uid": 403,
 					"instanceVariables": {
-						"TargetForm": "Tile_Door",
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -2894,6 +2953,7 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
+						"TargetForm": "Tile_Door",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -6702,6 +6762,9 @@
 					"uid": 2377,
 					"instanceVariables": {
 						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1,
 						"Owner": "",
 						"OwnerID": 0
 					},
@@ -6778,7 +6841,7 @@
 					}
 				},
 				{
-					"type": "FX_BulletImpact",
+					"type": "FX_ImpactSparks",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "center1",
@@ -6787,7 +6850,12 @@
 						"live-preview": false
 					},
 					"uid": 2379,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 2,
+						"WallVariants": 1
+					},
 					"behaviors": {},
 					"effects": {
 						"GlowHorizontal": {
@@ -8672,7 +8740,10 @@
 					},
 					"uid": 128,
 					"instanceVariables": {
-						"DestroyOnAnyAnimFinished": true
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1
 					},
 					"behaviors": {
 						"Pin": {
@@ -9084,7 +9155,6 @@
 					},
 					"uid": 175,
 					"instanceVariables": {
-						"TargetForm": "Tile_Door",
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -9095,6 +9165,7 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
+						"TargetForm": "Tile_Door",
 						"Material": "Concrete",
 						"HP": 10,
 						"MaxHP": 10,
@@ -11857,7 +11928,6 @@
 					},
 					"uid": 5865,
 					"instanceVariables": {
-						"TargetForm": "Tile_Door",
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": true,
@@ -11868,6 +11938,7 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
+						"TargetForm": "Tile_Door",
 						"Material": "Metal",
 						"HP": 10,
 						"MaxHP": 10,
@@ -16437,7 +16508,7 @@
 					}
 				},
 				{
-					"type": "Equip_Axe",
+					"type": "zzzEquip_Axe",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "ya",
@@ -16507,7 +16578,7 @@
 					}
 				},
 				{
-					"type": "Equip_Molotov",
+					"type": "zzzEquip_Molotov",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Yeet",
@@ -16730,7 +16801,7 @@
 					}
 				},
 				{
-					"type": "FX_Explosion",
+					"type": "FX_ExplosionFlatBig",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -16740,7 +16811,10 @@
 					},
 					"uid": 1727,
 					"instanceVariables": {
-						"DestroyOnAnyAnimFinished": true
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1
 					},
 					"behaviors": {},
 					"world": {
@@ -16882,9 +16956,21 @@
 						"Left": 0,
 						"Right": 0,
 						"Knockback": 500,
-						"Damage": 5
+						"Damage": 5,
+						"Range": 0,
+						"ExpansionMode": "Stretch",
+						"SegmentSize": ""
 					},
-					"behaviors": {},
+					"behaviors": {
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						}
+					},
 					"world": {
 						"x": -32,
 						"y": 40,
@@ -16969,7 +17055,7 @@
 					}
 				},
 				{
-					"type": "Equip_Beacon",
+					"type": "zzzEquip_Beacon",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -22073,10 +22159,6 @@
 					},
 					"uid": 38,
 					"instanceVariables": {
-						"OutlineCopy": false,
-						"Outlined": false,
-						"zzzNearest": false,
-						"OutlineAllowed": true,
 						"DiagUID": 0,
 						"DiagText": "",
 						"DiagTag": "",
@@ -22087,6 +22169,10 @@
 						"zzzDiagCanInteract": 0,
 						"zzzzNearest": false,
 						"DestroyAfterDiag": false,
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
 						"WorldEnabled": true,
 						"WorldBark": "",
 						"WorldHoverOutline": false,
@@ -22734,6 +22820,9 @@
 					"uid": 27432,
 					"instanceVariables": {
 						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1,
 						"NPCID": 0
 					},
 					"behaviors": {
@@ -23002,7 +23091,6 @@
 					},
 					"uid": 30,
 					"instanceVariables": {
-						"TargetForm": "TargetDummy",
 						"CurrentDamage": 0
 					},
 					"behaviors": {
@@ -24092,6 +24180,75 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "FX_ImpactSmoke",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "wall1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28456,
+					"instanceVariables": {
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "",
+						"CenterVariants": 1,
+						"WallVariants": 1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1617,
+						"y": 663,
+						"width": 29,
+						"height": 8,
+						"originX": 0.5172413793103449,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stickbox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28461,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 1561,
+						"y": 700,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.25,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 279030491900781,
@@ -24114,8 +24271,10 @@
 			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": true,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": false
 		}
 	],
@@ -24160,6 +24319,7 @@
 				"Damage": 1,
 				"Interval": 0.08,
 				"Knockback": 75,
+				"Knockup": 0,
 				"PlayerKnockback": 75,
 				"Spread": 10,
 				"Magsize": 40,
@@ -24176,7 +24336,10 @@
 				"isDual": 1,
 				"canHeadshot": 0,
 				"canGib": 0,
-				"canCripple": 0
+				"canCripple": 0,
+				"ParticlePrefab": "",
+				"Splits": 0,
+				"BouncesLeft": 0
 			}
 		},
 		{
@@ -24403,5 +24566,7 @@
 	"width": 1708,
 	"height": 2000,
 	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
 	"eventSheet": "Resources"
 }

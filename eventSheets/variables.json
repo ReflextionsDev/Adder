@@ -91,16 +91,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "system_Platform",
-			"type": "string",
-			"initialValue": "PC",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 817832791788217
-		},
-		{
-			"eventType": "variable",
 			"name": "system_Debug",
 			"type": "number",
 			"initialValue": "0",
@@ -118,6 +108,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 447430158733041
+		},
+		{
+			"eventType": "variable",
+			"name": "system_Platform",
+			"type": "string",
+			"initialValue": "PC",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 838565951153409
 		},
 		{
 			"eventType": "variable",
@@ -141,7 +141,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "zsystem_ZoomBasePhone",
+			"name": "system_ZoomBasePhone",
 			"type": "number",
 			"initialValue": "1",
 			"comment": "Constant",
@@ -319,10 +319,20 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "stat_EquipmentThrown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 476486611695536
+		},
+		{
+			"eventType": "variable",
 			"name": "stat_DamageTaken",
 			"type": "number",
 			"initialValue": "0",
-			"comment": "0 = Off, 1 = Small",
+			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 199114630588096
@@ -453,16 +463,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "gun_BulletSpeed",
-			"type": "number",
-			"initialValue": "4",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 493877489016204
-		},
-		{
-			"eventType": "variable",
 			"name": "game_DualInterval",
 			"type": "number",
 			"initialValue": "0.06",
@@ -470,6 +470,30 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 864157908790484
+		},
+		{
+			"eventType": "variable",
+			"name": "game_DefaultBulletSpeed",
+			"type": "number",
+			"initialValue": "400",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 247715504227767
+		},
+		{
+			"eventType": "variable",
+			"name": "game_EffectsLayer",
+			"type": "string",
+			"initialValue": "Player",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 239873596520737
+		},
+		{
+			"eventType": "comment",
+			"text": "Should these be local vars?"
 		},
 		{
 			"eventType": "variable",
@@ -576,8 +600,12 @@
 			"text": "Level"
 		},
 		{
+			"eventType": "comment",
+			"text": "duplicates.. confusing"
+		},
+		{
 			"eventType": "variable",
-			"name": "level_Length",
+			"name": "zzzlevel_Length",
 			"type": "number",
 			"initialValue": "1000",
 			"comment": "5000",
@@ -587,7 +615,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "level_BuildType",
+			"name": "zzzlevel_BuildType",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -597,17 +625,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "level_Loaded",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 419790227143239
-		},
-		{
-			"eventType": "variable",
-			"name": "level_BuildLoopActive",
+			"name": "zzzlevel_BuildLoopActive",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -617,7 +635,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "level_Count",
+			"name": "zzzlevel_Count",
 			"type": "number",
 			"initialValue": "10",
 			"comment": "",
@@ -686,6 +704,10 @@
 		{
 			"eventType": "comment",
 			"text": "z"
+		},
+		{
+			"eventType": "comment",
+			"text": "should be local if used like this"
 		},
 		{
 			"eventType": "variable",
@@ -847,16 +869,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "BG_Name",
-			"type": "string",
-			"initialValue": "Forest",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 432851128823291
-		},
-		{
-			"eventType": "variable",
 			"name": "BG_X",
 			"type": "number",
 			"initialValue": "-1032",
@@ -867,23 +879,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "BG_Yzzz",
-			"type": "number",
-			"initialValue": "764",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 137281797708707
-		},
-		{
-			"eventType": "variable",
 			"name": "BG_Width",
 			"type": "number",
 			"initialValue": "9736",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 192211999635779
+			"sid": 922669318483430
 		},
 		{
 			"eventType": "variable",
@@ -904,16 +906,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 999648479617604
-		},
-		{
-			"eventType": "variable",
-			"name": "FG_Y",
-			"type": "number",
-			"initialValue": "764",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 300567615770591
 		},
 		{
 			"eventType": "variable",

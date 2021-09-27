@@ -198,7 +198,7 @@
 					"objectClass": "System",
 					"sid": 752397490865426,
 					"parameters": {
-						"variable": "BG_Name",
+						"variable": "level_Biome",
 						"value": "\"Mountain\""
 					}
 				},
@@ -212,13 +212,11 @@
 					}
 				},
 				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 122823692218329,
-					"parameters": {
-						"name": "\"Spawn_BG\"",
-						"parameter-n": []
-					}
+					"callFunction": "Level_SpawnBG",
+					"sid": 363522995899605,
+					"parameters": [
+						"\"\""
+					]
 				},
 				{
 					"id": "set-eventvar-value",
@@ -325,7 +323,7 @@
 					"objectClass": "Horde_Text",
 					"sid": 496983664991800,
 					"parameters": {
-						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentCooldown,0,Equipment_Current.Cooldown)"
+						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentReady,0,Equipment_Current.Cooldown)"
 					}
 				}
 			],
@@ -349,7 +347,7 @@
 					"objectClass": "Horde_Text",
 					"sid": 550105455113974,
 					"parameters": {
-						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentCooldown,0,Equipment_Current.Cooldown)"
+						"text": "\"Wave: \" & horde_wave & \" | \" & \"ZR: \" & horde_zombies & \" | \" & \"Kills: \" & stat_ZombieKillsRun & \" | \" & \"BGM: \" & horde_bgm & newline & newline & \"Money: $\" & PlayerData.Money & \" | \" & \"XP: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & \" | \" & \"Equip: \" & PlayerData.Equipment & \" | \" & \"ECD: \" & clamp(Equipment_Current.Cooldown - Player.EquipmentReady,0,Equipment_Current.Cooldown)"
 					}
 				}
 			],
@@ -2313,118 +2311,12 @@
 					}
 				}
 			],
-			"sid": 232559064050761
+			"sid": 232559064050761,
+			"disabled": true
 		},
 		{
 			"eventType": "comment",
 			"text": "needs sound"
-		},
-		{
-			"functionName": "PLR_LevelUp",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "PlayerData",
-					"sid": 124685939663085,
-					"parameters": {
-						"instance-variable": "Level_XPThisLevel",
-						"value": "0"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "PlayerData",
-					"sid": 772042161441943,
-					"parameters": {
-						"instance-variable": "HP",
-						"value": "PlayerData.MaxHP"
-					}
-				},
-				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 308243157671716,
-					"parameters": {
-						"name": "\"FX_LevelUp\"",
-						"parameter-n": []
-					}
-				}
-			],
-			"sid": 336203098220858
-		},
-		{
-			"functionName": "PLR_AddXP",
-			"functionDescription": "",
-			"functionCategory": "PLR",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "add-to-instvar",
-					"objectClass": "PlayerData",
-					"sid": 135783671600335,
-					"parameters": {
-						"instance-variable": "Level_XPTotal",
-						"value": "1"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "PlayerData",
-					"sid": 208315776074147,
-					"parameters": {
-						"instance-variable": "Level_XPThisLevel",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 975563031459720,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "PlayerData",
-							"sid": 925936862669243,
-							"parameters": {
-								"instance-variable": "Level_XPNeeded",
-								"comparison": 3,
-								"value": "PlayerData.Level_XPThisLevel"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "PLR_LevelUp",
-							"sid": 772788716631610
-						}
-					],
-					"sid": 551205942947340
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 344538582919659
-						}
-					],
-					"actions": [],
-					"sid": 315490008715866
-				}
-			]
 		}
 	],
 	"sid": 144403547987558
