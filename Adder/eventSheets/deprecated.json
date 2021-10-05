@@ -11247,7 +11247,8 @@
 										"\"\"",
 										"0",
 										"0",
-										"\"\""
+										"0",
+										"0"
 									]
 								},
 								{
@@ -11288,7 +11289,8 @@
 										"\"\"",
 										"0",
 										"0",
-										"\"\""
+										"0",
+										"0"
 									]
 								},
 								{
@@ -11329,7 +11331,8 @@
 										"\"\"",
 										"0",
 										"0",
-										"\"\""
+										"0",
+										"0"
 									]
 								},
 								{
@@ -11370,7 +11373,8 @@
 										"\"\"",
 										"0",
 										"0",
-										"\"\""
+										"0",
+										"0"
 									]
 								}
 							],
@@ -11835,7 +11839,7 @@
 									"objectClass": "System",
 									"sid": 774713738671544,
 									"parameters": {
-										"object-to-create": "ExplosionOrigin",
+										"object-to-create": "EventObj",
 										"layer": "\"Player\"",
 										"x": "function.Param(0)",
 										"y": "function.Param(1)",
@@ -11865,14 +11869,14 @@
 							"conditions": [
 								{
 									"id": "on-created",
-									"objectClass": "ExplosionOrigin",
+									"objectClass": "EventObj",
 									"sid": 714190412924213
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
-									"objectClass": "ExplosionOrigin",
+									"objectClass": "EventObj",
 									"sid": 854692910695299,
 									"parameters": {
 										"instance-variable": "OriginID",
@@ -11888,7 +11892,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "ExplosionOrigin",
+											"objectClass": "EventObj",
 											"sid": 649836616401949,
 											"parameters": {
 												"object": "Door"
@@ -11898,7 +11902,7 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "ExplosionOrigin",
+											"objectClass": "EventObj",
 											"sid": 610132335392216
 										}
 									],
@@ -11915,7 +11919,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "ExplosionOrigin",
+											"objectClass": "EventObj",
 											"sid": 171895936882807,
 											"parameters": {
 												"object": "Tile_Roof"
@@ -11925,7 +11929,7 @@
 									"actions": [
 										{
 											"id": "destroy",
-											"objectClass": "ExplosionOrigin",
+											"objectClass": "EventObj",
 											"sid": 457455636635087
 										}
 									],
@@ -11949,9 +11953,9 @@
 											"parameters": {
 												"name": "\"Explosion_Hitbox_Left\"",
 												"parameter-n": [
-													"ExplosionOrigin.X - 1",
-													"ExplosionOrigin.Y",
-													"ExplosionOrigin.UID"
+													"EventObj.X - 1",
+													"EventObj.Y",
+													"EventObj.UID"
 												]
 											}
 										},
@@ -11962,9 +11966,9 @@
 											"parameters": {
 												"name": "\"Explosion_Hitbox_Right\"",
 												"parameter-n": [
-													"ExplosionOrigin.X + 1",
-													"ExplosionOrigin.Y",
-													"ExplosionOrigin.UID"
+													"EventObj.X + 1",
+													"EventObj.Y",
+													"EventObj.UID"
 												]
 											}
 										}
@@ -12044,7 +12048,7 @@
 									"disabled": true,
 									"parameters": {
 										"instance-variable": "zzHP",
-										"value": "ExplosionOrigin.Damage"
+										"value": "EventObj.Damage"
 									}
 								},
 								{
@@ -12053,7 +12057,7 @@
 									"sid": 116233558547623,
 									"parameters": {
 										"instance-variable": "HP",
-										"value": "ExplosionOrigin.Damage"
+										"value": "EventObj.Damage"
 									}
 								},
 								{
@@ -12062,9 +12066,10 @@
 									"parameters": [
 										"Zombie.UID",
 										"\"Hit\"",
-										"ExplosionOrigin.UID",
-										"ExplosionOrigin.Y",
-										"ExplosionOrigin.Knockback"
+										"EventObj.UID",
+										"EventObj.Y",
+										"EventObj.Knockback",
+										true
 									]
 								}
 							],
@@ -12095,8 +12100,8 @@
 												"name": "\"Zombie_Hit\"",
 												"parameter-n": [
 													"Zombie.UID",
-													"ExplosionOrigin.X",
-													"ExplosionOrigin.Knockback"
+													"EventObj.X",
+													"EventObj.Knockback"
 												]
 											}
 										},
@@ -12108,8 +12113,8 @@
 												"name": "\"Zombie_Hit\"",
 												"parameter-n": [
 													"Zombie.UID",
-													"ExplosionOrigin.X",
-													"ExplosionOrigin.Knockback"
+													"EventObj.X",
+													"EventObj.Knockback"
 												]
 											}
 										}
@@ -12150,7 +12155,8 @@
 														"\"Hit\"",
 														"Projectile.BBoxRight",
 														"Projectile.Y",
-														"Projectile.Knockback"
+														"Projectile.Knockback",
+														true
 													]
 												}
 											],
@@ -12174,7 +12180,8 @@
 														"\"Hit\"",
 														"Projectile.BBoxLeft",
 														"Projectile.Y",
-														"Projectile.Knockback"
+														"Projectile.Knockback",
+														true
 													]
 												}
 											],
@@ -12235,7 +12242,7 @@
 									"conditions": [
 										{
 											"id": "on-created",
-											"objectClass": "ExplosionLeft",
+											"objectClass": "zzzExplosionLeft",
 											"sid": 625020780968101
 										}
 									],
@@ -12257,7 +12264,7 @@
 											"conditions": [
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 784864923988939,
 													"parameters": {
 														"object": "Door"
@@ -12267,7 +12274,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 977593426498937
 												}
 											],
@@ -12288,7 +12295,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 463131899571013,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12316,7 +12323,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 818228236151114
 												}
 											],
@@ -12333,7 +12340,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 957245807217306,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12361,7 +12368,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 922529663445279
 												}
 											],
@@ -12378,7 +12385,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 993038032054274,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12406,7 +12413,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 370990443404965
 												}
 											],
@@ -12423,7 +12430,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 700351908465911,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12451,7 +12458,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 238477506312481
 												}
 											],
@@ -12468,7 +12475,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 482606806277962,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12496,7 +12503,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 308701148770448
 												}
 											],
@@ -12513,7 +12520,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 133002173549658,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12541,7 +12548,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 726120713350094
 												}
 											],
@@ -12558,7 +12565,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 979556486597569,
 													"parameters": {
 														"object": "Tile_Roof"
@@ -12568,7 +12575,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionLeft",
+													"objectClass": "zzzExplosionLeft",
 													"sid": 343948303471977
 												}
 											],
@@ -12587,10 +12594,10 @@
 											"actions": [
 												{
 													"id": "add-to-instvar",
-													"objectClass": "ExplosionOrigin",
+													"objectClass": "EventObj",
 													"sid": 452754128716981,
 													"parameters": {
-														"instance-variable": "Left",
+														"instance-variable": "zzzLeft",
 														"value": "1"
 													}
 												}
@@ -12603,10 +12610,10 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "ExplosionOrigin",
+															"objectClass": "EventObj",
 															"sid": 721110959415312,
 															"parameters": {
-																"instance-variable": "Left",
+																"instance-variable": "zzzLeft",
 																"comparison": 2,
 																"value": "8"
 															}
@@ -12620,9 +12627,9 @@
 															"parameters": {
 																"name": "\"Explosion_Hitbox_Left\"",
 																"parameter-n": [
-																	"ExplosionLeft.X - ExplosionLeft.Width",
-																	"ExplosionLeft.Y",
-																	"ExplosionLeft.OriginID"
+																	"zzzExplosionLeft.X - zzzExplosionLeft.Width",
+																	"zzzExplosionLeft.Y",
+																	"zzzExplosionLeft.OriginID"
 																]
 															}
 														}
@@ -12653,7 +12660,7 @@
 											"objectClass": "System",
 											"sid": 466318390251107,
 											"parameters": {
-												"object-to-create": "ExplosionLeft",
+												"object-to-create": "zzzExplosionLeft",
 												"layer": "\"Player\"",
 												"x": "function.Param(0) ",
 												"y": "function.Param(1)",
@@ -12662,7 +12669,7 @@
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "ExplosionLeft",
+											"objectClass": "zzzExplosionLeft",
 											"sid": 812897373280045,
 											"parameters": {
 												"instance-variable": "OriginID",
@@ -12689,7 +12696,7 @@
 									"conditions": [
 										{
 											"id": "on-created",
-											"objectClass": "ExplosionRight",
+											"objectClass": "zzzExplosionRight",
 											"sid": 700861415140814
 										}
 									],
@@ -12711,7 +12718,7 @@
 											"conditions": [
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 538266266378852,
 													"parameters": {
 														"object": "Door"
@@ -12721,7 +12728,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 552332657888828
 												}
 											],
@@ -12738,7 +12745,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 299692440784639,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12766,7 +12773,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 577825658673666
 												}
 											],
@@ -12783,7 +12790,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 802130293385156,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12811,7 +12818,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 717548887153017
 												}
 											],
@@ -12828,7 +12835,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 972373719265067,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12856,7 +12863,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 248142121849454
 												}
 											],
@@ -12873,7 +12880,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 869557955191630,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12901,7 +12908,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 323507075582220
 												}
 											],
@@ -12918,7 +12925,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 118433551491172,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12946,7 +12953,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 516982328475975
 												}
 											],
@@ -12963,7 +12970,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 425001677039318,
 													"parameters": {
 														"object": "Tile_Wall"
@@ -12991,7 +12998,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 405835865384610
 												}
 											],
@@ -13008,7 +13015,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 174428365104972,
 													"parameters": {
 														"object": "Tile_Roof"
@@ -13018,7 +13025,7 @@
 											"actions": [
 												{
 													"id": "destroy",
-													"objectClass": "ExplosionRight",
+													"objectClass": "zzzExplosionRight",
 													"sid": 180232207446590
 												}
 											],
@@ -13037,10 +13044,10 @@
 											"actions": [
 												{
 													"id": "add-to-instvar",
-													"objectClass": "ExplosionOrigin",
+													"objectClass": "EventObj",
 													"sid": 357924015224622,
 													"parameters": {
-														"instance-variable": "Right",
+														"instance-variable": "zzRight",
 														"value": "1"
 													}
 												}
@@ -13053,10 +13060,10 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "ExplosionOrigin",
+															"objectClass": "EventObj",
 															"sid": 379924216320151,
 															"parameters": {
-																"instance-variable": "Right",
+																"instance-variable": "zzRight",
 																"comparison": 2,
 																"value": "8"
 															}
@@ -13070,9 +13077,9 @@
 															"parameters": {
 																"name": "\"Explosion_Hitbox_Right\"",
 																"parameter-n": [
-																	"ExplosionRight.X + ExplosionRight.Width",
-																	"ExplosionRight.Y",
-																	"ExplosionRight.OriginID"
+																	"zzzExplosionRight.X + zzzExplosionRight.Width",
+																	"zzzExplosionRight.Y",
+																	"zzzExplosionRight.OriginID"
 																]
 															}
 														}
@@ -13103,7 +13110,7 @@
 											"objectClass": "System",
 											"sid": 964106559214565,
 											"parameters": {
-												"object-to-create": "ExplosionRight",
+												"object-to-create": "zzzExplosionRight",
 												"layer": "\"Player\"",
 												"x": "function.Param(0) ",
 												"y": "function.Param(1)",
@@ -13112,7 +13119,7 @@
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "ExplosionRight",
+											"objectClass": "zzzExplosionRight",
 											"sid": 515482455005964,
 											"parameters": {
 												"instance-variable": "OriginID",

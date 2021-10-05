@@ -9390,12 +9390,13 @@
 														"\"\"",
 														"0",
 														"0",
-														"\"\""
+														"0",
+														"0"
 													]
 												},
 												{
 													"callFunction": "Projectile_Create",
-													"sid": 935937055792922,
+													"sid": 238348333267869,
 													"parameters": [
 														"Weapon_Player.Projectile",
 														"\"Bullet\"",
@@ -9409,7 +9410,7 @@
 														"game_DefaultBulletSpeed",
 														"Player_Arms.Angle",
 														"Weapon_Player.Spread",
-														"Weapon_Player.BouncesLeft",
+														"3",
 														"Weapon_Player.Knockback",
 														"Weapon_Player.Knockup",
 														"Weapon_Player.canHeadshot",
@@ -9430,7 +9431,8 @@
 														"\"\"",
 														"0",
 														"0",
-														"\"\""
+														"0",
+														"0"
 													]
 												}
 											],
@@ -18594,7 +18596,8 @@
 												"\"\"",
 												"0",
 												"0",
-												"\"\""
+												"0",
+												"0"
 											]
 										}
 									],
@@ -18783,19 +18786,19 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 710118204402774,
+															"sid": 620476651812757,
 															"parameters": {
-																"variable": "DistanceofFlight",
-																"value": "clamp(TargX - StartX,-Player_MaxThrowDist,-30)"
+																"variable": "LaunchHeight",
+																"value": "clamp(TargY - StartY,DistanceofFlight,-DistanceofFlight)"
 															}
 														},
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 466038275836357,
+															"sid": 710118204402774,
 															"parameters": {
-																"variable": "LaunchHeight",
-																"value": "clamp(TargY - StartY,DistanceofFlight,-DistanceofFlight)"
+																"variable": "DistanceofFlight",
+																"value": "clamp(TargX - StartX,-Player_MaxThrowDist,-30)"
 															}
 														},
 														{
@@ -18920,7 +18923,7 @@
 														},
 														{
 															"callFunction": "Projectile_Create",
-															"sid": 248174601810370,
+															"sid": 920290707360959,
 															"parameters": [
 																"Equipment.Name",
 																"Equipment.Type",
@@ -18953,9 +18956,10 @@
 																"Equipment.ImpactTypeEnv",
 																"Equipment.TriggerEvents",
 																"Equipment.TriggerEffects",
-																"Equipment.zzzTriggerDamage",
-																"Equipment.zzzTriggerRange",
-																"Equipment.zzzTriggerFX"
+																"Equipment.PrimedAtSpawn",
+																"Equipment.PrimedTime",
+																"Equipment.PrimeOnAIColl",
+																"Equipment.PrimeOnEnvColl"
 															]
 														},
 														{

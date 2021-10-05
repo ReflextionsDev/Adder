@@ -1114,9 +1114,12 @@
 						"IgnoreAI": false,
 						"TriggerEvents": "",
 						"TriggerEffects": "",
-						"TriggerDamage": 0,
-						"TriggerRange": 0,
-						"TriggerFX": ""
+						"StuckUID": 0,
+						"PrimedTime": 0,
+						"PrimedOnSpawn": 0,
+						"PrimeOnAIColl": 0,
+						"PrimeOnEnvColl": 0,
+						"LastAngle": 0
 					},
 					"behaviors": {
 						"Physics": {
@@ -1125,10 +1128,10 @@
 								"collision-mask": "use-collision-polygon",
 								"prevent-rotation": true,
 								"density": 1,
-								"friction": 0.5,
-								"elasticity": 0.2,
+								"friction": 0.8,
+								"elasticity": 0.3,
 								"linear-damping": 0,
-								"angular-damping": 0.01,
+								"angular-damping": 0.2,
 								"bullet": true,
 								"enabled": false
 							}
@@ -1148,6 +1151,9 @@
 							"properties": {
 								"destroy": false
 							}
+						},
+						"Timer": {
+							"properties": {}
 						}
 					},
 					"effects": {
@@ -6646,6 +6652,7 @@
 						"ClimbTarget": 0,
 						"PreDrop": 0,
 						"DropTarget": 0,
+						"ExplosiveArmor": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16942,7 +16949,7 @@
 					}
 				},
 				{
-					"type": "ExplosionOrigin",
+					"type": "EventObj",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Default",
@@ -16953,13 +16960,20 @@
 					"uid": 12201,
 					"instanceVariables": {
 						"OriginID": 0,
-						"Left": 0,
-						"Right": 0,
-						"Knockback": 500,
-						"Damage": 5,
-						"Range": 0,
+						"zzzLeft": 0,
+						"zzRight": 0,
+						"zzzRange": 0,
 						"ExpansionMode": "Stretch",
-						"SegmentSize": ""
+						"SegmentSize": "",
+						"Damage": 5,
+						"Knockback": 500,
+						"Knockup": 0,
+						"Effects": "",
+						"chance_headshot": 0,
+						"chance_gib": 0,
+						"chance_cripple": 0,
+						"chance_helmetless": 0,
+						"Active": false
 					},
 					"behaviors": {
 						"LineOfSight": {
@@ -16989,7 +17003,7 @@
 					}
 				},
 				{
-					"type": "ExplosionRight",
+					"type": "zzzExplosionRight",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Default",
@@ -17022,7 +17036,7 @@
 					}
 				},
 				{
-					"type": "ExplosionLeft",
+					"type": "zzzExplosionLeft",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Default",
@@ -22459,6 +22473,7 @@
 						"ClimbTarget": 0,
 						"PreDrop": 0,
 						"DropTarget": 0,
+						"ExplosiveArmor": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22948,6 +22963,7 @@
 						"ClimbTarget": 0,
 						"PreDrop": 0,
 						"DropTarget": 0,
+						"ExplosiveArmor": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23639,6 +23655,7 @@
 						"ClimbTarget": 0,
 						"PreDrop": 0,
 						"DropTarget": 0,
+						"ExplosiveArmor": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23955,6 +23972,7 @@
 						"ClimbTarget": 0,
 						"PreDrop": 0,
 						"DropTarget": 0,
+						"ExplosiveArmor": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -24406,7 +24424,8 @@
 				"RA_Name": "",
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
-				"CanClimb": 0
+				"CanClimb": 0,
+				"ExplosiveArmor": 0
 			}
 		},
 		{
@@ -24473,7 +24492,8 @@
 				"RA_Name": "",
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
-				"CanClimb": 0
+				"CanClimb": 0,
+				"ExplosiveArmor": 0
 			}
 		},
 		{
@@ -24540,7 +24560,8 @@
 				"RA_Name": "",
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
-				"CanClimb": 0
+				"CanClimb": 0,
+				"ExplosiveArmor": 0
 			}
 		},
 		{

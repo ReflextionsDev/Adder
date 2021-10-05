@@ -973,6 +973,15 @@
 													}
 												},
 												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 187164944719843,
+													"parameters": {
+														"instance-variable": "ExplosiveArmor",
+														"value": "NPC_Parent.ExplosiveArmor"
+													}
+												},
+												{
 													"id": "add-obstacle",
 													"objectClass": "NPC",
 													"sid": 441409356500529,
@@ -2968,6 +2977,13 @@
 											"initialValue": "0",
 											"comment": "",
 											"sid": 224009064738010
+										},
+										{
+											"name": "bloodFX",
+											"type": "boolean",
+											"initialValue": "true",
+											"comment": "",
+											"sid": 596292467769034
 										}
 									],
 									"eventType": "function-block",
@@ -3342,6 +3358,22 @@
 											"text": "Params - NPC ID, NPC State, Source X, Source Y, Source Knockback"
 										},
 										{
+											"eventType": "comment",
+											"text": "Hit anim might cancel knockback?"
+										},
+										{
+											"eventType": "comment",
+											"text": "No but gib does, knockback should be spereate event NVMD"
+										},
+										{
+											"eventType": "comment",
+											"text": "I have knockback events here but I do have a function ready"
+										},
+										{
+											"eventType": "comment",
+											"text": "blood fx is also inherit which is bad practice"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -3357,15 +3389,6 @@
 											],
 											"actions": [
 												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 993681637372191,
-													"parameters": {
-														"name": "\"SFX_ZombieImpact\"",
-														"parameter-n": []
-													}
-												},
-												{
 													"id": "set-max-speed",
 													"objectClass": "NPC",
 													"sid": 111169276265159,
@@ -3377,6 +3400,35 @@
 											],
 											"sid": 836426320485355,
 											"children": [
+												{
+													"eventType": "comment",
+													"text": "test for impact stuff"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 728504950702149,
+															"parameters": {
+																"variable": "bloodFX"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 874285831697834,
+															"parameters": {
+																"name": "\"SFX_ZombieImpact\"",
+																"parameter-n": []
+															}
+														}
+													],
+													"sid": 975207783021594
+												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -3392,19 +3444,6 @@
 													],
 													"actions": [
 														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 643115242345076,
-															"parameters": {
-																"name": "\"FX_Blood\"",
-																"parameter-n": [
-																	"TargetUID",
-																	"BulletY",
-																	"0"
-																]
-															}
-														},
-														{
 															"id": "set-vector-x",
 															"objectClass": "NPC",
 															"sid": 402980968960688,
@@ -3416,6 +3455,39 @@
 													],
 													"sid": 295796041245095,
 													"children": [
+														{
+															"eventType": "comment",
+															"text": "test for impact stuff"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 714205719652532,
+																	"parameters": {
+																		"variable": "bloodFX"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 200266683771619,
+																	"parameters": {
+																		"name": "\"FX_Blood\"",
+																		"parameter-n": [
+																			"TargetUID",
+																			"BulletY",
+																			"0"
+																		]
+																	}
+																}
+															],
+															"sid": 289259597992103
+														},
 														{
 															"eventType": "block",
 															"conditions": [
@@ -3516,19 +3588,6 @@
 													],
 													"actions": [
 														{
-															"id": "call-function",
-															"objectClass": "function",
-															"sid": 449742238688927,
-															"parameters": {
-																"name": "\"FX_Blood\"",
-																"parameter-n": [
-																	"TargetUID",
-																	"BulletY",
-																	"1"
-																]
-															}
-														},
-														{
 															"id": "set-vector-x",
 															"objectClass": "NPC",
 															"sid": 582822527941474,
@@ -3540,6 +3599,35 @@
 													],
 													"sid": 681533150687373,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 509560272915868,
+																	"parameters": {
+																		"variable": "bloodFX"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 706833199495422,
+																	"parameters": {
+																		"name": "\"FX_Blood\"",
+																		"parameter-n": [
+																			"TargetUID",
+																			"BulletY",
+																			"1"
+																		]
+																	}
+																}
+															],
+															"sid": 614189561531676
+														},
 														{
 															"eventType": "block",
 															"conditions": [
@@ -3760,7 +3848,8 @@
 																"\"Kill\"",
 																"0",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														}
 													],
@@ -7243,7 +7332,8 @@
 														"\"Kill\"",
 														"0",
 														"0",
-														"0"
+														"0",
+														true
 													]
 												}
 											],
@@ -7346,7 +7436,8 @@
 														"\"Idle\"",
 														"0",
 														"0",
-														"0"
+														"0",
+														true
 													]
 												}
 											],
@@ -7455,7 +7546,8 @@
 																"\"Chase\"",
 																"NPC.TargetUID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -7531,7 +7623,8 @@
 																"\"Inspect\"",
 																"NPC.TargetUID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -7607,7 +7700,8 @@
 																"\"Inspect\"",
 																"NPC.TargetUID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -9057,7 +9151,8 @@
 														"\"Idle\"",
 														"0",
 														"0",
-														"0"
+														"0",
+														true
 													]
 												}
 											],
@@ -9824,7 +9919,8 @@
 																"NPC.RA_Name",
 																"NPC.TargetUID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -9870,7 +9966,8 @@
 																"\"Attack\"",
 																"Zombie_VisionTargets.UID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -10059,7 +10156,8 @@
 														"\"Attack\"",
 														"Door_Scent.UID",
 														"0",
-														"0"
+														"0",
+														true
 													]
 												},
 												{
@@ -10165,7 +10263,8 @@
 																"\"Windup\"",
 																"Door_Scent.X",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -10176,7 +10275,8 @@
 																"NPC.RA_Name",
 																"NPC.TargetUID",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														},
 														{
@@ -10673,7 +10773,8 @@
 																"\"ChargeFinish\"",
 																"0",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														}
 													],
@@ -10734,7 +10835,8 @@
 																"\"ChargeFinish\"",
 																"0",
 																"0",
-																"0"
+																"0",
+																true
 															]
 														}
 													],
@@ -11541,7 +11643,8 @@
 												"\"Idle\"",
 												"0",
 												"0",
-												"0"
+												"0",
+												true
 											]
 										},
 										{
@@ -11603,7 +11706,8 @@
 												"\"Idle\"",
 												"0",
 												"0",
-												"0"
+												"0",
+												true
 											]
 										},
 										{
@@ -11740,7 +11844,8 @@
 														"\"ChargeSlam\"",
 														"0",
 														"0",
-														"0"
+														"0",
+														true
 													]
 												}
 											],
@@ -11894,7 +11999,8 @@
 												"\"Idle\"",
 												"0",
 												"0",
-												"0"
+												"0",
+												true
 											]
 										}
 									],
@@ -11949,7 +12055,8 @@
 										"\"Idle\"",
 										"0",
 										"0",
-										"0"
+										"0",
+										true
 									]
 								}
 							],
@@ -11992,7 +12099,8 @@
 										"\"Charge\"",
 										"0",
 										"0",
-										"0"
+										"0",
+										true
 									]
 								}
 							],
@@ -12039,7 +12147,8 @@
 										"\"Attack\"",
 										"0",
 										"0",
-										"0"
+										"0",
+										true
 									]
 								}
 							],
@@ -12086,7 +12195,8 @@
 										"\"Attack\"",
 										"0",
 										"0",
-										"0"
+										"0",
+										true
 									]
 								}
 							],
@@ -12147,7 +12257,8 @@
 												"\"Attack\"",
 												"0",
 												"0",
-												"0"
+												"0",
+												true
 											]
 										},
 										{
@@ -12181,7 +12292,8 @@
 												"\"Chase\"",
 												"Door_Scent.UID",
 												"0",
-												"0"
+												"0",
+												true
 											]
 										}
 									],
@@ -13416,7 +13528,8 @@
 														"\"Hit\"",
 														"Hitbox.X",
 														"Hitbox.Y",
-														"1"
+														"1",
+														true
 													]
 												}
 											],
@@ -14072,7 +14185,8 @@
 						"\"Climb\"",
 						"0",
 						"0",
-						"0"
+						"0",
+						true
 					]
 				},
 				{
@@ -14471,7 +14585,8 @@
 										"\"Drop\"",
 										"0",
 										"0",
-										"0"
+										"0",
+										true
 									]
 								}
 							],
@@ -14552,7 +14667,8 @@
 								"\"Idle\"",
 								"0",
 								"0",
-								"0"
+								"0",
+								true
 							]
 						}
 					],
