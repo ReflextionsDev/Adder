@@ -4,6 +4,7 @@
 		{
 			"name": "Layer 0",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "NPC_Sprite",
@@ -78,7 +79,7 @@
 					}
 				},
 				{
-					"type": "Effect_Bleed",
+					"type": "FX_Bleed",
 					"properties": {
 						"rate": 15,
 						"spray-cone": 180,
@@ -112,8 +113,8 @@
 						}
 					},
 					"world": {
-						"x": 63.79684566958028,
-						"y": 78.85419959915762,
+						"x": 375.4124306689499,
+						"y": 96.65432757441309,
 						"width": 83.27789418958595,
 						"height": 83.27789418958595,
 						"originX": 0,
@@ -315,6 +316,108 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "FX_Poison",
+					"properties": {
+						"rate": 15,
+						"spray-cone": 180,
+						"type": "continuous-spray",
+						"object": -1,
+						"live-preview": false,
+						"speed": 0,
+						"size": 2,
+						"opacity": 100,
+						"grow-rate": 0,
+						"x-randomiser": 15,
+						"y-randomiser": 10,
+						"initial-speed-randomiser": 5,
+						"size-randomiser": 4,
+						"grow-rate-randomiser": 0,
+						"acceleration": 0,
+						"gravity": 100,
+						"angle-randomiser": 0,
+						"life-speed-randomiser": 5,
+						"opacity-randomiser": 0,
+						"destroy-mode": "timeout-expired",
+						"timeout": 0.65
+					},
+					"uid": 28474,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 378.8247819453496,
+						"y": 214.92032943941814,
+						"width": 83.27789418958595,
+						"height": 83.27789418958595,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 4.71238898038469,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "FX_FireTrail",
+					"properties": {
+						"rate": 50,
+						"spray-cone": 180,
+						"type": "continuous-spray",
+						"object": -1,
+						"live-preview": false,
+						"speed": 0,
+						"size": 2,
+						"opacity": 100,
+						"grow-rate": 0,
+						"x-randomiser": 15,
+						"y-randomiser": 10,
+						"initial-speed-randomiser": 5,
+						"size-randomiser": 4,
+						"grow-rate-randomiser": 0,
+						"acceleration": 0,
+						"gravity": -100,
+						"angle-randomiser": 0,
+						"life-speed-randomiser": 5,
+						"opacity-randomiser": 0,
+						"destroy-mode": "timeout-expired",
+						"timeout": 1
+					},
+					"uid": 28475,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 570.8622021395848,
+						"y": 130.8182100246352,
+						"width": 83.27789418958595,
+						"height": 83.27789418958595,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 4.71238898038469,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 608656433203793,
@@ -338,6 +441,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -352,5 +456,6 @@
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,
+	"projection": "perspective",
 	"eventSheet": null
 }

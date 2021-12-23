@@ -556,9 +556,19 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 931817642121835,
+							"disabled": true,
 							"parameters": {
 								"variable": "level_Type",
 								"value": "\"World\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 381864249385640,
+							"parameters": {
+								"variable": "level_Type",
+								"value": "\"Debug\""
 							}
 						},
 						{
@@ -607,6 +617,29 @@
 				}
 			],
 			"sid": 496443182082745
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 301659409967513,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "DeleteSD"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "clear-storage",
+					"objectClass": "LocalStorage",
+					"sid": 647416591686112
+				}
+			],
+			"sid": 391130665816614
 		}
 	],
 	"sid": 573607313438243

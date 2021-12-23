@@ -1,0 +1,4331 @@
+{
+	"name": "Directors",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Director Vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "director_DifficultyTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Only includes zombie levels",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 459315481074389
+		},
+		{
+			"eventType": "variable",
+			"name": "director_RunTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 449639966035119
+		},
+		{
+			"eventType": "variable",
+			"name": "director_Difficulty",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 104460945974974
+		},
+		{
+			"eventType": "variable",
+			"name": "director_Wave",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "For Spawn Pools",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 108665028666525
+		},
+		{
+			"eventType": "comment",
+			"text": "IntZ Vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "director_IntZ_CreditsPerTurn",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 634979395432746
+		},
+		{
+			"eventType": "variable",
+			"name": "director_IntZ_Credits",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 836768855983151
+		},
+		{
+			"eventType": "comment",
+			"text": "ExtZ Vars"
+		},
+		{
+			"eventType": "variable",
+			"name": "director_ExtZ_CreditsPerTurn",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 209464859980060
+		},
+		{
+			"eventType": "variable",
+			"name": "director_ExtZ_Credits",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 972356325645542
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "variable",
+			"name": "director_MinWeight",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 408060263346660
+		},
+		{
+			"eventType": "variable",
+			"name": "director_WeightMP",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "1 / MinWeight",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 798252614793899
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Director Comments",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Spawn Pools"
+				},
+				{
+					"eventType": "comment",
+					"text": "Mobs - Waves"
+				},
+				{
+					"eventType": "comment",
+					"text": "Specials"
+				},
+				{
+					"eventType": "comment",
+					"text": "Hordes"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "weight randomizer"
+				},
+				{
+					"eventType": "comment",
+					"text": "once all groups are added... add weight to a random type in each mob (or go through each one, but not too offset)"
+				},
+				{
+					"eventType": "comment",
+					"text": "try w/o weight randomizer first, just having credits may be enough"
+				},
+				{
+					"eventType": "comment",
+					"text": "or reiterate through each type (by wave first) lowering the weight) - chjoose random in wave"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "I could have a group weight / and then also a type weight within group"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "func (director_getcard,int,\"walker\")"
+				},
+				{
+					"eventType": "comment",
+					"text": "chance of no spawn??"
+				},
+				{
+					"eventType": "comment",
+					"text": "specials - for special or horde, but they're also in spawn pools (ignoring costs as well) (hordes 3-8) (nvmd, they should have costs) (maybe hordes get a reduced credit cost?) (like, double for free)"
+				},
+				{
+					"eventType": "comment",
+					"text": "Waves would be static - inline code"
+				},
+				{
+					"eventType": "comment",
+					"text": "add wave var to deck, or difficulty to spawn at"
+				},
+				{
+					"eventType": "comment",
+					"text": "card to draw?"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "Add all cards (by string) to deck"
+				},
+				{
+					"eventType": "comment",
+					"text": "Add specific cards (from decK) to correct waves  groups (another array)"
+				},
+				{
+					"eventType": "comment",
+					"text": "Call InitHand Function"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "As difficulty progresses..."
+				},
+				{
+					"eventType": "comment",
+					"text": "- Credits are added"
+				},
+				{
+					"eventType": "comment",
+					"text": "- Spawn groups are added"
+				},
+				{
+					"eventType": "comment",
+					"text": "- Special adder is increased (worry about this later)"
+				}
+			],
+			"sid": 907897114210561
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Director Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 288915749028937,
+							"parameters": {
+								"key": 71
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Director_Init",
+							"sid": 936352301113013
+						},
+						{
+							"callFunction": "Director_CreateIntSpawns",
+							"sid": 748732136440054
+						},
+						{
+							"callFunction": "Director_CreateExtSpawns",
+							"sid": 645323158722704
+						}
+					],
+					"sid": 795190189617924
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 150869885749319,
+							"parameters": {
+								"key": 89
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 868586990561899,
+							"parameters": {
+								"variable": "director_IntZ_Credits",
+								"value": "director_IntZ_CreditsPerTurn"
+							}
+						},
+						{
+							"callFunction": "Director_UpdateDeck_IntZ",
+							"sid": 521958738391874
+						},
+						{
+							"callFunction": "Director_UpdateDeck_ExtZ",
+							"sid": 182643123611072
+						}
+					],
+					"sid": 907982075360416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 677900476813929,
+							"parameters": {
+								"key": 72
+							}
+						}
+					],
+					"actions": [],
+					"sid": 133050789555394,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 244275907242283,
+									"parameters": {
+										"object": "zspawn_Interior"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Director_ActivateIntSpawn",
+									"sid": 367843997250772,
+									"parameters": [
+										"zspawn_Interior.UID"
+									]
+								}
+							],
+							"sid": 808410773326730
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 443857290427011,
+									"parameters": {
+										"object": "zspawn_Exterior"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Director_ActivateExtSpawn",
+									"sid": 904766874338343,
+									"parameters": [
+										"zspawn_Exterior.UID"
+									]
+								}
+							],
+							"sid": 714354255968048
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 951915174200294,
+							"parameters": {
+								"key": 46
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Zombie",
+							"sid": 154262910624234
+						},
+						{
+							"id": "destroy",
+							"objectClass": "NPC_Sprite",
+							"sid": 318942704172325
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Hurtbox",
+							"sid": 971098102589728
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Fog",
+							"sid": 975327660303453
+						}
+					],
+					"sid": 901450053023772
+				}
+			],
+			"sid": 811978269466341
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Director Timers",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "director_ExtZ_Frequency",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 704120224834940
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 710586271437992,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 348973948835442,
+							"parameters": {
+								"variable": "director_RunTime",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 565872959401161,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Disabled for debug"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 111853813099510,
+									"disabled": true,
+									"parameters": {
+										"first-value": "level_Type",
+										"comparison": 0,
+										"second-value": "\"Infected\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 721162032892487,
+									"disabled": true,
+									"parameters": {
+										"first-value": "level_Type",
+										"comparison": 0,
+										"second-value": "\"Tower\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 336374641292594,
+									"disabled": true,
+									"parameters": {
+										"first-value": "level_Type",
+										"comparison": 0,
+										"second-value": "\"Boss\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 288407615260489,
+									"parameters": {
+										"variable": "director_DifficultyTime",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 495024332529915,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 275355744221179,
+									"disabled": true,
+									"parameters": {
+										"first-value": "director_DifficultyTime",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 210216037083075
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 371647960833262,
+									"parameters": {
+										"variable": "director_Difficulty",
+										"value": "floor(director_DifficultyTime/30)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 189163206319674,
+									"parameters": {
+										"variable": "director_Wave",
+										"value": "director_Difficulty"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "IntZ"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 827731605598169,
+									"parameters": {
+										"variable": "director_IntZ_CreditsPerTurn",
+										"value": "floor(director_DifficultyTime/30) + 1"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "ExtZ"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 995973548516098,
+									"parameters": {
+										"variable": "director_ExtZ_CreditsPerTurn",
+										"value": "director_DifficultyTime/10"
+									}
+								}
+							],
+							"sid": 753180621728779
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "switch to 1 ?"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 120836490735122,
+							"parameters": {
+								"interval-seconds": "director_ExtZ_Frequency"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 985361432544236,
+							"parameters": {
+								"variable": "director_ExtZ_Credits",
+								"value": "floor(director_ExtZ_CreditsPerTurn)"
+							}
+						}
+					],
+					"sid": 877538505193575
+				}
+			],
+			"sid": 772505813608352
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Director Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Director Init Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Director_Init",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 257290568202534,
+									"parameters": {
+										"variable": "director_WeightMP",
+										"value": "1 / director_MinWeight"
+									}
+								},
+								{
+									"callFunction": "Director_InitLists",
+									"sid": 673771724213720
+								},
+								{
+									"callFunction": "Director_Init_IntZ",
+									"sid": 554627273123631
+								},
+								{
+									"callFunction": "Director_Init_ExtZ",
+									"sid": 382272634212970
+								}
+							],
+							"sid": 719724645693144
+						},
+						{
+							"functionName": "Director_InitLists",
+							"functionDescription": "",
+							"functionCategory": "Director",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 968518087671296,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Zombie List"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 436198115876957,
+											"parameters": {
+												"where": "back",
+												"value": "\"Walker\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 856512443655308,
+											"parameters": {
+												"where": "back",
+												"value": "\"WalkerHeadless\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 301284498089640,
+											"parameters": {
+												"where": "back",
+												"value": "\"WalkerGibbed\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 757937222330767,
+											"parameters": {
+												"where": "back",
+												"value": "\"WalkerCrawler\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 901679969850379,
+											"parameters": {
+												"where": "back",
+												"value": "\"Soldier\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 464024184790481,
+											"parameters": {
+												"where": "back",
+												"value": "\"SoldierCrawler\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 762121628956509,
+											"parameters": {
+												"where": "back",
+												"value": "\"SoldierHelmetless\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 749332914491207,
+											"parameters": {
+												"where": "back",
+												"value": "\"SoldierHelmetlessCrawler\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 533766303201051,
+											"parameters": {
+												"where": "back",
+												"value": "\"Riot\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 400193645101867,
+											"parameters": {
+												"where": "back",
+												"value": "\"RiotKP\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 335595311785212,
+											"parameters": {
+												"where": "back",
+												"value": "\"RiotCrawler\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 450358436068273,
+											"parameters": {
+												"where": "back",
+												"value": "\"Demon\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 681954783293904,
+											"parameters": {
+												"where": "back",
+												"value": "\"Bombboy\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 802520815972986,
+											"parameters": {
+												"where": "back",
+												"value": "\"Bombhead\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 384442483259115,
+											"parameters": {
+												"where": "back",
+												"value": "\"Bighead\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 757971680308880,
+											"parameters": {
+												"where": "back",
+												"value": "\"Brute\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 469137368998070,
+											"parameters": {
+												"where": "back",
+												"value": "\"Boomer\"",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "Director_List_Z",
+											"sid": 928438956231724,
+											"parameters": {
+												"where": "back",
+												"value": "\"Zealot\"",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 780384160317052
+								}
+							]
+						},
+						{
+							"functionName": "Director_Init_IntZ",
+							"functionDescription": "",
+							"functionCategory": "Director",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Director_IntZ_Card",
+									"sid": 915539807165934
+								}
+							],
+							"sid": 944571000180007,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Director_List_Z",
+											"sid": 250276775433790,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 142476774390183,
+											"parameters": {
+												"object-to-create": "Director_IntZ_Card",
+												"layer": "0",
+												"x": "0",
+												"y": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Director_IntZ_Card",
+											"sid": 386337222861839,
+											"parameters": {
+												"instance-variable": "Name",
+												"value": "Director_List_Z.CurValue"
+											}
+										}
+									],
+									"sid": 774088560921401,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Mobs"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 106502789093055,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Walker\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 434349980340171,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 702684487538851,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 670180669982158,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 151571490131991
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 782905460941498
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 297345572048412,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerHeadless\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 115630172934766,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 631964112764615,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 979633314881687,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 922541040805502
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 249117545348389
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 581628554882325,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerGibbed\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 684359751875893,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 595809727988020,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 451086633688772,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 147473491692843
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 846828479635113
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 529613993952225,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 792470014570354,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 548185431210312,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 225464092062600,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 566970636689830
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 959624170325509
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 383764045352593,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Soldier\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 231935503737630,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 302538651382621,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 643060154824649,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 954427939436285
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 147102740404143
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 715244323841748,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 645970402060875,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 382989008681106,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 655614542772864,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 114367654277626
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 238368451456148
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 392903252508480,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierHelmetless\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 806973781675506,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 290249062448512,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 215597616186205,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 256622124553746
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 131093328344449
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 510615246812910,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierHelmetlessCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 977426440641639,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 541285169013235,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 635614371838383,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 217693810226809
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 377447656630161
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 100410674680701,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Riot\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 551329143304230,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "8"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 850023857799100,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 229567803230133,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 607567468517573
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 166880765825851
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 286609134595141,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"RiotKP\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 484339354805449,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 138519279837625,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 548652832816677,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 750724584480584
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 559975793126362
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 706371550545981,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"RiotCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 229043665480473,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 706687942653197,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 150995455988320,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 705613081409278
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 277219311889198
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 254656499002627,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Demon\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 288522990535668,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 295034509441986,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 553191929893764,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 306967032235986
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 659098257196892
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 115560042955485,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bombboy\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 661002532339584,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "3"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 826396775700493,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 786681860548782,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 855453271601875
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 501199365676702
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 873047677092767,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bombhead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 575887299647879,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 480896662626033,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 312736839369789,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 482030015605695
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 706435874388286
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 139971617827718,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Zealot\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 743920646939566,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "3"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 291371499824188,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 367295809397603,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 230256404369938
+										},
+										{
+											"eventType": "comment",
+											"text": "Specials"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 125537556870220
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 635300021607580,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Boomer\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 165938550098574,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 276513082006301,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 421419076840987,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 488634946208900
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 860794399490632
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 253766460094600,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bighead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 842689653637499,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 196177659989772,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 812405056924696,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 228952253579214
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 113479969767766
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 450449299268643,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Brute\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 467671690761282,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "20"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 515370172340733,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 439801684373906,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 784581665463043
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 969534112209466
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 464457164378315,
+													"parameters": {
+														"type": "log",
+														"message": "Director_List_Z.CurValue"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 706429351396837
+												}
+											],
+											"sid": 395208649542165
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Director_Init_ExtZ",
+							"functionDescription": "",
+							"functionCategory": "Director",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Director_Extz_Card",
+									"sid": 964088319920614
+								}
+							],
+							"sid": 617301640963675,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Director_List_Z",
+											"sid": 224175441600291,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 272563684440187,
+											"parameters": {
+												"object-to-create": "Director_Extz_Card",
+												"layer": "0",
+												"x": "0",
+												"y": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Director_Extz_Card",
+											"sid": 366637636857827,
+											"parameters": {
+												"instance-variable": "Name",
+												"value": "Director_List_Z.CurValue"
+											}
+										}
+									],
+									"sid": 934670837103722,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Mobs"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 377364327437012,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Walker\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 339579719915387,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 317700471773690,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 204900491912443,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 502624045369147
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 891646489030438
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 397390057526134,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerHeadless\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 777891185782984,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 833136724473224,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 698142548378447,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 812070088762423
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 508535383550081
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 395624251409612,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerGibbed\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 868725662396752,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 348001876340918,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 747318512814142,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 256076723267639
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 880685840806612
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 357198708760604,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"WalkerCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 782515264167658,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 517209821270447,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 182745533772944,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 576940021787736
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 740294767258837
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 629498761715614,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Soldier\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 503639881960422,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 488609815783977,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 736271338059800,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 718174557296713
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 246277584330856
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 739417616294690,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 312734891945907,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 229452662431858,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 832154607919761,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 211923836953990
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 527604995986040
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 102199327069834,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierHelmetless\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 512060906888668,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 112761640706766,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 800617654957716,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 876364832553074
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 121785976680982
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 682376416333316,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"SoldierHelmetlessCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 519566178144542,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 591000095184516,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 635833977460515,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 587876095620569
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 222015109072897
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 302710664175387,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Riot\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 625118508604510,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "8"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 262040297094893,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 609262786416759,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 415101232387999
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 648693459148278
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 256646121251060,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"RiotKP\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 415816537949014,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 776082862421942,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 253868932605117,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 412275214741743
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 738446850709849
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 149574506932656,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"RiotCrawler\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 364064136398849,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 970308005527576,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "0.25"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 595328143956493,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 876578576403408
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 961538570411680
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 440284614236663,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Demon\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 704619779638000,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 371846523964390,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 273795687757152,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 613311799706048
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 145858672961317
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 417426290051563,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bombboy\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 304585140982100,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "3"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 643307306505487,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 402325831266370,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 170187220045103
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 597870603555240
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 636796750962242,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bombhead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 770500134933580,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 197896588579028,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 369922890623250,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 537316399077731
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 676881669127831
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 867276923740506,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Zealot\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 261408019914679,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "3"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 135523484694528,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 822953420209277,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 207261406539862
+										},
+										{
+											"eventType": "comment",
+											"text": "Specials"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 464587429802166
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 867494150593134,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Boomer\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 613810363744236,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 733679203369925,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 516072072800391,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 281837050264537
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 782363883212815
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 299956669661626,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Bighead\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 680791994315460,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "10"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 668932384911943,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 395800334931191,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "2"
+													}
+												}
+											],
+											"sid": 199251842150662
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 446666314864607
+												},
+												{
+													"id": "compare-current-value",
+													"objectClass": "Director_List_Z",
+													"sid": 534129959975954,
+													"parameters": {
+														"comparison": 0,
+														"value": "\"Brute\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 466914068468194,
+													"parameters": {
+														"instance-variable": "Cost",
+														"value": "20"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 376715882523820,
+													"parameters": {
+														"instance-variable": "Weight",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Director_Extz_Card",
+													"sid": 951406022419815,
+													"parameters": {
+														"instance-variable": "Wave",
+														"value": "3"
+													}
+												}
+											],
+											"sid": 659415068561735
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 638510904894351
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 475058994019221,
+													"parameters": {
+														"type": "log",
+														"message": "Director_List_Z.CurValue"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Director_Extz_Card",
+													"sid": 799743347392934
+												}
+											],
+											"sid": 976215874333288
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 368291851743954
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Director IntZ",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Director IntZ Functions",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "Director_UpdateDeck_IntZ",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "Director_IntZ_Deck",
+											"sid": 509972256136249,
+											"parameters": {
+												"width": "0",
+												"height": "Self.Height",
+												"depth": "Self.Depth"
+											}
+										}
+									],
+									"sid": 538420264724548,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Build Deck"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 953974892348142,
+													"parameters": {
+														"object": "Director_IntZ_Card"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 390835386497090,
+													"parameters": {
+														"instance-variable": "Wave",
+														"comparison": 3,
+														"value": "director_Wave"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Director_IntZ_Card",
+													"sid": 414875206477123,
+													"parameters": {
+														"instance-variable": "Cost",
+														"comparison": 3,
+														"value": "director_IntZ_Credits"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 812717598768087,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 651884886579852,
+															"parameters": {
+																"count": "director_WeightMP * Director_Intz_Card.Weight"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "Director_IntZ_Deck",
+															"sid": 624998694104243,
+															"parameters": {
+																"where": "back",
+																"value": "Director_Intz_Card.Name",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 871913811569786
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Shuffle Deck"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Array_Shuffle",
+													"sid": 365757689942771,
+													"parameters": [
+														"Director_IntZ_Deck.UID"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 888962425976132,
+													"parameters": {
+														"type": "log",
+														"message": "Functions.Array_GetRandomElement(Director_IntZ_Deck.UID)"
+													}
+												}
+											],
+											"sid": 465401493560356
+										}
+									]
+								},
+								{
+									"functionName": "Director_Draw_IntZ",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "string",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Director_UpdateDeck_IntZ",
+											"sid": 182849534556855
+										}
+									],
+									"sid": 192892032907600,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "get difficulty"
+										},
+										{
+											"eventType": "comment",
+											"text": "Update hand based on difficulty"
+										},
+										{
+											"eventType": "comment",
+											"text": "handle specials, hordes here"
+										},
+										{
+											"eventType": "variable",
+											"name": "name",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 461119176052676
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 539968864816557,
+													"parameters": {
+														"variable": "name",
+														"value": "Functions.Array_GetRandomElement(Director_IntZ_Deck.UID)"
+													}
+												}
+											],
+											"sid": 327583691766079
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 223865574115032,
+													"parameters": {
+														"object": "Director_IntZ_Card",
+														"expression": "Director_Intz_Card.Name",
+														"comparison": 0,
+														"value": "Name"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 148059133904330,
+													"parameters": {
+														"variable": "director_IntZ_Credits",
+														"value": "Director_Intz_Card.Cost"
+													}
+												},
+												{
+													"id": "set-function-return-value",
+													"objectClass": "Functions",
+													"sid": 202123668744437,
+													"parameters": {
+														"value": "name"
+													}
+												}
+											],
+											"sid": 850364786183816
+										}
+									]
+								}
+							],
+							"sid": 962053789388489
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Director IntZ Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "activationRange",
+									"type": "number",
+									"initialValue": "750",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 493654730658377
+								},
+								{
+									"eventType": "variable",
+									"name": "widthPerSpawn",
+									"type": "number",
+									"initialValue": "144",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 154892978887527
+								},
+								{
+									"eventType": "comment",
+									"text": "Working here"
+								},
+								{
+									"eventType": "comment",
+									"text": "Convert this to a global function, takes in width and type"
+								},
+								{
+									"eventType": "comment",
+									"text": "or just dupe it tbh"
+								},
+								{
+									"functionName": "Director_CreateIntSpawns",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 746562463829373,
+											"parameters": {
+												"type": "log",
+												"message": "\"Director: Create Int Spawns\""
+											}
+										}
+									],
+									"sid": 599898184838828,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "spawncount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 734801714101320
+										},
+										{
+											"eventType": "variable",
+											"name": "roomstart",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 113521661633618
+										},
+										{
+											"eventType": "variable",
+											"name": "spacing",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 918621066972551
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 787941979523808,
+													"parameters": {
+														"object": "Room"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Room",
+													"sid": 249441323172568,
+													"parameters": {
+														"instance-variable": "Meshed"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 950356389898476,
+													"parameters": {
+														"variable": "spawncount",
+														"value": "floor(Room.Width/widthPerSpawn)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 863175373619766,
+													"parameters": {
+														"variable": "roomstart",
+														"value": "Room.X - Room.Width/2"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 928077624503822,
+													"parameters": {
+														"variable": "spacing",
+														"value": "Room.Width / (spawncount + 1)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 217193616810975,
+													"parameters": {
+														"type": "log",
+														"message": "\"Director: \" & \" | \" & spawncount& \" | \" & roomstart & \" | \" & spacing"
+													}
+												}
+											],
+											"sid": 953188790937120,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 397880631100369,
+															"parameters": {
+																"count": "spawncount"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 554738023333108,
+															"parameters": {
+																"object-to-create": "zspawn_Interior",
+																"layer": "\"Objects\"",
+																"x": "roomstart + spacing*(loopindex + 1)",
+																"y": "Room.Y - 8",
+																"create-hierarchy": false
+															}
+														}
+													],
+													"sid": 827242349522699,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "zspawn_Interior",
+																	"sid": 355484857195578,
+																	"parameters": {
+																		"object": "LadderSaftey"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "zspawn_Interior",
+																	"sid": 882509941584559
+																}
+															],
+															"sid": 283499772869944
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Director_CreateSpawnRange_Int",
+													"sid": 333204159873668
+												}
+											],
+											"sid": 698928116195398
+										}
+									]
+								},
+								{
+									"functionName": "Director_CreateSpawnRange_Int",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 901469246408116,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Director_SpawnRangeInt",
+													"sid": 524646983709850
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 315952620829924,
+													"parameters": {
+														"object-to-create": "Director_SpawnRangeInt",
+														"layer": "Player.LayerName",
+														"x": "Player.X",
+														"y": "Player.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "add-child",
+													"objectClass": "Player",
+													"sid": 423016781732816,
+													"parameters": {
+														"child": "Director_SpawnRangeInt",
+														"transform-x": true,
+														"transform-y": true,
+														"transform-w": true,
+														"transform-h": true,
+														"transform-a": false,
+														"transform-z-elevation": false,
+														"destroy-with-parent": true
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "Director_SpawnRangeInt",
+													"sid": 737550887468994,
+													"parameters": {
+														"width": "activationRange*2",
+														"height": "activationRange*2"
+													}
+												}
+											],
+											"sid": 945808864552923
+										}
+									]
+								},
+								{
+									"functionName": "Director_ActivateIntSpawn",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 114397816511299
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "zspawn_Interior",
+											"sid": 461257664254390,
+											"parameters": {
+												"unique-id": "ID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 585659491925184,
+											"parameters": {
+												"variable": "director_IntZ_Credits",
+												"value": "director_IntZ_CreditsPerTurn"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 665211760644656,
+											"parameters": {
+												"type": "log",
+												"message": "director_IntZ_Credits"
+											}
+										}
+									],
+									"sid": 337861187553981,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "type",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 883176357019797
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 587525490274433,
+													"parameters": {
+														"first-value": "director_IntZ_Credits",
+														"comparison": 2,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 933586176337046,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Director IntZ: No Credits\""
+													}
+												}
+											],
+											"sid": 507989391118452
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 255148863539483
+												},
+												{
+													"id": "while",
+													"objectClass": "System",
+													"sid": 596007191753338
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 611744993703457,
+													"parameters": {
+														"first-value": "director_IntZ_Credits",
+														"comparison": 5,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 845904934623272,
+													"parameters": {
+														"variable": "type",
+														"value": "Functions.Director_Draw_IntZ"
+													}
+												}
+											],
+											"sid": 711417015849292,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 769570284724751,
+															"parameters": {
+																"first-value": "type",
+																"comparison": 1,
+																"second-value": "\"null\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 942478767576147,
+															"parameters": {
+																"object-to-create": "Zombie",
+																"layer": "\"Objects\"",
+																"x": "zspawn_Interior.X",
+																"y": "zspawn_Interior.Y",
+																"create-hierarchy": false
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Zombie",
+															"sid": 447042830470844,
+															"parameters": {
+																"instance-variable": "Class",
+																"value": "type"
+															}
+														}
+													],
+													"sid": 224165309815638
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 720748344239428
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 266729376452201,
+															"parameters": {
+																"type": "warn",
+																"message": "\"Could not get int class spawn\""
+															}
+														}
+													],
+													"sid": 661281240536906
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "zspawn_Interior",
+															"sid": 583121371031954
+														}
+													],
+													"sid": 887312340415721
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "Director_SpawnRangeInt",
+											"sid": 854735617959847,
+											"parameters": {
+												"object": "zspawn_Interior"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Director_ActivateIntSpawn",
+											"sid": 679036438801037,
+											"parameters": [
+												"zspawn_Interior.UID"
+											]
+										}
+									],
+									"sid": 261970885905852
+								}
+							],
+							"sid": 420351236024917
+						}
+					],
+					"sid": 152238503547609
+				},
+				{
+					"eventType": "comment",
+					"text": "May want a fast / slow director"
+				},
+				{
+					"eventType": "comment",
+					"text": "ExtZ needs a different wave"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Director ExtZ",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Director ExtZ Functions",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "Director_UpdateDeck_ExtZ",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "Director_ExtZ_Deck",
+											"sid": 163407376630571,
+											"parameters": {
+												"width": "0",
+												"height": "Self.Height",
+												"depth": "Self.Depth"
+											}
+										}
+									],
+									"sid": 375399123366338,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Build Deck"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 689330484470713,
+													"parameters": {
+														"object": "Director_Extz_Card"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Director_Extz_Card",
+													"sid": 135176486568412,
+													"parameters": {
+														"instance-variable": "Wave",
+														"comparison": 3,
+														"value": "director_Wave"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Director_Extz_Card",
+													"sid": 837067744458376,
+													"parameters": {
+														"instance-variable": "Cost",
+														"comparison": 3,
+														"value": "director_ExtZ_Credits"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 248871090692432,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 775923920531913,
+															"parameters": {
+																"count": "director_WeightMP * Director_Extz_Card.Weight"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "Director_ExtZ_Deck",
+															"sid": 194186868514830,
+															"parameters": {
+																"where": "back",
+																"value": "Director_Extz_Card.Name",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 567186094325513
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Shuffle Deck"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Array_Shuffle",
+													"sid": 893364522841644,
+													"parameters": [
+														"Director_Extz_Card.UID"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 176619761703941,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "Functions.Array_GetRandomElement(Director_Extz_Card.UID)"
+													}
+												}
+											],
+											"sid": 132528863084598
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "getting negative nums?"
+								},
+								{
+									"functionName": "Director_Draw_ExtZ",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "string",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Director_UpdateDeck_ExtZ",
+											"sid": 880583476669691
+										}
+									],
+									"sid": 517749350766881,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "name",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 554885485496892
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 800291641798565,
+													"parameters": {
+														"variable": "name",
+														"value": "Functions.Array_GetRandomElement(Director_ExtZ_Deck.UID)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 928132091024099,
+													"parameters": {
+														"type": "log",
+														"message": "\"name: \" & name &\".\""
+													}
+												}
+											],
+											"sid": 661373846649220
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 823655780576691,
+													"parameters": {
+														"object": "Director_Extz_Card",
+														"expression": "Director_Extz_Card.Name",
+														"comparison": 0,
+														"value": "Name"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 815095412902032,
+													"parameters": {
+														"variable": "director_ExtZ_Credits",
+														"value": "Director_Extz_Card.Cost"
+													}
+												},
+												{
+													"id": "set-function-return-value",
+													"objectClass": "Functions",
+													"sid": 862472551197956,
+													"parameters": {
+														"value": "name"
+													}
+												}
+											],
+											"sid": 850314282624372
+										}
+									]
+								}
+							],
+							"sid": 107239656981326
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Director ExtZ Spawns",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "activationRange",
+									"type": "number",
+									"initialValue": "1500",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 936032127096178
+								},
+								{
+									"eventType": "variable",
+									"name": "widthPerSpawn",
+									"type": "number",
+									"initialValue": "192",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 424887997513745
+								},
+								{
+									"functionName": "Director_CreateExtSpawns",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 138409103710153,
+											"parameters": {
+												"type": "log",
+												"message": "\"Director: Create Ext Spawns\""
+											}
+										}
+									],
+									"sid": 252847871132040,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "spawncount",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 611733716193292
+										},
+										{
+											"eventType": "variable",
+											"name": "roomstart",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 190448014230369
+										},
+										{
+											"eventType": "variable",
+											"name": "spacing",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 607561441242345
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 122328359413896,
+													"parameters": {
+														"object": "Director_ExteriorRange"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 534080693258912,
+													"parameters": {
+														"variable": "spawncount",
+														"value": "floor(Director_ExteriorRange.Width/widthPerSpawn)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 857605370673193,
+													"parameters": {
+														"variable": "roomstart",
+														"value": "Director_ExteriorRange.X"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 466363728356427,
+													"parameters": {
+														"variable": "spacing",
+														"value": "Director_ExteriorRange.Width / (spawncount + 1)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 260233160718061,
+													"parameters": {
+														"type": "log",
+														"message": "\"Director: \" & \" | \" & spawncount& \" | \" & roomstart & \" | \" & spacing"
+													}
+												}
+											],
+											"sid": 516662335692048,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 179627228877173,
+															"parameters": {
+																"count": "spawncount"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 203451367575993,
+															"parameters": {
+																"object-to-create": "zspawn_Exterior",
+																"layer": "\"Objects\"",
+																"x": "roomstart + spacing*(loopindex + 1)",
+																"y": "Director_ExteriorRange.Y - 8",
+																"create-hierarchy": false
+															}
+														}
+													],
+													"sid": 387468652356574
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Director_CreateSpawnRange_Ext",
+													"sid": 674841269372280
+												}
+											],
+											"sid": 427974697784893
+										}
+									]
+								},
+								{
+									"functionName": "Director_CreateSpawnRange_Ext",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 703138734541681,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Director_SpawnRangeExt",
+													"sid": 582632473978368
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 537651992270419,
+													"parameters": {
+														"object-to-create": "Director_SpawnRangeExt",
+														"layer": "Player.LayerName",
+														"x": "Player.X",
+														"y": "Player.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "add-child",
+													"objectClass": "Player",
+													"sid": 206877973501492,
+													"parameters": {
+														"child": "Director_SpawnRangeExt",
+														"transform-x": true,
+														"transform-y": true,
+														"transform-w": true,
+														"transform-h": true,
+														"transform-a": false,
+														"transform-z-elevation": false,
+														"destroy-with-parent": true
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "Director_SpawnRangeExt",
+													"sid": 855915703940829,
+													"parameters": {
+														"width": "activationRange*2",
+														"height": "activationRange*2"
+													}
+												}
+											],
+											"sid": 622466134613954
+										}
+									]
+								},
+								{
+									"functionName": "Director_ActivateExtSpawn",
+									"functionDescription": "",
+									"functionCategory": "Director",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "ID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 100663873020234
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "zspawn_Exterior",
+											"sid": 837216363395006,
+											"parameters": {
+												"unique-id": "ID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 468144533547047,
+											"parameters": {
+												"type": "log",
+												"message": "\"Director ExtZ Credits: \" & director_ExtZ_Credits"
+											}
+										}
+									],
+									"sid": 240445231871823,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "type",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 210465347984719
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 788928189129840,
+													"parameters": {
+														"variable": "type",
+														"value": "Functions.Director_Draw_ExtZ"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 921806227358395,
+													"parameters": {
+														"type": "log",
+														"message": "\"Director ExtZ Credits: \" & director_ExtZ_Credits"
+													}
+												}
+											],
+											"sid": 698368803573643
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 686107655371183,
+													"parameters": {
+														"first-value": "type",
+														"comparison": 1,
+														"second-value": "\"null\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 704321655897228,
+													"parameters": {
+														"object-to-create": "Zombie",
+														"layer": "\"Objects\"",
+														"x": "zspawn_Exterior.X",
+														"y": "zspawn_Exterior.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Zombie",
+													"sid": 546925001280723,
+													"parameters": {
+														"instance-variable": "Class",
+														"value": "type"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 631625910899653,
+													"parameters": {
+														"type": "log",
+														"message": "\"Class: \" & type"
+													}
+												}
+											],
+											"sid": 814216358731535
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 229028182048596
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 415330095122330,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Could not get ext class spawn\""
+													}
+												}
+											],
+											"sid": 752227436466673
+										}
+									]
+								}
+							],
+							"sid": 192420715611927
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Director _ExtZ_Loop",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "director_ExtZSpawnFreq",
+									"type": "number",
+									"initialValue": "5",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 587182304683622
+								},
+								{
+									"eventType": "comment",
+									"text": "Temp"
+								},
+								{
+									"eventType": "comment",
+									"text": "move while here?"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "every-x-seconds",
+											"objectClass": "System",
+											"sid": 890455193311366,
+											"parameters": {
+												"interval-seconds": "director_ExtZSpawnFreq"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 238306449006196,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 712116341587716,
+													"parameters": {
+														"first-value": "director_ExtZ_Credits",
+														"comparison": 2,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 141577022902678,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Director ExtZ: No Credits\""
+													}
+												}
+											],
+											"sid": 120487704980586
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 294095975585622
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Director_SpawnRangeExt",
+													"sid": 510783987178446,
+													"parameters": {
+														"object": "zspawn_Exterior"
+													}
+												},
+												{
+													"id": "is-on-screen",
+													"objectClass": "zspawn_Exterior",
+													"sid": 512114866742481,
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 643514094387371,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "while",
+															"objectClass": "System",
+															"sid": 237396663860081
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 616880902484121,
+															"parameters": {
+																"first-value": "director_ExtZ_Credits",
+																"comparison": 5,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 838528272827800,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-random-instance",
+																	"objectClass": "System",
+																	"sid": 250437483972495,
+																	"parameters": {
+																		"object": "zspawn_Exterior"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Director_ActivateExtSpawn",
+																	"sid": 231951784648191,
+																	"parameters": [
+																		"zspawn_Exterior.UID"
+																	]
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 539598394522824,
+																	"parameters": {
+																		"type": "warn",
+																		"message": "\"Director: Activated Ext Spawn \" & zspawn_Exterior.UID"
+																	}
+																}
+															],
+															"sid": 948361604491622
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 871687912410683
+						}
+					],
+					"sid": 747665492771570
+				}
+			],
+			"sid": 940514163854087
+		}
+	],
+	"sid": 717774387420181
+}

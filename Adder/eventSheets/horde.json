@@ -113,7 +113,7 @@
 			"eventType": "variable",
 			"name": "horde_lootchance",
 			"type": "number",
-			"initialValue": "30",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -851,15 +851,11 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 685198358098899,
-							"parameters": {
-								"name": "\"Shuffle_Array\"",
-								"parameter-n": [
-									"Horde_SpawnPool.UID"
-								]
-							}
+							"callFunction": "Array_Shuffle",
+							"sid": 522055241174937,
+							"parameters": [
+								"Horde_SpawnPool.UID"
+							]
 						}
 					],
 					"sid": 585630834130868

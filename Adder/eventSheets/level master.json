@@ -294,12 +294,13 @@
 											"actions": [
 												{
 													"callFunction": "Door_Spawn",
-													"sid": 582600624459529,
+													"sid": 865880987877203,
 													"parameters": [
 														"FramePrefab.DoorMaterial",
 														"FramePrefab.DoorHealth",
 														"FramePrefab.X",
-														"FramePrefab.Y"
+														"FramePrefab.Y",
+														"FramePrefab.DoorLocked"
 													]
 												}
 											],
@@ -2991,6 +2992,13 @@
 									"initialValue": "0",
 									"comment": "",
 									"sid": 424899810600423
+								},
+								{
+									"name": "DoorLocked",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 116718007725002
 								}
 							],
 							"eventType": "function-block",
@@ -3249,6 +3257,55 @@
 										}
 									],
 									"sid": 541647142430207
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 865887123360258,
+											"parameters": {
+												"variable": "DoorLocked",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door",
+											"sid": 121200530275162,
+											"parameters": {
+												"instance-variable": "Locked",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 239472129845349
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 690622776212320
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Door",
+											"sid": 817629574116966,
+											"parameters": {
+												"instance-variable": "Locked",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 936026674214993
 								}
 							]
 						},
@@ -5783,6 +5840,15 @@
 													],
 													"actions": [
 														{
+															"id": "set-instvar-value",
+															"objectClass": "Door_Scent",
+															"sid": 710287964446966,
+															"parameters": {
+																"instance-variable": "NPCs",
+																"value": "\"\""
+															}
+														},
+														{
 															"id": "destroy",
 															"objectClass": "Door_Scent",
 															"sid": 858927988292729
@@ -5803,6 +5869,15 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Door_Scent",
+															"sid": 476550385902917,
+															"parameters": {
+																"instance-variable": "NPCs",
+																"value": "\"\""
+															}
+														},
 														{
 															"id": "destroy",
 															"objectClass": "Door_Scent",
@@ -5874,6 +5949,28 @@
 															"sid": 992103365834473
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-children",
+															"objectClass": "Door",
+															"sid": 412892386132283,
+															"parameters": {
+																"child": "Projectile",
+																"which": "all"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Projectile",
+															"sid": 483002983428596
+														}
+													],
+													"sid": 838351832212811
 												}
 											]
 										},
@@ -6287,6 +6384,15 @@
 													],
 													"actions": [
 														{
+															"id": "set-instvar-value",
+															"objectClass": "Door_Scent",
+															"sid": 212090956848107,
+															"parameters": {
+																"instance-variable": "NPCs",
+																"value": "\"\""
+															}
+														},
+														{
 															"id": "destroy",
 															"objectClass": "Door_Scent",
 															"sid": 944217684058020
@@ -6307,6 +6413,15 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Door_Scent",
+															"sid": 764107254382694,
+															"parameters": {
+																"instance-variable": "NPCs",
+																"value": "\"\""
+															}
+														},
 														{
 															"id": "destroy",
 															"objectClass": "Door_Scent",
@@ -6439,6 +6554,28 @@
 														}
 													],
 													"sid": 516312258260478
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-children",
+															"objectClass": "Door",
+															"sid": 237415965776139,
+															"parameters": {
+																"child": "Projectile",
+																"which": "all"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Projectile",
+															"sid": 441061770065033
+														}
+													],
+													"sid": 368788263000448
 												}
 											]
 										},
@@ -6538,6 +6675,54 @@
 									]
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 479431306859266,
+											"parameters": {
+												"name": "\"Door_CheckStuck\""
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Door",
+											"sid": 270840849661398,
+											"parameters": {
+												"unique-id": "function.Param(0)"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Door",
+											"sid": 430206090491117,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "Door",
+											"sid": 821614132922095,
+											"parameters": {
+												"child": "Projectile",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Projectile",
+											"sid": 267536721296744
+										}
+									],
+									"sid": 340088680620531
+								},
+								{
 									"functionName": "Door_Unlock",
 									"functionDescription": "",
 									"functionCategory": "Level",
@@ -6614,6 +6799,56 @@
 										}
 									],
 									"sid": 730612631690440
+								},
+								{
+									"eventType": "comment",
+									"text": "Door_Scent"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-created",
+											"objectClass": "Door_Scent",
+											"sid": 405199042207051
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Door_Scent",
+											"sid": 273900158356604,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Player_ScentDoorLifetime",
+												"type": "once",
+												"tag": "\"Lifespan\""
+											}
+										}
+									],
+									"sid": 769675632387911
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-timer",
+											"objectClass": "Door_Scent",
+											"sid": 941850293584170,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"Lifespan\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Door_Scent",
+											"sid": 309745032385681
+										}
+									],
+									"sid": 146093220160383
 								}
 							],
 							"sid": 553777556544336
@@ -10619,7 +10854,7 @@
 															],
 															"actions": [
 																{
-																	"callFunction": "PLR_PickupEquipment",
+																	"callFunction": "PLR_EquipmentPickup",
 																	"sid": 242819999767218,
 																	"parameters": [
 																		"OBJ_World.UID"

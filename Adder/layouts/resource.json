@@ -4,6 +4,7 @@
 		{
 			"name": "Layer",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "NPC_Shoes",
@@ -386,7 +387,9 @@
 						"OnStairsUID": 0,
 						"SlideCooldown": 0,
 						"EquipmentReady": 1,
-						"EquipmentAnimation": ""
+						"EquipmentAnimation": "",
+						"DroppedThrough": false,
+						"IgnoreDamage": false
 					},
 					"behaviors": {
 						"Custom": {
@@ -449,8 +452,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1452,
-						"y": 809,
+						"x": 1465,
+						"y": 823,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -909,7 +912,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1349,
+						"x": 1347,
 						"y": 697,
 						"width": 32,
 						"height": 34,
@@ -1090,7 +1093,7 @@
 						"canGib": 0,
 						"canCripple": 0,
 						"canHeadshot": 0,
-						"Type": "Bullet",
+						"zzzType": "Bullet",
 						"Speed": 0,
 						"Knockback": 100,
 						"Faction": "Player",
@@ -1100,8 +1103,8 @@
 						"zzzShotgun": false,
 						"Knockup": 0,
 						"SpawnOrigin": "",
-						"ParticlePrefab": "",
-						"EffectPrefab": "",
+						"Particles": "",
+						"VFX": "",
 						"Form": "",
 						"ImpactFX": "",
 						"SplitsLeft": 0,
@@ -1111,6 +1114,7 @@
 						"Physics_SpawnVy": 0,
 						"ImpactTypeAI": "",
 						"ImpactTypeEnv": "",
+						"ImpactTypePlayer": "",
 						"IgnoreAI": false,
 						"TriggerEvents": "",
 						"TriggerEffects": "",
@@ -1119,7 +1123,11 @@
 						"PrimedOnSpawn": 0,
 						"PrimeOnAIColl": 0,
 						"PrimeOnEnvColl": 0,
-						"LastAngle": 0
+						"LastAngle": 0,
+						"PrimeUID": 0,
+						"DestroyOnFloor": 0,
+						"CanHitProjectiles": 0,
+						"CanBeHitByProjectiles": 0
 					},
 					"behaviors": {
 						"Physics": {
@@ -2959,7 +2967,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -2994,8 +3003,8 @@
 						}
 					},
 					"world": {
-						"x": 529.404968262,
-						"y": 69.022064209,
+						"x": 443,
+						"y": 93,
 						"width": 24,
 						"height": 96,
 						"originX": 0,
@@ -6643,7 +6652,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -6654,6 +6663,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -6732,6 +6758,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -9173,7 +9207,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Concrete",
 						"HP": 10,
 						"MaxHP": 10,
@@ -11946,7 +11981,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Metal",
 						"HP": 10,
 						"MaxHP": 10,
@@ -16974,7 +17010,8 @@
 						"chance_gib": 0,
 						"chance_cripple": 0,
 						"chance_helmetless": 0,
-						"Active": false
+						"Active": false,
+						"DamagePlayer": 0
 					},
 					"behaviors": {
 						"LineOfSight": {
@@ -19942,9 +19979,14 @@
 					},
 					"uid": 1533,
 					"instanceVariables": {
-						"DoorID": 0
+						"DoorID": 0,
+						"NPCs": ""
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Timer": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 511,
 						"y": 143,
@@ -22245,7 +22287,7 @@
 							1,
 							0.5
 						],
-						"angle": 0,
+						"angle": 0.010786320371468205,
 						"zElevation": 0
 					}
 				},
@@ -22465,7 +22507,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22476,6 +22518,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22554,6 +22613,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -22956,7 +23023,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22967,6 +23034,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23073,6 +23157,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -23535,7 +23627,8 @@
 					"uid": 27395,
 					"instanceVariables": {
 						"Type": "Walk",
-						"LifeTime": 0
+						"LifeTime": 0,
+						"SpawnTime": 0
 					},
 					"behaviors": {
 						"Timer": {
@@ -23649,7 +23742,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -23660,6 +23753,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23738,6 +23848,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -23967,7 +24085,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -23978,6 +24096,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -24056,6 +24191,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -24272,6 +24415,566 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "PlayerUI_equipBack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28481,
+					"instanceVariables": {
+						"OriginalWidth": 16,
+						"OriginalHeight": 17,
+						"ActiveScale": 1.25,
+						"HiddenScale": 0.9
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1354,
+						"y": 733,
+						"width": 22,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerUI_equipFill",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28482,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1343,
+						"y": 730,
+						"width": 22,
+						"height": 12,
+						"originX": 0,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerUI_equipFront",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28483,
+					"instanceVariables": {
+						"OriginalWidth": 16,
+						"OriginalHeight": 17,
+						"ActiveScale": 1.25,
+						"HiddenScale": 0.9
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1414,
+						"y": 730,
+						"width": 22,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerUI_equipSlot",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28484,
+					"instanceVariables": {
+						"OriginalWidth": 32,
+						"OriginalHeight": 34,
+						"ActiveScale": 1.25,
+						"HiddenScale": 0.9
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1392,
+						"y": 713,
+						"width": 26,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.875,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0,
+						"blendMode": "destination-in"
+					}
+				},
+				{
+					"type": "Distraction",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28259,
+					"instanceVariables": {
+						"NPCs": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1429,
+						"y": 809,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerBarrier",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28485,
+					"instanceVariables": {
+						"form": "wall",
+						"TargetForm": "Barrier",
+						"Material2": "Wood",
+						"HP": 10,
+						"MaxHP": 10,
+						"Material": ""
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": true,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 407,
+						"y": 94,
+						"width": 22,
+						"height": 80,
+						"originX": 0.8636363636363636,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerBarrier_Range",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28486,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 427,
+						"y": 87,
+						"width": 14,
+						"height": 61,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "NPC_LoS",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28522,
+					"instanceVariables": {},
+					"behaviors": {
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						}
+					},
+					"world": {
+						"x": 1584,
+						"y": 752,
+						"width": 8,
+						"height": 8,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Bombhead_HeldHead",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28538,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1199,
+						"y": 747,
+						"width": 34,
+						"height": 26,
+						"originX": 0.47058823529411764,
+						"originY": 0.7307692307692307,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Projectile_CollBox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28539,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1161,
+						"y": 740,
+						"width": 26,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "zspawn_Interior",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29184,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1563,
+						"y": 921,
+						"width": 28,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Debug_SF2",
+					"properties": {
+						"text": "DIRECTOR",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 29195,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 987,
+						"y": 877,
+						"width": 72,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Director_SpawnRangeInt",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29197,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1325,
+						"y": 972,
+						"width": 80,
+						"height": 45,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Director_ExteriorRange",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29201,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1286,
+						"y": 1063,
+						"width": 80,
+						"height": 45,
+						"originX": 0,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Director_SpawnRangeExt",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29204,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1440,
+						"y": 985,
+						"width": 80,
+						"height": 45,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "zspawn_Exterior",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29205,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1602,
+						"y": 921,
+						"width": 28,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 279030491900781,
@@ -24295,6 +24998,2723 @@
 			"scaleRate": 1,
 			"forceOwnTexture": true,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Boomer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Boomer_Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28504,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 18,
+						"y": 58,
+						"width": 160,
+						"height": 97,
+						"originX": 0.49375,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Boomer",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28501,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 18,
+						"y": 58,
+						"width": 36,
+						"height": 58,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28502,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 19,
+						"y": 51.5,
+						"width": 26,
+						"height": 13,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28503,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 18,
+						"y": 33.5,
+						"width": 36,
+						"height": 23,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28506,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 20,
+						"y": 11,
+						"width": 28,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 254252995945071,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Demon",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Demon_Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28508,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 30,
+						"width": 54,
+						"height": 51,
+						"originX": 0.4444444444444444,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Demon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28509,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 30,
+						"width": 24,
+						"height": 30,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28510,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 22.5,
+						"width": 24,
+						"height": 15,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28511,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 12.5,
+						"y": 7.5,
+						"width": 17,
+						"height": 15,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 784590827849715,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.7843137254901961,
+				0.803921568627451,
+				0.8352941176470589,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "BigHead",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Bighead_Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28512,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 58,
+						"width": 120,
+						"height": 68,
+						"originX": 0.35,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Bighead",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28513,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 58,
+						"width": 30,
+						"height": 58,
+						"originX": 0.4,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28514,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 48.5,
+						"width": 20,
+						"height": 19,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28515,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 14.5,
+						"width": 30,
+						"height": 29,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28516,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 34,
+						"width": 28,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 626413375422915,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.48627450980392156,
+				0.5098039215686274,
+				0.5529411764705883,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Bombboy",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Bombboy_Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28528,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 37,
+						"width": 140,
+						"height": 78,
+						"originX": 0.4857142857142857,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Bombboy",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28524,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 37,
+						"width": 24,
+						"height": 37,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28525,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 13,
+						"y": 30,
+						"width": 18,
+						"height": 14,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28526,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 12,
+						"y": 11.5,
+						"width": 24,
+						"height": 23,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 973748571754537,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.6862745098039216,
+				0.7137254901960784,
+				0.7725490196078432,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Bombhead",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Bombhead_Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28530,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 45,
+						"width": 194,
+						"height": 106,
+						"originX": 0.34536082474226804,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Bombhead",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28531,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 16,
+						"y": 45,
+						"width": 32,
+						"height": 45,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28533,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 40,
+						"width": 27,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28532,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 17,
+						"y": 12.5,
+						"width": 22,
+						"height": 19,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28534,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 15,
+						"y": 28.5,
+						"width": 30,
+						"height": 13,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "FX_BombheadHeadExplode",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28537,
+					"instanceVariables": {
+						"DestroyOnAnyAnimFinished": true,
+						"Name": "FX_BombheadHeadExplode",
+						"CenterVariants": 0,
+						"WallVariants": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 172,
+						"y": 90,
+						"width": 221,
+						"height": 141,
+						"originX": 0.497737556561086,
+						"originY": 0.5886524822695035,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 213580255243931,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.7019607843137254,
+				0.7333333333333333,
+				0.8,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "BruteCharge",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "NPC_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Brute_Charge",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28540,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"HitboxID": 0,
+						"Skintone": "",
+						"Class": "",
+						"zzVariant": 0,
+						"ArmsID": 0,
+						"ShoesID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"HeadID": 0,
+						"zzOutlineActive": 0,
+						"Fading": false,
+						"HasStickBox": false,
+						"StickBox": 0
+					},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 5,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"parameters": {
+								"Just outline": 0,
+								"Width": 0,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 18,
+						"y": 44,
+						"width": 119,
+						"height": 89,
+						"originX": 0.268908,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Zombie",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "BruteCharge",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28541,
+					"instanceVariables": {
+						"PresetLabel": "",
+						"HasClothes": 0,
+						"Weapon": "",
+						"CanHeadshot": 0,
+						"CanGib": 0,
+						"CanCripple": 0,
+						"Flammable": false,
+						"Helmeted": 0,
+						"HurtboxHead_ID": 0,
+						"HurtboxHead_HP": 0,
+						"HurtboxHead_MP": 0,
+						"HurtboxHead_Armor": 0,
+						"HurtboxHead_Width": 0,
+						"HurtboxHead_Height": 0,
+						"HurtboxTorso_ID": 0,
+						"HurtboxTorso_HP": 0,
+						"HurtboxTorso_MP": 0,
+						"HurtboxTorso_Armor": 0,
+						"HurtboxTorso_Width": 0,
+						"HurtboxTorso_Height": 0,
+						"HurtboxLegs_ID": 0,
+						"HurtboxLegs_HP": 0,
+						"HurtboxLegs_MP": 0,
+						"HurtboxLegs_Armor": 0,
+						"HurtboxLegs_Width": 0,
+						"HurtboxLegs_Height": 0,
+						"Level": 0,
+						"Race": "Zombie",
+						"Class": "Walker",
+						"State": "Idle",
+						"Skintone": "",
+						"SpriteID": 0,
+						"HP": 0,
+						"MaxHP": 0,
+						"RoamSpeed": 0,
+						"ChaseSpeed": 0,
+						"RoamRange": 0,
+						"WalkType": 0,
+						"Attack": 0,
+						"FirstLand": false,
+						"OnFire": false,
+						"FireID": 0,
+						"HitTimer": 0,
+						"TargetUID": 0,
+						"zzzzChaseDoor": false,
+						"TargetX": 0,
+						"WaitTime": 0,
+						"MinWaitTime": 0,
+						"MaxWaitTime": 0,
+						"HasLimp": 0,
+						"Loot_XP": 0,
+						"Loot_Money": 0,
+						"Loot_Health": 0,
+						"Loot_Ammo": 0,
+						"Loot_AmmoType": "",
+						"ArmsID": 0,
+						"HeadID": 0,
+						"TorsoID": 0,
+						"LegsID": 0,
+						"ShoesID": 0,
+						"Invincible": 0,
+						"zzzDisposition": "Hostile",
+						"zzzSubclass": "",
+						"zzzDialogue": "",
+						"zzzDialogueTag": "",
+						"zzzDialogueIndex": 0,
+						"zzzDialougeWait": 0,
+						"zzzDialogueStarted": 0,
+						"MinAttackBuffer": 0,
+						"MaxAttacKBuffer": 0,
+						"KnockbackResistance": 0,
+						"Stationary": false,
+						"SpawnMirrored": 0,
+						"Annoyed": 0,
+						"Fleeing": false,
+						"LastHit": "",
+						"PinnedTextUID": 0,
+						"WorldObjUID": 0,
+						"FlinchThreshold": 0,
+						"ScentTrackerID": 0,
+						"RA_Name": "",
+						"RA_MinRange": 0,
+						"RA_MaxRange": 0,
+						"CanClimb": 0,
+						"PreClimb": 0,
+						"ClimbTarget": 0,
+						"PreDrop": 0,
+						"DropTarget": 0,
+						"ExplosiveArmor": 0,
+						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
+						"zzState": "Idle",
+						"zzHP": 10,
+						"zzMaxHP": 10,
+						"zzSpriteID": 0,
+						"zzAttacking": false,
+						"zzTargetX": 0,
+						"zzAttack": 15,
+						"zzRoamRange": 200,
+						"zzWaitTime": 0,
+						"zzMinWaitTime": 0.5,
+						"zzMaxWaitTime": 3,
+						"zzRoamSpeed": 30,
+						"zzChaseSpeed": 60,
+						"zzFirstName": "",
+						"zzLastName": "",
+						"zzEXP": 10,
+						"zzMoney": 5,
+						"zzWalkType": 0,
+						"zzVariant": "",
+						"zzonFire": false,
+						"zzhitbyexplosionID": 0,
+						"zzForceRight": false,
+						"zzForceLeft": false,
+						"zzChaseUID": 0,
+						"zzzChaseDoor": false,
+						"zzHitTimer": 0,
+						"zzFireID": 0,
+						"zzLevel": 1
+					},
+					"behaviors": {
+						"Platform": {
+							"properties": {
+								"max-speed": 60,
+								"acceleration": 1500,
+								"deceleration": 1000,
+								"jump-strength": 150,
+								"gravity": 800,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 200,
+								"default-controls": false,
+								"enabled": true
+							}
+						},
+						"Sight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 500,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"zzzHearing": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Proximity": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Smell": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 1000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
+						"Custom": {
+							"properties": {
+								"stepping-mode": "none",
+								"pixels-per-step": 5,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 18,
+						"y": 44,
+						"width": 58,
+						"height": 44,
+						"originX": 0.3103448275862069,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28542,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 41,
+						"y": 7.5,
+						"width": 16,
+						"height": 15,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28543,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 29,
+						"y": 23.5,
+						"width": 58,
+						"height": 17,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hurtbox",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28544,
+					"instanceVariables": {
+						"NPC_ID": 0,
+						"Type": "",
+						"Helmeted": 0,
+						"HP": 0,
+						"Armor": 0,
+						"MP": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						}
+					},
+					"world": {
+						"x": 24,
+						"y": 38,
+						"width": 16,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 994558491443195,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.48627450980392156,
+				0.5176470588235295,
+				0.5725490196078431,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -24385,6 +27805,7 @@
 				"RoamSpeed_Rate": 0.025,
 				"ChaseSpeed_Base": 20,
 				"ChaseSpeed_Rate": 0.025,
+				"SpecialAttackSpeed": 0,
 				"Money_Constant": 1,
 				"Money_Base": 3,
 				"Money_Rate": 0.25,
@@ -24430,7 +27851,12 @@
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
 				"CanClimb": 0,
-				"ExplosiveArmor": 0
+				"ExplosiveArmor": 0,
+				"BlockedByStairs": 1,
+				"HasRunAnimation": 0,
+				"CanDropThrough": 0,
+				"HasFallAnimation": 0,
+				"FallDamageMP": 50
 			}
 		},
 		{
@@ -24453,6 +27879,7 @@
 				"RoamSpeed_Rate": 0.025,
 				"ChaseSpeed_Base": 60,
 				"ChaseSpeed_Rate": 0.025,
+				"SpecialAttackSpeed": 0,
 				"Money_Constant": 1,
 				"Money_Base": 3,
 				"Money_Rate": 0.25,
@@ -24498,7 +27925,12 @@
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
 				"CanClimb": 0,
-				"ExplosiveArmor": 0
+				"ExplosiveArmor": 0,
+				"BlockedByStairs": 0,
+				"HasRunAnimation": 0,
+				"CanDropThrough": 0,
+				"HasFallAnimation": 0,
+				"FallDamageMP": 50
 			}
 		},
 		{
@@ -24521,6 +27953,7 @@
 				"RoamSpeed_Rate": 0.025,
 				"ChaseSpeed_Base": 45,
 				"ChaseSpeed_Rate": 0.025,
+				"SpecialAttackSpeed": 0,
 				"Money_Constant": 1,
 				"Money_Base": 3,
 				"Money_Rate": 0.25,
@@ -24566,7 +27999,12 @@
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
 				"CanClimb": 0,
-				"ExplosiveArmor": 0
+				"ExplosiveArmor": 0,
+				"BlockedByStairs": 0,
+				"HasRunAnimation": 0,
+				"CanDropThrough": 0,
+				"HasFallAnimation": 0,
+				"FallDamageMP": 50
 			}
 		},
 		{
@@ -24594,5 +28032,6 @@
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,
+	"projection": "perspective",
 	"eventSheet": "Resources"
 }

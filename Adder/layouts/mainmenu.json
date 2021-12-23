@@ -4,6 +4,7 @@
 		{
 			"name": "BG",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 584576255916442,
 			"effectTypes": [],
@@ -26,6 +27,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -34,6 +36,7 @@
 		{
 			"name": "MenuUI",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "MainMenuTXT_Header",
@@ -580,6 +583,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "DeleteSD",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29030,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 48,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 776756361662262,
@@ -603,6 +635,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -611,6 +644,7 @@
 		{
 			"name": "Cursor",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 880773775315115,
 			"effectTypes": [],
@@ -633,6 +667,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -641,6 +676,7 @@
 		{
 			"name": "Fade",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 767161112292164,
 			"effectTypes": [],
@@ -663,6 +699,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -671,6 +708,7 @@
 		{
 			"name": "Loader",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 623974979885351,
 			"effectTypes": [],
@@ -693,6 +731,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -707,5 +746,6 @@
 	"unboundedScrolling": true,
 	"vpX": 0.5,
 	"vpY": 0.5,
+	"projection": "perspective",
 	"eventSheet": "MainMenu_E"
 }

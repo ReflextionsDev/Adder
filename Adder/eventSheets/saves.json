@@ -1075,10 +1075,10 @@
 						{
 							"id": "request-project-file",
 							"objectClass": "AJAX",
-							"sid": 192170305152290,
+							"sid": 666572413100230,
 							"parameters": {
 								"tag": "\"loadEffectDB\"",
-								"file": "EventDB.json"
+								"file": "EffectDB.json"
 							}
 						}
 					],
@@ -1145,6 +1145,15 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 951151968967482,
+							"parameters": {
+								"type": "warn",
+								"message": "\"LOAD BIOMES\""
+							}
+						},
 						{
 							"id": "destroy",
 							"objectClass": "BiomeLevelList",

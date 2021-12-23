@@ -11245,6 +11245,11 @@
 										"\"\"",
 										"\"\"",
 										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"0",
 										"0",
 										"0",
 										"0",
@@ -11287,6 +11292,11 @@
 										"\"\"",
 										"\"\"",
 										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"0",
 										"0",
 										"0",
 										"0",
@@ -11329,6 +11339,11 @@
 										"\"\"",
 										"\"\"",
 										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"0",
 										"0",
 										"0",
 										"0",
@@ -11371,6 +11386,11 @@
 										"\"\"",
 										"\"\"",
 										"\"\"",
+										"\"\"",
+										"0",
+										"0",
+										"0",
+										"0",
 										"0",
 										"0",
 										"0",
@@ -13140,315 +13160,6 @@
 				{
 					"eventType": "group",
 					"disabled": true,
-					"title": "Axe",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-created",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 901056829332235
-								}
-							],
-							"actions": [],
-							"sid": 988880132716067,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-mirrored",
-											"objectClass": "Player_Sprite",
-											"sid": 518192131693697,
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "zzzEquip_Axe",
-											"sid": 345258495229882,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"angle": "-25"
-											}
-										}
-									],
-									"sid": 773852949157310
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-mirrored",
-											"objectClass": "Player_Sprite",
-											"sid": 402325455803639
-										}
-									],
-									"actions": [
-										{
-											"id": "set-mirrored",
-											"objectClass": "zzzEquip_Axe",
-											"sid": 692933940156498,
-											"parameters": {
-												"state": "mirrored"
-											}
-										},
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "zzzEquip_Axe",
-											"sid": 395558375238589,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"angle": "205"
-											}
-										}
-									],
-									"sid": 727228565732501
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 515882513702465,
-											"parameters": {
-												"seconds": "0.02"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "zzzEquip_Axe",
-											"sid": 425696221718721,
-											"parameters": {
-												"instance-variable": "zzTimer",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 111167322609108
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 400135042333909,
-									"parameters": {
-										"object": "Zombie"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 773382071073312,
-									"parameters": {
-										"object": "Zombie"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 619172638986138,
-									"parameters": {
-										"instance-variable": "zzTimer",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Zombie",
-									"sid": 936780980492850,
-									"parameters": {
-										"instance-variable": "zzHP",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 109352028353326
-								},
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Zombie",
-									"sid": 853934550853068,
-									"parameters": {
-										"instance-variable": "zzHP",
-										"value": "zzzEquip_Axe.zzzDamage"
-									}
-								}
-							],
-							"sid": 277615598142230,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Zombie",
-											"sid": 748792070442300,
-											"parameters": {
-												"instance-variable": "zzHP",
-												"comparison": 4,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 277776997969145,
-											"parameters": {
-												"name": "\"Zombie_Hit\"",
-												"parameter-n": [
-													"Zombie.UID",
-													"zzzEquip_Axe.X",
-													"zzzEquip_Axe.zzzKnockback"
-												]
-											}
-										}
-									],
-									"sid": 819364908690714,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Zombie",
-											"sid": 612821192561171,
-											"parameters": {
-												"instance-variable": "zzHP",
-												"comparison": 3,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Zombie",
-											"sid": 962962288907761,
-											"parameters": {
-												"instance-variable": "zzState",
-												"comparison": 1,
-												"value": "\"Death\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "call-function",
-											"objectClass": "function",
-											"sid": 658726958986706,
-											"parameters": {
-												"name": "\"Zombie_Kill\"",
-												"parameter-n": [
-													"Zombie.UID"
-												]
-											}
-										}
-									],
-									"sid": 388197795542869,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "stop-loop",
-											"objectClass": "System",
-											"sid": 203853213785928
-										}
-									],
-									"sid": 317727567103122,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 858357550501008,
-									"parameters": {
-										"object": "Solid_LevelFloor"
-									}
-								},
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 235149288615646,
-									"parameters": {
-										"object": "Solid_Wall"
-									}
-								},
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 212996672593320,
-									"parameters": {
-										"object": "Door"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 211612917436969
-								}
-							],
-							"sid": 143706442510788,
-							"disabled": true,
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-destroyed",
-									"objectClass": "zzzEquip_Axe",
-									"sid": 764722829602171
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 553759149769214,
-									"parameters": {
-										"name": "\"SFX_AxeHit\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 657620082444136,
-							"disabled": true
-						}
-					],
-					"sid": 756652621041770
-				},
-				{
-					"eventType": "group",
-					"disabled": true,
 					"title": "Turret",
 					"description": "",
 					"isActiveOnStart": true,
@@ -14011,73 +13722,6 @@
 						}
 					],
 					"sid": 285319511054182
-				},
-				{
-					"eventType": "group",
-					"disabled": true,
-					"title": "Claymore",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-destroyed",
-									"objectClass": "Weap_Claymore",
-									"sid": 513189494827135
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 302091848479580,
-									"parameters": {
-										"object-to-create": "FX_ExplosionFlatBig",
-										"layer": "\"Fog\"",
-										"x": "Weap_Claymore.X",
-										"y": "Weap_Claymore.Y",
-										"create-hierarchy": false
-									}
-								}
-							],
-							"sid": 966825647246441,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "Zombie",
-									"sid": 986379150963340,
-									"parameters": {
-										"object": "Weap_Claymore"
-									}
-								},
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "ExplosionHitbox",
-									"sid": 916645156453758,
-									"parameters": {
-										"object": "Weap_Claymore"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Weap_Claymore",
-									"sid": 207062029767007
-								}
-							],
-							"sid": 422932917929275,
-							"disabled": true,
-							"isOrBlock": true
-						}
-					],
-					"sid": 819136910724032
 				},
 				{
 					"eventType": "group",
@@ -15595,6 +15239,4610 @@
 					"sid": 318882243583222
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Projectile Particles",
+			"description": "TODO",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Projectile",
+							"sid": 584567714395588,
+							"parameters": {
+								"animation": "\"Tracer\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 178017828203140,
+							"parameters": {
+								"object-to-create": "FX_BulletTracer",
+								"layer": "\"Objects\"",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 630486644444714,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 965576876565623
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Projectile",
+							"sid": 370863046077031,
+							"parameters": {
+								"animation": "\"Dragon1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 552913236311333,
+							"parameters": {
+								"object-to-create": "zz_Bullet_Trail2",
+								"layer": "\"Objects\"",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 697437650134781,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 581224625355397
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Projectile",
+							"sid": 680834392040410,
+							"parameters": {
+								"animation": "\"Dragon2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 601902181048925,
+							"parameters": {
+								"object-to-create": "zz_Bullet_Trail3",
+								"layer": "\"Objects\"",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 590616492828583,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 942490924055719
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Projectile",
+							"sid": 832027482163077,
+							"parameters": {
+								"animation": "\"Dragon3\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 543155926541869,
+							"parameters": {
+								"object-to-create": "zz_Bullet_Trail4",
+								"layer": "\"Objects\"",
+								"x": "Projectile.X",
+								"y": "Projectile.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 438884113201662,
+					"disabled": true
+				}
+			],
+			"sid": 414799584246408
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Level Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "These tween functions need to be verified"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 680093909460986,
+							"parameters": {
+								"layer": "\"LevelScreen\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 256082814555730
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 518733362239464,
+							"parameters": {
+								"group-name": "\"Screen Shake\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "LevelUpMeters",
+							"sid": 214627831438395,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "LevelUpBG",
+							"sid": 766098486956128,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "LevelUpTXT",
+							"sid": 469331451550385,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "LevelUpBG",
+							"sid": 777741242897857,
+							"parameters": {
+								"x": "Self.OriginalX",
+								"y": "Self.OriginalY"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "LevelUpLeft",
+							"sid": 913667699886742,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Self.X - leveluptweendistance",
+								"end-y": "Self.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "LevelUpLeft2",
+							"sid": 100550204512292,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Self.X - leveluptweendistance",
+								"end-y": "Self.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "LevelUpRight",
+							"sid": 898217495191211,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Self.X + leveluptweendistance",
+								"end-y": "Self.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "LevelUpRight2",
+							"sid": 124683549061462,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Self.X + leveluptweendistance",
+								"end-y": "Self.Y",
+								"time": "0.5",
+								"ease": "easeoutcubic",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "LevelScreen_Attack",
+							"sid": 581928580251388,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "LevelScreen_Defense",
+							"sid": 939593807873398,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "LevelScreen_Dexterity",
+							"sid": 537430899511366,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UpgradeTXT_Final",
+							"sid": 649014570976718,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MaxLevelButton",
+							"sid": 917959971724679,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "UpgradeBG",
+							"sid": 142707320863518,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 693371001084472,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpgradeTXT_Attack",
+									"sid": 704237770471608,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "88"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UpgradeTXT_Attack",
+									"sid": 293928809546186,
+									"parameters": {
+										"text": "\"LEVEL \" & Player.zzLevel_Attack"
+									}
+								}
+							],
+							"sid": 614509181849649
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpgradeTXT_Health",
+									"sid": 240040796565368,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "88"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UpgradeTXT_Health",
+									"sid": 885382880124396,
+									"parameters": {
+										"text": "\"LEVEL \" & Player.zzLevel_Defense"
+									}
+								}
+							],
+							"sid": 867515252087823
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "UpgradeTXT_Dodge",
+									"sid": 442125877600763,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "88"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UpgradeTXT_Dodge",
+									"sid": 814355084877021,
+									"parameters": {
+										"text": "\"LEVEL \" & Player.zzLevel_Speed"
+									}
+								}
+							],
+							"sid": 326234707327927
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 789031567503911,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Damage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 720272867663764,
+									"parameters": {
+										"width": "Player.zzLevel_Attack"
+									}
+								}
+							],
+							"sid": 368130405037722
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 563021781226328,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Health\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 920588503762977,
+									"parameters": {
+										"width": "Player.zzLevel_Defense"
+									}
+								}
+							],
+							"sid": 243785377691507
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 108302330756432,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Dodge\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 330050030641631,
+									"parameters": {
+										"width": "Player.zzLevel_Speed"
+									}
+								}
+							],
+							"sid": 853468876836321
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 843525108328532,
+									"parameters": {
+										"instance-variable": "zzLevel_Attack",
+										"comparison": 5,
+										"value": "33"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 204196434048937,
+									"parameters": {
+										"instance-variable": "zzLevel_Defense",
+										"comparison": 5,
+										"value": "33"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 160040243196979,
+									"parameters": {
+										"instance-variable": "zzLevel_Speed",
+										"comparison": 5,
+										"value": "33"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UpgradeTXT_Final",
+									"sid": 134157749890362,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "MaxLevelButton",
+									"sid": 372148545345161,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UpgradeBG",
+									"sid": 762276968417265,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LevelUpMeters",
+									"sid": 789701892547007,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LevelUpBG",
+									"sid": 195035314563181,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LevelUpTXT",
+									"sid": 247959394849213,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "LevelUpIcons",
+									"sid": 470491608109544,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 247973102867214,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 257264495888410
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 554396165090657,
+									"parameters": {
+										"variable": "zzSystem_UsingGamepad",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Player_Target",
+									"sid": 353503024173952,
+									"parameters": {
+										"x": "LevelScreen_Defense.X",
+										"y": "LevelScreen_Defense.Y"
+									}
+								}
+							],
+							"sid": 258395358868303
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 948110895805891
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 777913346618415,
+							"disabled": true,
+							"parameters": {
+								"layer": "\"LevelScreen\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 352598374606437,
+							"disabled": true,
+							"parameters": {
+								"layer": "\"LevelScreenBG\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "LevelScreen_Attack",
+							"sid": 510954554394737,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "LevelUpLeft2",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "LevelScreen_Dexterity",
+							"sid": 222707025176720,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "LevelUpRight2",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "UpgradeTXT_Attack",
+							"sid": 654174391620356,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "LevelUpLeft",
+								"mode": "position-angle"
+							}
+						},
+						{
+							"id": "pin-to-object",
+							"objectClass": "UpgradeTXT_Dodge",
+							"sid": 104516100474899,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "LevelUpRight2",
+								"mode": "position-angle"
+							}
+						}
+					],
+					"sid": 148394963168234,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Debug_SF2",
+									"sid": 153688611497384,
+									"parameters": {
+										"unique-id": "250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "Debug_SF2",
+									"sid": 912911599220377,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpLeft2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 558485252436492,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Debug_SF2",
+									"sid": 318561249439910,
+									"parameters": {
+										"unique-id": "3408"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "Debug_SF2",
+									"sid": 357869873352943,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpLeft2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 872778411955759,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Debug_SF2",
+									"sid": 500343882431889,
+									"parameters": {
+										"unique-id": "256"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "Debug_SF2",
+									"sid": 231989736386979,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpRight2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 578749922705533,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Debug_SF2",
+									"sid": 900746392960489,
+									"parameters": {
+										"unique-id": "258"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "Debug_SF2",
+									"sid": 371869693761289,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpRight2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 215958523073118,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelBG",
+									"sid": 626440393754951,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Damage\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFG",
+									"sid": 886838805730548,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Damage\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 562389058852586,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Damage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelBG",
+									"sid": 600248235769045,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpLeft2",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelFG",
+									"sid": 383912087769556,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpLeft2",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 948087701424687,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpLeft2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 127889057638857
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelBG",
+									"sid": 121011804162918,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Dodge\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFG",
+									"sid": 587545202359007,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Dodge\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 354942966466836,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Dodge\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelBG",
+									"sid": 819498347253010,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpRight2",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelFG",
+									"sid": 592222166704061,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpRight2",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 503672150853234,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "LevelUpRight2",
+										"mode": "position-angle"
+									}
+								}
+							],
+							"sid": 283825576244457
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "LevelUpBG",
+							"sid": 269713471022579
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "LevelUpBG",
+							"sid": 910782771198208,
+							"parameters": {
+								"instance-variable": "OriginalX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "LevelUpBG",
+							"sid": 763292341737769,
+							"parameters": {
+								"instance-variable": "OriginalY",
+								"value": "Self.Y"
+							}
+						}
+					],
+					"sid": 174800260755843
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 787281938559094,
+							"parameters": {
+								"name": "\"PLR_CalcStats\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 915024461872282,
+							"parameters": {
+								"instance-variable": "zzMaxHP",
+								"value": "100 + floor(Player.zzBonus_Defense)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 717396919113242,
+							"parameters": {
+								"instance-variable": "HPtoRegen",
+								"value": "Player.HPtoRegen + Player.zzBonus_Defense"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Player",
+							"sid": 627658183214763,
+							"disabled": true,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "Player.zzzBackupSpeed + Player.zzBonus_Speed"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 340078520349628,
+							"parameters": {
+								"instance-variable": "zzzBackupSpeed",
+								"value": "Player.zzzBackupSpeed - Player.zzBonus_Speed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 197385167921029,
+							"parameters": {
+								"variable": "zzability_DodgeCooldownBase",
+								"value": "zzability_DodgeCooldownInitial - Player.zzBonus_Speed"
+							}
+						}
+					],
+					"sid": 727358042864014
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 575650221354603,
+							"parameters": {
+								"name": "\"PLR_UpdateLevel\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 162104333292544,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 860530034285873,
+									"parameters": {
+										"count": "Player.zzXPtoLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Player",
+									"sid": 848114113249801,
+									"parameters": {
+										"instance-variable": "zzXPtoLevel",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 209044849019660,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 206347246459192,
+									"parameters": {
+										"instance-variable": "zzXPtoLevel",
+										"comparison": 5,
+										"value": "(Player.zzLevel+1)*Player.zzLevelFactor"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Player",
+									"sid": 616692883859037,
+									"parameters": {
+										"instance-variable": "zzXPtoLevel",
+										"value": "(Player.zzLevel+1)*Player.zzLevelFactor"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 858441807298155,
+									"parameters": {
+										"instance-variable": "zzLevel",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 381453925276928,
+									"parameters": {
+										"instance-variable": "zzLevelPoints",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 710925468653008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 574824909270623,
+									"parameters": {
+										"variable": "zzplayer_WeaponToUnlock",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 138610880411540,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Weapons"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 702687844645604,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 736035079753872,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"SMG\""
+												]
+											}
+										}
+									],
+									"sid": 682997886984486
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 693185601962031
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 122024712794343,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 262025646274568,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Shotgun\""
+												]
+											}
+										}
+									],
+									"sid": 378059864919126
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 392932473222182
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 919424027998119,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 519071577649586,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Rifle\""
+												]
+											}
+										}
+									],
+									"sid": 270284374735276
+								},
+								{
+									"eventType": "comment",
+									"text": "Skills"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 253450709449690
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 851217140813642,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 289037783962229,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 861745832614762,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Axe\""
+												]
+											}
+										}
+									],
+									"sid": 107447726562780
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 708132135426554
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 335975224808371,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 397449425346746,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 208097991208695,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Molotov\""
+												]
+											}
+										}
+									],
+									"sid": 992201585204461
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 567723538916713
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 931440874965648,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "5"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 985898225029339,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 767451125353065,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Claymore\""
+												]
+											}
+										}
+									],
+									"sid": 753959315322509
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 340887329057557
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 846814386271555,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "6"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 303816987446446,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 979599979010334,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Supply\""
+												]
+											}
+										}
+									],
+									"sid": 205294192515651
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 600125735414279
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 371414157138657,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "8"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 986294964950541,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 453781763606997,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Grenade\""
+												]
+											}
+										}
+									],
+									"sid": 341880579853058
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 793437000917069
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 929587084029951,
+											"parameters": {
+												"first-value": "Player.zzLevel",
+												"comparison": 5,
+												"second-value": "9"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Player",
+											"sid": 779265089884604,
+											"parameters": {
+												"instance-variable": "zzSkillsUnlocked",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 303249311899224,
+											"parameters": {
+												"name": "\"Supply_Drop_Weapon\"",
+												"parameter-n": [
+													"\"Turret\""
+												]
+											}
+										}
+									],
+									"sid": 417698921488236
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 111689599198228,
+							"parameters": {
+								"layer": "\"LevelScreen\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 656509510347241,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 616915519479939,
+									"parameters": {
+										"object": "LevelScreen_Attack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 226797556619283,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenAttack\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 249797483791366
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 301609327394089,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenAttack\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Attack",
+									"sid": 146555600037627,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Defense",
+									"sid": 674825548433465,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Dexterity",
+									"sid": 723178879520874,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 281281849558438,
+									"parameters": {
+										"instance-variable": "zzLevel_Attack",
+										"comparison": 2,
+										"value": "33"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 923185764947525,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 916647019212911,
+									"parameters": {
+										"variable": "system_Pause",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "LevelScreen_Attack",
+									"sid": 118771433698927,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 740436821716692,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Player",
+									"sid": 805245405594960,
+									"parameters": {
+										"instance-variable": "zzLevelPoints",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 369718725177281,
+									"parameters": {
+										"instance-variable": "zzLevel_Attack",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 839355468003620,
+									"parameters": {
+										"instance-variable": "zzBonus_Attack",
+										"value": "Player.zzBonus_AttackBase"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 983380526325955,
+									"parameters": {
+										"name": "\"PLR_CalcStats\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 361008669909615,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"value": "Player.zzMaxHP"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 447412819174725,
+									"parameters": {
+										"name": "\"PLR_CheckLevelUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 606983067048879
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 544060621455521,
+									"parameters": {
+										"object": "LevelScreen_Defense"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 783116038668428,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenDefense\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 758381645869039
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 124075662176559,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenDefense\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Attack",
+									"sid": 610869434506870,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Defense",
+									"sid": 673408330865808,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Dexterity",
+									"sid": 336753238548702,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 685839539546299,
+									"parameters": {
+										"instance-variable": "zzLevel_Defense",
+										"comparison": 2,
+										"value": "33"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 363366432924525,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 547213675567040,
+									"parameters": {
+										"variable": "system_Pause",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "LevelScreen_Defense",
+									"sid": 796708254714480,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 696965199879727,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Player",
+									"sid": 750184740227263,
+									"parameters": {
+										"instance-variable": "zzLevelPoints",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 881365100144994,
+									"parameters": {
+										"instance-variable": "zzLevel_Defense",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 197360264701766,
+									"parameters": {
+										"instance-variable": "zzBonus_Defense",
+										"value": "Player.zzBonus_DefenseBase"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 225546634693105,
+									"parameters": {
+										"name": "\"PLR_CalcStats\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 792013703997990,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"value": "Player.zzMaxHP"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 671567792502279,
+									"parameters": {
+										"name": "\"PLR_CheckLevelUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 259317979693731
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 260757350951691,
+									"parameters": {
+										"object": "LevelScreen_Dexterity"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 240475598339004,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenDexterity\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 808423655724994
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 824069606098436,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenDexterity\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Attack",
+									"sid": 422898502937732,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Defense",
+									"sid": 673023671645482,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "LevelScreen_Dexterity",
+									"sid": 901763003467350,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 604292629364821,
+									"parameters": {
+										"instance-variable": "zzLevel_Speed",
+										"comparison": 2,
+										"value": "33"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 206214372645131,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 682350338614754,
+									"parameters": {
+										"variable": "system_Pause",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "LevelScreen_Dexterity",
+									"sid": 129982359489446,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 843406572899984,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Player",
+									"sid": 201247158300431,
+									"parameters": {
+										"instance-variable": "zzLevelPoints",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 528879001763012,
+									"parameters": {
+										"instance-variable": "zzLevel_Speed",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 567095896660569,
+									"parameters": {
+										"instance-variable": "zzBonus_Speed",
+										"value": "Player.zzBonus_SpeedBase"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 214418995136963,
+									"parameters": {
+										"name": "\"PLR_CalcStats\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 376991659057359,
+									"parameters": {
+										"instance-variable": "zzHP",
+										"value": "Player.zzMaxHP"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 504371624193648,
+									"parameters": {
+										"name": "\"PLR_CheckLevelUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 176255905052875
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 230947264443247,
+									"parameters": {
+										"object": "MaxLevelButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 700268406944094,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenMax\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 956153289243153
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 672234179043935,
+									"parameters": {
+										"name": "\"Input_Game_LevelScreenMax\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "MaxLevelButton",
+									"sid": 347705234381337
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 470712538823558,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 297810825930252,
+									"parameters": {
+										"variable": "system_Pause",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "MaxLevelButton",
+									"sid": 164008600359228,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 335844088914735,
+									"parameters": {
+										"seconds": "0.2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 557423811947754,
+									"parameters": {
+										"name": "\"PLR_CalcStats\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 486497242279596,
+									"parameters": {
+										"name": "\"PLR_CheckLevelUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 315440996706406
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 984867114113548,
+							"parameters": {
+								"instance-variable": "zzLevelPoints",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 509220377818351,
+							"parameters": {
+								"layer": "\"LevelScreen\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 765214018324986
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 240070835627519,
+							"parameters": {
+								"name": "\"FX_LevelUp\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 285675885796742,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 688183108397976,
+									"parameters": {
+										"variable": "zzzsystem_TouchControlsEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "TouchUI_LeftSprite",
+									"sid": 148392681993425
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "TouchUI_LevelUp",
+									"sid": 963844224962690,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 604490008118453
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 582656051724180,
+							"parameters": {
+								"object": "TouchUI_LevelUp"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "TouchUI_LevelUp",
+							"sid": 568249544831392
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 920992772190609,
+							"parameters": {
+								"variable": "input_Enabled",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 185650008317187,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "TouchUI_LevelUp",
+							"sid": 614405031552096,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 922134951125436,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "TouchUI_LevelUp",
+							"sid": 836617623265271,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 785927569540169,
+							"parameters": {
+								"name": "\"PLR_LevelUp\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 205092997327262
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "FX_LevelUp",
+							"sid": 884886136657034
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 118509199838497,
+							"parameters": {
+								"instance-variable": "zzLevelPoints",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 248524402726608,
+							"parameters": {
+								"object-to-create": "LevelUpNotification",
+								"layer": "\"Fog\"",
+								"x": "Player.X",
+								"y": "Player.Y - player.Height*1.6",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 484401352031527,
+							"parameters": {
+								"group-name": "\"LevelUpNotfication\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 145548847618396,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "LevelUpNotification",
+							"sid": 695667412385749
+						}
+					],
+					"sid": 198100093129085
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 255811527705064,
+							"parameters": {
+								"name": "\"PLR_CheckLevelUp\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "LevelUpNotification",
+							"sid": 810752078835980
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TouchUI_LevelUp",
+							"sid": 197112052707864,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 582779160323087,
+							"parameters": {
+								"layer": "\"LevelScreen\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 734859997629527,
+							"parameters": {
+								"layer": "\"LevelScreenBG\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 644223878235212,
+							"parameters": {
+								"name": "\"UI_ShowControls\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 768497792738435,
+							"parameters": {
+								"name": "\"UpdateCursor\"",
+								"parameter-n": [
+									"\"Off\""
+								]
+							}
+						}
+					],
+					"sid": 878354004563479,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 504359665921640,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Damage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 571075224131134,
+									"parameters": {
+										"width": "Player.zzLevel_Attack"
+									}
+								}
+							],
+							"sid": 740212642293340
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 208032718909524,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Health\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 521678828614592,
+									"parameters": {
+										"width": "Player.zzLevel_Defense"
+									}
+								}
+							],
+							"sid": 601912872250200
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 441428555604682,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Dodge\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "UpgradeLevelFill",
+									"sid": 328123539220248,
+									"parameters": {
+										"width": "Player.zzLevel_Speed"
+									}
+								}
+							],
+							"sid": 616060601835649
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 316529879007254,
+									"parameters": {
+										"instance-variable": "zzLevelPoints",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 648179557914388,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 448747854021964,
+											"parameters": {
+												"variable": "zzzsystem_TouchControlsEnabled",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "TouchUI_LeftSprite",
+											"sid": 523024971296412
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "TouchUI_LevelUp",
+											"sid": 588712575706145,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 480623392318339
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 299008047480343,
+							"parameters": {
+								"name": "\"PLR_LevelUp\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 322288898466626,
+							"parameters": {
+								"name": "\"UI_HideControls\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 616217621539185,
+							"parameters": {
+								"layer": "\"LevelScreen\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 496827653533595,
+							"parameters": {
+								"layer": "\"LevelScreenBG\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-wait-time",
+							"objectClass": "LevelUpNotification",
+							"sid": 171473899491061,
+							"behaviorType": "Fade",
+							"parameters": {
+								"wait-time": "0"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 861870237488220,
+							"parameters": {
+								"instance-variable": "Shooting",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 323838583858501,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 925918484203575,
+							"parameters": {
+								"variable": "system_Pause",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 126424230467049,
+							"parameters": {
+								"object": "LevelUpBG",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 952411912412306,
+							"parameters": {
+								"object": "LevelUpMeters",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 660714282975981,
+							"parameters": {
+								"object": "LevelUpIcons",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 755488529444801,
+							"parameters": {
+								"object": "LevelUpNotification",
+								"time-scale": "1.0"
+							}
+						}
+					],
+					"sid": 366713370599912,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 380897052547085,
+									"parameters": {
+										"variable": "cursor_Custom",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 488725632006640,
+									"parameters": {
+										"name": "\"UpdateCursor\"",
+										"parameter-n": [
+											"\"On\""
+										]
+									}
+								}
+							],
+							"sid": 441730814860193
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LevelUpNotfication",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 609872873548053
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "LevelUpNotification",
+									"sid": 340606255552469,
+									"parameters": {
+										"x": "player.X",
+										"y": "Player.Y - player.Height*1.6"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "LevelUpNotification",
+									"sid": 718958166166369
+								}
+							],
+							"sid": 613182816767420
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "LevelUpNotification",
+									"sid": 380972406501653
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 215714196286116,
+									"parameters": {
+										"group-name": "\"LevelUpNotfication\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 252210702610908
+						}
+					],
+					"sid": 308215154172961
+				}
+			],
+			"sid": 259909734332611
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Old AI Stuff",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Chase"
+				},
+				{
+					"eventType": "comment",
+					"text": "Possibly... up tick rate for closer NPCs?"
+				},
+				{
+					"eventType": "comment",
+					"text": "This may be obselete (besides ranges attacks)"
+				},
+				{
+					"eventType": "comment",
+					"text": "Though it'd be a problem if there is no overlap (like zealots...)"
+				},
+				{
+					"eventType": "comment",
+					"text": "Old"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 598639876662930,
+							"parameters": {
+								"interval-seconds": "NPC_TickRate_Chase"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 572872848721737,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"Chase\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 953850534454845,
+							"parameters": {
+								"instance-variable": "WaitTime",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 570231607025404,
+							"parameters": {
+								"object": "NPC"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 360425876787571,
+							"parameters": {
+								"type": "log",
+								"message": "\"NPC Tick: Chase \" & NPC.UID"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 690136478638217,
+							"parameters": {
+								"type": "warn",
+								"message": "\"NPC Tick: Chase \" & NPC.UID"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 466501168323373,
+							"parameters": {
+								"seconds": "NPC.TickBufferChase"
+							}
+						}
+					],
+					"sid": 171592003971321,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 144599079712775,
+									"parameters": {
+										"first-value": "Functions.NPC_HasTarget(NPC.UID, \"Sight\")",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChooseState",
+									"sid": 661355299507083,
+									"parameters": [
+										"NPC.UID"
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 861059838909629,
+									"parameters": {
+										"type": "log",
+										"message": "\"Chase: Lost Target\""
+									}
+								}
+							],
+							"sid": 740140070542785,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 538006027634184
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Zombie_VisionTargets",
+									"sid": 879110540132266,
+									"parameters": {
+										"unique-id": "NPC.TargetUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC",
+									"sid": 154556094077437,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "TargetX",
+										"value": "Zombie_VisionTargets.X"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 385211997491366,
+									"parameters": {
+										"type": "log",
+										"message": "\"Chase: Has Target\""
+									}
+								}
+							],
+							"sid": 867670526788546,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "else check if can ranged attack"
+								},
+								{
+									"eventType": "comment",
+									"text": "should convert this to a function I can use for inspect too"
+								},
+								{
+									"eventType": "comment",
+									"text": "min range isn't working?"
+								},
+								{
+									"eventType": "comment",
+									"text": "Ranged attacks"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 623760373013019,
+											"parameters": {
+												"instance-variable": "RA_Name",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 654990640160039,
+											"parameters": {
+												"first-value": "abs(NPC.X - NPC.TargetX)",
+												"comparison": 3,
+												"second-value": "NPC.RA_MaxRange"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 422015342893878,
+											"parameters": {
+												"first-value": "abs(NPC.X - NPC.TargetX)",
+												"comparison": 5,
+												"second-value": "NPC.RA_MinRange"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 123607110144176,
+											"parameters": [
+												"NPC.UID",
+												"NPC.RA_Name",
+												"NPC.TargetUID",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 582668998959702,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Chase: RA\""
+											}
+										}
+									],
+									"sid": 902773928980086,
+									"disabled": true
+								},
+								{
+									"eventType": "comment",
+									"text": "else check if can melee attack"
+								},
+								{
+									"eventType": "comment",
+									"text": "coudl mvoe this to chane_state chase, need to cover ranged attacks too"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 272903908032350
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "NPC",
+											"sid": 422770350370880,
+											"parameters": {
+												"object": "Zombie_VisionTargets"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 906210838234264,
+											"parameters": [
+												"NPC.UID",
+												"\"Attack\"",
+												"Zombie_VisionTargets.UID",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 681636877286554,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Chase: Attack\""
+											}
+										}
+									],
+									"sid": 383843234449284
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 772419652744737,
+							"parameters": {
+								"interval-seconds": "NPC_TickRate_Inspect"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 985869528979408,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"Inspect\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 666931301726894,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Check if there is a vision target, then break loop and follow that"
+						},
+						{
+							"eventType": "comment",
+							"text": "To do - verify"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 955163598777768,
+									"parameters": {
+										"first-value": "Functions.NPC_FindTarget(NPC.UID,\"Sight\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 158711773498893,
+									"parameters": {
+										"type": "log",
+										"message": "\"Inspect: Lost Priority\""
+									}
+								}
+							],
+							"sid": 708681659279592,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 313379460815305
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "NPC",
+									"sid": 433028037342811,
+									"parameters": {
+										"object": "Door_Scent"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 152675862505024,
+									"parameters": [
+										"NPC.UID",
+										"\"Attack\"",
+										"Door_Scent.UID",
+										"0",
+										"0",
+										true
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 733646582786725,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"Inspect: Attack Door\""
+									}
+								}
+							],
+							"sid": 664232240342876,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "else, check if the current target is still valid and pursue"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 488677530699193
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 447511911574849,
+									"parameters": {
+										"first-value": "Functions.NPC_HasTarget(NPC.UID, \"\")",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Zombie_Target",
+									"sid": 363111415115723,
+									"parameters": {
+										"unique-id": "NPC.TargetUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 256362396883529,
+									"parameters": {
+										"type": "log",
+										"message": "\"Inspect: Has Target\""
+									}
+								}
+							],
+							"sid": 720071927135186,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Put ranged attack function here"
+								},
+								{
+									"eventType": "comment",
+									"text": "TODO - Temp solution; Doesn't account for Charge Range..."
+								},
+								{
+									"eventType": "comment",
+									"text": "Brute has smell:"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 226449314314122,
+											"parameters": {
+												"instance-variable": "Class",
+												"comparison": 0,
+												"value": "\"Brute\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 968907661170598,
+											"parameters": {
+												"instance-variable": "RA_Name",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 728336637808821,
+											"parameters": [
+												"NPC.UID",
+												"\"Windup\"",
+												"Door_Scent.X",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 175254576397292,
+											"parameters": [
+												"NPC.UID",
+												"NPC.RA_Name",
+												"NPC.TargetUID",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 925682457622362,
+											"parameters": {
+												"type": "log",
+												"message": "\"Inspect: RA\""
+											}
+										}
+									],
+									"sid": 321784473534491
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 386040471802373
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPC",
+											"sid": 413635863512514,
+											"parameters": {
+												"instance-variable": "TargetX",
+												"value": "Zombie_Target.X"
+											}
+										},
+										{
+											"callFunction": "NPC_MoveToTarget",
+											"sid": 764854620013340,
+											"parameters": [
+												"NPC.UID",
+												"\"chase\""
+											]
+										}
+									],
+									"sid": 180918249075358
+								},
+								{
+									"eventType": "comment",
+									"text": "If target is gone, reach the x"
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 472063200523012
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_InspectTarget",
+									"sid": 956977655819929,
+									"parameters": [
+										"NPC.UID"
+									]
+								}
+							],
+							"sid": 681357193252802,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "Else lost target, go idle"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "NPC_ChooseState",
+									"sid": 731254064601626,
+									"disabled": true,
+									"parameters": [
+										"NPC.UID"
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 499667845304773,
+									"parameters": {
+										"type": "log",
+										"message": "\"Inspect: Lost Target\""
+									}
+								}
+							],
+							"sid": 550092851538068
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Deprecated - WIP"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 248950723678116,
+							"parameters": {
+								"object": "NPC"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 781546454264656,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "",
+							"background-color": [
+								0.6745098039215687,
+								0.047058823529411764,
+								0.047058823529411764,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 426607452041229,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Inspect\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "NPC",
+									"sid": 401606762367700,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "Self.ChaseSpeed"
+									}
+								}
+							],
+							"sid": 681332403778829,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Check if there is a vision target, then break loop and follow that"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 585172688336867,
+											"parameters": {
+												"first-value": "Functions.NPC_FindTarget(NPC.UID,\"Sight\")",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 582879403002633,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Inspect: Lost Priority\""
+											}
+										}
+									],
+									"sid": 376982903104811
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 297074424021603
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "NPC",
+											"sid": 617167647365011,
+											"parameters": {
+												"object": "Door_Scent"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 142625416210832,
+											"parameters": [
+												"NPC.UID",
+												"\"Attack\"",
+												"Door_Scent.UID",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 472757573040981,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Inspect: Attack Door\""
+											}
+										}
+									],
+									"sid": 516229219887078
+								},
+								{
+									"eventType": "comment",
+									"text": "else, check if the current target is still valid and pursue"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 230312616964954
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 559006734268586,
+											"parameters": {
+												"first-value": "Functions.NPC_HasTarget(NPC.UID, \"\")",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Zombie_Target",
+											"sid": 401250739468067,
+											"parameters": {
+												"unique-id": "NPC.TargetUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 595618087583198,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Inspect: Has Target\""
+											}
+										}
+									],
+									"sid": 820037443136655,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Put ranged attack function here"
+										},
+										{
+											"eventType": "comment",
+											"text": "TODO - Temp solution; Doesn't account for Charge Range..."
+										},
+										{
+											"eventType": "comment",
+											"text": "Brute has smell:"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 561196734113506,
+													"parameters": {
+														"instance-variable": "Class",
+														"comparison": 0,
+														"value": "\"Brute\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 150541619660715,
+													"parameters": {
+														"instance-variable": "RA_Name",
+														"comparison": 1,
+														"value": "\"\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 837693917417994,
+													"parameters": [
+														"NPC.UID",
+														"\"Windup\"",
+														"Door_Scent.X",
+														"0",
+														"0",
+														true
+													]
+												},
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 639186293141356,
+													"parameters": [
+														"NPC.UID",
+														"NPC.RA_Name",
+														"NPC.TargetUID",
+														"0",
+														"0",
+														true
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 618811389445037,
+													"parameters": {
+														"type": "log",
+														"message": "\"Inspect: RA\""
+													}
+												}
+											],
+											"sid": 104188816187233,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 239092769902552
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 704927827522251,
+													"parameters": {
+														"instance-variable": "TargetX",
+														"value": "Zombie_Target.X"
+													}
+												},
+												{
+													"callFunction": "NPC_MoveToTarget",
+													"sid": 766672477427933,
+													"parameters": [
+														"NPC.UID",
+														"\"chase\""
+													]
+												}
+											],
+											"sid": 101666439811087
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "If target is gone, reach the x"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 669686851181839
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_InspectTarget",
+											"sid": 784056076624172,
+											"parameters": [
+												"NPC.UID"
+											]
+										}
+									],
+									"sid": 164848171070738
+								},
+								{
+									"eventType": "comment",
+									"text": "Else lost target, go idle"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "NPC_ChooseState",
+											"sid": 105065117391395,
+											"disabled": true,
+											"parameters": [
+												"NPC.UID"
+											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 585119720309843,
+											"parameters": {
+												"type": "log",
+												"message": "\"Inspect: Lost Target\""
+											}
+										}
+									],
+									"sid": 819715432477461,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "comment",
+							"text": "",
+							"background-color": [
+								0.6745098039215687,
+								0.047058823529411764,
+								0.047058823529411764,
+								1
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "visit"
+						},
+						{
+							"eventType": "comment",
+							"text": "need charge speed var"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 323095026668619
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 565133373702197,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Charge\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "NPC",
+									"sid": 448648362271590,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "Self.ChaseSpeed*6"
+									}
+								}
+							],
+							"sid": 824717838108035,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-mirrored",
+											"objectClass": "NPC",
+											"sid": 771307391186551
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "NPC",
+											"sid": 779013463349006,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "left"
+											}
+										}
+									],
+									"sid": 432353805805293,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NPC",
+													"sid": 877297515433739,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "Self.TargetX"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 147435151334047,
+													"parameters": {
+														"instance-variable": "TargetX",
+														"value": "0"
+													}
+												},
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 587581623531999,
+													"parameters": [
+														"NPC.UID",
+														"\"ChargeFinish\"",
+														"0",
+														"0",
+														"0",
+														true
+													]
+												}
+											],
+											"sid": 707503966121923,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 605715769200091
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "NPC",
+											"sid": 807678764525383,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 300649782404022,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NPC",
+													"sid": 400461780336852,
+													"parameters": {
+														"comparison": 5,
+														"x-co-ordinate": "Self.TargetX"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 737811058004508,
+													"parameters": {
+														"instance-variable": "TargetX",
+														"value": "0"
+													}
+												},
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 658324327599333,
+													"parameters": [
+														"NPC.UID",
+														"\"ChargeFinish\"",
+														"0",
+														"0",
+														"0",
+														true
+													]
+												}
+											],
+											"sid": 952649546761663,
+											"disabled": true
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 665249510007429
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 719432499986535,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Flee\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC",
+									"sid": 938093336019739,
+									"parameters": {
+										"instance-variable": "TargetX",
+										"value": "Self.X + random(-1000,1000)"
+									}
+								},
+								{
+									"callFunction": "NPC_MoveToTarget",
+									"sid": 268379326846566,
+									"parameters": [
+										"NPC.UID",
+										"\"chase\""
+									]
+								}
+							],
+							"sid": 857654513976070
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Collision stuff"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zombie",
+							"sid": 924218264093605,
+							"parameters": {
+								"object": "Zombie_Target"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 686087108298371,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"Chase\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 535058502102183,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"comparison": 0,
+								"value": "Zombie_Target.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "NPC_ChangeState",
+							"sid": 885020581481714,
+							"parameters": [
+								"Zombie.UID",
+								"\"Attack\"",
+								"0",
+								"0",
+								"0",
+								true
+							]
+						}
+					],
+					"sid": 772325130428320,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zombie",
+							"sid": 996790804752404,
+							"parameters": {
+								"object": "Zombie_VisionTargets"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 181382223635673,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"comparison": 0,
+								"value": "Zombie_Target.UID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 355863451268254,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 567003825999985,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Chase\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 736383945839214,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Roam\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 994000435766416,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Idle\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 416932590524933,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Inspect\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 494561581769868,
+									"parameters": {
+										"instance-variable": "TargetX",
+										"value": "Zombie_VisionTargets.X"
+									}
+								},
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 832138120742306,
+									"parameters": [
+										"Zombie.UID",
+										"\"Attack\"",
+										"Zombie_VisionTargets.UID",
+										"0",
+										"0",
+										true
+									]
+								}
+							],
+							"sid": 138283366213738,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zombie",
+							"sid": 956816730152731,
+							"parameters": {
+								"object": "Door_Scent"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 690143051749450,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"comparison": 0,
+								"value": "Door_Scent.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 892291387403719,
+							"parameters": {
+								"type": "warn",
+								"message": "\"DOOR COOL\""
+							}
+						}
+					],
+					"sid": 123460375546797,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 974033545589816,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Inspect\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 908655043654594,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Chase\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 924311300615470,
+									"parameters": [
+										"Zombie.UID",
+										"\"Attack\"",
+										"Door_Scent.UID",
+										"0",
+										"0",
+										false
+									]
+								}
+							],
+							"sid": 806307729109553,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zombie",
+							"sid": 495017738806462,
+							"parameters": {
+								"object": "Door"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zombie",
+							"sid": 899631437801685,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"comparison": 0,
+								"value": "Door_Scent.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 598872673876231,
+							"parameters": {
+								"type": "warn",
+								"message": "\"DOOR COOL\""
+							}
+						}
+					],
+					"sid": 500598968705819,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 318826672086983,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Inspect\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Zombie",
+									"sid": 600420904733907,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Chase\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 445773884896793,
+									"parameters": [
+										"Zombie.UID",
+										"\"Attack\"",
+										"Door_Scent.UID",
+										"0",
+										"0",
+										false
+									]
+								}
+							],
+							"sid": 469028657933559,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "NPC",
+							"sid": 604679205503019,
+							"parameters": {
+								"object": "Door_Scent"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 443656104547514,
+							"parameters": {
+								"instance-variable": "State",
+								"comparison": 0,
+								"value": "\"Inspect\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 308116219468595,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Could change to collision for perf improvements"
+						},
+						{
+							"eventType": "comment",
+							"text": "On collision w/ door scent, is inspect, is door scent target, change to attack door"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "NPC",
+									"sid": 902996082685048,
+									"parameters": {
+										"object": "Door_Scent"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 709824332610075,
+									"parameters": [
+										"NPC.UID",
+										"\"Attack\"",
+										"0",
+										"0",
+										"0",
+										true
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 665849149737293,
+									"parameters": {
+										"type": "log",
+										"message": "\"Overlapping Door\""
+									}
+								}
+							],
+							"sid": 921868128293041,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 573379728357404
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 249933735832304,
+									"parameters": [
+										"NPC.UID",
+										"\"Chase\"",
+										"Door_Scent.UID",
+										"0",
+										"0",
+										true
+									]
+								}
+							],
+							"sid": 925723067868473
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Drop (TODO)",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Can I use collision with drop through? (on coll, is overlapping scent, or is predrop) have drop ID like ladders, then need to place a drop through scent... drop through seperate from falling?"
+						},
+						{
+							"eventType": "comment",
+							"text": "Console event triggering, but not dropping or going to fall, prob cause still calling next event"
+						},
+						{
+							"eventType": "comment",
+							"text": "Put all this shit into a big else cond"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "NPC",
+									"sid": 831463066166818,
+									"parameters": {
+										"object": "Scent"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "NPC",
+									"sid": 752491932071635,
+									"parameters": {
+										"object": "Scent"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 342120635747034,
+									"parameters": {
+										"first-value": "NPC.DropTarget",
+										"comparison": 0,
+										"second-value": "Scent.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Scent",
+									"sid": 675445133305525,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"DropThrough\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 613592705166842,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Inspect\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 384857593851914,
+									"parameters": {
+										"instance-variable": "CanClimb",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "NPC",
+									"sid": 321195265632641,
+									"disabled": true,
+									"parameters": {
+										"object": "Scent"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 548973669330339,
+									"disabled": true,
+									"parameters": {
+										"first-value": "NPC.TargetUID",
+										"comparison": 0,
+										"second-value": "Scent.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 251797822534683,
+									"parameters": {
+										"instance-variable": "PreDrop",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 552463125157967,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"On Falling Scent\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 249100472341899,
+									"parameters": {
+										"type": "warn",
+										"message": "\"DROP SCENT\""
+									}
+								}
+							],
+							"sid": 433476395295518,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "NPC",
+											"sid": 302806402271701,
+											"parameters": {
+												"object": "JumpThrough",
+												"offset-x": "0",
+												"offset-y": "5"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 839039140102064,
+											"parameters": {
+												"first-value": "abs(NPC.X - (JumpThrough.X+JumpThrough.Width/2))",
+												"comparison": 2,
+												"second-value": "12"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-x",
+											"objectClass": "NPC",
+											"sid": 229645022446311,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "0"
+											}
+										},
+										{
+											"id": "set-x",
+											"objectClass": "NPC",
+											"sid": 491739857713698,
+											"parameters": {
+												"x": "JumpThrough.X + JumpThrough.Width/2"
+											}
+										},
+										{
+											"id": "fall-through",
+											"objectClass": "NPC",
+											"sid": 911458027221361,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 706322039768942,
+											"parameters": {
+												"type": "log",
+												"message": "\"Drop\""
+											}
+										},
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 971652065279404,
+											"parameters": [
+												"NPC.UID",
+												"\"Drop\"",
+												"0",
+												"0",
+												"0",
+												true
+											]
+										}
+									],
+									"sid": 702080031044229,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 163589485966796
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 442774314381663,
+											"parameters": {
+												"type": "log",
+												"message": "\"No Drop\""
+											}
+										}
+									],
+									"sid": 215067338634640,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-landed",
+									"objectClass": "NPC",
+									"sid": 645271820223617,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "NPC",
+									"sid": 789611209356452,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"Drop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_ChangeAnim",
+									"sid": 778260715355970,
+									"parameters": [
+										"NPC.UID",
+										"\"Land\""
+									]
+								},
+								{
+									"type": "comment",
+									"text": "May want a landing var or something, but this is based on landing animation length"
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 364845837062435,
+									"parameters": {
+										"seconds": "0.05 * 5"
+									}
+								},
+								{
+									"callFunction": "NPC_ChangeState",
+									"sid": 578714142043650,
+									"parameters": [
+										"NPC.UID",
+										"\"Idle\"",
+										"0",
+										"0",
+										"0",
+										true
+									]
+								}
+							],
+							"sid": 937278179647013,
+							"disabled": true
+						}
+					],
+					"sid": 396358816312306
+				}
+			],
+			"sid": 248733084322334
 		}
 	],
 	"sid": 165551314658262

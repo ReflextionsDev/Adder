@@ -63,7 +63,7 @@
 			"eventType": "variable",
 			"name": "level_DistBase",
 			"type": "number",
-			"initialValue": "500",
+			"initialValue": "3000",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -77,7 +77,7 @@
 			"eventType": "variable",
 			"name": "level_DebugLevel",
 			"type": "string",
-			"initialValue": "Level Tutorial",
+			"initialValue": "LevelTemp_1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1450,6 +1450,15 @@
 										"variable": "builder_LastChunk",
 										"value": "\"\""
 									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 461471978394308,
+									"parameters": {
+										"variable": "builder_extZone",
+										"value": "0"
+									}
 								}
 							],
 							"sid": 153150292100555
@@ -1649,6 +1658,15 @@
 							],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 549276235426519,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Length: \" & builder_CurrentLength & \"/\" & builder_MaxLength"
+									}
+								},
+								{
 									"callFunction": "Builder_SpawnNextChunk",
 									"sid": 146826809302733
 								}
@@ -1665,6 +1683,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 297591359728241,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Max Length Reached: \" & builder_CurrentLength & \"/\" & builder_MaxLength"
+									}
+								},
 								{
 									"callFunction": "Builder_Finish",
 									"sid": 145429479058593
@@ -1816,6 +1843,15 @@
 									}
 								},
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 669286891733735,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Moved Spawnpoint (\" & BuildingSpawnPoint.X & \",\" & BuildingSpawnPoint.Y & \")\""
+									}
+								},
+								{
 									"id": "set-position-to-another-object",
 									"objectClass": "Camera_EndZone",
 									"sid": 498975611491893,
@@ -1912,6 +1948,15 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 784435919969951,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Spawn Terrain\""
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 372337475028430,
@@ -1949,6 +1994,13 @@
 										"variable": "builder_BuildingChance",
 										"value": "100/builder_MaxConsecutiveEnvironmentChunks"
 									}
+								},
+								{
+									"callFunction": "Builder_BuildExteriorZone",
+									"sid": 494456575865295,
+									"parameters": [
+										"\"build\""
+									]
 								}
 							],
 							"sid": 812351762429947,
@@ -2406,11 +2458,18 @@
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 936638733711232,
+									"sid": 225330137909998,
 									"parameters": {
-										"type": "log",
+										"type": "warn",
 										"message": "\"Builder Spawned Prefab: \" & ReferenceLayout"
 									}
+								},
+								{
+									"callFunction": "Builder_BuildExteriorZone",
+									"sid": 743730982093220,
+									"parameters": [
+										"\"end\""
+									]
 								},
 								{
 									"id": "set-eventvar-value",
@@ -2473,6 +2532,25 @@
 									"parameters": {
 										"variable": "builder_OffsetY",
 										"value": "(((BuildingSpawnPoint.Y - LevelRef.At(LevelRef.IndexOf(builder_ReferenceLayout),4)) - LevelRef.At(LevelRef.IndexOf(builder_ReferenceLayout),2)) + (LevelRef.At(LevelRef.IndexOf(builder_ReferenceLayout),4) - LevelRef.At(LevelRef.IndexOf(builder_ReferenceLayout),5))) + 24"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 516446200543369,
+									"disabled": true,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: offsetY: \" & builder_OffsetY"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 711664729513548,
+									"parameters": {
+										"variable": "builder_CurrentLength",
+										"value": "builder_ToX - builder_FromX"
 									}
 								}
 							],
@@ -2588,6 +2666,15 @@
 											"sid": 987160680601722,
 											"parameters": {
 												"seconds": "0"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 749822110431031,
+											"parameters": {
+												"type": "warn",
+												"message": "\"Builder: Destroying Endpoint (\" & BuildingEndPoint.X & \",\" & BuildingEndPoint.Y & \")\""
 											}
 										},
 										{
@@ -2739,6 +2826,248 @@
 				}
 			],
 			"sid": 720610944002248
+		},
+		{
+			"eventType": "variable",
+			"name": "builder_extZone",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 544582628158362
+		},
+		{
+			"eventType": "variable",
+			"name": "builder_extID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 903182339632755
+		},
+		{
+			"functionName": "Builder_BuildExteriorZone",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "command",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 628210438423501
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 204107071822990,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 302148887779129,
+							"parameters": {
+								"first-value": "command",
+								"comparison": 0,
+								"second-value": "\"build\""
+							}
+						},
+						{
+							"id": "pick-last-created",
+							"objectClass": "System",
+							"sid": 660129280885397,
+							"parameters": {
+								"object": "Terrain"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 155913341330033,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 334824624574656,
+									"parameters": {
+										"variable": "builder_extZone",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 914121356280230,
+									"parameters": {
+										"object-to-create": "Director_ExteriorRange",
+										"layer": "\"Zones\"",
+										"x": "BuildingSpawnPoint.X",
+										"y": "BuildingSpawnPoint.Y + 16",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Director_ExteriorRange",
+									"sid": 620509592024289,
+									"parameters": {
+										"width": "Terrain.Width"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 425858875934378,
+									"parameters": {
+										"variable": "builder_extZone",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 603727615015386,
+									"parameters": {
+										"variable": "builder_extID",
+										"value": "Director_ExteriorRange.UID"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 841560016050648,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Build Ext Zone (Build)\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 377962979280292,
+									"disabled": true,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Width: \" & Terrain.Width"
+									}
+								}
+							],
+							"sid": 122234999968755
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 467887792013395
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Director_ExteriorRange",
+									"sid": 243270440588424,
+									"parameters": {
+										"unique-id": "builder_extID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Director_ExteriorRange",
+									"sid": 937003591313482,
+									"parameters": {
+										"width": "Self.Width + Terrain.Width"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 598900506711340,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Builder: Build Ext Zone (Push)\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 281632573997762,
+									"parameters": {
+										"type": "log",
+										"message": "\"extZone: \" & builder_extZone & \"extID: \" & builder_extID"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 220595170208710,
+									"disabled": true,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Width: \" & Terrain.Width"
+									}
+								}
+							],
+							"sid": 427535806770719
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 409112141513843
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 342517219776742,
+							"parameters": {
+								"first-value": "command",
+								"comparison": 0,
+								"second-value": "\"end\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 363214448286396,
+							"parameters": {
+								"variable": "builder_extZone",
+								"value": "0"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 995870918137202,
+							"parameters": {
+								"type": "warn",
+								"message": "\"Builder: Build Ext Zone (End)\""
+							}
+						}
+					],
+					"sid": 741325247370446
+				}
+			]
 		}
 	],
 	"sid": 633432288946114

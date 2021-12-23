@@ -4,6 +4,7 @@
 		{
 			"name": "BG",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 766892272687282,
 			"effectTypes": [],
@@ -26,6 +27,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -34,6 +36,7 @@
 		{
 			"name": "BG2",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 631573688326705,
 			"effectTypes": [],
@@ -56,6 +59,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -64,6 +68,7 @@
 		{
 			"name": "Clouds",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 922497952444760,
 			"effectTypes": [],
@@ -86,6 +91,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -94,6 +100,7 @@
 		{
 			"name": "LevelBG",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Tile_BGA",
@@ -633,6 +640,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": true,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -641,6 +649,7 @@
 		{
 			"name": "Solid",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Solid_LevelFloor",
@@ -2275,7 +2284,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Metal",
 						"HP": 10,
 						"MaxHP": 10,
@@ -2348,6 +2358,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -2356,6 +2367,7 @@
 		{
 			"name": "Level",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Camera_StartZone",
@@ -2500,7 +2512,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -5147,7 +5160,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -8182,7 +8196,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -10025,7 +10040,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -10159,7 +10175,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -12411,7 +12428,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -12483,7 +12501,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -15957,7 +15976,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -15968,6 +15987,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16046,6 +16082,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -16162,7 +16206,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -16173,6 +16217,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16251,6 +16312,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -16367,7 +16436,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -16378,6 +16447,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16456,6 +16542,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -16572,7 +16666,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -16583,6 +16677,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16661,6 +16772,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -16777,7 +16896,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -16788,6 +16907,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -16866,6 +17002,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -17357,7 +17501,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -17368,6 +17512,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -17446,6 +17607,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -18222,7 +18391,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -18233,6 +18402,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -18311,6 +18497,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -18427,7 +18621,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -18438,6 +18632,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -18516,6 +18727,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -18632,7 +18851,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -18643,6 +18862,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -18721,6 +18957,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -18837,7 +19081,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -18848,6 +19092,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -18926,6 +19187,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -19042,7 +19311,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -19053,6 +19322,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -19131,6 +19417,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -21188,6 +21482,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -21196,6 +21491,7 @@
 		{
 			"name": "Objects",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Ladder",
@@ -21537,7 +21833,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -21548,6 +21844,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -21626,6 +21939,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -21742,7 +22063,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -21753,6 +22074,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -21831,6 +22169,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -21947,7 +22293,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -21958,6 +22304,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22036,6 +22399,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -22152,7 +22523,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22163,6 +22534,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22241,6 +22629,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -22357,7 +22753,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22368,6 +22764,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22446,6 +22859,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -22752,7 +23173,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22763,6 +23184,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -22841,6 +23279,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -22957,7 +23403,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -22968,6 +23414,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23046,6 +23509,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -23162,7 +23633,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -23173,6 +23644,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -23251,6 +23739,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -23825,7 +24321,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -24749,7 +25246,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -24760,6 +25257,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -24838,6 +25352,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -24954,7 +25476,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -24965,6 +25487,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -25043,6 +25582,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -25159,7 +25706,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -25170,6 +25717,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -25248,6 +25812,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -25364,7 +25936,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -25375,6 +25947,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -25453,6 +26042,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -25569,7 +26166,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -25580,6 +26177,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -25658,6 +26272,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -25774,7 +26396,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -25785,6 +26407,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -25863,6 +26502,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -25979,7 +26626,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -25990,6 +26637,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -26068,6 +26732,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -26184,7 +26856,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -26195,6 +26867,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -26273,6 +26962,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -26389,7 +27086,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -26400,6 +27097,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -26478,6 +27192,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -26594,7 +27316,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -26605,6 +27327,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -26683,6 +27422,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -26799,7 +27546,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -26810,6 +27557,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -26888,6 +27652,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -27004,7 +27776,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -27015,6 +27787,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -27093,6 +27882,14 @@
 						},
 						"Timer": {
 							"properties": {}
+						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						},
 						"Custom": {
 							"properties": {
@@ -27209,7 +28006,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -27220,6 +28017,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -27299,6 +28113,14 @@
 						"Timer": {
 							"properties": {}
 						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
 						"Custom": {
 							"properties": {
 								"stepping-mode": "none",
@@ -27345,7 +28167,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -27417,7 +28240,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -27489,7 +28313,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -27561,7 +28386,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -27633,7 +28459,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -27774,7 +28601,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -27785,6 +28612,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -27864,6 +28708,14 @@
 						"Timer": {
 							"properties": {}
 						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
 						"Custom": {
 							"properties": {
 								"stepping-mode": "none",
@@ -27910,7 +28762,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -28059,7 +28912,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 10,
 						"MaxHP": 10,
@@ -28131,7 +28985,8 @@
 						"WorldInteractSound": "",
 						"keyprompt": "",
 						"WorldTextUID": 0,
-						"TargetForm": "Tile_Door",
+						"TargetForm": "Door",
+						"Material2": "Wood",
 						"Material": "Wood",
 						"HP": 5,
 						"MaxHP": 10,
@@ -28204,6 +29059,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -28212,6 +29068,7 @@
 		{
 			"name": "Player_HP",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 730471032853643,
 			"effectTypes": [],
@@ -28234,6 +29091,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": true,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -28242,6 +29100,7 @@
 		{
 			"name": "Player_Ammo",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 760580423865303,
 			"effectTypes": [],
@@ -28264,6 +29123,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": true,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -28272,6 +29132,7 @@
 		{
 			"name": "Player",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 452182490976107,
 			"effectTypes": [],
@@ -28294,6 +29155,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -28302,6 +29164,7 @@
 		{
 			"name": "Fog",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Fog",
@@ -29654,7 +30517,7 @@
 						"PinnedTextUID": 0,
 						"WorldObjUID": 0,
 						"FlinchThreshold": 0,
-						"ScentTracterID": 0,
+						"ScentTrackerID": 0,
 						"RA_Name": "",
 						"RA_MinRange": 0,
 						"RA_MaxRange": 0,
@@ -29665,6 +30528,23 @@
 						"DropTarget": 0,
 						"ExplosiveArmor": 0,
 						"EffectsArray": 0,
+						"TickBufferIdle": 0,
+						"TickBufferRoam": 0,
+						"TickBufferInspect": 0,
+						"TickBufferChase": 0,
+						"EmulateMovement": false,
+						"FallStartY": 0,
+						"FallThreshold": 96,
+						"ChaseThroughWindows": false,
+						"Distracted": false,
+						"BlockedByStairs": 0,
+						"HasRunAnimation": 0,
+						"CanDropThrough": 0,
+						"HasFallAnimation": 0,
+						"FallDamageMP": 0,
+						"Inverted": false,
+						"SpecialAttackSpeed": 0,
+						"SpecialPrimed": 0,
 						"zzState": "Idle",
 						"zzHP": 10,
 						"zzMaxHP": 10,
@@ -29744,6 +30624,14 @@
 						"Timer": {
 							"properties": {}
 						},
+						"StairCheck": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
+						},
 						"Custom": {
 							"properties": {
 								"stepping-mode": "none",
@@ -29791,6 +30679,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": true,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -29799,6 +30688,7 @@
 		{
 			"name": "UI",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 281650015093907,
 			"effectTypes": [],
@@ -29821,6 +30711,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -29829,6 +30720,7 @@
 		{
 			"name": "Persist",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 497781864714130,
 			"effectTypes": [],
@@ -29851,6 +30743,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -29859,6 +30752,7 @@
 		{
 			"name": "Fade2",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [],
 			"sid": 361226251922423,
 			"effectTypes": [],
@@ -29881,6 +30775,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -29889,6 +30784,7 @@
 		{
 			"name": "Cursor",
 			"overriden": 1,
+			"subLayers": [],
 			"instances": [],
 			"sid": 859306473405266,
 			"effectTypes": [],
@@ -29911,6 +30807,7 @@
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -29919,6 +30816,7 @@
 		{
 			"name": "Loader2",
 			"overriden": 0,
+			"subLayers": [],
 			"instances": [
 				{
 					"type": "Solid_LevelFloor",
@@ -29994,6 +30892,7 @@
 			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
+			"drawOrder": "z-order",
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
@@ -30022,6 +30921,7 @@
 				"RoamSpeed_Rate": 0.025,
 				"ChaseSpeed_Base": 60,
 				"ChaseSpeed_Rate": 0.025,
+				"SpecialAttackSpeed": 0,
 				"Money_Constant": 0,
 				"Money_Base": 0,
 				"Money_Rate": 0,
@@ -30067,7 +30967,12 @@
 				"RA_MinRange": 0,
 				"RA_MaxRange": 0,
 				"CanClimb": 0,
-				"ExplosiveArmor": 0
+				"ExplosiveArmor": 0,
+				"BlockedByStairs": 0,
+				"HasRunAnimation": 0,
+				"CanDropThrough": 0,
+				"HasFallAnimation": 0,
+				"FallDamageMP": 50
 			}
 		},
 		{
@@ -30087,5 +30992,6 @@
 	"unboundedScrolling": true,
 	"vpX": 0.5,
 	"vpY": 0.5,
+	"projection": "perspective",
 	"eventSheet": "Test_E"
 }

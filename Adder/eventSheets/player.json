@@ -435,6 +435,54 @@
 											}
 										},
 										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 164152983458910,
+											"parameters": {
+												"object-to-create": "PlayerUI_equipBack",
+												"layer": "\"Player_Equip\"",
+												"x": "Spawn_Player.X",
+												"y": "Spawn_Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 210339262486796,
+											"parameters": {
+												"object-to-create": "PlayerUI_equipFill",
+												"layer": "\"Player_Equip\"",
+												"x": "Spawn_Player.X",
+												"y": "Spawn_Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 289166057075897,
+											"parameters": {
+												"object-to-create": "PlayerUI_equipSlot",
+												"layer": "\"Player_Equip\"",
+												"x": "Spawn_Player.X",
+												"y": "Spawn_Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 200777812442205,
+											"parameters": {
+												"object-to-create": "PlayerUI_equipFront",
+												"layer": "\"Player_Equip\"",
+												"x": "Spawn_Player.X",
+												"y": "Spawn_Player.Y",
+												"create-hierarchy": false
+											}
+										},
+										{
 											"id": "set-animation",
 											"objectClass": "Player_Sprite",
 											"sid": 892997005064985,
@@ -2747,21 +2795,34 @@
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "trigger-once-while-true",
-																			"objectClass": "System",
-																			"sid": 723359745220013
+																			"id": "is-boolean-instance-variable-set",
+																			"objectClass": "Player",
+																			"sid": 585710345021561,
+																			"parameters": {
+																				"instance-variable": "DroppedThrough"
+																			},
+																			"isInverted": true
 																		}
 																	],
 																	"actions": [
 																		{
 																			"callFunction": "PLR_CreateScent",
-																			"sid": 165202465712732,
+																			"sid": 534637889904046,
 																			"parameters": [
-																				"\"Drop\""
+																				"\"DropThrough\""
 																			]
+																		},
+																		{
+																			"id": "set-boolean-instvar",
+																			"objectClass": "Player",
+																			"sid": 652918276174129,
+																			"parameters": {
+																				"instance-variable": "DroppedThrough",
+																				"value": "true"
+																			}
 																		}
 																	],
-																	"sid": 565087647589716
+																	"sid": 157017323740849
 																}
 															]
 														}
@@ -2875,6 +2936,15 @@
 																		"parameter-n": [
 																			"\"Dodge\""
 																		]
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 418741945338736,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Start dodge\""
 																	}
 																}
 															],
@@ -3918,7 +3988,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Player",
+											"sid": 519288888766873,
+											"parameters": {
+												"instance-variable": "IgnoreDamage",
+												"value": "false"
+											}
+										}
+									],
 									"sid": 718905204962065,
 									"children": [
 										{
@@ -4212,6 +4292,15 @@
 											],
 											"actions": [
 												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 940049307027615,
+													"parameters": {
+														"type": "log",
+														"message": "\"Animation runtime disbaled\""
+													}
+												},
+												{
 													"id": "stop-timer",
 													"objectClass": "Player",
 													"sid": 730135605602181,
@@ -4379,7 +4468,31 @@
 													}
 												}
 											],
-											"sid": 736444986755866
+											"sid": 736444986755866,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 357894175623433,
+															"parameters": {
+																"variable": "item_canReloadWhileLanding",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "PLR_ReloadStop",
+															"sid": 204849774627598
+														}
+													],
+													"sid": 955292473209608
+												}
+											]
 										},
 										{
 											"eventType": "comment",
@@ -4664,6 +4777,15 @@
 													}
 												},
 												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 169527759319928,
+													"parameters": {
+														"instance-variable": "IgnoreDamage",
+														"value": "true"
+													}
+												},
+												{
 													"id": "set-instvar-value",
 													"objectClass": "Player",
 													"sid": 853189921588345,
@@ -4821,6 +4943,28 @@
 															"sid": 840742260767221
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 874024489651266,
+															"parameters": {
+																"variable": "item_canReloadWhileDodging",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "PLR_ReloadStop",
+															"sid": 103594580978449
+														}
+													],
+													"sid": 791818597069505
 												}
 											]
 										},
@@ -4931,6 +5075,15 @@
 														"name": "\"SFX_Dodge\"",
 														"parameter-n": []
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 169283466339107,
+													"parameters": {
+														"instance-variable": "IgnoreDamage",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 399999818923805,
@@ -5008,6 +5161,28 @@
 														}
 													],
 													"sid": 635768396235903
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 861308878099664,
+															"parameters": {
+																"variable": "item_canReloadWhileSliding",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "PLR_ReloadStop",
+															"sid": 987615668597946
+														}
+													],
+													"sid": 947392090539756
 												}
 											]
 										},
@@ -5026,6 +5201,16 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 367450280800980,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "IgnoreDamage",
+														"value": "false"
+													}
+												},
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "Player",
@@ -5390,9 +5575,14 @@
 															}
 														},
 														{
+															"id": "destroy",
+															"objectClass": "Player",
+															"sid": 559830596285336
+														},
+														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 795187325812200,
+															"sid": 115786433184103,
 															"parameters": {
 																"seconds": "3"
 															}
@@ -5597,6 +5787,11 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 800798414379587
+														},
+														{
 															"id": "compare-parameter",
 															"objectClass": "function",
 															"sid": 859887287407919,
@@ -5619,6 +5814,28 @@
 														}
 													],
 													"sid": 912855052974899
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 767693608759388
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player_Sprite",
+															"sid": 321594079815305,
+															"parameters": {
+																"animation": "\"Plant\" & PlayerData.Skin",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 803090639452698
 												},
 												{
 													"eventType": "block",
@@ -5663,6 +5880,128 @@
 														}
 													],
 													"sid": 390752071630458
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-parameter",
+													"objectClass": "function",
+													"sid": 489339900752568,
+													"parameters": {
+														"index": "0",
+														"comparison": 0,
+														"value": "\"Melee\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 441608825827418,
+													"parameters": {
+														"group-name": "\"Animation Runtime\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-ignoring-input",
+													"objectClass": "Player",
+													"sid": 502576199122688,
+													"behaviorType": "Platform",
+													"parameters": {
+														"input": "start-ignoring"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 312267061959812,
+													"parameters": {
+														"name": "\"PLR_DestroyFX\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 404912506762168,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-parameter",
+															"objectClass": "function",
+															"sid": 124288086875866,
+															"parameters": {
+																"index": "1",
+																"comparison": 0,
+																"value": "\"Shiv\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player_Sprite",
+															"sid": 682524129887172,
+															"parameters": {
+																"animation": "\"Shiv\" & PlayerData.Skin",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 350212772410313
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 509150619369691
+														}
+													],
+													"actions": [],
+													"sid": 263620903925852
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Player",
+															"sid": 507877902648847,
+															"parameters": {
+																"instance-variable": "EquipmentAnimation",
+																"value": "Player_Sprite.AnimationName"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 595035511265951,
+															"parameters": {
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"Disable\""
+																]
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 853382367762803,
+															"parameters": {
+																"name": "\"SFX_Land\"",
+																"parameter-n": []
+															}
+														}
+													],
+													"sid": 775047467079545
 												}
 											]
 										},
@@ -5729,7 +6068,31 @@
 													}
 												}
 											],
-											"sid": 386753348657641
+											"sid": 386753348657641,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 697601499724070,
+															"parameters": {
+																"variable": "item_canReloadWhileClimbing",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "PLR_ReloadStop",
+															"sid": 533780222491674
+														}
+													],
+													"sid": 202550878032282
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -6763,7 +7126,26 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 978725282855932,
+											"parameters": {
+												"type": "log",
+												"message": "\"Land\""
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 966609365235374,
+											"parameters": {
+												"type": "log",
+												"message": "\"Vector X: \" & Player.Platform.VectorX"
+											}
+										}
+									],
 									"sid": 308175017165052,
 									"children": [
 										{
@@ -6845,6 +7227,15 @@
 														"instance-variable": "FallDistance",
 														"value": "abs(Player.FallStartY - Player.Y)"
 													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 943071873462439,
+													"parameters": {
+														"type": "log",
+														"message": "\"Land: Runtime Active\""
+													}
 												}
 											],
 											"sid": 441521479417725,
@@ -6853,9 +7244,40 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 909025425726519,
+															"parameters": {
+																"first-value": "Player.DodgeTimer",
+																"comparison": 3,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 897543078974485,
+															"parameters": {
+																"variable": "input_Dodge",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 116347951206877,
+															"parameters": {
+																"first-value": "abs(Player.Platform.VectorX)",
+																"comparison": 4,
+																"second-value": "0"
+															}
+														},
+														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "Player",
-															"sid": 842376944143402,
+															"sid": 238571928049420,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "CanSlide"
 															}
@@ -6863,25 +7285,37 @@
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Player",
-															"sid": 334585296054932,
+															"sid": 660366823766541,
+															"disabled": true,
 															"parameters": {
 																"instance-variable": "SlideCooldown",
 																"comparison": 0,
 																"value": "0"
 															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Player",
+															"sid": 264596698846635,
+															"parameters": {
+																"instance-variable": "Parachute",
+																"value": "false"
+															}
 														},
 														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 581015450421662,
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 446474080576184,
 															"parameters": {
-																"variable": "input_Dodge",
-																"comparison": 0,
-																"value": "1"
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"Dodge\""
+																]
 															}
 														}
 													],
-													"actions": [],
 													"sid": 213502387591362
 												},
 												{
@@ -6914,6 +7348,15 @@
 																	"\"Land\""
 																]
 															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 519296187838848,
+															"parameters": {
+																"type": "log",
+																"message": "\"Vector X: \" & Player.Platform.VectorX"
+															}
 														}
 													],
 													"sid": 248376367717105
@@ -6929,7 +7372,17 @@
 													"sid": 987822973764011
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 882390120315552,
+													"parameters": {
+														"type": "log",
+														"message": "\"Land: Runtime inactive\""
+													}
+												}
+											],
 											"sid": 558178688857537,
 											"children": [
 												{
@@ -6952,7 +7405,17 @@
 															}
 														}
 													],
-													"actions": [],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 229432017914508,
+															"parameters": {
+																"type": "log",
+																"message": "\"Dodge playing\""
+															}
+														}
+													],
 													"sid": 355004173346859,
 													"children": [
 														{
@@ -6996,7 +7459,17 @@
 															"sid": 897843435921933
 														}
 													],
-													"actions": [],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 155829982391211,
+															"parameters": {
+																"type": "log",
+																"message": "\"Dodge not playing\""
+															}
+														}
+													],
 													"sid": 675222751674050,
 													"children": [
 														{
@@ -7035,6 +7508,10 @@
 															],
 															"actions": [
 																{
+																	"type": "comment",
+																	"text": "Not sure this is ever called"
+																},
+																{
 																	"id": "set-boolean-instvar",
 																	"objectClass": "Player",
 																	"sid": 222352685539784,
@@ -7052,6 +7529,15 @@
 																		"parameter-n": [
 																			"\"Dodge\""
 																		]
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 778525696543022,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"dodge has input\""
 																	}
 																}
 															],
@@ -7076,6 +7562,24 @@
 																		"parameter-n": [
 																			"\"Land\""
 																		]
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 121277855957777,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Dodge not playing\""
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 987646202543345,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"dodge has NOT input\""
 																	}
 																}
 															],
@@ -7109,6 +7613,386 @@
 												}
 											],
 											"sid": 660482842479951
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-floor",
+											"objectClass": "Player",
+											"sid": 399595358079285,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 898117068676027,
+											"parameters": {
+												"first-value": "left(Player_Sprite.AnimationName,3)",
+												"comparison": 1,
+												"second-value": "\"Die\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 231374214883863,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Why was this a condition?"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Player",
+													"sid": 173912470823542,
+													"parameters": {
+														"instance-variable": "OnStairs"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-vector-x",
+													"objectClass": "Player",
+													"sid": 482785655565077,
+													"behaviorType": "Platform",
+													"parameters": {
+														"vector-x": "0"
+													}
+												}
+											],
+											"sid": 305312837739995
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 447620875420393,
+													"parameters": {
+														"instance-variable": "FallStartY",
+														"comparison": 5,
+														"value": "999999"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 469905664299183,
+													"parameters": {
+														"instance-variable": "FallStartY",
+														"value": "Player.Y"
+													}
+												}
+											],
+											"sid": 235476730133210,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-group-active",
+													"objectClass": "System",
+													"sid": 751593366082866,
+													"parameters": {
+														"group-name": "\"Animation Runtime\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 827467529621500,
+													"parameters": {
+														"instance-variable": "FallDistance",
+														"value": "abs(Player.FallStartY - Player.Y)"
+													}
+												}
+											],
+											"sid": 253328265212590,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 534234900940452,
+															"parameters": {
+																"instance-variable": "CanSlide"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Player",
+															"sid": 374060368931365,
+															"parameters": {
+																"instance-variable": "SlideCooldown",
+																"comparison": 0,
+																"value": "0"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 130586165366750,
+															"parameters": {
+																"variable": "input_Dodge",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 588849990178143,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 946317813724740
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 746841549584872,
+															"parameters": {
+																"first-value": "Player.FallDistance",
+																"comparison": 4,
+																"second-value": "Player.LANDTHRESHOLD"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 292939844228158,
+															"parameters": {
+																"name": "\"PLR_ChangeState\"",
+																"parameter-n": [
+																	"\"Land\""
+																]
+															}
+														}
+													],
+													"sid": 520258438216019,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 958349959646098
+												}
+											],
+											"actions": [],
+											"sid": 110539521709555,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 485093753675565,
+															"parameters": {
+																"animation": "\"Dodge\" & PlayerData.Skin"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 426123010232711,
+															"parameters": {
+																"animation": "\"BackDodge\" & PlayerData.Skin"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 307332832596632,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 279220735002547,
+																	"parameters": {
+																		"first-value": "Player.Y",
+																		"comparison": 4,
+																		"second-value": "Player.DodgeStartY + 1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 337671761516575,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Land\""
+																		]
+																	}
+																}
+															],
+															"sid": 561783635433272,
+															"disabled": true
+														}
+													],
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 115497365612704
+														}
+													],
+													"actions": [],
+													"sid": 233951953367696,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 902138033534697,
+																	"parameters": {
+																		"first-value": "Player.DodgeTimer",
+																		"comparison": 3,
+																		"second-value": "0"
+																	}
+																},
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 866445604203295,
+																	"parameters": {
+																		"variable": "input_Dodge",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 335716232275987,
+																	"parameters": {
+																		"first-value": "abs(Player.Platform.VectorX)",
+																		"comparison": 4,
+																		"second-value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Player",
+																	"sid": 302261067861501,
+																	"parameters": {
+																		"instance-variable": "Parachute",
+																		"value": "false"
+																	}
+																},
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 668609513379031,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Dodge\""
+																		]
+																	}
+																}
+															],
+															"sid": 349942151411617,
+															"disabled": true
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 209496267373247
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 302322607312900,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Land\""
+																		]
+																	}
+																}
+															],
+															"sid": 203276249679215,
+															"disabled": true
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 731514666530265,
+													"parameters": {
+														"instance-variable": "FallStartY",
+														"value": "999999"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 750289569382999,
+													"parameters": {
+														"instance-variable": "Jumped",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 190868018567349,
+											"disabled": true
 										}
 									]
 								},
@@ -9343,6 +10227,10 @@
 											"text": "library of projectiles and associated physics values?"
 										},
 										{
+											"eventType": "comment",
+											"text": "Need to add new vars to player weapons"
+										},
+										{
 											"functionName": "PLR_ShootWeapon",
 											"functionDescription": "",
 											"functionCategory": "Player",
@@ -9355,7 +10243,6 @@
 												{
 													"callFunction": "Projectile_Create",
 													"sid": 992216863596291,
-													"disabled": true,
 													"parameters": [
 														"Weapon_Player.Projectile",
 														"\"Bullet\"",
@@ -9388,6 +10275,11 @@
 														"\"\"",
 														"\"\"",
 														"\"\"",
+														"\"\"",
+														"0",
+														"0",
+														"0",
+														"0",
 														"0",
 														"0",
 														"0",
@@ -9396,7 +10288,8 @@
 												},
 												{
 													"callFunction": "Projectile_Create",
-													"sid": 238348333267869,
+													"sid": 485853058781243,
+													"disabled": true,
 													"parameters": [
 														"Weapon_Player.Projectile",
 														"\"Bullet\"",
@@ -9410,7 +10303,7 @@
 														"game_DefaultBulletSpeed",
 														"Player_Arms.Angle",
 														"Weapon_Player.Spread",
-														"3",
+														"10",
 														"Weapon_Player.Knockback",
 														"Weapon_Player.Knockup",
 														"Weapon_Player.canHeadshot",
@@ -9423,12 +10316,17 @@
 														"0",
 														"\"FX_ImpactSparks\"",
 														"0",
-														"3",
+														"0",
 														"0",
 														"\"\"",
 														"\"\"",
 														"\"\"",
 														"\"\"",
+														"\"\"",
+														"0",
+														"0",
+														"0",
+														"0",
 														"0",
 														"0",
 														"0",
@@ -10179,6 +11077,54 @@
 											"text": "TODO"
 										},
 										{
+											"functionName": "PLR_ReloadStop",
+											"functionDescription": "",
+											"functionCategory": "",
+											"functionReturnType": "none",
+											"functionIsAsync": false,
+											"functionParameters": [],
+											"eventType": "function-block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 227710023523001,
+													"parameters": {
+														"instance-variable": "ReloadTimerID",
+														"value": "Self.ReloadTimerID + 1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Player",
+													"sid": 106389703694322,
+													"parameters": {
+														"instance-variable": "Reloading",
+														"value": "false"
+													}
+												},
+												{
+													"id": "stop",
+													"objectClass": "Audio",
+													"sid": 885103407633350,
+													"parameters": {
+														"tag": "\"Reload\""
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 259730899211969,
+													"parameters": {
+														"name": "\"UI_ResetAmmo\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 438400817077659
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -10719,30 +11665,8 @@
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Player",
-													"sid": 227710023523001,
-													"parameters": {
-														"instance-variable": "ReloadTimerID",
-														"value": "Self.ReloadTimerID + 1"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Player",
-													"sid": 106389703694322,
-													"parameters": {
-														"instance-variable": "Reloading",
-														"value": "false"
-													}
-												},
-												{
-													"id": "stop",
-													"objectClass": "Audio",
-													"sid": 885103407633350,
-													"parameters": {
-														"tag": "\"Reload\""
-													}
+													"callFunction": "PLR_ReloadStop",
+													"sid": 469032710964729
 												},
 												{
 													"id": "call-function",
@@ -15372,6 +16296,7 @@
 											"id": "set-instvar-value",
 											"objectClass": "Scent",
 											"sid": 759994666924099,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "LifeTime",
 												"value": "Scent.Timer.CurrentTime(\"Lifespan\")"
@@ -15382,7 +16307,7 @@
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "conflicting w/ drop through"
+											"text": "deprecated"
 										},
 										{
 											"eventType": "block",
@@ -15456,6 +16381,24 @@
 													"objectClass": "Player",
 													"sid": 599399644907168,
 													"behaviorType": "Platform"
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 766270338436217,
+													"parameters": {
+														"object": "PushThrough"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Player",
+													"sid": 536175598276733,
+													"parameters": {
+														"object": "PushThroughBorder"
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -15475,15 +16418,139 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "on-fall",
+											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Player",
-											"sid": 459161446912697,
+											"sid": 439918023481148,
+											"parameters": {
+												"instance-variable": "Climbing"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 157060109247820
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PLR_CreateScent",
+											"sid": 457454106186959,
+											"parameters": [
+												"\"Climbing\""
+											]
+										}
+									],
+									"sid": 624208866008347
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-falling",
+											"objectClass": "Player",
+											"sid": 363373499222923,
 											"behaviorType": "Platform"
 										},
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Player",
-											"sid": 458997224841532,
+											"sid": 738296053280305,
+											"disabled": true,
+											"parameters": {
+												"object": "LadderCover"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 196850034213978,
+											"disabled": true,
+											"parameters": {
+												"object": "JumpThrough"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Player",
+											"sid": 112545305019206,
+											"parameters": {
+												"instance-variable": "DroppedThrough"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 384899388484790,
+											"parameters": {
+												"object": "PlayerDropCheck"
+											}
+										},
+										{
+											"id": "pick-highestlowest",
+											"objectClass": "Scent",
+											"sid": 886826287866220,
+											"disabled": true,
+											"parameters": {
+												"which": "lowest",
+												"instance-variable": "LifeTime"
+											}
+										},
+										{
+											"id": "pick-highestlowest",
+											"objectClass": "Scent",
+											"sid": 501135897579646,
+											"parameters": {
+												"which": "highest",
+												"instance-variable": "SpawnTime"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 212368816139931,
+											"parameters": {
+												"first-value": "Scent.Y",
+												"comparison": 2,
+												"second-value": "Player.Y - Player.Height/2"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 215285733008731
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PLR_CreateScent",
+											"sid": 921517503354035,
+											"parameters": [
+												"\"Falling\""
+											]
+										}
+									],
+									"sid": 198599767198586
+								},
+								{
+									"eventType": "comment",
+									"text": "deprecated"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-fall",
+											"objectClass": "Player",
+											"sid": 155572710672353,
+											"behaviorType": "Platform"
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player",
+											"sid": 511558888626223,
 											"parameters": {
 												"object": "JumpThrough"
 											},
@@ -15493,14 +16560,62 @@
 									"actions": [
 										{
 											"callFunction": "PLR_CreateScent",
-											"sid": 178840205148937,
+											"sid": 922664888915486,
 											"parameters": [
 												"\"Falling\""
 											]
 										}
 									],
-									"sid": 198599767198586,
-									"disabled": true
+									"sid": 392616677768364,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-highestlowest",
+													"objectClass": "Scent",
+													"sid": 371131750704703,
+													"parameters": {
+														"which": "lowest",
+														"instance-variable": "LifeTime"
+													}
+												},
+												{
+													"id": "pick-highestlowest",
+													"objectClass": "Scent",
+													"sid": 542467361281950,
+													"parameters": {
+														"which": "highest",
+														"instance-variable": "SpawnTime"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 174846562601049,
+													"parameters": {
+														"first-value": "Scent.Y",
+														"comparison": 2,
+														"second-value": "Player.Y - Player.Height/2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Scent",
+													"sid": 378665478622539,
+													"parameters": {
+														"width": "200",
+														"height": "200"
+													}
+												}
+											],
+											"sid": 267862777393928,
+											"disabled": true
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -15519,6 +16634,15 @@
 											"parameters": [
 												"\"\""
 											]
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Player",
+											"sid": 692362345732147,
+											"parameters": {
+												"instance-variable": "DroppedThrough",
+												"value": "false"
+											}
 										}
 									],
 									"sid": 242593302242410
@@ -15633,7 +16757,31 @@
 															}
 														}
 													],
-													"sid": 801661881152734
+													"sid": 801661881152734,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "Scent",
+																	"sid": 712533321812597,
+																	"parameters": {
+																		"object": "Ladder"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "Scent",
+																	"sid": 221744802361759
+																}
+															],
+															"sid": 290790084059510
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -15641,11 +16789,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 897910175628084,
+															"sid": 772625769223466,
 															"parameters": {
 																"variable": "Type",
 																"comparison": 0,
-																"value": "\"Drop\""
+																"value": "\"DropThrough\""
 															}
 														}
 													],
@@ -15701,6 +16849,15 @@
 												"type": "once",
 												"tag": "\"Lifespan\""
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Scent",
+											"sid": 144845552954046,
+											"parameters": {
+												"instance-variable": "SpawnTime",
+												"value": "time"
+											}
 										}
 									],
 									"sid": 111935346793532,
@@ -15711,9 +16868,38 @@
 												{
 													"id": "is-overlapping-another-object",
 													"objectClass": "Scent",
-													"sid": 262137958102816,
+													"sid": 651320694711372,
 													"parameters": {
-														"object": "Scent"
+														"object": "ScentFam"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "ScentFam",
+													"sid": 545029514316964
+												}
+											],
+											"sid": 935720456727657
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Scent",
+													"sid": 613533938723755,
+													"parameters": {
+														"object": "PushThrough"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Scent",
+													"sid": 188484565882569,
+													"parameters": {
+														"object": "PushThroughBorder"
 													}
 												}
 											],
@@ -15721,10 +16907,11 @@
 												{
 													"id": "destroy",
 													"objectClass": "Scent",
-													"sid": 912950875732512
+													"sid": 681414514451945
 												}
 											],
-											"sid": 712871906674755
+											"sid": 410859059322288,
+											"isOrBlock": true
 										}
 									]
 								},
@@ -15757,6 +16944,29 @@
 					"sid": 208269515107267
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 152743924881403
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 727216816772579,
+							"parameters": {
+								"type": "log",
+								"message": "Player.Timer.CurrentTime(\"EquipmentCooldown\")/Equipment_Current.Cooldown"
+							}
+						}
+					],
+					"sid": 203222073337506,
+					"disabled": true
+				},
+				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "Player UI",
@@ -15786,28 +16996,37 @@
 								{
 									"id": "set-position",
 									"objectClass": "PlayerUI",
-									"sid": 314986442709581,
+									"sid": 520133601462476,
 									"parameters": {
 										"x": "lerp(self.X,Player.X,0.3)",
-										"y": "lerp(Self.y,Player.Y - 35,0.3)"
+										"y": "lerp(Self.y,Player.Y + player_uiOffset,0.3)"
 									}
 								},
 								{
 									"id": "set-position",
 									"objectClass": "PlayerUI_ammoFill",
-									"sid": 582964373116750,
+									"sid": 431279048701493,
 									"parameters": {
 										"x": "lerp(self.X,Player.X,0.3)",
-										"y": "lerp(Self.y,Player.Y - 35,0.3)"
+										"y": "lerp(Self.y,Player.Y + player_uiOffset,0.3)"
 									}
 								},
 								{
 									"id": "set-position",
 									"objectClass": "PayerUI_hpFill",
-									"sid": 940907001643361,
+									"sid": 839922889259118,
 									"parameters": {
 										"x": "lerp(self.X,Player.X,0.3)",
-										"y": "lerp(Self.y,Player.Y - 35,0.3)"
+										"y": "lerp(Self.y,Player.Y + player_uiOffset,0.3)"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "PlayerUI_equipFill",
+									"sid": 441274055423246,
+									"parameters": {
+										"x": "lerp(self.X,Player.X - 11,0.3)",
+										"y": "lerp(Self.y,Player.Y + player_uiOffset  ,0.3)"
 									}
 								}
 							],
@@ -17199,6 +18418,127 @@
 								}
 							],
 							"sid": 918740539997886
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Equip UI",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 203272290160947,
+											"parameters": {
+												"name": "\"UI_ShowEquip\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 401774314182156,
+											"parameters": {
+												"variable": "player_uiOffset",
+												"value": "-39"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 138965160365711,
+											"parameters": {
+												"layer": "\"Player_Equip\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 961035201924406,
+											"parameters": {
+												"group-name": "\"Update Equip\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 326495346437924
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-function",
+											"objectClass": "function",
+											"sid": 123366747645599,
+											"parameters": {
+												"name": "\"UI_HideEquip\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 123751305728778,
+											"parameters": {
+												"variable": "player_uiOffset",
+												"value": "-35"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 800802101726369,
+											"parameters": {
+												"layer": "\"Player_Equip\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 863586767005469,
+											"parameters": {
+												"group-name": "\"Update Equip\"",
+												"state": "deactivated"
+											}
+										}
+									],
+									"sid": 861284694747526
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Update Equip",
+									"description": "",
+									"isActiveOnStart": false,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-width",
+													"objectClass": "PlayerUI_equipFill",
+													"sid": 686056307652211,
+													"parameters": {
+														"width": "(Player.Timer.CurrentTime(\"EquipmentCooldown\")/Equipment_Current.Cooldown)*PlayerUI_equipBack.Width"
+													}
+												}
+											],
+											"sid": 750885226605227
+										}
+									],
+									"sid": 352200408351456
+								}
+							],
+							"sid": 968436078991954
 						}
 					],
 					"sid": 729156507435855
@@ -18043,22 +19383,22 @@
 			"text": "Horizontal Axis Only (or not)"
 		},
 		{
-			"eventType": "variable",
-			"name": "Player_MaxThrowDist",
-			"type": "number",
-			"initialValue": "260",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 681222011182607
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player Equipment",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "Player_MaxThrowDist",
+					"type": "number",
+					"initialValue": "260",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 170517346867433
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
@@ -18067,7 +19407,7 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"functionName": "PLR_PickupEquipment",
+							"functionName": "PLR_EquipmentPickup",
 							"functionDescription": "",
 							"functionCategory": "Player",
 							"functionReturnType": "none",
@@ -18111,7 +19451,7 @@
 									],
 									"actions": [
 										{
-											"callFunction": "PLR_DropEquipment",
+											"callFunction": "PLR_EquipmentDrop",
 											"sid": 802786976860118
 										}
 									],
@@ -18158,6 +19498,16 @@
 							"actions": [],
 							"sid": 568730076837822,
 							"children": [
+								{
+									"eventType": "variable",
+									"name": "currentTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 155647595355106
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -18240,7 +19590,118 @@
 											"disabled": true
 										}
 									],
-									"sid": 741166934744096
+									"sid": 741166934744096,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 498423392375494,
+													"parameters": {
+														"first-value": "Player.Timer.CurrentTime(\"EquipmentCooldown\")",
+														"comparison": 5,
+														"second-value": "Equipment_Current.Cooldown"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Player",
+													"sid": 219068046195159,
+													"parameters": {
+														"instance-variable": "EquipmentReady",
+														"value": "1"
+													}
+												},
+												{
+													"id": "stop-timer",
+													"objectClass": "Player",
+													"sid": 698887479761390,
+													"behaviorType": "Timer",
+													"parameters": {
+														"tag": "\"EquipmentCooldown\""
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 333850607691289,
+													"parameters": {
+														"name": "\"UI_HideEquip\"",
+														"parameter-n": []
+													}
+												}
+											],
+											"sid": 188005757827671,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 749274305971725
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 827146443562140,
+													"parameters": {
+														"variable": "currentTime",
+														"value": "Player.Timer.CurrentTime(\"EquipmentCooldown\")"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 650876146803408,
+													"parameters": {
+														"type": "log",
+														"message": "currentTime"
+													}
+												},
+												{
+													"id": "stop-timer",
+													"objectClass": "Player",
+													"sid": 228833794933060,
+													"behaviorType": "Timer",
+													"parameters": {
+														"tag": "\"EquipmentCooldown\""
+													}
+												},
+												{
+													"id": "start-timer",
+													"objectClass": "Player",
+													"sid": 327922754667815,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "Equipment_Current.Cooldown - currentTime",
+														"type": "once",
+														"tag": "\"EquipmentCooldown\""
+													}
+												}
+											],
+											"sid": 784751814703441,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "PLR_EquipmentResetCooldown",
+											"sid": 810980909428019
+										}
+									],
+									"sid": 182495220535240
 								}
 							]
 						},
@@ -18272,7 +19733,7 @@
 							"disabled": true
 						},
 						{
-							"functionName": "PLR_DropEquipment",
+							"functionName": "PLR_EquipmentDrop",
 							"functionDescription": "",
 							"functionCategory": "Player",
 							"functionReturnType": "none",
@@ -18438,30 +19899,6 @@
 							"sid": 880179951884391
 						},
 						{
-							"eventType": "comment",
-							"text": "Need to pass:"
-						},
-						{
-							"eventType": "comment",
-							"text": "Vx (Speed)"
-						},
-						{
-							"eventType": "comment",
-							"text": "Vy"
-						},
-						{
-							"eventType": "comment",
-							"text": "Rotation style (torque if not true)"
-						},
-						{
-							"eventType": "comment",
-							"text": "Origin X"
-						},
-						{
-							"eventType": "comment",
-							"text": "Origin Y"
-						},
-						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Equipment Use",
@@ -18477,7 +19914,24 @@
 									"functionParameters": [],
 									"eventType": "function-block",
 									"conditions": [],
-									"actions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 434958713066725,
+											"parameters": {
+												"name": "\"PLR_ChangeState\"",
+												"parameter-n": [
+													"Equipment_Current.Animation",
+													"Equipment_Current.Name"
+												]
+											}
+										},
+										{
+											"callFunction": "PLR_EquipmentResetCooldown",
+											"sid": 721186380151897
+										}
+									],
 									"sid": 707308481704998,
 									"children": [
 										{
@@ -18495,7 +19949,8 @@
 												}
 											],
 											"actions": [],
-											"sid": 942345818382186
+											"sid": 942345818382186,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -18523,25 +19978,128 @@
 										{
 											"eventType": "block",
 											"conditions": [],
-											"actions": [
+											"actions": [],
+											"sid": 285923550553446
+										},
+										{
+											"eventType": "block",
+											"conditions": [
 												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 658182103035556,
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 388505820612095,
 													"parameters": {
-														"name": "\"PLR_ChangeState\"",
-														"parameter-n": [
-															"Equipment_Current.Animation",
-															"Equipment_Current.Name"
-														]
+														"variable": "item_canReloadWhileUsingEquipment",
+														"comparison": 0,
+														"value": "0"
 													}
-												},
-												{
-													"callFunction": "PLR_EquipmentResetCooldown",
-													"sid": 656791843058668
 												}
 											],
-											"sid": 977604891252894
+											"actions": [
+												{
+													"callFunction": "PLR_ReloadStop",
+													"sid": 595315119081536
+												}
+											],
+											"sid": 626938996100496
+										}
+									]
+								},
+								{
+									"functionName": "PLR_EquipmentCreate",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [],
+									"sid": 833181352657835,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-evaluate",
+													"objectClass": "System",
+													"sid": 857417774752061,
+													"parameters": {
+														"object": "Equipment",
+														"expression": "Equipment.Name = PlayerData.Equipment"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Projectile_Create",
+													"sid": 483122037219055,
+													"parameters": [
+														"Equipment.Name",
+														"Equipment.Type",
+														"\"Player\"",
+														"\"PlayerEquipment\"",
+														"StartX",
+														"StartY",
+														"1",
+														"Equipment.Damage\n",
+														"Equipment.Pentration\n",
+														"0",
+														"0",
+														"0",
+														"0",
+														"Equipment.Knockback\n",
+														"Equipment.Knockup",
+														"Equipment.canHeadshot",
+														"Equipment.canCripple",
+														"Equipment.canGib",
+														"Equipment.Particles",
+														"\"\"",
+														"Vx",
+														"Vy",
+														"Equipment.AngVel",
+														"Equipment.ImpactFX",
+														"0",
+														"Equipment.Splits",
+														"0",
+														"Equipment.ImpactTypeAI",
+														"Equipment.ImpactTypeEnv",
+														"Equipment.ImpactTypePlayer",
+														"Equipment.TriggerEvents",
+														"Equipment.TriggerEffects",
+														"Equipment.PrimedAtSpawn",
+														"Equipment.PrimedTime",
+														"Equipment.PrimeOnAIColl",
+														"Equipment.PrimeOnEnvColl",
+														"Equipment.DestroyOnFloor",
+														"Equipment.IgnoreAI",
+														"Equipment.CanHitProjectiles",
+														"Equipment.CanBeHitByProjectiles"
+													]
+												}
+											],
+											"sid": 513890682643043,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 184425391846632,
+															"parameters": {
+																"name": "\"PLR_Knockback\"",
+																"parameter-n": [
+																	"Equipment.PlayerKnockback",
+																	"Player_Sprite.Width < 0 ? 0 : 1"
+																]
+															}
+														}
+													],
+													"sid": 332649834630144
+												}
+											]
 										}
 									]
 								},
@@ -18557,67 +20115,12 @@
 											}
 										}
 									],
-									"actions": [
-										{
-											"callFunction": "Projectile_Create",
-											"sid": 309230567599744,
-											"disabled": true,
-											"parameters": [
-												"\"kunai\"",
-												"\"Bullet\"",
-												"\"Player\"",
-												"\"PlayerWeapon\"",
-												"Player_Arms.ImagePointX(1)",
-												"Player_Arms.ImagePointY(1)",
-												"1",
-												"Weapon_Player.Damage",
-												"Weapon_Player.Penetration",
-												"300",
-												"Player_Arms.Angle",
-												"Weapon_Player.Spread",
-												"0",
-												"Weapon_Player.Knockback",
-												"Weapon_Player.Knockup",
-												"Weapon_Player.canHeadshot",
-												"Weapon_Player.canCripple",
-												"Weapon_Player.canGib",
-												"Weapon_Player.ParticlePrefab",
-												"\"\"",
-												"0",
-												"0",
-												"0",
-												"\"FX_ImpactSmoke\"",
-												"0",
-												"0",
-												"0",
-												"\"\"",
-												"\"\"",
-												"\"\"",
-												"\"\"",
-												"0",
-												"0",
-												"0",
-												"0"
-											]
-										}
-									],
+									"actions": [],
 									"sid": 587010059423390,
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "set angle to angle in arc?"
-										},
-										{
-											"eventType": "comment",
-											"text": "or make this a toggle"
-										},
-										{
-											"eventType": "comment",
-											"text": "set speed somewhere"
-										},
-										{
-											"eventType": "comment",
-											"text": "torqu angle should be based on player dir"
+											"text": "Throwables"
 										},
 										{
 											"eventType": "block",
@@ -18697,14 +20200,6 @@
 											],
 											"sid": 821798848175325,
 											"children": [
-												{
-													"eventType": "comment",
-													"text": "need to clamp y somehow?"
-												},
-												{
-													"eventType": "comment",
-													"text": "account for negs"
-												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -18786,19 +20281,19 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 620476651812757,
+															"sid": 558537276838544,
 															"parameters": {
-																"variable": "LaunchHeight",
-																"value": "clamp(TargY - StartY,DistanceofFlight,-DistanceofFlight)"
+																"variable": "DistanceofFlight",
+																"value": "clamp(TargX - StartX,-Player_MaxThrowDist,-30)"
 															}
 														},
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 710118204402774,
+															"sid": 620476651812757,
 															"parameters": {
-																"variable": "DistanceofFlight",
-																"value": "clamp(TargX - StartX,-Player_MaxThrowDist,-30)"
+																"variable": "LaunchHeight",
+																"value": "clamp(TargY - StartY,DistanceofFlight,-DistanceofFlight)"
 															}
 														},
 														{
@@ -18818,272 +20313,26 @@
 																"variable": "Vy",
 																"value": "-(Gravity*TimeofFlight/2-LaunchHeight/TimeofFlight)"
 															}
-														},
-														{
-															"id": "set-angle",
-															"objectClass": "Projectile",
-															"sid": 202010818171306,
-															"disabled": true,
-															"parameters": {
-																"angle": "270"
-															}
 														}
 													],
 													"sid": 689827663831923
 												},
 												{
 													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-evaluate",
-															"objectClass": "System",
-															"sid": 616494229476776,
-															"parameters": {
-																"object": "Equipment",
-																"expression": "Equipment.Name = PlayerData.Equipment"
-															}
-														}
-													],
+													"conditions": [],
 													"actions": [
 														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 730298670979734,
-															"disabled": true,
-															"parameters": {
-																"object-to-create": "Projectile",
-																"layer": "\"Objects\"",
-																"x": "StartX",
-																"y": "StartY",
-																"create-hierarchy": false
-															}
-														},
-														{
-															"id": "set-animation",
-															"objectClass": "Projectile",
-															"sid": 308845278697275,
-															"disabled": true,
-															"parameters": {
-																"animation": "\"kunai\"",
-																"from": "beginning"
-															}
-														},
-														{
-															"id": "set-enabled",
-															"objectClass": "Projectile",
-															"sid": 416220798527873,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"mode": "enabled"
-															}
-														},
-														{
-															"id": "set-velocity",
-															"objectClass": "Projectile",
-															"sid": 586235162378415,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"x-component": "Vx",
-																"y-component": "Vy"
-															}
-														},
-														{
-															"id": "apply-torque",
-															"objectClass": "Projectile",
-															"sid": 901038929175181,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"torque": "-0.1"
-															}
-														},
-														{
-															"id": "enabledisable-collisions",
-															"objectClass": "Projectile",
-															"sid": 353141071029729,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"object": "Shell",
-																"state": "disable"
-															}
-														},
-														{
-															"id": "enabledisable-collisions",
-															"objectClass": "Projectile",
-															"sid": 594819577136514,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"object": "Object",
-																"state": "disable"
-															}
-														},
-														{
-															"callFunction": "Projectile_Create",
-															"sid": 920290707360959,
-															"parameters": [
-																"Equipment.Name",
-																"Equipment.Type",
-																"\"Player\"",
-																"\"PlayerEquipment\"",
-																"StartX",
-																"StartY",
-																"1",
-																"Equipment.Damage\n",
-																"Equipment.Pentration\n",
-																"0",
-																"0",
-																"0",
-																"0",
-																"Equipment.Knockback\n",
-																"Equipment.Knockup",
-																"Equipment.canHeadshot",
-																"Equipment.canCripple",
-																"Equipment.canGib",
-																"Equipment.ParticlePrefab",
-																"\"\"",
-																"Vx",
-																"Vy",
-																"Equipment.AngVel",
-																"Equipment.ImpactFX",
-																"0",
-																"Equipment.Splits",
-																"0",
-																"Equipment.ImpactTypeAI",
-																"Equipment.ImpactTypeEnv",
-																"Equipment.TriggerEvents",
-																"Equipment.TriggerEffects",
-																"Equipment.PrimedAtSpawn",
-																"Equipment.PrimedTime",
-																"Equipment.PrimeOnAIColl",
-																"Equipment.PrimeOnEnvColl"
-															]
-														},
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 632702360690824,
-															"disabled": true,
-															"parameters": {
-																"type": "log",
-																"message": "Equipment.Name"
-															}
+															"callFunction": "PLR_EquipmentCreate",
+															"sid": 654506356303847
 														}
 													],
-													"sid": 618524039325196,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [],
-															"sid": 178803291743407,
-															"disabled": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-mirrored",
-																	"objectClass": "Player_Sprite",
-																	"sid": 897288586366611
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 693983160634907,
-																	"parameters": {
-																		"name": "\"PLR_Knockback\"",
-																		"parameter-n": [
-																			"Weapon_Player.PlayerKnockback",
-																			"0"
-																		]
-																	}
-																}
-															],
-															"sid": 874053457734311,
-															"disabled": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-mirrored",
-																	"objectClass": "Player_Sprite",
-																	"sid": 690029719983924,
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 348589416831069,
-																	"parameters": {
-																		"name": "\"PLR_Knockback\"",
-																		"parameter-n": [
-																			"Weapon_Player.PlayerKnockback",
-																			"1"
-																		]
-																	}
-																}
-															],
-															"sid": 346162304468715,
-															"disabled": true
-														},
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [
-																{
-																	"id": "call-function",
-																	"objectClass": "function",
-																	"sid": 559026413082404,
-																	"parameters": {
-																		"name": "\"PLR_Knockback\"",
-																		"parameter-n": [
-																			"Equipment.PlayerKnockback",
-																			"Player_Sprite.Width < 0 ? 0 : 1"
-																		]
-																	}
-																}
-															],
-															"sid": 860665244745400
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 417960285438564
-														}
-													],
-													"actions": [
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 193423807235896,
-															"disabled": true,
-															"parameters": {
-																"type": "log",
-																"message": "\"Failed to find equip\""
-															}
-														}
-													],
-													"sid": 687775796391050
+													"sid": 571003413458344
 												}
 											]
 										},
 										{
 											"eventType": "comment",
-											"text": "non throws?"
+											"text": "Claymore"
 										},
 										{
 											"eventType": "block",
@@ -19091,47 +20340,288 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 466229393688941
+													"sid": 893250374149228
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_Sprite",
+													"sid": 979560556215129,
+													"parameters": {
+														"animation": "\"Claymore\" & PlayerData.Skin"
+													}
 												}
 											],
 											"actions": [],
-											"sid": 923757534315959
+											"sid": 612552396477951,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "Player_Sprite",
+															"sid": 245158173538659,
+															"parameters": {
+																"comparison": 0,
+																"number": "5"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 582804284416933
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 476654506591407,
+															"parameters": {
+																"name": "\"VFX_Screenshake\"",
+																"parameter-n": [
+																	"0.25",
+																	"0.2"
+																]
+															}
+														}
+													],
+													"sid": 984420960404848
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 451376912192178
+														},
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "Player_Sprite",
+															"sid": 967947328999693,
+															"parameters": {
+																"comparison": 0,
+																"number": "13"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 612429014367448
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 690235786364780,
+															"parameters": {
+																"variable": "StartX",
+																"value": "Player_Sprite.ImagePointX(\"spawn\")"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 159525572442546,
+															"parameters": {
+																"variable": "StartY",
+																"value": "Player_Sprite.ImagePointY(\"spawn\")"
+															}
+														},
+														{
+															"callFunction": "PLR_EquipmentCreate",
+															"sid": 775846794527016
+														}
+													],
+													"sid": 318387770259439
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Plant Generic"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 674310850723640
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_Sprite",
+													"sid": 716937826146301,
+													"parameters": {
+														"animation": "\"Plant\" & PlayerData.Skin"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 961784231012283,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "Player_Sprite",
+															"sid": 838559143559306,
+															"parameters": {
+																"comparison": 0,
+																"number": "5"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 596738273729579
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 419078383142785,
+															"parameters": {
+																"name": "\"VFX_Screenshake\"",
+																"parameter-n": [
+																	"0.25",
+																	"0.2"
+																]
+															}
+														}
+													],
+													"sid": 893837252888584
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 567566887569592
+														},
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "Player_Sprite",
+															"sid": 143453408584753,
+															"parameters": {
+																"comparison": 0,
+																"number": "8"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 901047762561404
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 254265510639835,
+															"parameters": {
+																"variable": "StartX",
+																"value": "Player_Sprite.ImagePointX(\"spawn\")"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 929043314536153,
+															"parameters": {
+																"variable": "StartY",
+																"value": "Player_Sprite.ImagePointY(\"spawn\")"
+															}
+														},
+														{
+															"callFunction": "PLR_EquipmentCreate",
+															"sid": 494204388547441
+														}
+													],
+													"sid": 940954804775387
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Shiv"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 478127843381203
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Player_Sprite",
+													"sid": 857410750144725,
+													"parameters": {
+														"animation": "\"Shiv\" & PlayerData.Skin"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Player_Sprite",
+													"sid": 549703173679117,
+													"parameters": {
+														"comparison": 0,
+														"number": "1"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 371293768040454
+												}
+											],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 791448291245495,
+													"parameters": {
+														"name": "\"VFX_Screenshake\"",
+														"parameter-n": [
+															"0.25",
+															"0.2"
+														]
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 850552005362158,
+													"parameters": {
+														"variable": "StartX",
+														"value": "Player_Sprite.ImagePointX(\"spawn\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 678885989755418,
+													"parameters": {
+														"variable": "StartY",
+														"value": "Player_Sprite.ImagePointY(\"spawn\")"
+													}
+												},
+												{
+													"callFunction": "PLR_EquipmentCreate",
+													"sid": 314928966677761
+												}
+											],
+											"sid": 453850476217582
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "every-tick",
-											"objectClass": "System",
-											"sid": 436970989248377
-										}
-									],
-									"actions": [
-										{
-											"type": "comment",
-											"text": ""
-										},
-										{
-											"type": "comment",
-											"text": "-1 for true angle"
-										},
-										{
-											"type": "comment",
-											"text": "conditional"
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Projectile",
-											"sid": 838571721601618,
-											"disabled": true,
-											"parameters": {
-												"angle": "angle(0,0,Self.Physics.VelocityX,Self.Physics.VelocityY)"
-											}
-										}
-									],
-									"sid": 777239013066652
 								}
 							],
 							"sid": 868179649404511
@@ -19172,6 +20662,15 @@
 												"type": "once",
 												"tag": "\"EquipmentCooldown\""
 											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 179073300446734,
+											"parameters": {
+												"name": "\"UI_ShowEquip\"",
+												"parameter-n": []
+											}
 										}
 									],
 									"sid": 293686317102622
@@ -19198,6 +20697,15 @@
 												"instance-variable": "EquipmentReady",
 												"value": "1"
 											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 367381738796850,
+											"parameters": {
+												"name": "\"UI_HideEquip\"",
+												"parameter-n": []
+											}
 										}
 									],
 									"sid": 122412655299275
@@ -19210,6 +20718,214 @@
 				}
 			],
 			"sid": 813665594650615
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Leveling",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "player_levelOnLevelHeal",
+					"type": "number",
+					"initialValue": "30",
+					"comment": "Percentage out of 100",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 193004503953119
+				},
+				{
+					"eventType": "variable",
+					"name": "player_levelOnLevelMaxHPGain",
+					"type": "number",
+					"initialValue": "10",
+					"comment": "Number",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 370909833954555
+				},
+				{
+					"functionName": "PLR_Level_CalcNextLevel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "PlayerData",
+							"sid": 324669186505292,
+							"parameters": {
+								"instance-variable": "Level_XPNeeded",
+								"value": "ceil(Self.Level_XPNeeded * 1.1)"
+							}
+						}
+					],
+					"sid": 781606334642194
+				},
+				{
+					"functionName": "PLR_Level_LevelUp",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "PlayerData",
+							"sid": 763655102449984,
+							"parameters": {
+								"instance-variable": "Level",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "PlayerData",
+							"sid": 112727442593808,
+							"parameters": {
+								"instance-variable": "Level_XPThisLevel",
+								"value": "0"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 471018987638154,
+							"parameters": {
+								"name": "\"FX_LevelUp\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"callFunction": "PLR_Level_CalcNextLevel",
+							"sid": 459457618391429
+						}
+					],
+					"sid": 987642067435705,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "PlayerData_Bonus",
+									"sid": 546248035942250,
+									"parameters": {
+										"instance-variable": "MaxHP",
+										"value": "player_levelOnLevelMaxHPGain"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 867474414470544,
+									"parameters": {
+										"instance-variable": "HPtoRegen",
+										"value": "player_levelOnLevelMaxHPGain"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Player",
+									"sid": 704839475713526,
+									"parameters": {
+										"instance-variable": "HPtoRegen",
+										"value": "Player.HPtoRegen + (PlayerData.MaxHP * player_levelOnLevelHeal/100)"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 542099885526085,
+									"parameters": {
+										"name": "\"PLR_UpdateData\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 241329052964433
+						}
+					]
+				},
+				{
+					"functionName": "PLR_Level_AddXP",
+					"functionDescription": "",
+					"functionCategory": "PLR",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "PlayerData",
+							"sid": 807053658104592,
+							"parameters": {
+								"instance-variable": "Level_XPTotal",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "PlayerData",
+							"sid": 478790279406100,
+							"parameters": {
+								"instance-variable": "Level_XPThisLevel",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 838735049455471,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerData",
+									"sid": 814087996655951,
+									"parameters": {
+										"instance-variable": "Level_XPNeeded",
+										"comparison": 3,
+										"value": "PlayerData.Level_XPThisLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PLR_Level_LevelUp",
+									"sid": 961160296218921
+								}
+							],
+							"sid": 154900622991028
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 743065749270139
+								}
+							],
+							"actions": [],
+							"sid": 419329962387951
+						}
+					]
+				}
+			],
+			"sid": 952382577072321
 		}
 	],
 	"sid": 137796955145022
