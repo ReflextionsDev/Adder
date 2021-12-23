@@ -1,9 +1,278 @@
+Notes:
+- Bigger buildings w/ room variety
+- Foreground / Environmental Objects
+- Spawners and outside spawners
+- Horders? Outside border spawners?
+
+
+(Automate exterior spawns too... somehow...) or just use general playspace outside buildings
+(Could tie into environment spawners), but then I would need at least 1 between buildings
+
+> -- DECEMBER
+
+- (Ext spawn limit control.... section or total?
+- ext spawn destroy out of range guys (zombie offscreen and not in rangeExt area) (testing for every tick collision is a baaaaad idea) (do intervals or something, similar to other ticks)
+
+- Ladder blockers aren't working >:(
+
+
+
+- Spawning from more than one point?? GOing wayyy to quick, even for 5 seconds, is each one spawning?
+	- Rebalance credits.. They aren't supposed to reset each turn rememeber it works different
+
+
+[Dec 22]
+- Fixed ExtZ credit draw
+- Fixed ExtZ spawn pool
+- ExtZ bug fixes
+
+[Dec 21]
+- Ext zombie spawns
+
+[Dec ?? - ??]
+
+[Dec 14]
+- More design
+- Added basic int spawn calcuations
+
+[Dec 13]
+- AI spawn system research and design
+
+[Dec 11]
+- Added better builder logging
+- Added prefab length to level length
+
+[Dec 10]
+- Built medium size layouts
+- Tested some roof art styling
+
+[Dec 9]
+- Added lock toggle on frame prefabs
+- Built leveltemp_2
+
+[Dec 5]
+- Built small level
+
+[Dec 3]
+- Bug fixes
+- Reimplemented Brute
+- Added brute charge slam
+- Added brute wall slam
+- Fixed brute targeting
+- Fixed brute hitboxes
+
+[DEC 1]
+- Finished projectile shooting interaction
+- Added explosion events to bombheads other death animations
+- Finished bombhead
+
+-- <
+
+> -- NOVEMBER
+
+[Nov 30]
+- Add support for shooting bombhead head while in hand
+- Starting adding support for shooting projectiles
+
+[Nov 29]
+- Implemented bombhead base
+- Implemented player projectile collision
+- Implemented projectile ignoreAI
+
+[Nov 27]
+- Implemented bombboy
+- Impleted player damage on events
+
+[Nov 26]
+- Fixed climbing scent bug
+- Even more bug fixes
+- Added zealot lunge
+- Finished zealot
+- Notepad cleanup
+
+[Nov 24]
+- Idle bug work
+- Fixed A LOT of AI bugs with zealot ladder behavior
+- Choose State (getstate) overhaul
+- Scent lifepsan changes
+
+[Nov 23]
+- Change zombie targeting so LoS is drawn from head
+- Bug fixes
+- AI Cleanup
+
+[Nov 22]
+- Added NPC fall / land animations
+- Improved NPC fall damage stuff
+- Added player drop check
+- Implemented NPC ladder climb
+- Bug fixes
+
+[Nov 19]
+- Start NPC dropThrough
+
+[Nov 18]
+- Implemented Bighead
+
+[Nov 17]
+- Implemented Demon
+
+[Nov 16]
+- Implemented boomer zombie
+
+[Nov 15]
+- Prevent crawlers from using stairs
+- Prevent cripples on the stairs
+- Bug fixes
+- Added Riot KP type
+- Added Riot Crawlers
+- Put together playtesting notion page
+- Began base AI playtest
+
+[Nov 13]
+- Added player death AI support
+- Added NPC Flee state
+- Added zombie flee break door toggle
+- Added zombie distractions
+- Verified multi-target support
+- Added dynamic barrier support (player created)
+
+[Nov 12]
+- Fixed scent inspect above zombie bug
+- Fixed NPC window bug
+- Fixed new stair chase bug introduced by other fix
+- Add npc ledge drop scent
+
+[Nov 11]
+- Fixed door scent deletion bug
+- Fixed headless bug
+- Finish NPC Inspect Optimization
+- Bug fix design
+
+[Nov 9]
+- Inspect work
+- Fixed inspect bug when scent was deleted
+
+[Nov 8]
+- Fixed bug where NPCs would lose TargetX when roaming
+- Fixed scent deletion bug
+- Door face bug
+
+[Nov 6]
+- Fixed crawler bugs
+- Fixed door bugs
+- Fixed chase fall bug
+- Add zombie fall damage
+- Moar bug fixes
+- Project orgnization
+- More insepct work
+
+[Nov 5]
+- NPC "Inspect opti pass
+- Hella bug fixes
+- Colony card deck design
+
+[Nov 4]
+- NPC "Chase" opti pass
+- NPC "Attack" opti pass
+
+[Nov 3]
+- Added NPC tick buffers and rates
+- NPC "Idle" opti pass
+- NPC "Roam" opti pass
+- NPC_CanLimp opti pass
+- Added emulate movement event
+- Started "Chase"
+
+[Nov 2]
+- Moved hurtboxes to hierarchy
+- More perf tests and AI design
+
+-- <
+
 > -- OCTOBER 
+[Oct 30]
+- Fixed new sprite change cripple issues
 
-Broke backwards throw...
-(wrong projectile throwin)
+[Oct 29]
+- Extensive optimization research and reading
+- Performance tests
+- Migrated 'each tick' events for NPC_Sprites to hierarchies
 
-grenade explosion in the wrong spot?
+[Oct 28]
+- Project planning
+
+[Oct 27]
+- Added money and dodge timer to player debug
+- Added player healing and maxhp bonus on level up
+- Finish player sprint
+- Cleaned up notes
+- Filed C3 bug reports and suggestions
+- Added new guides to Quick Ref notion page
+
+[Oct 25]
+- Fixed debug weapon spawn no ammo drop
+- Added player reload cancel conditions
+- Added equipment recharge meter
+- Added equipment cooldown reset on pickup
+- Added player levelling support
+
+[Oct 23]
+- Added trap projectile rules
+- Added bear trap
+- Added hitbox projectile type
+- Added shiv equip
+- Organized player events
+- Fix event effects not applying to everyone
+- Fixed debug camera zoom not working
+- Fixed player dropping and being unable to roll bug
+
+[Oct 22]
+- Added effectStart and effectEnd
+- Fixed issed where all effect time wouldn't restart on 2nd hit
+- Added options for permanent effects (with and w/o ticks)
+- Cleaned up effect code
+- Reimplemented the claymore
+- Added screenshake support to events
+
+[Oct 19]
+- Change effect damage ticking to be better (based on local timer, not global)
+- Cleand up and reformated effect events to be global
+
+[Oct 18]
+- Fixed bug where effect damage wouldn't kill NPCs
+- Fixed effect fx UID tracking 
+- Made effects reset lifespan on dupe
+
+[Oct 14]
+- Fixed bug where effects would trigger on dead NPCs
+- Fixed EventDB loading
+- Organized projectile & event stuff
+- Effect damage
+
+[Oct 9]
+- Finished projectile object collision types
+- Organized solid collision types
+- Added DestroyOnFloor var to projectiles
+
+[Oct 8]
+- Add projectile particle stuff
+- Converted projectile split to function
+- Game Master event sheet cleanup
+
+[Oct 7]
+- Added NPC_AddFX
+- Fixed effect problems
+- Added support for different FX object types
+- General effect improvement & functionality
+
+[Oct 6]
+- Trying to fix effect bug
+
+[Oct 5]
+- Fixed backward throw bug
+- Fixed effects not triggering via prime when there was no event
+- Effect work
 
 [Oct 4]
 - Throwing axe
@@ -22,7 +291,6 @@ grenade explosion in the wrong spot?
 - Impact trigger
 
 -- <
-
 
 > -- SEPTEMBER
 

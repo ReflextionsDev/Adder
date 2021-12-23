@@ -1,77 +1,63 @@
-- may want to revist splash damage later... currently htis EVERYTHING in range and it might be OP
-(easy way would be to cap per raycast event, going by nearest, then can cange cap on each event)
+> -- AI Sprint
+
+- Optimizations
+- Additional base behavior
+	- Drop chase
+	- Flee
+	- Multi target support
+	- Player death 
+- Extra traversal support
+	- Climb
+	- Lader drop
+	- Ferals
+- Zealots
+	- Ceiling walk
+	- Ceiling drop
+
+-- <
+
+> -- Level Sprint
+
+- A few more level prefabs (5, hell even 3, RUSH DA LOOP)
+- AI Spawners
+	- Unique Spawners
+	- Dynamic Spawners
+	- Prefabbed Spawners
+	- Horde spanwers (20 or so guys)
+- AI Group Spawners
+- Spawner scaling
+- Item Containers
+	- Interactable stuff / chests n stuff, gun cabnients, etc
+- Item Spawners
+- Start loop implementation
+
+-- <
+
+> --Level Sprint
+==============
+
+- AI Environment test cases...
+- Add anything deemed 'essential'
+	- Elevators?
+- 5-10 levels to test loop with
 
 
-equipment needs vars from weapon >
+Min test case, work your way up
 
-cripple, headshot, gib, particleprefab
+1. Flat and Doors
+2. Stairs
+3. Ladders
+4. 
+Interactable loot
+Loot spawners
+NPC spawners
+Destructable Objects
 
+Interactable hazards... (drawbridge, etc)
 
-
-
-
-particleprefab
-add new particle types
-avoid dupes, ex: flaming item but you have molotov already, use same fx
-
-
-
-particles:
-confetti
-strike through line thingy
-dust
+Fix layering stuff
 
 
+Make test environments... then systematically test through each AI type
 
-
-
-need to get Adder payments again
-so need to talk to raf
-but need actual demo to show him
-then need to ask for continued payments or permission to do freelance work
-need date to submit or determine when I need to switch to freelance
-
-
---
-
-item that shoots out of gun a bullet, after hitting
-(can only shoot once per clip, then it's spent and must reload) or maybe a one time use thing
-
-base speed on projectile type
-
-
-
-shuriken / arrow cloud
-weapon that conjures up beams or spinning arrows or something arround players head, then releases them all when let go
-
-then do weapon mod items apply to pistol???
-
-
-,maybe weapon mods should be consolidated into items...
-can revist later via weapon workbenches, or some kind of weapon xp system that levels them as you use
-as game goes on, player should start to get control over items somehow.. either late game or system..
-allow people to minmax builds, it's fun
-
-gun that launches bullets, but as a physics object
-
-throwing physics objects fucks up bullet angle
-
-
-save editor layout feature request
-
-===
-===
-
-
-construct 3 code window preview like in VSCode
-
-
-c3 bug: enter does not work on interfaces in event sheets that are broken into a new window
-
-
-feature request: bookmarks foolders
-
-]]
-
-working way down equipment list
-@impacttypes
+=== -- <

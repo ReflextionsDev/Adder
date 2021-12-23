@@ -1953,10 +1953,6 @@
 										},
 										{
 											"eventType": "comment",
-											"text": ">>> Working Here"
-										},
-										{
-											"eventType": "comment",
 											"text": "??"
 										},
 										{
@@ -1967,13 +1963,9 @@
 											"eventType": "group",
 											"disabled": false,
 											"title": "Projectile Environment Collision",
-											"description": "Todo - if object explodes, or bounces, or whatever, funky behavior needs to go here. May need yet another prefab - impactprefab to list effects: destroy, clone (split), bounce, leave poison or freeze or whatever\n\nwhat takes prio: bounce or explode?? bounce stacks, how does explode stack?",
+											"description": "",
 											"isActiveOnStart": true,
 											"children": [
-												{
-													"eventType": "comment",
-													"text": ">>>"
-												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -1988,49 +1980,12 @@
 													],
 													"actions": [
 														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 650844674800020,
-															"parameters": {
-																"type": "log",
-																"message": "Projectile.Angle"
-															}
-														},
-														{
-															"id": "set-angle",
-															"objectClass": "Projectile",
-															"sid": 606071548456471,
-															"disabled": true,
-															"parameters": {
-																"angle": "Solids.Angle*2 - Projectile.Angle"
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 597297392751390,
-															"disabled": true,
-															"parameters": {
-																"seconds": "0"
-															}
-														},
-														{
 															"id": "set-angular-velocity",
 															"objectClass": "Projectile",
 															"sid": 392670251051415,
 															"behaviorType": "Physics",
 															"parameters": {
 																"angular-velocity": "Projectile.Physics.AngularVelocity / 2"
-															}
-														},
-														{
-															"id": "set-angular-damping",
-															"objectClass": "Projectile",
-															"sid": 902065943965519,
-															"disabled": true,
-															"behaviorType": "Physics",
-															"parameters": {
-																"angular-damping": "1"
 															}
 														}
 													],
@@ -2471,7 +2426,7 @@
 																},
 																{
 																	"eventType": "comment",
-																	"text": "Enable to allow bounces to active splits, will probably add an item does this in the future"
+																	"text": "When enabled, bounces will active splits"
 																},
 																{
 																	"eventType": "block",
@@ -2629,15 +2584,6 @@
 												{
 													"eventType": "block",
 													"conditions": [
-														{
-															"id": "every-x-seconds",
-															"objectClass": "System",
-															"sid": 300017924075477,
-															"disabled": true,
-															"parameters": {
-																"interval-seconds": "0.1"
-															}
-														},
 														{
 															"id": "compare-instance-variable",
 															"objectClass": "Projectile",
@@ -4734,7 +4680,7 @@
 												},
 												{
 													"eventType": "comment",
-													"text": ">>> WORKING HERE"
+													"text": "TO DO"
 												},
 												{
 													"eventType": "comment",
@@ -6600,34 +6546,11 @@
 									}
 								},
 								{
-									"id": "is-overlapping-another-object",
+									"id": "pick-by-unique-id",
 									"objectClass": "Projectile",
-									"sid": 284622621520667,
-									"disabled": true,
+									"sid": 494534471083890,
 									"parameters": {
-										"object": "Solid_Floors"
-									}
-								},
-								{
-									"id": "is-overlapping-at-offset",
-									"objectClass": "Projectile",
-									"sid": 819876147834045,
-									"disabled": true,
-									"parameters": {
-										"object": "Solid_Floors",
-										"offset-x": "0",
-										"offset-y": "0"
-									}
-								},
-								{
-									"id": "pick-nearestfurthest",
-									"objectClass": "Solid_Floors",
-									"sid": 512915090058842,
-									"disabled": true,
-									"parameters": {
-										"which": "nearest",
-										"x": "Projectile.X",
-										"y": "Projectile.Y"
+										"unique-id": "ProjectileUID"
 									}
 								},
 								{
@@ -12230,23 +12153,6 @@
 							"text": ""
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 479311697872643,
-									"parameters": {
-										"variable": "Event",
-										"comparison": 0,
-										"value": "\"Bleed\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 832117988652963
-						},
-						{
 							"eventType": "comment",
 							"text": "Simple instant damage"
 						},
@@ -12283,6 +12189,31 @@
 							],
 							"actions": [],
 							"sid": 502883343891813
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 479311697872643,
+									"parameters": {
+										"variable": "Event",
+										"comparison": 0,
+										"value": "\"Bleed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "NPC_AddEffect",
+									"sid": 551822080604023,
+									"parameters": [
+										"TargetUID"
+									]
+								}
+							],
+							"sid": 832117988652963
 						}
 					]
 				},
@@ -12346,6 +12277,111 @@
 				}
 			],
 			"sid": 238030493583050
+		},
+		{
+			"functionName": "NPC_AddEffect",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "NPC_UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 744522636652820
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "NPC",
+					"sid": 818948568048120,
+					"parameters": {
+						"unique-id": "NPC_UID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 180783069439668,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NPC",
+							"sid": 781049381313992,
+							"parameters": {
+								"instance-variable": "EffectsArray",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 358171231038296,
+							"parameters": {
+								"object-to-create": "NPC_Effects",
+								"layer": "0",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPC",
+							"sid": 402009588146077,
+							"parameters": {
+								"instance-variable": "EffectsArray",
+								"value": "0"
+							}
+						},
+						{
+							"id": "sort",
+							"objectClass": "NPC_Effects",
+							"sid": 798588079992340,
+							"parameters": {
+								"axis": "x"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "NPC",
+							"sid": 755304321970004,
+							"parameters": {
+								"child": "zzzText_EquipCooldown",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": false
+							}
+						}
+					],
+					"sid": 595987564603455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 913183309338533
+						}
+					],
+					"actions": [],
+					"sid": 871853410811915
+				}
+			]
 		}
 	],
 	"sid": 544190151353186
