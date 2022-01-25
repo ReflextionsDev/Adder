@@ -8,18 +8,224 @@ Notes:
 (Automate exterior spawns too... somehow...) or just use general playspace outside buildings
 (Could tie into environment spawners), but then I would need at least 1 between buildings
 
-> -- DECEMBER
-
 - (Ext spawn limit control.... section or total?
 - ext spawn destroy out of range guys (zombie offscreen and not in rangeExt area) (testing for every tick collision is a baaaaad idea) (do intervals or something, similar to other ticks)
-
-- Ladder blockers aren't working >:(
-
 
 
 - Spawning from more than one point?? GOing wayyy to quick, even for 5 seconds, is each one spawning?
 	- Rebalance credits.. They aren't supposed to reset each turn rememeber it works different
 
+
+set walker spawn chance to 100% for testing
+
+Zombiues should get knockbacked even during state changes...
+Screenshake shouldn't be tied to knockback.. gets very obnoxious
+
+==
+
+should I display a value (percentage) or calculated value??
+
+Could change stat display (+0.15% or x1.15 via menu option)
+
+Could display scaling formula ("+15% (hyperbolic) knockback") or show in collection catalogue, or use icons to differintate 
+
+scrap scaling bug
+
+
+- Level Deisgn Lead
+- Art Lead (levels)
+- FX artist
+- Music Sound / Guy
+- 
+
+
+auto activate spawns
+fix spawn rates (copy RoR numbers for now)
+catch all enemy object spawner
+
+
+
+Run time progresses on hub level & shops?
+and overworld
+
+You're too invested in level layout. Make it functional but be willing to shift.
+Collect player feedback and figure out the direction. May have to switch to horde / level modes... or even metroidvainia.... long term upgrades, camp system, survival, crafting and inventory, etc...
+
+Realistially list out everything you need to make the game EA
+Or rush store front, work on it at your own pace
+
+[enemy levels, helath and damage scaling]
+
+
+==
+
+(Boomer clap melee attack, or they clap their head and explodea)
+(Bombhead melee attack)
+(Brute cripple) (brute headshot) 
+
+(make npc basic attack, go to explosion)
+> working on bomboy explosion...
+add headshots, add basic attack
+
+
+
+
+> -- JANURARY 
+
+
+(recharge circle around ability, change curreent ability to XP, add a barrier shield hp bar up top)
+(add pickup info to equipment and NEW weapons)
+
+
+====
+Spawn Rates and Director
+Levels
+[Hud: difficulty, money, leveling]
+Shops & money display
+Death
+Remove body cleanup and stuff
+Environmental decor
+===
+
+Item Spawning
+- Gun Locker (weapons)
+- Crates (artifacts)
+- Chest (equipment)
+
+
+- 
+
+money...
+
+
+loot...
+xp,ammo, money, health
+
+
+[Jan 24]
+- Fixed ladder protection
+- Added ladder saftey spawns to doors
+- Add containers for object types
+- OBJ_Create function
+- Add better shuffle functions
+
+[Jan 22]
+- Made bomboy sit as normal animation (though he will sometimes get up)
+- More NPC balancing
+- Add bombhead cripple kill
+- Modify most torso hitboxes to match leg torso, to should make legshots easier
+
+[Jan 21]
+- Adjusted difficulty calculation
+- Rebalanced NPC stats
+- Rebalanced NPC waves
+- Changed how AP damage and MPs are calculated
+- Made zombie generated explosions not hurt zombies
+- Changed debug timescale hotkeys
+- Fixed event LoS range bug
+ 
+[Jan 20]
+- Removed scientist dialogue stuff
+- Added scientist to hub spawn
+- Added director init to level load
+- Ensured HUD items carried between layouts
+- Minor level fixes
+ 
+[Jan 19]
+- Balanced some old equipment
+- Added toybot
+- Added perfume
+- Added equipment object sprites and UI sprites
+- Added equipment description strings
+- Added equipment pick info
+- Fixed equipment drop to carry name and rarity
+- Fixed throw VX bug
+- Added temp bg to main menu
+- Enabled and adjust clouds
+- NPC spawn fixes
+
+[Jan 18]
+- Fixed bullet pen door bug
+- Finished AP Rounds
+- Finished Extra Barrel
+- Finished Spring
+- Finished Extended Mag
+- Finished Extended Barrel
+
+[Jan 17]
+- Added Salvage Kit (bullet refund)
+- Fixed a formula bug
+- Added stat display function
+- Added Buckshot
+- Added 5 weapon mod objects (no effect yet)
+
+[Jan 15]
+- Added text and rarity to debug spawns
+- Created PickupInfo menu
+- Added artifact pickup menu display
+- Added artifact hover stat display
+
+[Jan 14]
+- Added artifact UI
+- Added artifact formula logic
+- Added Pointy Stick
+- Aded Handheld Fan
+
+[Jan 13]
+- Start artifact work
+- Add gloves 1-5
+- Start adding knockback artifact
+
+[Jan 12]
+- Add Repeater Rifle
+- Add Grenade Launcher
+- Add launcher support
+
+[Jan 11]
+- Added BFP
+- Added Entropistol
+- Added Big Iron
+- Added Auto Pistol
+- Added Assault Rifle
+- Modified Shotgun to be Pump
+- Added Auto Shotgun
+
+[Jan 10]
+- Refactored weapon debug spawner
+- Display ammo count on weapon swap, reload, and pickup
+- Add single shotgun
+- Added reload animation support
+- Distinguish between cock and reload anims
+
+[Jan 7]
+- Added holster support to hotspot editor
+- Fixed hotspots for all base weapons
+- Fixed holster hostpots
+
+[Jan 6]
+- Fixed and revamped hotspot editor
+	- Added live weapon change support
+	- Added dual weild support
+	- Fixed bugs with it
+	- Added angle preview
+- Prototyped the LAG
+
+[Jan 4]
+- Object layer changes
+- Added drop weapon functionality
+- Added drop weapon key
+- Added weapon scrap functionality
+
+[Jan 3]
+- Added color dictionary w/ tier values
+- Built color loader
+- Added object item display
+- Added object item sines
+- Moved object hover text
+
+-- <
+
+> -- DECEMBER
 
 [Dec 22]
 - Fixed ExtZ credit draw
