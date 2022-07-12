@@ -961,7 +961,8 @@
 										"layer": "function.Param(5)",
 										"x": "function.Param(2)",
 										"y": "function.Param(3)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1054,7 +1055,8 @@
 										"layer": "function.Param(4)",
 										"x": "function.Param(2)",
 										"y": "function.Param(3)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1127,6 +1129,17 @@
 									"parameters": {
 										"name": "\"FX_Shell\""
 									}
+								},
+								{
+									"id": "compare-parameter",
+									"objectClass": "function",
+									"sid": 722184090007267,
+									"parameters": {
+										"index": "3",
+										"comparison": 0,
+										"value": "\"\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -1139,7 +1152,8 @@
 										"layer": "\"Player\"",
 										"x": "function.Param(0) + random(-2,2)",
 										"y": "function.Param(1) + random(-2,2)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1149,6 +1163,14 @@
 									"parameters": {
 										"animation": "function.Param(3)",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Shell",
+									"sid": 834221334321779,
+									"parameters": {
+										"scale": "function.Param(4)"
 									}
 								}
 							],
@@ -1238,16 +1260,6 @@
 								{
 									"id": "enabledisable-collisions",
 									"objectClass": "Shell",
-									"sid": 331222398282077,
-									"behaviorType": "Physics",
-									"parameters": {
-										"object": "Shell",
-										"state": "disable"
-									}
-								},
-								{
-									"id": "enabledisable-collisions",
-									"objectClass": "Shell",
 									"sid": 265081258695414,
 									"behaviorType": "Physics",
 									"parameters": {
@@ -1266,7 +1278,37 @@
 									}
 								}
 							],
-							"sid": 632149703540214
+							"sid": 632149703540214,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 236487646071493,
+											"parameters": {
+												"variable": "game_CleanupDisableShellCollision",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Shell",
+											"sid": 106736630736086,
+											"behaviorType": "Physics",
+											"parameters": {
+												"object": "Shell",
+												"state": "disable"
+											}
+										}
+									],
+									"sid": 131494360176070
+								}
+							]
 						}
 					],
 					"sid": 598006754756962
@@ -1326,7 +1368,8 @@
 										"layer": "game_EffectsLayer",
 										"x": "X",
 										"y": "Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -1510,6 +1553,11 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 967643305238016
+														},
+														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
 															"sid": 208178326769544,
@@ -1536,6 +1584,11 @@
 													"eventType": "block",
 													"conditions": [
 														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 876902054360426
+														},
+														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
 															"sid": 357070225066553,
@@ -1561,6 +1614,11 @@
 												{
 													"eventType": "block",
 													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 609569710004057
+														},
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
@@ -1685,7 +1743,8 @@
 										"layer": "\"Objects\"",
 										"x": "function.Param(0)",
 										"y": "function.Param(1)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1787,7 +1846,8 @@
 										"layer": "\"Tile_Detail\"",
 										"x": "function.Param(0) + random(-5,5)",
 										"y": "function.Param(1) + random(-5,5)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -1803,6 +1863,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-wait-time",
+									"objectClass": "FX_BloodSpatter",
+									"sid": 339210951864358,
+									"behaviorType": "Fade",
+									"parameters": {
+										"wait-time": "game_CleanupBloodFXDelay"
+									}
+								},
 								{
 									"id": "set-animation-frame",
 									"objectClass": "FX_BloodSpatter",
@@ -1893,7 +1962,8 @@
 										"layer": "\"Objects\"",
 										"x": "function.Param(0) + random(-2,2)",
 										"y": "function.Param(1) + random(-2,2)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2105,7 +2175,8 @@
 										"layer": "\"Objects\"",
 										"x": "function.Param(0)",
 										"y": "function.Param(1)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2328,7 +2399,8 @@
 										"layer": "\"Player\"",
 										"x": "Player.X",
 										"y": "Player.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2417,7 +2489,8 @@
 										"layer": "\"Player\"",
 										"x": "Player_Sprite.ImagePointX(\"SlideDust\")",
 										"y": "Player_Sprite.ImagePointY(\"SlideDust\")",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -2491,7 +2564,8 @@
 										"layer": "\"Objects\"",
 										"x": "NPC.X",
 										"y": "NPC.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2803,6 +2877,62 @@
 							"sid": 659102489268665
 						},
 						{
+							"functionName": "FX_Outline_SetColor",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 130195621502186
+								},
+								{
+									"name": "Color",
+									"type": "string",
+									"initialValue": "255,255,255",
+									"comment": "",
+									"sid": 781235402128515
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "OBJ_Outline",
+									"sid": 807867670565535,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "OBJ_Outline",
+									"sid": 827133204091307,
+									"parameters": {
+										"effect": "\"Outline\"",
+										"parameter-index": "2",
+										"value": "Colors.Get(Color)"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 691664784886577,
+									"parameters": {
+										"type": "log",
+										"message": "Color & \": \" & Colors.Get(Color)"
+									}
+								}
+							],
+							"sid": 227735973783261
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -2838,6 +2968,15 @@
 									"parameters": {
 										"group-name": "\"Outline Active\"",
 										"state": "activated"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 668851398947873,
+									"parameters": {
+										"type": "log",
+										"message": "\"Enable Outline: UID (\" & function.Param(0) & \")\""
 									}
 								}
 							],
@@ -2923,7 +3062,8 @@
 														"layer": "\"Level\"",
 														"x": "0",
 														"y": "0",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2961,7 +3101,8 @@
 														"layer": "\"Level\"",
 														"x": "0",
 														"y": "0",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -3304,7 +3445,8 @@
 										"layer": "\"Player\"",
 										"x": "X",
 										"y": "Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -3333,6 +3475,78 @@
 						}
 					],
 					"sid": 931700782642074
+				},
+				{
+					"functionName": "FX",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 679344432595036
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 474953082830862
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 654365452434305
+						},
+						{
+							"name": "layer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 394619283203674
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 518849466659312,
+							"parameters": {
+								"object-name": "name",
+								"layer": "layer",
+								"x": "X",
+								"y": "Y",
+								"create-hierarchy": true,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 653936364278189,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 435128089014334,
+									"parameters": {
+										"object": "FX"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 985695092312478
+						}
+					]
 				}
 			],
 			"sid": 864888546556901
@@ -3854,7 +4068,80 @@
 							}
 						}
 					],
-					"sid": 285705637054241
+					"sid": 285705637054241,
+					"disabled": true
+				},
+				{
+					"functionName": "Music_Start",
+					"functionDescription": "Automatically converted from 'Music_Start'",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "song",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 148269612956076
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 749407764924518,
+							"parameters": {
+								"variable": "audio_MusicLevel",
+								"comparison": 4,
+								"value": "-20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 520695548925472,
+							"parameters": {
+								"tag": "\"BGM\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 652800005314255,
+							"disabled": true,
+							"parameters": {
+								"variable": "Music_Level",
+								"value": "-Music_LevelGoal"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 477269850309832,
+							"disabled": true,
+							"parameters": {
+								"group-name": "\"Music Start\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 750782647286715,
+							"parameters": {
+								"folder": "music",
+								"audio-file-name": "song",
+								"loop": "looping",
+								"volume": "audio_MusicLevel",
+								"tag-optional": "\"BGM\""
+							}
+						}
+					],
+					"sid": 741546764958413
 				},
 				{
 					"eventType": "block",
@@ -3895,19 +4182,16 @@
 					"text": ""
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 375843967090642,
-							"parameters": {
-								"name": "\"Level_Music\""
-							}
-						}
-					],
+					"functionName": "Music_PlayBGM",
+					"functionDescription": "Automatically converted from 'Level_Music'",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [],
-					"sid": 347357116534904,
+					"sid": 388485235033874,
 					"children": [
 						{
 							"eventType": "block",
@@ -3915,28 +4199,24 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 472583317920035,
+									"sid": 918758440939278,
 									"parameters": {
 										"first-value": "LayoutName",
 										"comparison": 0,
-										"second-value": "\"Base\""
+										"second-value": "\"MainMenu\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 487960948808143,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Forest\""
-										]
-									}
+									"callFunction": "Music_Start",
+									"sid": 561331055027761,
+									"parameters": [
+										"\"Theme\""
+									]
 								}
 							],
-							"sid": 230749549391082
+							"sid": 317695459454921
 						},
 						{
 							"eventType": "block",
@@ -3944,33 +4224,29 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 175239451295929
+									"sid": 864663758630699
 								},
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 614477250235939,
+									"sid": 779553033978004,
 									"parameters": {
 										"first-value": "LayoutName",
 										"comparison": 0,
-										"second-value": "\"Intro\""
+										"second-value": "\"Overworld\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 323918352892388,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"City\""
-										]
-									}
+									"callFunction": "Music_Start",
+									"sid": 669655801057448,
+									"parameters": [
+										"\"Overworld\""
+									]
 								}
 							],
-							"sid": 408526289690124
+							"sid": 906180577324375
 						},
 						{
 							"eventType": "block",
@@ -3978,33 +4254,29 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 734488214101152
+									"sid": 392200934933619
 								},
 								{
-									"id": "compare-two-values",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 832830787506532,
+									"sid": 576831208998888,
 									"parameters": {
-										"first-value": "LayoutName",
+										"variable": "level_Type",
 										"comparison": 0,
-										"second-value": "\"Tutorial\""
+										"value": "\"Hub\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 574567840358943,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Forest\""
-										]
-									}
+									"callFunction": "Music_Start",
+									"sid": 533981117426700,
+									"parameters": [
+										"\"Base\""
+									]
 								}
 							],
-							"sid": 420873978764370
+							"sid": 908606377307908
 						},
 						{
 							"eventType": "block",
@@ -4012,33 +4284,29 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 750479786130864
+									"sid": 215637598661367
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 626361406254880,
+									"sid": 349132684837016,
 									"parameters": {
-										"variable": "level_Biome",
+										"variable": "level_Type",
 										"comparison": 0,
-										"value": "\"Forest\""
+										"value": "\"Shop\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 777071990725868,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Forest\""
-										]
-									}
+									"callFunction": "Music_Start",
+									"sid": 675138558774694,
+									"parameters": [
+										"\"Base\""
+									]
 								}
 							],
-							"sid": 804755865283555
+							"sid": 293505324358529
 						},
 						{
 							"eventType": "block",
@@ -4046,164 +4314,193 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 558955295881392
+									"sid": 879419031284332
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 815166431000497,
+									"sid": 244008038338158,
 									"parameters": {
-										"variable": "level_Biome",
+										"variable": "level_Type",
 										"comparison": 0,
-										"value": "\"Mountain\""
+										"value": "\"Infected\""
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 869444290517478,
+							"children": [
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 934830314815855,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Forest\""
-										]
-									}
-								}
-							],
-							"sid": 357335660893296
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 418260111500049
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 968525788466132,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"Forest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 660776418883856,
+											"parameters": [
+												"\"Forest\""
+											]
+										}
+									],
+									"sid": 813787143075083
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 415604404336222,
-									"parameters": {
-										"variable": "level_Biome",
-										"comparison": 0,
-										"value": "\"Suburb\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 257784958139932,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"City\""
-										]
-									}
-								}
-							],
-							"sid": 478415991205189
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 855807940220256
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 381745026853728
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 446354441831135,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"Mountain\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 187628637341963,
+											"parameters": [
+												"\"Mountain\""
+											]
+										}
+									],
+									"sid": 632713607860376
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 892592959310840,
-									"parameters": {
-										"variable": "level_Biome",
-										"comparison": 0,
-										"value": "\"Wastes\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 278933095878530,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Industrial\""
-										]
-									}
-								}
-							],
-							"sid": 341864755310591
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 265405301262291
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 723758300408486
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 206914747304484,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"Suburb\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 290246509178693,
+											"parameters": [
+												"\"Wastes\""
+											]
+										}
+									],
+									"sid": 884572529327983
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 533867573703136,
-									"parameters": {
-										"variable": "level_Biome",
-										"comparison": 0,
-										"value": "\"City\""
-									}
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 564865604974002
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 307258631072598,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"Wastes\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 215771771043145,
+											"parameters": [
+												"\"Wastes\""
+											]
+										}
+									],
+									"sid": 399843560958392
+								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 781783773982325,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"City\""
-										]
-									}
-								}
-							],
-							"sid": 268270028900254
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 986102632515785
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 313080294036148,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"City\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 278828052843544,
+											"parameters": [
+												"\"City\""
+											]
+										}
+									],
+									"sid": 271151235655973
+								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 258599815891319,
-									"parameters": {
-										"variable": "level_Biome",
-										"comparison": 0,
-										"value": "\"Industrial\""
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 180608193440244,
+											"parameters": {
+												"variable": "level_Biome",
+												"comparison": 0,
+												"value": "\"Industrial\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Music_Start",
+											"sid": 166841233381984,
+											"parameters": [
+												"\"Industrial\""
+											]
+										}
+									],
+									"sid": 375786496320555
 								}
-							],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 910370418747956,
-									"parameters": {
-										"name": "\"Music_Start\"",
-										"parameter-n": [
-											"\"Industrial\""
-										]
-									}
-								}
-							],
-							"sid": 821734837851156
+							]
 						}
 					]
 				}
@@ -7425,7 +7722,8 @@
 												"layer": "\"Player\"",
 												"x": "ViewportLeft(\"Player\") + random(0,(abs(ViewportLeft(\"Player\")) + abs(ViewportRight(\"Player\"))))",
 												"y": "ViewportTop(\"Player\") - random(5,25)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -7504,7 +7802,8 @@
 												"layer": "\"Player\"",
 												"x": "ViewportLeft(\"Player\") + random(0,(abs(ViewportLeft(\"Player\")) + abs(ViewportRight(\"Player\"))))",
 												"y": "ViewportTop(\"Player\") - random(5,25)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -7583,7 +7882,8 @@
 												"layer": "\"Player\"",
 												"x": "ViewportLeft(\"Player\") + random(0,(abs(ViewportLeft(\"Player\")) + abs(ViewportRight(\"Player\"))))",
 												"y": "ViewportTop(\"Player\") - random(5,25)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -7676,7 +7976,8 @@
 										"layer": "\"Player\"",
 										"x": "Player.X",
 										"y": "944",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{

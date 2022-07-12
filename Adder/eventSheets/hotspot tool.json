@@ -6,6 +6,14 @@
 			"text": "TODO - Support all hotspots simaltaneously"
 		},
 		{
+			"eventType": "comment",
+			"text": "DUAL WEAPON SUPPORT"
+		},
+		{
+			"eventType": "comment",
+			"text": "HOLSTER SUPPORT (just do 2 rn)"
+		},
+		{
 			"eventType": "variable",
 			"name": "util_HotspotsLoaded",
 			"type": "number",
@@ -17,13 +25,43 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "util_HotspotAnim",
+			"name": "util_HotspotAnimArms",
 			"type": "string",
 			"initialValue": "pistol",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 833879765720773
+		},
+		{
+			"eventType": "variable",
+			"name": "util_HotspotAnimHolster",
+			"type": "string",
+			"initialValue": "pistol",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 291206836319004
+		},
+		{
+			"eventType": "variable",
+			"name": "util_HotSpotDual",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 235141128290405
+		},
+		{
+			"eventType": "variable",
+			"name": "util_HotspotMode",
+			"type": "string",
+			"initialValue": "Arms",
+			"comment": "Arms, Holster1, Holster2",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 678667143419499
 		},
 		{
 			"eventType": "block",
@@ -38,9 +76,9 @@
 				{
 					"id": "set-layout-scale",
 					"objectClass": "System",
-					"sid": 311455296607317,
+					"sid": 745053570995532,
 					"parameters": {
-						"scale": "2"
+						"scale": "1.5"
 					}
 				}
 			],
@@ -127,6 +165,15 @@
 							"parameters": {
 								"key": 49
 							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Player_Sprite",
+							"sid": 490376156780583,
+							"parameters": {
+								"unique-id": "150"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -137,6 +184,24 @@
 							"parameters": {
 								"animation": "\"IdleA\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 366193393748907,
+							"parameters": {
+								"name": "\"Util_UpdateArms\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 146863408098698,
+							"parameters": {
+								"name": "\"Util_UpdateHolster\"",
+								"parameter-n": []
 							}
 						}
 					],
@@ -152,6 +217,15 @@
 							"parameters": {
 								"key": 50
 							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Player_Sprite",
+							"sid": 447253493221314,
+							"parameters": {
+								"unique-id": "150"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -162,6 +236,24 @@
 							"parameters": {
 								"animation": "\"WalkA\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 316429514467689,
+							"parameters": {
+								"name": "\"Util_UpdateArms\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 584720333412378,
+							"parameters": {
+								"name": "\"Util_UpdateHolster\"",
+								"parameter-n": []
 							}
 						}
 					],
@@ -177,16 +269,43 @@
 							"parameters": {
 								"key": 51
 							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Player_Sprite",
+							"sid": 471762036403504,
+							"parameters": {
+								"unique-id": "150"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation",
 							"objectClass": "Player_Sprite",
-							"sid": 650986114003750,
+							"sid": 212586215872524,
 							"parameters": {
-								"animation": "\"JumpA\"",
+								"animation": "\"BackWalkA\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 119075697988475,
+							"parameters": {
+								"name": "\"Util_UpdateArms\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 737378787251540,
+							"parameters": {
+								"name": "\"Util_UpdateHolster\"",
+								"parameter-n": []
 							}
 						}
 					],
@@ -202,16 +321,43 @@
 							"parameters": {
 								"key": 52
 							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Player_Sprite",
+							"sid": 731729826412824,
+							"parameters": {
+								"unique-id": "150"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation",
 							"objectClass": "Player_Sprite",
-							"sid": 238271587588416,
+							"sid": 996658102790703,
 							"parameters": {
-								"animation": "\"FallA\"",
+								"animation": "\"JumpA\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 644436702600728,
+							"parameters": {
+								"name": "\"Util_UpdateArms\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 640002894349635,
+							"parameters": {
+								"name": "\"Util_UpdateHolster\"",
+								"parameter-n": []
 							}
 						}
 					],
@@ -227,16 +373,43 @@
 							"parameters": {
 								"key": 53
 							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Player_Sprite",
+							"sid": 254762542535971,
+							"parameters": {
+								"unique-id": "150"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player_Holster2",
-							"sid": 451618558942062,
+							"objectClass": "Player_Sprite",
+							"sid": 118450703075369,
 							"parameters": {
-								"animation": "\"SMG\"",
+								"animation": "\"FallA\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 122538118251491,
+							"parameters": {
+								"name": "\"Util_UpdateArms\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 850241025299097,
+							"parameters": {
+								"name": "\"Util_UpdateHolster\"",
+								"parameter-n": []
 							}
 						}
 					],
@@ -257,15 +430,16 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player_Holster2",
-							"sid": 293554401516380,
+							"objectClass": "Player_Holster",
+							"sid": 460223086357010,
 							"parameters": {
-								"animation": "\"Shotgun\"",
+								"animation": "\"SMG\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 459388802299044
+					"sid": 459388802299044,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -282,15 +456,16 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player_Holster2",
-							"sid": 944012044440482,
+							"objectClass": "Player_Holster",
+							"sid": 985647657834386,
 							"parameters": {
-								"animation": "\"Rifle\"",
+								"animation": "\"Shotgun\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 351397592877739
+					"sid": 351397592877739,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -307,18 +482,380 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Player_Sprite",
-							"sid": 334161154361090,
+							"objectClass": "Player_Holster",
+							"sid": 787070134174737,
 							"parameters": {
-								"animation": "\"BackWalkA\"",
+								"animation": "\"Rifle\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 108344201811496
+					"sid": 108344201811496,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 362245525394572,
+							"parameters": {
+								"key": 56
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player_Arms",
+							"sid": 713324048553200,
+							"parameters": {
+								"animation": "\"Pistol\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 143712703088789,
+					"disabled": true
 				}
 			],
 			"sid": 654348912296608
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Hotspot Lists",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "Util_HotspotWeapon",
+							"sid": 577077252184564
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Util_HotspotMode",
+							"sid": 321577362028236
+						}
+					],
+					"sid": 984161882724825
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "Util_HotspotList",
+							"sid": 304706744574912
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Util_HotspotMode",
+							"sid": 671309432434511
+						}
+					],
+					"sid": 500832378700083
+				},
+				{
+					"functionName": "Util_HotspotMode",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 471005718093162,
+							"parameters": {
+								"variable": "util_HotspotMode",
+								"value": "Util_HotspotList.SelectedText"
+							}
+						}
+					],
+					"sid": 185527600902450,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": ""
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-selected-item-text",
+									"objectClass": "Util_HotspotList",
+									"sid": 989857297686980,
+									"parameters": {
+										"text-to-compare": "\"Arms\"",
+										"case-sensitivity": "ignore-case"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player_Arms",
+									"sid": 418686629823084,
+									"parameters": {
+										"animation": "Util_HotspotWeapon.SelectedText",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Player_Holster",
+									"sid": 411403082381301,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 196310659515154,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "WeaponParent",
+											"sid": 530443035464276,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "Util_HotspotWeapon.SelectedText"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 227780228571423,
+											"disabled": true,
+											"parameters": {
+												"variable": "util_HotspotAnimArms",
+												"value": "Util_HotspotWeapon.SelectedText"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 967431797513005,
+											"parameters": {
+												"variable": "util_HotspotAnimArms",
+												"value": "WeaponParent.Hotspot"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 435619824474125,
+											"parameters": {
+												"type": "log",
+												"message": "WeaponParent.Hotspot"
+											}
+										}
+									],
+									"sid": 653748759822334,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 851548695727255,
+													"parameters": {
+														"instance-variable": "isDual",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Player_Arms2",
+													"sid": 844712650156571,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 224801381139083
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 486971836874731
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Player_Arms2",
+													"sid": 251683921806038,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Player_Arms2",
+													"sid": 755278471635443,
+													"parameters": {
+														"animation": "Util_HotspotWeapon.SelectedText",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 756221316360000
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Util_LoadDefaultHotspots",
+											"sid": 534065149814328
+										}
+									],
+									"sid": 750102623440932
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 192828155773739
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Player_Holster",
+									"sid": 991504890139096,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Player_Holster",
+									"sid": 827086841708229,
+									"parameters": {
+										"animation": "Util_HotspotWeapon.SelectedText",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 240755507448948,
+									"disabled": true,
+									"parameters": {
+										"variable": "util_HotspotAnimHolster",
+										"value": "Util_HotspotWeapon.SelectedText"
+									}
+								}
+							],
+							"sid": 355635991443406,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "WeaponParent",
+											"sid": 347035904580685,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "Util_HotspotWeapon.SelectedText"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 425838881790768,
+											"disabled": true,
+											"parameters": {
+												"variable": "util_HotspotAnimHolster",
+												"value": "WeaponParent.Hotspot"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 906708171718677,
+											"parameters": {
+												"variable": "util_HotspotAnimHolster",
+												"value": "\"holster2\""
+											}
+										}
+									],
+									"sid": 335404569369586
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Player_Arms",
+											"sid": 660531103873666,
+											"parameters": {
+												"animation": "\"Pistol\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 632378347554129,
+											"parameters": {
+												"variable": "util_HotspotAnimArms",
+												"value": "\"pistol\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Player_Arms2",
+											"sid": 124619677132686,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 584589552657531
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 630920808255983
 		},
 		{
 			"eventType": "group",
@@ -328,31 +865,406 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "mouse-button-is-down",
-							"objectClass": "Mouse",
-							"sid": 380680727023731,
-							"parameters": {
-								"mouse-button": "left"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 692900120332584,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Hotspot Movement",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Arms"
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "mouse-button-is-down",
+									"objectClass": "Mouse",
+									"sid": 823766570260082,
+									"parameters": {
+										"mouse-button": "left"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 151503966865228,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Arms"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Arms",
+											"sid": 707157800232890,
+											"parameters": {
+												"unique-id": "123"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player_Arms",
+											"sid": 318792388725201,
+											"parameters": {
+												"x": "int(Mouse.X)",
+												"y": "int(Mouse.Y)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 278842941647547,
+											"parameters": {
+												"name": "\"Util_UpdateHotspots\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 310355852914531,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Holster1",
+											"sid": 782661180013810,
+											"parameters": {
+												"unique-id": "218"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player_Holster1",
+											"sid": 806913445491128,
+											"parameters": {
+												"x": "int(Mouse.X)",
+												"y": "int(Mouse.Y)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 970562424484549,
+											"parameters": {
+												"name": "\"Util_UpdateHotspots1\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 168060158024265
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Holster",
+											"sid": 139621794369953,
+											"parameters": {
+												"unique-id": "217"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player_Holster",
+											"sid": 741189340792935,
+											"parameters": {
+												"x": "int(Mouse.X)",
+												"y": "int(Mouse.Y)"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 248396977958221,
+											"parameters": {
+												"name": "\"Util_UpdateHotspots2\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 634094622216567
+								}
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-drag-start",
+									"objectClass": "Util_DnD",
+									"sid": 253370244788631,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Util_DnD",
+									"sid": 802807273282937,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 751866896094493,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Util_DnD",
+									"sid": 318031410980075,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 999508473608345,
+									"parameters": {
+										"x": "int(Self.X)",
+										"y": "int(Self.Y)"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 711597703636992
+								}
+							],
+							"sid": 781016861947843
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "Util_DnD",
+									"sid": 903789920380449,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 725721007773783,
+									"parameters": {
+										"x": "int(Self.X)",
+										"y": "int(Self.Y)"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 367536242582018
+								}
+							],
+							"sid": 489449279806559
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 524425331456109,
+									"parameters": {
+										"key": 87
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 844996372377084,
+									"parameters": {
+										"x": "Self.X",
+										"y": "Self.Y - 1"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 150181663211721
+								}
+							],
+							"sid": 688901435202513
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 952524619413693,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 405473359508111,
+									"parameters": {
+										"x": "Self.X",
+										"y": "Self.Y + 1"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 240032062216244
+								}
+							],
+							"sid": 899402876184167
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 157567548367379,
+									"parameters": {
+										"key": 65
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 748296960760381,
+									"parameters": {
+										"x": "Self.X - 1",
+										"y": "Self.Y"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 499059273722600
+								}
+							],
+							"sid": 285955995468107
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 269425784915778,
+									"parameters": {
+										"key": 68
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Util_DnD",
+									"sid": 579797115413969,
+									"parameters": {
+										"x": "Self.X + 1",
+										"y": "Self.Y"
+									}
+								},
+								{
+									"callFunction": "Util_UpdateHotspot",
+									"sid": 126476165799619
+								}
+							],
+							"sid": 339585953708681
+						},
+						{
+							"functionName": "Util_UpdateHotspot",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 502118631205896,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 765011202414395,
+											"parameters": {
+												"variable": "util_HotspotMode",
+												"comparison": 0,
+												"value": "\"Arms\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Util_UpdateArmsHotSpot",
+											"sid": 474566645126831
+										}
+									],
+									"sid": 470106323966728
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 682802159900314
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 587834641740332,
+											"parameters": {
+												"variable": "util_HotspotMode",
+												"comparison": 0,
+												"value": "\"Holster\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Util_UpdateHolsterHotspot",
+											"sid": 314542054428071
+										}
+									],
+									"sid": 140734105342184
+								}
+							]
+						},
+						{
+							"functionName": "Util_UpdateArmsHotSpot",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Player_Arms",
-									"sid": 755539189940349,
+									"sid": 857881477264721,
 									"parameters": {
 										"unique-id": "123"
 									}
@@ -362,31 +1274,64 @@
 								{
 									"id": "set-position",
 									"objectClass": "Player_Arms",
-									"sid": 122686741446252,
+									"sid": 415087353251463,
 									"parameters": {
-										"x": "int(Mouse.X)",
-										"y": "int(Mouse.Y)"
+										"x": "Util_DnD.X - Util_DnD.Width/2",
+										"y": "Util_DnD.Y"
 									}
 								},
 								{
 									"id": "call-function",
 									"objectClass": "function",
-									"sid": 166061931467179,
+									"sid": 239324406032442,
 									"parameters": {
 										"name": "\"Util_UpdateHotspots\"",
 										"parameter-n": []
 									}
 								}
 							],
-							"sid": 734042080669440
+							"sid": 230659323892238,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Arms2",
+											"sid": 203393322896332,
+											"parameters": {
+												"unique-id": "29237"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player_Arms2",
+											"sid": 248833520790096,
+											"parameters": {
+												"x": "Util_DnD.X - Util_DnD.Width/2",
+												"y": "Util_DnD.Y"
+											}
+										}
+									],
+									"sid": 807737110209179
+								}
+							]
 						},
 						{
-							"eventType": "block",
+							"functionName": "Util_UpdateHolsterHotspot",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster1",
-									"sid": 599702550633557,
+									"objectClass": "Player_Holster",
+									"sid": 307053749743769,
 									"parameters": {
 										"unique-id": "218"
 									}
@@ -395,61 +1340,27 @@
 							"actions": [
 								{
 									"id": "set-position",
-									"objectClass": "Player_Holster1",
-									"sid": 877047894629742,
+									"objectClass": "Player_Holster",
+									"sid": 827688457613580,
 									"parameters": {
-										"x": "int(Mouse.X)",
-										"y": "int(Mouse.Y)"
+										"x": "Util_DnD.X ",
+										"y": "Util_DnD.Y"
 									}
 								},
 								{
 									"id": "call-function",
 									"objectClass": "function",
-									"sid": 155665319934268,
-									"parameters": {
-										"name": "\"Util_UpdateHotspots1\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 719567044576243
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster2",
-									"sid": 731438067356381,
-									"parameters": {
-										"unique-id": "217"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Player_Holster2",
-									"sid": 747800562439400,
-									"parameters": {
-										"x": "int(Mouse.X)",
-										"y": "int(Mouse.Y)"
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 625524731830570,
+									"sid": 723784644584407,
 									"parameters": {
 										"name": "\"Util_UpdateHotspots2\"",
 										"parameter-n": []
 									}
 								}
 							],
-							"sid": 767341221875887,
-							"disabled": true
+							"sid": 932044078430925
 						}
-					]
+					],
+					"sid": 616884007428219
 				},
 				{
 					"eventType": "block",
@@ -489,20 +1400,9 @@
 						{
 							"id": "call-function",
 							"objectClass": "function",
-							"sid": 872336960429745,
-							"disabled": true,
+							"sid": 197671225654521,
 							"parameters": {
-								"name": "\"Util_UpdateHolster1\"",
-								"parameter-n": []
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 649926330799958,
-							"disabled": true,
-							"parameters": {
-								"name": "\"Util_UpdateHolster2\"",
+								"name": "\"Util_UpdateHolster\"",
 								"parameter-n": []
 							}
 						}
@@ -521,19 +1421,9 @@
 							}
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 220110591940149,
-							"parameters": {
-								"instance-variable": "Animation",
-								"comparison": 0,
-								"value": "Player_Sprite.AnimationName"
-							}
-						},
-						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Player_Sprite",
-							"sid": 838116659723293,
+							"sid": 203649542355195,
 							"parameters": {
 								"unique-id": "76"
 							}
@@ -541,16 +1431,26 @@
 						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Player_Arms",
-							"sid": 340356987533891,
+							"sid": 141775009022486,
 							"parameters": {
 								"unique-id": "123"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Util_ArmHotspots",
+							"sid": 220110591940149,
+							"parameters": {
+								"instance-variable": "Animation",
+								"comparison": 0,
+								"value": "Player_Sprite.AnimationName"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_ArmHotspots",
 							"sid": 609533004145796,
 							"parameters": {
 								"x": "Player_Sprite.AnimationFrame",
@@ -560,7 +1460,7 @@
 						},
 						{
 							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_ArmHotspots",
 							"sid": 373688164168200,
 							"parameters": {
 								"x": "Player_Sprite.AnimationFrame",
@@ -586,77 +1486,6 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 813009482312317,
-							"parameters": {
-								"name": "\"Util_UpdateHotspots1\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 216264906164766,
-							"parameters": {
-								"instance-variable": "Animation",
-								"comparison": 0,
-								"value": "Player_Sprite.AnimationName"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Player_Sprite",
-							"sid": 596638187929204,
-							"parameters": {
-								"unique-id": "76"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Player_Holster1",
-							"sid": 381754662172420,
-							"parameters": {
-								"unique-id": "218"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 391341893947801,
-							"parameters": {
-								"x": "Player_Sprite.AnimationFrame",
-								"y": "0",
-								"value": "round((Player_Holster1.X - Player_Sprite.ImagePointX(\"topleft\")))"
-							}
-						},
-						{
-							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 511117282972121,
-							"parameters": {
-								"x": "Player_Sprite.AnimationFrame",
-								"y": "1",
-								"value": "round((Player_Holster1.Y - Player_Sprite.ImagePointY(\"topleft\")))"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 666561460599103,
-							"parameters": {
-								"name": "\"Util_UpdateHolster1\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 123626595589898
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
 							"sid": 941013484425605,
 							"parameters": {
 								"name": "\"Util_UpdateHotspots2\""
@@ -664,7 +1493,7 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_HolsterHotspots",
 							"sid": 536992574973121,
 							"parameters": {
 								"instance-variable": "Animation",
@@ -682,40 +1511,40 @@
 						},
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Player_Holster2",
-							"sid": 244251318270934,
+							"objectClass": "Player_Holster",
+							"sid": 375845581650699,
 							"parameters": {
-								"unique-id": "217"
+								"unique-id": "218"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_HolsterHotspots",
 							"sid": 642396546292976,
 							"parameters": {
 								"x": "Player_Sprite.AnimationFrame",
 								"y": "0",
-								"value": "round((Player_Holster2.X - Player_Sprite.ImagePointX(\"topleft\")))"
+								"value": "round((Player_Holster.X - Player_Sprite.ImagePointX(\"topleft\")))"
 							}
 						},
 						{
 							"id": "set-at-xy",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_HolsterHotspots",
 							"sid": 281163881898294,
 							"parameters": {
 								"x": "Player_Sprite.AnimationFrame",
 								"y": "1",
-								"value": "round((Player_Holster2.Y - Player_Sprite.ImagePointY(\"topleft\")))"
+								"value": "round((Player_Holster.Y - Player_Sprite.ImagePointY(\"topleft\")))"
 							}
 						},
 						{
 							"id": "call-function",
 							"objectClass": "function",
-							"sid": 260939309902099,
+							"sid": 692875211200735,
 							"parameters": {
-								"name": "\"Util_UpdateHolster2\"",
+								"name": "\"Util_UpdateHolster\"",
 								"parameter-n": []
 							}
 						}
@@ -734,19 +1563,9 @@
 							}
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 481000102174777,
-							"parameters": {
-								"instance-variable": "Animation",
-								"comparison": 0,
-								"value": "Player_Sprite.AnimationName"
-							}
-						},
-						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Player_Sprite",
-							"sid": 628596957791866,
+							"sid": 421203539526886,
 							"parameters": {
 								"unique-id": "76"
 							}
@@ -754,9 +1573,19 @@
 						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Player_Arms",
-							"sid": 415909160027052,
+							"sid": 306909612957991,
 							"parameters": {
 								"unique-id": "123"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Util_ArmHotspots",
+							"sid": 481000102174777,
+							"parameters": {
+								"instance-variable": "Animation",
+								"comparison": 0,
+								"value": "Player_Sprite.AnimationName"
 							}
 						}
 					],
@@ -766,8 +1595,8 @@
 							"objectClass": "Player_Arms",
 							"sid": 388269908169467,
 							"parameters": {
-								"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-								"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
+								"x": "player_sprite.ImagePointX(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,0)",
+								"y": "player_sprite.ImagePointY(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,1)"
 							}
 						},
 						{
@@ -779,7 +1608,77 @@
 							}
 						}
 					],
-					"sid": 234707621325225
+					"sid": 234707621325225,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 183772249427125,
+									"parameters": {
+										"variable": "util_HotspotMode",
+										"comparison": 0,
+										"value": "\"Arms\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 367706553499712,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-dragging",
+											"objectClass": "Util_DnD",
+											"sid": 739958060864294,
+											"behaviorType": "DragDrop",
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Util_DnD",
+											"sid": 944779943750871,
+											"parameters": {
+												"x": "Player_Arms.X + Util_DnD.Width/2",
+												"y": "Player_Arms.Y"
+											}
+										}
+									],
+									"sid": 752945137605473
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Player_Arms2",
+									"sid": 635350669334015,
+									"parameters": {
+										"unique-id": "29237"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Player_Arms2",
+									"sid": 320552820325054,
+									"parameters": {
+										"x": "Player_Arms.X",
+										"y": "Player_Arms.Y"
+									}
+								}
+							],
+							"sid": 532561547225390
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -787,73 +1686,14 @@
 						{
 							"id": "on-function",
 							"objectClass": "function",
-							"sid": 204708959061136,
+							"sid": 414920943764478,
 							"parameters": {
-								"name": "\"Util_UpdateHolster1\""
+								"name": "\"Util_UpdateHolster\""
 							}
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 542588055621505,
-							"parameters": {
-								"instance-variable": "Animation",
-								"comparison": 0,
-								"value": "Player_Sprite.AnimationName"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Player_Sprite",
-							"sid": 340806833226742,
-							"parameters": {
-								"unique-id": "76"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Player_Holster1",
-							"sid": 643715240998323,
-							"parameters": {
-								"unique-id": "218"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Player_Holster1",
-							"sid": 966935757585751,
-							"parameters": {
-								"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-								"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Debug_SF",
-							"sid": 826932830799500,
-							"parameters": {
-								"text": "\"Anim: \" & Player_Sprite.AnimationName & newline & \"Frame: \" & Player_Sprite.AnimationFrame & newline & \"X: \" & round((Player_Holster1.X - Player_Sprite.ImagePointX(\"topleft\"))) & newline & \"Y: \" & round((Player_Holster1.Y - Player_Sprite.ImagePointY(\"topleft\")))"
-							}
-						}
-					],
-					"sid": 304490229260699
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 260732092272644,
-							"parameters": {
-								"name": "\"Util_UpdateHolster2\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_HolsterHotspots",
 							"sid": 111193386049385,
 							"parameters": {
 								"instance-variable": "Animation",
@@ -871,21 +1711,21 @@
 						},
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Player_Holster2",
-							"sid": 264272484346870,
+							"objectClass": "Player_Holster",
+							"sid": 748234476684764,
 							"parameters": {
-								"unique-id": "217"
+								"unique-id": "218"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-position",
-							"objectClass": "Player_Holster2",
+							"objectClass": "Player_Holster",
 							"sid": 738015848343412,
 							"parameters": {
-								"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-								"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
+								"x": "player_sprite.ImagePointX(\"topleft\") + Util_HolsterHotspots.At(Player_Sprite.AnimationFrame,0)",
+								"y": "player_sprite.ImagePointY(\"topleft\") + Util_HolsterHotspots.At(Player_Sprite.AnimationFrame,1)"
 							}
 						},
 						{
@@ -893,11 +1733,56 @@
 							"objectClass": "Debug_SF",
 							"sid": 995789104606174,
 							"parameters": {
-								"text": "\"Anim: \" & Player_Sprite.AnimationName & newline & \"Frame: \" & Player_Sprite.AnimationFrame & newline & \"X: \" & round((Player_Holster2.X - Player_Sprite.ImagePointX(\"topleft\"))) & newline & \"Y: \" & round((Player_Holster2.Y - Player_Sprite.ImagePointY(\"topleft\")))"
+								"text": "\"Anim: \" & Player_Sprite.AnimationName & newline & \"Frame: \" & Player_Sprite.AnimationFrame & newline & \"X: \" & round((Player_Holster.X - Player_Sprite.ImagePointX(\"topleft\"))) & newline & \"Y: \" & round((Player_Holster.Y - Player_Sprite.ImagePointY(\"topleft\")))"
 							}
 						}
 					],
-					"sid": 766068136216951
+					"sid": 766068136216951,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 808418719237069,
+									"parameters": {
+										"variable": "util_HotspotMode",
+										"comparison": 0,
+										"value": "\"Holster\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 543645073310137,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-dragging",
+											"objectClass": "Util_DnD",
+											"sid": 898830761063337,
+											"behaviorType": "DragDrop",
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Util_DnD",
+											"sid": 768723006776895,
+											"parameters": {
+												"x": "Player_Holster.X",
+												"y": "Player_Holster.Y"
+											}
+										}
+									],
+									"sid": 412155951019960
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 368924555664870
@@ -927,8 +1812,18 @@
 						},
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Util_AnimationHotspots",
+							"objectClass": "Util_ArmHotspots",
 							"sid": 547576801632086,
+							"parameters": {
+								"instance-variable": "Animation",
+								"comparison": 0,
+								"value": "Player_Sprite.AnimationName"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Util_HolsterHotspots",
+							"sid": 810771866392845,
 							"parameters": {
 								"instance-variable": "Animation",
 								"comparison": 0,
@@ -957,8 +1852,8 @@
 									"objectClass": "Player_Arms",
 									"sid": 187047321480715,
 									"parameters": {
-										"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-										"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
+										"x": "player_sprite.ImagePointX(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,0)",
+										"y": "player_sprite.ImagePointY(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,1)"
 									}
 								}
 							],
@@ -969,52 +1864,50 @@
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster1",
-									"sid": 660062850200117,
+									"objectClass": "Player_Holster",
+									"sid": 642326773264742,
 									"parameters": {
-										"unique-id": "225"
+										"unique-id": "217"
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-position",
-									"objectClass": "Player_Holster1",
-									"sid": 503081705784669,
+									"objectClass": "Player_Holster",
+									"sid": 535065122771696,
 									"parameters": {
-										"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-										"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
+										"x": "player_sprite.ImagePointX(\"topleft\") + Util_HolsterHotspots.At(Player_Sprite.AnimationFrame,0)",
+										"y": "player_sprite.ImagePointY(\"topleft\") + Util_HolsterHotspots.At(Player_Sprite.AnimationFrame,1)"
 									}
 								}
 							],
-							"sid": 813174061354874,
-							"disabled": true
+							"sid": 104105086681620
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster2",
-									"sid": 673048697801769,
+									"objectClass": "Player_Arms2",
+									"sid": 645658682988230,
 									"parameters": {
-										"unique-id": "220"
+										"unique-id": "29226"
 									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-position",
-									"objectClass": "Player_Holster2",
-									"sid": 535065122771696,
+									"objectClass": "Player_Arms2",
+									"sid": 763174756969245,
 									"parameters": {
-										"x": "player_sprite.ImagePointX(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,0)",
-										"y": "player_sprite.ImagePointY(\"topleft\") + Util_AnimationHotspots.At(Player_Sprite.AnimationFrame,1)"
+										"x": "player_sprite.ImagePointX(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,0)",
+										"y": "player_sprite.ImagePointY(\"topleft\") + Util_ArmHotspots.At(Player_Sprite.AnimationFrame,1)"
 									}
 								}
 							],
-							"sid": 104105086681620,
-							"disabled": true
+							"sid": 436753552310545
 						}
 					]
 				}
@@ -1029,140 +1922,212 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 769248037901322
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Player_Sprite",
-							"sid": 306639956726441,
-							"parameters": {
-								"unique-id": "150"
-							}
-						}
-					],
+					"functionName": "Util_LoadDefaultHotspots",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 752256259152110
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 590413200669510,
+							"id": "set-text",
+							"objectClass": "Debug_SF",
+							"sid": 874499113163866,
 							"parameters": {
-								"object-to-create": "Util_AnimationHotspots",
-								"layer": "0",
-								"x": "0",
-								"y": "0",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 509314920139171,
-							"parameters": {
-								"instance-variable": "Animation",
-								"value": "Player_Sprite.AnimationName"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "Util_AnimationHotspots",
-							"sid": 961337313878473,
-							"parameters": {
-								"width": "Player_Sprite.AnimationFrameCount",
-								"height": "2",
-								"depth": "1"
+								"text": "\"LOADING...\""
 							}
 						}
 					],
-					"sid": 471723300782057,
+					"sid": 183437894421780,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Player_Arms",
-									"sid": 729551584780226,
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 668751776735945,
 									"parameters": {
-										"unique-id": "151"
+										"object": "Util_ArmHotspots"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-position-to-another-object",
-									"objectClass": "Player_Arms",
-									"sid": 120796052913559,
+									"id": "destroy",
+									"objectClass": "Util_ArmHotspots",
+									"sid": 130219036799047
+								}
+							],
+							"sid": 519703059759277
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 205085305136123,
 									"parameters": {
-										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
+										"object": "Util_HolsterHotspots"
 									}
 								}
 							],
-							"sid": 847982282399739
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Util_HolsterHotspots",
+									"sid": 567569285499150
+								}
+							],
+							"sid": 824133250577655
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster1",
-									"sid": 223603118025916,
+									"objectClass": "Player_Sprite",
+									"sid": 681585644125015,
 									"parameters": {
-										"unique-id": "234"
+										"unique-id": "150"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-position-to-another-object",
-									"objectClass": "Player_Holster1",
-									"sid": 642396730023187,
+									"id": "set-animation",
+									"objectClass": "Player_Sprite",
+									"sid": 762554655117095,
 									"parameters": {
-										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
+										"animation": "\"IdleA\"",
+										"from": "beginning"
 									}
-								}
-							],
-							"sid": 931945594001741,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+								},
 								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster2",
-									"sid": 564408114834251,
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 640836677066459,
 									"parameters": {
-										"unique-id": "226"
+										"speed": "60"
 									}
-								}
-							],
-							"actions": [
+								},
 								{
-									"id": "set-position-to-another-object",
-									"objectClass": "Player_Holster2",
-									"sid": 115239450968432,
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 650107449209284,
+									"disabled": true,
 									"parameters": {
-										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
+										"object-to-create": "Util_ArmHotspots",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Util_ArmHotspots",
+									"sid": 419111304032748,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Animation",
+										"value": "Player_Sprite.AnimationName"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Util_ArmHotspots",
+									"sid": 474848933818106,
+									"disabled": true,
+									"parameters": {
+										"width": "Player_Sprite.AnimationFrameCount",
+										"height": "2",
+										"depth": "1"
 									}
 								}
 							],
-							"sid": 666067346984072,
-							"disabled": true
+							"sid": 369491032529755,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Arms",
+											"sid": 661562950533658,
+											"parameters": {
+												"unique-id": "151"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Player_Arms",
+											"sid": 467514215106852,
+											"parameters": {
+												"object": "Player_Sprite",
+												"image-point-optional": "util_HotspotAnimArms"
+											}
+										}
+									],
+									"sid": 978025293709724
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player_Holster",
+											"sid": 877604355271948,
+											"parameters": {
+												"unique-id": "226"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Player_Holster",
+											"sid": 185309545409001,
+											"parameters": {
+												"object": "Player_Sprite",
+												"image-point-optional": "util_HotspotAnimArms"
+											}
+										}
+									],
+									"sid": 104660937094086
+								}
+							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 791320364932063
+						},
+						{
+							"id": "on-clicked",
+							"objectClass": "Util_HostpostLoad",
+							"sid": 585838025205867
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Util_LoadDefaultHotspots",
+							"sid": 394698377033857
+						}
+					],
+					"sid": 729219707712074,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -1199,8 +2164,9 @@
 							"actions": [
 								{
 									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
+									"objectClass": "Util_ArmHotspots",
 									"sid": 502205617743034,
+									"disabled": true,
 									"parameters": {
 										"x": "Player_Sprite.AnimationFrame",
 										"y": "0",
@@ -1209,8 +2175,9 @@
 								},
 								{
 									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
+									"objectClass": "Util_ArmHotspots",
 									"sid": 162921360097812,
+									"disabled": true,
 									"parameters": {
 										"x": "Player_Sprite.AnimationFrame",
 										"y": "1",
@@ -1223,7 +2190,7 @@
 									"sid": 819161274109939,
 									"parameters": {
 										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
+										"image-point-optional": "util_HotspotAnimArms"
 									}
 								}
 							],
@@ -1248,16 +2215,17 @@
 											"objectClass": "System",
 											"sid": 763979814321780,
 											"parameters": {
-												"object-to-create": "Util_AnimationHotspots",
+												"object-to-create": "Util_ArmHotspots",
 												"layer": "0",
 												"x": "0",
 												"y": "0",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 449631606353833,
 											"parameters": {
 												"instance-variable": "Animation",
@@ -1266,7 +2234,7 @@
 										},
 										{
 											"id": "set-size",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 616273254104102,
 											"parameters": {
 												"width": "Player_Sprite.AnimationFrameCount",
@@ -1276,7 +2244,7 @@
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 577448723341984,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
@@ -1286,7 +2254,7 @@
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 770748578778126,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
@@ -1302,7 +2270,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 342095688598495,
 											"parameters": {
 												"instance-variable": "Animation",
@@ -1314,7 +2282,7 @@
 									"actions": [
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 278096849042084,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
@@ -1324,7 +2292,7 @@
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_ArmHotspots",
 											"sid": 318034709708372,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
@@ -1342,163 +2310,7 @@
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster1",
-									"sid": 505018725629918,
-									"parameters": {
-										"unique-id": "234"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
-									"sid": 597771188567069,
-									"parameters": {
-										"x": "Player_Sprite.AnimationFrame",
-										"y": "0",
-										"value": "round((Player_Holster1.X - Player_Sprite.ImagePointX(\"topleft\")))"
-									}
-								},
-								{
-									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
-									"sid": 109043403693010,
-									"parameters": {
-										"x": "Player_Sprite.AnimationFrame",
-										"y": "1",
-										"value": "round((Player_Holster1.Y - Player_Sprite.ImagePointY(\"topleft\")))"
-									}
-								},
-								{
-									"id": "set-position-to-another-object",
-									"objectClass": "Player_Holster1",
-									"sid": 937209369773751,
-									"parameters": {
-										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
-									}
-								}
-							],
-							"sid": 501775508985042,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-animation-frame",
-											"objectClass": "Player_Sprite",
-											"sid": 336306415803397,
-											"parameters": {
-												"comparison": 0,
-												"number": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 260376657480811,
-											"parameters": {
-												"object-to-create": "Util_AnimationHotspots",
-												"layer": "0",
-												"x": "0",
-												"y": "0",
-												"create-hierarchy": false
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 551006183611053,
-											"parameters": {
-												"instance-variable": "Animation",
-												"value": "Player_Sprite.AnimationName"
-											}
-										},
-										{
-											"id": "set-size",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 138334235087882,
-											"parameters": {
-												"width": "Player_Sprite.AnimationFrameCount",
-												"height": "2",
-												"depth": "1"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 678215554402762,
-											"parameters": {
-												"x": "Player_Sprite.AnimationFrame",
-												"y": "0",
-												"value": "round((Player_Holster1.X - Player_Sprite.ImagePointX(\"topleft\")))"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 103687441582861,
-											"parameters": {
-												"x": "Player_Sprite.AnimationFrame",
-												"y": "1",
-												"value": "round((Player_Holster1.Y - Player_Sprite.ImagePointY(\"topleft\")))"
-											}
-										}
-									],
-									"sid": 339620957362360,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 155377438025382,
-											"parameters": {
-												"instance-variable": "Animation",
-												"comparison": 0,
-												"value": "Player_Sprite.AnimationName"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 631233267376941,
-											"parameters": {
-												"x": "Player_Sprite.AnimationFrame",
-												"y": "0",
-												"value": "round((Player_Holster1.X - Player_Sprite.ImagePointX(\"topleft\")))"
-											}
-										},
-										{
-											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
-											"sid": 378159572094591,
-											"parameters": {
-												"x": "Player_Sprite.AnimationFrame",
-												"y": "1",
-												"value": "round((Player_Holster1.Y - Player_Sprite.ImagePointY(\"topleft\")))"
-											}
-										}
-									],
-									"sid": 652177281450481,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster2",
+									"objectClass": "Player_Holster",
 									"sid": 940840716707285,
 									"parameters": {
 										"unique-id": "226"
@@ -1508,36 +2320,37 @@
 							"actions": [
 								{
 									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
+									"objectClass": "Util_HolsterHotspots",
 									"sid": 181561817257030,
+									"disabled": true,
 									"parameters": {
 										"x": "Player_Sprite.AnimationFrame",
 										"y": "0",
-										"value": "round((Player_Holster2.X - Player_Sprite.ImagePointX(\"topleft\")))"
+										"value": "round((Player_Holster.X - Player_Sprite.ImagePointX(\"topleft\")))"
 									}
 								},
 								{
 									"id": "set-at-xy",
-									"objectClass": "Util_AnimationHotspots",
+									"objectClass": "Util_HolsterHotspots",
 									"sid": 705012263503652,
+									"disabled": true,
 									"parameters": {
 										"x": "Player_Sprite.AnimationFrame",
 										"y": "1",
-										"value": "round((Player_Holster2.Y - Player_Sprite.ImagePointY(\"topleft\")))"
+										"value": "round((Player_Holster.Y - Player_Sprite.ImagePointY(\"topleft\")))"
 									}
 								},
 								{
 									"id": "set-position-to-another-object",
-									"objectClass": "Player_Holster2",
-									"sid": 439478210344005,
+									"objectClass": "Player_Holster",
+									"sid": 272964584167130,
 									"parameters": {
 										"object": "Player_Sprite",
-										"image-point-optional": "util_HotspotAnim"
+										"image-point-optional": "util_HotspotAnimHolster"
 									}
 								}
 							],
 							"sid": 275247808704687,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -1558,16 +2371,17 @@
 											"objectClass": "System",
 											"sid": 378265448605712,
 											"parameters": {
-												"object-to-create": "Util_AnimationHotspots",
+												"object-to-create": "Util_HolsterHotspots",
 												"layer": "0",
 												"x": "0",
 												"y": "0",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 700276819322050,
 											"parameters": {
 												"instance-variable": "Animation",
@@ -1576,7 +2390,7 @@
 										},
 										{
 											"id": "set-size",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 154024960164148,
 											"parameters": {
 												"width": "Player_Sprite.AnimationFrameCount",
@@ -1586,34 +2400,33 @@
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 946293464183707,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
 												"y": "0",
-												"value": "round((Player_Holster2.X - Player_Sprite.ImagePointX(\"topleft\")))"
+												"value": "round((Player_Holster.X - Player_Sprite.ImagePointX(\"topleft\")))"
 											}
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 157583860766871,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
 												"y": "1",
-												"value": "round((Player_Holster2.Y - Player_Sprite.ImagePointY(\"topleft\")))"
+												"value": "round((Player_Holster.Y - Player_Sprite.ImagePointY(\"topleft\")))"
 											}
 										}
 									],
-									"sid": 796366863320404,
-									"disabled": true
+									"sid": 796366863320404
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 211932931546261,
 											"parameters": {
 												"instance-variable": "Animation",
@@ -1625,27 +2438,26 @@
 									"actions": [
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 252605620775571,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
 												"y": "0",
-												"value": "round((Player_Holster2.X - Player_Sprite.ImagePointX(\"topleft\")))"
+												"value": "round((Player_Holster.X - Player_Sprite.ImagePointX(\"topleft\")))"
 											}
 										},
 										{
 											"id": "set-at-xy",
-											"objectClass": "Util_AnimationHotspots",
+											"objectClass": "Util_HolsterHotspots",
 											"sid": 738573965734838,
 											"parameters": {
 												"x": "Player_Sprite.AnimationFrame",
 												"y": "1",
-												"value": "round((Player_Holster2.Y - Player_Sprite.ImagePointY(\"topleft\")))"
+												"value": "round((Player_Holster.Y - Player_Sprite.ImagePointY(\"topleft\")))"
 											}
 										}
 									],
-									"sid": 717855254966750,
-									"disabled": true
+									"sid": 717855254966750
 								}
 							]
 						},
@@ -1678,6 +2490,14 @@
 									"parameters": {
 										"animation": "\"WalkA\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 509793361069238,
+									"parameters": {
+										"speed": "60"
 									}
 								}
 							],
@@ -1713,6 +2533,14 @@
 										"animation": "\"JumpA\"",
 										"from": "beginning"
 									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 552191097323344,
+									"parameters": {
+										"speed": "60"
+									}
 								}
 							],
 							"sid": 109094600176725
@@ -1731,10 +2559,10 @@
 								{
 									"id": "compare-animation-frame",
 									"objectClass": "Player_Sprite",
-									"sid": 908721395985958,
+									"sid": 704984169167959,
 									"parameters": {
 										"comparison": 0,
-										"number": "31"
+										"number": "15"
 									}
 								}
 							],
@@ -1746,6 +2574,14 @@
 									"parameters": {
 										"animation": "\"FallA\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 255102386158078,
+									"parameters": {
+										"speed": "60"
 									}
 								}
 							],
@@ -1780,6 +2616,14 @@
 									"parameters": {
 										"animation": "\"BackWalkA\"",
 										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 776071234770106,
+									"parameters": {
+										"speed": "60"
 									}
 								}
 							],
@@ -1817,14 +2661,16 @@
 									"id": "pick-by-unique-id",
 									"objectClass": "Player_Holster1",
 									"sid": 796545809838688,
+									"disabled": true,
 									"parameters": {
 										"unique-id": "234"
 									}
 								},
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "Player_Holster2",
+									"objectClass": "Player_Holster",
 									"sid": 276304172997451,
+									"disabled": true,
 									"parameters": {
 										"unique-id": "226"
 									}
@@ -1851,22 +2697,60 @@
 								{
 									"id": "destroy",
 									"objectClass": "Player_Sprite",
-									"sid": 865783561318342
+									"sid": 865783561318342,
+									"disabled": true
 								},
 								{
 									"id": "destroy",
 									"objectClass": "Player_Arms",
-									"sid": 849384038341793
+									"sid": 849384038341793,
+									"disabled": true
 								},
 								{
 									"id": "destroy",
 									"objectClass": "Player_Holster1",
-									"sid": 568243644922037
+									"sid": 568243644922037,
+									"disabled": true
 								},
 								{
 									"id": "destroy",
-									"objectClass": "Player_Holster2",
-									"sid": 308925557616167
+									"objectClass": "Player_Holster",
+									"sid": 308925557616167,
+									"disabled": true
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Sprite",
+									"sid": 951370661217358,
+									"parameters": {
+										"speed": "0"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Player_Arms",
+									"sid": 749230059276108,
+									"parameters": {
+										"speed": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 573563994673628,
+									"parameters": {
+										"name": "\"Util_UpdateArms\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 649800288662479,
+									"parameters": {
+										"name": "\"Util_UpdateHolster\"",
+										"parameter-n": []
+									}
 								}
 							],
 							"sid": 796428176245091
@@ -1875,6 +2759,254 @@
 				}
 			],
 			"sid": 651447545689544
+		},
+		{
+			"eventType": "variable",
+			"name": "Util_PreviewAngleCap",
+			"type": "number",
+			"initialValue": "45",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 702896322840905
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Hotspot Preview Aim",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Util_PreviewAim",
+							"sid": 671281396065868
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Util_PreviewAim",
+							"sid": 671018259312731,
+							"parameters": {
+								"instance-variable": "InitX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Util_PreviewAim",
+							"sid": 619748943772808,
+							"parameters": {
+								"instance-variable": "InitY",
+								"value": "Self.Y"
+							}
+						}
+					],
+					"sid": 943035427396170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Util_PreviewAim",
+							"sid": 927741270600398,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [],
+					"sid": 273269900477027,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Player_Arms",
+									"sid": 940474796721748,
+									"parameters": {
+										"unique-id": "148"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Player_Arms2",
+									"sid": 436124935627773,
+									"parameters": {
+										"unique-id": "29226"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "Player_Arms",
+									"sid": 909354640909854,
+									"parameters": {
+										"x": "Util_PreviewAim.X",
+										"y": "Util_PreviewAim.Y"
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "Player_Arms2",
+									"sid": 399034245299105,
+									"parameters": {
+										"x": "Util_PreviewAim.X",
+										"y": "Util_PreviewAim.Y"
+									}
+								}
+							],
+							"sid": 147195579243671,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 470755178005096
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 175248212776793,
+											"parameters": {
+												"first-value": "Player_Arms.Angle",
+												"comparison": 2,
+												"second-value": "270 + 45"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 265602795295040,
+											"parameters": {
+												"first-value": "Player_Arms.Angle",
+												"comparison": 4,
+												"second-value": "90"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Player_Arms",
+											"sid": 577591943213652,
+											"parameters": {
+												"angle": "270 +45"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Player_Arms2",
+											"sid": 938876989966008,
+											"parameters": {
+												"angle": "270 + 45"
+											}
+										}
+									],
+									"sid": 134802198100326
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 220028033890020
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 824515639413765,
+											"parameters": {
+												"first-value": "Player_Arms.Angle",
+												"comparison": 4,
+												"second-value": "90 - 45"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 486075775537393,
+											"parameters": {
+												"first-value": "Player_Arms.Angle",
+												"comparison": 2,
+												"second-value": "90"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Player_Arms",
+											"sid": 277134306964703,
+											"parameters": {
+												"angle": "90 - 45"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Player_Arms2",
+											"sid": 853066051144481,
+											"parameters": {
+												"angle": "90 - 45"
+											}
+										}
+									],
+									"sid": 918871997069426
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "Util_PreviewAim",
+							"sid": 895429350446472,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Util_PreviewAim",
+							"sid": 120487191621503,
+							"parameters": {
+								"x": "Self.InitX",
+								"y": "Self.InitY"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player_Arms",
+							"sid": 186416564140055,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player_Arms2",
+							"sid": 931906435424959,
+							"parameters": {
+								"angle": "0"
+							}
+						}
+					],
+					"sid": 590282134918910
+				}
+			],
+			"sid": 549534773375918
 		}
 	],
 	"sid": 432428121725737

@@ -139,7 +139,8 @@
 										"layer": "\"Objects\"",
 										"x": "NPC.X",
 										"y": "NPC.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -191,34 +192,12 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "NPC",
-													"sid": 834598448587307,
+													"sid": 586945379422534,
 													"parameters": {
 														"instance-variable": "PresetLabel",
-														"comparison": 0,
+														"comparison": 1,
 														"value": "\"\""
 													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC",
-													"sid": 733871963316462,
-													"parameters": {
-														"instance-variable": "Skintone",
-														"value": "choose(\"A\",\"A\",\"B\",\"C\")"
-													}
-												}
-											],
-											"sid": 197115779176612
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 212353010020250
 												},
 												{
 													"id": "compare-instance-variable",
@@ -252,6 +231,28 @@
 												}
 											],
 											"sid": 708547187138289
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 383484870271220
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 192829561999763,
+													"parameters": {
+														"instance-variable": "Skintone",
+														"value": "choose(\"A\",\"A\",\"B\",\"C\")"
+													}
+												}
+											],
+											"sid": 382263816059764
 										},
 										{
 											"eventType": "block",
@@ -320,7 +321,8 @@
 												"layer": "NPC.LayerName",
 												"x": "NPC.ImagePointX(\"Head\")",
 												"y": "NPC.ImagePointY(\"Head\")",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -446,7 +448,8 @@
 												"layer": "0",
 												"x": "0",
 												"y": "0",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -1766,7 +1769,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1796,7 +1800,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1826,7 +1831,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1856,7 +1862,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1895,7 +1902,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.ImagePointX(1)",
 														"y": "NPC.ImagePointX(1)",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2316,16 +2324,6 @@
 											"parameters": {
 												"unique-id": "function.Param(0)"
 											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "HumanPreset",
-											"sid": 434060542240870,
-											"parameters": {
-												"instance-variable": "Label",
-												"comparison": 0,
-												"value": "NPC.PresetLabel"
-											}
 										}
 									],
 									"actions": [],
@@ -2335,96 +2333,174 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC_Head",
-													"sid": 742624506530048,
+													"id": "compare-instance-variable",
+													"objectClass": "HumanPreset",
+													"sid": 654071016452307,
 													"parameters": {
-														"unique-id": "NPC.HeadID"
+														"instance-variable": "Label",
+														"comparison": 0,
+														"value": "NPC.PresetLabel"
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC_Head",
-													"sid": 288579754605739,
-													"parameters": {
-														"instance-variable": "Type",
-														"value": "HumanPreset.Head"
-													}
-												}
-											],
-											"sid": 726356481472922
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC_Torso",
-													"sid": 936020299987521,
-													"parameters": {
-														"unique-id": "NPC.TorsoID"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC",
-													"sid": 208751048996840,
-													"parameters": {
-														"instance-variable": "Weapon",
-														"value": "HumanPreset.Weapon"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC_Torso",
-													"sid": 991532737268909,
-													"parameters": {
-														"instance-variable": "Type",
-														"value": "HumanPreset.Torso"
-													}
-												},
-												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 477308738141395,
-													"parameters": {
-														"name": "\"NPC_SetArms\"",
-														"parameter-n": [
-															"NPC.UID"
-														]
-													}
-												}
-											],
-											"sid": 221872042181916,
+											"actions": [],
+											"sid": 538040621042626,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
 															"id": "pick-by-unique-id",
-															"objectClass": "NPC_Arms",
-															"sid": 673522222892311,
+															"objectClass": "NPC_Head",
+															"sid": 163241071830476,
 															"parameters": {
-																"unique-id": "NPC.ArmsID"
+																"unique-id": "NPC.HeadID"
 															}
 														}
 													],
 													"actions": [
 														{
 															"id": "set-instvar-value",
-															"objectClass": "NPC_Arms",
-															"sid": 567670689473670,
+															"objectClass": "NPC_Head",
+															"sid": 856623004660250,
 															"parameters": {
-																"instance-variable": "Weapon",
-																"value": "NPC.Weapon"
+																"instance-variable": "Type",
+																"value": "HumanPreset.Head"
 															}
 														}
 													],
-													"sid": 208026396978904
+													"sid": 656056244771806
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Torso",
+															"sid": 736675790929137,
+															"parameters": {
+																"unique-id": "NPC.TorsoID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 559975669789364,
+															"parameters": {
+																"instance-variable": "Weapon",
+																"value": "HumanPreset.Weapon"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Torso",
+															"sid": 819659315579614,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "HumanPreset.Torso"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 787317656413449,
+															"parameters": {
+																"name": "\"NPC_SetArms\"",
+																"parameter-n": [
+																	"NPC.UID"
+																]
+															}
+														}
+													],
+													"sid": 151409885032819,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-unique-id",
+																	"objectClass": "NPC_Arms",
+																	"sid": 805584693755718,
+																	"parameters": {
+																		"unique-id": "NPC.ArmsID"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC_Arms",
+																	"sid": 789338188711854,
+																	"parameters": {
+																		"instance-variable": "Weapon",
+																		"value": "NPC.Weapon"
+																	}
+																}
+															],
+															"sid": 128997803841412
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Legs",
+															"sid": 637085566867276,
+															"parameters": {
+																"unique-id": "NPC.LegsID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Legs",
+															"sid": 281460660078032,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "HumanPreset.Legs"
+															}
+														}
+													],
+													"sid": 804867425281221
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Human",
+															"sid": 815914363407542,
+															"parameters": {
+																"unique-id": "function.Param(0)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Human",
+															"sid": 155487785561019,
+															"parameters": {
+																"instance-variable": "FirstName",
+																"value": "HumanPreset.FirstName"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Human",
+															"sid": 958463235355929,
+															"parameters": {
+																"instance-variable": "LastName",
+																"value": "HumanPreset.LastName"
+															}
+														}
+													],
+													"sid": 222892756722351
 												}
 											]
 										},
@@ -2432,60 +2508,226 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "pick-by-unique-id",
-													"objectClass": "NPC_Legs",
-													"sid": 929118673920273,
-													"parameters": {
-														"unique-id": "NPC.LegsID"
-													}
+													"id": "else",
+													"objectClass": "System",
+													"sid": 635449873532806
 												}
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC_Legs",
-													"sid": 720495473277202,
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 230240794756464,
 													"parameters": {
-														"instance-variable": "Type",
-														"value": "HumanPreset.Legs"
+														"name": "\"NPC_RandomizeClothes\"",
+														"parameter-n": [
+															"NPC.UID"
+														]
 													}
 												}
 											],
-											"sid": 973334014354281
-										},
-										{
-											"eventType": "block",
-											"conditions": [
+											"sid": 740783587719513,
+											"children": [
 												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Human",
-													"sid": 515432664381210,
-													"parameters": {
-														"unique-id": "function.Param(0)"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Human",
-													"sid": 319056037824361,
-													"parameters": {
-														"instance-variable": "FirstName",
-														"value": "HumanPreset.FirstName"
-													}
+													"eventType": "comment",
+													"text": "Vendor Presets"
 												},
 												{
-													"id": "set-instvar-value",
-													"objectClass": "Human",
-													"sid": 628225286096575,
-													"parameters": {
-														"instance-variable": "LastName",
-														"value": "HumanPreset.LastName"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 836066185219075,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"comparison": 0,
+																"value": "\"Medic\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Head",
+															"sid": 303931540696551,
+															"parameters": {
+																"unique-id": "NPC.HeadID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Head",
+															"sid": 284831497093064,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "choose(101,102,103,104,105,106,121,122,123,124,125,126)"
+															}
+														}
+													],
+													"sid": 442881742974247
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 605132210171394
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Head",
+															"sid": 129959004994994,
+															"parameters": {
+																"unique-id": "NPC.HeadID"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 621374582963247,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"comparison": 0,
+																"value": "\"Ammo\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Head",
+															"sid": 857846754304123,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "201"
+															}
+														}
+													],
+													"sid": 378694497119011
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 229079285170398
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 173966223400671,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"comparison": 0,
+																"value": "\"Weapon\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Head",
+															"sid": 798707087204553,
+															"parameters": {
+																"unique-id": "NPC.HeadID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Head",
+															"sid": 675208641501327,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "301"
+															}
+														}
+													],
+													"sid": 972191759208389
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 120814871703707
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 455869234722792,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"comparison": 0,
+																"value": "\"Artifact\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Head",
+															"sid": 156882947599170,
+															"parameters": {
+																"unique-id": "NPC.HeadID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Head",
+															"sid": 620993710203498,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "401"
+															}
+														}
+													],
+													"sid": 295458820881014
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 576672005376642
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 182379873127334,
+															"parameters": {
+																"instance-variable": "PresetLabel",
+																"comparison": 0,
+																"value": "\"Equipment\""
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "NPC_Head",
+															"sid": 289336754482297,
+															"parameters": {
+																"unique-id": "NPC.HeadID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC_Head",
+															"sid": 599708761450859,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "501"
+															}
+														}
+													],
+													"sid": 486937723973076
 												}
-											],
-											"sid": 180869617349482
+											]
 										}
 									]
 								},
@@ -2730,7 +2972,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.ImagePointX(\"Head\")",
 														"y": "NPC.ImagePointY(\"Head\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2847,7 +3090,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.ImagePointX(\"Torso\")",
 														"y": "NPC.ImagePointY(\"Torso\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2955,7 +3199,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.ImagePointX(\"Legs\")",
 														"y": "NPC.ImagePointY(\"Legs\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -3348,6 +3593,15 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-wait-time",
+											"objectClass": "NPC_Sprite",
+											"sid": 310838900980520,
+											"behaviorType": "Fade",
+											"parameters": {
+												"wait-time": "game_CleanupNPCFadeDelay"
+											}
+										},
 										{
 											"id": "start-fade",
 											"objectClass": "NPC_Sprite",
@@ -3984,6 +4238,168 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "NPC",
+													"sid": 127850378451072,
+													"parameters": {
+														"instance-variable": "Stationary"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 308995205148361,
+													"parameters": [
+														"NPC.UID",
+														"\"Stationary\"",
+														"0",
+														"0",
+														"0",
+														true
+													]
+												},
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 142033304022457,
+													"parameters": [
+														"NPC.UID",
+														"\"Idle\""
+													]
+												}
+											],
+											"sid": 927507317332803
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 244550920657998
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 169189595046396,
+													"parameters": {
+														"instance-variable": "Race",
+														"comparison": 0,
+														"value": "\"Human\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 538979441864012,
+													"disabled": true,
+													"parameters": [
+														"NPC.UID",
+														"\"Idle\"",
+														"0",
+														"0",
+														"0",
+														true
+													]
+												},
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 374518267792246,
+													"disabled": true,
+													"parameters": [
+														"NPC.UID",
+														"\"Idle\""
+													]
+												}
+											],
+											"sid": 118927973892113,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 254733882286994,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 0,
+																"value": "\"Idle\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 800365675622919,
+															"parameters": [
+																"NPC.UID",
+																"\"Roam\"",
+																"0",
+																"0",
+																"0",
+																true
+															]
+														}
+													],
+													"sid": 621273284881445
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 116711242791678
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 108529932794407,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 1,
+																"value": "\"Roam\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 157479342825900,
+															"parameters": {
+																"instance-variable": "WaitTime",
+																"value": "random(NPC.MinWaitTime,NPC.MaxWaitTime)"
+															}
+														},
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 154479642375116,
+															"parameters": [
+																"NPC.UID",
+																"\"Idle\"",
+																"0",
+																"0",
+																"0",
+																true
+															]
+														}
+													],
+													"sid": 941986620462861
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 165397850368433
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "NPC",
 													"sid": 458817298908390,
 													"parameters": {
 														"instance-variable": "Fleeing"
@@ -4074,6 +4490,16 @@
 														"instance-variable": "Fleeing"
 													},
 													"isInverted": true
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 338552420391789,
+													"parameters": {
+														"instance-variable": "ChaseSpeed",
+														"comparison": 0,
+														"value": "0"
+													}
 												}
 											],
 											"actions": [
@@ -4773,12 +5199,6 @@
 													"sid": 776004224355597
 												}
 											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 373149342001650
 										}
 									]
 								},
@@ -5218,7 +5638,8 @@
 															}
 														}
 													],
-													"sid": 141058919229891
+													"sid": 141058919229891,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -9413,6 +9834,15 @@
 													"parameters": {
 														"child": "NPC_Sprite"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC",
+													"sid": 236284223195241,
+													"parameters": {
+														"instance-variable": "IgnoreProjectiles",
+														"value": "true"
+													}
 												}
 											],
 											"sid": 116337240092267,
@@ -10592,6 +11022,122 @@
 													"sid": 794604820675581
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 414312542147760
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "NPC_Sprite",
+													"sid": 695844150112401,
+													"parameters": {
+														"animation": "\"Behemoth_Walk\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 888855602854186,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "NPC_Sprite",
+															"sid": 603170852989252,
+															"parameters": {
+																"comparison": 5,
+																"number": "9"
+															}
+														},
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "NPC_Sprite",
+															"sid": 646899276456663,
+															"parameters": {
+																"comparison": 3,
+																"number": "17"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-function-return-value",
+															"objectClass": "Functions",
+															"sid": 356345245363024,
+															"parameters": {
+																"value": "0"
+															}
+														}
+													],
+													"sid": 578743255277349
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 768611813978829
+														},
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "NPC_Sprite",
+															"sid": 629061353506014,
+															"parameters": {
+																"comparison": 5,
+																"number": "27"
+															}
+														},
+														{
+															"id": "compare-animation-frame",
+															"objectClass": "NPC_Sprite",
+															"sid": 808182930145697,
+															"parameters": {
+																"comparison": 3,
+																"number": "32"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-function-return-value",
+															"objectClass": "Functions",
+															"sid": 640024297083969,
+															"parameters": {
+																"value": "0"
+															}
+														}
+													],
+													"sid": 145381588601204
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 856684579959298
+														}
+													],
+													"actions": [
+														{
+															"id": "set-function-return-value",
+															"objectClass": "Functions",
+															"sid": 792405382195044,
+															"parameters": {
+																"value": "1"
+															}
+														}
+													],
+													"sid": 137664103429757
+												}
+											]
 										}
 									]
 								},
@@ -10696,7 +11242,7 @@
 												{
 													"id": "set-animation",
 													"objectClass": "NPC_Sprite",
-													"sid": 457911646535563,
+													"sid": 215640225498531,
 													"parameters": {
 														"animation": "Self.Class & \"_HeadshotDeath\"",
 														"from": "beginning"
@@ -10704,7 +11250,7 @@
 												},
 												{
 													"callFunction": "NPC_ChangeState",
-													"sid": 490033054264988,
+													"sid": 252979176003286,
 													"parameters": [
 														"NPC.UID",
 														"\"Kill\"",
@@ -16765,6 +17311,7 @@
 											"id": "compare-instance-variable",
 											"objectClass": "NPC",
 											"sid": 469508323853387,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Race",
 												"comparison": 0,
@@ -18138,6 +18685,7 @@
 									"id": "is-overlapping-another-object",
 									"objectClass": "NPC",
 									"sid": 367214471693967,
+									"disabled": true,
 									"parameters": {
 										"object": "LadderCover"
 									},
@@ -18553,6 +19101,16 @@
 												"comparison": 1,
 												"value": "\"Idle\""
 											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "NPC",
+											"sid": 182900508919273,
+											"parameters": {
+												"instance-variable": "State",
+												"comparison": 1,
+												"value": "\"Stationary\""
+											}
 										}
 									],
 									"actions": [],
@@ -18830,6 +19388,15 @@
 											"parameters": {
 												"seconds": "0"
 											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPC",
+											"sid": 507121409021891,
+											"parameters": {
+												"instance-variable": "IgnoreProjectiles",
+												"value": "false"
+											}
 										}
 									],
 									"sid": 187006153514726,
@@ -19031,6 +19598,70 @@
 										}
 									],
 									"sid": 888347825035537
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 370589384301919,
+											"parameters": {
+												"animation": "\"Bombboy_Attack\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 601844638814981,
+											"parameters": [
+												"NPC.UID",
+												"\"Sit\"",
+												"0",
+												"0",
+												"0",
+												true
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 940293247286220,
+											"disabled": true,
+											"parameters": {
+												"seconds": "0"
+											}
+										}
+									],
+									"sid": 951188487091201,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC",
+													"sid": 761935619966911,
+													"parameters": {
+														"unique-id": "NPC_Sprite.HitboxID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 124311211595920,
+													"parameters": [
+														"NPC.UID",
+														"\"SitWobble\""
+													]
+												}
+											],
+											"sid": 352237209127449
+										}
+									],
+									"isOrBlock": true
 								},
 								{
 									"eventType": "block",
@@ -19892,6 +20523,10 @@
 											"sid": 767387501818163
 										},
 										{
+											"eventType": "comment",
+											"text": "Disabled this cause NPCs are more likely to hit player if they wait until tick to attack"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -19942,7 +20577,8 @@
 													]
 												}
 											],
-											"sid": 733487062139721
+											"sid": 733487062139721,
+											"disabled": true
 										}
 									]
 								},
@@ -20057,7 +20693,7 @@
 															"objectClass": "System",
 															"sid": 613994742278873,
 															"parameters": {
-																"variable": "item_ZombiesDontBreakDoorsWhileFleeing",
+																"variable": "item_zombiesDontBreakDoorsWhileFleeing",
 																"comparison": 0,
 																"value": "0"
 															}
@@ -20207,7 +20843,7 @@
 															"objectClass": "System",
 															"sid": 176165482193612,
 															"parameters": {
-																"variable": "item_ZombiesDontBreakDoorsWhileFleeing",
+																"variable": "item_zombiesDontBreakDoorsWhileFleeing",
 																"comparison": 0,
 																"value": "0"
 															}
@@ -20535,7 +21171,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "NPC_Sprite.ImagePointX(1)",
 																		"y": "NPC_Sprite.ImagePointY(1)",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -20624,7 +21261,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "NPC_Sprite.ImagePointX(1)",
 																		"y": "NPC_Sprite.ImagePointY(1)",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -20733,7 +21371,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "NPC_Sprite.ImagePointX(1)",
 																		"y": "NPC_Sprite.ImagePointY(1)",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -20858,7 +21497,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "NPC_Sprite.ImagePointX(1)",
 																		"y": "NPC_Sprite.ImagePointY(1)",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -21014,7 +21654,8 @@
 																				"layer": "\"Objects\"",
 																				"x": "NPC_Sprite.ImagePointX(1)",
 																				"y": "NPC_Sprite.ImagePointY(1)",
-																				"create-hierarchy": false
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
 																			}
 																		},
 																		{
@@ -21103,7 +21744,8 @@
 																				"layer": "\"Objects\"",
 																				"x": "NPC_Sprite.ImagePointX(1)",
 																				"y": "NPC_Sprite.ImagePointY(1)",
-																				"create-hierarchy": false
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
 																			}
 																		},
 																		{
@@ -21211,7 +21853,8 @@
 																				"layer": "\"Objects\"",
 																				"x": "NPC_Sprite.ImagePointX(1)",
 																				"y": "NPC_Sprite.ImagePointY(1)",
-																				"create-hierarchy": false
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
 																			}
 																		},
 																		{
@@ -21299,7 +21942,8 @@
 																				"layer": "\"Objects\"",
 																				"x": "NPC_Sprite.ImagePointX(1)",
 																				"y": "NPC_Sprite.ImagePointY(1)",
-																				"create-hierarchy": false
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
 																			}
 																		},
 																		{
@@ -21413,6 +22057,69 @@
 																		}
 																	],
 																	"sid": 866992200551189
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 625388687538955
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "NPC_Sprite",
+																	"sid": 775098859964259,
+																	"parameters": {
+																		"animation": "\"Bombhead_Cripple\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 565877027516870,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 433084742630757,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "21"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 849478515219612,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Kill\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		},
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 856529872307833,
+																			"parameters": {
+																				"name": "\"VFX_Screenshake\"",
+																				"parameter-n": [
+																					"1.5",
+																					"0.2"
+																				]
+																			}
+																		}
+																	],
+																	"sid": 904974349862329
 																}
 															]
 														},
@@ -21634,7 +22341,8 @@
 																						"layer": "NPC_Sprite.LayerName",
 																						"x": "NPC_Sprite.ImagePointX(\"HeldPoint\")",
 																						"y": "NPC_Sprite.ImagePointY(\"'HeldPoint\")",
-																						"create-hierarchy": false
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
 																					}
 																				},
 																				{
@@ -21903,6 +22611,8 @@
 																						"0",
 																						"0",
 																						"0",
+																						"0",
+																						"0",
 																						"Equipment_Bombhead.Knockback\n",
 																						"Equipment_Bombhead.Knockup",
 																						"Equipment_Bombhead.canHeadshot",
@@ -21929,7 +22639,9 @@
 																						"Equipment_Bombhead.DestroyOnFloor",
 																						"Equipment_Bombhead.IgnoreAI",
 																						"Equipment_Bombhead.CanHitProjectiles",
-																						"Equipment_Bombhead.CanBeHitByProjectiles"
+																						"Equipment_Bombhead.CanBeHitByProjectiles",
+																						"0",
+																						"\"\""
 																					]
 																				}
 																			],
@@ -22018,6 +22730,328 @@
 																	"sid": 550887993752120
 																}
 															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "NPC_Sprite",
+																	"sid": 721396089696533,
+																	"parameters": {
+																		"animation": "\"Bombhead_Cripple\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 550290722880226,
+																	"parameters": {
+																		"type": "warn",
+																		"message": "NPC_Sprite.AnimationFrame"
+																	}
+																}
+															],
+															"sid": 490023245073220,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 832002990614508,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "20"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 381775172454501,
+																			"disabled": true,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Kill\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		},
+																		{
+																			"callFunction": "Trigger_Event",
+																			"sid": 349083198526868,
+																			"parameters": [
+																				"NPC_Sprite.ImagePointX(1)",
+																				"NPC_Sprite.ImagePointY(1)",
+																				"NPC_Sprite.ImagePointX(1)",
+																				"NPC_Sprite.ImagePointX(1)",
+																				"\"Explode_Bombhead\"",
+																				"\"\"",
+																				"str(NPC_Sprite.X)",
+																				"0",
+																				"0"
+																			]
+																		}
+																	],
+																	"sid": 320274769652134
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 392893293734822
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "NPC_Sprite",
+																	"sid": 146271507300964,
+																	"parameters": {
+																		"animation": "\"Boomer_Gib\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 514305384865545,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 905710598737854,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "1"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 858371657951282,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Kill\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		},
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 746131162345724,
+																			"parameters": {
+																				"name": "\"VFX_Screenshake\"",
+																				"parameter-n": [
+																					"1.5",
+																					"0.2"
+																				]
+																			}
+																		}
+																	],
+																	"sid": 570296954966449
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 143627649935816
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "NPC_Sprite",
+																	"sid": 571241836892400,
+																	"parameters": {
+																		"animation": "\"Behemoth_Walk\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 512188031601815,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 496795809586016,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "9"
+																			}
+																		},
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 789570839413872,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "27"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 985681551380010,
+																			"parameters": {
+																				"name": "\"VFX_Screenshake\"",
+																				"parameter-n": [
+																					"1",
+																					"0.1"
+																				]
+																			}
+																		}
+																	],
+																	"sid": 249422419161317,
+																	"isOrBlock": true
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 816364242099481
+																},
+																{
+																	"id": "is-animation-playing",
+																	"objectClass": "NPC_Sprite",
+																	"sid": 266892931385721,
+																	"parameters": {
+																		"animation": "\"Behemoth_Attack\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 687176947952168,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-animation-frame",
+																			"objectClass": "NPC_Sprite",
+																			"sid": 505644019025224,
+																			"parameters": {
+																				"comparison": 0,
+																				"number": "12"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "call-function",
+																			"objectClass": "function",
+																			"sid": 308830839808078,
+																			"parameters": {
+																				"name": "\"VFX_Screenshake\"",
+																				"parameter-n": [
+																					"2.5",
+																					"0.5"
+																				]
+																			}
+																		},
+																		{
+																			"id": "create-object",
+																			"objectClass": "System",
+																			"sid": 177491258923831,
+																			"parameters": {
+																				"object-to-create": "Hitbox",
+																				"layer": "\"Objects\"",
+																				"x": "NPC.X",
+																				"y": "NPC.Y",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-size",
+																			"objectClass": "Hitbox",
+																			"sid": 279941115782531,
+																			"parameters": {
+																				"width": "74",
+																				"height": "42"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Hitbox",
+																			"sid": 627644484637079,
+																			"parameters": {
+																				"instance-variable": "Owner",
+																				"value": "NPC_Sprite.Class"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Hitbox",
+																			"sid": 990516642689499,
+																			"parameters": {
+																				"instance-variable": "Damage",
+																				"value": "NPC.Attack"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Hitbox",
+																			"sid": 893267479386929,
+																			"parameters": {
+																				"instance-variable": "Knockback",
+																				"value": "300"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Hitbox",
+																			"sid": 746596174107007,
+																			"parameters": {
+																				"instance-variable": "KnockbackOriginX",
+																				"value": "NPC.X"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Hitbox",
+																			"sid": 603313909245272,
+																			"parameters": {
+																				"instance-variable": "Knockup",
+																				"value": "900"
+																			}
+																		},
+																		{
+																			"callFunction": "NPC_BehemothShockWave",
+																			"sid": 108820486722574,
+																			"parameters": [
+																				"NPC.UID"
+																			]
+																		}
+																	],
+																	"sid": 695308868727410,
+																	"isOrBlock": true
+																}
+															]
 														}
 													]
 												}
@@ -22051,10 +23085,10 @@
 														{
 															"id": "log",
 															"objectClass": "Browser",
-															"sid": 697596168690180,
+															"sid": 746037556560206,
 															"parameters": {
 																"type": "warn",
-																"message": "\"YEEEEAAT\""
+																"message": "NPC_Sprite.AnimationFrame"
 															}
 														}
 													],
@@ -22089,27 +23123,18 @@
 																},
 																{
 																	"callFunction": "Trigger_Event",
-																	"sid": 339143459992486,
+																	"sid": 483401895766665,
 																	"parameters": [
-																		"NPC_Sprite.X",
-																		"NPC_Sprite.Y",
-																		"NPC_Sprite.X",
-																		"NPC_Sprite.Y",
+																		"NPC_Sprite.ImagePointX(1)",
+																		"NPC_Sprite.ImagePointY(1)",
+																		"NPC_Sprite.ImagePointX(1)",
+																		"NPC_Sprite.ImagePointX(1)",
 																		"\"Explode_Bombhead\"",
 																		"\"\"",
 																		"str(NPC_Sprite.X)",
 																		"0",
 																		"0"
 																	]
-																},
-																{
-																	"id": "log",
-																	"objectClass": "Browser",
-																	"sid": 410844893351967,
-																	"parameters": {
-																		"type": "warn",
-																		"message": "\"SKEET\""
-																	}
 																}
 															],
 															"sid": 772299260660970
@@ -22133,17 +23158,7 @@
 															}
 														}
 													],
-													"actions": [
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 679813069381668,
-															"parameters": {
-																"type": "warn",
-																"message": "\"YEEEEAAT\""
-															}
-														}
-													],
+													"actions": [],
 													"sid": 962738945364109,
 													"children": [
 														{
@@ -22203,15 +23218,6 @@
 																		"0",
 																		"0"
 																	]
-																},
-																{
-																	"id": "log",
-																	"objectClass": "Browser",
-																	"sid": 463858392380118,
-																	"parameters": {
-																		"type": "warn",
-																		"message": "\"SKEET\""
-																	}
 																}
 															],
 															"sid": 576287848514994
@@ -22313,7 +23319,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC_ChargeTargets.X",
 														"y": "NPC_ChargeTargets.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -22413,7 +23420,8 @@
 												"layer": "0",
 												"x": "0",
 												"y": "0",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -23229,7 +24237,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_Human.X",
 										"y": "Spawn_Human.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -23354,6 +24363,7 @@
 											"id": "compare-instance-variable",
 											"objectClass": "Spawn_Human",
 											"sid": 897688883602776,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "Dialogue",
 												"comparison": 1,
@@ -23364,6 +24374,7 @@
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "Spawn_Human",
 											"sid": 130194934559688,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "zzzColonist"
 											}
@@ -23379,7 +24390,8 @@
 												"layer": "Human.LayerName",
 												"x": "Human.X",
 												"y": "Human.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -23413,6 +24425,197 @@
 									],
 									"sid": 130904139698885,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Vendor Dialogues"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 129369143236492,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Scientist\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 602761350816128,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_doc_\" & str(floor(random(1,20 + 1)))"
+													}
+												}
+											],
+											"sid": 610604962873095
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 978221866867171
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 386602944407720,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Medic\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 223842921197919,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_med_\" & str(floor(random(1,40 + 1)))"
+													}
+												}
+											],
+											"sid": 833075222631378
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 304606457903380
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 657618449899153,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Ammo\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 957976238910898,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_ammo_\" & str(floor(random(1,2 + 1)))"
+													}
+												}
+											],
+											"sid": 483146331818734
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 554909500877793
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 200385762244896,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Weapon\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 834432093776889,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_weapon_\" & str(floor(random(1,2 + 1)))"
+													}
+												}
+											],
+											"sid": 202558043190332
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 263174617116709
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 961438116081320,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Artifact\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 714906412408948,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_artifact_\" & str(floor(random(1,2 + 1)))"
+													}
+												}
+											],
+											"sid": 587892265910709
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 790232081820553
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 508182519912033,
+													"parameters": {
+														"instance-variable": "PresetLabel",
+														"comparison": 0,
+														"value": "\"Equipment\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 151815513674609,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_equipment_\" & str(floor(random(1,2 + 1)))"
+													}
+												}
+											],
+											"sid": 556660249477494
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -23474,7 +24677,8 @@
 													}
 												}
 											],
-											"sid": 739243034352706
+											"sid": 739243034352706,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -23531,7 +24735,8 @@
 													}
 												}
 											],
-											"sid": 187474199968970
+											"sid": 187474199968970,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -23571,7 +24776,8 @@
 													}
 												}
 											],
-											"sid": 195458453309916
+											"sid": 195458453309916,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -23614,7 +24820,54 @@
 													}
 												}
 											],
-											"sid": 472897419258033
+											"sid": 472897419258033,
+											"disabled": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Civillan Dialogue"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 803603439688702
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Spawn_Human",
+													"sid": 197630060983399,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"comparison": 0,
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 614470152519974,
+													"parameters": {
+														"first-value": "random(0,101)",
+														"comparison": 4,
+														"second-value": "50"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Spawn_Human",
+													"sid": 766834171875379,
+													"parameters": {
+														"instance-variable": "Dialogue",
+														"value": "\"dialogue_civ_\" & str(floor(random(1,130 + 1)))"
+													}
+												}
+											],
+											"sid": 225142292519562
 										},
 										{
 											"eventType": "block",
@@ -23622,7 +24875,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Spawn_Human",
-													"sid": 495457999971694,
+													"sid": 158862128424190,
 													"parameters": {
 														"instance-variable": "DiagLock",
 														"comparison": 0,
@@ -23634,14 +24887,48 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "NPC_WorldObj",
-													"sid": 568450191276372,
+													"sid": 948397110978183,
 													"parameters": {
 														"instance-variable": "DiagLock",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 513990687027453
+											"sid": 471606438873941
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC_WorldObj",
+													"sid": 493097557339839,
+													"parameters": {
+														"instance-variable": "WorldBark",
+														"value": "Spawn_Human.Dialogue"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC_WorldObj",
+													"sid": 633060646985652,
+													"parameters": {
+														"instance-variable": "WorldHoverOutline",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC_WorldObj",
+													"sid": 768458029171078,
+													"parameters": {
+														"instance-variable": "WorldCanInteract",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 822344143458228
 										}
 									],
 									"isOrBlock": true
@@ -25156,6 +26443,255 @@
 		{
 			"eventType": "comment",
 			"text": ""
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPC Special Attacks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "needs to damage even in roll"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Behemoth Shockwave",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "NPC_BehemothShockWave",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 669580235028074
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC",
+									"sid": 278952345940687,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 387421832831444,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "leftspawnX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 787057282225657
+								},
+								{
+									"eventType": "variable",
+									"name": "rightpawnX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 453593646479818
+								},
+								{
+									"eventType": "variable",
+									"name": "spawnY",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 996299639819602
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 882680994673566,
+											"parameters": {
+												"variable": "leftspawnX",
+												"value": "NPC.X - 20"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 822227621583950,
+											"parameters": {
+												"variable": "rightpawnX",
+												"value": "NPC.X + 20"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 726393309469137,
+											"parameters": {
+												"variable": "spawnY",
+												"value": "NPC.Y"
+											}
+										}
+									],
+									"sid": 160969738676806
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 539022257302304,
+											"parameters": {
+												"count": "10"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 357385431245265,
+											"parameters": {
+												"seconds": "loopindex*0.1"
+											}
+										}
+									],
+									"sid": 942319075280337,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 741754712524030,
+													"parameters": {
+														"object-to-create": "FX_BehemothShockWave",
+														"layer": "\"Effects\"",
+														"x": "rightpawnX",
+														"y": "spawnY",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "FX_BehemothShockWave",
+													"sid": 950033552314019,
+													"parameters": {
+														"state": "mirrored"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 113260882068631,
+													"parameters": {
+														"object-to-create": "FX_BehemothShockWave",
+														"layer": "\"Effects\"",
+														"x": "leftspawnX",
+														"y": "spawnY",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 330190908925749,
+													"parameters": {
+														"variable": "rightpawnX",
+														"value": "40"
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 474379879041400,
+													"parameters": {
+														"variable": "leftspawnX",
+														"value": "-40"
+													}
+												}
+											],
+											"sid": 604964255993058
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "FX_BehemothShockWave",
+									"sid": 316474372487655,
+									"parameters": {
+										"object": "Player"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "FX_BehemothShockWave",
+									"sid": 257251224494454,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PLR_Hit",
+									"sid": 985386170489214,
+									"parameters": [
+										"15"
+									]
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "Player",
+									"sid": 994646400382326,
+									"behaviorType": "Platform",
+									"parameters": {
+										"vector-y": "-250"
+									}
+								}
+							],
+							"sid": 782236098670187
+						}
+					],
+					"sid": 800820403352867
+				}
+			],
+			"sid": 115464181891495
 		}
 	],
 	"sid": 682234532710265

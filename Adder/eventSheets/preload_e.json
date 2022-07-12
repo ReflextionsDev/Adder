@@ -63,7 +63,25 @@
 							"sid": 164952573582604
 						}
 					],
-					"sid": 207032991375351
+					"sid": 207032991375351,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Other"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Artifact",
+									"sid": 899887334271774
+								}
+							],
+							"sid": 375200927864829
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -178,6 +196,126 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Preload Colors",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "System_LoadColors",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 556848594238636,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Rarities"
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 495163699477092,
+									"parameters": {
+										"key": "\"common\"",
+										"value": "Color_Common.ColorValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 705412320695861,
+									"parameters": {
+										"key": "\"uncommon\"",
+										"value": "Color_Uncommon.ColorValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 753378301233921,
+									"parameters": {
+										"key": "\"rare\"",
+										"value": "Color_Rare.ColorValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 351213871871516,
+									"parameters": {
+										"key": "\"epic\"",
+										"value": "Color_Epic.ColorValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 319122619012214,
+									"parameters": {
+										"key": "\"legendary\"",
+										"value": "Color_Legendary.ColorValue"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Other"
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 779330537058864,
+									"parameters": {
+										"key": "\"white\"",
+										"value": "16777215"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 547975640674405,
+									"parameters": {
+										"key": "\"black\"",
+										"value": "0"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 504521617302654,
+									"parameters": {
+										"key": "\"delete\"",
+										"value": "Color_Delete.ColorValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Colors",
+									"sid": 307188890267641,
+									"parameters": {
+										"key": "\"sell\"",
+										"value": "Color_Sell.ColorValue"
+									}
+								}
+							],
+							"sid": 650531007698290
+						}
+					]
+				}
+			],
+			"sid": 894846119406370
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Preload Functions",
 			"description": "",
 			"isActiveOnStart": true,
@@ -192,6 +330,14 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"callFunction": "Item_BuildLibraries",
+							"sid": 809021319191587
+						},
+						{
+							"callFunction": "System_LoadColors",
+							"sid": 770285577456695
+						},
 						{
 							"callFunction": "System_LoadConfigs",
 							"sid": 927535113771278,
@@ -309,6 +455,16 @@
 								"name": "\"\"",
 								"string": "\"Map_Exit\"",
 								"function": "\"Map_Exit\""
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 671025595831714,
+							"parameters": {
+								"name": "\"\"",
+								"string": "\"Death_Ok\"",
+								"function": "Death_Ok"
 							}
 						}
 					],

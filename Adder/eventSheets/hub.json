@@ -3,11 +3,30 @@
 	"events": [
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Hub Events",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 518998522803394,
+							"parameters": {
+								"variable": "level_Type",
+								"comparison": 0,
+								"value": "\"Hub\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 570661736610272,
+					"disabled": true
+				}
+			],
 			"sid": 439686039908828
 		}
 	],

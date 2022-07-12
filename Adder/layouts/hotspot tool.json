@@ -7,7 +7,70 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Player_Holster2",
+					"type": "BG_White",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29231,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320.001445099953,
+						"y": 179.99991882001748,
+						"width": 426,
+						"height": 240,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.3
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 325648903247017,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0.8,
+				1,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Layer 1",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "Player_Holster",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -16,12 +79,338 @@
 						"live-preview": false
 					},
 					"uid": 217,
+					"instanceVariables": {
+						"hotspot": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 480,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Player_Holster",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 226,
+					"instanceVariables": {
+						"hotspot": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 176,
+						"y": 416,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Player_Holster",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 218,
+					"instanceVariables": {
+						"hotspot": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 480,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Player_Arms2",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "SMGDual",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29237,
+					"instanceVariables": {
+						"TargetAngle": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 300,
+						"y": 421,
+						"width": 41,
+						"height": 17,
+						"originX": 0.121951,
+						"originY": 0.352941,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Player_Arms2",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "SMGDual",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29226,
+					"instanceVariables": {
+						"TargetAngle": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 426,
+						"y": 438,
+						"width": 41,
+						"height": 17,
+						"originX": 0.121951,
+						"originY": 0.352941,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Debug_SF",
+					"properties": {
+						"text": "Loading...",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 130,
+					"instanceVariables": {
+						"ID": 0
+					},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": false
+							}
+						}
+					},
+					"world": {
+						"x": 288,
+						"y": 224,
+						"width": 208,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "1. Idle\n2. Walk\n3. BackWalk\n4. Jump\n5. Fall",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 29229,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 19,
-						"y": 44,
-						"width": 16,
+						"x": 112,
+						"y": 208,
+						"width": 112,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Debug_SF2",
+					"properties": {
+						"text": "EDITOR",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 29232,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 320,
+						"y": 144,
+						"width": 72,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Debug_SF2",
+					"properties": {
+						"text": "PREVIEW",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 29233,
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 432,
+						"y": 128,
+						"width": 72,
 						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -60,41 +449,12 @@
 						}
 					},
 					"world": {
-						"x": 30,
-						"y": 64,
+						"x": 320,
+						"y": 208,
 						"width": 50,
 						"height": 50,
 						"originX": 0.5,
 						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Player_Holster1",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 218,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 64,
-						"y": 50,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -120,91 +480,12 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 15,
-						"y": 9,
+						"x": 176,
+						"y": 384,
 						"width": 45,
 						"height": 20,
 						"originX": 0.2,
 						"originY": 0.6,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Debug_SF",
-					"properties": {
-						"text": "Preloading...",
-						"enable-bbcode": false,
-						"character-width": 16,
-						"character-height": 16,
-						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
-						"spacing-data": "",
-						"scale": 0.5,
-						"character-spacing": 0,
-						"line-height": 0,
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 130,
-					"instanceVariables": {
-						"ID": 0
-					},
-					"behaviors": {
-						"Anchor": {
-							"properties": {
-								"left-edge": "window-left",
-								"top-edge": "window-top",
-								"right-edge": "none",
-								"bottom-edge": "none",
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 15,
-						"y": 80,
-						"width": 208,
-						"height": 40,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Player_Holster2",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 220,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 144,
-						"y": 27,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -240,41 +521,12 @@
 						}
 					},
 					"world": {
-						"x": 110,
-						"y": 63,
+						"x": 432,
+						"y": 192,
 						"width": 50,
 						"height": 50,
 						"originX": 0.5,
 						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Player_Holster1",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 225,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 141,
-						"y": 55,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -300,8 +552,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 100,
-						"y": 8,
+						"x": 304,
+						"y": 390,
 						"width": 45,
 						"height": 20,
 						"originX": 0.2,
@@ -320,7 +572,7 @@
 					"type": "Player_Sprite",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "IdleA",
+						"initial-animation": "DieA",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -341,12 +593,12 @@
 						}
 					},
 					"world": {
-						"x": 187,
-						"y": 65,
-						"width": 50,
-						"height": 50,
+						"x": 208,
+						"y": 192,
+						"width": 30,
+						"height": 46,
 						"originX": 0.5,
-						"originY": 1,
+						"originY": 0.978261,
 						"color": [
 							1,
 							1,
@@ -372,8 +624,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 166,
-						"y": 9,
+						"x": 427,
+						"y": 399,
 						"width": 45,
 						"height": 20,
 						"originX": 0.2,
@@ -389,21 +641,46 @@
 					}
 				},
 				{
-					"type": "Player_Holster2",
+					"type": "Debug_SF2",
 					"properties": {
+						"text": "LOADER",
+						"enable-bbcode": false,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.5,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
 						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"origin": "center"
 					},
-					"uid": 226,
+					"uid": 29230,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
-						"x": 223,
-						"y": 24,
-						"width": 16,
+						"x": 208,
+						"y": 128,
+						"width": 72,
 						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -418,22 +695,208 @@
 					}
 				},
 				{
+					"type": "Util_HotspotList",
+					"properties": {
+						"items": "Arms\nHolster",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"type": "dropdown-list",
+						"multi-select": false,
+						"auto-font-size": true,
+						"id": "",
+						"class": ""
+					},
+					"uid": 29227,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 176,
+						"y": 80,
+						"width": 128,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Util_HostpostLoad",
+					"properties": {
+						"type": "button",
+						"text": "Reload",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": "",
+						"class": ""
+					},
+					"uid": 29228,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 176,
+						"y": 208,
+						"width": 64,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
 					"type": "Player_Holster1",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Default",
+						"initial-animation": "Grenade",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 234,
+					"uid": 29234,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 220,
-						"y": 49,
-						"width": 16,
+						"x": -80,
+						"y": 240,
+						"width": 10,
+						"height": 10,
+						"originX": 0.6,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Util_HotspotWeapon",
+					"properties": {
+						"items": "Pistol\nShotgun\nSMG\nSMGDual\nRifle\nBurstPistol\nBurstPistolDual",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"type": "dropdown-list",
+						"multi-select": false,
+						"auto-font-size": true,
+						"id": "",
+						"class": ""
+					},
+					"uid": 29235,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 336,
+						"y": 80,
+						"width": 128,
 						"height": 16,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Object_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Blank",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29222,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"ArtifactUI": false
+					},
+					"behaviors": {
+						"SineVertical": {
+							"properties": {
+								"movement": "vertical",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 2,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"SineAngle": {
+							"properties": {
+								"movement": "angle",
+								"wave": "sine",
+								"period": 2,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 10,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"ScrapSineSize": {
+							"properties": {
+								"movement": "size",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 20,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": 192,
+						"y": 448,
+						"width": 64,
+						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -445,11 +908,1619 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Util_DnD",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29236,
+					"instanceVariables": {},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 64,
+						"y": 416,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.4
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Util_PreviewAim",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29238,
+					"instanceVariables": {
+						"InitX": 0,
+						"InitY": 0
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 505,
+						"y": 178,
+						"width": 24,
+						"height": 25,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Artifact_Sprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29252,
+					"instanceVariables": {
+						"index": 0,
+						"hover": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": -48,
+						"y": 304,
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Projectile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "bullet",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29272,
+					"instanceVariables": {
+						"Damage": 0,
+						"Burn": 0,
+						"Bleed": 0,
+						"Shock": 0,
+						"canGib": 0,
+						"canCripple": 0,
+						"canHeadshot": 0,
+						"zzzType": "Bullet",
+						"Speed": 0,
+						"Knockback": 100,
+						"Faction": "Player",
+						"HP": 1,
+						"ArrayID": 0,
+						"zzzDamage": 1,
+						"zzzShotgun": false,
+						"Knockup": 0,
+						"SpawnOrigin": "",
+						"Particles": "",
+						"VFX": "",
+						"Form": "",
+						"ImpactFX": "",
+						"SplitsLeft": 0,
+						"SplitChild": 0,
+						"BouncesLeft": 0,
+						"Physics_TrueAngle": true,
+						"Physics_SpawnVy": 0,
+						"ImpactTypeAI": "",
+						"ImpactTypeEnv": "",
+						"ImpactTypePlayer": "",
+						"IgnoreAI": false,
+						"TriggerEvents": "",
+						"TriggerEffects": "",
+						"StuckUID": 0,
+						"PrimedTime": 0,
+						"PrimedOnSpawn": 0,
+						"PrimeOnAIColl": 0,
+						"PrimeOnEnvColl": 0,
+						"LastAngle": 0,
+						"PrimeUID": 0,
+						"DestroyOnFloor": 0,
+						"CanHitProjectiles": 0,
+						"CanBeHitByProjectiles": 0,
+						"Salvagable": 1,
+						"AmmoType": "",
+						"ArmorPiercing": false
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": true,
+								"density": 0.5,
+								"friction": 0.8,
+								"elasticity": 0.3,
+								"linear-damping": 0,
+								"angular-damping": 0.2,
+								"bullet": true,
+								"enabled": false
+							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 0,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": false,
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Timer": {
+							"properties": {}
+						}
+					},
+					"effects": {
+						"GlowHorizontal": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						},
+						"GlowVertical": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
+						}
+					},
+					"world": {
+						"x": -32,
+						"y": 256,
+						"width": 9,
+						"height": 7,
+						"originX": 0.111111,
+						"originY": 0.571429,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28454,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Brick",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -160,
+						"y": 64,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28455,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "ShrinkBrick",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -176,
+						"y": 64,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28460,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Kunai",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -112,
+						"y": 64,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28463,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Axe",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -160,
+						"y": 32,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28471,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Claymore",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -128,
+						"y": 32,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28472,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "BearTrap",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -176,
+						"y": 32,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28476,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Grenade",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -128,
+						"y": 64,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28478,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Shiv",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -112,
+						"y": 32,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28499,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "Shotgun",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -112,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 28536,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "BigIron",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "uncommon",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -80,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29206,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "ChaosPistol",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "rare",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -64,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29216,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "SingleShotgun",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "legendary",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -16,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29217,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "BFP",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "epic",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -32,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29218,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "Longgun",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -128,
+						"y": 128,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29220,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Weapon",
+						"Subtype": "GrenadeLauncher",
+						"WeaponID": 0,
+						"HasAmmo": true,
+						"Rarity": "legendary",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -16,
+						"y": 160,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29240,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Kunai",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -80,
+						"y": 32,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Object",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Weapon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29248,
+					"instanceVariables": {
+						"OutlineCopy": false,
+						"Outlined": false,
+						"zzzNearest": false,
+						"OutlineAllowed": true,
+						"WorldEnabled": true,
+						"WorldBark": "",
+						"WorldHoverOutline": true,
+						"WorldHoverText": "placeholder",
+						"WorldCanInteract": true,
+						"WorldTouched": false,
+						"WorldInteractType": "pickup",
+						"WorldInteractSound": "",
+						"keyprompt": "",
+						"WorldTextUID": 0,
+						"Type": "Equipment",
+						"Subtype": "Bombhead",
+						"WeaponID": 0,
+						"HasAmmo": false,
+						"Rarity": "common",
+						"ScrapQueued": false,
+						"Value": 10
+					},
+					"behaviors": {
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 0.5,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Outline": {
+							"isEnabled": true,
+							"parameters": {
+								"Just outline": 0,
+								"Width": 1,
+								"Color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					},
+					"world": {
+						"x": -80,
+						"y": 16,
+						"width": 12,
+						"height": 12,
+						"originX": 0.5,
+						"originY": 0.916667,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
-			"sid": 325648903247017,
+			"sid": 248220834158802,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
 			"color": [
 				1,
 				1,
@@ -457,14 +2528,14 @@
 				1
 			],
 			"backgroundColor": [
-				0,
-				0.8,
-				1,
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
 				1
 			],
-			"isTransparent": false,
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
@@ -478,7 +2549,7 @@
 	"sid": 900662421157298,
 	"nonworld-instances": [
 		{
-			"type": "Util_AnimationHotspots",
+			"type": "Util_ArmHotspots",
 			"properties": {
 				"width": 0,
 				"height": 1,

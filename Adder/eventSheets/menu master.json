@@ -1418,10 +1418,63 @@
 										}
 									],
 									"sid": 772203720271704
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Menu_Containers",
+											"sid": 819241963173035,
+											"parameters": {
+												"instance-variable": "AutoClose",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Menu_Containers",
+											"sid": 235110609733893,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Menu_Containers.AutoClose",
+												"type": "once",
+												"tag": "\"Close\""
+											}
+										}
+									],
+									"sid": 584846510221023
 								}
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Menu_Containers",
+							"sid": 489846125447082,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Close\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Menu_Close",
+							"sid": 911259215999351,
+							"parameters": [
+								"Menu_Containers.Menu_Name"
+							]
+						}
+					],
+					"sid": 332689394897784
 				},
 				{
 					"functionName": "Menu_Close",
@@ -1849,6 +1902,36 @@
 										}
 									],
 									"sid": 251798716876626
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Menu_Containers",
+											"sid": 365796770248453,
+											"parameters": {
+												"instance-variable": "DestroyAfterClose"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 850091105836622,
+											"parameters": {
+												"seconds": "Menu_Containers.Close_Duration"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Menu_Containers",
+											"sid": 686986807359664
+										}
+									],
+									"sid": 268503152138084,
+									"disabled": true
 								}
 							]
 						}
@@ -3092,6 +3175,307 @@
 				}
 			],
 			"sid": 875793676116866
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Specific Menus",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Menu_PickupInfo",
+					"functionDescription": "",
+					"functionCategory": "Menu",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Title",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 983598776271746
+						},
+						{
+							"name": "Description",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 982149371283166
+						},
+						{
+							"name": "Sprite",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 329096205992326
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Menu_Open",
+							"sid": 446682170149931,
+							"parameters": [
+								"\"PickupInfo\"",
+								false,
+								"ViewportLeft(\"Loader\")+ViewportWidth(\"Loader\")/2",
+								"ViewportTop(\"Loader\")+ 30"
+							]
+						}
+					],
+					"sid": 307654432787112,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Containers",
+									"sid": 674204236234389,
+									"parameters": {
+										"instance-variable": "Menu_Name",
+										"comparison": 0,
+										"value": "\"PickupInfo\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 856649079860773,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Menu_Containers",
+											"sid": 864263583884645,
+											"parameters": {
+												"child": "Text_Menu",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 345366796149483,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 646999887175812,
+													"parameters": {
+														"object": "Text_Menu"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 825051094924537,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Text_Menu",
+															"sid": 788225853759119,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Text_Menu",
+															"sid": 688191111106463,
+															"parameters": {
+																"text": "Title"
+															}
+														}
+													],
+													"sid": 570226317057890
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 165009066745447
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Text_Menu",
+															"sid": 950095735506823,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Text_Menu",
+															"sid": 934727295968305,
+															"parameters": {
+																"text": "Description"
+															}
+														}
+													],
+													"sid": 214950392265560
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Menu_Containers",
+											"sid": 564446904436062,
+											"parameters": {
+												"child": "Object_Sprite",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Object_Sprite",
+											"sid": 905925702826218,
+											"parameters": {
+												"animation": "Sprite",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 748533596892145
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Menu_Death",
+					"functionDescription": "",
+					"functionCategory": "Menu",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Menu_Open",
+							"sid": 515255029308936,
+							"parameters": [
+								"\"Death\"",
+								true,
+								"0",
+								"0"
+							]
+						}
+					],
+					"sid": 200694144040354,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Containers",
+									"sid": 131133027271695,
+									"parameters": {
+										"instance-variable": "Menu_Name",
+										"comparison": 0,
+										"value": "\"Death\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 136097493913872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Menu_Containers",
+											"sid": 359403210645927,
+											"parameters": {
+												"child": "Text_Menu",
+												"which": "all"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 975495100260534,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "stringID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 764021716206279
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Text_Menu",
+													"sid": 547240322459033,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 552112490620734,
+													"parameters": {
+														"variable": "stringID",
+														"value": "floor(random(1,32 + 1))"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Menu",
+													"sid": 342012462538446,
+													"parameters": {
+														"text": "Functions.Text_String(\"deathstring_\" & stringID)"
+													}
+												}
+											],
+											"sid": 650576414220937
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 470844988585596
 		}
 	],
 	"sid": 563386887771641

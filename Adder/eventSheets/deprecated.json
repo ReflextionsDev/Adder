@@ -209,7 +209,8 @@
 								"layer": "\"Shade\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -231,7 +232,8 @@
 								"layer": "\"Shade\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -1964,7 +1966,7 @@
 									"objectClass": "Shop_ColonyCost",
 									"sid": 359155687464475,
 									"parameters": {
-										"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.ColonyCost*(zzz_Colony.Level+1))"
+										"text": "Functions.TXT_ConvertMoney(zzz_Shop.ColonyCost * (zzz_Colony.Level + 1))"
 									}
 								}
 							],
@@ -3923,7 +3925,8 @@
 												"layer": "Tile_Shadow.LayerName",
 												"x": "Tile_Shadow.PositionToTileX(x)",
 												"y": "Tile_Shadow.PositionToTileX(y)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -4077,13 +4080,8 @@
 					}
 				},
 				{
-					"id": "call-function",
-					"objectClass": "function",
-					"sid": 335260973125755,
-					"parameters": {
-						"name": "\"Level_Music\"",
-						"parameter-n": []
-					}
+					"callFunction": "Music_PlayBGM",
+					"sid": 865559603564093
 				}
 			],
 			"sid": 422023287701595,
@@ -4800,7 +4798,8 @@
 																"layer": "\"Objects\"",
 																"x": "BuildingSpawnPoint.X",
 																"y": "BuildingSpawnPoint.y - 5",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -4872,7 +4871,8 @@
 																"layer": "\"Objects\"",
 																"x": "BuildingSpawnPoint.X",
 																"y": "BuildingSpawnPoint.y - 5",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -4934,7 +4934,8 @@
 																"layer": "\"Objects\"",
 																"x": "BuildingSpawnPoint.X",
 																"y": "BuildingSpawnPoint.y - 5",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -5008,7 +5009,8 @@
 												"layer": "\"Objects\"",
 												"x": "buildingspawnpoint.X",
 												"y": "buildingspawnpoint.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -7297,7 +7299,8 @@
 														"layer": "\"Solid\"",
 														"x": "LVL_SolidData.Get(\"Level\" & 1 & \"_ID\" & (loopindex) & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_SolidData.Get(\"Level\" & 1 & \"_ID\" & (loopindex) & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -7821,7 +7824,8 @@
 														"layer": "\"LevelBG\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -7877,7 +7881,8 @@
 														"layer": "\"LevelBG\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -7933,7 +7938,8 @@
 														"layer": "\"LevelBG\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -7989,7 +7995,8 @@
 														"layer": "\"LevelBG\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_BGD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8045,7 +8052,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Shadow\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8110,7 +8118,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Wall\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8174,7 +8183,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8230,7 +8240,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8286,7 +8297,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8342,7 +8354,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8398,7 +8411,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8454,7 +8468,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_WallF\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8514,7 +8529,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Door\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8596,7 +8612,8 @@
 														"layer": "\"LevelBG\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FilterOut\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8652,7 +8669,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8726,7 +8744,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_LadderBot\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8819,7 +8838,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorA\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8875,7 +8895,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorB\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8931,7 +8952,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorC\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -8987,7 +9009,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorD\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9043,7 +9066,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_FloorE\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9099,7 +9123,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Floor\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9163,7 +9188,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Window\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9219,7 +9245,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_Roof\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9283,7 +9310,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_TileData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Tile_RoofCap\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9782,7 +9810,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Ladder\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9838,7 +9867,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"JumpThrough\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9894,7 +9924,8 @@
 														"layer": "\"Level\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"DoorRange\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -9950,7 +9981,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"Fog\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10006,7 +10038,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogConnector\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10062,7 +10095,8 @@
 														"layer": "\"Fog\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"FogFilter\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10118,7 +10152,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ZombieSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10174,7 +10209,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LootSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10248,7 +10284,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"EndPoint\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10304,7 +10341,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"AmmoInteract\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10369,7 +10407,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ShopFont\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10433,7 +10472,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"LadderSaftey\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10489,7 +10529,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchData\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10541,7 +10582,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"ResearchDataSprite\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10597,7 +10639,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SpawnSpecial\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10671,7 +10714,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"UpgradeSign\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10721,7 +10765,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"StatsBoard\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -10769,7 +10814,8 @@
 														"layer": "\"Objects\"",
 														"x": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_X\") + BuildingSpawnPoint.X",
 														"y": "LVL_ObjectData.Get(\"Level\" & zzzgame_Level & \"_\"& \"SurvivorSpawn\" & \"_\" & loopindex & \"_Y\") + BuildingSpawnPoint.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -11138,7 +11184,8 @@
 										"layer": "zzzEquip_Grenade.LayerName",
 										"x": "zzzEquip_Grenade.X",
 										"y": "zzzEquip_Grenade.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -11224,6 +11271,8 @@
 										"Weapon_Player.Damage",
 										"Weapon_Player.Penetration",
 										"50",
+										"0",
+										"0",
 										"Player_Arms.Angle",
 										"Weapon_Player.Spread",
 										"0",
@@ -11253,7 +11302,9 @@
 										"0",
 										"0",
 										"0",
-										"0"
+										"0",
+										"0",
+										"\"\""
 									]
 								},
 								{
@@ -11271,6 +11322,8 @@
 										"Weapon_Player.Damage",
 										"Weapon_Player.Penetration",
 										"50",
+										"0",
+										"0",
 										"Player_Arms.Angle",
 										"Weapon_Player.Spread",
 										"0",
@@ -11300,7 +11353,9 @@
 										"0",
 										"0",
 										"0",
-										"0"
+										"0",
+										"0",
+										"\"\""
 									]
 								},
 								{
@@ -11318,6 +11373,8 @@
 										"Weapon_Player.Damage",
 										"Weapon_Player.Penetration",
 										"50",
+										"0",
+										"0",
 										"Player_Arms.Angle",
 										"Weapon_Player.Spread",
 										"0",
@@ -11347,7 +11404,9 @@
 										"0",
 										"0",
 										"0",
-										"0"
+										"0",
+										"0",
+										"\"\""
 									]
 								},
 								{
@@ -11365,6 +11424,8 @@
 										"Weapon_Player.Damage",
 										"Weapon_Player.Penetration",
 										"300",
+										"0",
+										"0",
 										"Player_Arms.Angle",
 										"Weapon_Player.Spread",
 										"0",
@@ -11394,7 +11455,9 @@
 										"0",
 										"0",
 										"0",
-										"0"
+										"0",
+										"0",
+										"\"\""
 									]
 								}
 							],
@@ -11863,7 +11926,8 @@
 										"layer": "\"Player\"",
 										"x": "function.Param(0)",
 										"y": "function.Param(1)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -12684,7 +12748,8 @@
 												"layer": "\"Player\"",
 												"x": "function.Param(0) ",
 												"y": "function.Param(1)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -13134,7 +13199,8 @@
 												"layer": "\"Player\"",
 												"x": "function.Param(0) ",
 												"y": "function.Param(1)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -13201,7 +13267,8 @@
 										"layer": "TurretGun.LayerName",
 										"x": "TurretGun.ImagePointX(2)",
 										"y": "TurretGun.ImagePointy(2)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -13459,7 +13526,8 @@
 												"layer": "\"Objects\"",
 												"x": "TurretGun.ImagePointX(1)",
 												"y": "TurretGun.ImagePointY(1)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -13599,7 +13667,8 @@
 														"layer": "\"Player\"",
 														"x": "TurretGun.ImagePointX(1)",
 														"y": "TurretGun.ImagePointY(1)",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -13713,7 +13782,8 @@
 										"layer": "\"Player\"",
 										"x": "Turret.X",
 										"y": "Turret.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -14118,7 +14188,8 @@
 										"layer": "\"Objects\"",
 										"x": "zzzEquip_Beacon.X",
 										"y": "zzzEquip_Beacon.zzzSpawnY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -14284,7 +14355,8 @@
 										"layer": "\"Objects\"",
 										"x": "function.Param(0)",
 										"y": "function.Param(0) - 500",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								}
 							],
@@ -14731,7 +14803,8 @@
 								"layer": "\"Player\"",
 								"x": "Player_Sprite.ImagePointX(1)",
 								"y": "Player_Sprite.ImagePointY(1)",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -14809,7 +14882,8 @@
 												"layer": "\"Player\"",
 												"x": "Player_Sprite.ImagePointX(5)",
 												"y": "Player_Sprite.ImagePointY(5)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -14870,7 +14944,8 @@
 												"layer": "\"Player\"",
 												"x": "Player_Sprite.ImagePointX(5)",
 												"y": "Player_Sprite.ImagePointY(5)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -15269,7 +15344,8 @@
 								"layer": "\"Objects\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -15303,7 +15379,8 @@
 								"layer": "\"Objects\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -15337,7 +15414,8 @@
 								"layer": "\"Objects\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -15371,7 +15449,8 @@
 								"layer": "\"Objects\"",
 								"x": "Projectile.X",
 								"y": "Projectile.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -17527,7 +17606,8 @@
 								"layer": "\"Fog\"",
 								"x": "Player.X",
 								"y": "Player.Y - player.Height*1.6",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{

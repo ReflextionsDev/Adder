@@ -396,7 +396,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -408,7 +409,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -472,7 +474,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -484,7 +487,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -548,7 +552,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -560,7 +565,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -624,7 +630,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -636,7 +643,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -700,7 +708,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -712,7 +721,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -776,7 +786,8 @@
 														"layer": "\"BG\"",
 														"x": "BG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -788,7 +799,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -801,7 +813,8 @@
 														"layer": "\"Tile_BG\"",
 														"x": "FG_X",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -814,7 +827,8 @@
 														"layer": "\"BG2\"",
 														"x": "FG_X",
 														"y": "CanvasToLayerY(\"Tile_BG\",LayerToCanvasX(\"BG2\",FG_X,GroundHeight) ,LayerToCanvasY(\"BG2\",FG_X,GroundHeight))",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -937,7 +951,8 @@
 														"layer": "\"Solid\"",
 														"x": "-200",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -976,7 +991,8 @@
 														"layer": "\"Solid\"",
 														"x": "-200",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1015,7 +1031,8 @@
 														"layer": "\"Solid\"",
 														"x": "-200",
 														"y": "GroundHeight",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1037,9 +1054,9 @@
 						},
 						{
 							"eventType": "group",
-							"disabled": true,
+							"disabled": false,
 							"title": "Clouds",
-							"description": "To Do",
+							"description": "Needs work",
 							"isActiveOnStart": true,
 							"children": [
 								{
@@ -1053,7 +1070,6 @@
 									],
 									"actions": [],
 									"sid": 880178573332361,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -1061,9 +1077,9 @@
 												{
 													"id": "repeat",
 													"objectClass": "System",
-													"sid": 252807485157915,
+													"sid": 823894233746699,
 													"parameters": {
-														"count": "3"
+														"count": "choose(3,4,5)"
 													}
 												}
 											],
@@ -1071,18 +1087,32 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 863153733541958,
+													"sid": 625513993807755,
+													"disabled": true,
 													"parameters": {
 														"object-to-create": "Weather_Cloud",
 														"layer": "\"Clouds\"",
 														"x": "Player.X + random(-300,300)",
-														"y": "944 - random(200,800)",
-														"create-hierarchy": false
+														"y": "GroundHeight - random(200,800)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 507546829202914,
+													"parameters": {
+														"object-to-create": "Weather_Cloud",
+														"layer": "\"Clouds\"",
+														"x": "ViewportRight(\"clouds\") + random(-300,300)",
+														"y": "GroundHeight - random(200,800)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												}
 											],
-											"sid": 955697533664764,
-											"disabled": true
+											"sid": 955697533664764
 										}
 									]
 								},
@@ -1128,8 +1158,7 @@
 											}
 										}
 									],
-									"sid": 426954702349186,
-									"disabled": true
+									"sid": 426954702349186
 								},
 								{
 									"eventType": "block",
@@ -1157,18 +1186,18 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 224649313095176,
+											"sid": 847309348824511,
 											"parameters": {
 												"object-to-create": "Weather_Cloud",
 												"layer": "\"Clouds\"",
 												"x": "Player.X + 300",
-												"y": "944 - random(200,800)",
-												"create-hierarchy": false
+												"y": "GroundHeight - random(200,800)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
-									"sid": 220566102517834,
-									"disabled": true
+									"sid": 220566102517834
 								},
 								{
 									"eventType": "block",
@@ -1177,9 +1206,19 @@
 											"id": "compare-x",
 											"objectClass": "Weather_Cloud",
 											"sid": 116455848337053,
+											"disabled": true,
 											"parameters": {
 												"comparison": 2,
 												"x-co-ordinate": "Player.X - 500"
+											}
+										},
+										{
+											"id": "compare-x",
+											"objectClass": "Weather_Cloud",
+											"sid": 712432728842220,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "ViewportLeft(\"Cloud\") - 1000"
 											}
 										}
 									],
@@ -1190,8 +1229,7 @@
 											"sid": 755226210064213
 										}
 									],
-									"sid": 837094585713384,
-									"disabled": true
+									"sid": 837094585713384
 								}
 							],
 							"sid": 682720335827180
@@ -1450,15 +1488,6 @@
 										"variable": "builder_LastChunk",
 										"value": "\"\""
 									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 461471978394308,
-									"parameters": {
-										"variable": "builder_extZone",
-										"value": "0"
-									}
 								}
 							],
 							"sid": 153150292100555
@@ -1567,6 +1596,183 @@
 										}
 									],
 									"sid": 319825656581503
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 590369708597939
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 782062573225284,
+											"parameters": {
+												"variable": "level_Type",
+												"comparison": 0,
+												"value": "\"Shop\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 605976855029022,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Start Buildings"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 252863951857766,
+													"parameters": [
+														"Functions.Builder_GetPrefab"
+													]
+												}
+											],
+											"sid": 625215064233439
+										},
+										{
+											"eventType": "comment",
+											"text": "Shops"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 100492774821914,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 440603151707319,
+													"parameters": [
+														"\"Shop_Health\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 727147326331126,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 159923757869322,
+													"parameters": [
+														"\"Shop_Ammo\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 700088645414363,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 595396201324170,
+													"parameters": [
+														"\"Shop_Weapon\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 619171443430530,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 779411411374002,
+													"parameters": [
+														"\"Shop_Equipment\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 965551531773798,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 321703217714358,
+													"parameters": [
+														"\"Shop_Artifact\""
+													]
+												}
+											],
+											"sid": 701602814232970,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Ending Buildings"
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 816611319705535,
+															"parameters": {
+																"seconds": "0"
+															}
+														},
+														{
+															"callFunction": "Builder_SpawnPrefab",
+															"sid": 822689372028275,
+															"parameters": [
+																"Functions.Builder_GetPrefab"
+															]
+														}
+													],
+													"sid": 212628740747092,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 792139551106880,
+																	"parameters": {
+																		"seconds": "0"
+																	}
+																},
+																{
+																	"callFunction": "Builder_Finish",
+																	"sid": 310934963350966
+																}
+															],
+															"sid": 260375348683914
+														}
+													]
+												}
+											]
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -1809,6 +2015,26 @@
 							"sid": 238282074217951
 						},
 						{
+							"eventType": "variable",
+							"name": "builder_extZone",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 396684112702525
+						},
+						{
+							"eventType": "variable",
+							"name": "builder_extID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 690708047920827
+						},
+						{
 							"functionName": "Builder_MoveSpawnPoint",
 							"functionDescription": "",
 							"functionCategory": "Builder",
@@ -1965,7 +2191,8 @@
 										"layer": "\"Tile_BG\"",
 										"x": "BuildingSpawnPoint.X",
 										"y": "BuildingSpawnPoint.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2398,7 +2625,8 @@
 												"layer": "\"Tile_BG\"",
 												"x": "Terrain.X",
 												"y": "Terrain.BBoxBottom",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -2627,7 +2855,8 @@
 												"layer": "\"Tile_BG\"",
 												"x": "BuildingSpawnPoint.X",
 												"y": "builder_OffsetY",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -2820,6 +3049,229 @@
 									"sid": 205802700499236
 								}
 							]
+						},
+						{
+							"functionName": "Builder_BuildExteriorZone",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "command",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 628210438423501
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 647930676748885,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 297842015093329,
+											"parameters": {
+												"first-value": "command",
+												"comparison": 0,
+												"second-value": "\"build\""
+											}
+										},
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 684513014039814,
+											"parameters": {
+												"object": "Terrain"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 468300049254654,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 434624541655112,
+													"parameters": {
+														"variable": "builder_extZone",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 154051011578370,
+													"parameters": {
+														"object-to-create": "Director_ExteriorRange",
+														"layer": "\"Zones\"",
+														"x": "BuildingSpawnPoint.X",
+														"y": "BuildingSpawnPoint.Y + 16",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-width",
+													"objectClass": "Director_ExteriorRange",
+													"sid": 215077109423217,
+													"parameters": {
+														"width": "Terrain.Width"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 501138257627278,
+													"parameters": {
+														"variable": "builder_extZone",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 549758875594465,
+													"parameters": {
+														"variable": "builder_extID",
+														"value": "Director_ExteriorRange.UID"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 254031795494013,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Builder: Build Ext Zone (Build)\""
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 366718552272628,
+													"disabled": true,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Width: \" & Terrain.Width"
+													}
+												}
+											],
+											"sid": 434299979774570
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 407811211518943
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Director_ExteriorRange",
+													"sid": 928440212531703,
+													"parameters": {
+														"unique-id": "builder_extID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-width",
+													"objectClass": "Director_ExteriorRange",
+													"sid": 247831031771386,
+													"parameters": {
+														"width": "Self.Width + Terrain.Width"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 392727489904070,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Builder: Build Ext Zone (Push)\""
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 263998866170793,
+													"parameters": {
+														"type": "log",
+														"message": "\"extZone: \" & builder_extZone & \"extID: \" & builder_extID"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 579351294613849,
+													"disabled": true,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Width: \" & Terrain.Width"
+													}
+												}
+											],
+											"sid": 419522351123758
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 534958106360135
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 378766606068675,
+											"parameters": {
+												"first-value": "command",
+												"comparison": 0,
+												"second-value": "\"end\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 875576784456204,
+											"parameters": {
+												"variable": "builder_extZone",
+												"value": "0"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 403965006138768,
+											"parameters": {
+												"type": "warn",
+												"message": "\"Builder: Build Ext Zone (End)\""
+											}
+										}
+									],
+									"sid": 226088352273888
+								}
+							]
 						}
 					],
 					"sid": 487918976776784
@@ -2828,244 +3280,75 @@
 			"sid": 720610944002248
 		},
 		{
-			"eventType": "variable",
-			"name": "builder_extZone",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 544582628158362
-		},
-		{
-			"eventType": "variable",
-			"name": "builder_extID",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 903182339632755
-		},
-		{
-			"functionName": "Builder_BuildExteriorZone",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
+			"eventType": "block",
+			"conditions": [
 				{
-					"name": "command",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 628210438423501
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 707707790300602,
+					"parameters": {
+						"key": 84
+					}
 				}
 			],
-			"eventType": "function-block",
-			"conditions": [],
 			"actions": [],
-			"sid": 204107071822990,
+			"sid": 952014402750241,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "repeat",
 							"objectClass": "System",
-							"sid": 302148887779129,
+							"sid": 386581149363405,
 							"parameters": {
-								"first-value": "command",
-								"comparison": 0,
-								"second-value": "\"build\""
-							}
-						},
-						{
-							"id": "pick-last-created",
-							"objectClass": "System",
-							"sid": 660129280885397,
-							"parameters": {
-								"object": "Terrain"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 155913341330033,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 334824624574656,
-									"parameters": {
-										"variable": "builder_extZone",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 914121356280230,
-									"parameters": {
-										"object-to-create": "Director_ExteriorRange",
-										"layer": "\"Zones\"",
-										"x": "BuildingSpawnPoint.X",
-										"y": "BuildingSpawnPoint.Y + 16",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-width",
-									"objectClass": "Director_ExteriorRange",
-									"sid": 620509592024289,
-									"parameters": {
-										"width": "Terrain.Width"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 425858875934378,
-									"parameters": {
-										"variable": "builder_extZone",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 603727615015386,
-									"parameters": {
-										"variable": "builder_extID",
-										"value": "Director_ExteriorRange.UID"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 841560016050648,
-									"parameters": {
-										"type": "warn",
-										"message": "\"Builder: Build Ext Zone (Build)\""
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 377962979280292,
-									"disabled": true,
-									"parameters": {
-										"type": "warn",
-										"message": "\"Width: \" & Terrain.Width"
-									}
-								}
-							],
-							"sid": 122234999968755
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 467887792013395
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Director_ExteriorRange",
-									"sid": 243270440588424,
-									"parameters": {
-										"unique-id": "builder_extID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-width",
-									"objectClass": "Director_ExteriorRange",
-									"sid": 937003591313482,
-									"parameters": {
-										"width": "Self.Width + Terrain.Width"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 598900506711340,
-									"parameters": {
-										"type": "warn",
-										"message": "\"Builder: Build Ext Zone (Push)\""
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 281632573997762,
-									"parameters": {
-										"type": "log",
-										"message": "\"extZone: \" & builder_extZone & \"extID: \" & builder_extID"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 220595170208710,
-									"disabled": true,
-									"parameters": {
-										"type": "warn",
-										"message": "\"Width: \" & Terrain.Width"
-									}
-								}
-							],
-							"sid": 427535806770719
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 409112141513843
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 342517219776742,
-							"parameters": {
-								"first-value": "command",
-								"comparison": 0,
-								"second-value": "\"end\""
+								"count": "10"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
+							"id": "wait",
 							"objectClass": "System",
-							"sid": 363214448286396,
+							"sid": 442771466393627,
 							"parameters": {
-								"variable": "builder_extZone",
-								"value": "0"
+								"seconds": "loopindex*0.1"
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 995870918137202,
+							"id": "set-mirrored",
+							"objectClass": "FX_BehemothShockWave",
+							"sid": 864389468575167,
 							"parameters": {
-								"type": "warn",
-								"message": "\"Builder: Build Ext Zone (End)\""
+								"state": "mirrored"
 							}
 						}
 					],
-					"sid": 741325247370446
+					"sid": 741936021169771
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 153291746963717,
+							"parameters": {
+								"count": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 469667116253888,
+							"parameters": {
+								"seconds": "loopindex*0.1"
+							}
+						}
+					],
+					"sid": 474792185938008
 				}
 			]
 		}

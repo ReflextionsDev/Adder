@@ -1,0 +1,1822 @@
+{
+	"name": "HUD",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "HUD Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 229937106847294,
+							"parameters": {
+								"key": 70
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HUD_UpdateWeapons",
+							"sid": 540893523186213
+						}
+					],
+					"sid": 368774153667580,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 339708451516822,
+							"parameters": {
+								"key": 88
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HUD_UpdateCurrentWeapon",
+							"sid": 507485481082618
+						}
+					],
+					"sid": 267062566696990,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 158337020581444,
+							"parameters": {
+								"key": 86
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HUD_UpdateAmmo",
+							"sid": 149376851187135
+						}
+					],
+					"sid": 879683715376962,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 451663156034415,
+							"parameters": {
+								"key": 74
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PLR_ReloadAll",
+							"sid": 936362841721793
+						}
+					],
+					"sid": 550600294534714,
+					"disabled": true
+				}
+			],
+			"sid": 492060011474690
+		},
+		{
+			"eventType": "comment",
+			"text": "Takes in a number in seconds and return time string"
+		},
+		{
+			"functionName": "Text_GetTimeFormat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "num",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 451935444203156
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 593439963286368,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "hours",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 975027733623564
+				},
+				{
+					"eventType": "variable",
+					"name": "minutes",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 978193470708603
+				},
+				{
+					"eventType": "variable",
+					"name": "seconds",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 394202192183151
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 860106274146535,
+							"parameters": {
+								"variable": "hours",
+								"value": "floor(num/3600)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 848686627829807,
+							"parameters": {
+								"variable": "num",
+								"value": "num % 3600"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 953147842073389,
+							"parameters": {
+								"variable": "minutes",
+								"value": "floor(num / 60)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 400206768491077,
+							"parameters": {
+								"variable": "num",
+								"value": "num % 60"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 821331461828362,
+							"parameters": {
+								"variable": "seconds",
+								"value": "num"
+							}
+						}
+					],
+					"sid": 970335864709446,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 934432069806714,
+									"parameters": {
+										"variable": "hours",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 184915943715914,
+									"parameters": {
+										"value": "zeropad(hours,2) & \":\" & zeropad(minutes,2) & \":\" & zeropad(seconds,2)"
+									}
+								}
+							],
+							"sid": 811951231631939
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 912621492486497
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 456675787078907,
+									"parameters": {
+										"value": "zeropad(minutes,2) & \":\" & zeropad(seconds,2)"
+									}
+								}
+							],
+							"sid": 836519541809249
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Hud",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "!! Placeholder !!"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 595739278393579,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Money",
+							"sid": 830361689820960,
+							"parameters": {
+								"text": "\"$\" & PlayerData.Money"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Levels",
+							"sid": 292778866262366,
+							"parameters": {
+								"text": "\"Level: \" & PlayerData.Level & newline & \"Exp: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Time",
+							"sid": 645492293316516,
+							"parameters": {
+								"text": "Functions.Text_GetTimeFormat(director_DifficultyTime)"
+							}
+						},
+						{
+							"callFunction": "HUD_UpdateDifficulty",
+							"sid": 882526179230545
+						}
+					],
+					"sid": 813162250942284
+				}
+			],
+			"sid": 432570562629976
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HUD Difficulty",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 340886969935136
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HUD_ResetDifficulty",
+							"sid": 162458924099628
+						}
+					],
+					"sid": 701199325003949
+				},
+				{
+					"functionName": "HUD_ResetDifficulty",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "HUD_DifficultyFill",
+							"sid": 638521810776669,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 955057700065471,
+							"parameters": {
+								"seconds": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "HUD_Pointer",
+							"sid": 809089346964519,
+							"parameters": {
+								"x": "HUD_Difficulty.X",
+								"y": "HUD_Difficulty.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Text_Difficulty",
+							"sid": 307443952305844,
+							"parameters": {
+								"x": "HUD_Pointer.X + HUD_Pointer.Width/2",
+								"y": "HUD_Pointer.Y + HUD_Pointer.Height + 4"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Difficulty",
+							"sid": 104237066019901,
+							"parameters": {
+								"text": "\"TEMP\""
+							}
+						}
+					],
+					"sid": 330713417001354
+				},
+				{
+					"functionName": "HUD_HideDifficulty",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Money",
+							"sid": 192104626815233,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Levels",
+							"sid": 950778448984761,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_Difficulty",
+							"sid": 742032114041825,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_DifficultyFill",
+							"sid": 672258450706345,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_Pointer",
+							"sid": 139576735289067,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Difficulty",
+							"sid": 979885096166598,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 545399741618657
+				},
+				{
+					"functionName": "HUD_ShowDifficulty",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Money",
+							"sid": 344614523957245,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Levels",
+							"sid": 482597020659477,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_Difficulty",
+							"sid": 821066899847137,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_DifficultyFill",
+							"sid": 867282938535291,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HUD_Pointer",
+							"sid": 309026106353991,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Difficulty",
+							"sid": 922147531612756,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 640992077251993
+				},
+				{
+					"functionName": "HUD_UpdateDifficulty",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 891663298757415,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 413800526954741
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 803706385124248,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 386570961224920,
+											"parameters": {
+												"variable": "director_Difficulty",
+												"comparison": 3,
+												"value": "10"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 973096888477510,
+											"parameters": {
+												"variable": "x",
+												"value": "(director_Difficulty)/10 - 0.10"
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "HUD_DifficultyFill",
+											"sid": 464484298600992,
+											"parameters": {
+												"width": "HUD_Difficulty.Width * x",
+												"height": "Self.Height"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "HUD_Pointer",
+											"sid": 504009273466367,
+											"parameters": {
+												"x": "HUD_Difficulty.X + HUD_DifficultyFill.Width",
+												"y": "HUD_Difficulty.Y"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Text_Difficulty",
+											"sid": 536291681148919,
+											"parameters": {
+												"x": "HUD_Pointer.X + HUD_Pointer.Width/2",
+												"y": "HUD_Pointer.Y + HUD_Pointer.Height + 4"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Difficulty",
+											"sid": 755447491613193,
+											"parameters": {
+												"text": "Functions.Text_String(\"diff_\" & floor(director_Difficulty))"
+											}
+										}
+									],
+									"sid": 197079601006474
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 274720783921840
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text_Difficulty",
+											"sid": 424161750965905,
+											"parameters": {
+												"text": "Functions.Text_String(\"diff_\" & 11)"
+											}
+										}
+									],
+									"sid": 496910536158489
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 904080846204219
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HUD Weapon Display",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 621011065286900
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HUD_InitWeapons",
+							"sid": 756524495762657
+						}
+					],
+					"sid": 174482393607670
+				},
+				{
+					"functionName": "HUD_InitWeapons",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "HUD_WeaponSlotFill",
+							"sid": 419000062488975
+						},
+						{
+							"id": "destroy",
+							"objectClass": "HUD_WeaponSlotAmmo",
+							"sid": 369383098590508,
+							"disabled": true
+						}
+					],
+					"sid": 717798025531439,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 986027068535284,
+									"parameters": {
+										"object": "HUD_WeaponSlot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 565212409705641,
+									"parameters": {
+										"object-to-create": "HUD_WeaponSlotFill",
+										"layer": "HUD_WeaponSlot.LayerName",
+										"x": "HUD_WeaponSlot.X",
+										"y": "HUD_WeaponSlot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 546666591275903,
+									"parameters": {
+										"child": "HUD_WeaponSlotFill",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "HUD_WeaponSlotFill",
+									"sid": 169798269615203
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 922097001226002,
+									"parameters": {
+										"object-to-create": "Object_Sprite",
+										"layer": "HUD_WeaponSlot.LayerName",
+										"x": "HUD_WeaponSlot.X",
+										"y": "HUD_WeaponSlot.Y - HUD_WeaponSlot.Height/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 693004701218902,
+									"parameters": {
+										"child": "Object_Sprite",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Object_Sprite",
+									"sid": 928200904307070,
+									"parameters": {
+										"animation": "\"Empty\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 245783556327526,
+									"parameters": {
+										"object-to-create": "HUD_WeaponSlotAmmo",
+										"layer": "HUD_WeaponSlot.LayerName",
+										"x": "HUD_WeaponSlot.X + HUD_WeaponSlot.Width / 2",
+										"y": "HUD_WeaponSlot.Y - HUD_WeaponSlot.Height",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "HUD_WeaponSlotAmmo",
+									"sid": 596049775388189,
+									"parameters": {
+										"animation": "\"empty\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 405040317457220,
+									"parameters": {
+										"child": "HUD_WeaponSlotAmmo",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-z-elevation": false,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 586618762302692
+						}
+					]
+				},
+				{
+					"functionName": "HUD_UpdateWeapons",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 387687680626104,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 916373942911887,
+									"parameters": {
+										"object": "HUD_WeaponSlot"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 830850033809554,
+									"parameters": {
+										"child": "Object_Sprite",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 416329589112216,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "unequipped"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 384509036792657,
+											"parameters": {
+												"color": "rgbEx255(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 290122770980732
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 140163310903777,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Weapon",
+											"sid": 398485157232016,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "PlayerData.Weapon_1"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 743610245051089,
+											"parameters": {
+												"child": "HUD_WeaponSlotFill",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 333607499105583,
+											"parameters": {
+												"child": "HUD_WeaponSlotAmmo",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Object_Sprite",
+											"sid": 495181711612602,
+											"parameters": {
+												"animation": "Weapon.Parent",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 223944620052127,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "PlayerData",
+													"sid": 274516299018485,
+													"parameters": {
+														"instance-variable": "Weapon_1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Object_Sprite",
+													"sid": 289255141794079,
+													"parameters": {
+														"animation": "\"Empty\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 135201553292539,
+													"parameters": {
+														"height": "0"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 184786480362976,
+													"parameters": {
+														"animation": "\"empty\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 582106035644326
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 207278936168466
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 812910765833535,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Weapon.Parent"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 282644920128345,
+													"parameters": {
+														"height": "(Weapon.MagLeft / WeaponParent.Magsize) * Self.StartHeight"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 418216703177585,
+													"parameters": {
+														"animation": "WeaponParent.AmmoType",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 631798293955939,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 254533608250576,
+															"parameters": {
+																"first-value": "function.Call(\"PLR_GetAmmo\",WeaponParent.AmmoType)",
+																"comparison": 3,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Weapon",
+															"sid": 474392023250826,
+															"parameters": {
+																"instance-variable": "MagLeft",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-default-color",
+															"objectClass": "HUD_WeaponSlot",
+															"sid": 516391760996669,
+															"parameters": {
+																"color": "rgbEx255(232, 100, 100)"
+															}
+														}
+													],
+													"sid": 685936298931788
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 272913907352617,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Weapon",
+											"sid": 915003430616915,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "PlayerData.Weapon_2"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 391530154141460,
+											"parameters": {
+												"child": "HUD_WeaponSlotFill",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 100908941132746,
+											"parameters": {
+												"child": "HUD_WeaponSlotAmmo",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Object_Sprite",
+											"sid": 169413930554709,
+											"parameters": {
+												"animation": "Weapon.Parent",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 199880598451186,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "PlayerData",
+													"sid": 635785337795233,
+													"parameters": {
+														"instance-variable": "Weapon_2",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Object_Sprite",
+													"sid": 408447704606134,
+													"parameters": {
+														"animation": "\"Empty\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 263083300894766,
+													"parameters": {
+														"height": "0"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 657491624110230,
+													"parameters": {
+														"animation": "\"empty\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 143331324220364
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 529347763831386
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 410329626592549,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Weapon.Parent"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 317385214275643,
+													"parameters": {
+														"height": "Weapon.MagLeft / (WeaponParent.Magsize + Functions.Weapon_GetMagBonus(WeaponParent.Type)) * Self.StartHeight"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 888950805367740,
+													"parameters": {
+														"animation": "WeaponParent.AmmoType",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 249129082977637,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 948945919638083,
+															"parameters": {
+																"first-value": "function.Call(\"PLR_GetAmmo\",WeaponParent.AmmoType)",
+																"comparison": 3,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Weapon",
+															"sid": 205478622061248,
+															"parameters": {
+																"instance-variable": "MagLeft",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-default-color",
+															"objectClass": "HUD_WeaponSlot",
+															"sid": 900400495823133,
+															"parameters": {
+																"color": "rgbEx255(232, 100, 100)"
+															}
+														}
+													],
+													"sid": 700491530524367
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 356683770020369,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Weapon",
+											"sid": 992334562651453,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "PlayerData.Weapon_3"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 754471588810757,
+											"parameters": {
+												"child": "HUD_WeaponSlotFill",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 293070203550929,
+											"parameters": {
+												"child": "HUD_WeaponSlotAmmo",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Object_Sprite",
+											"sid": 336889450621776,
+											"parameters": {
+												"animation": "Weapon.Parent",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 657631391408723,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "PlayerData",
+													"sid": 806961783944153,
+													"parameters": {
+														"instance-variable": "Weapon_3",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Object_Sprite",
+													"sid": 671050873415636,
+													"parameters": {
+														"animation": "\"Empty\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 505553820942309,
+													"parameters": {
+														"height": "0"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 987078816361765,
+													"parameters": {
+														"animation": "\"empty\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 713797050633386
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 610688600798280
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 180653330717343,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Weapon.Parent"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 529613750323883,
+													"parameters": {
+														"height": "Weapon.MagLeft / (WeaponParent.Magsize + Functions.Weapon_GetMagBonus(WeaponParent.Type)) * Self.StartHeight"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 270485990371519,
+													"parameters": {
+														"animation": "WeaponParent.AmmoType",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 740223213747271,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 942557248709412,
+															"parameters": {
+																"first-value": "function.Call(\"PLR_GetAmmo\",WeaponParent.AmmoType)",
+																"comparison": 3,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Weapon",
+															"sid": 252326641786423,
+															"parameters": {
+																"instance-variable": "MagLeft",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-default-color",
+															"objectClass": "HUD_WeaponSlot",
+															"sid": 784754764667299,
+															"parameters": {
+																"color": "rgbEx255(232, 100, 100)"
+															}
+														}
+													],
+													"sid": 793552318526562
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 986225221277333,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "4"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Weapon",
+											"sid": 526771890321678,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "PlayerData.Weapon_4"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 961417697765970,
+											"parameters": {
+												"child": "HUD_WeaponSlotFill",
+												"which": "own"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 458938615983887,
+											"parameters": {
+												"child": "HUD_WeaponSlotAmmo",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Object_Sprite",
+											"sid": 990700422303392,
+											"parameters": {
+												"animation": "Weapon.Parent",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 564934987067956,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "PlayerData",
+													"sid": 132728284327624,
+													"parameters": {
+														"instance-variable": "Weapon_4",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Object_Sprite",
+													"sid": 855476891855296,
+													"parameters": {
+														"animation": "\"Empty\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 377279588493423,
+													"parameters": {
+														"height": "0"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 300540158478797,
+													"parameters": {
+														"animation": "\"empty\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 567795911756953
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 578607507914804
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 759753462423148,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Weapon.Parent"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-height",
+													"objectClass": "HUD_WeaponSlotFill",
+													"sid": 338269239569527,
+													"parameters": {
+														"height": "Weapon.MagLeft / (WeaponParent.Magsize + Functions.Weapon_GetMagBonus(WeaponParent.Type)) * Self.StartHeight"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "HUD_WeaponSlotAmmo",
+													"sid": 286246669657950,
+													"parameters": {
+														"animation": "WeaponParent.AmmoType",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 875425336394332,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 978769492350899,
+															"parameters": {
+																"first-value": "function.Call(\"PLR_GetAmmo\",WeaponParent.AmmoType)",
+																"comparison": 3,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Weapon",
+															"sid": 343739683633067,
+															"parameters": {
+																"instance-variable": "MagLeft",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-default-color",
+															"objectClass": "HUD_WeaponSlot",
+															"sid": 672174757520338,
+															"parameters": {
+																"color": "rgbEx255(232, 100, 100)"
+															}
+														}
+													],
+													"sid": 738522304503462
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 378095385928690
+								},
+								{
+									"eventType": "comment",
+									"text": "equipped"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 959703572229030,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "PlayerData.WeaponIndex"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HUD_WeaponSlot",
+											"sid": 587599761999495,
+											"parameters": {
+												"color": "rgbEx255(49, 203, 242)"
+											}
+										}
+									],
+									"sid": 514918506360140
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "HUD_UpdateAmmo",
+									"sid": 113038804166997
+								}
+							],
+							"sid": 160861987553730
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "needs lerping"
+				},
+				{
+					"eventType": "comment",
+					"text": "could use current thingy ammo bar that already exists"
+				},
+				{
+					"functionName": "HUD_UpdateCurrentWeapon",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 617843560620409,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 134024975544293,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "PlayerData.WeaponIndex"
+									}
+								},
+								{
+									"id": "pick-children",
+									"objectClass": "HUD_WeaponSlot",
+									"sid": 914593312855007,
+									"parameters": {
+										"child": "HUD_WeaponSlotFill",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-height",
+									"objectClass": "HUD_WeaponSlotFill",
+									"sid": 564336192925391,
+									"disabled": true,
+									"parameters": {
+										"height": "(Weapon_Player.MagLeft / (Weapon_Player.Magsize + Functions.Weapon_GetMagBonus(Weapon_Player.Type))) * Self.StartHeight"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "HUD_WeaponSlotFill",
+									"sid": 280190502213348,
+									"parameters": {
+										"height": "(Weapon_Player.MagLeft / Weapon_Player.Magsize) * Self.StartHeight"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 543039945434576,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"STUFF: \" & Weapon_Player.MagLeft &\",\" & Weapon_Player.Magsize"
+									}
+								}
+							],
+							"sid": 311189870035524
+						}
+					]
+				},
+				{
+					"functionName": "HUD_UpdateAmmo",
+					"functionDescription": "",
+					"functionCategory": "HUD",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 655590409159088,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Ammo",
+									"sid": 932054700258539,
+									"parameters": {
+										"instance-variable": "Label",
+										"comparison": 0,
+										"value": "\"light\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Ammo",
+									"sid": 900776662339933,
+									"parameters": {
+										"text": "Weapon_Player.Ammo_Light"
+									}
+								}
+							],
+							"sid": 349618413603333
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Ammo",
+									"sid": 382276037639187,
+									"parameters": {
+										"instance-variable": "Label",
+										"comparison": 0,
+										"value": "\"medium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Ammo",
+									"sid": 444031463351783,
+									"parameters": {
+										"text": "Weapon_Player.Ammo_Medium"
+									}
+								}
+							],
+							"sid": 767396722944946
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text_Ammo",
+									"sid": 527334071623021,
+									"parameters": {
+										"instance-variable": "Label",
+										"comparison": 0,
+										"value": "\"heavy\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Ammo",
+									"sid": 177996175040489,
+									"parameters": {
+										"text": "Weapon_Player.Ammo_Heavy"
+									}
+								}
+							],
+							"sid": 101967205955619
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "HUD_WeaponSlotFill",
+							"sid": 946252022940009
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "HUD_WeaponSlotFill",
+							"sid": 307826183204705,
+							"parameters": {
+								"instance-variable": "StartHeight",
+								"value": "Self.Height"
+							}
+						}
+					],
+					"sid": 841585523561031
+				}
+			],
+			"sid": 537655066536327
+		}
+	],
+	"sid": 666712097740023
+}

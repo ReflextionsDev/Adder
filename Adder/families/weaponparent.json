@@ -4,10 +4,22 @@
 	"sid": 249681151389781,
 	"instanceVariables": [
 		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 492822376567504
+		},
+		{
 			"name": "Name",
 			"type": "string",
 			"desc": "",
 			"sid": 560573588603609
+		},
+		{
+			"name": "Rarity",
+			"type": "string",
+			"desc": "",
+			"sid": 140089984193373
 		},
 		{
 			"name": "Type",
@@ -16,9 +28,15 @@
 			"sid": 379117504400055
 		},
 		{
-			"name": "Offset",
+			"name": "Value",
 			"type": "number",
 			"desc": "",
+			"sid": 360428934776893
+		},
+		{
+			"name": "Offset",
+			"type": "number",
+			"desc": "The Y gap between sprite origin and bullet origin",
 			"sid": 298108229990032
 		},
 		{
@@ -100,12 +118,6 @@
 			"sid": 387285261329781
 		},
 		{
-			"name": "Value",
-			"type": "number",
-			"desc": "",
-			"sid": 360428934776893
-		},
-		{
 			"name": "Projectile",
 			"type": "string",
 			"desc": "bullet, etc",
@@ -120,7 +132,7 @@
 		{
 			"name": "LoadType",
 			"type": "string",
-			"desc": "",
+			"desc": "clip, single",
 			"sid": 757189091293376
 		},
 		{
@@ -188,6 +200,48 @@
 			"type": "number",
 			"desc": "",
 			"sid": 983095864467378
+		},
+		{
+			"name": "ProjectileSize",
+			"type": "number",
+			"desc": "",
+			"sid": 130945417662404
+		},
+		{
+			"name": "DontSpawn",
+			"type": "boolean",
+			"desc": "",
+			"sid": 738045342179873
+		},
+		{
+			"name": "Bullet_Speed",
+			"type": "number",
+			"desc": "",
+			"sid": 237664088448663
+		},
+		{
+			"name": "Bullet_Acceleration",
+			"type": "number",
+			"desc": "",
+			"sid": 788892034473064
+		},
+		{
+			"name": "Bullet_Gravity",
+			"type": "number",
+			"desc": "",
+			"sid": 260348210049963
+		},
+		{
+			"name": "projectileVFX",
+			"type": "string",
+			"desc": "",
+			"sid": 496611484110797
+		},
+		{
+			"name": "Shell",
+			"type": "string",
+			"desc": "",
+			"sid": 218337817303174
 		}
 	],
 	"members": [
@@ -197,6 +251,19 @@
 		"Weapon_Rifle",
 		"Weapon_Shotgun",
 		"Weapon_SMG",
-		"Weapon_SMGDual"
+		"Weapon_SMGDual",
+		"Weapon_Longgun",
+		"Weapon_SingleShotgun",
+		"Weapon_BFP",
+		"Weapon_ChaosPistol",
+		"Weapon_BigIron",
+		"Weapon_AutoPistol",
+		"Weapon_AssaultRifle",
+		"Weapon_AutoShotgun",
+		"Weapon_Repeater",
+		"Weapon_GrenadeLauncher",
+		"Weapon_MoneyShot",
+		"Weapon_Minigun",
+		"Weapon_SaltRifle"
 	]
 }

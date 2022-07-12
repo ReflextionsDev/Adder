@@ -7,6 +7,10 @@
 		},
 		{
 			"eventType": "comment",
+			"text": "TODO - Option to disable hold to scrap, hold to drop on PC"
+		},
+		{
+			"eventType": "comment",
 			"text": ""
 		},
 		{
@@ -303,6 +307,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "keyDropWeapon",
+			"type": "number",
+			"initialValue": "88",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 424134870931539
+		},
+		{
+			"eventType": "variable",
 			"name": "key_Interact",
 			"type": "number",
 			"initialValue": "69",
@@ -390,6 +404,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 973579413435771
+		},
+		{
+			"eventType": "variable",
+			"name": "key_Weapon4",
+			"type": "number",
+			"initialValue": "52",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 636906395612443
 		},
 		{
 			"eventType": "comment",
@@ -727,7 +751,8 @@
 										"layer": "\"Cursor\"",
 										"x": "Mouse.X(\"Cursor\")",
 										"y": "Mouse.Y(\"Cursor\")",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -739,7 +764,8 @@
 										"layer": "\"Cursor\"",
 										"x": "0",
 										"y": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1034,7 +1060,8 @@
 										"layer": "\"Cursor\"",
 										"x": "Mouse.X(\"Cursor\")",
 										"y": "Mouse.Y(\"Cursor\")",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1487,7 +1514,8 @@
 										"layer": "\"Cursor\"",
 										"x": "Mouse.X(\"Cursor\")",
 										"y": "Mouse.Y(\"Cursor\")",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -2601,6 +2629,10 @@
 							"sid": 987452563193812
 						},
 						{
+							"eventType": "comment",
+							"text": "sin object to get bigger while holding scrap btn"
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Input_Interact",
@@ -2608,45 +2640,342 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-code-pressed",
-											"objectClass": "Keyboard",
-											"sid": 106788749271195,
-											"parameters": {
-												"keycode": "key_Interact"
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "Input_Interact",
-											"sid": 945477140550627
-										}
-									],
-									"sid": 485912293274936
+									"eventType": "variable",
+									"name": "timer",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 307596157307308
 								},
 								{
-									"eventType": "block",
-									"conditions": [
+									"eventType": "variable",
+									"name": "threshold1",
+									"type": "number",
+									"initialValue": "0.25",
+									"comment": "in seconds",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 960116022449963
+								},
+								{
+									"eventType": "variable",
+									"name": "threshold2",
+									"type": "number",
+									"initialValue": "1.25",
+									"comment": "in seconds",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 904526711494315
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Input_Interact_Timer",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
 										{
-											"id": "on-button-index-pressed",
-											"objectClass": "Gamepad",
-											"sid": 873556465471827,
-											"parameters": {
-												"gamepad": "input_ActiveGamepad",
-												"button-index": "gamepad_Interact"
-											}
+											"eventType": "comment",
+											"text": "Start timer"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-code-pressed",
+													"objectClass": "Keyboard",
+													"sid": 126814240882152,
+													"parameters": {
+														"keycode": "key_Interact"
+													}
+												},
+												{
+													"id": "on-button-index-pressed",
+													"objectClass": "Gamepad",
+													"sid": 544348057960239,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_Interact"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 321711310284850,
+													"parameters": {
+														"variable": "timer",
+														"value": "wallclocktime"
+													}
+												}
+											],
+											"sid": 115389742159530,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Interact"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-code-released",
+													"objectClass": "Keyboard",
+													"sid": 671223232893864,
+													"parameters": {
+														"keycode": "key_Interact"
+													}
+												},
+												{
+													"id": "on-button-index-released",
+													"objectClass": "Gamepad",
+													"sid": 241467592872696,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_Interact"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 729622998376395,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 697477508300081,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 2,
+																"second-value": "threshold1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Input_Interact",
+															"sid": 841260861904953
+														}
+													],
+													"sid": 314119066456248
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Interact Hold Start"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-code-is-down",
+													"objectClass": "Keyboard",
+													"sid": 161366093596835,
+													"parameters": {
+														"keycode": "key_Interact"
+													}
+												},
+												{
+													"id": "is-button-index-down",
+													"objectClass": "Gamepad",
+													"sid": 965387375564946,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_Interact"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 795761523105631,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 212391718516173,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 5,
+																"second-value": "threshold1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 928427609132437,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 838232443958081
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Input_Interact_HoldStart",
+																	"sid": 887985323229051
+																}
+															],
+															"sid": 204855960377619
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Interact Hold Release"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-code-released",
+													"objectClass": "Keyboard",
+													"sid": 408526815573889,
+													"parameters": {
+														"keycode": "key_Interact"
+													}
+												},
+												{
+													"id": "on-button-index-released",
+													"objectClass": "Gamepad",
+													"sid": 187687880881515,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_Interact"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 479583204752129,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 175779967250478,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 5,
+																"second-value": "threshold1"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 827795064597384,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 2,
+																"second-value": "threshold2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Input_Interact_HoldRelease",
+															"sid": 300851099431616
+														}
+													],
+													"sid": 664605290558823
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Interact Hold Finish"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-code-is-down",
+													"objectClass": "Keyboard",
+													"sid": 536804140649400,
+													"parameters": {
+														"keycode": "key_Interact"
+													}
+												},
+												{
+													"id": "is-button-index-down",
+													"objectClass": "Gamepad",
+													"sid": 655910792529657,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_Interact"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 947625689014540,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 923527219217284,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 5,
+																"second-value": "threshold2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 873693744530472,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 914415930138512
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Input_Interact_HoldFinish",
+																	"sid": 321713374502869
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 924825622202015,
+																	"parameters": {
+																		"variable": "timer",
+																		"value": "wallclocktime"
+																	}
+																}
+															],
+															"sid": 157214866574349
+														}
+													]
+												}
+											],
+											"isOrBlock": true
 										}
 									],
-									"actions": [
-										{
-											"callFunction": "Input_Interact",
-											"sid": 866740667439034
-										}
-									],
-									"sid": 840507332694007
+									"sid": 128001392183633
 								},
 								{
 									"eventType": "group",
@@ -3396,37 +3725,200 @@
 							"isActiveOnStart": true,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
+									"eventType": "variable",
+									"name": "timer",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 838858410431554
+								},
+								{
+									"eventType": "variable",
+									"name": "threshold",
+									"type": "number",
+									"initialValue": "0.5",
+									"comment": "in seconds",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 727965697424393
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Input_Swap_Timer",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
 										{
-											"id": "on-key-code-pressed",
-											"objectClass": "Keyboard",
-											"sid": 230849970805006,
-											"parameters": {
-												"keycode": "key_SwapWeapon"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-code-pressed",
+													"objectClass": "Keyboard",
+													"sid": 365247715712290,
+													"parameters": {
+														"keycode": "key_SwapWeapon"
+													}
+												},
+												{
+													"id": "on-button-index-pressed",
+													"objectClass": "Gamepad",
+													"sid": 825830176852092,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_SwapWeapon"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 683522586187227,
+													"parameters": {
+														"variable": "timer",
+														"value": "wallclocktime"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 420667463545543,
+													"disabled": true,
+													"parameters": {
+														"type": "warn",
+														"message": "\"time: \" & wallclocktime"
+													}
+												}
+											],
+											"sid": 296699890779350,
+											"isOrBlock": true
 										},
 										{
-											"id": "on-button-index-pressed",
-											"objectClass": "Gamepad",
-											"sid": 415032219374136,
-											"parameters": {
-												"gamepad": "input_ActiveGamepad",
-												"button-index": "gamepad_SwapWeapon"
-											}
-										}
-									],
-									"actions": [
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-code-is-down",
+													"objectClass": "Keyboard",
+													"sid": 878213796402817,
+													"parameters": {
+														"keycode": "key_SwapWeapon"
+													}
+												},
+												{
+													"id": "is-button-index-down",
+													"objectClass": "Gamepad",
+													"sid": 547891055870805,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_SwapWeapon"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 181657007671741,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 205680949498026,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 5,
+																"second-value": "Threshold"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Input_Drop",
+															"sid": 466328954769367
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 469539761311427,
+															"parameters": {
+																"variable": "timer",
+																"value": "wallclocktime"
+															}
+														}
+													],
+													"sid": 101305840017793
+												}
+											],
+											"isOrBlock": true
+										},
 										{
-											"callFunction": "Input_Swap",
-											"sid": 518663676655276,
-											"parameters": [
-												"0"
-											]
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-code-released",
+													"objectClass": "Keyboard",
+													"sid": 705329526363783,
+													"parameters": {
+														"keycode": "key_SwapWeapon"
+													}
+												},
+												{
+													"id": "on-button-index-pressed",
+													"objectClass": "Gamepad",
+													"sid": 737892934722885,
+													"parameters": {
+														"gamepad": "input_ActiveGamepad",
+														"button-index": "gamepad_SwapWeapon"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 317223189251596,
+													"disabled": true,
+													"parameters": {
+														"type": "warn",
+														"message": "\"clock: \" & wallclocktime & \" timer: \" & timer & \" time: \" & wallclocktime - timer"
+													}
+												}
+											],
+											"sid": 275005233728607,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 330671246545744,
+															"parameters": {
+																"first-value": "wallclocktime - Timer",
+																"comparison": 2,
+																"second-value": "Threshold"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Input_Swap",
+															"sid": 472413280324826,
+															"parameters": [
+																"0"
+															]
+														}
+													],
+													"sid": 321880582798415
+												}
+											],
+											"isOrBlock": true
 										}
 									],
-									"sid": 854489233389059,
-									"isOrBlock": true
+									"sid": 832944175267436
 								},
 								{
 									"eventType": "block",
@@ -3496,9 +3988,62 @@
 										}
 									],
 									"sid": 342185337017130
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 631898623315927,
+											"parameters": {
+												"keycode": "key_Weapon4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Swap",
+											"sid": 956433915343504,
+											"parameters": [
+												"4"
+											]
+										}
+									],
+									"sid": 614586142977522
 								}
 							],
 							"sid": 757075626242377
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Input_Drop",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-code-pressed",
+											"objectClass": "Keyboard",
+											"sid": 266272726351022,
+											"parameters": {
+												"keycode": "keyDropWeapon"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Input_Drop",
+											"sid": 948799943520756
+										}
+									],
+									"sid": 928968303690259
+								}
+							],
+							"sid": 870644815172092
 						},
 						{
 							"eventType": "group",

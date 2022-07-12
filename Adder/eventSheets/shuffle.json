@@ -1,0 +1,387 @@
+{
+	"name": "Shuffle",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shuffle",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "generic shuffle function, pass in table"
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Shuffle Debug",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 287054576485943,
+									"parameters": {
+										"key": 79
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Shuffle_Clear",
+									"sid": 277583140729041
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 731611030639573,
+									"disabled": true,
+									"parameters": [
+										"\"common\"",
+										"50"
+									]
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 273848320029811,
+									"disabled": true,
+									"parameters": [
+										"\"uncommon\"",
+										"40"
+									]
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 491618578097311,
+									"disabled": true,
+									"parameters": [
+										"\"rare\"",
+										"10"
+									]
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 437471980256888,
+									"disabled": true,
+									"parameters": [
+										"\"epic\"",
+										"5"
+									]
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 148033496532580,
+									"parameters": [
+										"\"test\"",
+										"1"
+									]
+								},
+								{
+									"callFunction": "Shuffle_AddItem",
+									"sid": 617264090415145,
+									"parameters": [
+										"\"yeet\"",
+										"0"
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 801938534325794,
+									"parameters": {
+										"type": "log",
+										"message": "Functions.Shuffle_Draw"
+									}
+								}
+							],
+							"sid": 817220053071048,
+							"disabled": true
+						}
+					],
+					"sid": 260758507430545
+				},
+				{
+					"functionName": "Shuffle_Clear",
+					"functionDescription": "",
+					"functionCategory": "Math",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "Shuffle_Dictionary",
+							"sid": 320558068530518
+						}
+					],
+					"sid": 516052347384316
+				},
+				{
+					"functionName": "Shuffle_AddItem",
+					"functionDescription": "",
+					"functionCategory": "Math",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "item",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 880183044979768
+						},
+						{
+							"name": "weight",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 307745779051130
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Shuffle_Dictionary",
+							"sid": 541596887266054,
+							"parameters": {
+								"key": "item",
+								"value": "weight"
+							}
+						}
+					],
+					"sid": 506454718275314
+				},
+				{
+					"functionName": "Shuffle_Draw",
+					"functionDescription": "",
+					"functionCategory": "Math",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 352596758823015,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "picked",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 816104046241243
+						},
+						{
+							"eventType": "variable",
+							"name": "current",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 432139118185595
+						},
+						{
+							"eventType": "variable",
+							"name": "total",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 881221144347548
+						},
+						{
+							"eventType": "comment",
+							"text": "build max value, then draw"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Shuffle_Dictionary",
+									"sid": 350661585205384
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 919567163441987,
+									"parameters": {
+										"variable": "total",
+										"value": "Shuffle_Dictionary.CurrentValue"
+									}
+								}
+							],
+							"sid": 421483656883336
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 443146229830386,
+									"parameters": {
+										"variable": "picked",
+										"value": "floor(random(1,total + 1))"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 555514430587724,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"Total: \" & total & \" | \"  & \"Picked:\" & picked"
+									}
+								}
+							],
+							"sid": 196002986359772
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Shuffle_Dictionary",
+									"sid": 492661793611137
+								}
+							],
+							"actions": [],
+							"sid": 108509715885728,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "start",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 440806808849544
+								},
+								{
+									"eventType": "variable",
+									"name": "end",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 132327546186765
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 361604644151038,
+											"parameters": {
+												"variable": "start",
+												"value": "current + 1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 651340136671065,
+											"parameters": {
+												"variable": "end",
+												"value": "current + Shuffle_Dictionary.CurrentValue"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 946240513779673,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "Shuffle_Dictionary.CurrentKey & \"|\" & start & \"|\" & end"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 535862067496992,
+											"parameters": {
+												"variable": "current",
+												"value": "Shuffle_Dictionary.CurrentValue"
+											}
+										}
+									],
+									"sid": 812496700108000
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 404255891369218,
+											"parameters": {
+												"value": "picked",
+												"lower-bound": "start",
+												"upper-bound": "end"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 743891906393568,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Value picked: \" & Shuffle_Dictionary.CurrentKey"
+											}
+										},
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 376327560809667,
+											"parameters": {
+												"value": "Shuffle_Dictionary.CurrentKey"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "this propogates"
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 759336291824680,
+											"disabled": true
+										}
+									],
+									"sid": 776492891487349
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 308557580508568
+		}
+	],
+	"sid": 759604310919116
+}

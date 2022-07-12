@@ -1106,13 +1106,112 @@
 							}
 						},
 						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 835981862099601,
+							"parameters": {
+								"tag": "\"DirectorZombiesCost\"",
+								"file": "DirectorZombiesCost.json"
+							}
+						}
+					],
+					"sid": 404866664784814
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 868601466408194,
+							"parameters": {
+								"tag": "\"DirectorZombiesCost\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieCost",
+							"sid": 592033133863056,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 872249950641634,
+							"parameters": {
+								"tag": "\"DirectorZombiesInt\"",
+								"file": "DirectorZombiesInt.json"
+							}
+						}
+					],
+					"sid": 288993635454246
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 806737090065156,
+							"parameters": {
+								"tag": "\"DirectorZombiesInt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieInt",
+							"sid": 725526908823221,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 975563055331463,
+							"parameters": {
+								"tag": "\"DirectorZombiesExt\"",
+								"file": "DirectorZombiesExt.json"
+							}
+						}
+					],
+					"sid": 400264766834679
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 686104747441787,
+							"parameters": {
+								"tag": "\"DirectorZombiesExt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieExt",
+							"sid": 274493520023352,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
 							"type": "comment",
 							"text": "Must Come Last"
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 796278092098602,
+							"sid": 159019290698092,
 							"parameters": {
 								"variable": "system_JSONsLoaded",
 								"value": "1"
@@ -1120,10 +1219,10 @@
 						},
 						{
 							"callFunction": "System_LoadLevelLists",
-							"sid": 480407908456930
+							"sid": 468176115347099
 						}
 					],
-					"sid": 404866664784814
+					"sid": 632914518883613
 				}
 			],
 			"sid": 512538539991907
@@ -1261,7 +1360,8 @@
 										"layer": "0",
 										"x": "0",
 										"y": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{

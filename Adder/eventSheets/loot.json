@@ -682,7 +682,8 @@
 										"layer": "\"Objects\"",
 										"x": "X",
 										"y": "Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -710,6 +711,15 @@
 									"parameters": {
 										"instance-variable": "SubType",
 										"value": "Subtype"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 718135883495392,
+									"parameters": {
+										"type": "log",
+										"message": "\"YEEEET\"\n"
 									}
 								}
 							],
@@ -741,7 +751,8 @@
 										"layer": "\"Objects\"",
 										"x": "Player.X",
 										"y": "Player.Height + Player.Height/2",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -773,7 +784,77 @@
 									}
 								}
 							],
-							"sid": 581246339435577
+							"sid": 581246339435577,
+							"disabled": true
+						},
+						{
+							"functionName": "Loot_Spend",
+							"functionDescription": "Automatically converted from 'Loot_Spend'",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "type",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 241590246563583
+								},
+								{
+									"name": "value",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 831295606045936
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 331682755486749,
+									"parameters": {
+										"object-to-create": "Loot_Spender",
+										"layer": "\"Objects\"",
+										"x": "Player.X",
+										"y": "Player.Height + Player.Height/2",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "pin-to-object",
+									"objectClass": "Loot_Spender",
+									"sid": 671683476023721,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Player",
+										"mode": "position-angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spender",
+									"sid": 468997950194861,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "type"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Loot_Spender",
+									"sid": 554794965447599,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "value"
+									}
+								}
+							],
+							"sid": 416995879004723
 						},
 						{
 							"eventType": "comment",
@@ -990,13 +1071,31 @@
 															"Loot.Value"
 														]
 													}
-												},
-												{
-													"callFunction": "PLR_Level_AddXP",
-													"sid": 193883984473511
 												}
 											],
-											"sid": 223186893715605
+											"sid": 223186893715605,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "repeat",
+															"objectClass": "System",
+															"sid": 641137592971506,
+															"parameters": {
+																"count": "floor(Loot.Value)"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "PLR_Level_AddXP",
+															"sid": 662831963382295
+														}
+													],
+													"sid": 142648444728752
+												}
+											]
 										}
 									]
 								},
@@ -1302,7 +1401,8 @@
 												"layer": "\"Objects\"",
 												"x": "Loot_ContainerSpawn.X",
 												"y": "Loot_ContainerSpawn.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -1693,7 +1793,8 @@
 														"layer": "loot_layer",
 														"x": "Loot_Spawner.X + random(-10,10)",
 														"y": "Loot_Spawner.Y + random(-10,10)",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1785,10 +1886,15 @@
 									"sid": 612237148640143
 								}
 							],
-							"sid": 361485362654553
+							"sid": 361485362654553,
+							"disabled": true
 						}
 					],
 					"sid": 744071508353981
+				},
+				{
+					"eventType": "comment",
+					"text": "needs work"
 				},
 				{
 					"eventType": "group",
@@ -2027,7 +2133,8 @@
 														"layer": "loot_layer",
 														"x": "Player.X",
 														"y": "Player.Y - Player.Height/2",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -2225,9 +2332,20 @@
 											}
 										},
 										{
+											"id": "set-position",
+											"objectClass": "Loot",
+											"sid": 386933675132645,
+											"disabled": true,
+											"parameters": {
+												"x": "Player.X + random(-50,50)",
+												"y": "Player.Y - Player.Height/2 + random(-100,100)"
+											}
+										},
+										{
 											"id": "call-function",
 											"objectClass": "function",
 											"sid": 640234268774196,
+											"disabled": true,
 											"parameters": {
 												"name": "\"Loot_Destroy\"",
 												"parameter-n": [

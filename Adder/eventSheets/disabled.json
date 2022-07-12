@@ -906,7 +906,7 @@
 																	"objectClass": "UpgradeTXT_Static",
 																	"sid": 832776451460422,
 																	"parameters": {
-																		"text": " function.Call(\"TXT_ConvertMoney\",player.zzMoney)"
+																		"text": "Functions.TXT_ConvertMoney(player.zzMoney)"
 																	}
 																}
 															],
@@ -3426,13 +3426,8 @@
 											],
 											"actions": [
 												{
-													"id": "call-function",
-													"objectClass": "function",
-													"sid": 333755654567119,
-													"parameters": {
-														"name": "\"Level_Music\"",
-														"parameter-n": []
-													}
+													"callFunction": "Music_PlayBGM",
+													"sid": 966693406086085
 												}
 											],
 											"sid": 479060483535317
@@ -5827,7 +5822,8 @@
 										"layer": "\"UI\"",
 										"x": "160.5",
 										"y": "69",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -5848,7 +5844,8 @@
 										"layer": "\"UI\"",
 										"x": "160.5",
 										"y": "69",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -5966,7 +5963,8 @@
 												"layer": "\"UI\"",
 												"x": "96",
 												"y": "140",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -5978,7 +5976,8 @@
 												"layer": "\"UI\"",
 												"x": "224",
 												"y": "140",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -6003,7 +6002,8 @@
 												"layer": "\"UI\"",
 												"x": "160",
 												"y": "132",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -7783,7 +7783,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportLeft(\"UI\") + MeterOffsetX + 3",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7795,7 +7796,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportLeft(\"UI\") + MeterOffsetX + 3",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7807,7 +7809,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportLeft(\"UI\") + MeterOffsetX",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7819,7 +7822,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportLeft(\"UI\") + 45",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY + 1.5",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7910,7 +7914,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportRight(\"UI\") - MeterOffsetX + 3 - 70",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7922,7 +7927,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportRight(\"UI\") - MeterOffsetX + 3 - 70",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7934,7 +7940,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportRight(\"UI\") - MeterOffsetX - 70",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -7946,7 +7953,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportRight(\"UI\") - 45",
 										"y": "ViewportBottom(\"UI\") - MeterOffsetY + 1.5",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -8345,7 +8353,8 @@
 								"layer": "\"Objects\"",
 								"x": "Camera_EndZone.X + Camera_EndZone.Width/2",
 								"y": "Camera_EndZone.Y - 500",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -8652,7 +8661,8 @@
 								"layer": "\"Objects\"",
 								"x": "SupplyDrop.X",
 								"y": "SupplyDrop.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -8673,7 +8683,8 @@
 								"layer": "\"Objects\"",
 								"x": "SupplyDrop.X",
 								"y": "SupplyDrop.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -9588,7 +9599,8 @@
 											"callFunction": "PLR_Swap",
 											"sid": 137558858406825,
 											"parameters": [
-												"0"
+												"0",
+												true
 											]
 										}
 									],
@@ -11515,7 +11527,7 @@
 							"objectClass": "GameOver_Font_Name",
 							"sid": 697666659448857,
 							"parameters": {
-								"text": "function.Call(\"getText\", \"playerdeath1\") & function.Call(\"TXT_ConvertMoney\",game_moneylost)"
+								"text": "function.Call(\"getText\", \"playerdeath1\") & Functions.TXT_ConvertMoney(game_moneylost)"
 							}
 						},
 						{
@@ -11779,7 +11791,7 @@
 									"objectClass": "GameOver_Font_Money",
 									"sid": 470610726174401,
 									"parameters": {
-										"text": "function.Call(\"getText\", \"playerdeath3\") & function.Call(\"TXT_ConvertMoney\",self.Value)"
+										"text": "function.Call(\"getText\", \"playerdeath3\") & Functions.TXT_ConvertMoney(self.Value)"
 									}
 								}
 							],
@@ -12049,7 +12061,8 @@
 										"layer": "\"Cursor\"",
 										"x": "0",
 										"y": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -13316,7 +13329,8 @@
 						"layer": "\"Objects\"",
 						"x": "NPC.X",
 						"y": "NPC.Y",
-						"create-hierarchy": false
+						"create-hierarchy": false,
+						"template-name": "\"\""
 					}
 				},
 				{
@@ -13373,7 +13387,8 @@
 						"layer": "\"Objects\"",
 						"x": "NPC.X",
 						"y": "NPC.Y",
-						"create-hierarchy": false
+						"create-hierarchy": false,
+						"template-name": "\"\""
 					}
 				},
 				{
@@ -14236,13 +14251,15 @@
 										"layer": "\"Objects\"",
 										"x": "-220",
 										"y": "940",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "zzSpawn_Vendor",
 									"sid": 754551922385922,
+									"breakpoint": true,
 									"parameters": {
 										"instance-variable": "Type",
 										"value": "50"
@@ -14266,7 +14283,8 @@
 										"layer": "\"Objects\"",
 										"x": "camera_endzone.X + camera_endzone.Width + Solid_LevelWall.Width/2",
 										"y": "636",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -14566,7 +14584,8 @@
 												"layer": "\"Player\"",
 												"x": "Stats_Board.X",
 												"y": "Stats_Board.Y - 72",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -14686,7 +14705,8 @@
 												"layer": "\"Fog\"",
 												"x": "Horde_Board.X",
 												"y": "Horde_Board.Y - 64",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -14746,7 +14766,7 @@
 											"objectClass": "zz_IncomeTXT",
 											"sid": 759619761574508,
 											"parameters": {
-												"text": "function.Call(\"getText\", \"colonypassiveincome\") & \" \" & function.Call(\"TXT_ConvertMoney\",zzz_Colony.Income) & \"!\""
+												"text": "((function.Call(\"getText\", \"colonypassiveincome\") & \" \") & Functions.TXT_ConvertMoney(zzz_Colony.Income)) & \"!\""
 											}
 										},
 										{
@@ -15437,7 +15457,8 @@
 												"layer": "\"Objects\"",
 												"x": "UpgradeSign.X",
 												"y": "UpgradeSign.Y - UpgradeSign.Height - 24",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -15445,7 +15466,7 @@
 											"objectClass": "Text_Menu",
 											"sid": 741671238332292,
 											"parameters": {
-												"text": "function.Call(\"getText\", \"shop_upgrade\") & function.Call(\"TXT_ConvertMoney\",UpgradeSign.Cost) & \"?\""
+												"text": "(function.Call(\"getText\", \"shop_upgrade\") & Functions.TXT_ConvertMoney(UpgradeSign.Cost)) & \"?\""
 											}
 										},
 										{
@@ -16277,7 +16298,8 @@
 										"layer": "\"Fog\"",
 										"x": "zzCIV.X",
 										"y": "zzCIV.Y - zzCIV.Height*1.5",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -16854,7 +16876,8 @@
 										"layer": "\"Fog\"",
 										"x": "zzCIV.X",
 										"y": "zzCIV.Y - zzCIV.Height*1.5",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -17360,7 +17383,8 @@
 																"layer": "\"Objects\"",
 																"x": "Door.X - Door_Range.Width/2",
 																"y": "Door.Y",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -17443,7 +17467,8 @@
 																"layer": "\"Objects\"",
 																"x": "675",
 																"y": "944",
-																"create-hierarchy": false
+																"create-hierarchy": false,
+																"template-name": "\"\""
 															}
 														},
 														{
@@ -17536,7 +17561,8 @@
 												"layer": "\"Fog\"",
 												"x": "zzCIV.X",
 												"y": "zzCIV.Y - zzCIV.Height*1.5",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -17964,7 +17990,8 @@
 										"layer": "\"Level\"",
 										"x": "Camera_StartZone.X - 200",
 										"y": "Camera_StartZone.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -17985,7 +18012,8 @@
 										"layer": "\"Level\"",
 										"x": "Camera_EndZone.X + Camera_EndZone.Width + 200",
 										"y": "Camera_EndZone.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -18059,7 +18087,8 @@
 												"layer": "\"Objects\"",
 												"x": "Camera_StartZone.X - 64",
 												"y": "Camera_StartZone.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -18084,7 +18113,8 @@
 												"layer": "\"Objects\"",
 												"x": "Camera_EndZone.X + Camera_EndZone.Width + 64",
 												"y": "Camera_EndZone.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -18183,7 +18213,8 @@
 										"layer": "0",
 										"x": "Horde_Board.X + random(-5,5)",
 										"y": "Horde_Board.Y - Horde_Board.Height + random(-5,5)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -18245,7 +18276,8 @@
 										"layer": "0",
 										"x": "Horde_Board.X + random(-5,5)",
 										"y": "Horde_Board.Y - Horde_Board.Height + random(-5,5)",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -19120,7 +19152,7 @@
 									"objectClass": "Shop_Cash",
 									"sid": 573445443433311,
 									"parameters": {
-										"text": "function.Call(\"TXT_ConvertMoney\",Player.zzMoney)"
+										"text": "Functions.TXT_ConvertMoney(Player.zzMoney)"
 									}
 								},
 								{
@@ -19420,7 +19452,7 @@
 											"objectClass": "Player_TextMoney",
 											"sid": 613165573368609,
 											"parameters": {
-												"text": "function.Call(\"TXT_ConvertMoney\",9999)"
+												"text": "Functions.TXT_ConvertMoney(9999)"
 											}
 										}
 									],
@@ -19441,7 +19473,7 @@
 											"objectClass": "Player_TextMoney",
 											"sid": 669455272343913,
 											"parameters": {
-												"text": "function.Call(\"TXT_ConvertMoney\",player.zzMoney)"
+												"text": "Functions.TXT_ConvertMoney(player.zzMoney)"
 											}
 										}
 									],
@@ -22864,7 +22896,7 @@
 													"objectClass": "Text_Menu",
 													"sid": 900605951777439,
 													"parameters": {
-														"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.Pistol_MasteryCost)"
+														"text": "Functions.TXT_ConvertMoney(zzz_Shop.Pistol_MasteryCost)"
 													}
 												}
 											],
@@ -22907,7 +22939,7 @@
 													"objectClass": "Text_Menu",
 													"sid": 476502976057735,
 													"parameters": {
-														"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.SMG_MasteryCost)"
+														"text": "Functions.TXT_ConvertMoney(zzz_Shop.SMG_MasteryCost)"
 													}
 												}
 											],
@@ -22950,7 +22982,7 @@
 													"objectClass": "Text_Menu",
 													"sid": 198508526167738,
 													"parameters": {
-														"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.Shotgun_MasteryCost)"
+														"text": "Functions.TXT_ConvertMoney(zzz_Shop.Shotgun_MasteryCost)"
 													}
 												}
 											],
@@ -22993,7 +23025,7 @@
 													"objectClass": "Text_Menu",
 													"sid": 911822546509141,
 													"parameters": {
-														"text": "function.Call(\"TXT_ConvertMoney\",zzz_Shop.Rifle_MasteryCost)"
+														"text": "Functions.TXT_ConvertMoney(zzz_Shop.Rifle_MasteryCost)"
 													}
 												}
 											],
@@ -25878,7 +25910,7 @@
 											"objectClass": "Text_Menu",
 											"sid": 842177514714031,
 											"parameters": {
-												"text": "function.Call(\"getText\", \"shop_heal2\") & function.Call(\"TXT_ConvertMoney\",zzz_Colony.HealingCost) & \"?\""
+												"text": "(function.Call(\"getText\", \"shop_heal2\") & Functions.TXT_ConvertMoney(zzz_Colony.HealingCost)) & \"?\""
 											}
 										}
 									],
@@ -26438,7 +26470,7 @@
 											"objectClass": "Shop_Cash",
 											"sid": 967943352589042,
 											"parameters": {
-												"text": "function.Call(\"TXT_ConvertMoney\",Player_DisplayMoney)"
+												"text": "Functions.TXT_ConvertMoney(Player_DisplayMoney)"
 											}
 										}
 									],
@@ -28852,14 +28884,9 @@
 									}
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 489098252993463,
-									"disabled": true,
-									"parameters": {
-										"name": "\"PLR_ReloadAll\"",
-										"parameter-n": []
-									}
+									"callFunction": "PLR_ReloadAll",
+									"sid": 277156971367903,
+									"disabled": true
 								},
 								{
 									"id": "signal",
@@ -29002,7 +29029,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_Generic.X",
 										"y": "Spawn_Generic.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -29119,7 +29147,8 @@
 												"layer": "\"Objects\"",
 												"x": "Spawn_Generic.X",
 												"y": "Spawn_Generic.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -29263,7 +29292,8 @@
 												"layer": "\"Objects\"",
 												"x": "Spawn_Generic.X",
 												"y": "Spawn_Generic.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -29361,7 +29391,8 @@
 												"layer": "\"Objects\"",
 												"x": "Spawn_Generic.X",
 												"y": "Spawn_Generic.Y",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -29474,7 +29505,8 @@
 														"layer": "\"Objects\"",
 														"x": "Spawn_Generic.X",
 														"y": "Spawn_Generic.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -29661,7 +29693,8 @@
 														"layer": "\"Objects\"",
 														"x": "Spawn_Generic.X",
 														"y": "Spawn_Generic.Y",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -29863,7 +29896,8 @@
 								"layer": "\"Objects\"",
 								"x": "zzSpawn_Vendor.X",
 								"y": "zzSpawn_Vendor.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -29985,7 +30019,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_NPC_Allied.X",
 										"y": "Spawn_NPC_Allied.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -30027,7 +30062,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_NPC_Neutral.X",
 										"y": "Spawn_NPC_Neutral.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -30069,7 +30105,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_NPC_Hostile.X",
 										"y": "Spawn_NPC_Hostile.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -30111,7 +30148,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_CIV_Nuetral.X",
 										"y": "Spawn_CIV_Nuetral.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -30153,7 +30191,8 @@
 										"layer": "\"Objects\"",
 										"x": "Spawn_CIV_Hostile.X",
 										"y": "Spawn_CIV_Hostile.Y",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{

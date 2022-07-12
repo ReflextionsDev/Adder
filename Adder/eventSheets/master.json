@@ -18,6 +18,10 @@
 				{
 					"callFunction": "Menu_HideAll",
 					"sid": 692730974333591
+				},
+				{
+					"callFunction": "Music_PlayBGM",
+					"sid": 661246245986971
 				}
 			],
 			"sid": 510670441256953
@@ -145,7 +149,7 @@
 			"eventType": "variable",
 			"name": "debug_CategoryLimit",
 			"type": "number",
-			"initialValue": "4",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -848,6 +852,7 @@
 						}
 					],
 					"sid": 941014265379328,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -873,6 +878,7 @@
 								}
 							],
 							"sid": 181562021348891,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -899,7 +905,8 @@
 											}
 										}
 									],
-									"sid": 753650356911205
+									"sid": 753650356911205,
+									"disabled": true
 								}
 							]
 						}
@@ -1069,7 +1076,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y + 8",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1100,7 +1108,8 @@
 														"layer": "\"Objects\"",
 														"x": "NPC.X",
 														"y": "NPC.Y + 24",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -1297,7 +1306,8 @@
 										"layer": "\"Objects\"",
 										"x": "NPC.X",
 										"y": "NPC.Y + 8",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1328,7 +1338,8 @@
 										"layer": "\"Objects\"",
 										"x": "NPC.X",
 										"y": "NPC.Y + 24",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -1402,9 +1413,17 @@
 										"variable": "game_DamageTextEnabled",
 										"value": "0"
 									}
+								},
+								{
+									"callFunction": "HUD_ShowDifficulty",
+									"sid": 919448627414643
 								}
 							],
 							"sid": 588255867205546
+						},
+						{
+							"eventType": "comment",
+							"text": ""
 						},
 						{
 							"eventType": "block",
@@ -1445,9 +1464,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Debug_SF",
-											"sid": 734411362306940,
+											"sid": 535320691703407,
 											"parameters": {
-												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
+												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Weapon 4: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_4) & \", \" & PlayerData.Weapon_4 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
 											}
 										}
 									],
@@ -1497,13 +1516,33 @@
 										{
 											"id": "set-text",
 											"objectClass": "Debug_SF",
-											"sid": 403940012535608,
+											"sid": 542757329520467,
+											"disabled": true,
 											"parameters": {
-												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits"
+												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits & newline & \"Ext Credits Total: \" & director_ExtZ_CreditsTotal"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Debug_SF",
+											"sid": 898510551615743,
+											"parameters": {
+												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Level Difficulty: \" & level_Difficulty"
 											}
 										}
 									],
 									"sid": 150034874393875
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "HUD_HideDifficulty",
+											"sid": 536329293784762
+										}
+									],
+									"sid": 208503146764810
 								}
 							]
 						},
@@ -1543,199 +1582,6 @@
 					"description": "Ought to make this based on an Array and automatic ",
 					"isActiveOnStart": true,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 694907746495877,
-									"parameters": {
-										"variable": "debug_SpawnerIndex",
-										"comparison": 2,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 684769874495945,
-									"parameters": {
-										"variable": "debug_SpawnerIndex",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 286289760058601,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-click",
-									"objectClass": "Mouse",
-									"sid": 452797866897800,
-									"parameters": {
-										"mouse-button": "middle",
-										"click-type": "clicked"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 355231787415939,
-									"disabled": true,
-									"parameters": {
-										"object-to-create": "Zombie",
-										"layer": "\"Objects\"",
-										"x": "Mouse.X(\"Objects\")",
-										"y": "Mouse.Y(\"Objects\")",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Zombie",
-									"sid": 737250408280370,
-									"disabled": true,
-									"parameters": {
-										"instance-variable": "Class",
-										"value": "choose(\"Soldier\",\"Walker\",\"Walker\",\"Walker\")"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Zombie",
-									"sid": 675348887095258,
-									"disabled": true,
-									"parameters": {
-										"instance-variable": "Class",
-										"value": "\"Walker\""
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 527757374931494,
-									"disabled": true,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Spawned Zombie ID:\" & Zombie.UID"
-										]
-									}
-								}
-							],
-							"sid": 710591316634907,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 891842700209920,
-									"parameters": {
-										"key": 49
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 633321014463250,
-									"parameters": {
-										"object-to-create": "Zombie",
-										"layer": "\"Objects\"",
-										"x": "Mouse.X(\"Objects\")",
-										"y": "Mouse.Y(\"Objects\")",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 596458892558824,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Spawned Zombie ID:\" & Zombie.UID"
-										]
-									}
-								}
-							],
-							"sid": 570092126464429,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 193499769981427,
-									"parameters": {
-										"key": 50
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 937146121507841,
-									"parameters": {
-										"object-to-create": "Human",
-										"layer": "\"Objects\"",
-										"x": "Mouse.X(\"Objects\")",
-										"y": "Mouse.Y(\"Objects\")",
-										"create-hierarchy": false
-									}
-								}
-							],
-							"sid": 979149913691810,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 512380305774170,
-									"parameters": {
-										"key": 51
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 386950619406651,
-									"parameters": {
-										"object-to-create": "Spawn_Generic",
-										"layer": "\"Objects\"",
-										"x": "Mouse.X(\"Objects\")",
-										"y": "Mouse.Y(\"Objects\")",
-										"create-hierarchy": false
-									}
-								}
-							],
-							"sid": 767602907997630,
-							"disabled": true
-						},
-						{
-							"eventType": "comment",
-							"text": ""
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -1944,7 +1790,8 @@
 											}
 										}
 									],
-									"sid": 426535115144309
+									"sid": 426535115144309,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2014,7 +1861,8 @@
 											}
 										}
 									],
-									"sid": 601588211936228
+									"sid": 601588211936228,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2050,6 +1898,10 @@
 							"sid": 345878747811832,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "NPC"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -2076,10 +1928,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 645920624294774,
+											"sid": 667240211046883,
 											"parameters": {
 												"variable": "debug_SpawnerLimit",
-												"value": "24"
+												"value": "25"
 											}
 										}
 									],
@@ -2734,8 +2586,38 @@
 												}
 											],
 											"sid": 764511462187951
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 633489761618870,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "25"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 603472108332576,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & \"Behemoth\""
+													}
+												}
+											],
+											"sid": 543861239604222
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Weapon"
 								},
 								{
 									"eventType": "block",
@@ -2760,15 +2642,6 @@
 												"variable": "debug_CategoryTitle",
 												"value": "\"Weapon\""
 											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 759301036735271,
-											"parameters": {
-												"variable": "debug_SpawnerLimit",
-												"value": "3"
-											}
 										}
 									],
 									"sid": 150361947861047,
@@ -2777,107 +2650,83 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 845481816379678,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "debug_SpawnerIndex"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 739767225485269,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & WeaponParent.Name"
+													}
+												}
+											],
+											"sid": 268569250555823
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
 													"objectClass": "System",
-													"sid": 178198859263757,
+													"sid": 413310343769070
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 966470417265499,
 													"parameters": {
 														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
 														"value": "0"
 													}
 												}
 											],
-											"actions": [
+											"sid": 266186364698332,
+											"children": [
 												{
-													"id": "set-text",
-													"objectClass": "Debug_SF",
-													"sid": 505966078525482,
-													"parameters": {
-														"text": "debug_CategoryTitle & \": \" & \"Burst PIstol\""
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "WeaponParent",
+															"sid": 659092730648444,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "debug_SpawnerIndex"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Debug_SF",
+															"sid": 694408185755014,
+															"parameters": {
+																"text": "debug_CategoryTitle & \": \" & WeaponParent.Name"
+															}
+														}
+													],
+													"sid": 374149194208404
 												}
-											],
-											"sid": 740294065051351
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 180298433747629,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Debug_SF",
-													"sid": 341660711507881,
-													"parameters": {
-														"text": "debug_CategoryTitle & \": \" & \"SMG\""
-													}
-												}
-											],
-											"sid": 993976067418181
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 308983331695114,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Debug_SF",
-													"sid": 593674251457056,
-													"parameters": {
-														"text": "debug_CategoryTitle & \": \" & \"Shotgun\""
-													}
-												}
-											],
-											"sid": 330857418967998
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 735872481242044,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "3"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Debug_SF",
-													"sid": 354002249155314,
-													"parameters": {
-														"text": "debug_CategoryTitle & \": \" & \"Rifle\""
-													}
-												}
-											],
-											"sid": 221804760599982
+											]
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Weapon Mod"
 								},
 								{
 									"eventType": "block",
@@ -3176,6 +3025,10 @@
 											"sid": 920354521528396
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Loot"
 								},
 								{
 									"eventType": "block",
@@ -3606,6 +3459,10 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Equipment"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -3665,7 +3522,8 @@
 													}
 												}
 											],
-											"sid": 634034318090864
+											"sid": 634034318090864,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3691,7 +3549,8 @@
 													}
 												}
 											],
-											"sid": 198199333774971
+											"sid": 198199333774971,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3717,7 +3576,8 @@
 													}
 												}
 											],
-											"sid": 747772641338933
+											"sid": 747772641338933,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3743,7 +3603,8 @@
 													}
 												}
 											],
-											"sid": 868782648109177
+											"sid": 868782648109177,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3769,7 +3630,8 @@
 													}
 												}
 											],
-											"sid": 858065462148884
+											"sid": 858065462148884,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -3795,7 +3657,193 @@
 													}
 												}
 											],
-											"sid": 384277132571661
+											"sid": 384277132571661,
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Equipment",
+													"sid": 241002255564694,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "debug_SpawnerIndex"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 819151403962234,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & Equipment.Name"
+													}
+												}
+											],
+											"sid": 326651494662685
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 873104684972172
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 438867648745886,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 332569262385961,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Equipment",
+															"sid": 664900837505390,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "debug_SpawnerIndex"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Debug_SF",
+															"sid": 693176426184840,
+															"parameters": {
+																"text": "debug_CategoryTitle & \": \" & Equipment.Name"
+															}
+														}
+													],
+													"sid": 232865356736586
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Artifact"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 683269224570529,
+											"parameters": {
+												"variable": "debug_Category",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 774681114808367,
+											"parameters": {
+												"variable": "debug_CategoryTitle",
+												"value": "\"Artifact\""
+											}
+										}
+									],
+									"sid": 505244528698799,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ArtifactParent",
+													"sid": 187937327563678,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "debug_SpawnerIndex"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Debug_SF",
+													"sid": 105291677506856,
+													"parameters": {
+														"text": "debug_CategoryTitle & \": \" & ArtifactParent.Name"
+													}
+												}
+											],
+											"sid": 391307517285443
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 680045047629255
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 797366861664087,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 234331777739460,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "ArtifactParent",
+															"sid": 727762758339122,
+															"parameters": {
+																"instance-variable": "ID",
+																"comparison": 0,
+																"value": "debug_SpawnerIndex"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Debug_SF",
+															"sid": 910883130534118,
+															"parameters": {
+																"text": "debug_CategoryTitle & \": \" & ArtifactParent.Name"
+															}
+														}
+													],
+													"sid": 400528299082545
+												}
+											]
 										}
 									]
 								}
@@ -3862,7 +3910,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -3922,7 +3971,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "Mouse.X(\"Objects\")",
 																		"y": "Mouse.Y(\"Objects\")",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -3965,7 +4015,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4004,7 +4055,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4043,7 +4095,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4082,7 +4135,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4121,7 +4175,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4160,7 +4215,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4199,7 +4255,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4238,7 +4295,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4277,7 +4335,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4316,7 +4375,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4355,7 +4415,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4394,7 +4455,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4433,7 +4495,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4472,7 +4535,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4511,7 +4575,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4550,7 +4615,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4589,7 +4655,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4649,7 +4716,8 @@
 																		"layer": "\"Objects\"",
 																		"x": "Mouse.X(\"Objects\")",
 																		"y": "Mouse.Y(\"Objects\")",
-																		"create-hierarchy": false
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
 																	}
 																},
 																{
@@ -4692,7 +4760,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4731,7 +4800,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4770,7 +4840,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4809,7 +4880,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4848,7 +4920,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4887,7 +4960,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4926,7 +5000,8 @@
 														"layer": "\"Objects\"",
 														"x": "Mouse.X(\"Objects\")",
 														"y": "Mouse.Y(\"Objects\")",
-														"create-hierarchy": false
+														"create-hierarchy": false,
+														"template-name": "\"\""
 													}
 												},
 												{
@@ -4940,6 +5015,46 @@
 												}
 											],
 											"sid": 482686937800028
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 399372545371582,
+													"parameters": {
+														"variable": "debug_SpawnerIndex",
+														"comparison": 0,
+														"value": "25"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 773552121843298,
+													"parameters": {
+														"object-to-create": "Zombie",
+														"layer": "\"Objects\"",
+														"x": "Mouse.X(\"Objects\")",
+														"y": "Mouse.Y(\"Objects\")",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Zombie",
+													"sid": 128769618911945,
+													"parameters": {
+														"instance-variable": "Class",
+														"value": "\"Behemoth\""
+													}
+												}
+											],
+											"sid": 595789263594116
 										},
 										{
 											"eventType": "block",
@@ -4960,6 +5075,10 @@
 											"sid": 705100043689775
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Weapon"
 								},
 								{
 									"eventType": "block",
@@ -4985,7 +5104,8 @@
 												"layer": "\"Objects\"",
 												"x": "Mouse.X(\"Objects\")",
 												"y": "Mouse.Y(\"Objects\")",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -5013,13 +5133,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 166804614910329,
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 859659538985502,
 													"parameters": {
-														"variable": "debug_SpawnerIndex",
+														"instance-variable": "ID",
 														"comparison": 0,
-														"value": "0"
+														"value": "debug_SpawnerIndex"
 													}
 												}
 											],
@@ -5027,95 +5147,23 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Object",
-													"sid": 317106750772972,
+													"sid": 316779729155359,
 													"parameters": {
 														"instance-variable": "Subtype",
-														"value": "\"BurstPistol\""
+														"value": "WeaponParent.Name"
 													}
-												}
-											],
-											"sid": 809238102311074
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 707161442283826,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
+												},
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Object",
-													"sid": 195892686077250,
+													"sid": 674847429173085,
 													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"SMG\""
+														"instance-variable": "Rarity",
+														"value": "WeaponParent.Rarity"
 													}
 												}
 											],
-											"sid": 547810059992171
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 987823441246341,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 384347606244471,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Shotgun\""
-													}
-												}
-											],
-											"sid": 997109835367337
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 267716735910075,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "3"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 921124191279067,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Rifle\""
-													}
-												}
-											],
-											"sid": 688065408400416
+											"sid": 630338272352794
 										},
 										{
 											"eventType": "block",
@@ -5170,7 +5218,8 @@
 												"layer": "\"Objects\"",
 												"x": "Mouse.X(\"Objects\")",
 												"y": "Mouse.Y(\"Objects\")",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -5508,7 +5557,8 @@
 												"layer": "\"Objects\"",
 												"x": "Mouse.X(\"Objects\")",
 												"y": "Mouse.Y(\"Objects\")",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
@@ -6057,6 +6107,10 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Equipment"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -6080,7 +6134,8 @@
 												"layer": "\"Objects\"",
 												"x": "Mouse.X(\"Objects\")",
 												"y": "Mouse.Y(\"Objects\")",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -6108,13 +6163,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 317676991210834,
+													"id": "compare-instance-variable",
+													"objectClass": "Equipment",
+													"sid": 514082399569544,
 													"parameters": {
-														"variable": "debug_SpawnerIndex",
+														"instance-variable": "ID",
 														"comparison": 0,
-														"value": "0"
+														"value": "debug_SpawnerIndex"
 													}
 												}
 											],
@@ -6122,149 +6177,23 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Object",
-													"sid": 872470810292136,
+													"sid": 437518934022255,
 													"parameters": {
 														"instance-variable": "Subtype",
-														"value": "\"Grenade\""
+														"value": "Equipment.Name"
 													}
-												}
-											],
-											"sid": 211009423526017
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 858056888417100,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
+												},
 												{
 													"id": "set-instvar-value",
 													"objectClass": "Object",
-													"sid": 619711925966300,
+													"sid": 780173147510210,
 													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Axe\""
+														"instance-variable": "Rarity",
+														"value": "Equipment.Rarity"
 													}
 												}
 											],
-											"sid": 157994912713760
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 729696346569346,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 281401650905802,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Molotov\""
-													}
-												}
-											],
-											"sid": 866582009478627
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 692069116479640,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "3"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 167667405592499,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Supply Beacon\""
-													}
-												}
-											],
-											"sid": 311987402918591
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 142620339782514,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "4"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 525116793884150,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Claymore\""
-													}
-												}
-											],
-											"sid": 735890759846162
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 364603079311802,
-													"parameters": {
-														"variable": "debug_SpawnerIndex",
-														"comparison": 0,
-														"value": "5"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Object",
-													"sid": 679486851632229,
-													"parameters": {
-														"instance-variable": "Subtype",
-														"value": "\"Turret\""
-													}
-												}
-											],
-											"sid": 659507660709260
+											"sid": 264897130784938
 										},
 										{
 											"eventType": "block",
@@ -6285,6 +6214,131 @@
 											"sid": 618848958312422
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Artifact"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 935217205721145,
+											"parameters": {
+												"variable": "debug_Category",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 899345154566876,
+											"parameters": {
+												"object-to-create": "Object",
+												"layer": "\"Objects\"",
+												"x": "Mouse.X(\"Objects\")",
+												"y": "Mouse.Y(\"Objects\")",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Object",
+											"sid": 517528654648056,
+											"parameters": {
+												"instance-variable": "Type",
+												"value": "\"Artifact\""
+											}
+										}
+									],
+									"sid": 239540437150875,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ArtifactParent",
+													"sid": 612369211391187,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "debug_SpawnerIndex"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 334547600252920,
+													"parameters": {
+														"instance-variable": "Subtype",
+														"value": "ArtifactParent.Name"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Object",
+													"sid": 860647430535618,
+													"parameters": {
+														"instance-variable": "Rarity",
+														"value": "ArtifactParent.Rarity"
+													}
+												}
+											],
+											"sid": 880766412634794
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 723675669390651,
+													"parameters": {
+														"name": "\"Debug_Text\"",
+														"parameter-n": [
+															"\"Spawned Artifact: \" & Object.Subtype & \"'\""
+														]
+													}
+												}
+											],
+											"sid": 239577716446442
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 957961357493005,
+											"parameters": {
+												"object": "OBJ_World"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "OBJ_World",
+											"sid": 594184731936314,
+											"parameters": {
+												"instance-variable": "WorldHoverText",
+												"value": "\"placeholder\""
+											}
+										}
+									],
+									"sid": 950776056552126
 								}
 							]
 						},
@@ -6547,249 +6601,660 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": true,
+							"title": "Debug Timescale 1-9",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 919466944779827,
-									"parameters": {
-										"key": 49
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 191326285469936,
-									"parameters": {
-										"time-scale": "0.1"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 891700261700287,
+											"parameters": {
+												"key": 49
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 777888313235600,
+											"parameters": {
+												"time-scale": "0"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 854119586752884,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 958181656161582,
+									"disabled": true
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 573772008316942,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 864228876829891,
+											"parameters": {
+												"key": 50
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 245986314246994,
+											"parameters": {
+												"time-scale": "0.1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 265633100390028,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 120061729515295,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 560243667451949,
+											"parameters": {
+												"key": 51
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 478030158610419,
+											"parameters": {
+												"time-scale": "0.2"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 315528926323595,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 561233103393787,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 136990484643566,
+											"parameters": {
+												"key": 52
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 838840120064524,
+											"parameters": {
+												"time-scale": "0.35"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 189113170093943,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 768946446990058,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 664488791625602,
+											"parameters": {
+												"key": 53
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 765961482627015,
+											"parameters": {
+												"time-scale": "0.5"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 666598485714853,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 119134488628646,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 935492983896925,
+											"parameters": {
+												"key": 54
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 638455333776596,
+											"parameters": {
+												"time-scale": "1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 355712548067606,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 608053347086673,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 812892052437332,
+											"parameters": {
+												"key": 55
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 969363992938356,
+											"parameters": {
+												"time-scale": "2"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 258282205150167,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 104805433034265,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 529338142741788,
+											"parameters": {
+												"key": 56
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 713184805013252,
+											"parameters": {
+												"time-scale": "3"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 888506775282437,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 317819642217934,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 896473598091176,
+											"parameters": {
+												"key": 57
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 192912095329089,
+											"parameters": {
+												"time-scale": "5"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 286325377726133,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 210348923363974,
+									"disabled": true
 								}
 							],
-							"sid": 914726137865917
+							"sid": 713123751209995
 						},
 						{
-							"eventType": "block",
-							"conditions": [
+							"eventType": "group",
+							"disabled": false,
+							"title": "Debug Timescale 3-9",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
 								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 478097750951536,
-									"parameters": {
-										"key": 50
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 581121930620991,
-									"parameters": {
-										"time-scale": "0.2"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 277037525671163,
+											"parameters": {
+												"key": 49
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 706898814763406,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 595517381375701,
+									"disabled": true
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 132077635860542,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
-								}
-							],
-							"sid": 537839486070355
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 894687129261279,
-									"parameters": {
-										"key": 51
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 890817076297887,
-									"parameters": {
-										"time-scale": "0.25"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 168608216793970,
+											"parameters": {
+												"key": 50
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 769728078967190,
+											"parameters": {
+												"time-scale": "0.1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 643834596865630,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 676270460780535,
+									"disabled": true
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 590098946432052,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
-								}
-							],
-							"sid": 486304217455208
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 114066080409535,
-									"parameters": {
-										"key": 52
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 983948817082251,
-									"parameters": {
-										"time-scale": "0"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 814462551599086,
+											"parameters": {
+												"key": 51
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 882358752839195,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 326303835411962,
+									"disabled": true
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 704549040940645,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
-								}
-							],
-							"sid": 240992414584266
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 593637912180165,
-									"parameters": {
-										"key": 53
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 387248605833296,
-									"parameters": {
-										"time-scale": "0.5"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 949740084716191,
+											"parameters": {
+												"key": 52
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 867157888461765,
+											"parameters": {
+												"time-scale": "0"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 151431802194252,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 345377372505795,
+									"disabled": true
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 971728074536893,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
-								}
-							],
-							"sid": 975194833218749
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 256378106112116,
-									"parameters": {
-										"key": 54
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 798398809983617,
-									"parameters": {
-										"time-scale": "1"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 783866090553494,
+											"parameters": {
+												"key": 53
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 919384930388113,
+											"disabled": true,
+											"parameters": {
+												"time-scale": "0.2"
+											}
+										},
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 833684433681547,
+											"parameters": {
+												"time-scale": "0"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 573060199570468,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 838141140223948
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 877874456648246,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
-								}
-							],
-							"sid": 594936995491799
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 942206833743224,
-									"parameters": {
-										"key": 55
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-time-scale",
-									"objectClass": "System",
-									"sid": 620266301578168,
-									"parameters": {
-										"time-scale": "2"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 307902809496027,
+											"parameters": {
+												"key": 54
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 995967051240437,
+											"parameters": {
+												"time-scale": "0.5"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 480734844143412,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 652839244782579
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 216542332281676,
-									"parameters": {
-										"name": "\"Debug_Text\"",
-										"parameter-n": [
-											"\"Timescale: \" & timescale"
-										]
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 860596783482790,
+											"parameters": {
+												"key": 55
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 630626341754169,
+											"parameters": {
+												"time-scale": "1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 382204535884994,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 169246290534568
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 848762234667837,
+											"parameters": {
+												"key": 56
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 934212781206905,
+											"parameters": {
+												"time-scale": "2"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 862052557359611,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 256542036336924
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 275508673936154,
+											"parameters": {
+												"key": 57
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 241736491301602,
+											"parameters": {
+												"time-scale": "5"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 742388907999610,
+											"parameters": {
+												"name": "\"Debug_Text\"",
+												"parameter-n": [
+													"\"Timescale: \" & timescale"
+												]
+											}
+										}
+									],
+									"sid": 291000633938273
 								}
 							],
-							"sid": 330113125062671
+							"sid": 132046004868621
 						}
 					],
 					"sid": 477976588337889
@@ -7483,18 +7948,12 @@
 									}
 								},
 								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 861683031474122,
-									"parameters": {
-										"name": "\"Loot_Spend\"",
-										"parameter-n": [
-											"\"xp\"",
-											"123",
-											"Mouse.X",
-											"Mouse.Y"
-										]
-									}
+									"callFunction": "Loot_Spend",
+									"sid": 101612331387889,
+									"parameters": [
+										"\"xp\"",
+										"123"
+									]
 								}
 							],
 							"sid": 955637276173543,
@@ -7549,7 +8008,8 @@
 												"layer": "\"UI\"",
 												"x": "ViewportRight(\"UI\") - ViewportRight(\"UI\")/2",
 												"y": "ViewportBottom(\"UI\") - ViewportBottom(\"UI\")/2",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -7562,7 +8022,8 @@
 												"layer": "\"UI\"",
 												"x": "Player.X",
 												"y": "Player.Y + Player.Height*1.5",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -7660,9 +8121,9 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 141161854129006,
+									"sid": 461390686310673,
 									"parameters": {
-										"key": 84
+										"key": 85
 									}
 								}
 							],
@@ -7676,9 +8137,352 @@
 								}
 							],
 							"sid": 542486238079662
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 605343349546112,
+									"parameters": {
+										"key": 73
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Builder_BuildExteriorZone",
+									"sid": 103832458951270,
+									"disabled": true,
+									"parameters": [
+										"\"build\""
+									]
+								},
+								{
+									"callFunction": "Builder_SpawnTerrain",
+									"sid": 737100274904187
+								}
+							],
+							"sid": 283134368122892
 						}
 					],
 					"sid": 610622936866577
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Director Debug",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 954606022913045
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 634111906743460,
+									"parameters": {
+										"variable": "director_debug",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 214493591360710,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 346706977038684,
+									"parameters": {
+										"key": 71
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Director_Init",
+									"sid": 790628580777834,
+									"disabled": true
+								},
+								{
+									"callFunction": "Director_Int_CreateSpawns",
+									"sid": 365662329605445,
+									"disabled": true
+								},
+								{
+									"callFunction": "Director_Ext_CreateSpawns",
+									"sid": 729358485143251,
+									"disabled": true
+								},
+								{
+									"callFunction": "Director_Initialize",
+									"sid": 110801547078367
+								}
+							],
+							"sid": 574126713965753
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 697583371336795,
+									"parameters": {
+										"key": 89
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 381181122604871,
+									"parameters": {
+										"variable": "director_IntZ_Credits",
+										"value": "director_IntZ_CreditsPerTurn"
+									}
+								},
+								{
+									"callFunction": "Director_UpdateDeck_IntZ",
+									"sid": 736759181351697
+								},
+								{
+									"callFunction": "Director_UpdateDeck_ExtZ",
+									"sid": 712333819565943
+								}
+							],
+							"sid": 342313317196874,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 250039240065648,
+									"parameters": {
+										"key": 72
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 471693139504284,
+									"parameters": {
+										"variable": "level_Type",
+										"value": "\"Infected\""
+									}
+								}
+							],
+							"sid": 686315656997626,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 115313598223905,
+											"parameters": {
+												"object": "zspawn_Interior"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Director_Int_ActivateSpawn",
+											"sid": 231926441879290,
+											"parameters": [
+												"zspawn_Interior.UID"
+											]
+										}
+									],
+									"sid": 755756400493224
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 543102345254402,
+											"parameters": {
+												"object": "zspawn_Exterior"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Director_Ext_ActivateSpawnOld",
+											"sid": 608385619252188,
+											"disabled": true,
+											"parameters": [
+												"zspawn_Exterior.UID"
+											]
+										},
+										{
+											"callFunction": "Director_Ext_ActivateSpawn",
+											"sid": 571216737807377,
+											"parameters": [
+												"zspawn_Exterior.UID"
+											]
+										}
+									],
+									"sid": 797149411546260
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 887453946249138,
+									"parameters": {
+										"key": 46
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Zombie",
+									"sid": 397156435324057
+								},
+								{
+									"id": "destroy",
+									"objectClass": "NPC_Sprite",
+									"sid": 577437130801698
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Hurtbox",
+									"sid": 866352269497300
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Fog",
+									"sid": 901022264282751
+								}
+							],
+							"sid": 136615285788582
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 248082747129970,
+									"parameters": {
+										"key": 89
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Director_SpawnRangeExt",
+									"sid": 239862500421991,
+									"parameters": {
+										"visibility": "toggle"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Director_SpawnRangeInt",
+									"sid": 754613485643334,
+									"parameters": {
+										"visibility": "toggle"
+									}
+								}
+							],
+							"sid": 945546889464387
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 679844540472601,
+									"parameters": {
+										"key": 109
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 101416600590320,
+									"parameters": {
+										"variable": "level_Difficulty",
+										"value": "-1"
+									}
+								},
+								{
+									"callFunction": "Director_Int_Shuffle",
+									"sid": 787192527253210,
+									"parameters": [
+										"0"
+									]
+								}
+							],
+							"sid": 823587229279293
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 961958911962898,
+									"parameters": {
+										"key": 107
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 646387978462213,
+									"parameters": {
+										"variable": "level_Difficulty",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "Director_Int_Shuffle",
+									"sid": 911418174160706,
+									"parameters": [
+										"0"
+									]
+								}
+							],
+							"sid": 613371817116056
+						}
+					],
+					"sid": 732499212369486
 				},
 				{
 					"eventType": "block",
@@ -8497,7 +9301,8 @@
 										"layer": "\"UI\"",
 										"x": "0",
 										"y": "0",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -8509,7 +9314,8 @@
 										"layer": "\"UI\"",
 										"x": "0",
 										"y": "180",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -8920,7 +9726,8 @@
 								"layer": "Camera.LayerName",
 								"x": "Camera.X",
 								"y": "Camera.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						},
 						{
@@ -9360,6 +10167,75 @@
 							]
 						},
 						{
+							"functionName": "Text_String",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "string",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "string",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 506407767390768
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 955225136312892,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 768174897536078,
+											"parameters": {
+												"variable": "system_StringsLoaded",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 692660956828187,
+											"parameters": {
+												"value": "XML_Strings.StringValue(\"/strings/string[@id='\" & string & \"']/text()\")"
+											}
+										}
+									],
+									"sid": 919061400970740
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 855121716828409
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 662463129632634,
+											"parameters": {
+												"value": "\"Null\""
+											}
+										}
+									],
+									"sid": 707589179035797
+								}
+							]
+						},
+						{
 							"eventType": "comment",
 							"text": "Params - Spawn X, Spawn Y, Layer, Parent ID, Tag, ID, Text, Scale, Fade Enabled, Fade In, Fade Wait, Fade Out, Font"
 						},
@@ -9402,7 +10278,8 @@
 												"layer": "function.Param(2)",
 												"x": "function.Param(0)",
 												"y": "function.Param(1)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -9543,7 +10420,8 @@
 												"layer": "function.Param(2)",
 												"x": "function.Param(0)",
 												"y": "function.Param(1)",
-												"create-hierarchy": false
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										},
 										{
@@ -9675,30 +10553,35 @@
 						{
 							"eventType": "variable",
 							"name": "temptext",
-							"type": "number",
-							"initialValue": "0",
+							"type": "string",
+							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 832117745894147
+							"sid": 462644605764440
 						},
 						{
-							"eventType": "block",
-							"conditions": [
+							"functionName": "TXT_ConvertMoney",
+							"functionDescription": "Automatically converted from 'TXT_ConvertMoney'",
+							"functionCategory": "",
+							"functionReturnType": "any",
+							"functionIsAsync": false,
+							"functionParameters": [
 								{
-									"id": "on-function",
-									"objectClass": "function",
-									"sid": 218993270065203,
-									"parameters": {
-										"name": "\"TXT_ConvertMoney\""
-									}
+									"name": "Money",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 445629501978316
 								}
 							],
+							"eventType": "function-block",
+							"conditions": [],
 							"actions": [
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 469509740649010,
+									"sid": 347817982906041,
 									"parameters": {
 										"variable": "temptext",
 										"value": "\"\""
@@ -9707,14 +10590,14 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 573450440050693,
+									"sid": 797535889611003,
 									"parameters": {
 										"variable": "temp",
-										"value": "int(Function.Param(0))"
+										"value": "int(Money)"
 									}
 								}
 							],
-							"sid": 357495742628474,
+							"sid": 386982319569134,
 							"children": [
 								{
 									"eventType": "block",
@@ -9722,12 +10605,12 @@
 										{
 											"id": "while",
 											"objectClass": "System",
-											"sid": 526062024825710
+											"sid": 931130752537367
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 680089327307700,
+											"sid": 124222083561176,
 											"parameters": {
 												"variable": "temp",
 												"comparison": 5,
@@ -9739,7 +10622,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 320873708879870,
+											"sid": 628408750562379,
 											"parameters": {
 												"variable": "temptext",
 												"value": "\",\" & zeropad(temp%1000,3) & temptext"
@@ -9748,14 +10631,14 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 961357286212199,
+											"sid": 560783855104546,
 											"parameters": {
 												"variable": "temp",
 												"value": "int(temp/1000)"
 											}
 										}
 									],
-									"sid": 556757255958773
+									"sid": 594596773685666
 								},
 								{
 									"eventType": "block",
@@ -9763,12 +10646,12 @@
 										{
 											"id": "while",
 											"objectClass": "System",
-											"sid": 679418681545334
+											"sid": 507256777662531
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 395212731368636,
+											"sid": 383949846195973,
 											"parameters": {
 												"variable": "temp",
 												"comparison": 3,
@@ -9780,7 +10663,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 498899782026736,
+											"sid": 694430199724747,
 											"parameters": {
 												"variable": "temptext",
 												"value": "\",\" & zeropad(abs(temp%1000),3) & temptext"
@@ -9789,14 +10672,14 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 951322480151838,
+											"sid": 362800035249341,
 											"parameters": {
 												"variable": "temp",
 												"value": "int(temp/1000)"
 											}
 										}
 									],
-									"sid": 152937619184361
+									"sid": 293602003425602
 								},
 								{
 									"eventType": "block",
@@ -9805,22 +10688,22 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 130492468278635,
+											"sid": 168001419956677,
 											"parameters": {
 												"variable": "temptext",
 												"value": "temp & temptext"
 											}
 										},
 										{
-											"id": "set-return-value",
-											"objectClass": "function",
-											"sid": 480861334664713,
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 866548244213458,
 											"parameters": {
 												"value": "\"$\" & temptext"
 											}
 										}
 									],
-									"sid": 355334660106184
+									"sid": 149942091181828
 								}
 							]
 						},
@@ -9869,7 +10752,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportLeft(\"UI\") - BG_Banner.Width/2",
 										"y": "90",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -9881,7 +10765,8 @@
 										"layer": "\"UI\"",
 										"x": "ViewportRight(\"UI\") + Text_Banner.Width/2",
 										"y": "92",
-										"create-hierarchy": false
+										"create-hierarchy": false,
+										"template-name": "\"\""
 									}
 								},
 								{
@@ -11289,6 +12174,31 @@
 			"sid": 437585890140946
 		},
 		{
+			"functionName": "UI_LoadHUD",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "UI_InitArtifactLayout",
+					"sid": 389923098098161
+				},
+				{
+					"callFunction": "UI_UpdateArtifactLayout",
+					"sid": 693499670359248
+				},
+				{
+					"callFunction": "UI_UpdateEquipmentSprite",
+					"sid": 116741179807216
+				}
+			],
+			"sid": 648682264348153
+		},
+		{
 			"functionName": "System_LayoutReady",
 			"functionDescription": "",
 			"functionCategory": "System",
@@ -11298,6 +12208,19 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
+				{
+					"callFunction": "Director_Init",
+					"sid": 528535666813612,
+					"disabled": true
+				},
+				{
+					"callFunction": "Director_Initialize",
+					"sid": 555098822886211
+				},
+				{
+					"callFunction": "UI_LoadHUD",
+					"sid": 389454404619244
+				},
 				{
 					"callFunction": "System_LoaderDisable",
 					"sid": 511334487127838
@@ -11343,10 +12266,10 @@
 				{
 					"id": "log",
 					"objectClass": "Browser",
-					"sid": 651300766877839,
+					"sid": 376700968761389,
 					"parameters": {
 						"type": "log",
-						"message": "\"ovverwritee spanwed\""
+						"message": "\"Player Spawn Override\""
 					}
 				}
 			],
@@ -11419,7 +12342,7 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [],
-			"sid": 282825620262353
+			"sid": 892730477074329
 		},
 		{
 			"eventType": "block",
@@ -11478,7 +12401,8 @@
 								"layer": "\"Objects\"",
 								"x": "Mouse.X",
 								"y": "Mouse.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -11543,7 +12467,8 @@
 								"layer": "\"Objects\"",
 								"x": "Mouse.X",
 								"y": "Mouse.Y",
-								"create-hierarchy": false
+								"create-hierarchy": false,
+								"template-name": "\"\""
 							}
 						}
 					],
@@ -11650,7 +12575,8 @@
 						"layer": "PlayerBarrier.LayerName",
 						"x": "PlayerBarrier.X",
 						"y": "PlayerBarrier.Y",
-						"create-hierarchy": false
+						"create-hierarchy": false,
+						"template-name": "\"\""
 					}
 				},
 				{
@@ -11705,6 +12631,92 @@
 				}
 			],
 			"sid": 209889529567265,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 148387156260147,
+					"parameters": {
+						"key": 79
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "snapshot-canvas",
+					"objectClass": "System",
+					"sid": 350531814604705,
+					"parameters": {
+						"format": "png",
+						"jpeg-quality": "75",
+						"x": "0",
+						"y": "0",
+						"width": "640",
+						"height": "360"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 675364673620761,
+					"parameters": {
+						"type": "log",
+						"message": "CanvasSnapshot"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 890984360755161,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "load-image-from-url",
+					"objectClass": "Player_Sprite",
+					"sid": 587406914705586,
+					"parameters": {
+						"uri": "CanvasSnapshot",
+						"size": "resize-to-image-size",
+						"cross-origin": "anonymous"
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "Player_Sprite",
+					"sid": 447080711246614,
+					"parameters": {
+						"speed": "0"
+					}
+				}
+			],
+			"sid": 819773686059940,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 754695963228312,
+					"parameters": {
+						"key": 79
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Menu_Death",
+					"sid": 394075414097946
+				}
+			],
+			"sid": 534064232151531,
 			"disabled": true
 		}
 	],
