@@ -1,0 +1,365 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "system_LoaderFadeIn",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 689899807258231
+		},
+		{
+			"eventType": "comment",
+			"text": "Change to 0 if this become annoying"
+		},
+		{
+			"eventType": "variable",
+			"name": "system_LoaderFadeOut",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 611482607305190
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 238072359536612
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 457464110736918,
+					"parameters": {
+						"layer": "\"Loader\"",
+						"scale": "system_ZoomMenus"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LoaderTXT",
+					"sid": 228005310144184,
+					"parameters": {
+						"instance-variable": "Dots",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "LoaderSprite",
+					"sid": 897532388737406,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "LoaderTXT",
+					"sid": 147709498420028,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"callFunction": "System_LoaderEnable",
+					"sid": 499288504884788
+				}
+			],
+			"sid": 274779552385024
+		},
+		{
+			"functionName": "System_LoaderEnable",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 733302011405395,
+					"parameters": {
+						"layer": "\"Loader\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 941726421806460,
+					"parameters": {
+						"group-name": "\"Loader\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderSprite",
+					"sid": 130422528907576,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "system_LoaderFadeIn",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderTXT",
+					"sid": 268567097356867,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "system_LoaderFadeIn",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 274882275563406
+		},
+		{
+			"functionName": "System_LoaderDisable",
+			"functionDescription": "",
+			"functionCategory": "System",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 997983866210823,
+					"parameters": {
+						"group-name": "\"Loader\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderSprite",
+					"sid": 761146261954794,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "system_LoaderFadeOut",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "LoaderTXT",
+					"sid": 801300650056698,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "system_LoaderFadeOut",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 278551875793619,
+					"parameters": {
+						"seconds": "system_LoaderFadeOut"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 669315800742567,
+					"parameters": {
+						"layer": "\"Loader\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 992573109045122
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Loader",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 182676608033389,
+							"parameters": {
+								"interval-seconds": "0.2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LoaderTXT",
+							"sid": 447653787258789,
+							"parameters": {
+								"text": "\"LOADING\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "LoaderTXT",
+							"sid": 742959634154697,
+							"parameters": {
+								"instance-variable": "Dots",
+								"value": "Functions.Math_Wrap(LoaderTXT.Dots + 1,0,3)"
+							}
+						}
+					],
+					"sid": 469834900880165,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 952819588565188,
+									"parameters": {
+										"count": "LoaderTXT.Dots"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "append-text",
+									"objectClass": "LoaderTXT",
+									"sid": 470790630083576,
+									"parameters": {
+										"text": "\".\""
+									}
+								}
+							],
+							"sid": 343217036438767
+						}
+					]
+				}
+			],
+			"sid": 940693883953905
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Loader Font Importer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SF_Width",
+					"type": "number",
+					"initialValue": "26",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 748699345771143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "LoaderTXT",
+							"sid": 528533170580121
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "SpriteFontImporter",
+							"sid": 954281590304861,
+							"parameters": {
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[2,10,1],\"\"data\"\":[[[4],[19],[20],[25],[29],[34],[38],[39],[43],[47]],[[\"\"%\"\"],[\"\"£€\"\"],[\"\"Iil.:!'|\"\"],[\"\"j1,;()[]`\"\"],[\"\"rt-\\\"\"°+=<>\"\"],[\"\"EFLcf_~\\\\/\"\"],[\"\"ABCDGHJKNOPQRSTUZabdeghknopqsuvxyz02345689#&*$\"\"],[\"\"7\"\"],[\"\"VX?\"\"],[\"\"MWYmw@\"\"]]]}\""
+							}
+						},
+						{
+							"id": "set-character-width",
+							"objectClass": "LoaderTXT",
+							"sid": 791605440058833,
+							"parameters": {
+								"character": "\" \"",
+								"width": "SF_Width"
+							}
+						}
+					],
+					"sid": 263242630510837,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 291271447399079,
+									"parameters": {
+										"name": "\"y\"",
+										"start-index": "0",
+										"end-index": "SpriteFontImporter.Height-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-character-width",
+									"objectClass": "LoaderTXT",
+									"sid": 224510810951972,
+									"parameters": {
+										"character": "SpriteFontImporter.At(1, loopindex(\"y\"))",
+										"width": "SpriteFontImporter.At(0, loopindex(\"y\"))"
+									}
+								}
+							],
+							"sid": 909909556782497
+						}
+					]
+				}
+			],
+			"sid": 513454102003326
+		}
+	],
+	"sid": 259786733945737
+}

@@ -1,0 +1,548 @@
+{
+	"name": "zzMoney",
+	"plugin-id": "Sprite",
+	"sid": 904083957357655,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "TargetX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 236134995085386
+		},
+		{
+			"name": "TargetY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 457861875763331
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 994132080315399
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 14,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\MoneyAppear\\MoneyAppear1.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9297818,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 12,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\MoneyAppear\\MoneyAppear2.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2718822,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 12,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\MoneyAppear\\MoneyAppear3.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5175869,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\MoneyAppear\\MoneyAppear4.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7347211,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 351285230107564,
+				"name": "Spawn",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			},
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline1.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2917322,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline2.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3981848,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 8,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline3.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2660581,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 6,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline4.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9980264,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 4,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline5.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9396344,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 6,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline6.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6982358,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 8,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline7.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9457053,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 10,
+						"height": 6,
+						"originX": 0.5,
+						"originY": 0.666667,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\LoopWithoutOutline\\MoneyLoopNoOutline8.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1992769,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 603885834456691,
+				"name": "Move",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			},
+			{
+				"frames": [
+					{
+						"width": 7,
+						"height": 13,
+						"originX": 0.428571,
+						"originY": 0.615385,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish1.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 84271,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 7,
+						"height": 13,
+						"originX": 0.428571,
+						"originY": 0.692308,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish2.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2128891,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 7,
+						"height": 13,
+						"originX": 0.428571,
+						"originY": 0.769231,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish3.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 621803,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 7,
+						"height": 13,
+						"originX": 0.428571,
+						"originY": 0.846154,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish4.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7409846,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 11,
+						"height": 13,
+						"originX": 0.454545,
+						"originY": 0.923077,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish5.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6276310,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 11,
+						"height": 13,
+						"originX": 0.454545,
+						"originY": 0.923077,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish6.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6863503,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 11,
+						"height": 13,
+						"originX": 0.454545,
+						"originY": 0.923077,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish7.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7152232,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 11,
+						"height": 11,
+						"originX": 0.454545,
+						"originY": 1,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish8.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6938978,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 11,
+						"height": 9,
+						"originX": 0.454545,
+						"originY": 1.11111,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish9.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 937807,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 7,
+						"height": 5,
+						"originX": 0.428571,
+						"originY": 1.6,
+						"originalSource": "E:\\Drive\\Projects\\Adder\\Art\\Particles\\Money\\Vanish1\\1MoneyVanish10.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1390587,
+						"collisionPoly": {
+							"points": [
+								0.428571,
+								0.538462,
+								0.571429,
+								0.538462,
+								0.571429,
+								0.612981,
+								0.428571,
+								0.612981
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 778128780539262,
+				"name": "Destroy",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 20
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,1377 @@
+{
+	"name": "Items",
+	"events": [
+		{
+			"functionName": "OBJ_Create",
+			"functionDescription": "",
+			"functionCategory": "Game",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "layer",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 240757317272216
+				},
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 759582375802892
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 587538231700813
+				},
+				{
+					"name": "type",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 896182029623219
+				},
+				{
+					"name": "subtype",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 734755413367759
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 527298078382629,
+					"parameters": {
+						"object-to-create": "Object",
+						"layer": "layer",
+						"x": "x",
+						"y": "y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Object",
+					"sid": 294166143983527,
+					"parameters": {
+						"instance-variable": "Type",
+						"value": "type"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Object",
+					"sid": 390909443389205,
+					"parameters": {
+						"instance-variable": "Subtype",
+						"value": "subtype"
+					}
+				}
+			],
+			"sid": 866026626667665,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "WeaponParent",
+							"sid": 405937474045267,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "subtype"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 621858579110824,
+							"parameters": {
+								"instance-variable": "Subtype",
+								"value": "WeaponParent.Name"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 520028652140068,
+							"parameters": {
+								"instance-variable": "Rarity",
+								"value": "WeaponParent.Rarity"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Object",
+							"sid": 642571321286722,
+							"parameters": {
+								"instance-variable": "HasAmmo",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 130282447599043
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 669845822350740
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Equipment",
+							"sid": 962628823360535,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "subtype"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 143958931143461,
+							"parameters": {
+								"instance-variable": "Subtype",
+								"value": "Equipment.Name"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 149810674820807,
+							"parameters": {
+								"instance-variable": "Rarity",
+								"value": "Equipment.Rarity"
+							}
+						}
+					],
+					"sid": 307241498868831
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 654000877368884
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ArtifactParent",
+							"sid": 803708129172575,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "subtype"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 360301751385947,
+							"parameters": {
+								"instance-variable": "Subtype",
+								"value": "ArtifactParent.Name"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Object",
+							"sid": 610427975815310,
+							"parameters": {
+								"instance-variable": "Rarity",
+								"value": "ArtifactParent.Rarity"
+							}
+						}
+					],
+					"sid": 374536366469383
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-last-created",
+							"objectClass": "System",
+							"sid": 992973807042267,
+							"parameters": {
+								"object": "OBJ_World"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "OBJ_World",
+							"sid": 559727919119905,
+							"parameters": {
+								"instance-variable": "WorldHoverText",
+								"value": "\"placeholder\""
+							}
+						}
+					],
+					"sid": 228098556837475
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Item Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Add to preload when finished"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 186524233966657
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Item_BuildLibraries",
+							"sid": 590153499490923
+						}
+					],
+					"sid": 168957392654616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 414524443202218,
+							"parameters": {
+								"key": 73
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Item_Weapon_BuildLibrary",
+							"sid": 158813651699649
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 447277533266677,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "Functions.Item_DrawRarity(\"\")"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 382402236576036,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"Weapon: \" & Functions.Item_Weapon_Draw(\"\")"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 832365808500946,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"Weapon: \" & Functions.Item_Weapon_Draw(\"rare\")"
+							}
+						}
+					],
+					"sid": 507115591263317,
+					"disabled": true
+				}
+			],
+			"sid": 906666719640409
+		},
+		{
+			"eventType": "comment",
+			"text": "Get Rarity > THEN, get weapon"
+		},
+		{
+			"eventType": "comment",
+			"text": "build levelled list of all weapon types..."
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Item Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Item Common Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Item_BuildLibraries",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Item_Weapon_BuildLibrary",
+									"sid": 182174888540814
+								},
+								{
+									"callFunction": "Item_Equipment_BuildLibrary",
+									"sid": 816021413624595
+								},
+								{
+									"callFunction": "Item_Artifact_BuildLibrary",
+									"sid": 112165257575401
+								}
+							],
+							"sid": 693129447477124
+						},
+						{
+							"functionName": "Item_DrawRarity",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "table",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 349667105588928
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Shuffle_Clear",
+									"sid": 141283160136202
+								}
+							],
+							"sid": 698354736922833,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Default rarity weightings"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 765180649307805,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 596179506352323,
+											"parameters": [
+												"\"common\"",
+												"40"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 173302966808454,
+											"parameters": [
+												"\"uncommon\"",
+												"28"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 848823527832518,
+											"parameters": [
+												"\"rare\"",
+												"17"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 522537685050778,
+											"parameters": [
+												"\"epic\"",
+												"10"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 276878472472027,
+											"parameters": [
+												"\"legendary\"",
+												"5"
+											]
+										}
+									],
+									"sid": 142497193846757
+								},
+								{
+									"eventType": "comment",
+									"text": "Draw specified type"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 117595683875971
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 602680502516917,
+											"parameters": [
+												"table",
+												"1"
+											]
+										}
+									],
+									"sid": 108923020804671
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 604545899558857,
+											"parameters": {
+												"value": "Functions.Shuffle_Draw"
+											}
+										}
+									],
+									"sid": 726944856879082
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Draw a specified item type given the table"
+						},
+						{
+							"functionName": "Item_Draw",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "table",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 674826483991219
+								},
+								{
+									"name": "type",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 764436681742789
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 289796057185630,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "If rarity is blank, choose one"
+								},
+								{
+									"eventType": "variable",
+									"name": "rarity",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 754659579685640
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 870317863915300,
+											"parameters": {
+												"variable": "rarity",
+												"value": "Functions.Item_DrawRarity(table)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 139558324330145,
+											"parameters": {
+												"variable": "type",
+												"value": "lowercase(type)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 948817137374208,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"Rarity: \" & rarity"
+											}
+										}
+									],
+									"sid": 176947161184094
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 697186346243672,
+											"parameters": {
+												"variable": "type",
+												"comparison": 0,
+												"value": "\"weapon\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 361446236430088,
+											"parameters": {
+												"value": "Functions.Item_Weapon_Pick(rarity)"
+											}
+										}
+									],
+									"sid": 768883143930108
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 860798225965517
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 251193203247568,
+											"parameters": {
+												"variable": "type",
+												"comparison": 0,
+												"value": "\"artifact\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 364297716448385,
+											"parameters": {
+												"value": "Functions.Item_Artifact_Pick(rarity)"
+											}
+										}
+									],
+									"sid": 670223503993002
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 610256779925799
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 546955436430421,
+											"parameters": {
+												"variable": "type",
+												"comparison": 0,
+												"value": "\"equipment\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 236999297303797,
+											"parameters": {
+												"value": "Functions.Item_Equipment_Pick(rarity)"
+											}
+										}
+									],
+									"sid": 151299264930667
+								}
+							]
+						}
+					],
+					"sid": 455193259836746
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Item Libraries",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [],
+					"sid": 531939851364292
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Item Weapon",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Weapon Library"
+						},
+						{
+							"functionName": "Item_Weapon_BuildLibrary",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Item_WeaponLibrary",
+									"sid": 522586548303305,
+									"parameters": {
+										"width": "0",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								}
+							],
+							"sid": 228892117531363,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 126780238562071
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "WeaponParent",
+											"sid": 399520073891856,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "loopindex + 1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 540210554465710,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "WeaponParent",
+													"sid": 728837534961171,
+													"parameters": {
+														"instance-variable": "DontSpawn"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Item_WeaponLibrary",
+													"sid": 477937633100157,
+													"parameters": {
+														"width": "Self.Width + 1",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "Item_WeaponLibrary",
+													"sid": 912937772577490,
+													"parameters": {
+														"x": "Item_WeaponLibrary.Width - 1",
+														"value": "WeaponParent.Name"
+													}
+												}
+											],
+											"sid": 219789514271342
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Draw a random weapon from the given table"
+						},
+						{
+							"functionName": "Item_Weapon_Draw",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "table",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 470309967834991
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 219577680271745,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "If rarity is blank, choose one"
+								},
+								{
+									"eventType": "variable",
+									"name": "rarity",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 372415599482466
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 775154712910716,
+											"parameters": {
+												"variable": "rarity",
+												"value": "Functions.Item_DrawRarity(table)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 985009286491111,
+											"parameters": {
+												"type": "log",
+												"message": "\"Rarity: \" & rarity"
+											}
+										},
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 137628762412779,
+											"parameters": {
+												"value": "Functions.Item_Weapon_Pick(rarity)"
+											}
+										}
+									],
+									"sid": 774523589210886,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Pick a weapon from the given rarity"
+						},
+						{
+							"functionName": "Item_Weapon_Pick",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "rarity",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 613405074975493
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Shuffle_Clear",
+									"sid": 475413474095040
+								}
+							],
+							"sid": 460118565887104,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Item_WeaponLibrary",
+											"sid": 366038384240303,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 434923348277453,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 441029259231354,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Item_WeaponLibrary.CurValue"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "WeaponParent",
+													"sid": 188733730823666,
+													"parameters": {
+														"instance-variable": "Rarity",
+														"comparison": 0,
+														"value": "rarity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Shuffle_AddItem",
+													"sid": 501435289423857,
+													"parameters": [
+														"WeaponParent.Name",
+														"1"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 208601113800274,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "WeaponParent.Name"
+													}
+												}
+											],
+											"sid": 308938369122765
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 129346781647320,
+											"parameters": {
+												"value": "Functions.Shuffle_Draw"
+											}
+										}
+									],
+									"sid": 113268499740968
+								}
+							]
+						}
+					],
+					"sid": 219671928377679
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Item Artifacts",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Item_Artifact_BuildLibrary",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Item_ArtifactLibrary",
+									"sid": 759178602950080,
+									"parameters": {
+										"width": "0",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								}
+							],
+							"sid": 499863350836007,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 187295389453995
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "ArtifactParent",
+											"sid": 362649065802021,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "loopindex "
+											}
+										}
+									],
+									"actions": [],
+									"sid": 903535491356330,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "ArtifactParent",
+													"sid": 480609020600101,
+													"parameters": {
+														"instance-variable": "DontSpawn"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Item_ArtifactLibrary",
+													"sid": 213723335387584,
+													"parameters": {
+														"width": "Self.Width + 1",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "Item_ArtifactLibrary",
+													"sid": 281689386951643,
+													"parameters": {
+														"x": "Item_ArtifactLibrary.Width - 1",
+														"value": "ArtifactParent.Name"
+													}
+												}
+											],
+											"sid": 430523087184012
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Item_Artifact_Pick",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "rarity",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 508064163869132
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Shuffle_Clear",
+									"sid": 106952850008089
+								}
+							],
+							"sid": 466378423461773,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Item_ArtifactLibrary",
+											"sid": 250657314081590,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 400517727260336,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ArtifactParent",
+													"sid": 631773475246692,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Item_ArtifactLibrary.CurValue"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "ArtifactParent",
+													"sid": 840864508346954,
+													"parameters": {
+														"instance-variable": "Rarity",
+														"comparison": 0,
+														"value": "rarity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Shuffle_AddItem",
+													"sid": 125726187635569,
+													"parameters": [
+														"ArtifactParent.Name",
+														"1"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 153656784708944,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "ArtifactParent.Name"
+													}
+												}
+											],
+											"sid": 170333927242276
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 208963896668224,
+											"parameters": {
+												"value": "Functions.Shuffle_Draw"
+											}
+										}
+									],
+									"sid": 949226944802930
+								}
+							]
+						}
+					],
+					"sid": 524493215711178
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Item Equipment",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Item_Equipment_BuildLibrary",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Item_EquipmentLibrary",
+									"sid": 587606584782565,
+									"parameters": {
+										"width": "0",
+										"height": "Self.Height",
+										"depth": "Self.Depth"
+									}
+								}
+							],
+							"sid": 860778400014898,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "while",
+											"objectClass": "System",
+											"sid": 352022016088448
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Equipment",
+											"sid": 746096244603740,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 0,
+												"value": "loopindex + 1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 961338490748200,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Equipment",
+													"sid": 336585215563661,
+													"parameters": {
+														"instance-variable": "DontSpawn"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Item_EquipmentLibrary",
+													"sid": 333423706523636,
+													"parameters": {
+														"width": "Self.Width + 1",
+														"height": "Self.Height",
+														"depth": "Self.Depth"
+													}
+												},
+												{
+													"id": "set-at-x",
+													"objectClass": "Item_EquipmentLibrary",
+													"sid": 660210989593086,
+													"parameters": {
+														"x": "Item_EquipmentLibrary.Width - 1",
+														"value": "Equipment.Name"
+													}
+												}
+											],
+											"sid": 500576083876868
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Item_Equipment_Pick",
+							"functionDescription": "",
+							"functionCategory": "Items",
+							"functionReturnType": "string",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "rarity",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 809347756619162
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Shuffle_Clear",
+									"sid": 334657395921901
+								}
+							],
+							"sid": 236947526915574,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Item_EquipmentLibrary",
+											"sid": 763428151654969,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 986149313196143,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Equipment",
+													"sid": 279588730333843,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "Item_EquipmentLibrary.CurValue"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Equipment",
+													"sid": 954388520695514,
+													"parameters": {
+														"instance-variable": "Rarity",
+														"comparison": 0,
+														"value": "rarity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Shuffle_AddItem",
+													"sid": 728022027857653,
+													"parameters": [
+														"Equipment.Name",
+														"1"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 216994219272496,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "Equipment.Name"
+													}
+												}
+											],
+											"sid": 577257222055268
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 940013655663096,
+											"parameters": {
+												"value": "Functions.Shuffle_Draw"
+											}
+										}
+									],
+									"sid": 734067347714014
+								}
+							]
+						}
+					],
+					"sid": 550453964421280
+				}
+			],
+			"sid": 775699606482150
+		}
+	],
+	"sid": 990013091362143
+}

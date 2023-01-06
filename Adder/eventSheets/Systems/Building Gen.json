@@ -1,0 +1,237 @@
+{
+	"name": "Building Gen",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Could create a dictionary of rooms as JSONs and load from that"
+		},
+		{
+			"eventType": "comment",
+			"text": "what about basements?"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug - Building Gen",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "room_height",
+					"type": "number",
+					"initialValue": "144",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 640275987454181
+				},
+				{
+					"eventType": "variable",
+					"name": "section_width",
+					"type": "number",
+					"initialValue": "240",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 782479551412581
+				},
+				{
+					"functionName": "Level_GenerateBuilding",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 464178886700939
+						},
+						{
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 721142899159968
+						},
+						{
+							"name": "sections",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "intervals of 0.25",
+							"sid": 659218365980227
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 537891663493778,
+							"parameters": {
+								"object-to-create": "Tile_BG",
+								"layer": "\"Tile_BG\"",
+								"x": "x",
+								"y": "y - room_height + 48",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Tile_BG",
+							"sid": 619055218474044,
+							"parameters": {
+								"width": "sections * section_width",
+								"height": "room_height"
+							}
+						}
+					],
+					"sid": 318083263520016,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "set WP"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-tile-range",
+									"objectClass": "Tile_BG",
+									"sid": 790521717388210,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"width": "Tile_BG.MapDisplayWidth",
+										"height": "Tile_BG.MapDisplayHeight",
+										"tile": "1",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 466260171184870
+						},
+						{
+							"eventType": "comment",
+							"text": "set Floor"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-tile-range",
+									"objectClass": "Tile_BG",
+									"sid": 704810527598539,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "4",
+										"width": "Tile_BG.MapDisplayWidth",
+										"height": "1",
+										"tile": "24",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 668933872342947
+						},
+						{
+							"eventType": "comment",
+							"text": "set top"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-tile-range",
+									"objectClass": "Tile_BG",
+									"sid": 529757169609066,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"width": "Tile_BG.MapDisplayWidth",
+										"height": "1",
+										"tile": "0",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 789393992740452
+						},
+						{
+							"eventType": "comment",
+							"text": "set bot"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-tile-range",
+									"objectClass": "Tile_BG",
+									"sid": 567121667117084,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "Tile_BG.MapDisplayHeight - 1",
+										"width": "Tile_BG.MapDisplayWidth",
+										"height": "1",
+										"tile": "0",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 368991240418737
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 796707670148118,
+							"parameters": {
+								"key": 84
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "erase-tile-range",
+							"objectClass": "Tile_BG",
+							"sid": 884261051382580,
+							"disabled": true,
+							"parameters": {
+								"tile-x": "0",
+								"tile-y": "0",
+								"width": "1",
+								"height": "1"
+							}
+						},
+						{
+							"callFunction": "Level_GenerateBuilding",
+							"sid": 701092408754386,
+							"parameters": [
+								"BuildingSpawnPoint.X",
+								"BuildingSpawnPoint.Y",
+								"3"
+							]
+						}
+					],
+					"sid": 966957883242422
+				}
+			],
+			"sid": 214681428162418
+		}
+	],
+	"sid": 595154034152071
+}

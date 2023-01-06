@@ -1,0 +1,1453 @@
+{
+	"name": "Saves",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Save Events",
+			"description": "Temporarily Disabled",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 251289741421138,
+							"parameters": {
+								"name": "\"Save\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "SaveData",
+							"sid": 253347065483871,
+							"parameters": {
+								"key": "\"SurvivorData\"",
+								"value": "ColonistData.AsJSON"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 478459220596916,
+							"parameters": {
+								"key": "\"SaveData\"",
+								"value": "SaveData.AsJSON"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 868697660672031,
+							"parameters": {
+								"type": "log",
+								"message": "\"Game Saved\""
+							}
+						}
+					],
+					"sid": 605858338263195,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 329327936327541,
+							"parameters": {
+								"name": "\"Load\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 766322793708444,
+							"parameters": {
+								"variable": "system_SaveLoaded",
+								"value": "0"
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 456427672047136,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"sid": 294249003118801,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 835086124133685,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 843086038778449,
+							"parameters": {
+								"type": "warn",
+								"message": "\"Save data does not exist\""
+							}
+						}
+					],
+					"sid": 236511438440737,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 526065472614266,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 348304177158666,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"sid": 457971708566248,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 699961637346029,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "SaveData",
+							"sid": 445316628618579,
+							"parameters": {
+								"json": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "ColonistData",
+							"sid": 870988939006045,
+							"parameters": {
+								"json": "SaveData.Get(\"SurvivorData\")"
+							}
+						}
+					],
+					"sid": 565510901404538,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 564675742851916,
+									"parameters": {
+										"variable": "system_SaveLoaded",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 126509625772220,
+									"parameters": {
+										"type": "log",
+										"message": "\"Game Loaded\""
+									}
+								}
+							],
+							"sid": 470705747244687,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 710594077709333
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Save TODO",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Use NW.JS for folder control"
+				},
+				{
+					"eventType": "comment",
+					"text": "Eventually support steam cloud"
+				},
+				{
+					"eventType": "comment",
+					"text": "Consider adding no save behavior to improve save / load times"
+				},
+				{
+					"eventType": "comment",
+					"text": "When saving, make a back up save"
+				}
+			],
+			"sid": 472286014309791
+		},
+		{
+			"eventType": "comment",
+			"text": "Save Data"
+		},
+		{
+			"eventType": "variable",
+			"name": "system_SaveString",
+			"type": "string",
+			"initialValue": "AdderSaveFile",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 831304927256991
+		},
+		{
+			"eventType": "variable",
+			"name": "system_SaveSlot",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 858217698897325
+		},
+		{
+			"eventType": "variable",
+			"name": "system_SaveChecked",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 312721129734387
+		},
+		{
+			"eventType": "variable",
+			"name": "system_SaveExists",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 411272316013154
+		},
+		{
+			"eventType": "variable",
+			"name": "system_SaveLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 154144843410533
+		},
+		{
+			"eventType": "comment",
+			"text": "Other Data"
+		},
+		{
+			"eventType": "variable",
+			"name": "system_ControlsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 670574141921312
+		},
+		{
+			"eventType": "variable",
+			"name": "system_StringsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 502070725782952
+		},
+		{
+			"eventType": "variable",
+			"name": "system_JSONsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 339775306793584
+		},
+		{
+			"eventType": "variable",
+			"name": "system_LevelListsLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 628911812168508
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Save Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "System_SaveGame",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 488450795477648,
+							"parameters": {
+								"slot": "system_SaveString & system_SaveSlot"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 811050249851149,
+							"parameters": {
+								"key": "\"SaveData\"",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 817611269406708,
+							"parameters": {
+								"key": "\"SaveVersion\"",
+								"value": "projectversion"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 788599659746890,
+							"parameters": {
+								"variable": "system_SaveLoaded",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 110865398166336
+				},
+				{
+					"functionName": "System_LoadGame",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "System",
+							"sid": 407647169011048,
+							"parameters": {
+								"slot": "system_SaveString & system_SaveSlot"
+							}
+						}
+					],
+					"sid": 856610219327094
+				}
+			],
+			"sid": 151927584804174
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Save Data",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 431164545366586,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 703191882052512,
+							"parameters": {
+								"variable": "system_SaveExists",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 974052454071267,
+							"parameters": {
+								"variable": "system_SaveChecked",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 615895538425211
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 563759861146820,
+							"parameters": {
+								"key": "\"SaveData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 715313827278090,
+							"parameters": {
+								"variable": "system_SaveExists",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 431599978082571,
+							"parameters": {
+								"variable": "system_SaveChecked",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 858789416560513
+				}
+			],
+			"sid": 295930245995404
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Control Data",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Can I call Control_List_Reset?"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 213368563590297,
+							"parameters": {
+								"key": "\"ControlData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 414465991958684,
+							"parameters": {
+								"name": "\"OPT_ControlListReset\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 101803367151601
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 698092901405458,
+							"parameters": {
+								"key": "\"ControlData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 366389593882141,
+							"parameters": {
+								"key": "\"ControlData\""
+							}
+						}
+					],
+					"sid": 600981344113661
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 825470636830554,
+							"parameters": {
+								"key": "\"ControlData\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Options_ControlList",
+							"sid": 641146667677337,
+							"parameters": {
+								"json": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 711610394371399,
+							"parameters": {
+								"variable": "system_ControlsLoaded",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 719975384893769
+				},
+				{
+					"eventType": "comment",
+					"text": "should prob have it's own function"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 2187864711113881,
+							"parameters": {
+								"name": "\"OPT_ControlListReset\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear",
+							"objectClass": "Options_ControlListBackup",
+							"sid": 782672415378023
+						}
+					],
+					"sid": 747364934225666,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Default Controls"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 347288569789318,
+									"parameters": {
+										"key": "\"Walk Left\"",
+										"value": "65"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 915373185304564,
+									"parameters": {
+										"key": "\"Walk Right\"",
+										"value": "68"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 387433411654895,
+									"parameters": {
+										"key": "\"Down\"",
+										"value": "16"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 288442091019180,
+									"parameters": {
+										"key": "\"Dodge\"",
+										"value": "83"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 675728513476185,
+									"parameters": {
+										"key": "\"Jump\"",
+										"value": "87"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 826554560014801,
+									"parameters": {
+										"key": "\"Interact\"",
+										"value": "69"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 531992263307952,
+									"parameters": {
+										"key": "\"Reload\"",
+										"value": "82"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 884438340382528,
+									"parameters": {
+										"key": "\"Shoot\"",
+										"value": "32"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 672669405315610,
+									"parameters": {
+										"key": "\"Ability1\"",
+										"value": "70"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 692325625593036,
+									"parameters": {
+										"key": "\"Ability2\"",
+										"value": "71"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 738705544441088,
+									"parameters": {
+										"key": "\"Swap Weapon\"",
+										"value": "81"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 341437113522669,
+									"parameters": {
+										"key": "\"Pause / Exit\"",
+										"value": "27"
+									}
+								}
+							],
+							"sid": 175555151550243
+						},
+						{
+							"eventType": "comment",
+							"text": "Debug Controls"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 137859679932129,
+									"parameters": {
+										"key": "\"Walk Left\"",
+										"value": "65"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 106052314922584,
+									"parameters": {
+										"key": "\"Walk Right\"",
+										"value": "68"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 244809380354167,
+									"parameters": {
+										"key": "\"Down\"",
+										"value": "40"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 763962995089617,
+									"parameters": {
+										"key": "\"Dodge\"",
+										"value": "83"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 298975413290923,
+									"parameters": {
+										"key": "\"Jump\"",
+										"value": "87"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 363108170593301,
+									"parameters": {
+										"key": "\"Interact\"",
+										"value": "69"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 975724127211222,
+									"parameters": {
+										"key": "\"Reload\"",
+										"value": "82"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 197374985709268,
+									"parameters": {
+										"key": "\"Shoot\"",
+										"value": "32"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 794343800078483,
+									"parameters": {
+										"key": "\"Ability1\"",
+										"value": "70"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 996371449091072,
+									"parameters": {
+										"key": "\"Ability2\"",
+										"value": "71"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 505114604131870,
+									"parameters": {
+										"key": "\"Swap Weapon\"",
+										"value": "81"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlList",
+									"sid": 235973253018469,
+									"parameters": {
+										"key": "\"Pause / Exit\"",
+										"value": "27"
+									}
+								}
+							],
+							"sid": 215175018551271,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 190308984903355,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Options\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 975549144903506,
+									"parameters": {
+										"name": "\"OPT_ControlListUpdate\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 966799202119568
+						},
+						{
+							"eventType": "comment",
+							"text": "Backup dictionary (used for individual resets)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Options_ControlList",
+									"sid": 149954154305837
+								}
+							],
+							"actions": [
+								{
+									"id": "add-key",
+									"objectClass": "Options_ControlListBackup",
+									"sid": 117528112277943,
+									"parameters": {
+										"key": "Options_ControlList.CurrentKey",
+										"value": "Options_ControlList.CurrentValue"
+									}
+								}
+							],
+							"sid": 3005334345824367
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 879531606239571,
+									"parameters": {
+										"variable": "system_ControlsLoaded",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 850725676344811
+						}
+					]
+				}
+			],
+			"sid": 282109407002874
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Load Strings",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 311376088571662,
+							"parameters": {
+								"tag": "\"loadLanguageFile\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "XML_Strings",
+							"sid": 952207311433176,
+							"parameters": {
+								"xml": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 842187193540818,
+							"parameters": {
+								"variable": "system_StringsLoaded",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 357306388488768
+				}
+			],
+			"sid": 522403840897757
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "JSONs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "System_LoadJSONs",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 515825106890621,
+							"parameters": {
+								"tag": "\"loadLevelRef\"",
+								"file": "LevelRef.json"
+							}
+						}
+					],
+					"sid": 710327615265946
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 926557665521135,
+							"parameters": {
+								"tag": "\"loadLevelRef\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "LevelRef",
+							"sid": 748204291457413,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 891350702532422,
+							"parameters": {
+								"tag": "\"loadBiomePresets\"",
+								"file": "BiomePresets.json"
+							}
+						}
+					],
+					"sid": 978395963518731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 344521002802260,
+							"parameters": {
+								"tag": "\"loadBiomePresets\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "BiomePresets",
+							"sid": 864099476514353,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 531569893502053,
+							"parameters": {
+								"tag": "\"loadEventDB\"",
+								"file": "EventDB.json"
+							}
+						}
+					],
+					"sid": 553135258207375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 807117663532297,
+							"parameters": {
+								"tag": "\"loadEventDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "EventDB",
+							"sid": 190576918707305,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 666572413100230,
+							"parameters": {
+								"tag": "\"loadEffectDB\"",
+								"file": "EffectDB.json"
+							}
+						}
+					],
+					"sid": 329643714479720
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 311164659738539,
+							"parameters": {
+								"tag": "\"loadEffectDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "EffectDB",
+							"sid": 943445880043087,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 835981862099601,
+							"parameters": {
+								"tag": "\"DirectorZombiesCost\"",
+								"file": "DirectorZombiesCost.json"
+							}
+						}
+					],
+					"sid": 404866664784814
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 868601466408194,
+							"parameters": {
+								"tag": "\"DirectorZombiesCost\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieCost",
+							"sid": 592033133863056,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 872249950641634,
+							"parameters": {
+								"tag": "\"DirectorZombiesInt\"",
+								"file": "DirectorZombiesInt.json"
+							}
+						}
+					],
+					"sid": 288993635454246
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 806737090065156,
+							"parameters": {
+								"tag": "\"DirectorZombiesInt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieInt",
+							"sid": 725526908823221,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 975563055331463,
+							"parameters": {
+								"tag": "\"DirectorZombiesExt\"",
+								"file": "DirectorZombiesExt.json"
+							}
+						}
+					],
+					"sid": 400264766834679
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 686104747441787,
+							"parameters": {
+								"tag": "\"DirectorZombiesExt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Director_ZombieExt",
+							"sid": 274493520023352,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Must Come Last"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 159019290698092,
+							"parameters": {
+								"variable": "system_JSONsLoaded",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "System_LoadLevelLists",
+							"sid": 468176115347099
+						}
+					],
+					"sid": 632914518883613
+				}
+			],
+			"sid": 512538539991907
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Lists",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "System_LoadLevelLists",
+					"functionDescription": "",
+					"functionCategory": "System",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 951151968967482,
+							"parameters": {
+								"type": "warn",
+								"message": "\"LOAD BIOMES\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "BiomeLevelList",
+							"sid": 836491551298673
+						}
+					],
+					"sid": 607624460891684,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 812410718455247,
+									"parameters": {
+										"where": "back",
+										"value": "\"Forest\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 544883095085340,
+									"parameters": {
+										"where": "back",
+										"value": "\"Mountain\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 143505331324871,
+									"parameters": {
+										"where": "back",
+										"value": "\"Suburb\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 301725805252352,
+									"parameters": {
+										"where": "back",
+										"value": "\"Wastes\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 715639491046203,
+									"parameters": {
+										"where": "back",
+										"value": "\"Industrial\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 203590774871578,
+									"parameters": {
+										"where": "back",
+										"value": "\"City\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 150813449627470,
+									"parameters": {
+										"where": "back",
+										"value": "\"Test\"",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 115445055166397
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "BiomeList",
+									"sid": 343024110098936,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 666956235378826,
+									"parameters": {
+										"object-to-create": "BiomeLevelList",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "BiomeLevelList",
+									"sid": 763478124263773,
+									"parameters": {
+										"instance-variable": "Biome",
+										"value": "BiomeList.CurValue"
+									}
+								}
+							],
+							"sid": 320808152251333,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "LevelRef",
+											"sid": 788710529301981,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 845222361980185,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 517315944634697,
+													"parameters": {
+														"first-value": "LevelRef.At(LevelRef.CurX,BiomeList.CurX+6)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "push",
+													"objectClass": "BiomeLevelList",
+													"sid": 504307998377704,
+													"parameters": {
+														"where": "back",
+														"value": "LevelRef.At(LevelRef.CurX,0)",
+														"axis": "x"
+													}
+												}
+											],
+											"sid": 660004035494572
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 479819743133183,
+									"parameters": {
+										"variable": "system_LevelListsLoaded",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 898563481122704
+						}
+					]
+				}
+			],
+			"sid": 131125866774576
+		}
+	],
+	"sid": 380589850307613
+}
