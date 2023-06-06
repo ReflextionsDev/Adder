@@ -155,11 +155,29 @@
 											"parameters": {
 												"state": "not-mirrored"
 											}
-										},
+										}
+									],
+									"sid": 656176786598227
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 103139892242933,
+											"parameters": {
+												"first-value": "LayoutName",
+												"comparison": 1,
+												"second-value": "\"MainMenu\""
+											}
+										}
+									],
+									"actions": [
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 547031495056863,
+											"sid": 712593173807909,
 											"parameters": {
 												"object-to-create": "Player_TextAmmo",
 												"layer": "\"Fog\"",
@@ -172,7 +190,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 552391354699358,
+											"sid": 402770204412654,
 											"parameters": {
 												"object-to-create": "Player_TextXP",
 												"layer": "\"Fog\"",
@@ -185,7 +203,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 898441262878825,
+											"sid": 972633690033838,
 											"parameters": {
 												"object-to-create": "Player_TextMoney",
 												"layer": "\"Fog\"",
@@ -198,7 +216,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 752855186544672,
+											"sid": 444176741958657,
 											"parameters": {
 												"object-to-create": "Player_TextMod",
 												"layer": "\"Fog\"",
@@ -211,7 +229,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 598712235149572,
+											"sid": 730285100935842,
 											"parameters": {
 												"object-to-create": "Camera",
 												"layer": "\"Player\"",
@@ -224,7 +242,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 150291571335449,
+											"sid": 630209995016307,
 											"parameters": {
 												"object-to-create": "Camera_LeftBorder",
 												"layer": "\"Player\"",
@@ -237,7 +255,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 856781118979060,
+											"sid": 129220246590075,
 											"parameters": {
 												"object-to-create": "Camera_RightBorder",
 												"layer": "\"Player\"",
@@ -246,11 +264,18 @@
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
-										},
+										}
+									],
+									"sid": 697322148615442
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 300859568047763,
+											"sid": 219514829297638,
 											"parameters": {
 												"object-to-create": "Player_Holster",
 												"layer": "\"Player\"",
@@ -263,7 +288,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 225211446774635,
+											"sid": 368109979286701,
 											"parameters": {
 												"object-to-create": "Player_Arms2",
 												"layer": "\"Player\"",
@@ -276,7 +301,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 803254436265578,
+											"sid": 926786461227850,
 											"parameters": {
 												"object-to-create": "Player_Sprite",
 												"layer": "\"Player\"",
@@ -289,7 +314,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 123696771835296,
+											"sid": 732460801757718,
 											"parameters": {
 												"object-to-create": "Player_Holster1",
 												"layer": "\"Player\"",
@@ -302,7 +327,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 804763131905498,
+											"sid": 485289521274927,
 											"parameters": {
 												"object-to-create": "Player_Arms",
 												"layer": "\"Player\"",
@@ -315,7 +340,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 886185120868171,
+											"sid": 758991833802288,
 											"parameters": {
 												"object-to-create": "Player_Aim",
 												"layer": "\"Player\"",
@@ -328,7 +353,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 236558872726649,
+											"sid": 337118101965679,
 											"parameters": {
 												"object-to-create": "Player_Target",
 												"layer": "\"Player\"",
@@ -341,7 +366,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 427182092239266,
+											"sid": 453545143912211,
 											"parameters": {
 												"object-to-create": "Player_ThrowTarget",
 												"layer": "\"Player\"",
@@ -354,7 +379,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 638335713017023,
+											"sid": 248947484428256,
 											"parameters": {
 												"object-to-create": "Player_Range",
 												"layer": "\"Player\"",
@@ -365,9 +390,36 @@
 											}
 										},
 										{
+											"id": "set-animation",
+											"objectClass": "Player_Sprite",
+											"sid": 411831513112990,
+											"parameters": {
+												"animation": "\"Idle\" & PlayerData.Skin",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 564124335509328
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 627288216182835,
+											"parameters": {
+												"first-value": "LayoutName",
+												"comparison": 1,
+												"second-value": "\"MainMenu\""
+											}
+										}
+									],
+									"actions": [
+										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 647289591703848,
+											"sid": 668029946285963,
 											"parameters": {
 												"object-to-create": "PlayerUI_hpBack",
 												"layer": "\"Player_HP\"",
@@ -380,7 +432,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 876428809074608,
+											"sid": 873517318105319,
 											"parameters": {
 												"object-to-create": "PayerUI_hpFill",
 												"layer": "\"Player_HP\"",
@@ -393,7 +445,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 274529190449190,
+											"sid": 404643919902749,
 											"parameters": {
 												"object-to-create": "PlayerUI_hpSlot",
 												"layer": "\"Player_HP\"",
@@ -406,7 +458,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 368371067195316,
+											"sid": 486460142498530,
 											"parameters": {
 												"object-to-create": "PlayerUI_hpFront",
 												"layer": "\"Player_HP\"",
@@ -419,7 +471,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 954421891067608,
+											"sid": 622540008473310,
 											"parameters": {
 												"object-to-create": "PlayerUI_ammoBack",
 												"layer": "\"Player_Ammo\"",
@@ -432,7 +484,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 549681126983248,
+											"sid": 541290900651448,
 											"parameters": {
 												"object-to-create": "PlayerUI_ammoFill",
 												"layer": "\"Player_Ammo\"",
@@ -445,7 +497,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 768985806056731,
+											"sid": 303960721639584,
 											"parameters": {
 												"object-to-create": "PlayerUI_ammoSlot",
 												"layer": "\"Player_Ammo\"",
@@ -458,7 +510,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 698621010499073,
+											"sid": 111438787991617,
 											"parameters": {
 												"object-to-create": "PlayerUI_ammoFront",
 												"layer": "\"Player_Ammo\"",
@@ -471,7 +523,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 164152983458910,
+											"sid": 877172294346534,
 											"parameters": {
 												"object-to-create": "PlayerUI_equipBack",
 												"layer": "\"Player_Equip\"",
@@ -484,7 +536,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 210339262486796,
+											"sid": 308945053212537,
 											"parameters": {
 												"object-to-create": "PlayerUI_equipFill",
 												"layer": "\"Player_Equip\"",
@@ -497,7 +549,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 289166057075897,
+											"sid": 819902852145738,
 											"parameters": {
 												"object-to-create": "PlayerUI_equipSlot",
 												"layer": "\"Player_Equip\"",
@@ -510,7 +562,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 200777812442205,
+											"sid": 435029354432124,
 											"parameters": {
 												"object-to-create": "PlayerUI_equipFront",
 												"layer": "\"Player_Equip\"",
@@ -519,20 +571,18 @@
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Player_Sprite",
-											"sid": 892997005064985,
-											"parameters": {
-												"animation": "\"Idle\" & PlayerData.Skin",
-												"from": "beginning"
-											}
-										},
+										}
+									],
+									"sid": 393863668438392
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 945683239068407,
+											"sid": 589020374986513,
 											"parameters": {
 												"seconds": "0"
 											}
@@ -540,7 +590,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 217901769208604,
+											"sid": 325191339341189,
 											"parameters": {
 												"name": "\"PLR_ChangeState\"",
 												"parameter-n": [
@@ -550,12 +600,12 @@
 										},
 										{
 											"callFunction": "PLR_ReloadAll",
-											"sid": 898318674302925
+											"sid": 146036121080411
 										},
 										{
 											"id": "simulate-control",
 											"objectClass": "Player",
-											"sid": 972466006247602,
+											"sid": 516729011046983,
 											"behaviorType": "Platform",
 											"parameters": {
 												"control": "right"
@@ -564,7 +614,7 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Player",
-											"sid": 953803202636609,
+											"sid": 691790294280546,
 											"parameters": {
 												"instance-variable": "InvincibilityTimer",
 												"value": "0.5"
@@ -573,7 +623,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 397677874442365,
+											"sid": 863779744030177,
 											"parameters": {
 												"name": "\"UI_UpdateHealth\"",
 												"parameter-n": []
@@ -582,7 +632,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 809793328816993,
+											"sid": 761854430000560,
 											"parameters": {
 												"name": "\"UI_UpdateAmmo\"",
 												"parameter-n": []
@@ -591,7 +641,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 806892043256189,
+											"sid": 995704417004190,
 											"parameters": {
 												"name": "\"UI_ResetAmmo\"",
 												"parameter-n": []
@@ -600,7 +650,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 565559960846246,
+											"sid": 684589746687406,
 											"parameters": {
 												"name": "\"UI_ResetHealth\"",
 												"parameter-n": []
@@ -609,7 +659,7 @@
 										{
 											"id": "call-function",
 											"objectClass": "function",
-											"sid": 414879331457403,
+											"sid": 621126773764283,
 											"parameters": {
 												"name": "\"PLR_Weapon_Update\"",
 												"parameter-n": []
@@ -618,7 +668,7 @@
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 115811129101737,
+											"sid": 260788410321770,
 											"parameters": {
 												"layer": "\"Player_HP\"",
 												"visibility": "visible"
@@ -627,14 +677,194 @@
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 344184074205805,
+											"sid": 174454691471246,
 											"parameters": {
 												"layer": "\"Player_Ammo\"",
 												"visibility": "visible"
 											}
 										}
 									],
-									"sid": 656176786598227
+									"sid": 173818754515267
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 406611147814919,
+											"parameters": {
+												"first-value": "LayoutName",
+												"comparison": 0,
+												"second-value": "\"MainMenu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 387799338831758,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 117723645913661,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 432450273377102,
+											"parameters": {
+												"name": "\"PLR_Mirrored\"",
+												"parameter-n": [
+													"0"
+												]
+											}
+										},
+										{
+											"id": "simulate-control",
+											"objectClass": "Player",
+											"sid": 333221392111509,
+											"disabled": true,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Player",
+											"sid": 632766058676806,
+											"parameters": {
+												"instance-variable": "Shooting",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 320644306372542,
+											"parameters": {
+												"instance-variable": "AllowMovement",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 972512344127589,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "AllowCombat",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 205403932062078,
+											"parameters": {
+												"instance-variable": "AllowInteractWorld",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player",
+											"sid": 223977687398832,
+											"parameters": {
+												"instance-variable": "AllowInteractDiag",
+												"value": "0"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 451037110309685,
+											"disabled": true,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player_Arms",
+											"sid": 100419547908860,
+											"parameters": {
+												"instance-variable": "TargetAngle",
+												"value": "15"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 799012579716163,
+											"disabled": true,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Player_Arms",
+											"sid": 493395227468295,
+											"disabled": true,
+											"parameters": {
+												"instance-variable": "TargetAngle",
+												"value": "165"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Player_ArmsFull",
+											"sid": 332033782030044,
+											"parameters": {
+												"angle": "15"
+											}
+										},
+										{
+											"id": "set-flipped",
+											"objectClass": "Player_ArmsFull",
+											"sid": 187204606302265,
+											"disabled": true,
+											"parameters": {
+												"state": "flipped"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Player_ArmsFull",
+											"sid": 447695265785944,
+											"disabled": true,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-flipped",
+											"objectClass": "Player_ArmsFull",
+											"sid": 513624977170476,
+											"parameters": {
+												"state": "not-flipped"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "Player_ArmsFull",
+											"sid": 514432164081792,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 429476801216611
 								},
 								{
 									"eventType": "comment",
@@ -653,7 +883,8 @@
 											}
 										}
 									],
-									"sid": 550853321891311
+									"sid": 550853321891311,
+									"disabled": true
 								}
 							]
 						}

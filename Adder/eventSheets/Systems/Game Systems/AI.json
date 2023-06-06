@@ -154,7 +154,9 @@
 										"transform-w": false,
 										"transform-h": false,
 										"transform-a": true,
+										"transform-o": false,
 										"transform-z-elevation": false,
+										"transform-visibility": false,
 										"destroy-with-parent": false
 									}
 								}
@@ -336,7 +338,9 @@
 												"transform-w": true,
 												"transform-h": true,
 												"transform-a": true,
+												"transform-o": false,
 												"transform-z-elevation": true,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -499,19 +503,19 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "NPC",
-													"sid": 443605857147172,
+													"sid": 977686457337850,
 													"parameters": {
-														"instance-variable": "Loot_Money",
-														"value": "(NPC_Parent.Money_Base^(NPC_Parent.Money_Constant+(NPC_Parent.Money_Rate*NPC.Level)))"
+														"instance-variable": "Loot_XP",
+														"value": "(NPC_Parent.XP_Base^(NPC_Parent.XP_Constant+(NPC_Parent.XP_Rate*NPC.Level)))"
 													}
 												},
 												{
 													"id": "set-instvar-value",
 													"objectClass": "NPC",
-													"sid": 518172612710777,
+													"sid": 443605857147172,
 													"parameters": {
-														"instance-variable": "Loot_XP",
-														"value": "(NPC_Parent.XP_Base^(NPC_Parent.XP_Constant+(NPC_Parent.XP_Rate*NPC.Level)))"
+														"instance-variable": "Loot_Money",
+														"value": "(NPC_Parent.Money_Base^(NPC_Parent.Money_Constant+(NPC_Parent.Money_Rate*NPC.Level)))"
 													}
 												},
 												{
@@ -805,6 +809,29 @@
 														}
 													],
 													"sid": 410299173970235
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "NPC_Parent",
+															"sid": 420514573881598,
+															"parameters": {
+																"instance-variable": "BossLabel"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "NPC_CreateBossLabel",
+															"sid": 370946451577528,
+															"parameters": [
+																"NPC.UID"
+															]
+														}
+													],
+													"sid": 121644021025269
 												}
 											]
 										}
@@ -1224,6 +1251,15 @@
 													"parameters": {
 														"instance-variable": "SpecialAttackSpeed",
 														"value": "NPC_Parent.SpecialAttackSpeed"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "NPC",
+													"sid": 954628634946749,
+													"parameters": {
+														"instance-variable": "BossLabel",
+														"value": "true"
 													}
 												},
 												{
@@ -2011,110 +2047,6 @@
 													"sid": 243698669696218
 												}
 											]
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-function",
-											"objectClass": "function",
-											"sid": 316568229230459,
-											"parameters": {
-												"name": "\"NPC_RandomizeName\""
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Human",
-											"sid": 618838430238727,
-											"parameters": {
-												"unique-id": "function.Param(0)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 539574640224294,
-											"parameters": {
-												"type": "log",
-												"message": "function.Call(\"NPC_GetSex\",Human.UID)"
-											}
-										}
-									],
-									"sid": 155495485797647,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 393865948221639,
-													"parameters": {
-														"first-value": "function.Call(\"NPC_GetSex\",Human.UID)",
-														"comparison": 0,
-														"second-value": "\"M\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Human",
-													"sid": 138181628315379,
-													"parameters": {
-														"instance-variable": "FirstName",
-														"value": "XML_FirstNamesM.StringValue(\"/names/name[position()=\" & floor(random(0,1000.99)) & \"]/text()\")"
-													}
-												}
-											],
-											"sid": 785797209463298,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 799937294047433
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Human",
-													"sid": 338250725083382,
-													"parameters": {
-														"instance-variable": "FirstName",
-														"value": "XML_FirstNamesF.StringValue(\"/names/name[position()=\" & floor(random(0,1000.99)) & \"]/text()\")"
-													}
-												}
-											],
-											"sid": 504592042559152,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Human",
-													"sid": 599587820479213,
-													"parameters": {
-														"instance-variable": "LastName",
-														"value": "XML_LastNames.StringValue(\"/names/name[position()=\" & floor(random(0,1500.99)) & \"]/text()\")"
-													}
-												}
-											],
-											"sid": 985264731890111,
-											"disabled": true
 										}
 									]
 								},
@@ -3059,7 +2991,9 @@
 														"transform-w": false,
 														"transform-h": false,
 														"transform-a": false,
+														"transform-o": false,
 														"transform-z-elevation": false,
+														"transform-visibility": false,
 														"destroy-with-parent": false
 													}
 												}
@@ -3168,7 +3102,9 @@
 														"transform-w": false,
 														"transform-h": false,
 														"transform-a": false,
+														"transform-o": false,
 														"transform-z-elevation": false,
+														"transform-visibility": false,
 														"destroy-with-parent": false
 													}
 												}
@@ -3277,7 +3213,9 @@
 														"transform-w": false,
 														"transform-h": false,
 														"transform-a": false,
+														"transform-o": false,
 														"transform-z-elevation": false,
+														"transform-visibility": false,
 														"destroy-with-parent": false
 													}
 												}
@@ -3752,6 +3690,105 @@
 									]
 								},
 								{
+									"functionName": "NPC_CreateBossLabel",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [
+										{
+											"name": "UID",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"sid": 366218483785413
+										}
+									],
+									"eventType": "function-block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC",
+											"sid": 537415983845067,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 182466254683657,
+											"parameters": {
+												"object-to-create": "Text_BossLabel",
+												"layer": "\"Objects\"",
+												"x": "NPC.X",
+												"y": "NPC.Y + 16",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "NPC",
+											"sid": 747799488904862,
+											"parameters": {
+												"child": "Text_BossLabel",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": false,
+												"transform-h": false,
+												"transform-a": false,
+												"transform-o": false,
+												"transform-z-elevation": false,
+												"transform-visibility": false,
+												"destroy-with-parent": true
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_BossLabel",
+											"sid": 621259793744277,
+											"parameters": {
+												"text": "uppercase(NPC.Class)"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 492985191210277,
+											"parameters": {
+												"object-to-create": "BossLabel_HPBox",
+												"layer": "\"Objects\"",
+												"x": "NPC.X - 33",
+												"y": "NPC.Y - (NPC.Height + 16)",
+												"create-hierarchy": true,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "add-child",
+											"objectClass": "NPC",
+											"sid": 238039071697128,
+											"parameters": {
+												"child": "BossLabel_HPBox",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": false,
+												"transform-h": false,
+												"transform-a": false,
+												"transform-o": false,
+												"transform-z-elevation": false,
+												"transform-visibility": false,
+												"destroy-with-parent": true
+											}
+										}
+									],
+									"sid": 154209427657710
+								},
+								{
 									"functionName": "NPC_ChangeForm",
 									"functionDescription": "",
 									"functionCategory": "",
@@ -4222,17 +4259,7 @@
 											}
 										}
 									],
-									"actions": [
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 280505914371728,
-											"parameters": {
-												"type": "log",
-												"message": "\"NPC Choose State\""
-											}
-										}
-									],
+									"actions": [],
 									"sid": 536233311448776,
 									"children": [
 										{
@@ -4290,30 +4317,7 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"callFunction": "NPC_ChangeState",
-													"sid": 538979441864012,
-													"disabled": true,
-													"parameters": [
-														"NPC.UID",
-														"\"Idle\"",
-														"0",
-														"0",
-														"0",
-														true
-													]
-												},
-												{
-													"callFunction": "NPC_ChangeAnim",
-													"sid": 374518267792246,
-													"disabled": true,
-													"parameters": [
-														"NPC.UID",
-														"\"Idle\""
-													]
-												}
-											],
+											"actions": [],
 											"sid": 118927973892113,
 											"children": [
 												{
@@ -4389,6 +4393,261 @@
 														}
 													],
 													"sid": 941986620462861
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 265911391185792
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 844944732911169,
+													"parameters": {
+														"instance-variable": "Race",
+														"comparison": 0,
+														"value": "\"Animal\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 816979026993629,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 847962283049992,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 0,
+																"value": "\"Idle\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 404468080808521,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "randomState",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 173981656390703
+														},
+														{
+															"eventType": "comment",
+															"text": "GOOD BOYE"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 614275244539937,
+																	"parameters": {
+																		"instance-variable": "Class",
+																		"comparison": 0,
+																		"value": "\"Dog\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 457290089939190,
+																	"parameters": {
+																		"variable": "randomState",
+																		"value": "choose(1,2,3,4)"
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 538162923127654,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"random state\" &  randomState"
+																	}
+																}
+															],
+															"sid": 592574848815992,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 465405732786212,
+																			"parameters": {
+																				"variable": "randomState",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 170161511066247,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"ChaseTail\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		}
+																	],
+																	"sid": 708465467214387,
+																	"isOrBlock": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 927842584375304
+																		},
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 814482755915941,
+																			"parameters": {
+																				"variable": "randomState",
+																				"comparison": 0,
+																				"value": "3"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 359696565777315,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Bark\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		}
+																	],
+																	"sid": 664122321909583
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 933863989713593
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 171583002149285,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"Roam\"",
+																				"0",
+																				"0",
+																				"0",
+																				true
+																			]
+																		}
+																	],
+																	"sid": 588569153351866
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 156800818461955
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_ChangeState",
+																	"sid": 255300686346451,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"Roam\"",
+																		"0",
+																		"0",
+																		"0",
+																		true
+																	]
+																}
+															],
+															"sid": 224777667808646
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 917429750750976
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 883094908606283,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 1,
+																"value": "\"Roam\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 304630136847274,
+															"parameters": {
+																"instance-variable": "WaitTime",
+																"value": "random(NPC.MinWaitTime,NPC.MaxWaitTime)"
+															}
+														},
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 341068860078394,
+															"parameters": [
+																"NPC.UID",
+																"\"Idle\"",
+																"0",
+																"0",
+																"0",
+																true
+															]
+														}
+													],
+													"sid": 401693810857575
 												}
 											]
 										},
@@ -4517,16 +4776,6 @@
 														"0",
 														true
 													]
-												},
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 996579756368855,
-													"disabled": true,
-													"parameters": {
-														"type": "log",
-														"message": "\"Chase: Attack\""
-													}
 												}
 											],
 											"sid": 534208631037372
@@ -4768,15 +5017,6 @@
 														"0",
 														true
 													]
-												},
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 537567916985031,
-													"parameters": {
-														"type": "log",
-														"message": "\"Climb Start\""
-													}
 												}
 											],
 											"sid": 572441400981384
@@ -4784,10 +5024,6 @@
 										{
 											"eventType": "comment",
 											"text": ""
-										},
-										{
-											"eventType": "comment",
-											"text": "Deprecated"
 										},
 										{
 											"eventType": "block",
@@ -4876,6 +5112,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 871538166777507,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Overlapping Door\""
@@ -4920,6 +5157,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 801397259578817,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"NPC Get State: No Target Found\""
@@ -5299,6 +5537,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 967933198694661,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_ChangeState: \" & State"
@@ -6570,6 +6809,49 @@
 															"sid": 564439525115453
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "NPC",
+															"sid": 355830638818181,
+															"parameters": {
+																"instance-variable": "BossLabel"
+															}
+														},
+														{
+															"id": "pick-children",
+															"objectClass": "NPC",
+															"sid": 450225066013343,
+															"parameters": {
+																"child": "BossLabel_HPBar",
+																"which": "all"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-width",
+															"objectClass": "BossLabel_HPBar",
+															"sid": 660491328248411,
+															"parameters": {
+																"width": "BossLabel_HPBG.Width * (NPC.HP / NPC.MaxHP)"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 783108542193131,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "NPC.HP  & \"||\" & NPC.MaxHP"
+															}
+														}
+													],
+													"sid": 449258640897494
 												}
 											]
 										},
@@ -8052,6 +8334,36 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 648746824133825
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 260971941651734,
+													"disabled": true,
+													"parameters": [
+														"NPC.UID",
+														"\"ChaseTail\""
+													]
+												},
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 393159970146627,
+													"parameters": [
+														"NPC.UID",
+														"State"
+													]
+												}
+											],
+											"sid": 305651330282330
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 296520670018781,
@@ -8620,6 +8932,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 861770968839041,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_ChangeAnim\""
@@ -9060,6 +9373,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 942831603976099,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_FaceX\""
@@ -9337,6 +9651,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 961214168007461,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_Mirrored\""
@@ -9746,6 +10061,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 220529603364669,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_ChangeClass\""
@@ -9827,6 +10143,15 @@
 											],
 											"actions": [
 												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 415360473920066,
+													"parameters": {
+														"type": "log",
+														"message": "\"CRAWLER DEBUG 1:\" & NPC.HP"
+													}
+												},
+												{
 													"id": "call-function",
 													"objectClass": "function",
 													"sid": 130521936537122,
@@ -9852,6 +10177,15 @@
 													"parameters": {
 														"instance-variable": "IgnoreProjectiles",
 														"value": "true"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 642160389900794,
+													"parameters": {
+														"type": "log",
+														"message": "\"CRAWLER DEBUG 2:\" & NPC.HP"
 													}
 												}
 											],
@@ -9933,6 +10267,15 @@
 															"parameters": {
 																"x": "NPC_Sprite.ImagePointX(\"NewOrigin\")",
 																"y": "NPC_Sprite.ImagePointY(\"NewOrigin\")"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 172620352243218,
+															"parameters": {
+																"type": "log",
+																"message": "\"CRAWLER DEBUG 3:\" & NPC.HP"
 															}
 														}
 													],
@@ -10246,7 +10589,9 @@
 																"transform-w": false,
 																"transform-h": false,
 																"transform-a": true,
+																"transform-o": false,
 																"transform-z-elevation": false,
+																"transform-visibility": false,
 																"destroy-with-parent": false
 															}
 														}
@@ -10296,6 +10641,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 890931090337354,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_Knockback\""
@@ -10361,6 +10707,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 362513495503457,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_Knockup\""
@@ -10414,6 +10761,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 667231278326052,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_CanLimp\""
@@ -11187,6 +11535,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 975135105020558,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC_Headshot\""
@@ -11443,6 +11792,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 342794298836453,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"NPC_FindTarget\""
@@ -11669,6 +12019,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 711937864680395,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"NPC_HasTarget\""
@@ -11902,6 +12253,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 593520858151217,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"NPC_GetTarget: Sight\""
@@ -11992,6 +12344,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 254253950991904,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Target (Vision): \" & Distraction.ObjectTypeName & \" \" & Distraction.UID & \"DISTRACTED\""
@@ -12088,6 +12441,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 355781998121844,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Target (Vision): \" & Zombie_VisionTargets.ObjectTypeName & \" \" & Zombie_VisionTargets.UID"
@@ -12226,6 +12580,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 254253950991904,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Target (Vision): \" & Distraction.ObjectTypeName & \" \" & Distraction.UID & \"DISTRACTED\""
@@ -12332,6 +12687,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 355781998121844,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Target (Vision): \" & Zombie_VisionTargets.ObjectTypeName & \" \" & Zombie_VisionTargets.UID"
@@ -12423,6 +12779,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 848863615344322,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"NPC_GetTarget: Smell\""
@@ -12473,6 +12830,7 @@
 																	"id": "log",
 																	"objectClass": "Browser",
 																	"sid": 738619728096405,
+																	"disabled": true,
 																	"parameters": {
 																		"type": "log",
 																		"message": "\"Added overlapping scents\""
@@ -12611,6 +12969,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 514178070188156,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Vision to scent (climb): \" & Scent.UID"
@@ -12841,6 +13200,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 275228367633021,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Vision to scent: \" & Scent.UID"
@@ -12937,6 +13297,7 @@
 																					"id": "log",
 																					"objectClass": "Browser",
 																					"sid": 761391679753970,
+																					"disabled": true,
 																					"parameters": {
 																						"type": "warn",
 																						"message": "\"DropThrough Scent\""
@@ -12978,6 +13339,7 @@
 																					"id": "log",
 																					"objectClass": "Browser",
 																					"sid": 733768707437282,
+																					"disabled": true,
 																					"parameters": {
 																						"type": "warn",
 																						"message": "\"Fall\""
@@ -13195,6 +13557,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 797384858950711,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Vision to door: \" & Door_Scent.UID"
@@ -13260,6 +13623,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 663729618293445,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Target (Scent): Null\" "
@@ -14412,6 +14776,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 404526175962586,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"NPC_GetTargetHealth\""
@@ -15166,6 +15531,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 476278918222301,
+									"parameters": {
+										"object": "NPC"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "NPC",
 									"sid": 385494006663065,
@@ -15186,11 +15559,11 @@
 									}
 								},
 								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 174304281898180,
+									"id": "pick-by-unique-id",
+									"objectClass": "NPC_Sprite",
+									"sid": 985185234512393,
 									"parameters": {
-										"object": "NPC"
+										"unique-id": "NPC.SpriteID"
 									}
 								}
 							],
@@ -16093,6 +16466,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 172641493790425,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"SOILID COLL\""
@@ -16142,6 +16516,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 842491393167962,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"SOILID COLL\""
@@ -16203,6 +16578,7 @@
 																	"id": "log",
 																	"objectClass": "Browser",
 																	"sid": 514066202917708,
+																	"disabled": true,
 																	"parameters": {
 																		"type": "log",
 																		"message": "\"SOILID COLL\""
@@ -16252,6 +16628,7 @@
 																	"id": "log",
 																	"objectClass": "Browser",
 																	"sid": 903385842287932,
+																	"disabled": true,
 																	"parameters": {
 																		"type": "log",
 																		"message": "\"SOILID COLL\""
@@ -16595,6 +16972,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 202033402510397,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Chase: Lost Target\""
@@ -16617,6 +16995,7 @@
 																			"id": "log",
 																			"objectClass": "Browser",
 																			"sid": 902328929411629,
+																			"disabled": true,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Chase EM Check: \" & \"NPCX: \" & NPC.X & \"TargetX: \" & NPC.TargetX & \"PlayerX: \" & Player.X"
@@ -17348,6 +17727,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 299199722632820,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC Tick: Idle \" & NPC.UID"
@@ -17430,6 +17810,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 429495597393083,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC Tick: Roam \" & NPC.UID"
@@ -17512,6 +17893,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 267462071035176,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC Tick: Flee \" & NPC.UID"
@@ -17691,6 +18073,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 398659677395175,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"NPC Tick: Chase \" & NPC.UID"
@@ -17700,6 +18083,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 809943524761219,
+											"disabled": true,
 											"parameters": {
 												"type": "warn",
 												"message": "\"NPC Tick: Chase \" & NPC.UID"
@@ -17752,6 +18136,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 662194752281430,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Chase: Lost Target\""
@@ -17802,6 +18187,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 628256309179349,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Chase: Has Target\""
@@ -18075,6 +18461,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 690708435008969,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"INSPECT: coulnd't pick ranged attack target\""
@@ -19260,6 +19647,38 @@
 											"parameters": {
 												"animation": "\"Zealot_LeapAttack\""
 											}
+										},
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 973321982883403,
+											"parameters": {
+												"animation": "\"Dog_ChaseTail\" & Self.Skintone"
+											}
+										},
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 475245046812372,
+											"parameters": {
+												"animation": "\"Dog_ChaseTailA\""
+											}
+										},
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 697649666047576,
+											"parameters": {
+												"animation": "\"Dog_Bark\" & Self.Skintone"
+											}
+										},
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 126527262007647,
+											"parameters": {
+												"animation": "\"Dog_BarkA\""
+											}
 										}
 									],
 									"actions": [
@@ -19528,7 +19947,9 @@
 																"transform-w": false,
 																"transform-h": false,
 																"transform-a": true,
+																"transform-o": false,
 																"transform-z-elevation": false,
+																"transform-visibility": false,
 																"destroy-with-parent": false
 															}
 														}
@@ -22372,7 +22793,9 @@
 																						"transform-w": false,
 																						"transform-h": false,
 																						"transform-a": false,
+																						"transform-o": false,
 																						"transform-z-elevation": false,
+																						"transform-visibility": false,
 																						"destroy-with-parent": true
 																					}
 																				}
@@ -25042,6 +25465,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 143464642886831,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Scent Reached: \" & Scent.Type"
@@ -25121,6 +25545,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 283946829215835,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Scent Reached: \" & Scent.Type"
@@ -25196,6 +25621,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 168857073871219,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Scent Reached: \" & Scent.Type"
@@ -25271,6 +25697,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 164866236305161,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Scent Reached: \" & Scent.Type"
@@ -25548,6 +25975,7 @@
 									"id": "log",
 									"objectClass": "Browser",
 									"sid": 861518170600738,
+									"disabled": true,
 									"parameters": {
 										"type": "log",
 										"message": "\"Inspect: Reached Target\""
@@ -25867,6 +26295,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 850685914577952,
+							"disabled": true,
 							"parameters": {
 								"type": "warn",
 								"message": "\"MARK\""
@@ -25876,6 +26305,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 234956285395644,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "abs(NPC.X - PlayerDropCheck.X)"
@@ -25967,6 +26397,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 703378436305344,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"Climb Start\""

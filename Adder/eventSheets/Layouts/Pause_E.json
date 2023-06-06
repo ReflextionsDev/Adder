@@ -1,0 +1,3516 @@
+{
+	"name": "Pause_E",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pause / Options Old2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-code-pressed",
+							"objectClass": "Keyboard",
+							"sid": 439996968414473,
+							"parameters": {
+								"keycode": "key_Pause"
+							}
+						},
+						{
+							"id": "on-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 452259799477883,
+							"parameters": {
+								"gamepad": "0",
+								"button": "start-menu"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 189555469193058,
+							"parameters": {
+								"name": "\"Input_Pause\"",
+								"parameter-n": []
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 913587637120248,
+							"parameters": {
+								"type": "log",
+								"message": "\"pause me\""
+							}
+						}
+					],
+					"sid": 640631683419114,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 437131159304024,
+							"parameters": {
+								"object": "TouchUI_Pause"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "TouchUI_LeftSprite",
+							"sid": 673315552272914
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 743069201571125,
+							"parameters": {
+								"name": "\"Input_Pause\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 712071494342467
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 383749975313852,
+							"parameters": {
+								"name": "\"Input_Pause\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 655110605286336,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 799538506953683,
+									"parameters": {
+										"variable": "input_Enabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 595964749795220,
+									"parameters": {
+										"first-value": "left(player_sprite.AnimationName,3)",
+										"comparison": 1,
+										"second-value": "\"Die\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 355046308926054,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": ""
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 297392502229798,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"LevelScreen\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 331204270317915,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"ShopAdmin\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 466374705783633,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"ShopAmmo\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 425460594893590,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"ShopHeal\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 487320964668861,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"ShopSkills\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 253527975702887,
+											"disabled": true,
+											"parameters": {
+												"layer": "\"ShopUpgrade\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 332677886470056,
+											"parameters": {
+												"variable": "system_Pause",
+												"value": "abs(system_Pause-1)"
+											}
+										}
+									],
+									"sid": 531662071911242,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 238211857421171,
+													"parameters": {
+														"variable": "system_Pause",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Pause_Exit",
+													"sid": 875676011345287,
+													"parameters": {
+														"frame-number": "1"
+													}
+												},
+												{
+													"id": "set-time-scale",
+													"objectClass": "System",
+													"sid": 828660446400552,
+													"parameters": {
+														"time-scale": "1.0"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 384079162300168,
+													"parameters": {
+														"seconds": "0.1"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 341076259228408,
+													"parameters": {
+														"layer": "\"Pause\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 638854384750165,
+													"parameters": {
+														"name": "\"UI_ShowControls\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 505381953921315,
+													"parameters": {
+														"name": "\"Update_Settings\"",
+														"parameter-n": []
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 801816090798274,
+													"parameters": {
+														"name": "\"UpdateCursor\"",
+														"parameter-n": [
+															"\"Off\""
+														]
+													}
+												}
+											],
+											"sid": 840395990366196
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 871761314742221,
+													"parameters": {
+														"variable": "system_Pause",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Pause_Exit",
+													"sid": 672154319011082,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 594954624886316,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Player",
+															"sid": 982120971012432,
+															"parameters": {
+																"instance-variable": "zzLevelPoints",
+																"comparison": 2,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 958506920097100,
+															"parameters": {
+																"name": "\"UI_HideControls\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "set-time-scale",
+															"objectClass": "System",
+															"sid": 955598411381023,
+															"parameters": {
+																"time-scale": "0"
+															}
+														},
+														{
+															"id": "set-layer-visible",
+															"objectClass": "System",
+															"sid": 942678953095810,
+															"parameters": {
+																"layer": "\"Pause\"",
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Pause_Stats",
+															"sid": 847513303732999,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Pause_Options",
+															"sid": 125341613856286,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Pause_Menu",
+															"sid": 723563182288945,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Pause_Exit",
+															"sid": 551306128170835,
+															"parameters": {
+																"animation": "\"Default\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 486969960048466,
+															"parameters": {
+																"group-name": "\"Option Buttons\"",
+																"state": "deactivated"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "OptionsBTNs",
+															"sid": 667354347424796,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Pause_MusicPoints",
+															"sid": 300934634465210,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Pause_SoundPoints",
+															"sid": 715158324878290,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "OptionsScale",
+															"sid": 607228612782382,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 970358612181406,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 944411313310298,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 3,
+																		"value": "13"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 452505009190018,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 1,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 522467044392178,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Pause_Sprite",
+																	"sid": 732796305849959,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 292352181543109
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 526498328754152,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 468506417742446
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 389362641781777,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 780746896925578
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 474787211546509,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "3"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 392788908468494
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 637424295199177,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "4"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 792259756422568
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 627962185406284,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "5"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 754400039598616,
+																	"parameters": {
+																		"text": "\"LVL \" & Player.zzLevel"
+																	}
+																}
+															],
+															"sid": 523557402857108
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 760257394382093,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "6"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 527851261141480,
+																	"parameters": {
+																		"text": "\"+\" & Player.zzBonus_Attack"
+																	}
+																}
+															],
+															"sid": 478695917984923
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 476547213535886,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "7"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 524470628149778,
+																	"parameters": {
+																		"text": "\"+\" & Player.zzBonus_Defense"
+																	}
+																}
+															],
+															"sid": 985619146898064
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 694046916125153,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "8"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 482330052522890,
+																	"parameters": {
+																		"text": "\"-\" & player.zzBonus_Speed"
+																	}
+																}
+															],
+															"sid": 688106749005917
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 217049881079478,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 858102003522112,
+																	"parameters": {
+																		"text": "Player.zzXPtoLevel & \"/\" & (Player.zzLevel+1)*Player.zzLevelFactor"
+																	}
+																}
+															],
+															"sid": 502010168401438
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 703307161829062,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "10"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 310198880435016,
+																	"parameters": {
+																		"text": "Functions.TXT_ConvertMoney(player.zzMoney)"
+																	}
+																}
+															],
+															"sid": 278620502863007
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 288782700393950,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "11"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 823453278487937,
+																	"parameters": {
+																		"text": "zzz_Colony.Citizens & \"/\" & zzz_Colony.MaxCitizens"
+																	}
+																}
+															],
+															"sid": 239087049649260
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 837437016778789,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "12"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 289074682277242,
+																	"parameters": {
+																		"text": "stat_NPCKillsRun + stat_ZombieKillsRun"
+																	}
+																}
+															],
+															"sid": 698294503722232
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 897894183384017,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"PauseHeader\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 621026303600755,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause1\")"
+																	}
+																}
+															],
+															"sid": 750182914810042
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 962381365380569,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"Music\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 204311486039753,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause2\")"
+																	}
+																}
+															],
+															"sid": 241366351336464
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 870954451863419,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"Sounds\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 145216178101223,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause3\")"
+																	}
+																}
+															],
+															"sid": 559212283930438
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 180219320802183,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"Weather\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 942509494161135,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause4\")"
+																	}
+																}
+															],
+															"sid": 885650261268144
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 296870096462674,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"Cleanup\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 594083409524096,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause5\")"
+																	}
+																}
+															],
+															"sid": 639679087910209
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 745110036455812,
+																	"parameters": {
+																		"instance-variable": "Label",
+																		"comparison": 0,
+																		"value": "\"Autodrop\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "UpgradeTXT_Static",
+																	"sid": 357727895328274,
+																	"parameters": {
+																		"text": "function.Call(\"getText\", \"pause6\")"
+																	}
+																}
+															],
+															"sid": 143666949347735
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 754399167085261,
+																	"parameters": {
+																		"variable": "cursor_Custom",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 499164034284385,
+																	"parameters": {
+																		"name": "\"UpdateCursor\"",
+																		"parameter-n": [
+																			"\"On\""
+																		]
+																	}
+																}
+															],
+															"sid": 862073112128025
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 689520791000294,
+																	"parameters": {
+																		"variable": "zzSystem_UsingGamepad",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-position",
+																	"objectClass": "Player_Target",
+																	"sid": 169964975829366,
+																	"parameters": {
+																		"x": "160",
+																		"y": "160"
+																	}
+																}
+															],
+															"sid": 201748881089995
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 286727400393645
+														}
+													],
+													"actions": [
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 479524600689597,
+															"parameters": {
+																"name": "\"PLR_LevelUp\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 296299700657801,
+															"parameters": {
+																"variable": "system_Pause",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 323185757820488
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 921009767349184,
+											"parameters": {
+												"layer": "\"ShopHeal\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 411577040455140,
+											"parameters": {
+												"layer": "\"ShopAmmo\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 703852002493406,
+											"parameters": {
+												"layer": "\"ShopSkills\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 595054977242798,
+											"parameters": {
+												"layer": "\"ShopUpgrade\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 540147454821801,
+											"parameters": {
+												"group-name": "\"Shop Button Updates\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shop_HealingExit",
+											"sid": 484184781301567,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shop_AmmoExit",
+											"sid": 826911563907604,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shop_SkillsExit",
+											"sid": 259268358525945,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shop_UpgradeExit",
+											"sid": 625492703940085,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-time-scale",
+											"objectClass": "System",
+											"sid": 410528140966343,
+											"parameters": {
+												"time-scale": "1.0"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 294360752385180,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 583974847106086,
+											"parameters": {
+												"name": "\"SHP_Close\"",
+												"parameter-n": []
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 473810899405736,
+											"parameters": {
+												"group-name": "\"Shop Button Updates\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 119937853236515,
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 968193123311215,
+							"parameters": {
+								"object": "Pause_Exit"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 890023194759422,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 637619326409788,
+							"parameters": {
+								"name": "\"Input_Game_PauseExit\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 579462676915912
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 890749112805188,
+							"parameters": {
+								"name": "\"Input_Game_PauseExit\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 635870543873536,
+							"parameters": {
+								"variable": "system_Pause",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 477356287893732,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Exit",
+							"sid": 611470123297285,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 800475445000056,
+							"parameters": {
+								"name": "\"Update_Settings\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 660020820738969,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Pause_Exit",
+									"sid": 761647782841969,
+									"parameters": {
+										"animation": "\"Default\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 100000137620087,
+									"parameters": {
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 214751571676434,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Pause_Exit",
+									"sid": 422496684998314,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 322425596703458,
+									"parameters": {
+										"variable": "system_Pause",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 623379705962691,
+									"parameters": {
+										"layer": "\"Pause\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 831365539635779,
+									"parameters": {
+										"group-name": "\"Option Buttons\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 458379924132825,
+									"parameters": {
+										"name": "\"UpdateCursor\"",
+										"parameter-n": [
+											"\"Off\""
+										]
+									}
+								}
+							],
+							"sid": 620436724879507,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 209219458521482,
+											"parameters": {
+												"name": "\"UI_ShowControls\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 287362977705909
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Pause_Exit",
+									"sid": 502972642255049,
+									"parameters": {
+										"animation": "\"Back\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 715534945926906,
+									"parameters": {
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 217073297910955,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Pause_Exit",
+									"sid": 549804827340964,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Pause_Exit",
+									"sid": 339319944346086,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_Stats",
+									"sid": 931205059551863,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_Options",
+									"sid": 216828710440357,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_Menu",
+									"sid": 606610889140777,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 753598008555711,
+									"parameters": {
+										"name": "\"UpdateCursor\"",
+										"parameter-n": [
+											"\"On\""
+										]
+									}
+								}
+							],
+							"sid": 133031962988969,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UpgradeTXT_Static",
+											"sid": 248351690457580,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 3,
+												"value": "13"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "UpgradeTXT_Static",
+											"sid": 620410593570708,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UpgradeTXT_Static",
+											"sid": 405021583028973,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Pause_Sprite",
+											"sid": 602614655266168,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 473663442441886
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "OptionsBTNs",
+											"sid": 750259036633649,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Pause_MusicPoints",
+											"sid": 806556286408868,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Pause_SoundPoints",
+											"sid": 406888244111305,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "OptionsScale",
+											"sid": 743471527493497,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 136453897552382
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 930094598742680,
+							"parameters": {
+								"object": "Pause_Stats"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 191385205566406,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 906883783957626,
+							"parameters": {
+								"name": "\"Input_Game_PauseStats\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 686964581805395
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 195325804086736,
+							"parameters": {
+								"name": "\"Input_Game_PauseStats\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 832979434215126,
+							"parameters": {
+								"variable": "system_Pause",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 734370511371158,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Pause_Exit",
+							"sid": 447308077523860,
+							"parameters": {
+								"animation": "\"Default\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Stats",
+							"sid": 141863304964503,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 654596029034727,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 461532274063022,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Stats",
+							"sid": 208910475642903,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 778215474297338,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Stats",
+							"sid": 687747598582643,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Options",
+							"sid": 316136201545144,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Menu",
+							"sid": 656911684812950,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Pause_Exit",
+							"sid": 594804282916656,
+							"parameters": {
+								"animation": "\"Back\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 173859545100401,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 875876531622244,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 3,
+										"value": "12"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 501415345000607,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 178219257434798,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_Sprite",
+									"sid": 434186459467263,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 622752840346479
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 881722711404310,
+							"parameters": {
+								"object": "Pause_Options"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 214888860528262,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 711660650909343,
+							"parameters": {
+								"name": "\"Input_Game_PauseOptions\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 144581168924107
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 758556546037472,
+							"parameters": {
+								"name": "\"Input_Game_PauseOptions\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 567694786855508,
+							"parameters": {
+								"variable": "system_Pause",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 600597927735868,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Pause_Exit",
+							"sid": 543550973977900,
+							"parameters": {
+								"animation": "\"Default\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Options",
+							"sid": 294268108820375,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 577272825267083,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 842007238465090,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Options",
+							"sid": 115243847906411,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Stats",
+							"sid": 837923669092831,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Options",
+							"sid": 390552970732002,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Menu",
+							"sid": 827864851279445,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Pause_Exit",
+							"sid": 971221483518671,
+							"parameters": {
+								"animation": "\"Back\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 909854106087277,
+							"parameters": {
+								"group-name": "\"Option Buttons\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 150966083672073,
+							"parameters": {
+								"name": "\"Update_Options\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 738351346124027,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 185716666664411,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "UpgradeTXT_Static",
+									"sid": 605623265019795,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 155304754067304
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "OptionsBTNs",
+									"sid": 815026613395289,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_MusicPoints",
+									"sid": 451971897669206,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Pause_SoundPoints",
+									"sid": 883617963873794,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "OptionsScale",
+									"sid": 322244425686169,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 332213366851602
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 772036726866532,
+									"disabled": true,
+									"parameters": {
+										"time-scale": "0"
+									}
+								}
+							],
+							"sid": 659329386033613
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 898609529284349,
+							"parameters": {
+								"object": "Pause_Menu"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 293288749755330,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 553362890774976,
+							"parameters": {
+								"name": "\"Input_Game_PauseMenu\"",
+								"parameter-n": []
+							}
+						}
+					],
+					"sid": 989115689862355
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 968518080762970,
+							"parameters": {
+								"name": "\"Input_Game_PauseMenu\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 404267398623770,
+							"parameters": {
+								"variable": "system_Pause",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 552743635986540,
+							"parameters": {
+								"layer": "\"Pause\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Pause_Exit",
+							"sid": 832632904268416,
+							"parameters": {
+								"animation": "\"Default\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Menu",
+							"sid": 390746271015505,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 313279544988388,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 315038640185278,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pause_Menu",
+							"sid": 558022686810849,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Stats",
+							"sid": 833158539528300,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Menu",
+							"sid": 571031401835955,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Pause_Options",
+							"sid": 341430487259344,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 336371898669236,
+							"parameters": {
+								"layer": "\"Pause\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 104222957125440,
+							"parameters": {
+								"name": "\"GFX_FadeOut\"",
+								"parameter-n": [
+									"0.5",
+									"4"
+								]
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 917756094754699,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 381806121655679,
+							"parameters": {
+								"layout": "MainMenu"
+							}
+						}
+					],
+					"sid": 603371711785250
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-function",
+							"objectClass": "function",
+							"sid": 542337296013908,
+							"parameters": {
+								"name": "\"Update_Settings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 627439803311280,
+							"parameters": {
+								"type": "log",
+								"message": "\"Yeet\""
+							}
+						}
+					],
+					"sid": 313164574000481,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 774100180517154,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 680310342181766,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 410675823686852,
+											"parameters": {
+												"object": "Shell"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-fade",
+											"objectClass": "Shell",
+											"sid": 648949379048682,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 746723670863017
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 232319234904645,
+											"parameters": {
+												"object": "FX_BloodSpatter"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-fade",
+											"objectClass": "FX_BloodSpatter",
+											"sid": 695935712499765,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 601798477451256
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "NPC_Sprite",
+											"sid": 934580547737719,
+											"parameters": {
+												"animation": "\"Death\" & Self.zzVariant"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 396931936781035,
+											"parameters": {
+												"object": "NPC_Sprite"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-fade",
+											"objectClass": "NPC_Sprite",
+											"sid": 584767167226383,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 137132971563360
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "zzNPC_Sprite",
+											"sid": 265492582603468,
+											"parameters": {
+												"animation": "\"Death\" & Self.Color"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 279948218688202,
+											"parameters": {
+												"object": "zzNPC_Sprite"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-fade",
+											"objectClass": "zzNPC_Sprite",
+											"sid": 437291630463586,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 178307717717149,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Shoes",
+													"sid": 371773567092003,
+													"parameters": {
+														"unique-id": "zzNPC_Sprite.ShoesID"
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Head",
+													"sid": 908672955946425,
+													"parameters": {
+														"unique-id": "zzNPC_Sprite.HeadID"
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Torso",
+													"sid": 345850455385429,
+													"parameters": {
+														"unique-id": "zzNPC_Sprite.TorsoID"
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Legs",
+													"sid": 932437769532517,
+													"parameters": {
+														"unique-id": "zzNPC_Sprite.LegsID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-fade",
+													"objectClass": "NPC_Shoes",
+													"sid": 153850955800171,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "NPC_Head",
+													"sid": 811399074467170,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "NPC_Torso",
+													"sid": 186689948055190,
+													"behaviorType": "Fade"
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "NPC_Legs",
+													"sid": 129586696387945,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 530044458878843
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 337634815055896,
+									"parameters": {
+										"variable": "game_WeatherEnabled",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 117991871498625,
+									"parameters": {
+										"name": "\"Weather_Stop\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 193019437170826
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 767504675914322
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 875554548258341,
+									"parameters": {
+										"name": "\"Weather_Start\"",
+										"parameter-n": [
+											"weather_Type",
+											"weather_Intensity"
+										]
+									}
+								}
+							],
+							"sid": 273771400251458
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Option Buttons2",
+					"description": "",
+					"isActiveOnStart": false,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 721956299682265,
+									"parameters": {
+										"variable": "zzSystem_UsingGamepad",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 251052535410521,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 752928034975505,
+											"parameters": {
+												"object": "OptionsBTNs"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsBTNs",
+											"sid": 511216396348638,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 183692241145345
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 797839326366131,
+											"parameters": {
+												"object": "OptionsBTNs"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsBTNs",
+											"sid": 496351406431803,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 212591357888973
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 570360731606966
+								}
+							],
+							"actions": [],
+							"sid": 691193067469470,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 510981680118429,
+											"parameters": {
+												"gamepad": "0",
+												"button": "button-a"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_Target",
+											"sid": 705419103977044,
+											"parameters": {
+												"object": "OptionsBTNs"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsBTNs",
+											"sid": 620875824717525,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 809238059548527
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Player_Target",
+											"sid": 129413179939234,
+											"parameters": {
+												"object": "OptionsBTNs"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-button-down",
+											"objectClass": "Gamepad",
+											"sid": 227006901078994,
+											"parameters": {
+												"gamepad": "0",
+												"button": "button-a"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "OptionsBTNs",
+											"sid": 339590102290500,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 818811619666862,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 619807212846069,
+									"parameters": {
+										"object": "Pause_MusicDown"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 510579507444061,
+									"parameters": {
+										"name": "\"Input_Game_PauseMusicDown\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 147397969686816
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 648225615502500,
+									"parameters": {
+										"name": "\"Input_Game_PauseMusicDown\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Pause_MusicDown",
+									"sid": 503235509359678
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 490793223625882,
+									"parameters": {
+										"variable": "audio_MusicLevel",
+										"comparison": 4,
+										"value": "-20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 709450650037603,
+									"parameters": {
+										"variable": "audio_MusicLevel",
+										"value": "2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 912835836143450,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 595989317963405
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 562459646799301,
+									"parameters": {
+										"object": "Pause_MusicUp"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 726986301634108,
+									"parameters": {
+										"name": "\"Input_Game_PauseMusicUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 580667667755732
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 378167278522922,
+									"parameters": {
+										"name": "\"Input_Game_PauseMusicUp\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Pause_MusicUp",
+									"sid": 919135563230354
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 847414993859197,
+									"parameters": {
+										"variable": "audio_MusicLevel",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 329595370253266,
+									"parameters": {
+										"variable": "audio_MusicLevel",
+										"value": "2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 313386321730855,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 479015741342456
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 792414488220278,
+									"parameters": {
+										"object": "Pause_SoundDown"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 582684230206470,
+									"parameters": {
+										"name": "\"Input_Game_PauseSoundDown\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 791814880465319
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 473040321775358,
+									"parameters": {
+										"name": "\"Input_Game_PauseSoundDown\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Pause_SoundDown",
+									"sid": 545421432525843
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 850192062955144,
+									"parameters": {
+										"variable": "audio_SFXLevel",
+										"comparison": 4,
+										"value": "-20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 806186964077944,
+									"parameters": {
+										"variable": "audio_SFXLevel",
+										"value": "2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 741330825439063,
+									"parameters": {
+										"name": "\"SFX_PistolShot\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 644706606352902,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 997760853260753
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 463934673449294,
+									"parameters": {
+										"object": "Pause_SoundUp"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 979382901285767,
+									"parameters": {
+										"name": "\"Input_Game_PauseSoundUp\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 859564653129485
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 286955653363370,
+									"parameters": {
+										"name": "\"Input_Game_PauseSoundUp\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Pause_SoundUp",
+									"sid": 188040214876471
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 236020214064318,
+									"parameters": {
+										"variable": "audio_SFXLevel",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 687804187492247,
+									"parameters": {
+										"variable": "audio_SFXLevel",
+										"value": "2"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 171057740098820,
+									"parameters": {
+										"name": "\"SFX_PistolShot\"",
+										"parameter-n": []
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 992107836041387,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 661307879808526
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 559252142457609,
+									"parameters": {
+										"object": "Option_Toggle1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 417931415010203,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption1\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 318665623483360
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 158904395504458,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption1\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Option_Toggle1",
+									"sid": 751363490105560
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 103352038003836,
+									"parameters": {
+										"variable": "game_WeatherEnabled",
+										"value": "abs(game_WeatherEnabled-1)"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 471341833542327,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 931817447915168
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 657337954753539,
+									"parameters": {
+										"object": "Option_Toggle2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 860859351526011,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption2\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 215896599002017
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 542310260611749,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption2\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Option_Toggle2",
+									"sid": 745698573018200
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 709815454984779,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"value": "abs(game_CleanupEnabled-1)"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 267809405624947,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 626025783975304
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 524826204021835,
+									"parameters": {
+										"object": "Option_Toggle3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 527363354635718,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption3\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 871189805157982
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 751970952945061,
+									"parameters": {
+										"name": "\"Input_Game_PauseOption3\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Option_Toggle3",
+									"sid": 955142520783604
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 599712481854282,
+									"parameters": {
+										"variable": "game_AutoDropEnabled",
+										"value": "abs(game_AutoDropEnabled-1)"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 151790944989894,
+									"parameters": {
+										"name": "\"Update_Options\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 302115262855628
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-function",
+									"objectClass": "function",
+									"sid": 336669709203804,
+									"parameters": {
+										"name": "\"Update_Options\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 696047511264611,
+									"parameters": {
+										"tag": "\"BGM\"",
+										"db": "audio_MusicLevel"
+									}
+								}
+							],
+							"sid": 510205488399541,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 880840947609044,
+											"parameters": {
+												"object": "Pause_MusicPoints"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Pause_MusicPoints",
+											"sid": 872227928202716,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 660472661904650,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Pause_MusicPoints",
+													"sid": 743473943557277,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 3,
+														"value": "10 + (Audio_MusicLevel/2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Pause_MusicPoints",
+													"sid": 972857849364099,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 676696901507850
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 635035205919734,
+											"parameters": {
+												"object": "Pause_SoundPoints"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Pause_SoundPoints",
+											"sid": 501005678356250,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 428612392477896,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Pause_SoundPoints",
+													"sid": 622069474877500,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 3,
+														"value": "10 + (Audio_SFXLevel/2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Pause_SoundPoints",
+													"sid": 685793571188304,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 114814258340078
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 138158495802071,
+											"parameters": {
+												"variable": "audio_MusicLevel",
+												"comparison": 3,
+												"value": "-20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 246767386574669,
+											"parameters": {
+												"variable": "audio_MusicEnabled",
+												"value": "0"
+											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 652121942139437,
+											"parameters": {
+												"tag": "\"BGM\""
+											}
+										}
+									],
+									"sid": 802610587933576
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 252413157986853,
+											"parameters": {
+												"variable": "audio_MusicLevel",
+												"comparison": 4,
+												"value": "-20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 433617296859858,
+											"parameters": {
+												"variable": "audio_MusicEnabled",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 304416994790680,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-tag-playing",
+													"objectClass": "Audio",
+													"sid": 895950051920070,
+													"parameters": {
+														"tag": "\"BGM\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Music_PlayBGM",
+													"sid": 492262738343225
+												}
+											],
+											"sid": 830794228562146
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 957296358913955,
+											"parameters": {
+												"variable": "audio_SFXLevel",
+												"comparison": 3,
+												"value": "-20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 719876888978992,
+											"parameters": {
+												"variable": "audio_SFXEnabled",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 384484573686908
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 180161404220932,
+											"parameters": {
+												"variable": "audio_SFXLevel",
+												"comparison": 4,
+												"value": "-20"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 628375054511715,
+											"parameters": {
+												"variable": "audio_SFXEnabled",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 812724206320844
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 230518745660460,
+											"parameters": {
+												"variable": "game_WeatherEnabled",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle1",
+											"sid": 389705545945293,
+											"parameters": {
+												"animation": "\"Off\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 365344110574619
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 808422945650207
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle1",
+											"sid": 947363103480856,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 315928306027989
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 957975533230222,
+											"parameters": {
+												"variable": "game_CleanupEnabled",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle2",
+											"sid": 380030602030783,
+											"parameters": {
+												"animation": "\"Off\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 115744189757576
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 888380658888245
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle2",
+											"sid": 608872845456595,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 775509101655881
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 786342356870529,
+											"parameters": {
+												"variable": "game_AutoDropEnabled",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle3",
+											"sid": 547982925056047,
+											"parameters": {
+												"animation": "\"Off\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 424586781399351
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 566895418954831
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Option_Toggle3",
+											"sid": 226738119320407,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 315473068783233
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 705028446605672,
+											"parameters": {
+												"tag": "\"rain\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 955690748968141,
+											"parameters": {
+												"tag": "\"rain\""
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 293535418915926,
+											"parameters": {
+												"name": "\"SFX_RainLoop\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 637165052253286
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 459092995818446,
+											"parameters": {
+												"tag": "\"hail\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 394545221638627,
+											"parameters": {
+												"tag": "\"hail\""
+											}
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 220017586608355,
+											"parameters": {
+												"name": "\"SFX_HailLoop\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 895393794872569
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 354762768832309,
+											"parameters": {
+												"name": "\"Save_Stats\"",
+												"parameter-n": []
+											}
+										}
+									],
+									"sid": 101090027883981,
+									"disabled": true
+								}
+							]
+						}
+					],
+					"sid": 286827959506021
+				}
+			],
+			"sid": 632096171649755
+		}
+	],
+	"sid": 947692801239383
+}

@@ -6,6 +6,10 @@
 			"text": "This may cause launch bug"
 		},
 		{
+			"eventType": "comment",
+			"text": "PlayBGM disable"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -21,7 +25,38 @@
 				},
 				{
 					"callFunction": "Music_PlayBGM",
-					"sid": 661246245986971
+					"sid": 661246245986971,
+					"disabled": true
+				},
+				{
+					"type": "comment",
+					"text": "Debug"
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 833866842729668
+				},
+				{
+					"id": "set-master-volume",
+					"objectClass": "Audio",
+					"sid": 694731429671834,
+					"parameters": {
+						"db": "-20"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 722700241848142,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 656620464990026
 				}
 			],
 			"sid": 510670441256953
@@ -942,6 +977,10 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Menu Master"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Pause_E"
 		},
 		{
 			"eventType": "group",
@@ -9786,7 +9825,8 @@
 										"ease": "easeoutquad",
 										"destroy-on-complete": "no",
 										"loop": "no",
-										"ping-pong": "no"
+										"ping-pong": "no",
+										"repeat-count": "1"
 									}
 								}
 							],
@@ -12603,7 +12643,9 @@
 						"transform-w": true,
 						"transform-h": true,
 						"transform-a": true,
+						"transform-o": false,
 						"transform-z-elevation": true,
+						"transform-visibility": false,
 						"destroy-with-parent": true
 					}
 				}
