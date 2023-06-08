@@ -1,0 +1,554 @@
+{
+	"name": "UISandBox_E",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Segment:\n- [get size util] Pass in BG element, to get sizes from (remember, can be 9patch, sprite, tiledBG)\n- spawn elements\n- "
+		},
+		{
+			"eventType": "variable",
+			"name": "bgElement",
+			"type": "string",
+			"initialValue": "yolo",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 915526291055557
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 405287814084386
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "UI_SegmentElem",
+					"sid": 423531016769633
+				}
+			],
+			"sid": 748910962884942,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_SegmentElem",
+					"sid": 994791744117841
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Components",
+					"sid": 372020123697525,
+					"parameters": {
+						"unique-id": "UI_SegmentElem.UID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 350761766994092,
+					"parameters": {
+						"type": "warn",
+						"message": "\"HELLO?\"\n"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 775378981415806,
+					"parameters": {
+						"type": "log",
+						"message": "\"Family Pick Test\" &  UI_SegmentElem.UID & \" | \" & Components.UID"
+					}
+				}
+			],
+			"sid": 327754058815262,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_SegmentElem",
+					"sid": 556886186630369
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 199290024415880,
+					"parameters": {
+						"type": "warn",
+						"message": "\"HELLO 2\"\n"
+					}
+				}
+			],
+			"sid": 193334385044211,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Components",
+							"sid": 121243263959623,
+							"parameters": {
+								"unique-id": "UI_SegmentElem.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 214018214536282,
+							"parameters": {
+								"type": "log",
+								"message": "\"Family Pick Test\" &  UI_SegmentElem.UID & \" | \" & Components.UID"
+							}
+						}
+					],
+					"sid": 669096956742967,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_Comp_Style",
+					"sid": 941470386919410
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "UI_Comp_Style",
+					"sid": 908268753892965,
+					"parameters": {
+						"instance-variable": "testValll",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 254266765705848,
+					"parameters": {
+						"type": "log",
+						"message": "UI_Comp_Style.testValll"
+					}
+				}
+			],
+			"sid": 428488618718412
+		},
+		{
+			"eventType": "comment",
+			"text": "dunt forget to destroy components after use"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_SegmentBar",
+					"sid": 114970502368831
+				},
+				{
+					"id": "pick-children",
+					"objectClass": "UI_SegmentBar",
+					"sid": 470137170424429,
+					"parameters": {
+						"child": "UI_Comp_Segmented",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 350392047886849,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "layer",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 974262600198352
+				},
+				{
+					"eventType": "variable",
+					"name": "elemSize",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 317125031968818
+				},
+				{
+					"eventType": "variable",
+					"name": "elemStartX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 926182693956996
+				},
+				{
+					"eventType": "variable",
+					"name": "elemStartY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 704572746348306
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 720840942246236,
+							"parameters": {
+								"variable": "layer",
+								"value": "UI_SegmentBar.LayerNumber"
+							}
+						}
+					],
+					"sid": 480649465304054
+				},
+				{
+					"eventType": "comment",
+					"text": "Optional?"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-children",
+							"objectClass": "UI_SegmentBar",
+							"sid": 325002548053365,
+							"parameters": {
+								"child": "UI_Comp_Style",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 742377839655748,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 434837816442412,
+									"parameters": {
+										"object-to-create": "UI_SegmentElem",
+										"layer": "layer",
+										"x": "UI_SegmentBar.X + UI_Comp_Style.paddingLeft",
+										"y": "UI_SegmentBar.Y + UI_Comp_Style.paddingTop",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 903059481097954
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 969787369365156,
+									"disabled": true,
+									"parameters": {
+										"count": "UI_Comp_Segmented.elements"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 679064961334342
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 674740623106150
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 564546246370351,
+							"parameters": {
+								"type": "log",
+								"message": "\"UI_Comp_Segment Child\" & UI_Comp_Segmented.UID"
+							}
+						}
+					],
+					"sid": 646028489567683
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Provided Code"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_SegmentBar",
+					"sid": 285002973650720
+				}
+			],
+			"actions": [],
+			"sid": 459504451694296,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "gap",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 264086149782686
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 784945581630301,
+							"parameters": {
+								"first-value": "UI_SegmentBar.gap",
+								"comparison": 4,
+								"second-value": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 260709583141917,
+							"parameters": {
+								"variable": "gap",
+								"value": "max(gap,50)"
+							}
+						}
+					],
+					"sid": 717327899934638
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 502876042847827,
+							"parameters": {
+								"count": "UI_SegmentBar.elements"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 245705312020285,
+							"parameters": {
+								"object-to-create": "UI_SegmentElem",
+								"layer": "UI_SegmentElem.LayerNumber",
+								"x": "UI_SegmentElem.X",
+								"y": "UI_SegmentElem.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "UI_SegmentElem",
+							"sid": 450340374074735,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						}
+					],
+					"sid": 566791877388630
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "After"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "UI_SegmentBar",
+					"sid": 546967988256170
+				}
+			],
+			"actions": [],
+			"sid": 486154660828139,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "gap",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 468271001319925
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 661905871959008,
+							"parameters": {
+								"variable": "gap",
+								"value": "UI_SegmentBar.gap"
+							}
+						}
+					],
+					"sid": 390780353718393
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 232948477839738,
+							"parameters": {
+								"first-value": "UI_SegmentBar.elements * gap",
+								"comparison": 4,
+								"second-value": "UI_SegmentBar.Width - UI_SegmentBar.paddingLeft - UI_SegmentBar.paddingRight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 148142510020753,
+							"parameters": {
+								"variable": "gap",
+								"value": "max((UI_SegmentBar.Width - UI_SegmentBar.paddingLeft - UI_SegmentBar.paddingRight - UI_SegmentBar.elements) / (UI_SegmentBar.elements - 1), 1)"
+							}
+						}
+					],
+					"sid": 670107048283641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 404876532441419,
+							"parameters": {
+								"count": "UI_SegmentBar.elements"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 415990971132347,
+							"parameters": {
+								"object-to-create": "UI_SegmentElem",
+								"layer": "UI_SegmentElem.LayerNumber",
+								"x": "UI_SegmentBar.x + ((UI_SegmentBar.Width - UI_SegmentBar.paddingLeft - UI_SegmentBar.paddingRight - (UI_SegmentBar.elements - 1) * gap) / UI_SegmentBar.elements) * loopindex + UI_SegmentBar.paddingLeft + gap * loopindex",
+								"y": "UI_SegmentBar.y + UI_SegmentBar.paddingTop",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "UI_SegmentElem",
+							"sid": 996670096325008,
+							"parameters": {
+								"width": "ceil((UI_SegmentBar.Width - UI_SegmentBar.paddingLeft - UI_SegmentBar.paddingRight - (UI_SegmentBar.elements - 1) * gap) / UI_SegmentBar.elements)",
+								"height": "UI_SegmentBar.Height - UI_SegmentBar.paddingTop - UI_SegmentBar.paddingBottom"
+							}
+						}
+					],
+					"sid": 859794502442416,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 810028512695185,
+									"parameters": {
+										"first-value": "loopindex",
+										"comparison": 2,
+										"second-value": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_SegmentElem",
+									"sid": 387786582267666,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 895733280925863
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 622953722023276
+}
