@@ -430,7 +430,9 @@
 					"DynamicVariable",
 					"Debug_SpawnCategories",
 					"NWjs",
-					"PlatformInfo"
+					"PlatformInfo",
+					"Notes",
+					"SaveDataOptions"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -570,7 +572,8 @@
 					"TurretSmoke",
 					"FX_Helmet",
 					"FX_Giblet",
-					"FX_BombheadHeadExplode"
+					"FX_BombheadHeadExplode",
+					"FX_Indicator"
 				],
 				"subfolders": [],
 				"name": "Particles"
@@ -891,7 +894,6 @@
 					"Shop_UpgradeWeapons",
 					"Shop_SkillsExit",
 					"Shop_AmmoBG",
-					"Pause_Exit",
 					"Shop_AmmoBG2",
 					"Menu_Exit",
 					"Shop_MasteryGun",
@@ -1039,7 +1041,8 @@
 									"MainMenuTXT_Play",
 									"MainMenuTXT_Quit",
 									"MainMenuTXT_Header",
-									"MainMenuTXT_Version"
+									"MainMenuTXT_Version",
+									"MainMenuTXT_HeaderTag"
 								],
 								"subfolders": [],
 								"name": "Menu"
@@ -1463,22 +1466,21 @@
 				"items": [
 					"UI_Button_Add",
 					"UI_Button_Subtract",
-					"UI_SegmentBar",
+					"UI_Segment",
 					"UI_SegmentElem",
-					"UI_SandboxNotes"
+					"UI_Button_Exit",
+					"UI_Button_Ok"
 				],
-				"subfolders": [
-					{
-						"items": [
-							"UI_Comp_Style",
-							"UI_Comp_Segmented",
-							"UI_Comp_Button"
-						],
-						"subfolders": [],
-						"name": "Components"
-					}
-				],
+				"subfolders": [],
 				"name": "UI"
+			},
+			{
+				"items": [
+					"Persistance_Containers",
+					"Persistance_Humans"
+				],
+				"subfolders": [],
+				"name": "Persistance Libraries"
 			}
 		]
 	},
@@ -1504,7 +1506,7 @@
 			"LevelDestructables",
 			"NPC_Form",
 			"Containers",
-			"Components"
+			"Persistance"
 		],
 		"subfolders": [
 			{
@@ -1655,7 +1657,12 @@
 			{
 				"items": [
 					"Comp_Style",
-					"Comp_Segmented"
+					"Comp_Segment",
+					"Comp_Dispatcher",
+					"Comp_Ref",
+					"Comp_Buttons",
+					"Comp_Action",
+					"Comp_Storage"
 				],
 				"subfolders": [],
 				"name": "Components"
@@ -1697,7 +1704,8 @@
 							"Shop_Equipment",
 							"Shop_Weapon",
 							"Shop_Ammo",
-							"TowerTemp"
+							"TowerTemp",
+							"Shop_Forest"
 						],
 						"subfolders": [],
 						"name": "Placeholder Levels"
@@ -1897,7 +1905,7 @@
 					"Options__E",
 					"Map Builder_E",
 					"Pause_E",
-					"UISandBox_E"
+					"UI_Events"
 				],
 				"subfolders": [],
 				"name": "Layouts"

@@ -25,8 +25,7 @@
 				},
 				{
 					"callFunction": "Music_PlayBGM",
-					"sid": 661246245986971,
-					"disabled": true
+					"sid": 661246245986971
 				},
 				{
 					"type": "comment",
@@ -35,12 +34,14 @@
 				{
 					"id": "stop-all",
 					"objectClass": "Audio",
-					"sid": 833866842729668
+					"sid": 833866842729668,
+					"disabled": true
 				},
 				{
 					"id": "set-master-volume",
 					"objectClass": "Audio",
 					"sid": 694731429671834,
+					"disabled": true,
 					"parameters": {
 						"db": "-20"
 					}
@@ -49,6 +50,7 @@
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 722700241848142,
+					"disabled": true,
 					"parameters": {
 						"seconds": "1"
 					}
@@ -56,7 +58,8 @@
 				{
 					"id": "stop-all",
 					"objectClass": "Audio",
-					"sid": 656620464990026
+					"sid": 656620464990026,
+					"disabled": true
 				}
 			],
 			"sid": 510670441256953
@@ -981,6 +984,10 @@
 		{
 			"eventType": "include",
 			"includeSheet": "Pause_E"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "UI_Events"
 		},
 		{
 			"eventType": "group",
@@ -7644,6 +7651,30 @@
 											"sid": 309686871323354
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 453416563961217,
+											"parameters": {
+												"key": 80
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "Player",
+											"sid": 305071990908820,
+											"parameters": {
+												"x": "Player.X + 1000"
+											}
+										}
+									],
+									"sid": 918161202031234
 								}
 							],
 							"sid": 717769515409312
@@ -7952,8 +7983,7 @@
 									}
 								}
 							],
-							"sid": 170481750723448,
-							"disabled": true
+							"sid": 170481750723448
 						},
 						{
 							"eventType": "comment",
@@ -8566,6 +8596,36 @@
 						}
 					],
 					"sid": 948270710988947
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 100178657468820,
+							"parameters": {
+								"key": 220
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "remove-item",
+							"objectClass": "LocalStorage",
+							"sid": 726592421182280,
+							"parameters": {
+								"key": "\"AdderSaveFile1\""
+							}
+						},
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 203474417778423,
+							"disabled": true
+						}
+					],
+					"sid": 671415902347391
 				},
 				{
 					"eventType": "block",
@@ -12773,6 +12833,28 @@
 			],
 			"sid": 534064232151531,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Fog",
+					"sid": 393008133938891
+				}
+			],
+			"actions": [
+				{
+					"id": "set-fade-out-time",
+					"objectClass": "Fog",
+					"sid": 466185046056060,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-out-time": "game_FogFadeOut"
+					}
+				}
+			],
+			"sid": 701026702536528
 		}
 	],
 	"sid": 350183298465580

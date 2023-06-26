@@ -1264,6 +1264,10 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "are these global??"
+								},
+								{
 									"id": "enabledisable-collisions",
 									"objectClass": "Shell",
 									"sid": 265081258695414,
@@ -1313,6 +1317,29 @@
 										}
 									],
 									"sid": 131494360176070
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 742536380701192
+										}
+									],
+									"actions": [
+										{
+											"id": "enabledisable-collisions",
+											"objectClass": "Shell",
+											"sid": 336874849321857,
+											"behaviorType": "Physics",
+											"parameters": {
+												"object": "Shell",
+												"state": "enable"
+											}
+										}
+									],
+									"sid": 872507673366127
 								}
 							]
 						}
@@ -1711,6 +1738,36 @@
 										}
 									],
 									"sid": 794350123215212
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 800045553295931
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 313386192716160,
+											"parameters": {
+												"variable": "Name",
+												"comparison": 0,
+												"value": "\"FX_ImpactSparks\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SFX_Play",
+											"sid": 171190256694569,
+											"parameters": [
+												"\"ricochet\""
+											]
+										}
+									],
+									"sid": 596996726860656
 								}
 							]
 						}
@@ -2880,6 +2937,16 @@
 										"mode": "disable",
 										"effect": "\"Outline\""
 									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "OBJ_Outline",
+									"sid": 784434307471758,
+									"parameters": {
+										"effect": "\"Outline\"",
+										"parameter-index": "1",
+										"value": "2"
+									}
 								}
 							],
 							"sid": 659102489268665
@@ -3521,6 +3588,20 @@
 							"initialValue": "",
 							"comment": "",
 							"sid": 394619283203674
+						},
+						{
+							"name": "animation",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 319540954813944
+						},
+						{
+							"name": "sfx",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 361531362024157
 						}
 					],
 					"eventType": "function-block",
@@ -3546,16 +3627,67 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 883132201536516,
+									"parameters": {
+										"variable": "animation",
+										"comparison": 0,
+										"value": "\"\""
+									},
+									"isInverted": true
+								},
+								{
 									"id": "pick-last-created",
 									"objectClass": "System",
-									"sid": 435128089014334,
+									"sid": 288475524272331,
 									"parameters": {
 										"object": "FX"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 985695092312478
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "FX",
+									"sid": 234305113985926,
+									"parameters": {
+										"animation": "animation",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 536326405075393
+						},
+						{
+							"eventType": "comment",
+							"text": "inline fx"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 372534519246434,
+									"parameters": {
+										"variable": "sfx",
+										"comparison": 0,
+										"value": "\"\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SFX_Play",
+									"sid": 359303069842205,
+									"parameters": [
+										"sfx"
+									]
+								}
+							],
+							"sid": 340743665904471
 						}
 					]
 				}
@@ -4643,6 +4775,88 @@
 										}
 									],
 									"sid": 244276917129418
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 569738453305781
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 883209205910357,
+											"parameters": {
+												"first-value": "Sound",
+												"comparison": 0,
+												"second-value": "\"indicatorSFX_headshot\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 874451122211126,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 954509948462537
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 784660861420944,
+											"parameters": {
+												"first-value": "Sound",
+												"comparison": 0,
+												"second-value": "\"indicatorSFX_armor\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 840053852932286,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 317553344196461
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 540662611631029,
+											"parameters": {
+												"first-value": "Sound",
+												"comparison": 0,
+												"second-value": "\"indicatorSFX_pen\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 207113845646918,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "\"molotovhit\"",
+												"loop": "not-looping",
+												"volume": "Audio_SFXLevel",
+												"stereo-pan": "0",
+												"tag-optional": "\"impact\""
+											}
+										}
+									],
+									"sid": 307482611718664
 								}
 							]
 						}

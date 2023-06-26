@@ -161,9 +161,38 @@
 						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
+							"sid": 639023927735555,
+							"parameters": {
+								"object": "UI_Button_Ok"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 150958222306929,
+							"parameters": {
+								"variable": "system_Pause",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "Pause_Exit",
+							"sid": 170477076207307
+						}
+					],
+					"sid": 140295790977598
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
 							"sid": 243797246144433,
 							"parameters": {
-								"object": "Pause_Exit"
+								"object": "UI_Button_Exit"
 							}
 						}
 					],
@@ -180,6 +209,22 @@
 						{
 							"callFunction": "Pause_Exit",
 							"sid": 450990510660563
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 691630743232256,
+							"parameters": {
+								"seconds": "0.12"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 398800868565224,
+							"parameters": {
+								"layout": "Preload"
+							}
 						}
 					],
 					"sid": 886589627470572
@@ -374,8 +419,9 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 603595784355995,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "0"
 							}
@@ -444,8 +490,9 @@
 					"actions": [
 						{
 							"id": "set-animation-frame",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 856242716434048,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "1"
 							}
@@ -461,7 +508,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 135656893165485,
+							"sid": 751013366168297,
 							"parameters": {
 								"seconds": "0.1"
 							}
@@ -499,6 +546,13 @@
 								"name": "\"PLR_Input_Enable\"",
 								"parameter-n": []
 							}
+						},
+						{
+							"callFunction": "Comp_Storage_Save",
+							"sid": 528652137473150,
+							"parameters": [
+								"\"options\""
+							]
 						}
 					],
 					"sid": 777255776577333
@@ -507,30 +561,27 @@
 			"sid": 957243908693361
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-function",
-					"objectClass": "function",
-					"sid": 542337296013908,
-					"parameters": {
-						"name": "\"Update_Settings\""
-					}
-				}
-			],
+			"functionName": "Pause_Update_Options",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 627439803311280,
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 279901989507651,
 					"parameters": {
-						"type": "log",
-						"message": "\"Yeet\""
+						"tag": "\"BGM\"",
+						"db": "audio_MusicLevel"
 					}
 				}
 			],
-			"sid": 313164574000481,
-			"disabled": true,
+			"sid": 676776281238488,
 			"children": [
 				{
 					"eventType": "block",
@@ -538,1116 +589,186 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 774100180517154,
+							"sid": 943287359222919,
 							"parameters": {
-								"variable": "game_CleanupEnabled",
-								"comparison": 0,
+								"variable": "audio_MusicLevel",
+								"comparison": 3,
+								"value": "-20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 519875550479894,
+							"parameters": {
+								"variable": "audio_MusicEnabled",
+								"value": "0"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 113862259009794,
+							"parameters": {
+								"tag": "\"BGM\""
+							}
+						}
+					],
+					"sid": 838525513289328
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 489049739253946,
+							"parameters": {
+								"variable": "audio_MusicLevel",
+								"comparison": 4,
+								"value": "-20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 833935629934176,
+							"parameters": {
+								"variable": "audio_MusicEnabled",
 								"value": "1"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 680310342181766,
-					"disabled": true,
+					"sid": 521292907534500,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 410675823686852,
-									"parameters": {
-										"object": "Shell"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-fade",
-									"objectClass": "Shell",
-									"sid": 648949379048682,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 746723670863017,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 232319234904645,
-									"parameters": {
-										"object": "FX_BloodSpatter"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-fade",
-									"objectClass": "FX_BloodSpatter",
-									"sid": 695935712499765,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 601798477451256,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "NPC_Sprite",
-									"sid": 934580547737719,
-									"parameters": {
-										"animation": "\"Death\" & Self.zzVariant"
-									}
-								},
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 396931936781035,
-									"parameters": {
-										"object": "NPC_Sprite"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-fade",
-									"objectClass": "NPC_Sprite",
-									"sid": 584767167226383,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 137132971563360,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "zzNPC_Sprite",
-									"sid": 265492582603468,
-									"parameters": {
-										"animation": "\"Death\" & Self.Color"
-									}
-								},
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 279948218688202,
-									"parameters": {
-										"object": "zzNPC_Sprite"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-fade",
-									"objectClass": "zzNPC_Sprite",
-									"sid": 437291630463586,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 178307717717149,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "NPC_Shoes",
-											"sid": 371773567092003,
-											"parameters": {
-												"unique-id": "zzNPC_Sprite.ShoesID"
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "NPC_Head",
-											"sid": 908672955946425,
-											"parameters": {
-												"unique-id": "zzNPC_Sprite.HeadID"
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "NPC_Torso",
-											"sid": 345850455385429,
-											"parameters": {
-												"unique-id": "zzNPC_Sprite.TorsoID"
-											}
-										},
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "NPC_Legs",
-											"sid": 932437769532517,
-											"parameters": {
-												"unique-id": "zzNPC_Sprite.LegsID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "start-fade",
-											"objectClass": "NPC_Shoes",
-											"sid": 153850955800171,
-											"behaviorType": "Fade"
-										},
-										{
-											"id": "start-fade",
-											"objectClass": "NPC_Head",
-											"sid": 811399074467170,
-											"behaviorType": "Fade"
-										},
-										{
-											"id": "start-fade",
-											"objectClass": "NPC_Torso",
-											"sid": 186689948055190,
-											"behaviorType": "Fade"
-										},
-										{
-											"id": "start-fade",
-											"objectClass": "NPC_Legs",
-											"sid": 129586696387945,
-											"behaviorType": "Fade"
-										}
-									],
-									"sid": 530044458878843,
-									"disabled": true
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 337634815055896,
-							"parameters": {
-								"variable": "game_WeatherEnabled",
-								"comparison": 0,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 117991871498625,
-							"parameters": {
-								"name": "\"Weather_Stop\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 193019437170826,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 767504675914322
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 875554548258341,
-							"parameters": {
-								"name": "\"Weather_Start\"",
-								"parameter-n": [
-									"weather_Type",
-									"weather_Intensity"
-								]
-							}
-						}
-					],
-					"sid": 273771400251458,
-					"disabled": true
-				}
-			]
-		},
-		{
-			"eventType": "group",
-			"disabled": true,
-			"title": "Option Buttons2",
-			"description": "",
-			"isActiveOnStart": false,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 721956299682265,
-							"parameters": {
-								"variable": "zzSystem_UsingGamepad",
-								"comparison": 0,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 251052535410521,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 752928034975505,
-									"parameters": {
-										"object": "OptionsBTNs"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "OptionsBTNs",
-									"sid": 511216396348638,
-									"parameters": {
-										"frame-number": "1"
-									}
-								}
-							],
-							"sid": 183692241145345,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 797839326366131,
-									"parameters": {
-										"object": "OptionsBTNs"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "OptionsBTNs",
-									"sid": 496351406431803,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 212591357888973,
-							"disabled": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 570360731606966
-						}
-					],
-					"actions": [],
-					"sid": 691193067469470,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-button-down",
-									"objectClass": "Gamepad",
-									"sid": 510981680118429,
-									"parameters": {
-										"gamepad": "0",
-										"button": "button-a"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Player_Target",
-									"sid": 705419103977044,
-									"parameters": {
-										"object": "OptionsBTNs"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "OptionsBTNs",
-									"sid": 620875824717525,
-									"parameters": {
-										"frame-number": "1"
-									}
-								}
-							],
-							"sid": 809238059548527,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Player_Target",
-									"sid": 129413179939234,
-									"parameters": {
-										"object": "OptionsBTNs"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-button-down",
-									"objectClass": "Gamepad",
-									"sid": 227006901078994,
-									"parameters": {
-										"gamepad": "0",
-										"button": "button-a"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "OptionsBTNs",
-									"sid": 339590102290500,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 818811619666862,
-							"disabled": true,
-							"isOrBlock": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 619807212846069,
-							"parameters": {
-								"object": "Pause_MusicDown"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 510579507444061,
-							"parameters": {
-								"name": "\"Input_Game_PauseMusicDown\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 147397969686816,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 648225615502500,
-							"parameters": {
-								"name": "\"Input_Game_PauseMusicDown\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Pause_MusicDown",
-							"sid": 503235509359678
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 490793223625882,
-							"parameters": {
-								"variable": "audio_MusicLevel",
-								"comparison": 4,
-								"value": "-20"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 709450650037603,
-							"parameters": {
-								"variable": "audio_MusicLevel",
-								"value": "2"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 912835836143450,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 595989317963405,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 562459646799301,
-							"parameters": {
-								"object": "Pause_MusicUp"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 726986301634108,
-							"parameters": {
-								"name": "\"Input_Game_PauseMusicUp\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 580667667755732,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 378167278522922,
-							"parameters": {
-								"name": "\"Input_Game_PauseMusicUp\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Pause_MusicUp",
-							"sid": 919135563230354
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 847414993859197,
-							"parameters": {
-								"variable": "audio_MusicLevel",
-								"comparison": 2,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 329595370253266,
-							"parameters": {
-								"variable": "audio_MusicLevel",
-								"value": "2"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 313386321730855,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 479015741342456,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 792414488220278,
-							"parameters": {
-								"object": "Pause_SoundDown"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 582684230206470,
-							"parameters": {
-								"name": "\"Input_Game_PauseSoundDown\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 791814880465319,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 473040321775358,
-							"parameters": {
-								"name": "\"Input_Game_PauseSoundDown\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Pause_SoundDown",
-							"sid": 545421432525843
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 850192062955144,
-							"parameters": {
-								"variable": "audio_SFXLevel",
-								"comparison": 4,
-								"value": "-20"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 806186964077944,
-							"parameters": {
-								"variable": "audio_SFXLevel",
-								"value": "2"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 741330825439063,
-							"parameters": {
-								"name": "\"SFX_PistolShot\"",
-								"parameter-n": []
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 644706606352902,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 997760853260753,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 463934673449294,
-							"parameters": {
-								"object": "Pause_SoundUp"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 979382901285767,
-							"parameters": {
-								"name": "\"Input_Game_PauseSoundUp\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 859564653129485,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 286955653363370,
-							"parameters": {
-								"name": "\"Input_Game_PauseSoundUp\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Pause_SoundUp",
-							"sid": 188040214876471
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 236020214064318,
-							"parameters": {
-								"variable": "audio_SFXLevel",
-								"comparison": 2,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 687804187492247,
-							"parameters": {
-								"variable": "audio_SFXLevel",
-								"value": "2"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 171057740098820,
-							"parameters": {
-								"name": "\"SFX_PistolShot\"",
-								"parameter-n": []
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 992107836041387,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 661307879808526,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 559252142457609,
-							"parameters": {
-								"object": "Option_Toggle1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 417931415010203,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption1\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 318665623483360,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 158904395504458,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption1\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Option_Toggle1",
-							"sid": 751363490105560
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 103352038003836,
-							"parameters": {
-								"variable": "game_WeatherEnabled",
-								"value": "abs(game_WeatherEnabled-1)"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 471341833542327,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 931817447915168,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 657337954753539,
-							"parameters": {
-								"object": "Option_Toggle2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 860859351526011,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption2\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 215896599002017,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 542310260611749,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption2\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Option_Toggle2",
-							"sid": 745698573018200
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 709815454984779,
-							"parameters": {
-								"variable": "game_CleanupEnabled",
-								"value": "abs(game_CleanupEnabled-1)"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 267809405624947,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 626025783975304,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 524826204021835,
-							"parameters": {
-								"object": "Option_Toggle3"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 527363354635718,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption3\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 871189805157982,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 751970952945061,
-							"parameters": {
-								"name": "\"Input_Game_PauseOption3\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Option_Toggle3",
-							"sid": 955142520783604
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 599712481854282,
-							"parameters": {
-								"variable": "game_AutoDropEnabled",
-								"value": "abs(game_AutoDropEnabled-1)"
-							}
-						},
-						{
-							"id": "call-function",
-							"objectClass": "function",
-							"sid": 151790944989894,
-							"parameters": {
-								"name": "\"Update_Options\"",
-								"parameter-n": []
-							}
-						}
-					],
-					"sid": 302115262855628,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-function",
-							"objectClass": "function",
-							"sid": 336669709203804,
-							"parameters": {
-								"name": "\"Update_Options\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-volume",
-							"objectClass": "Audio",
-							"sid": 696047511264611,
-							"parameters": {
-								"tag": "\"BGM\"",
-								"db": "audio_MusicLevel"
-							}
-						}
-					],
-					"sid": 510205488399541,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 880840947609044,
-									"parameters": {
-										"object": "Pause_MusicPoints"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Pause_MusicPoints",
-									"sid": 872227928202716,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 660472661904650,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Pause_MusicPoints",
-											"sid": 743473943557277,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 3,
-												"value": "10 + (Audio_MusicLevel/2)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Pause_MusicPoints",
-											"sid": 972857849364099,
-											"parameters": {
-												"frame-number": "1"
-											}
-										}
-									],
-									"sid": 676696901507850,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 635035205919734,
-									"parameters": {
-										"object": "Pause_SoundPoints"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Pause_SoundPoints",
-									"sid": 501005678356250,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 428612392477896,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Pause_SoundPoints",
-											"sid": 622069474877500,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 3,
-												"value": "10 + (Audio_SFXLevel/2)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Pause_SoundPoints",
-											"sid": 685793571188304,
-											"parameters": {
-												"frame-number": "1"
-											}
-										}
-									],
-									"sid": 114814258340078,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 138158495802071,
-									"parameters": {
-										"variable": "audio_MusicLevel",
-										"comparison": 3,
-										"value": "-20"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 246767386574669,
-									"parameters": {
-										"variable": "audio_MusicEnabled",
-										"value": "0"
-									}
-								},
-								{
-									"id": "stop",
+									"id": "is-tag-playing",
 									"objectClass": "Audio",
-									"sid": 652121942139437,
+									"sid": 292465046983026,
 									"parameters": {
 										"tag": "\"BGM\""
-									}
+									},
+									"isInverted": true
 								}
 							],
-							"sid": 802610587933576,
-							"disabled": true
+							"actions": [
+								{
+									"callFunction": "Music_PlayBGM",
+									"sid": 308766639056989
+								}
+							],
+							"sid": 998607864456389
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 757585428290995,
+							"parameters": {
+								"variable": "audio_SFXLevel",
+								"comparison": 3,
+								"value": "-20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 327199969330223,
+							"parameters": {
+								"variable": "audio_SFXEnabled",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 782644455828877
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 262731444598154,
+							"parameters": {
+								"variable": "audio_SFXLevel",
+								"comparison": 4,
+								"value": "-20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 311740817807826,
+							"parameters": {
+								"variable": "audio_SFXEnabled",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 194610013933384
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 694298455123963,
+							"parameters": {
+								"first-value": "options_Decay",
+								"comparison": 1,
+								"second-value": "options_DecayPrev"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 757646294768948,
+							"parameters": {
+								"variable": "options_DecayPrev",
+								"value": "options_Decay"
+							}
 						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 218198756719937,
+							"parameters": {
+								"type": "log",
+								"message": "\"UPDATE DECAY\""
+							}
+						}
+					],
+					"sid": 313164574000481,
+					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 252413157986853,
+									"sid": 695895672423065,
 									"parameters": {
-										"variable": "audio_MusicLevel",
-										"comparison": 4,
-										"value": "-20"
+										"variable": "options_Decay",
+										"comparison": 0,
+										"value": "0"
 									}
 								}
 							],
@@ -1655,337 +776,598 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 433617296859858,
+									"sid": 909491067645607,
 									"parameters": {
-										"variable": "audio_MusicEnabled",
+										"variable": "game_CleanupDisableShellCollision",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 325922435685006,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 394675282064225,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "5"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 944260864923306,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 560745811293420
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 308635394274451
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 152855089494123,
+									"parameters": {
+										"variable": "game_CleanupDisableShellCollision",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 392371772531103
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 617190061756217,
+									"parameters": {
+										"variable": "options_Decay",
+										"comparison": 0,
 										"value": "1"
 									}
 								}
 							],
-							"sid": 304416994790680,
-							"disabled": true,
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 619543224085703,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "30"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 988512531280230,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "15"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 122058928473411,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "15"
+									}
+								}
+							],
+							"sid": 686719671679330
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 447473315923886
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 830359106896097,
+									"parameters": {
+										"variable": "options_Decay",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 342316546456709,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "60"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 340054642644294,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "30"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 491579950489444,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "30"
+									}
+								}
+							],
+							"sid": 600406937052819
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 626185284377037
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 850509642329251,
+									"parameters": {
+										"variable": "options_Decay",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 337931251811444,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "90"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 709428163844583,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "45"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 481598831955432,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "45"
+									}
+								}
+							],
+							"sid": 534435950763586
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 543363135574583
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 374625818939300,
+									"parameters": {
+										"variable": "options_Decay",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 754659726769988,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "180"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 109268668057663,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "60"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 439205684661937,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "60"
+									}
+								}
+							],
+							"sid": 213925050188910
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 944397221309507,
+									"parameters": {
+										"variable": "options_Decay",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 211368041289016,
+									"parameters": {
+										"variable": "game_CleanupBloodFXDelay",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 589045517545612,
+									"parameters": {
+										"variable": "game_CleanupNPCFadeDelay",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 216857064751195,
+									"parameters": {
+										"variable": "game_CleanupShellFadeDelay",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 329424963815085,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 121170856834825
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 177060525722241
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 557572917847647,
+									"parameters": {
+										"variable": "game_CleanupEnabled",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 362827876333653,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-tag-playing",
-											"objectClass": "Audio",
-											"sid": 895950051920070,
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPC_Sprite",
+											"sid": 792778258653701,
 											"parameters": {
-												"tag": "\"BGM\""
-											},
-											"isInverted": true
+												"instance-variable": "Fading"
+											}
+										},
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 391281174160956,
+											"parameters": {
+												"object": "NPC_Sprite"
+											}
 										}
 									],
 									"actions": [
 										{
-											"callFunction": "Music_PlayBGM",
-											"sid": 492262738343225
+											"id": "set-wait-time",
+											"objectClass": "NPC_Sprite",
+											"sid": 651285622342235,
+											"behaviorType": "Fade",
+											"parameters": {
+												"wait-time": "game_CleanupNPCFadeDelay"
+											}
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "NPC_Sprite",
+											"sid": 376796212426216,
+											"behaviorType": "Fade"
 										}
 									],
-									"sid": 830794228562146,
-									"disabled": true
+									"sid": 523651882456910,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Arms",
+													"sid": 101589061218683,
+													"parameters": {
+														"unique-id": "NPC.ArmsID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "NPC_Arms",
+													"sid": 795899886456187,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "game_CleanupNPCFadeDelay"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "NPC_Arms",
+													"sid": 180598356525091,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 629346144794733
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Head",
+													"sid": 847546688982125,
+													"parameters": {
+														"unique-id": "NPC.HeadID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "NPC_Head",
+													"sid": 418229686563880,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "game_CleanupNPCFadeDelay"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "NPC_Head",
+													"sid": 596334793325411,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 676587123042535
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Torso",
+													"sid": 571716107089145,
+													"parameters": {
+														"unique-id": "NPC.TorsoID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "NPC_Torso",
+													"sid": 798014822638799,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "game_CleanupNPCFadeDelay"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "NPC_Torso",
+													"sid": 816272476889119,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 319193073412952
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Legs",
+													"sid": 313040978977938,
+													"parameters": {
+														"unique-id": "NPC.LegsID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "NPC_Legs",
+													"sid": 358946514920363,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "game_CleanupNPCFadeDelay"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "NPC_Legs",
+													"sid": 903296667129202,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 529355379227954
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "NPC_Shoes",
+													"sid": 959355957717898,
+													"parameters": {
+														"unique-id": "NPC.ShoesID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "NPC_Shoes",
+													"sid": 972023032087857,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "game_CleanupNPCFadeDelay"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "NPC_Shoes",
+													"sid": 456641724113357,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 560273548532616
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 970071620031249,
+											"parameters": {
+												"object": "Shell"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-wait-time",
+											"objectClass": "Shell",
+											"sid": 173723696414117,
+											"behaviorType": "Fade",
+											"parameters": {
+												"wait-time": "game_CleanupShellFadeDelay"
+											}
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "Shell",
+											"sid": 266695707105085,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 101941492056719
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 235536107609559,
+											"parameters": {
+												"object": "FX_BloodSpatter"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-wait-time",
+											"objectClass": "FX_BloodSpatter",
+											"sid": 866741991026015,
+											"behaviorType": "Fade",
+											"parameters": {
+												"wait-time": "game_CleanupBloodFXDelay"
+											}
+										},
+										{
+											"id": "restart-fade",
+											"objectClass": "FX_BloodSpatter",
+											"sid": 203937664502507,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 976787923445139
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 957296358913955,
-									"parameters": {
-										"variable": "audio_SFXLevel",
-										"comparison": 3,
-										"value": "-20"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 719876888978992,
-									"parameters": {
-										"variable": "audio_SFXEnabled",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 384484573686908,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 180161404220932,
-									"parameters": {
-										"variable": "audio_SFXLevel",
-										"comparison": 4,
-										"value": "-20"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 628375054511715,
-									"parameters": {
-										"variable": "audio_SFXEnabled",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 812724206320844,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 230518745660460,
-									"parameters": {
-										"variable": "game_WeatherEnabled",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle1",
-									"sid": 389705545945293,
-									"parameters": {
-										"animation": "\"Off\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 365344110574619,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 808422945650207
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle1",
-									"sid": 947363103480856,
-									"parameters": {
-										"animation": "\"On\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 315928306027989,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 957975533230222,
-									"parameters": {
-										"variable": "game_CleanupEnabled",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle2",
-									"sid": 380030602030783,
-									"parameters": {
-										"animation": "\"Off\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 115744189757576,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 888380658888245
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle2",
-									"sid": 608872845456595,
-									"parameters": {
-										"animation": "\"On\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 775509101655881,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 786342356870529,
-									"parameters": {
-										"variable": "game_AutoDropEnabled",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle3",
-									"sid": 547982925056047,
-									"parameters": {
-										"animation": "\"Off\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 424586781399351,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 566895418954831
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Option_Toggle3",
-									"sid": 226738119320407,
-									"parameters": {
-										"animation": "\"On\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 315473068783233,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 705028446605672,
-									"parameters": {
-										"tag": "\"rain\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "stop",
-									"objectClass": "Audio",
-									"sid": 955690748968141,
-									"parameters": {
-										"tag": "\"rain\""
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 293535418915926,
-									"parameters": {
-										"name": "\"SFX_RainLoop\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 637165052253286,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 459092995818446,
-									"parameters": {
-										"tag": "\"hail\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "stop",
-									"objectClass": "Audio",
-									"sid": 394545221638627,
-									"parameters": {
-										"tag": "\"hail\""
-									}
-								},
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 220017586608355,
-									"parameters": {
-										"name": "\"SFX_HailLoop\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 895393794872569,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "call-function",
-									"objectClass": "function",
-									"sid": 354762768832309,
-									"parameters": {
-										"name": "\"Save_Stats\"",
-										"parameter-n": []
-									}
-								}
-							],
-							"sid": 101090027883981
 						}
 					]
 				}
-			],
-			"sid": 286827959506021
+			]
 		}
 	],
 	"sid": 947692801239383

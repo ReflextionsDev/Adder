@@ -224,7 +224,7 @@
 			"eventType": "variable",
 			"name": "game_CleanupEnabled",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -4792,6 +4792,26 @@
 											"isActiveOnStart": true,
 											"children": [
 												{
+													"eventType": "variable",
+													"name": "effect",
+													"type": "string",
+													"initialValue": "blood",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 337436442983001
+												},
+												{
+													"eventType": "variable",
+													"name": "indicator",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 430606093080604
+												},
+												{
 													"eventType": "comment",
 													"text": "AI Collision"
 												},
@@ -4869,6 +4889,16 @@
 															"parameters": {
 																"instance-variable": "Salvagable",
 																"value": "0"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 652691008577393,
+															"disabled": true,
+															"parameters": {
+																"variable": "effect",
+																"value": "\"blood\""
 															}
 														}
 													],
@@ -5069,6 +5099,15 @@
 																						"variable": "projectileDamage",
 																						"value": "Projectile.Damage*Hurtbox.MP"
 																					}
+																				},
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 353646563588398,
+																					"parameters": {
+																						"variable": "indicator",
+																						"value": "\"pen\""
+																					}
 																				}
 																			],
 																			"sid": 633666843630836
@@ -5103,6 +5142,24 @@
 																					"parameters": {
 																						"instance-variable": "HP",
 																						"value": "1"
+																					}
+																				},
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 823232897171237,
+																					"parameters": {
+																						"variable": "effect",
+																						"value": "\"armor\""
+																					}
+																				},
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 150015972605982,
+																					"parameters": {
+																						"variable": "indicator",
+																						"value": "\"armor\""
 																					}
 																				}
 																			],
@@ -5145,6 +5202,28 @@
 																		}
 																	],
 																	"sid": 164134437775885
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 908957847313793
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 791286601885316,
+																			"parameters": {
+																				"variable": "effect",
+																				"value": "\"invincible\""
+																			}
+																		}
+																	],
+																	"sid": 663204622435784
 																},
 																{
 																	"eventType": "comment",
@@ -5222,6 +5301,18 @@
 																					"NPC.UID"
 																				]
 																			}
+																		},
+																		{
+																			"callFunction": "FX",
+																			"sid": 402227473212267,
+																			"parameters": [
+																				"\"FX_Indicator\"",
+																				"NPC.X + (abs(NPC.Width)*0.45)",
+																				"NPC.Y - (NPC.Height*0.93)",
+																				"\"effects\"",
+																				"\"headshot\"",
+																				"\"\""
+																			]
 																		}
 																	],
 																	"sid": 883036023004499
@@ -5315,6 +5406,18 @@
 																					"NPC.UID"
 																				]
 																			}
+																		},
+																		{
+																			"callFunction": "FX",
+																			"sid": 496165638140013,
+																			"parameters": [
+																				"\"FX_Indicator\"",
+																				"NPC.X + (abs(NPC.Width)*0.45)",
+																				"NPC.Y - (NPC.Height*0.93)",
+																				"\"effects\"",
+																				"\"headshot\"",
+																				"\"\""
+																			]
 																		}
 																	],
 																	"sid": 242490045541521
@@ -5399,6 +5502,18 @@
 																			"id": "destroy",
 																			"objectClass": "Projectile",
 																			"sid": 292665149748502
+																		},
+																		{
+																			"callFunction": "FX",
+																			"sid": 748317892340221,
+																			"parameters": [
+																				"\"FX_Indicator\"",
+																				"NPC.X + (abs(NPC.Width)*0.45)",
+																				"NPC.Y - (NPC.Height*0.93)",
+																				"\"effects\"",
+																				"\"breakhelmet\"",
+																				"\"\""
+																			]
 																		}
 																	],
 																	"sid": 386793400719743
@@ -5477,6 +5592,18 @@
 																				"NPC.UID",
 																				"\"Gibbed\"",
 																				"0"
+																			]
+																		},
+																		{
+																			"callFunction": "FX",
+																			"sid": 834700063950912,
+																			"parameters": [
+																				"\"FX_Indicator\"",
+																				"NPC.X + (abs(NPC.Width)*0.45)",
+																				"NPC.Y - (NPC.Height*0.93)",
+																				"\"effects\"",
+																				"\"gib\"",
+																				"\"\""
 																			]
 																		}
 																	],
@@ -5566,6 +5693,18 @@
 																				"\"Crawler\"",
 																				"0"
 																			]
+																		},
+																		{
+																			"callFunction": "FX",
+																			"sid": 528167342299599,
+																			"parameters": [
+																				"\"FX_Indicator\"",
+																				"NPC.X + (abs(NPC.Width)*0.45)",
+																				"NPC.Y - (NPC.Height*0.93)",
+																				"\"effects\"",
+																				"\"cripple\"",
+																				"\"\""
+																			]
 																		}
 																	],
 																	"sid": 440131509408836
@@ -5652,14 +5791,15 @@
 																					"actions": [
 																						{
 																							"callFunction": "NPC_ChangeState",
-																							"sid": 977686030403118,
+																							"sid": 356775559456634,
 																							"parameters": [
 																								"NPC.UID",
 																								"\"Hit\"",
 																								"Projectile.BBoxRight",
 																								"Projectile.Y",
 																								"Projectile.Knockback",
-																								true
+																								"effect",
+																								"indicator"
 																							]
 																						}
 																					],
@@ -5677,14 +5817,15 @@
 																					"actions": [
 																						{
 																							"callFunction": "NPC_ChangeState",
-																							"sid": 908410158667629,
+																							"sid": 798338688450144,
 																							"parameters": [
 																								"NPC.UID",
 																								"\"Hit\"",
 																								"Projectile.BBoxLeft",
 																								"Projectile.Y",
 																								"Projectile.Knockback",
-																								true
+																								"effect",
+																								"indicator"
 																							]
 																						}
 																					],
@@ -9144,7 +9285,8 @@
 														"EventObj.X",
 														"EventObj.Y",
 														"knockback",
-														false
+														"\"\"",
+														"\"\""
 													]
 												}
 											],
@@ -14677,7 +14819,8 @@
 														"0",
 														"0",
 														"0",
-														false
+														"\"\"",
+														"\"\""
 													]
 												}
 											],
@@ -15327,7 +15470,8 @@
 														"0",
 														"0",
 														"0",
-														true
+														"\"\"",
+														"\"\""
 													]
 												}
 											],
@@ -16484,6 +16628,10 @@
 			]
 		},
 		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
 			"functionName": "Death_Ok",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -16519,6 +16667,11 @@
 				{
 					"callFunction": "Artifact_ResetAll",
 					"sid": 630385405554040
+				},
+				{
+					"id": "clear",
+					"objectClass": "Persistance",
+					"sid": 650728080609495
 				},
 				{
 					"id": "go-to-layout",

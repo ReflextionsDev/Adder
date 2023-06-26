@@ -1645,7 +1645,8 @@
 													]
 												}
 											],
-											"sid": 625215064233439
+											"sid": 625215064233439,
+											"disabled": true
 										},
 										{
 											"eventType": "comment",
@@ -1729,58 +1730,73 @@
 													"parameters": [
 														"\"Shop_Artifact\""
 													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 698684667518550,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnBuildingThenFinish",
+													"sid": 637090602026338
 												}
 											],
 											"sid": 701602814232970,
-											"children": [
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
 												{
-													"eventType": "comment",
-													"text": "Ending Buildings"
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 838531596907859,
+													"disabled": true,
+													"parameters": {
+														"variable": "level_Biome",
+														"comparison": 0,
+														"value": "\"Forest\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 835607046562176,
+													"parameters": {
+														"seconds": "0"
+													}
 												},
 												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 816611319705535,
-															"parameters": {
-																"seconds": "0"
-															}
-														},
-														{
-															"callFunction": "Builder_SpawnPrefab",
-															"sid": 822689372028275,
-															"parameters": [
-																"Functions.Builder_GetPrefab"
-															]
-														}
-													],
-													"sid": 212628740747092,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [
-																{
-																	"id": "wait",
-																	"objectClass": "System",
-																	"sid": 792139551106880,
-																	"parameters": {
-																		"seconds": "0"
-																	}
-																},
-																{
-																	"callFunction": "Builder_Finish",
-																	"sid": 310934963350966
-																}
-															],
-															"sid": 260375348683914
-														}
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 968906386487617,
+													"parameters": [
+														"\"Shop_Forest\""
 													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 941697206789033,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnBuildingThenFinish",
+													"sid": 620790824337030,
+													"disabled": true
+												},
+												{
+													"callFunction": "Builder_Finish",
+													"sid": 348349388895354
 												}
-											]
+											],
+											"sid": 519635991676973
 										}
 									]
 								},
@@ -1817,6 +1833,47 @@
 									"sid": 874460943360910
 								}
 							]
+						},
+						{
+							"functionName": "Builder_SpawnBuildingThenFinish",
+							"functionDescription": "",
+							"functionCategory": "Builder",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 824911118619843,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"callFunction": "Builder_SpawnPrefab",
+									"sid": 794864587165259,
+									"parameters": [
+										"Functions.Builder_GetPrefab"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 685578380561691,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"callFunction": "Builder_Finish",
+									"sid": 332784575348015
+								}
+							],
+							"sid": 245260174651658
 						},
 						{
 							"functionName": "Builder_Finish",

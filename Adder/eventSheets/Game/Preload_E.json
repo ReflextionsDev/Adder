@@ -2,6 +2,10 @@
 	"name": "Preload_E",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "MainMenu"
+		},
+		{
 			"eventType": "variable",
 			"name": "system_FirstLayout",
 			"type": "string",
@@ -84,6 +88,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "could be converted to async"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -132,6 +140,16 @@
 							"sid": 425721507910463,
 							"parameters": {
 								"variable": "system_LevelListsLoaded",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 114564700305384,
+							"parameters": {
+								"variable": "system_OptionsLoaded",
 								"comparison": 0,
 								"value": "1"
 							}
@@ -327,7 +345,7 @@
 					"functionCategory": "System",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
-					"functionIsAsync": false,
+					"functionIsAsync": true,
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
@@ -354,6 +372,10 @@
 						{
 							"callFunction": "System_QuerySaveData",
 							"sid": 276500492733362
+						},
+						{
+							"callFunction": "System_LoadOptions",
+							"sid": 377171327833040
 						},
 						{
 							"callFunction": "System_LoadJSONs",

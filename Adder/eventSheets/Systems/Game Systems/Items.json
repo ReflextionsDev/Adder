@@ -455,6 +455,84 @@
 									"sid": 142497193846757
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 871205410347018
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 271388052088459,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"shop__forest_weapon1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 220690868508848,
+											"parameters": [
+												"\"common\"",
+												"60"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 344746741723257,
+											"parameters": [
+												"\"uncommon\"",
+												"40"
+											]
+										}
+									],
+									"sid": 820247519222164
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 954684104302538
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 147543733170086,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"shop_forest_weapon2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 322054720892427,
+											"parameters": [
+												"\"rare\"",
+												"7"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 126805908309782,
+											"parameters": [
+												"\"epic\"",
+												"3"
+											]
+										}
+									],
+									"sid": 236377353673447
+								},
+								{
 									"eventType": "comment",
 									"text": "Draw specified type"
 								},

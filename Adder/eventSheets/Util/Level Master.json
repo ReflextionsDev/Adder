@@ -5307,6 +5307,10 @@
 							"sid": 756704804943498
 						},
 						{
+							"eventType": "comment",
+							"text": "Could have ladder climbing speed items :o"
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Ladder",
@@ -5535,6 +5539,217 @@
 																}
 															],
 															"sid": 469013438439290
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Disable this to restore drop through behavior "
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 991768848633311
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 634909148790891,
+													"parameters": {
+														"variable": "input_Down",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 431774741659558,
+													"parameters": {
+														"instance-variable": "AllowMovement",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 275853580551504,
+													"parameters": {
+														"object": "Solid_Floors",
+														"offset-x": "0",
+														"offset-y": "8"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 678422152101735,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 273462435247141,
+															"parameters": {
+																"first-value": "abs(input_X1)",
+																"comparison": 3,
+																"second-value": "90"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 353038948226646,
+															"parameters": {
+																"animation": "\"Land\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 692139502750825,
+															"parameters": {
+																"animation": "\"Die\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 839542863708851,
+															"parameters": {
+																"instance-variable": "zzzUsingAbility1"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 266155039845069,
+															"parameters": {
+																"instance-variable": "zzUsingAbility2"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "Player",
+															"sid": 380818890421130,
+															"behaviorType": "Platform",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"id": "set-animation-speed",
+															"objectClass": "Player_Sprite",
+															"sid": 648846126822530,
+															"parameters": {
+																"speed": "20"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Player",
+															"sid": 757165554453124,
+															"parameters": {
+																"instance-variable": "Parachute",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-vector-y",
+															"objectClass": "Player",
+															"sid": 749295399630632,
+															"behaviorType": "Platform",
+															"parameters": {
+																"vector-y": "120"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Player",
+															"sid": 893046981591955,
+															"parameters": {
+																"instance-variable": "FallDistance",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-x",
+															"objectClass": "Player",
+															"sid": 857754605784163,
+															"parameters": {
+																"x": "Ladder.X"
+															}
+														},
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 926358367052971,
+															"parameters": {
+																"group-name": "\"Jump Sim\"",
+																"state": "activated"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "TouchUI_JumpSprite",
+															"sid": 252177171435755,
+															"parameters": {
+																"frame-number": "1"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Player",
+															"sid": 282991168892688,
+															"parameters": {
+																"instance-variable": "FallStartY",
+																"value": "Player.Y"
+															}
+														}
+													],
+													"sid": 363174204544937,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "Player",
+																	"sid": 799849818192799,
+																	"parameters": {
+																		"instance-variable": "Climbing"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 250261044112149,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Climb\""
+																		]
+																	}
+																}
+															],
+															"sid": 883691763462687
 														}
 													]
 												}
@@ -10538,7 +10753,9 @@
 												"\"FX_ScrapObject\"",
 												"Object.X",
 												"Object.Y",
-												"\"effects\""
+												"\"effects\"",
+												"\"\"",
+												"\"\""
 											]
 										},
 										{
@@ -13892,6 +14109,16 @@
 							}
 						},
 						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 389554006396452,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"MainMenu\""
+							}
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 215008352646535
@@ -14124,6 +14351,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 234607528734060,
+													"parameters": {
+														"type": "log",
+														"message": "\"Level Exit\""
+													}
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",

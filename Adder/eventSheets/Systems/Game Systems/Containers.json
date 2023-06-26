@@ -46,6 +46,44 @@
 			"sid": 351736915220688
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Container_MedBed",
+					"sid": 807792929964479
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 832141594845956,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 540807072061249,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Container_MedBed",
+					"sid": 239764970793197,
+					"parameters": {
+						"instance-variable": "Amount",
+						"value": "PlayerData.MaxHP"
+					}
+				}
+			],
+			"sid": 371259078662670
+		},
+		{
 			"eventType": "comment",
 			"text": ">>> Should be vendor objects or something"
 		},
@@ -131,7 +169,7 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "GetItem"
+					"text": "Container persistance"
 				},
 				{
 					"eventType": "block",
@@ -139,73 +177,98 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Containers",
-							"sid": 770284264765918,
+							"sid": 331024127138922,
 							"parameters": {
-								"instance-variable": "Type",
-								"comparison": 0,
+								"instance-variable": "persistID",
+								"comparison": 1,
 								"value": "\"\""
+							}
+						},
+						{
+							"id": "has-key",
+							"objectClass": "Persistance_Containers",
+							"sid": 709654504537488,
+							"parameters": {
+								"key": "Containers.persistID"
+							}
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "Persistance_Containers",
+							"sid": 171975034275519,
+							"parameters": {
+								"key": "Containers.persistID",
+								"comparison": 0,
+								"value": "0"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 280871263929273,
+							"id": "set-instvar-value",
+							"objectClass": "Containers",
+							"sid": 661019519099749,
 							"parameters": {
-								"type": "log",
-								"message": "\"THE FUCK\""
+								"instance-variable": "Type",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Containers",
+							"sid": 657689682915504,
+							"parameters": {
+								"instance-variable": "Subtype",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Containers",
+							"sid": 155187850651687,
+							"parameters": {
+								"instance-variable": "LootTable",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Containers",
+							"sid": 380228001362690,
+							"parameters": {
+								"instance-variable": "DisplayCase",
+								"value": "false"
 							}
 						}
 					],
-					"sid": 713737534318125,
+					"sid": 825575565753560,
 					"children": [
-						{
-							"eventType": "comment",
-							"text": "Replace with loot table draws n stuff"
-						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Containers",
-									"sid": 889458978730007,
+									"id": "pick-by-unique-id",
+									"objectClass": "OBJ_World",
+									"sid": 410353924305087,
 									"parameters": {
-										"instance-variable": "LootSpawner"
+										"unique-id": "Containers.UID"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Containers",
-									"sid": 450143920251489,
+									"id": "set-boolean-instvar",
+									"objectClass": "OBJ_World",
+									"sid": 361483347450427,
 									"parameters": {
-										"instance-variable": "Type",
-										"value": "choose(\"ammo\",\"health\",\"xp\",\"money\")"
+										"instance-variable": "WorldEnabled",
+										"value": "false"
 									}
 								}
 							],
-							"sid": 653000959335242
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 469948950072281
-								}
-							],
-							"actions": [],
-							"sid": 676308045233199
+							"sid": 989157966928215
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Get subtype"
 				},
 				{
 					"eventType": "block",
@@ -213,15 +276,23 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 568998942994603
+							"sid": 692655009491710
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Containers",
-							"sid": 713259913865336,
+							"id": "has-key",
+							"objectClass": "Persistance_Containers",
+							"sid": 765889817155457,
 							"parameters": {
-								"instance-variable": "Subtype",
-								"comparison": 0,
+								"key": "Containers.persistID"
+							}
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "Persistance_Containers",
+							"sid": 498765944596418,
+							"parameters": {
+								"key": "Containers.persistID",
+								"comparison": 1,
 								"value": "\"\""
 							}
 						}
@@ -230,75 +301,237 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Containers",
-							"sid": 643385042588165,
+							"sid": 118421168863112,
 							"parameters": {
 								"instance-variable": "Subtype",
-								"value": "Functions.Item_Draw(Containers.LootTable,Containers.Type)"
+								"value": "Persistance_Containers.Get(Containers.persistID)"
 							}
-						}
-					],
-					"sid": 669259365507815
-				},
-				{
-					"eventType": "comment",
-					"text": "Loot"
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "Loot_Create",
-							"sid": 429327128448686,
-							"parameters": [
-								"\"ammo\"",
-								"0",
-								"Containers.X + Containers.Width/2",
-								"Containers.Y - Containers.Height/2",
-								"\"\""
-							]
-						}
-					],
-					"sid": 557259616406257,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 851597269654405,
-							"disabled": true
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Get Price"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Containers",
-							"sid": 543967528532192,
-							"parameters": {
-								"instance-variable": "DisplayCase"
-							}
-						}
-					],
-					"actions": [
+						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Containers",
-							"sid": 471542055199727,
+							"sid": 772592844034189,
 							"parameters": {
 								"instance-variable": "Price",
 								"value": "Functions.Container_GetItemValue(Self.Subtype)"
 							}
 						}
 					],
-					"sid": 579454888605321
+					"sid": 478160356881524
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 369889648110320
+						}
+					],
+					"actions": [],
+					"sid": 505247784492034,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "GetItem"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 933102819055392,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 713364298571118,
+									"parameters": {
+										"type": "log",
+										"message": "\"THE FUCK\""
+									}
+								}
+							],
+							"sid": 952966161296357,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Replace with loot table draws n stuff"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Containers",
+											"sid": 890705307464835,
+											"parameters": {
+												"instance-variable": "LootSpawner"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Containers",
+											"sid": 590073196109898,
+											"parameters": {
+												"instance-variable": "Type",
+												"value": "choose(\"ammo\",\"health\",\"xp\",\"money\")"
+											}
+										}
+									],
+									"sid": 613136156174684
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 783825586785992
+										}
+									],
+									"actions": [],
+									"sid": 535332244438412
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Get subtype"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 189894059454362
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 484572675876236,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Containers",
+									"sid": 360093810111971,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "Functions.Item_Draw(Containers.LootTable,Containers.Type)"
+									}
+								}
+							],
+							"sid": 511703143336524,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Containers",
+											"sid": 694471642172033,
+											"parameters": {
+												"instance-variable": "persistID",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Persistance_Containers",
+											"sid": 344764257815415,
+											"parameters": {
+												"key": "Containers.persistID",
+												"value": "Containers.Subtype"
+											}
+										}
+									],
+									"sid": 132606739499428
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Loot"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Loot_Create",
+									"sid": 998665229280493,
+									"parameters": [
+										"\"ammo\"",
+										"0",
+										"Containers.X + Containers.Width/2",
+										"Containers.Y - Containers.Height/2",
+										"\"\""
+									]
+								}
+							],
+							"sid": 357577957616270,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 194898980463017,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Get Price"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Containers",
+									"sid": 724971190269858,
+									"parameters": {
+										"instance-variable": "DisplayCase"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Containers",
+									"sid": 802574329102927,
+									"parameters": {
+										"instance-variable": "Price",
+										"value": "Functions.Container_GetItemValue(Self.Subtype)"
+									}
+								}
+							],
+							"sid": 489764407509716
+						}
+					]
 				}
 			]
 		},
@@ -1094,17 +1327,7 @@
 							"sid": 354890010976026
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 516817501664540,
-							"parameters": {
-								"type": "log",
-								"message": "\"Yeet2\"\n"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 801182571570140,
 					"children": [
 						{
@@ -1150,6 +1373,33 @@
 							"sid": 710535071308694
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Containers",
+							"sid": 837788179015745,
+							"parameters": {
+								"instance-variable": "persistID",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Persistance_Containers",
+							"sid": 426787496582979,
+							"parameters": {
+								"key": "Containers.persistID",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 490069205860606
 				}
 			]
 		},

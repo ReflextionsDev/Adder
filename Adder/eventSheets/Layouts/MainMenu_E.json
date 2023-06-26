@@ -14,6 +14,10 @@
 			"text": "TODO"
 		},
 		{
+			"eventType": "comment",
+			"text": "Add intro anim skip"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "MAINMENU NOTES",
@@ -239,9 +243,19 @@
 						{
 							"callFunction": "MainMenu_Nav",
 							"sid": 704954240087704,
+							"disabled": true,
 							"parameters": [
 								"\"Options\""
 							]
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 635177451832238,
+							"parameters": {
+								"name": "\"Input_Pause\"",
+								"parameter-n": []
+							}
 						}
 					],
 					"sid": 1267193783500296
@@ -453,9 +467,25 @@
 											"parameters": {
 												"layout": "Options"
 											}
+										},
+										{
+											"callFunction": "Pause",
+											"sid": 561747427757291,
+											"disabled": true
+										},
+										{
+											"id": "call-function",
+											"objectClass": "function",
+											"sid": 242592556187778,
+											"disabled": true,
+											"parameters": {
+												"name": "\"Input_Pause\"",
+												"parameter-n": []
+											}
 										}
 									],
-									"sid": 139536032390551
+									"sid": 139536032390551,
+									"disabled": true
 								}
 							]
 						}
@@ -522,8 +552,18 @@
 					"id": "alert",
 					"objectClass": "Browser",
 					"sid": 335720154241503,
+					"disabled": true,
 					"parameters": {
 						"message": "\"No save data found! If this is your first run, ignore this. Otherwise your save data may be corrupted. Exit the game to avoid overwriting data.\" "
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 514731215783501,
+					"parameters": {
+						"type": "log",
+						"message": "\"NO SAVE DATA FOUND\""
 					}
 				},
 				{
@@ -1066,6 +1106,53 @@
 						}
 					],
 					"sid": 864619581844364
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "MainMenuTXT_HeaderTag",
+							"sid": 734566115907086
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "MainMenuTXT_HeaderTag",
+							"sid": 816667774260059,
+							"parameters": {
+								"x": "Self.X",
+								"y": "Self.Y - slideOffset"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 813375531333660,
+							"parameters": {
+								"seconds": "menuTextDelay + 0.7"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "MainMenuTXT_HeaderTag",
+							"sid": 827021459588856,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y + slideOffset",
+								"time": "0.5",
+								"ease": "easeoutcirc",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 266538127320360
 				},
 				{
 					"eventType": "block",
