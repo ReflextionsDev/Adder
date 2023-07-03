@@ -1544,7 +1544,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 812410718455247,
+									"sid": 564824330271754,
 									"parameters": {
 										"where": "back",
 										"value": "\"Forest\"",
@@ -1554,7 +1554,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 544883095085340,
+									"sid": 986977345473724,
 									"parameters": {
 										"where": "back",
 										"value": "\"Mountain\"",
@@ -1564,7 +1564,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 143505331324871,
+									"sid": 441928498964492,
 									"parameters": {
 										"where": "back",
 										"value": "\"Suburb\"",
@@ -1574,7 +1574,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 301725805252352,
+									"sid": 302579474924142,
 									"parameters": {
 										"where": "back",
 										"value": "\"Wastes\"",
@@ -1584,7 +1584,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 715639491046203,
+									"sid": 854766180722621,
 									"parameters": {
 										"where": "back",
 										"value": "\"Industrial\"",
@@ -1594,7 +1594,7 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 203590774871578,
+									"sid": 757288153765127,
 									"parameters": {
 										"where": "back",
 										"value": "\"City\"",
@@ -1604,7 +1604,67 @@
 								{
 									"id": "push",
 									"objectClass": "BiomeList",
-									"sid": 150813449627470,
+									"sid": 747503493508987,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_Forest\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 579536816206369,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_Mountain\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 467080271553451,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_Suburb\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 336525404800068,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_Wastes\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 748905061555963,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_Industrial\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 486018299460643,
+									"parameters": {
+										"where": "back",
+										"value": "\"Event_City\"",
+										"axis": "x"
+									}
+								},
+								{
+									"id": "push",
+									"objectClass": "BiomeList",
+									"sid": 690207626270934,
 									"parameters": {
 										"where": "back",
 										"value": "\"Test\"",
@@ -1648,10 +1708,57 @@
 										"instance-variable": "Biome",
 										"value": "BiomeList.CurValue"
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 904972872363995,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"YEEE\" & tokenat(BiomeList.CurValue,0,\"_\")"
+									}
 								}
 							],
 							"sid": 320808152251333,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 499786620842972,
+											"parameters": {
+												"first-value": "tokenat(BiomeList.CurValue,0,\"_\")",
+												"comparison": 0,
+												"second-value": "\"Event\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "BiomeLevelList",
+											"sid": 949222321538236,
+											"parameters": {
+												"instance-variable": "Event",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "BiomeLevelList",
+											"sid": 417991228489305,
+											"parameters": {
+												"instance-variable": "Biome",
+												"value": "tokenat(BiomeList.CurValue,1,\"_\")"
+											}
+										}
+									],
+									"sid": 927642021987365,
+									"disabled": true
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -1664,9 +1771,24 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 338473712809606,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"each x\" &  LevelRef.At(LevelRef.CurX,0)"
+											}
+										}
+									],
 									"sid": 845222361980185,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Matches Biome"
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -1683,17 +1805,441 @@
 											],
 											"actions": [
 												{
-													"id": "push",
-													"objectClass": "BiomeLevelList",
-													"sid": 504307998377704,
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 101056442955897,
+													"disabled": true,
 													"parameters": {
-														"where": "back",
-														"value": "LevelRef.At(LevelRef.CurX,0)",
-														"axis": "x"
+														"type": "log",
+														"message": "left(LevelRef.At(LevelRef.CurX,0),6)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 149502707549699,
+													"parameters": {
+														"type": "log",
+														"message": "\"YEET\"\n"
 													}
 												}
 											],
-											"sid": 660004035494572
+											"sid": 660004035494572,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Event Tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "BiomeLevelList",
+															"sid": 837244797331053,
+															"parameters": {
+																"instance-variable": "Event"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 340054826853444,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"is event\""
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 139833680055674,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"current lev\" & tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 213545633457399,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "LevelRef.At(LevelRef.CurX,0)"
+															}
+														},
+														{
+															"id": "push",
+															"objectClass": "BiomeLevelList",
+															"sid": 878191025363195,
+															"parameters": {
+																"where": "back",
+																"value": "LevelRef.At(LevelRef.CurX,0)",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 970554277509781,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 293774456312710,
+																	"parameters": {
+																		"first-value": "tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")",
+																		"comparison": 0,
+																		"second-value": "\"Event\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "push",
+																	"objectClass": "BiomeLevelList",
+																	"sid": 354122069069179,
+																	"parameters": {
+																		"where": "back",
+																		"value": "LevelRef.At(LevelRef.CurX,0)",
+																		"axis": "x"
+																	}
+																}
+															],
+															"sid": 293867808915315
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Regular"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 658201039522934
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 679787527937478,
+															"parameters": {
+																"first-value": "tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")",
+																"comparison": 1,
+																"second-value": "\"Event\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "BiomeLevelList",
+															"sid": 943487561313726,
+															"parameters": {
+																"where": "back",
+																"value": "LevelRef.At(LevelRef.CurX,0)",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 414569331961511
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "BiomeList",
+									"sid": 274404212033314,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 483889536020362,
+									"parameters": {
+										"object-to-create": "BiomeLevelList",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "BiomeLevelList",
+									"sid": 106426661117267,
+									"parameters": {
+										"instance-variable": "Biome",
+										"value": "BiomeList.CurValue"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 154764983694800,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "\"YEEE\" & tokenat(BiomeList.CurValue,0,\"_\")"
+									}
+								}
+							],
+							"sid": 134632482959752,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 538499731989846,
+											"parameters": {
+												"first-value": "tokenat(BiomeList.CurValue,0,\"_\")",
+												"comparison": 0,
+												"second-value": "\"Event\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "BiomeLevelList",
+											"sid": 898566774119088,
+											"parameters": {
+												"instance-variable": "Event",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "BiomeLevelList",
+											"sid": 347215968431373,
+											"parameters": {
+												"instance-variable": "Biome",
+												"value": "tokenat(BiomeList.CurValue,1,\"_\")"
+											}
+										}
+									],
+									"sid": 165840756874939
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "LevelRef",
+											"sid": 157227381107077,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 308744140091425,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"each x\" &  LevelRef.At(LevelRef.CurX,0)"
+											}
+										}
+									],
+									"sid": 411492665120282,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Matches Biome"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 389259473024353,
+													"parameters": {
+														"first-value": "LevelRef.At(LevelRef.CurX,BiomeList.CurX+6)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 127454601388218,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "left(LevelRef.At(LevelRef.CurX,0),6)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 739992594021165,
+													"parameters": {
+														"type": "log",
+														"message": "\"YEET\"\n"
+													}
+												}
+											],
+											"sid": 542099577418441,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Event Tiles"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "BiomeLevelList",
+															"sid": 282995480242958,
+															"parameters": {
+																"instance-variable": "Event"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 480669158548015,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"is event\""
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 299404381365883,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"current lev\" & tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 254764753982430,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "LevelRef.At(LevelRef.CurX,0)"
+															}
+														},
+														{
+															"id": "push",
+															"objectClass": "BiomeLevelList",
+															"sid": 839510876125321,
+															"parameters": {
+																"where": "back",
+																"value": "LevelRef.At(LevelRef.CurX,0)",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 205139986112165,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 761757203563899,
+																	"parameters": {
+																		"first-value": "tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")",
+																		"comparison": 0,
+																		"second-value": "\"Event\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "push",
+																	"objectClass": "BiomeLevelList",
+																	"sid": 524082135920792,
+																	"parameters": {
+																		"where": "back",
+																		"value": "LevelRef.At(LevelRef.CurX,0)",
+																		"axis": "x"
+																	}
+																}
+															],
+															"sid": 594437182206053,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Regular"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 107166049130156
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 142031101506717,
+															"parameters": {
+																"first-value": "tokenat(LevelRef.At(LevelRef.CurX,0),0,\"_\")",
+																"comparison": 1,
+																"second-value": "\"Event\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "push",
+															"objectClass": "BiomeLevelList",
+															"sid": 312177530634968,
+															"parameters": {
+																"where": "back",
+																"value": "LevelRef.At(LevelRef.CurX,0)",
+																"axis": "x"
+															}
+														}
+													],
+													"sid": 332629172854109
+												}
+											]
 										}
 									]
 								}
