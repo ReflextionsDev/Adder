@@ -204,6 +204,28 @@
 								{
 									"id": "else",
 									"objectClass": "System",
+									"sid": 457958072236721
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 313127910269669,
+									"parameters": {
+										"variable": "level_Type",
+										"comparison": 0,
+										"value": "\"Event\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 246030484004842
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
 									"sid": 600623890333604
 								},
 								{
@@ -1806,6 +1828,153 @@
 										{
 											"id": "else",
 											"objectClass": "System",
+											"sid": 387550493068643
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 651484394102681,
+											"parameters": {
+												"variable": "level_Type",
+												"comparison": 0,
+												"value": "\"Event\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 384138101814229,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BiomeEventList",
+													"sid": 477474528346487,
+													"parameters": {
+														"instance-variable": "Biome",
+														"comparison": 0,
+														"value": "level_Biome"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 247848386820937,
+													"parameters": {
+														"type": "log",
+														"message": "\"EL UID\" & BiomeEventList.UID"
+													}
+												},
+												{
+													"callFunction": "Array_Shuffle",
+													"sid": 317498719633602,
+													"parameters": [
+														"BiomeEventList.UID"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 271160746098704,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,0)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 618120607913372,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,0)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 961606693165093,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,1)"
+													}
+												}
+											],
+											"sid": 990165508444558,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 621794868988658,
+															"parameters": {
+																"seconds": "0"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 398942539639237,
+															"parameters": {
+																"variable": "level_EventToLoad",
+																"value": "Functions.Array_GetRandomElement(BiomeEventList.UID,1)"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 320450199133695,
+															"parameters": {
+																"type": "log",
+																"message": "\"EVENT TO LOAD: \" & level_EventToLoad"
+															}
+														},
+														{
+															"callFunction": "Builder_SpawnPrefab",
+															"sid": 357364661370558,
+															"parameters": [
+																"level_EventToLoad"
+															]
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 579610654435257,
+															"parameters": {
+																"seconds": "0"
+															}
+														},
+														{
+															"callFunction": "Builder_SpawnBuildingThenFinish",
+															"sid": 802018682688221,
+															"disabled": true
+														},
+														{
+															"callFunction": "Builder_Finish",
+															"sid": 903401931973749
+														}
+													],
+													"sid": 145937576929689
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
 											"sid": 715760581279006
 										}
 									],
@@ -3041,7 +3210,7 @@
 											"sid": 533052014335598,
 											"parameters": {
 												"variable": "builder_CurPrefab",
-												"value": "Functions.Array_GetRandomElement(BiomeLevelList.UID)"
+												"value": "Functions.Array_GetRandomElement(BiomeLevelList.UID, 0)"
 											}
 										}
 									],

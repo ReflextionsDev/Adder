@@ -635,6 +635,13 @@
 									"initialValue": "0",
 									"comment": "",
 									"sid": 527109524144942
+								},
+								{
+									"name": "removeElement",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 996100624336288
 								}
 							],
 							"eventType": "function-block",
@@ -650,15 +657,134 @@
 							],
 							"actions": [
 								{
-									"id": "set-function-return-value",
-									"objectClass": "Functions",
-									"sid": 661084330317033,
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 362605717753247,
 									"parameters": {
-										"value": "Arrays.At((random(0,(Arrays.Width-0.001))))"
+										"type": "log",
+										"message": "\"Array Get Random\" & Arrays.UID"
 									}
 								}
 							],
-							"sid": 919485538974101
+							"sid": 919485538974101,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "index",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 484810586312342
+								},
+								{
+									"eventType": "variable",
+									"name": "element",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 381899500326701
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "why is this not a whole int lmao"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 190693185665263,
+											"parameters": {
+												"variable": "index",
+												"value": "random(0,(Arrays.Width-0.001))"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 229280647211320,
+											"parameters": {
+												"type": "log",
+												"message": "\"Index \" & index"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 612032300338568,
+											"parameters": {
+												"variable": "element",
+												"value": "Arrays.At(index)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 617694577369908,
+											"parameters": {
+												"type": "log",
+												"message": "\"Element \" & element"
+											}
+										}
+									],
+									"sid": 985501575034643
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 802565411599623,
+											"parameters": {
+												"variable": "removeElement"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "delete",
+											"objectClass": "Arrays",
+											"sid": 637714563107854,
+											"parameters": {
+												"index": "index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 292668495969196,
+											"parameters": {
+												"type": "log",
+												"message": "\"Removed Element\""
+											}
+										}
+									],
+									"sid": 897182728739800
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 642577868750874,
+											"parameters": {
+												"value": "element"
+											}
+										}
+									],
+									"sid": 555475444548033
+								}
+							]
 						},
 						{
 							"functionName": "Array_Shuffle",
