@@ -2680,9 +2680,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Menu",
-											"sid": 773937049831696,
+											"sid": 122433858719143,
 											"parameters": {
-												"text": "uppercase(function.Call(\"Text_GetString\",\"nodedata_threat\")) & MB_Node.ThreatLevel"
+												"text": "uppercase(function.Call(\"Text_GetString\",\"nodedata_threat\")) & (MB_Node.ThreatLevel = -1 ? \"?\" :MB_Node.ThreatLevel)"
 											}
 										}
 									],
