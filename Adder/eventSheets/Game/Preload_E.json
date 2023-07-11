@@ -597,7 +597,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "NPC Loot Containers",
-			"description": "Should be moved / only run on preload",
+			"description": "Should probably be JSON [i]shrug[/i]",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -672,6 +672,53 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
+									"sid": 732736508349942,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 374477914159272,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"dummy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 902139041503755,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 118265363735091,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"dummy\""
+									}
+								}
+							],
+							"sid": 844816835226467
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
 									"sid": 382978531758306,
 									"parameters": {
 										"object-to-create": "NPC_LootTables",
@@ -710,7 +757,8 @@
 									}
 								}
 							],
-							"sid": 332367631916291
+							"sid": 332367631916291,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -757,7 +805,56 @@
 									}
 								}
 							],
-							"sid": 810177144672017
+							"sid": 810177144672017,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 356578971151726,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 940611297695504,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"npc_dummy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 150056803457909,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 396653954825525,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"uncommon\""
+									}
+								}
+							],
+							"sid": 249702830470664,
+							"disabled": true
 						}
 					]
 				}

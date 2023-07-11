@@ -592,25 +592,21 @@
 									"sid": 863247676746149
 								},
 								{
-									"eventType": "comment",
-									"text": "NPC test"
-								},
-								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 104283690796612
+											"sid": 570319410549128
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 442851289231930,
+											"sid": 255464092260948,
 											"parameters": {
 												"variable": "table",
 												"comparison": 0,
-												"value": "\"npc_test_table\""
+												"value": "\"dummy\""
 											}
 										}
 									],
@@ -618,38 +614,38 @@
 										{
 											"id": "log",
 											"objectClass": "Browser",
-											"sid": 866655857729416,
+											"sid": 833984909367575,
 											"parameters": {
 												"type": "log",
-												"message": "\"npc_test_table\" "
+												"message": "\"loot table dummy\""
 											}
 										},
 										{
 											"callFunction": "Shuffle_AddItem",
-											"sid": 385405839035369,
+											"sid": 627059642791543,
 											"parameters": [
-												"\"ChaosPistol\"",
+												"\"rare\"",
+												"60"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 969979668608821,
+											"parameters": [
+												"\"epic\"",
+												"35"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 629145807945163,
+											"parameters": [
+												"\"legendary\"",
 												"5"
-											]
-										},
-										{
-											"callFunction": "Shuffle_AddItem",
-											"sid": 758154056021147,
-											"parameters": [
-												"\"Rifle\"",
-												"3"
-											]
-										},
-										{
-											"callFunction": "Shuffle_AddItem",
-											"sid": 451213100513064,
-											"parameters": [
-												"\"Shotgun\"",
-												"2"
 											]
 										}
 									],
-									"sid": 688067668244296
+									"sid": 211070809906180
 								},
 								{
 									"eventType": "comment",
