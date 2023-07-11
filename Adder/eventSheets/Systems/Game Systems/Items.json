@@ -455,6 +455,18 @@
 									"sid": 142497193846757
 								},
 								{
+									"eventType": "comment",
+									"text": "LOOT TABLES"
+								},
+								{
+									"eventType": "comment",
+									"text": "Should have another loottable lookup"
+								},
+								{
+									"eventType": "comment",
+									"text": "Do these support empty values?"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -531,6 +543,113 @@
 										}
 									],
 									"sid": 236377353673447
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 689498263318834
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 936624551791507,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"event_weapon_forest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 745240995790144,
+											"parameters": [
+												"\"uncommon\"",
+												"5"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 266808229416412,
+											"parameters": [
+												"\"rare\"",
+												"3"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 581455764463268,
+											"parameters": [
+												"\"epic\"",
+												"2"
+											]
+										}
+									],
+									"sid": 863247676746149
+								},
+								{
+									"eventType": "comment",
+									"text": "NPC test"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 104283690796612
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 442851289231930,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"npc_test_table\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 866655857729416,
+											"parameters": {
+												"type": "log",
+												"message": "\"npc_test_table\" "
+											}
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 385405839035369,
+											"parameters": [
+												"\"ChaosPistol\"",
+												"5"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 758154056021147,
+											"parameters": [
+												"\"Rifle\"",
+												"3"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 451213100513064,
+											"parameters": [
+												"\"Shotgun\"",
+												"2"
+											]
+										}
+									],
+									"sid": 688067668244296
 								},
 								{
 									"eventType": "comment",

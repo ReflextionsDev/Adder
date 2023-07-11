@@ -6243,6 +6243,16 @@
 																"NPC.Y - NPC.Height/2",
 																"\"\""
 															]
+														},
+														{
+															"callFunction": "NPC_Loot_Table_Spawn",
+															"sid": 833780608815001,
+															"parameters": [
+																"\"\"",
+																"\"\"",
+																"0",
+																"0"
+															]
 														}
 													],
 													"sid": 929331715930381,
@@ -6346,6 +6356,33 @@
 																	"sid": 941198290048982
 																}
 															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 865211481059893,
+																	"parameters": {
+																		"instance-variable": "Loot_Tables",
+																		"comparison": 1,
+																		"value": "\"\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_Loot_Table_SpawnAll\"",
+																	"sid": 648653041898686,
+																	"parameters": [
+																		"NPC.X",
+																		"NPC.Y",
+																		"NPC.Loot_Tables"
+																	]
+																}
+															],
+															"sid": 438589751504964
 														}
 													]
 												},
