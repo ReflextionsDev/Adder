@@ -12061,6 +12061,203 @@
 															]
 														}
 													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Blood Shrine"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 810150214482264
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Containers",
+															"sid": 171147034264546,
+															"parameters": {
+																"unique-id": "OBJ_World.UID"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Containers",
+															"sid": 299700034252494,
+															"parameters": {
+																"instance-variable": "BloodPrice",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 240521851421501,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"Interact Type: \" & OBJ_World.WorldInteractType"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "OBJ_World",
+															"sid": 274183204723808,
+															"parameters": {
+																"instance-variable": "WorldHoverText",
+																"value": "function.Call(\"Text_GetString\",lowercase(\"sacrifice_health\"))"
+															}
+														}
+													],
+													"sid": 358900817126667,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 389770818386873,
+																	"parameters": {
+																		"object-to-create": "Text_Object",
+																		"layer": "objectTXT_layer",
+																		"x": "Containers.X",
+																		"y": "Containers.Y + 16",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 803546077330721,
+																	"disabled": true,
+																	"parameters": {
+																		"object-to-create": "Text_Object",
+																		"layer": "\"Player\"",
+																		"x": "Containers.X",
+																		"y": "Player.Y + 16",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																}
+															],
+															"sid": 520341057107222
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-last-created",
+																	"objectClass": "System",
+																	"sid": 343498070665630,
+																	"parameters": {
+																		"object": "Text_Object"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Object",
+																	"sid": 194717105509754,
+																	"disabled": true,
+																	"parameters": {
+																		"text": "OBJ_World.WorldHoverText & \" (\" &  Functions.TXT_ConvertMoney(Containers.BloodPrice) & \")\""
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Object",
+																	"sid": 385261950034509,
+																	"parameters": {
+																		"text": "\"Sacrifice Health\" & \" (\" & (- Containers.BloodPrice) & \")\""
+																	}
+																},
+																{
+																	"id": "add-child",
+																	"objectClass": "Containers",
+																	"sid": 548998316677810,
+																	"parameters": {
+																		"child": "Text_Object",
+																		"transform-x": true,
+																		"transform-y": true,
+																		"transform-w": false,
+																		"transform-h": false,
+																		"transform-a": false,
+																		"transform-o": false,
+																		"transform-z-elevation": false,
+																		"transform-visibility": false,
+																		"destroy-with-parent": true
+																	}
+																}
+															],
+															"sid": 806877287848535,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "PlayerData",
+																			"sid": 543803135953729,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 4,
+																				"value": "Containers.BloodPrice"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 393632074062855,
+																			"parameters": {
+																				"color": "rgbEx255(230,20,20)"
+																			}
+																		}
+																	],
+																	"sid": 382227454428769
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 370077325851771
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 658065944957175,
+																			"parameters": {
+																				"color": "rgbEx255(105,105,105)"
+																			}
+																		},
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 701582114875541,
+																			"parameters": {
+																				"color": "rgbEx255(192,192,192)"
+																			}
+																		}
+																	],
+																	"sid": 765817995908843
+																}
+															]
+														}
+													]
 												}
 											]
 										},

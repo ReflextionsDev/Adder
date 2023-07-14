@@ -306,18 +306,46 @@
 								"instance-variable": "Subtype",
 								"value": "Persistance_Containers.Get(Containers.persistID)"
 							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Containers",
-							"sid": 772592844034189,
-							"parameters": {
-								"instance-variable": "Price",
-								"value": "Functions.Container_GetItemValue(Self.Subtype)"
-							}
 						}
 					],
-					"sid": 478160356881524
+					"sid": 478160356881524,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "OBJ_World",
+									"sid": 486579396622626,
+									"parameters": {
+										"unique-id": "Containers.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_World",
+									"sid": 806396725337142,
+									"parameters": {
+										"instance-variable": "WorldInteractType",
+										"comparison": 0,
+										"value": "\"buy\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Containers",
+									"sid": 677214962984315,
+									"parameters": {
+										"instance-variable": "Price",
+										"value": "Functions.Container_GetItemValue(Self.Subtype)"
+									}
+								}
+							],
+							"sid": 619815609084330
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -515,6 +543,24 @@
 									"sid": 724971190269858,
 									"parameters": {
 										"instance-variable": "DisplayCase"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "OBJ_World",
+									"sid": 190752050920433,
+									"parameters": {
+										"unique-id": "Containers.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OBJ_World",
+									"sid": 803041543698202,
+									"parameters": {
+										"instance-variable": "WorldInteractType",
+										"comparison": 0,
+										"value": "\"buy\""
 									}
 								}
 							],
@@ -915,6 +961,10 @@
 			"isActiveOnStart": true,
 			"children": [],
 			"sid": 722860540852866
+		},
+		{
+			"eventType": "comment",
+			"text": "Add health shrine logic here"
 		},
 		{
 			"functionName": "Container_interact",
