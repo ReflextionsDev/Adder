@@ -648,6 +648,54 @@
 									"sid": 211070809906180
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 736232123635744
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 911451325096318,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"nulltest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 849409671161937,
+											"parameters": {
+												"type": "log",
+												"message": "\"loot table dummy\""
+											}
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 297170588189785,
+											"parameters": [
+												"\"null\"",
+												"1"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 666885219652522,
+											"parameters": [
+												"\"epic\"",
+												"1"
+											]
+										}
+									],
+									"sid": 848036609943159
+								},
+								{
 									"eventType": "comment",
 									"text": "Draw specified type"
 								},
@@ -773,6 +821,37 @@
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 729734068595547,
+											"parameters": {
+												"variable": "rarity",
+												"comparison": 0,
+												"value": "\"null\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 234000426344864,
+											"parameters": {
+												"value": "\"null\""
+											}
+										}
+									],
+									"sid": 740603169834034
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 626288209693608
+										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",

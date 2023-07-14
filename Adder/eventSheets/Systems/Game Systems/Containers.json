@@ -530,6 +530,33 @@
 								}
 							],
 							"sid": 489764407509716
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 682364731092514,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"comparison": 0,
+										"value": "\"null\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Containers",
+									"sid": 353802069626124,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"null\""
+									}
+								}
+							],
+							"sid": 337292285453522
 						}
 					]
 				}
@@ -674,6 +701,14 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 506365382313845,
+									"parameters": {
+										"value": "0"
+									}
+								},
 								{
 									"id": "log",
 									"objectClass": "Browser",
@@ -1325,6 +1360,16 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 354890010976026
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Containers",
+							"sid": 806621051072332,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 1,
+								"value": "\"null\""
+							}
 						}
 					],
 					"actions": [],
@@ -1373,6 +1418,32 @@
 							"sid": 710535071308694
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Add sad sound effect / dust particle here"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 455367963083119
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Containers",
+							"sid": 965877536850401,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"null\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 513178799671341
 				},
 				{
 					"eventType": "block",
