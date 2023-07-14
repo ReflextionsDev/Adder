@@ -6286,6 +6286,93 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Idk why I had to add this but on collision w/ Door randomly stopped working around ~r350"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Player",
+											"sid": 839888345658101,
+											"parameters": {
+												"object": "Door",
+												"offset-x": "1",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Player",
+											"sid": 270106637776440,
+											"parameters": {
+												"object": "Door",
+												"offset-x": "-1",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 440733480553786,
+											"parameters": {
+												"type": "log",
+												"message": "\"COLLISION\""
+											}
+										}
+									],
+									"sid": 581680987741364,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-enabled",
+													"objectClass": "Door",
+													"sid": 814080160064284,
+													"behaviorType": "Solid"
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Door",
+													"sid": 953977529188226,
+													"parameters": {
+														"instance-variable": "Locked"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Door",
+													"sid": 241510404493444,
+													"parameters": {
+														"instance-variable": "Closed",
+														"value": "false"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 327759791714886,
+													"parameters": {
+														"name": "\"Door_Interact\"",
+														"parameter-n": [
+															"Door.UID"
+														]
+													}
+												}
+											],
+											"sid": 324023566779341
+										}
+									],
+									"isOrBlock": true
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -6331,6 +6418,15 @@
 												"parameter-n": [
 													"Door.UID"
 												]
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 683315659069603,
+											"parameters": {
+												"type": "log",
+												"message": "\"wunk\""
 											}
 										}
 									],
