@@ -954,15 +954,6 @@
 			"sid": 839329670575458
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Group1",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [],
-			"sid": 722860540852866
-		},
-		{
 			"eventType": "comment",
 			"text": "Add health shrine logic here"
 		},
@@ -1007,6 +998,10 @@
 			"sid": 435782523482930,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Free"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1015,6 +1010,16 @@
 							"sid": 240855972542910,
 							"parameters": {
 								"instance-variable": "Price",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Containers",
+							"sid": 745662045784810,
+							"parameters": {
+								"instance-variable": "BloodPrice",
 								"comparison": 3,
 								"value": "0"
 							}
@@ -1030,6 +1035,10 @@
 						}
 					],
 					"sid": 996105607063014
+				},
+				{
+					"eventType": "comment",
+					"text": "Can Afford"
 				},
 				{
 					"eventType": "block",
@@ -1055,11 +1064,21 @@
 					"children": [
 						{
 							"eventType": "comment",
-							"text": "add withdrawal func"
+							"text": "Pay"
 						},
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 299754112219639,
+									"parameters": {
+										"instance-variable": "Price",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "PlayerData",
@@ -1097,6 +1116,70 @@
 								}
 							],
 							"sid": 453177584934533
+						},
+						{
+							"eventType": "comment",
+							"text": "Blood Pay"
+						},
+						{
+							"eventType": "comment",
+							"text": "Needs SFX"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 869946154673694
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 866486358314966,
+									"parameters": {
+										"instance-variable": "BloodPrice",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Containers",
+									"sid": 994973172937330,
+									"parameters": {
+										"instance-variable": "BloodPrice",
+										"comparison": 2,
+										"value": "PlayerData.HP"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PLR_Hit",
+									"sid": 829849982396745,
+									"parameters": [
+										"Containers.BloodPrice"
+									]
+								},
+								{
+									"callFunction": "Container_Open",
+									"sid": 324569047323655,
+									"parameters": [
+										"Containers.UID"
+									]
+								},
+								{
+									"id": "call-function",
+									"objectClass": "function",
+									"sid": 646406893199272,
+									"parameters": {
+										"name": "\"OBJ_Deselect_All\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 712253103110322
 						},
 						{
 							"eventType": "comment",
