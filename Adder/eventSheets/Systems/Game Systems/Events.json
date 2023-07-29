@@ -1,0 +1,409 @@
+{
+	"name": "Events",
+	"events": [
+		{
+			"functionName": "Event_Start",
+			"functionDescription": "",
+			"functionCategory": "Events",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "event",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 237821525084657
+				},
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 230205692374410
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 662298825404537
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 313464199827280,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 125256720098284,
+							"parameters": {
+								"variable": "event",
+								"comparison": 0,
+								"value": "\"event_lever\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Event_Lever",
+							"sid": 142731179692636,
+							"parameters": [
+								"x",
+								"y"
+							]
+						}
+					],
+					"sid": 924650733850233
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "money"
+		},
+		{
+			"eventType": "comment",
+			"text": "brick"
+		},
+		{
+			"functionName": "Event_Lever",
+			"functionDescription": "",
+			"functionCategory": "Events",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 913505556625361
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 925840441923946
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 698955953422637,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "e",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 159005697596932
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 520681295518794,
+							"parameters": {
+								"variable": "e",
+								"value": "choose(1,2,3,4,5)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 312076835304221,
+							"parameters": {
+								"type": "log",
+								"message": "e"
+							}
+						}
+					],
+					"sid": 117382017905106
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 332783751869231,
+							"parameters": {
+								"variable": "e",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-vector-y",
+							"objectClass": "Player",
+							"sid": 319234586482986,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-y": "-800"
+							}
+						}
+					],
+					"sid": 972977924309529
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 321216700495464
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 850236713793918,
+							"parameters": {
+								"variable": "e",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 166780970726714,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 515076281307785,
+									"parameters": {
+										"count": "int(random(3, 10))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 372071658661476,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "choose(\"left\",\"right\") = \"left\" ? Player.X + random(100, 300) : Player.X - random(100, 300)",
+										"y": "Player.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 955591245940743
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 824314181192799
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 174944544209947,
+							"parameters": {
+								"variable": "e",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 983402403630639,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 766846087592075,
+									"parameters": {
+										"count": "int(random(1, 3))"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 190630201693061,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "choose(\"left\",\"right\") = \"left\" ? Player.X + random(100, 300) : Player.X - random(100, 300)",
+										"y": "Player.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 351891448243017,
+									"parameters": {
+										"instance-variable": "Class",
+										"value": "\"Riot\""
+									}
+								}
+							],
+							"sid": 243355288108444
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 122990533168716
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 259244505358006,
+							"parameters": {
+								"variable": "e",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Loot_Create",
+							"sid": 494588932126260,
+							"parameters": [
+								"\"money\"",
+								"int(random(50,500))",
+								"x",
+								"y",
+								"\"\""
+							]
+						}
+					],
+					"sid": 202536098356715
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 980486277743455
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 872098913986338,
+							"parameters": {
+								"variable": "e",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 239734147622806,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Equipment",
+									"sid": 237002232825440,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 952426114883211,
+									"parameters": {
+										"object-to-create": "Object",
+										"layer": "\"Objects\"",
+										"x": "x",
+										"y": "y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Object",
+									"sid": 552713665679377,
+									"parameters": {
+										"animation": "\"Equipment\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 792672908115230,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Equipment\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 153448742647133,
+									"parameters": {
+										"instance-variable": "Subtype",
+										"value": "Equipment.Name"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Object",
+									"sid": 400996610928687,
+									"parameters": {
+										"instance-variable": "Rarity",
+										"value": "Equipment.Rarity"
+									}
+								}
+							],
+							"sid": 410349809779368
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 420976463737987
+}

@@ -13676,6 +13676,69 @@
 												},
 												{
 													"eventType": "comment",
+													"text": "Event"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 262313922856589
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "OBJ_World",
+															"sid": 726124067173469,
+															"parameters": {
+																"instance-variable": "WorldInteractType",
+																"comparison": 0,
+																"value": "\"event\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "OBJ_World",
+															"sid": 584543294063050,
+															"parameters": {
+																"animation": "\"Interact\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "OBJ_World",
+															"sid": 705194505920395,
+															"parameters": {
+																"instance-variable": "WorldEnabled",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 245085119725649,
+															"parameters": {
+																"name": "\"OBJ_Deselect_All\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"callFunction": "Event_Start",
+															"sid": 415311722531167,
+															"parameters": [
+																"OBJ_World.WorldEvent",
+																"OBJ_World.X",
+																"OBJ_World.Y"
+															]
+														}
+													],
+													"sid": 693840478807666
+												},
+												{
+													"eventType": "comment",
 													"text": "Modify"
 												},
 												{
@@ -13703,8 +13766,7 @@
 															}
 														}
 													],
-													"sid": 361354060367366,
-													"isOrBlock": true
+													"sid": 361354060367366
 												},
 												{
 													"eventType": "block",
