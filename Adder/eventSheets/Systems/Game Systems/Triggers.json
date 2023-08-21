@@ -1,0 +1,542 @@
+{
+	"name": "Triggers",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 515200760563410,
+					"parameters": {
+						"object": "TriggerBox"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 170870755246384,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerBox",
+							"sid": 921163510811727,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Trigger_Miniboss",
+							"sid": 381436123968836
+						}
+					],
+					"sid": 528862994686807
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Should also change music"
+		},
+		{
+			"functionName": "Trigger_Miniboss",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 104263556390592,
+					"parameters": {
+						"type": "log",
+						"message": "\"MINIBOSS TRIGGER\""
+					}
+				}
+			],
+			"sid": 123145588390093,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerRef",
+							"sid": 254132286059371,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss_Brute\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 308791712784597,
+							"parameters": {
+								"object": "TriggerRef"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 830702050581698,
+							"parameters": {
+								"object-to-create": "Zombie",
+								"layer": "\"Player\"",
+								"x": "TriggerRef.X",
+								"y": "TriggerRef.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Zombie",
+							"sid": 409967752701200,
+							"parameters": {
+								"instance-variable": "Class",
+								"value": "\"Brute\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "TriggerRef",
+							"sid": 963723093556675
+						}
+					],
+					"sid": 377439178551553
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerRef",
+							"sid": 656252178642847,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss_Ladder\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 140422662255087,
+							"parameters": {
+								"object": "TriggerRef"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TriggerRef",
+							"sid": 268370368756468
+						}
+					],
+					"sid": 930758919987510,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 613713356025642,
+									"parameters": {
+										"object": "JumpThrough"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 956053288815785,
+									"parameters": {
+										"object-to-create": "Solid_PlayerFloor",
+										"layer": "JumpThrough.X",
+										"x": "JumpThrough.X",
+										"y": "JumpThrough.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "JumpThrough",
+									"sid": 576930431268593
+								}
+							],
+							"sid": 240884423057322
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "LadderTop",
+									"sid": 448116935060200
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HolePrefab",
+									"sid": 869222407514291
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HoleFilter",
+									"sid": 703443825534984
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HoleBG",
+									"sid": 586867368412272
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HoleAccesory",
+									"sid": 814502280505644
+								},
+								{
+									"id": "destroy",
+									"objectClass": "HoleOutline",
+									"sid": 541991128656669
+								}
+							],
+							"sid": 938526266738856
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerRef",
+							"sid": 120829922123479,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss_SpawnL\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 956527378368913,
+							"parameters": {
+								"object": "TriggerRef"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 421898453148025,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 327786459512106,
+									"parameters": {
+										"count": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 777964408322270,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 687351259347293
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 222876108962997,
+									"parameters": {
+										"count": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 965213137964208,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 907758606809098,
+									"parameters": {
+										"instance-variable": "Class",
+										"value": "\"Demon\""
+									}
+								}
+							],
+							"sid": 720116234034089
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 261282904956639,
+									"parameters": {
+										"count": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 444810138300650,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 415617158576749,
+									"parameters": {
+										"instance-variable": "Class",
+										"value": "\"Zealot\""
+									}
+								}
+							],
+							"sid": 845461020420051
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "TriggerRef",
+									"sid": 578166694927085
+								}
+							],
+							"sid": 934763648733385
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerRef",
+							"sid": 114427238335470,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss_SpawnR\""
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 347971002833319,
+							"parameters": {
+								"object": "TriggerRef"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 756421658542155,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 541765105447750,
+									"parameters": {
+										"count": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 564752750340512,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 318694052052975
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 683818782564539,
+									"parameters": {
+										"count": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 524376788790401,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 482463366612469,
+									"parameters": {
+										"instance-variable": "Class",
+										"value": "\"Demon\""
+									}
+								}
+							],
+							"sid": 197621686242254
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 121454606054701,
+									"parameters": {
+										"count": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 945263139418094,
+									"parameters": {
+										"object-to-create": "Zombie",
+										"layer": "\"Player\"",
+										"x": "TriggerRef.X",
+										"y": "TriggerRef.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Zombie",
+									"sid": 829516990922606,
+									"parameters": {
+										"instance-variable": "Class",
+										"value": "\"Zealot\""
+									}
+								}
+							],
+							"sid": 699650501838072
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "TriggerRef",
+									"sid": 387828545807188
+								}
+							],
+							"sid": 418645925636658
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TriggerBox",
+							"sid": 910506599464812,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Miniboss\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TriggerBox",
+							"sid": 334965243656660
+						}
+					],
+					"sid": 553796691877102
+				}
+			]
+		}
+	],
+	"sid": 727708213740091
+}
