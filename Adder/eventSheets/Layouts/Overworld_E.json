@@ -207,6 +207,20 @@
 			"sid": 609159815827786
 		},
 		{
+			"eventType": "comment",
+			"text": "Demo"
+		},
+		{
+			"eventType": "variable",
+			"name": "demo_Boundary",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 233444872065468
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Overworld Debug",
@@ -886,6 +900,135 @@
 						}
 					],
 					"sid": 594822098745533
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 147206129343885,
+							"parameters": {
+								"variable": "demo_Boundary",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 418828443391643,
+							"parameters": {
+								"type": "log",
+								"message": "\"NODE\""
+							}
+						}
+					],
+					"sid": 777205525265842,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 508143594291358,
+									"parameters": {
+										"object": "MB_Node"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 686733234883212,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Node",
+											"sid": 351737926026145,
+											"parameters": {
+												"instance-variable": "ThreatLevel",
+												"comparison": 5,
+												"value": "4"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Node",
+											"sid": 937899281404828,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 1,
+												"value": "15"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "MB_Node",
+											"sid": 510665896048698,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 1,
+												"value": "35"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 409753189044724,
+											"parameters": {
+												"type": "log",
+												"message": "\"NODE\" & MB_Node.ID"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "MB_Node",
+											"sid": 429470672618393,
+											"parameters": {
+												"instance-variable": "Type",
+												"value": "\"Demo\"\n"
+											}
+										}
+									],
+									"sid": 799964345244847,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "MB_Icon",
+													"sid": 549242271951383,
+													"parameters": {
+														"object": "MB_Node"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "MB_Icon",
+													"sid": 571753414295849,
+													"parameters": {
+														"animation": "\"Demo\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 528308917168901
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -2569,6 +2712,17 @@
 									"id": "else",
 									"objectClass": "System",
 									"sid": 196604566131641
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MB_Node",
+									"sid": 195311841062499,
+									"parameters": {
+										"instance-variable": "Type",
+										"comparison": 0,
+										"value": "\"Demo\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
