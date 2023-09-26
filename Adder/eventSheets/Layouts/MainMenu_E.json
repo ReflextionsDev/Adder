@@ -1219,6 +1219,79 @@
 				}
 			],
 			"sid": 711306689511761
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Info",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 915409063901984,
+							"parameters": {
+								"object": "InfoLink"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "InfoLink",
+							"sid": 959144563100772,
+							"disabled": true,
+							"parameters": {
+								"color": "rgb(0,100,0)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "InfoLink",
+							"sid": 717760829992483,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 662759797277574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 163096121801375
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "InfoLink",
+							"sid": 174338691678236,
+							"disabled": true,
+							"parameters": {
+								"color": "rgb(255,255,255)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "InfoLink",
+							"sid": 845525549681410,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 607937406733519
+				}
+			],
+			"sid": 648093157964424
 		}
 	],
 	"sid": 573607313438243
