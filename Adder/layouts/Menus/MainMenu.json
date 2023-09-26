@@ -3492,33 +3492,35 @@
 					}
 				},
 				{
-					"type": "Steam",
+					"type": "MenuLink",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Steam",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 30232,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"link": "https://store.steampowered.com/app/2598410/Project_Adder/"
+					},
 					"behaviors": {
 						"Anchor": {
 							"properties": {
-								"left-edge": "window-right",
-								"top-edge": "none",
+								"left-edge": "window-left",
+								"top-edge": "window-top",
 								"right-edge": "none",
-								"bottom-edge": "window-bottom",
-								"enabled": false
+								"bottom-edge": "none",
+								"enabled": true
 							}
 						},
 						"Fade": {
 							"properties": {
-								"fade-in-time": 6,
+								"fade-in-time": 2,
 								"wait-time": 0,
 								"fade-out-time": 0,
 								"destroy": true,
-								"enabled": true,
+								"enabled": false,
 								"live-preview": false
 							}
 						}
@@ -3541,33 +3543,35 @@
 					}
 				},
 				{
-					"type": "Steam",
+					"type": "MenuLink",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "NLB.Dev",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 30233,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"link": "https://nlb.dev"
+					},
 					"behaviors": {
 						"Anchor": {
 							"properties": {
-								"left-edge": "window-right",
-								"top-edge": "none",
+								"left-edge": "window-left",
+								"top-edge": "window-top",
 								"right-edge": "none",
-								"bottom-edge": "window-bottom",
-								"enabled": false
+								"bottom-edge": "none",
+								"enabled": true
 							}
 						},
 						"Fade": {
 							"properties": {
-								"fade-in-time": 6,
+								"fade-in-time": 2,
 								"wait-time": 0,
 								"fade-out-time": 0,
 								"destroy": true,
-								"enabled": true,
+								"enabled": false,
 								"live-preview": false
 							}
 						}
@@ -3590,33 +3594,35 @@
 					}
 				},
 				{
-					"type": "Steam",
+					"type": "MenuLink",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Twitter",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 30234,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"link": "https://twitter.com/nlbdotdev"
+					},
 					"behaviors": {
 						"Anchor": {
 							"properties": {
-								"left-edge": "window-right",
-								"top-edge": "none",
+								"left-edge": "window-left",
+								"top-edge": "window-top",
 								"right-edge": "none",
-								"bottom-edge": "window-bottom",
-								"enabled": false
+								"bottom-edge": "none",
+								"enabled": true
 							}
 						},
 						"Fade": {
 							"properties": {
-								"fade-in-time": 6,
+								"fade-in-time": 2,
 								"wait-time": 0,
 								"fade-out-time": 0,
 								"destroy": true,
-								"enabled": true,
+								"enabled": false,
 								"live-preview": false
 							}
 						}
@@ -3639,33 +3645,35 @@
 					}
 				},
 				{
-					"type": "Steam",
+					"type": "MenuLink",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Discord",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 30235,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"link": "https://discord.gg/AKfaRpUAvC"
+					},
 					"behaviors": {
 						"Anchor": {
 							"properties": {
-								"left-edge": "window-right",
-								"top-edge": "none",
+								"left-edge": "window-left",
+								"top-edge": "window-top",
 								"right-edge": "none",
-								"bottom-edge": "window-bottom",
-								"enabled": false
+								"bottom-edge": "none",
+								"enabled": true
 							}
 						},
 						"Fade": {
 							"properties": {
-								"fade-in-time": 6,
+								"fade-in-time": 2,
 								"wait-time": 0,
 								"fade-out-time": 0,
 								"destroy": true,
-								"enabled": true,
+								"enabled": false,
 								"live-preview": false
 							}
 						}
@@ -3677,6 +3685,57 @@
 						"height": 24,
 						"originX": 0.5132743362831859,
 						"originY": 0.47540983606557374,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuInfo",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 30241,
+					"instanceVariables": {
+						"link": "info"
+					},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 2,
+								"wait-time": 0,
+								"fade-out-time": 0,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 605,
+						"y": 305,
+						"width": 44,
+						"height": 42,
+						"originX": 0.507042,
+						"originY": 0.507246,
 						"color": [
 							1,
 							1,
@@ -3827,7 +3886,9 @@
 						"live-preview": false
 					},
 					"uid": 30239,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"link": "https://github.com/ReflextionsDev/Adder"
+					},
 					"behaviors": {},
 					"world": {
 						"x": 408,
@@ -3849,7 +3910,7 @@
 				{
 					"type": "Text_Menu",
 					"properties": {
-						"text": "Welcome to Project Adder!\n\nThis game is the culmination of my on-and-off work over approximately 5 years. While the majority of the content I've developed isn't directly playable in this release, traces of my efforts can be found deep within the code.\n\n[b]What can you expect?[/b]\nA playable demo that, while lacking polish and balance, showcases the core mechanics I envisioned. I've also unlocked a sandbox mode with debug tools, allowing you to experiment with the game systems.\n\nI deeply wished to present a full game, but after grappling with development challenges, I've decided to step away. Nonetheless, I truly hope you find joy in this demo and can envision the broader game I had aspired to create.\n\nInterested in the journey behind Project Adder? Dive into the open-source code on Git. I'd be thrilled if the community breathed new life into this project or learned from my development experience.\n\nFor feedback, questions, or simply to share your thoughts, drop me an email at: ReflextionsDev@gmail.com\n\nThank you for understanding and for giving Project Adder a spin!\n\nWarmly, Nate",
+						"text": "Welcome to Project Adder!\n\nThis game is the culmination of my on-and-off work over approximately 5 years. While the majority of the content I've developed isn't directly playable in this release, traces of my efforts can be found deep within the code.\n\n[b]What can you expect?[/b]\nA playable demo that, while lacking polish and balance, showcases the core mechanics I envisioned. I've also unlocked a sandbox mode with debug tools, allowing you to experiment with the game systems.\n\nI deeply wished to present a full game, but after grappling with development challenges and funding issues, I've decided to step away. Nonetheless, I truly hope you find joy in this demo and can envision the broader game I had aspired to create.\n\nInterested in the journey behind Project Adder? Dive into the open-source code on Git. I'd be thrilled if the community breathed new life into this project or learned from my development experience and mistakes.\n\nFor feedback, questions, or simply to share your thoughts, drop me a line at: ReflextionsDev@gmail.com\n\nThank you for understanding and for trying out Project Adder!\n\nWarmly, Nate",
 						"enable-bbcode": true,
 						"character-width": 49,
 						"character-height": 59,
@@ -3994,12 +4055,43 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "InfoLink",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 30240,
+					"instanceVariables": {
+						"link": "mailto:ReflextionsDev@gmail.com"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 45,
+						"y": 244,
+						"width": 164,
+						"height": 12,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 176878501258860,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"isInitiallyInteractive": true,
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": false,
 			"color": [
 				1,
 				1,

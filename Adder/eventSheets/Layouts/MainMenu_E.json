@@ -1213,6 +1213,28 @@
 								"instance-variable": "AllowCombat",
 								"value": "1"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 635937781680217,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuLinks",
+							"sid": 651516074196823,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "MenuLinks",
+							"sid": 964347289573077,
+							"behaviorType": "Fade"
 						}
 					],
 					"sid": 899593187529735
@@ -1231,9 +1253,87 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 915409063901984,
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 836892964501085,
+							"parameters": {
+								"object": "Cursor"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 662759797277574,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 286076785466923,
+									"parameters": {
+										"object": "InfoLink"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "InfoLink",
+									"sid": 995577194855246,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "Cursor",
+									"sid": 403205018538515,
+									"parameters": {
+										"color": "rgbEx(100,0,0)"
+									}
+								}
+							],
+							"sid": 185270340612612
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 150503442754435
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "InfoLink",
+									"sid": 376585255170392,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "Cursor",
+									"sid": 887328520565769,
+									"parameters": {
+										"color": "rgbEx(100,100,100)"
+									}
+								}
+							],
+							"sid": 157520923578192
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 953745673272615,
 							"parameters": {
 								"object": "InfoLink"
 							}
@@ -1241,54 +1341,109 @@
 					],
 					"actions": [
 						{
-							"id": "set-default-color",
-							"objectClass": "InfoLink",
-							"sid": 959144563100772,
-							"disabled": true,
+							"id": "open-url-in-new-window",
+							"objectClass": "Browser",
+							"sid": 163834717083384,
 							"parameters": {
-								"color": "rgb(0,100,0)"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "InfoLink",
-							"sid": 717760829992483,
-							"parameters": {
-								"frame-number": "1"
+								"url": "InfoLink.link",
+								"tag": "InfoLink.link"
 							}
 						}
 					],
-					"sid": 662759797277574
+					"sid": 171514160111626
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 163096121801375
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 231785690598390,
+							"parameters": {
+								"object": "MenuLinks"
+							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 757261861948032,
+					"children": [
 						{
-							"id": "set-default-color",
-							"objectClass": "InfoLink",
-							"sid": 174338691678236,
-							"disabled": true,
-							"parameters": {
-								"color": "rgb(255,255,255)"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuLinks",
+									"sid": 387368808884408,
+									"parameters": {
+										"instance-variable": "link",
+										"comparison": 0,
+										"value": "\"info\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 188468430606895,
+									"parameters": {
+										"layer": "\"Info\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 200864933578522,
+									"parameters": {
+										"layer": "\"MenuUI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 973626152823814,
+									"parameters": {
+										"layer": "\"Pause\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layout-effect-enabled",
+									"objectClass": "System",
+									"sid": 649353204083020,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Vignette\""
+									}
+								}
+							],
+							"sid": 698470444233051
 						},
 						{
-							"id": "set-animation-frame",
-							"objectClass": "InfoLink",
-							"sid": 845525549681410,
-							"parameters": {
-								"frame-number": "0"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 921780260519778
+								}
+							],
+							"actions": [
+								{
+									"id": "open-url-in-new-window",
+									"objectClass": "Browser",
+									"sid": 979171042728010,
+									"parameters": {
+										"url": "MenuLinks.link",
+										"tag": "MenuLinks.link"
+									}
+								}
+							],
+							"sid": 221088299508540
 						}
-					],
-					"sid": 607937406733519
+					]
 				}
 			],
 			"sid": 648093157964424
