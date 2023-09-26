@@ -1235,12 +1235,54 @@
 							"objectClass": "MenuLinks",
 							"sid": 964347289573077,
 							"behaviorType": "Fade"
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 955280149600374,
+							"parameters": {
+								"seconds": "0.5"
+							}
 						}
 					],
-					"sid": 899593187529735
+					"sid": 899593187529735,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 358738306608170,
+									"parameters": {
+										"variable": "infoRead",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "menu_info",
+									"sid": 465375010807619
+								}
+							],
+							"sid": 159328553643342
+						}
+					]
 				}
 			],
 			"sid": 711306689511761
+		},
+		{
+			"eventType": "variable",
+			"name": "infoRead",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 934420509339708
 		},
 		{
 			"eventType": "group",
@@ -1253,14 +1295,76 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each",
+							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 836892964501085,
+							"sid": 950934767728618
+						}
+					],
+					"actions": [
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 618975039549669,
 							"parameters": {
-								"object": "Cursor"
+								"key": "\"info\""
 							}
 						}
 					],
+					"sid": 125373940953937
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 610205445671783,
+							"parameters": {
+								"key": "\"info\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 835366208139711,
+							"parameters": {
+								"variable": "infoRead",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 954212591115107
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 504691254552756,
+							"parameters": {
+								"key": "\"info\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 202445344782779,
+							"parameters": {
+								"key": "\"info\"",
+								"value": "\"1\""
+							}
+						}
+					],
+					"sid": 893723420755650
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
 					"actions": [],
 					"sid": 662759797277574,
 					"children": [
@@ -1303,6 +1407,15 @@
 									"id": "else",
 									"objectClass": "System",
 									"sid": 150503442754435
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 639503724121421,
+									"parameters": {
+										"object": "InfoLink"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -1358,6 +1471,77 @@
 						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
+							"sid": 243725862660972,
+							"parameters": {
+								"object": "Menu_OK"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Menu_OK",
+							"sid": 264844918930631,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Info_Ok\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 673581366064238,
+							"parameters": {
+								"layer": "\"Info\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 838884976997615,
+							"parameters": {
+								"layer": "\"Info\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 404020155977713,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 718024204730953,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layout-effect-enabled",
+							"objectClass": "System",
+							"sid": 234892533125931,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Vignette\""
+							}
+						}
+					],
+					"sid": 396472863711517
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
 							"sid": 231785690598390,
 							"parameters": {
 								"object": "MenuLinks"
@@ -1383,40 +1567,8 @@
 							],
 							"actions": [
 								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 188468430606895,
-									"parameters": {
-										"layer": "\"Info\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "set-layer-interactive",
-									"objectClass": "System",
-									"sid": 200864933578522,
-									"parameters": {
-										"layer": "\"MenuUI\"",
-										"interactive": false
-									}
-								},
-								{
-									"id": "set-layer-interactive",
-									"objectClass": "System",
-									"sid": 973626152823814,
-									"parameters": {
-										"layer": "\"Pause\"",
-										"interactive": false
-									}
-								},
-								{
-									"id": "set-layout-effect-enabled",
-									"objectClass": "System",
-									"sid": 649353204083020,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"Vignette\""
-									}
+									"callFunction": "menu_info",
+									"sid": 774600216450607
 								}
 							],
 							"sid": 698470444233051
@@ -1444,9 +1596,271 @@
 							"sid": 221088299508540
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 889114643466415,
+							"parameters": {
+								"object": "MenuLinks"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 782122091860114,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuLinks",
+									"sid": 512210238553988,
+									"parameters": {
+										"instance-variable": "link",
+										"comparison": 0,
+										"value": "\"info\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 809844109225866,
+									"parameters": {
+										"layer": "\"Info\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 149839857763175,
+									"parameters": {
+										"layer": "\"MenuUI\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 190608543023035,
+									"parameters": {
+										"layer": "\"MenuUI\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 206165855101605,
+									"parameters": {
+										"layer": "\"Pause\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layout-effect-enabled",
+									"objectClass": "System",
+									"sid": 380118632634706,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Vignette\""
+									}
+								}
+							],
+							"sid": 642289144781289
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 956418607307483
+								}
+							],
+							"actions": [
+								{
+									"id": "open-url-in-new-window",
+									"objectClass": "Browser",
+									"sid": 482580918960162,
+									"parameters": {
+										"url": "MenuLinks.link",
+										"tag": "MenuLinks.link"
+									}
+								}
+							],
+							"sid": 169998159334493
+						}
+					]
 				}
 			],
 			"sid": 648093157964424
+		},
+		{
+			"functionName": "menu_info",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 188468430606895,
+					"parameters": {
+						"layer": "\"Info\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 411555946294092,
+					"parameters": {
+						"layer": "\"MenuUI\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 200864933578522,
+					"parameters": {
+						"layer": "\"MenuUI\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 973626152823814,
+					"parameters": {
+						"layer": "\"Pause\"",
+						"interactive": false
+					}
+				},
+				{
+					"id": "set-layer-interactive",
+					"objectClass": "System",
+					"sid": 533842165537927,
+					"parameters": {
+						"layer": "\"Info\"",
+						"interactive": true
+					}
+				},
+				{
+					"id": "set-layout-effect-enabled",
+					"objectClass": "System",
+					"sid": 649353204083020,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Vignette\""
+					}
+				}
+			],
+			"sid": 275520995074193
+		},
+		{
+			"eventType": "variable",
+			"name": "isDemo",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 384916744986178
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 939132339711544
+				}
+			],
+			"actions": [],
+			"sid": 948333407054225,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 600580647541224,
+							"parameters": {
+								"variable": "isDemo",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 667419488991089,
+							"parameters": {
+								"variable": "demo_Boundary",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 583894924753338,
+							"parameters": {
+								"variable": "infoRead",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "MenuInfo",
+							"sid": 622983591024146
+						}
+					],
+					"sid": 853063297567169
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 102868193336535
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "MainMenuTXT_HeaderTag",
+							"sid": 266974394654731
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 230330603035555,
+							"parameters": {
+								"variable": "demo_Boundary",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 766710079260406
+				}
+			]
 		}
 	],
 	"sid": 573607313438243
