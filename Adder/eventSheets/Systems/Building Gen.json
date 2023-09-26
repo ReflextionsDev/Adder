@@ -538,6 +538,10 @@
 							}
 						},
 						{
+							"type": "script",
+							"script": "yeee\n\n"
+						},
+						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 575819793603522
@@ -578,71 +582,8 @@
 			]
 		},
 		{
-			"eventType": "script",
-			"script": "function getRoomCombinations (size) {\n\tif (size = 'xs') {\n\t\treturn [[6]]\n\t} else if (size = 'sm') {\n\t\treturn [[10]]\n\t} else if (size = 'md') {\n\t\treturn [[14]]\n\t}\n}",
-			"disabled": true
-		},
-		{
-			"eventType": "script",
-			"script": "console.log(localVars)",
-			"disabled": true
-		},
-		{
 			"eventType": "comment",
 			"text": "e"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 119637788265051,
-					"parameters": {
-						"key": 74
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 135759073551837,
-					"parameters": {
-						"type": "log",
-						"message": "Functions.Function1"
-					}
-				}
-			],
-			"sid": 913582260891632
-		},
-		{
-			"functionName": "Function1",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "any",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "runtime.setReturnValue(getRoomCombinations('sm'))\n"
-				},
-				{
-					"type": "script",
-					"script": "runtime.setReturnValue(add(1, 32));",
-					"disabled": true
-				},
-				{
-					"type": "script",
-					"script": "runtime.setReturnValue(add(localVars.firstNumber, localVars.secondNumber));",
-					"disabled": true
-				}
-			],
-			"sid": 185608598467360
 		}
 	],
 	"sid": 595154034152071
