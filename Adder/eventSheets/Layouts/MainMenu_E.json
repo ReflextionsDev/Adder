@@ -294,6 +294,76 @@
 						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
+							"sid": 754558754415925,
+							"parameters": {
+								"object": "MainMenuTXT_Credits"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 700547135250820,
+							"parameters": {
+								"layer": "\"Credits\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 160993791584326,
+							"parameters": {
+								"layer": "\"Credits\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 954089957403764,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 374503178363263,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 982347018276990,
+							"parameters": {
+								"layer": "\"Pause\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layout-effect-enabled",
+							"objectClass": "System",
+							"sid": 352089436920008,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Vignette\""
+							}
+						}
+					],
+					"sid": 498790581603146
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
 							"sid": 3585080247239462,
 							"parameters": {
 								"object": "MainMenuTXT_Quit"
@@ -1046,6 +1116,53 @@
 					"conditions": [
 						{
 							"id": "on-created",
+							"objectClass": "MainMenuTXT_Credits",
+							"sid": 314607185525917
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "MainMenuTXT_Credits",
+							"sid": 877683892567450,
+							"parameters": {
+								"x": "Self.X + slideOffset",
+								"y": "Self.Y"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 318629555917630,
+							"parameters": {
+								"seconds": "menuTextDelay + 0.3"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "MainMenuTXT_Credits",
+							"sid": 891543971950751,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Self.X - slideOffset",
+								"time": "0.5",
+								"ease": "easeinoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 466102761955632
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
 							"objectClass": "MainMenuTXT_Quit",
 							"sid": 202009922397253
 						}
@@ -1063,9 +1180,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 662340764356373,
+							"sid": 172335496635470,
 							"parameters": {
-								"seconds": "menuTextDelay + 0.3"
+								"seconds": "menuTextDelay + 0.4"
 							}
 						},
 						{
@@ -1597,6 +1714,24 @@
 							"sid": 838884976997615,
 							"parameters": {
 								"layer": "\"Info\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 670525149897809,
+							"parameters": {
+								"layer": "\"Credits\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 188941988893451,
+							"parameters": {
+								"layer": "\"Credits\"",
 								"interactive": false
 							}
 						},
