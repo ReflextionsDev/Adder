@@ -198,6 +198,16 @@
 			]
 		},
 		{
+			"eventType": "variable",
+			"name": "time_offset",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 939433487668188
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "MainMenu Buttons",
@@ -223,6 +233,24 @@
 							"parameters": [
 								"\"Play\""
 							]
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 782173783549168,
+							"parameters": {
+								"variable": "time_offset",
+								"value": "time"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 243178036345641,
+							"parameters": {
+								"variable": "system_Debug",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 8201625598304979
@@ -1268,6 +1296,45 @@
 								}
 							],
 							"sid": 159328553643342
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 240971929697050,
+									"parameters": {
+										"seconds": "10"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Debug_Toggle",
+									"sid": 140248709438220,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "Debug_Toggle",
+									"sid": 556853633875440,
+									"parameters": {
+										"collisions": "enabled"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Text_Banner",
+									"sid": 620274837898031,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 124082497902938
 						}
 					]
 				}
@@ -1760,77 +1827,77 @@
 							"sid": 169998159334493
 						}
 					]
+				},
+				{
+					"functionName": "menu_info",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 963543198931402,
+							"parameters": {
+								"layer": "\"Info\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 793497148523166,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 718816350405372,
+							"parameters": {
+								"layer": "\"MenuUI\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 838679381869732,
+							"parameters": {
+								"layer": "\"Pause\"",
+								"interactive": false
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 670590828094797,
+							"parameters": {
+								"layer": "\"Info\"",
+								"interactive": true
+							}
+						},
+						{
+							"id": "set-layout-effect-enabled",
+							"objectClass": "System",
+							"sid": 543414734595082,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"Vignette\""
+							}
+						}
+					],
+					"sid": 272334471802148
 				}
 			],
 			"sid": 648093157964424
-		},
-		{
-			"functionName": "menu_info",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 188468430606895,
-					"parameters": {
-						"layer": "\"Info\"",
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 411555946294092,
-					"parameters": {
-						"layer": "\"MenuUI\"",
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 200864933578522,
-					"parameters": {
-						"layer": "\"MenuUI\"",
-						"interactive": false
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 973626152823814,
-					"parameters": {
-						"layer": "\"Pause\"",
-						"interactive": false
-					}
-				},
-				{
-					"id": "set-layer-interactive",
-					"objectClass": "System",
-					"sid": 533842165537927,
-					"parameters": {
-						"layer": "\"Info\"",
-						"interactive": true
-					}
-				},
-				{
-					"id": "set-layout-effect-enabled",
-					"objectClass": "System",
-					"sid": 649353204083020,
-					"parameters": {
-						"mode": "disable",
-						"effect": "\"Vignette\""
-					}
-				}
-			],
-			"sid": 275520995074193
 		},
 		{
 			"eventType": "variable",
@@ -1923,6 +1990,226 @@
 					"sid": 766710079260406
 				}
 			]
+		},
+		{
+			"eventType": "variable",
+			"name": "allowDebug",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 394573911993092
+		},
+		{
+			"eventType": "variable",
+			"name": "allowDebugToggle",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 402984319587464
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug Toggle",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 539061404929662
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "debug_toggle",
+							"sid": 581406614848675
+						}
+					],
+					"sid": 278492835203874
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 963828729920300,
+							"parameters": {
+								"object": "Debug_Toggle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Debug_Toggle",
+							"sid": 878952303458984,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "abs(Self.AnimationFrame - 1)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Debug_Toggle",
+							"sid": 895771430450500,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 722516407997320,
+							"parameters": {
+								"seconds": "0.08"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 751738235524912,
+							"parameters": {
+								"variable": "allowDebug",
+								"value": "abs(allowDebug - 1)"
+							}
+						},
+						{
+							"callFunction": "debug_toggle",
+							"sid": 664564754038829
+						}
+					],
+					"sid": 855992446811354
+				},
+				{
+					"functionName": "debug_toggle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 163518173458610,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 913896446034025,
+									"parameters": {
+										"variable": "allowDebug",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Debug_Toggle",
+									"sid": 588362397932818,
+									"parameters": {
+										"animation": "\"Off\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 266033814636517,
+									"parameters": {
+										"group-name": "\"Debug\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 121951017395581,
+									"parameters": {
+										"variable": "system_Debug",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 828749370415258
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 246871467655340
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Debug_Toggle",
+									"sid": 228310989700791,
+									"parameters": {
+										"animation": "\"On\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 578778186337564,
+									"parameters": {
+										"group-name": "\"Debug\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 255489829599496
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 520545530937408,
+									"parameters": {
+										"variable": "allowDebugToggle",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Debug_Toggle",
+									"sid": 698084272413799
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Text_Banner",
+									"sid": 642866358598863
+								}
+							],
+							"sid": 475235813010560
+						}
+					]
+				}
+			],
+			"sid": 142164817489902
 		}
 	],
 	"sid": 573607313438243

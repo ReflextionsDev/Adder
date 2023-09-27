@@ -1118,9 +1118,227 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Debug Runtime",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 169317432182028,
+							"parameters": {
+								"variable": "system_Debug",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug",
+							"sid": 441188517608385,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Debug_SF",
+							"sid": 970501023149743,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Debug_HealthText",
+							"sid": 868171905865581
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Debug_StateText",
+							"sid": 267966881829198
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 799586870884023,
+							"parameters": {
+								"variable": "game_DamageTextEnabled",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "HUD_ShowDifficulty",
+							"sid": 919448627414643
+						}
+					],
+					"sid": 588255867205546
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 256715838203099
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug_SF",
+							"sid": 879593116757550,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 114400152638577,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 652067330265862,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 535320691703407,
+									"parameters": {
+										"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Weapon 4: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_4) & \", \" & PlayerData.Weapon_4 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
+									}
+								}
+							],
+							"sid": 134718261115618
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 866871865637860,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 505802368486104,
+									"parameters": {
+										"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount & newline & newline & \"Equipment: \" & PlayerData.Equipment & newline & \"Equipment CD: \" & (str(int(Player.Timer.CurrentTime(\"EquipmentCooldown\"))) & \".\" & zeropad(int(Player.Timer.CurrentTime(\"EquipmentCooldown\")*100)%100,2) & \"/\" & Equipment_Current.Cooldown) & newline & newline & \"Level: \" & PlayerData.Level & newline & \"Exp: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & newline &  \"Exp Total: \" & PlayerData.Level_XPTotal & newline & newline & \"HP: \" & PlayerData.HP & \"/\" & PlayerData.MaxHP"
+									}
+								}
+							],
+							"sid": 817128561936429
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 123507505517562,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 542757329520467,
+									"disabled": true,
+									"parameters": {
+										"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits & newline & \"Ext Credits Total: \" & director_ExtZ_CreditsTotal"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 898510551615743,
+									"parameters": {
+										"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Level Difficulty: \" & level_Difficulty"
+									}
+								}
+							],
+							"sid": 150034874393875
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "HUD_HideDifficulty",
+									"sid": 536329293784762
+								}
+							],
+							"sid": 208503146764810
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 228538014099927,
+							"parameters": {
+								"variable": "system_Debug",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug",
+							"sid": 778600351709684,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 393621319364734
+				}
+			],
+			"sid": 182267147709377
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Debug",
 			"description": "Disable on Export",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"eventType": "group",
@@ -1539,214 +1757,6 @@
 								}
 							],
 							"sid": 393642063974847
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 169317432182028,
-									"parameters": {
-										"variable": "system_Debug",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug",
-									"sid": 441188517608385,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Debug_SF",
-									"sid": 970501023149743,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Debug_HealthText",
-									"sid": 868171905865581
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Debug_StateText",
-									"sid": 267966881829198
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 799586870884023,
-									"parameters": {
-										"variable": "game_DamageTextEnabled",
-										"value": "0"
-									}
-								},
-								{
-									"callFunction": "HUD_ShowDifficulty",
-									"sid": 919448627414643
-								}
-							],
-							"sid": 588255867205546
-						},
-						{
-							"eventType": "comment",
-							"text": ""
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 256715838203099
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug_SF",
-									"sid": 879593116757550,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 114400152638577,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 652067330265862,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 535320691703407,
-											"parameters": {
-												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Weapon 4: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_4) & \", \" & PlayerData.Weapon_4 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
-											}
-										}
-									],
-									"sid": 134718261115618
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 866871865637860,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 505802368486104,
-											"parameters": {
-												"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount & newline & newline & \"Equipment: \" & PlayerData.Equipment & newline & \"Equipment CD: \" & (str(int(Player.Timer.CurrentTime(\"EquipmentCooldown\"))) & \".\" & zeropad(int(Player.Timer.CurrentTime(\"EquipmentCooldown\")*100)%100,2) & \"/\" & Equipment_Current.Cooldown) & newline & newline & \"Level: \" & PlayerData.Level & newline & \"Exp: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & newline &  \"Exp Total: \" & PlayerData.Level_XPTotal & newline & newline & \"HP: \" & PlayerData.HP & \"/\" & PlayerData.MaxHP"
-											}
-										}
-									],
-									"sid": 817128561936429
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 123507505517562,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "4"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 542757329520467,
-											"disabled": true,
-											"parameters": {
-												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits & newline & \"Ext Credits Total: \" & director_ExtZ_CreditsTotal"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 898510551615743,
-											"parameters": {
-												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Level Difficulty: \" & level_Difficulty"
-											}
-										}
-									],
-									"sid": 150034874393875
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"callFunction": "HUD_HideDifficulty",
-											"sid": 536329293784762
-										}
-									],
-									"sid": 208503146764810
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 228538014099927,
-									"parameters": {
-										"variable": "system_Debug",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug",
-									"sid": 778600351709684,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 393621319364734
 						}
 					],
 					"sid": 111338340496064
