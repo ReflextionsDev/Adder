@@ -314,6 +314,12 @@
 								}
 							],
 							"sid": 390250939988185
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 886791508022472
 						}
 					]
 				},
@@ -354,6 +360,32 @@
 						}
 					],
 					"sid": 784717538907452
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 640248661190580
+						},
+						{
+							"id": "is-available",
+							"objectClass": "Greenworks",
+							"sid": 605050776953343
+						}
+					],
+					"actions": [
+						{
+							"id": "activate-achievement",
+							"objectClass": "Greenworks",
+							"sid": 763962432088170,
+							"parameters": {
+								"achievement": "\"adder\""
+							}
+						}
+					],
+					"sid": 876363847851740
 				}
 			],
 			"sid": 580378530064525

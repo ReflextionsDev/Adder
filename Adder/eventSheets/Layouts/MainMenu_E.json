@@ -1444,18 +1444,53 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 171514160111626,
+					"children": [
 						{
-							"id": "open-url-in-new-window",
-							"objectClass": "Browser",
-							"sid": 163834717083384,
-							"parameters": {
-								"url": "InfoLink.link",
-								"tag": "InfoLink.link"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-nwjs-export",
+									"objectClass": "PlatformInfo",
+									"sid": 206774038066785
+								}
+							],
+							"actions": [
+								{
+									"id": "open-browser",
+									"objectClass": "NWjs",
+									"sid": 943739692382894,
+									"parameters": {
+										"url": "InfoLink.link"
+									}
+								}
+							],
+							"sid": 582205254361913
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 410547802863022
+								}
+							],
+							"actions": [
+								{
+									"id": "open-url-in-new-window",
+									"objectClass": "Browser",
+									"sid": 867571631785143,
+									"parameters": {
+										"url": "InfoLink.link",
+										"tag": "InfoLink.link"
+									}
+								}
+							],
+							"sid": 573376083207941
 						}
-					],
-					"sid": 171514160111626
+					]
 				},
 				{
 					"eventType": "block",
@@ -1574,18 +1609,53 @@
 									"sid": 921780260519778
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 221088299508540,
+							"children": [
 								{
-									"id": "open-url-in-new-window",
-									"objectClass": "Browser",
-									"sid": 979171042728010,
-									"parameters": {
-										"url": "MenuLinks.link",
-										"tag": "MenuLinks.link"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-nwjs-export",
+											"objectClass": "PlatformInfo",
+											"sid": 685569038572712
+										}
+									],
+									"actions": [
+										{
+											"id": "open-browser",
+											"objectClass": "NWjs",
+											"sid": 542472648422654,
+											"parameters": {
+												"url": "MenuLinks.link"
+											}
+										}
+									],
+									"sid": 367836586505588
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 781545339353226
+										}
+									],
+									"actions": [
+										{
+											"id": "open-url-in-new-window",
+											"objectClass": "Browser",
+											"sid": 642371020650456,
+											"parameters": {
+												"url": "MenuLinks.link",
+												"tag": "MenuLinks.link"
+											}
+										}
+									],
+									"sid": 517180168462294
 								}
-							],
-							"sid": 221088299508540
+							]
 						}
 					]
 				},
