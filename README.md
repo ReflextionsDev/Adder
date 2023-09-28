@@ -3,7 +3,7 @@
 
 ## ![Icon Zealot](/_PICS/Icon_Zealot.png) About
 
-Project Adder is a 2D platform video game by [Nathan Bennett](https://nlb.dev). It is available for free on [Steam](https://store.steampowered.com/app/391150/Project_Adder/). If you have questions feel free to dm on discord: @draspur 
+Project Adder is a 2D platform video game by [Nathan Bennett](https://nlb.dev). It is available for free on [Steam](https://store.steampowered.com/app/2598410/Project_Adder/). If you have questions feel free to dm on discord: @draspur 
 
 ## ![Icon Bombboy](/_PICS/Icon_Bombboy.png) Contributing
 
