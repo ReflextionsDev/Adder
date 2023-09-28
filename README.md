@@ -5,7 +5,7 @@
 
 Project Adder is a 2D platform video game by [Nathan Bennett](https://nlb.dev). It is available for free on [Steam](https://store.steampowered.com/app/391150/Project_Adder/). If you have questions feel free to dm on discord: @draspur 
 
-## ![Icon Bombboy](/_PICS/Icon32.png) Contributing
+## ![Icon Bombboy](/_PICS/Icon_Bombboy.png) Contributing
 
 ### Using Construct 3 
 Project Adder was originally developed in Construct 2 but has since been ported to [Construct 3](https://www.construct.net/en).
