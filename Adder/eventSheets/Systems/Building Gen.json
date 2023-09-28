@@ -30,16 +30,16 @@
 					"eventType": "variable",
 					"name": "section_width",
 					"type": "number",
-					"initialValue": "240",
+					"initialValue": "24",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 782479551412581
 				},
 				{
-					"functionName": "Level_GenerateBuilding",
+					"functionName": "Level_Generate_Room",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Level",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -64,6 +64,20 @@
 							"initialValue": "0",
 							"comment": "intervals of 0.25",
 							"sid": 659218365980227
+						},
+						{
+							"name": "wallpaper",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 210613477956132
+						},
+						{
+							"name": "flooring",
+							"type": "number",
+							"initialValue": "12",
+							"comment": "",
+							"sid": 245459015737992
 						}
 					],
 					"eventType": "function-block",
@@ -105,13 +119,13 @@
 								{
 									"id": "set-tile-range",
 									"objectClass": "Tile_BG",
-									"sid": 790521717388210,
+									"sid": 246518605970134,
 									"parameters": {
 										"tile-x": "0",
 										"tile-y": "0",
 										"width": "Tile_BG.MapDisplayWidth",
 										"height": "Tile_BG.MapDisplayHeight",
-										"tile": "1",
+										"tile": "wallpaper",
 										"state": "normal"
 									}
 								}
@@ -129,13 +143,13 @@
 								{
 									"id": "set-tile-range",
 									"objectClass": "Tile_BG",
-									"sid": 704810527598539,
+									"sid": 238117986495204,
 									"parameters": {
 										"tile-x": "0",
 										"tile-y": "4",
 										"width": "Tile_BG.MapDisplayWidth",
 										"height": "1",
-										"tile": "24",
+										"tile": "flooring",
 										"state": "normal"
 									}
 								}
@@ -189,6 +203,153 @@
 								}
 							],
 							"sid": 368991240418737
+						},
+						{
+							"eventType": "comment",
+							"text": "create solid"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 810762618446669,
+									"parameters": {
+										"object-to-create": "Solid_Floor",
+										"layer": "Tile_BG.MapDisplayWidth",
+										"x": "x",
+										"y": "y + 48",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Solid_Floor",
+									"sid": 282706903445640,
+									"parameters": {
+										"width": "Tile_BG.Width"
+									}
+								}
+							],
+							"sid": 140333762879881
+						},
+						{
+							"eventType": "comment",
+							"text": "advance spawner"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "RoomSpawnPoint",
+									"sid": 592106859286114,
+									"parameters": {
+										"x": "Self.X + section_width * sections",
+										"y": "Self.Y"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "BuildingSpawnPoint",
+									"sid": 811235447553152,
+									"disabled": true,
+									"parameters": {
+										"x": "Self.X + section_width * sections",
+										"y": "Self.Y"
+									}
+								}
+							],
+							"sid": 743555517530255
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "room prefabs? - kitchen ,bedroom, etc, bathroom"
+				},
+				{
+					"eventType": "comment",
+					"text": "maybe later, don't worry about specific types, but you can have biome themes perhaps"
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "comment",
+					"text": "should make room size (small, medium, large, extra large, wtih section sizes)"
+				},
+				{
+					"eventType": "comment",
+					"text": "add wallpaper / floor sets"
+				},
+				{
+					"eventType": "comment",
+					"text": "xs, sm, md, lg, xl, 2x, 3x"
+				},
+				{
+					"eventType": "comment",
+					"text": "min - 6\n\ntiny - 6, \n10\n14\n20"
+				},
+				{
+					"eventType": "comment",
+					"text": "total - 20"
+				},
+				{
+					"eventType": "comment",
+					"text": "total - 20"
+				},
+				{
+					"eventType": "comment",
+					"text": "ROOMS\nxs: 6\nsm: 10\nmd: 14\nlg: 20\nxl: 30\n2x: 40\n3x: 60"
+				},
+				{
+					"eventType": "comment",
+					"text": "bigger sizes can use smaller size breakdown"
+				},
+				{
+					"eventType": "comment",
+					"text": "FLOORS\nxs: 6 \nsm: 14 \nmd: 20\n\n30 (20 & 10 / 6 & 14 & 10 / 30 / 10 & 10 & 10)"
+				},
+				{
+					"functionName": "Level_Generate_Floor",
+					"functionDescription": "",
+					"functionCategory": "Level",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 893463051467855,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "while stuff"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Level_Generate_Room",
+									"sid": 469172498752101,
+									"parameters": [
+										"RoomSpawnPoint.X",
+										"RoomSpawnPoint.Y",
+										"10",
+										"choose(1,2,3,24,25,26)",
+										"choose(12,13,14)"
+									]
+								}
+							],
+							"sid": 452186227916052
 						}
 					]
 				},
@@ -218,19 +379,207 @@
 							}
 						},
 						{
-							"callFunction": "Level_GenerateBuilding",
-							"sid": 701092408754386,
+							"callFunction": "Level_Generate_Room",
+							"sid": 308699458359849,
+							"disabled": true,
 							"parameters": [
-								"BuildingSpawnPoint.X",
-								"BuildingSpawnPoint.Y",
-								"3"
+								"RoomSpawnPoint.X",
+								"RoomSpawnPoint.Y",
+								"8",
+								"choose(1,2,3,24,25,26)",
+								"choose(12,13,14)"
 							]
+						},
+						{
+							"callFunction": "Level_Generate_Floor",
+							"sid": 856898668292734
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 840741826808941,
+							"parameters": {
+								"object-to-create": "Camera_EndZone",
+								"layer": "0",
+								"x": "0",
+								"y": "0",
+								"create-hierarchy": true,
+								"template-name": "random(0,1)"
+							}
 						}
 					],
 					"sid": 966957883242422
 				}
 			],
 			"sid": 214681428162418
+		},
+		{
+			"eventType": "comment",
+			"text": "nevermind pass back an array [1,2,3], shuffle if more than 1 value, then loop through and build a room for each size"
+		},
+		{
+			"eventType": "comment",
+			"text": "use CSVs, if more than 1 value, put into array and shuffle"
+		},
+		{
+			"eventType": "comment",
+			"text": "or pass back an array"
+		},
+		{
+			"eventType": "comment",
+			"text": "FLOORS\nxs: 6 (6)\nsm: 14 (14)\n1: 16 (10 / 6)\nsmm: 20 (10 & 6  &  14 / 10 & 10)\n30 (20 & 10 / 6 & 14 & 10 / 30 / 10 & 10 & 10)"
+		},
+		{
+			"eventType": "comment",
+			"text": "room templates include ladder or not... so variants w/ ladders"
+		},
+		{
+			"eventType": "comment",
+			"text": "Returns a random combination of rooms given a size"
+		},
+		{
+			"eventType": "comment",
+			"text": "ROOMS\nxs: 6\nsm: 10\nmd: 14\nlg: 20\nxl: 30\n2x: 40\n3x: 60"
+		},
+		{
+			"functionName": "Level_Get_Rooms",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "size",
+					"type": "string",
+					"initialValue": "xs",
+					"comment": "xs, sm, md, lg, xl, 2x, 3x",
+					"sid": 318699420270121
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 305408489028268,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 436209182479102,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "\"xs\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 868494423787646,
+							"parameters": {
+								"value": "6"
+							}
+						}
+					],
+					"sid": 113387051495526
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 671072274331437,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "\"sm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 425731574993462,
+							"parameters": {
+								"value": "10"
+							}
+						}
+					],
+					"sid": 226876622810022
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 594865711352878,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "\"md\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 237415432241090,
+							"parameters": {
+								"value": "14"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 575819793603522
+						}
+					],
+					"sid": 617928379821995
+				},
+				{
+					"eventType": "comment",
+					"text": "20"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 263838524446981,
+							"parameters": {
+								"variable": "size",
+								"comparison": 0,
+								"value": "\"lg\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 453325881842950,
+							"parameters": {
+								"value": "\"[[10,10],[14,6],[20]]\""
+							}
+						}
+					],
+					"sid": 236789257050570
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "e"
 		}
 	],
 	"sid": 595154034152071

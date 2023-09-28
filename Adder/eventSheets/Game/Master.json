@@ -6,6 +6,10 @@
 			"text": "This may cause launch bug"
 		},
 		{
+			"eventType": "comment",
+			"text": "PlayBGM disable"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -22,6 +26,40 @@
 				{
 					"callFunction": "Music_PlayBGM",
 					"sid": 661246245986971
+				},
+				{
+					"type": "comment",
+					"text": "Debug"
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 833866842729668,
+					"disabled": true
+				},
+				{
+					"id": "set-master-volume",
+					"objectClass": "Audio",
+					"sid": 694731429671834,
+					"disabled": true,
+					"parameters": {
+						"db": "-20"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 722700241848142,
+					"disabled": true,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 656620464990026,
+					"disabled": true
 				}
 			],
 			"sid": 510670441256953
@@ -597,6 +635,13 @@
 									"initialValue": "0",
 									"comment": "",
 									"sid": 527109524144942
+								},
+								{
+									"name": "removeElement",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 996100624336288
 								}
 							],
 							"eventType": "function-block",
@@ -612,15 +657,134 @@
 							],
 							"actions": [
 								{
-									"id": "set-function-return-value",
-									"objectClass": "Functions",
-									"sid": 661084330317033,
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 362605717753247,
 									"parameters": {
-										"value": "Arrays.At((random(0,(Arrays.Width-0.001))))"
+										"type": "log",
+										"message": "\"Array Get Random\" & Arrays.UID"
 									}
 								}
 							],
-							"sid": 919485538974101
+							"sid": 919485538974101,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "index",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 484810586312342
+								},
+								{
+									"eventType": "variable",
+									"name": "element",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 381899500326701
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "why is this not a whole int lmao"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 190693185665263,
+											"parameters": {
+												"variable": "index",
+												"value": "random(0,(Arrays.Width-0.001))"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 229280647211320,
+											"parameters": {
+												"type": "log",
+												"message": "\"Index \" & index"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 612032300338568,
+											"parameters": {
+												"variable": "element",
+												"value": "Arrays.At(index)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 617694577369908,
+											"parameters": {
+												"type": "log",
+												"message": "\"Element \" & element"
+											}
+										}
+									],
+									"sid": 985501575034643
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 802565411599623,
+											"parameters": {
+												"variable": "removeElement"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "delete",
+											"objectClass": "Arrays",
+											"sid": 637714563107854,
+											"parameters": {
+												"index": "index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 292668495969196,
+											"parameters": {
+												"type": "log",
+												"message": "\"Removed Element\""
+											}
+										}
+									],
+									"sid": 897182728739800
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 642577868750874,
+											"parameters": {
+												"value": "element"
+											}
+										}
+									],
+									"sid": 555475444548033
+								}
+							]
 						},
 						{
 							"functionName": "Array_Shuffle",
@@ -944,11 +1108,237 @@
 			"includeSheet": "Menu Master"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Pause_E"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "UI_Events"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug Runtime",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 169317432182028,
+							"parameters": {
+								"variable": "system_Debug",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug",
+							"sid": 441188517608385,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Debug_SF",
+							"sid": 970501023149743,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Debug_HealthText",
+							"sid": 868171905865581
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Debug_StateText",
+							"sid": 267966881829198
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 799586870884023,
+							"parameters": {
+								"variable": "game_DamageTextEnabled",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "HUD_ShowDifficulty",
+							"sid": 919448627414643
+						}
+					],
+					"sid": 588255867205546
+				},
+				{
+					"eventType": "comment",
+					"text": ""
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 256715838203099
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug_SF",
+							"sid": 879593116757550,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 114400152638577,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 652067330265862,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 535320691703407,
+									"parameters": {
+										"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Weapon 4: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_4) & \", \" & PlayerData.Weapon_4 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
+									}
+								}
+							],
+							"sid": 134718261115618
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 866871865637860,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 505802368486104,
+									"parameters": {
+										"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount & newline & newline & \"Equipment: \" & PlayerData.Equipment & newline & \"Equipment CD: \" & (str(int(Player.Timer.CurrentTime(\"EquipmentCooldown\"))) & \".\" & zeropad(int(Player.Timer.CurrentTime(\"EquipmentCooldown\")*100)%100,2) & \"/\" & Equipment_Current.Cooldown) & newline & newline & \"Level: \" & PlayerData.Level & newline & \"Exp: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & newline &  \"Exp Total: \" & PlayerData.Level_XPTotal & newline & newline & \"HP: \" & PlayerData.HP & \"/\" & PlayerData.MaxHP"
+									}
+								}
+							],
+							"sid": 817128561936429
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Debug_SF",
+									"sid": 123507505517562,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 542757329520467,
+									"disabled": true,
+									"parameters": {
+										"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits & newline & \"Ext Credits Total: \" & director_ExtZ_CreditsTotal"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Debug_SF",
+									"sid": 898510551615743,
+									"parameters": {
+										"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Level Difficulty: \" & level_Difficulty"
+									}
+								}
+							],
+							"sid": 150034874393875
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "HUD_HideDifficulty",
+									"sid": 536329293784762
+								}
+							],
+							"sid": 208503146764810
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 228538014099927,
+							"parameters": {
+								"variable": "system_Debug",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Debug",
+							"sid": 778600351709684,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 393621319364734
+				}
+			],
+			"sid": 182267147709377
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Debug",
 			"description": "Disable on Export",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"eventType": "group",
@@ -1367,214 +1757,6 @@
 								}
 							],
 							"sid": 393642063974847
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 169317432182028,
-									"parameters": {
-										"variable": "system_Debug",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug",
-									"sid": 441188517608385,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Debug_SF",
-									"sid": 970501023149743,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Debug_HealthText",
-									"sid": 868171905865581
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Debug_StateText",
-									"sid": 267966881829198
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 799586870884023,
-									"parameters": {
-										"variable": "game_DamageTextEnabled",
-										"value": "0"
-									}
-								},
-								{
-									"callFunction": "HUD_ShowDifficulty",
-									"sid": 919448627414643
-								}
-							],
-							"sid": 588255867205546
-						},
-						{
-							"eventType": "comment",
-							"text": ""
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 256715838203099
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug_SF",
-									"sid": 879593116757550,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 114400152638577,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 652067330265862,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 535320691703407,
-											"parameters": {
-												"text": "\"FPS: \" & fps & newline & \"CPU: \" & left(str(cpuutilisation*100),4) & \"%\" & newline & \"GPU: \" & left(str(gpuutilisation*100),4) & \"%\" & newline & \"OBJ: \" & objectcount & newline & \"Weapon 1: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_1) & \", \" & PlayerData.Weapon_1 & newline & \"Weapon 2: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_2) & \", \" & PlayerData.Weapon_2 & newline & \"Weapon 3: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_3) & \", \" & PlayerData.Weapon_3 & newline & \"Weapon 4: \" & function.Call(\"PLR_GetWeaponName\",PlayerData.Weapon_4) & \", \" & PlayerData.Weapon_4 & newline & \"Magazine: \" & Weapon_Player.MagLeft & \"/\" & Weapon_Player.Magsize & newline & \"Light: \" & Weapon_Player.Ammo_Light  & newline & \"Medium: \" & Weapon_Player.Ammo_Medium  & newline & \"Heavy: \" & Weapon_Player.Ammo_Heavy  & newline & \"Shells: \" & Weapon_Player.Ammo_Shell  & newline & \"Explosive: \" & Weapon_Player.Ammo_Explosive & newline & \"Special: \" & Weapon_Player.Ammo_Special & newline & \"Coyote Time: \" & Player.Timer.CurrentTime(\"CoyoteTime\") & newline & \"Aim Angle: \" & round(Player_Aim.Angle) & newline & \"Dodge: \" & PlayerData.DodgeCooldown - Player.DodgeTimer & \"/\" & PlayerData.DodgeCooldown & newline & \"Money: \" & PlayerData.Money"
-											}
-										}
-									],
-									"sid": 134718261115618
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 866871865637860,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 505802368486104,
-											"parameters": {
-												"text": "\"Name: \" & Weapon_Player.Name & newline & \"Type:\" & Weapon_Player.Type & newline & \"Mode:\" & Weapon_Player.Mode & newline & \"Ammo Type:\" & Weapon_Player.AmmoType & newline & \"Damage: \" & Weapon_Player.Damage & newline & \"Interval: \" & Weapon_Player.Interval & newline & \"Interval Current:\" & Weapon_Player.IntervalCurrent & newline & \"Knockback:\" & Weapon_Player.Knockback & newline & \"Spread: \" & Weapon_Player.Spread & newline & \"Reload:\" & Weapon_Player.Reload & newline & \"Handling: \" & Weapon_Player.Handling & newline & \"Penetration:\" & Weapon_Player.Penetration & newline & \"Shot Count:\" & Weapon_Player.ShotCount & newline & \"BurstCount: \" & Weapon_Player.BurstCount & newline & newline & \"Equipment: \" & PlayerData.Equipment & newline & \"Equipment CD: \" & (str(int(Player.Timer.CurrentTime(\"EquipmentCooldown\"))) & \".\" & zeropad(int(Player.Timer.CurrentTime(\"EquipmentCooldown\")*100)%100,2) & \"/\" & Equipment_Current.Cooldown) & newline & newline & \"Level: \" & PlayerData.Level & newline & \"Exp: \" & PlayerData.Level_XPThisLevel & \"/\" & PlayerData.Level_XPNeeded & newline &  \"Exp Total: \" & PlayerData.Level_XPTotal & newline & newline & \"HP: \" & PlayerData.HP & \"/\" & PlayerData.MaxHP"
-											}
-										}
-									],
-									"sid": 817128561936429
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Debug_SF",
-											"sid": 123507505517562,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "4"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 542757329520467,
-											"disabled": true,
-											"parameters": {
-												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Difficulty: \" & director_Difficulty & newline & \"Int Credits: \" & director_IntZ_CreditsPerTurn & newline & \"Ext Credits Per Turn: \" & director_ExtZ_CreditsPerTurn & newline & \"Ext Credits: \" & director_ExtZ_Credits & newline & \"Ext Credits Total: \" & director_ExtZ_CreditsTotal"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Debug_SF",
-											"sid": 898510551615743,
-											"parameters": {
-												"text": "\"Zombies: \" & Zombie.Count & newline & \"Run Time: \" & director_RunTime & newline & \"Difficulty Time: \" & director_DifficultyTime & newline & \"Level Difficulty: \" & level_Difficulty"
-											}
-										}
-									],
-									"sid": 150034874393875
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"callFunction": "HUD_HideDifficulty",
-											"sid": 536329293784762
-										}
-									],
-									"sid": 208503146764810
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 228538014099927,
-									"parameters": {
-										"variable": "system_Debug",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "Debug",
-									"sid": 778600351709684,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 393621319364734
 						}
 					],
 					"sid": 111338340496064
@@ -3863,6 +4045,14 @@
 									"parameters": {
 										"mouse-button": "middle",
 										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 412126229181437,
+									"parameters": {
+										"key": 220
 									}
 								}
 							],
@@ -6344,7 +6534,8 @@
 									],
 									"sid": 950776056552126
 								}
-							]
+							],
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -7605,6 +7796,30 @@
 											"sid": 309686871323354
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 453416563961217,
+											"parameters": {
+												"key": 80
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "Player",
+											"sid": 305071990908820,
+											"parameters": {
+												"x": "Player.X + 1000"
+											}
+										}
+									],
+									"sid": 918161202031234
 								}
 							],
 							"sid": 717769515409312
@@ -7913,8 +8128,7 @@
 									}
 								}
 							],
-							"sid": 170481750723448,
-							"disabled": true
+							"sid": 170481750723448
 						},
 						{
 							"eventType": "comment",
@@ -8527,6 +8741,36 @@
 						}
 					],
 					"sid": 948270710988947
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 100178657468820,
+							"parameters": {
+								"key": 220
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "remove-item",
+							"objectClass": "LocalStorage",
+							"sid": 726592421182280,
+							"parameters": {
+								"key": "\"AdderSaveFile1\""
+							}
+						},
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 203474417778423,
+							"disabled": true
+						}
+					],
+					"sid": 671415902347391
 				},
 				{
 					"eventType": "block",
@@ -9786,7 +10030,8 @@
 										"ease": "easeoutquad",
 										"destroy-on-complete": "no",
 										"loop": "no",
-										"ping-pong": "no"
+										"ping-pong": "no",
+										"repeat-count": "1"
 									}
 								}
 							],
@@ -12603,7 +12848,9 @@
 						"transform-w": true,
 						"transform-h": true,
 						"transform-a": true,
+						"transform-o": false,
 						"transform-z-elevation": true,
+						"transform-visibility": false,
 						"destroy-with-parent": true
 					}
 				}
@@ -12731,6 +12978,28 @@
 			],
 			"sid": 534064232151531,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Fog",
+					"sid": 393008133938891
+				}
+			],
+			"actions": [
+				{
+					"id": "set-fade-out-time",
+					"objectClass": "Fog",
+					"sid": 466185046056060,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-out-time": "game_FogFadeOut"
+					}
+				}
+			],
+			"sid": 701026702536528
 		}
 	],
 	"sid": 350183298465580

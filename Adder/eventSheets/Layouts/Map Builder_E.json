@@ -196,6 +196,16 @@
 			"sid": 443394930344075
 		},
 		{
+			"eventType": "variable",
+			"name": "level_EventToLoad",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 656051191472765
+		},
+		{
 			"eventType": "group",
 			"disabled": true,
 			"title": "Map Debug",
@@ -600,6 +610,15 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 353776731825059,
+					"parameters": {
+						"type": "log",
+						"message": "\"Map Built\""
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 487611062241868,
@@ -615,15 +634,6 @@
 						"0",
 						"0.5"
 					]
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 614332328808510,
-					"parameters": {
-						"type": "log",
-						"message": "\"Map Built\""
-					}
 				},
 				{
 					"id": "wait",

@@ -456,6 +456,294 @@
 								},
 								{
 									"eventType": "comment",
+									"text": "LOOT TABLES"
+								},
+								{
+									"eventType": "comment",
+									"text": "Should have another loottable lookup"
+								},
+								{
+									"eventType": "comment",
+									"text": "Do these support empty values?"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 871205410347018
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 271388052088459,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"shop__forest_weapon1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 220690868508848,
+											"parameters": [
+												"\"common\"",
+												"60"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 344746741723257,
+											"parameters": [
+												"\"uncommon\"",
+												"40"
+											]
+										}
+									],
+									"sid": 820247519222164
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 954684104302538
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 147543733170086,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"shop_forest_weapon2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 322054720892427,
+											"parameters": [
+												"\"rare\"",
+												"7"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 126805908309782,
+											"parameters": [
+												"\"epic\"",
+												"3"
+											]
+										}
+									],
+									"sid": 236377353673447
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 187353446324160
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 718934969104909,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"shrine_forest_weapon\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 353969739920250,
+											"parameters": [
+												"\"null\"",
+												"7"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 875539588648189,
+											"parameters": [
+												"\"common\"",
+												"2"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 836187462568437,
+											"parameters": [
+												"\"uncommon\"",
+												"1"
+											]
+										}
+									],
+									"sid": 162641400677989
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 689498263318834
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 936624551791507,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"event_weapon_forest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 745240995790144,
+											"parameters": [
+												"\"uncommon\"",
+												"5"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 266808229416412,
+											"parameters": [
+												"\"rare\"",
+												"3"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 581455764463268,
+											"parameters": [
+												"\"epic\"",
+												"2"
+											]
+										}
+									],
+									"sid": 863247676746149
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 570319410549128
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 255464092260948,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"dummy\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 833984909367575,
+											"parameters": {
+												"type": "log",
+												"message": "\"loot table dummy\""
+											}
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 627059642791543,
+											"parameters": [
+												"\"rare\"",
+												"60"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 969979668608821,
+											"parameters": [
+												"\"epic\"",
+												"35"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 629145807945163,
+											"parameters": [
+												"\"legendary\"",
+												"5"
+											]
+										}
+									],
+									"sid": 211070809906180
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 736232123635744
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 911451325096318,
+											"parameters": {
+												"variable": "table",
+												"comparison": 0,
+												"value": "\"nulltest\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 849409671161937,
+											"parameters": {
+												"type": "log",
+												"message": "\"loot table dummy\""
+											}
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 297170588189785,
+											"parameters": [
+												"\"null\"",
+												"1"
+											]
+										},
+										{
+											"callFunction": "Shuffle_AddItem",
+											"sid": 666885219652522,
+											"parameters": [
+												"\"epic\"",
+												"1"
+											]
+										}
+									],
+									"sid": 848036609943159
+								},
+								{
+									"eventType": "comment",
 									"text": "Draw specified type"
 								},
 								{
@@ -580,6 +868,37 @@
 								{
 									"eventType": "block",
 									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 729734068595547,
+											"parameters": {
+												"variable": "rarity",
+												"comparison": 0,
+												"value": "\"null\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 234000426344864,
+											"parameters": {
+												"value": "\"null\""
+											}
+										}
+									],
+									"sid": 740603169834034
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 626288209693608
+										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",

@@ -2,6 +2,10 @@
 	"name": "Preload_E",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "MainMenu"
+		},
+		{
 			"eventType": "variable",
 			"name": "system_FirstLayout",
 			"type": "string",
@@ -84,6 +88,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "could be converted to async"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -132,6 +140,16 @@
 							"sid": 425721507910463,
 							"parameters": {
 								"variable": "system_LevelListsLoaded",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 114564700305384,
+							"parameters": {
+								"variable": "system_OptionsLoaded",
 								"comparison": 0,
 								"value": "1"
 							}
@@ -327,7 +345,7 @@
 					"functionCategory": "System",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
-					"functionIsAsync": false,
+					"functionIsAsync": true,
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
@@ -354,6 +372,10 @@
 						{
 							"callFunction": "System_QuerySaveData",
 							"sid": 276500492733362
+						},
+						{
+							"callFunction": "System_LoadOptions",
+							"sid": 377171327833040
 						},
 						{
 							"callFunction": "System_LoadJSONs",
@@ -570,6 +592,274 @@
 				}
 			],
 			"sid": 842988051769312
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPC Loot Containers",
+			"description": "Should probably be JSON [i]shrug[/i]",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 867294626021004
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NPC_LootTables",
+							"sid": 745313179163217
+						}
+					],
+					"sid": 749345062846807,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 174183879434502,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 699175402147075,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"test\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 585885769538992,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 134310435566488,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"uncommon\""
+									}
+								}
+							],
+							"sid": 729879778918125
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 732736508349942,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 374477914159272,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"dummy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 902139041503755,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 118265363735091,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"dummy\""
+									}
+								}
+							],
+							"sid": 844816835226467
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 382978531758306,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 575295742921506,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"purple\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 726861858009770,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Equipment\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 736125437616868,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"rare\""
+									}
+								}
+							],
+							"sid": 332367631916291,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 127219301143163,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 885206909110452,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"green\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 989585068352849,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 876651931012262,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"event_weapon_forest\""
+									}
+								}
+							],
+							"sid": 810177144672017,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 356578971151726,
+									"parameters": {
+										"object-to-create": "NPC_LootTables",
+										"layer": "0",
+										"x": "0",
+										"y": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 940611297695504,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "\"npc_dummy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 150056803457909,
+									"parameters": {
+										"instance-variable": "Type",
+										"value": "\"Weapon\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPC_LootTables",
+									"sid": 396653954825525,
+									"parameters": {
+										"instance-variable": "LootTable",
+										"value": "\"uncommon\""
+									}
+								}
+							],
+							"sid": 249702830470664,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 489230358330205
 		}
 	],
 	"sid": 353080359195606

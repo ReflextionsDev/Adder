@@ -297,8 +297,17 @@
 							"id": "set-text",
 							"objectClass": "Text_Time",
 							"sid": 645492293316516,
+							"disabled": true,
 							"parameters": {
 								"text": "Functions.Text_GetTimeFormat(director_DifficultyTime)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Time",
+							"sid": 578484243749689,
+							"parameters": {
+								"text": "Functions.Text_GetTimeFormat(int(time - time_offset))"
 							}
 						},
 						{
@@ -720,7 +729,9 @@
 										"transform-w": false,
 										"transform-h": false,
 										"transform-a": true,
+										"transform-o": false,
 										"transform-z-elevation": true,
+										"transform-visibility": false,
 										"destroy-with-parent": true
 									}
 								},
@@ -753,7 +764,9 @@
 										"transform-w": true,
 										"transform-h": true,
 										"transform-a": true,
+										"transform-o": false,
 										"transform-z-elevation": true,
+										"transform-visibility": false,
 										"destroy-with-parent": true
 									}
 								},
@@ -799,7 +812,9 @@
 										"transform-w": false,
 										"transform-h": false,
 										"transform-a": false,
+										"transform-o": false,
 										"transform-z-elevation": false,
+										"transform-visibility": false,
 										"destroy-with-parent": false
 									}
 								}

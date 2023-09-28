@@ -713,18 +713,316 @@
 										"instance-variable": "SubType",
 										"value": "Subtype"
 									}
+								}
+							],
+							"sid": 707510730266108
+						},
+						{
+							"eventType": "comment",
+							"text": "Create loot instantly at NPCs"
+						},
+						{
+							"eventType": "comment",
+							"text": "For each"
+						},
+						{
+							"eventType": "comment",
+							"text": "Parse through all CSVs"
+						},
+						{
+							"functionName": "NPC_Loot_Table_SpawnAll\"",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "X",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 215379522019393
+								},
+								{
+									"name": "Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 560579964131161
+								},
+								{
+									"name": "List",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 742925037283466
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 574059569136583,
+									"parameters": {
+										"type": "log",
+										"message": "\"NPC_Loot_Table_SpawnAll\" & List"
+									}
+								}
+							],
+							"sid": 270120861050400,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "token",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 142134289981860
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 926710566324512,
+											"parameters": {
+												"count": "tokencount(List,\",\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 599945845557532,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"loop index\" & loopindex"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 344272400502099,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "tokenat(List,loopindex,\",\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 391234002297010,
+											"parameters": {
+												"variable": "token",
+												"value": "tokenat(List,loopindex,\",\")"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 317275542970839,
+											"parameters": {
+												"type": "log",
+												"message": "\"token\" & token"
+											}
+										}
+									],
+									"sid": 703849881977425,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC_LootTables",
+													"sid": 133477696359699,
+													"parameters": {
+														"instance-variable": "Name",
+														"comparison": 0,
+														"value": "token"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "not calling atm"
+												},
+												{
+													"callFunction": "NPC_Loot_Table_Spawn",
+													"sid": 556863361517039,
+													"parameters": [
+														"NPC_LootTables.Type",
+														"NPC_LootTables.LootTable",
+														"X",
+														"Y"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 961072216830906,
+													"parameters": {
+														"type": "log",
+														"message": "\"hase UID\" & NPC_LootTables.UID"
+													}
+												}
+											],
+											"sid": 618617238465140
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "NPC_Loot_Table_Spawn",
+							"functionDescription": "",
+							"functionCategory": "Loot",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Type",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 168435260377378
+								},
+								{
+									"name": "LootTable",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 997192035547253
+								},
+								{
+									"name": "X",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 393295124369188
+								},
+								{
+									"name": "Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 592402541647649
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 512054300398992,
+									"parameters": {
+										"first-value": "LootTable",
+										"comparison": 1,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 284847600521744,
+									"parameters": {
+										"type": "log",
+										"message": "\"NPC_Loot_Table_Spawn\" & \"Type; \" & Type & \"LootTable\" & LootTable"
+									}
 								},
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 718135883495392,
+									"sid": 627320822335946,
 									"parameters": {
 										"type": "log",
-										"message": "\"YEEEET\"\n"
+										"message": "\"yolo\""
 									}
 								}
 							],
-							"sid": 707510730266108
+							"sid": 815946809719426,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Loot",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 604739062946610
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Logic might be wrong here?"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 725731788493546,
+											"disabled": true,
+											"parameters": {
+												"variable": "LootTable",
+												"value": "Functions.Item_Draw(LootTable,Type)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 827067405359388,
+											"parameters": {
+												"variable": "Loot",
+												"value": "Functions.Item_Draw(LootTable,Type)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 996207100515239,
+											"parameters": {
+												"type": "log",
+												"message": "\"Loot: \" & Loot"
+											}
+										}
+									],
+									"sid": 461005560373382
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "OBJ_Create",
+											"sid": 338694978314034,
+											"parameters": [
+												"\"Objects\"",
+												"X",
+												"Y",
+												"Type",
+												"Loot"
+											]
+										}
+									],
+									"sid": 743067359446794
+								}
+							]
 						},
 						{
 							"eventType": "comment",
@@ -1329,7 +1627,8 @@
 										"ease": "easeoutquad",
 										"destroy-on-complete": "no",
 										"loop": "no",
-										"ping-pong": "no"
+										"ping-pong": "no",
+										"repeat-count": "1"
 									}
 								}
 							],
@@ -2278,7 +2577,8 @@
 										"ease": "easeoutquad",
 										"destroy-on-complete": "no",
 										"loop": "no",
-										"ping-pong": "no"
+										"ping-pong": "no",
+										"repeat-count": "1"
 									}
 								}
 							],

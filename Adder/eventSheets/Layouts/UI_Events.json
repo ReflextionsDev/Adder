@@ -1,0 +1,1225 @@
+{
+	"name": "UI_Events",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp Notes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Replace segment actions w/ family actions - problem with this... comp_segment needs to access style props"
+				},
+				{
+					"eventType": "comment",
+					"text": "Replace element w/ family"
+				}
+			],
+			"sid": 759649119682305
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp Dispatchers",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Comp_Dispatch_Me",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Comp_Dispatch",
+							"sid": 213136850405642,
+							"parameters": [
+								"Comp_Dispatcher.compRef",
+								"Comp_Dispatcher.action",
+								"Comp_Dispatcher.refType"
+							]
+						}
+					],
+					"sid": 325853223891107
+				},
+				{
+					"functionName": "Comp_Dispatch",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ref",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 948557997389217
+						},
+						{
+							"name": "action",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 435698109588304
+						},
+						{
+							"name": "refType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 883169987385225
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 675106981598489,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Comp_Ref",
+									"sid": 580728210613784,
+									"parameters": {
+										"instance-variable": "ref",
+										"comparison": 0,
+										"value": "ref"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 472595718758893,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 719250132899364,
+											"parameters": {
+												"first-value": "refType",
+												"comparison": 0,
+												"second-value": "\"segment\""
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Comp_Segment",
+											"sid": 161259504160809,
+											"parameters": {
+												"unique-id": "Comp_Ref.UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 880043136035800,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 906771268460891,
+													"parameters": {
+														"variable": "action",
+														"comparison": 0,
+														"value": "\"add\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Comp_Segment",
+													"sid": 470214216497969,
+													"parameters": {
+														"instance-variable": "value",
+														"value": "min(Self.value + 1,Self.elements)"
+													}
+												}
+											],
+											"sid": 604626736988986
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 463992783799524
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 778971049478944,
+													"parameters": {
+														"variable": "action",
+														"comparison": 0,
+														"value": "\"subtract\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Comp_Segment",
+													"sid": 132401252028530,
+													"parameters": {
+														"instance-variable": "value",
+														"value": "max(Self.value - 1,0)"
+													}
+												}
+											],
+											"sid": 912713597669818
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Comp_Segment_Refresh",
+													"sid": 217160810320907
+												}
+											],
+											"sid": 540529018478536
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 637802294123237
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp Segment",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "UI_Segment",
+							"sid": 734821735799202
+						}
+					],
+					"actions": [],
+					"sid": 982583398335895,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "gap",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 408915936648194
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 610555492935334,
+									"parameters": {
+										"variable": "gap",
+										"value": "UI_Segment.gap"
+									}
+								}
+							],
+							"sid": 922349932286147
+						},
+						{
+							"eventType": "comment",
+							"text": "Cap the size of gap so that elements are at least 1px"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 891054954194293,
+									"parameters": {
+										"first-value": "UI_Segment.elements * gap",
+										"comparison": 4,
+										"second-value": "UI_Segment.Width - UI_Segment.paddingLeft - UI_Segment.paddingRight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 450795555338638,
+									"parameters": {
+										"variable": "gap",
+										"value": "max((UI_Segment.Width - UI_Segment.paddingLeft - UI_Segment.paddingRight - UI_Segment.elements) / (UI_Segment.elements - 1), 1)"
+									}
+								}
+							],
+							"sid": 235341358461622
+						},
+						{
+							"eventType": "comment",
+							"text": "Space the elements based on style props"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 303782870855092,
+									"parameters": {
+										"count": "UI_Segment.elements"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 528750507974536,
+									"parameters": {
+										"object-to-create": "UI_SegmentElem",
+										"layer": "UI_Segment.LayerNumber",
+										"x": "UI_Segment.x + ((UI_Segment.Width - UI_Segment.paddingLeft - UI_Segment.paddingRight - (UI_Segment.elements - 1) * gap) / UI_Segment.elements) * loopindex + UI_Segment.paddingLeft + gap * loopindex",
+										"y": "UI_Segment.y + UI_Segment.paddingTop",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "UI_SegmentElem",
+									"sid": 224219130342186,
+									"parameters": {
+										"width": "ceil((UI_Segment.Width - UI_Segment.paddingLeft - UI_Segment.paddingRight - (UI_Segment.elements - 1) * gap) / UI_Segment.elements)",
+										"height": "UI_Segment.Height - UI_Segment.paddingTop - UI_Segment.paddingBottom"
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "UI_Segment",
+									"sid": 660390834410890,
+									"parameters": {
+										"child": "UI_SegmentElem",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-o": true,
+										"transform-z-elevation": false,
+										"transform-visibility": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SegmentElem",
+									"sid": 721024538713214,
+									"parameters": {
+										"instance-variable": "order",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 186686742471542,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 334678189135250,
+											"parameters": {
+												"first-value": "loopindex",
+												"comparison": 2,
+												"second-value": "UI_Segment.value"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_SegmentElem",
+											"sid": 559882023567378,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "UI_SegmentElem",
+											"sid": 176125055436462,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 936131996971192
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Comp_Segment_Refresh",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 155058485756150,
+							"parameters": {
+								"object": "UI_SegmentElem"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Comp_Segment",
+							"sid": 248743289632110,
+							"parameters": {
+								"child": "UI_SegmentElem",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 841745126580428,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 423716637278914,
+									"parameters": {
+										"object": "UI_SegmentElem"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 473548343590015,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 576072117894176,
+											"parameters": {
+												"first-value": "loopindex",
+												"comparison": 2,
+												"second-value": "Comp_Segment.value"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_SegmentElem",
+											"sid": 858053025005838,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "UI_SegmentElem",
+											"sid": 811032898105738,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 105434307028523
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 104731199004651
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "UI_SegmentElem",
+											"sid": 209567915173282,
+											"parameters": {
+												"instance-variable": "state",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "UI_SegmentElem",
+											"sid": 186463176043880,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 140710311026032
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Comp_Storage",
+									"sid": 985119621190680,
+									"parameters": {
+										"unique-id": "Comp_Segment.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Comp_Storage_Update",
+									"sid": 766267439553644,
+									"parameters": [
+										"Comp_Segment.UID",
+										"str(Comp_Segment.value)"
+									]
+								}
+							],
+							"sid": 109094607075725
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Comp_Action",
+									"sid": 552015127568642,
+									"parameters": {
+										"unique-id": "Comp_Segment.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Comp_Action",
+									"sid": 796461345668580,
+									"parameters": [
+										"Comp_Segment.UID",
+										"str(Comp_Segment.value)"
+									]
+								}
+							],
+							"sid": 246095459941785
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 317278904438769,
+							"parameters": {
+								"object": "UI_SegmentElem"
+							}
+						},
+						{
+							"id": "pick-parent",
+							"objectClass": "UI_SegmentElem",
+							"sid": 562509722141145,
+							"parameters": {
+								"parent": "Comp_Segment",
+								"which": "own"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Comp_Segment",
+							"sid": 901342294486210,
+							"parameters": {
+								"instance-variable": "value",
+								"comparison": 1,
+								"value": "UI_SegmentElem.order + 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Comp_Segment",
+							"sid": 542814617111283,
+							"parameters": {
+								"instance-variable": "value",
+								"value": "UI_SegmentElem.order + 1"
+							}
+						},
+						{
+							"callFunction": "Comp_Segment_Refresh",
+							"sid": 202796982650938
+						}
+					],
+					"sid": 347305522397533
+				}
+			],
+			"sid": 710307067849949
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp Buttons",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 365125561174690,
+							"parameters": {
+								"object": "Comp_Buttons"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Comp_Buttons",
+							"sid": 283709169054140,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 917736912574709,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Comp_Dispatcher",
+									"sid": 224084468668675,
+									"parameters": {
+										"unique-id": "Comp_Buttons.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Comp_Dispatch",
+									"sid": 430879277108774,
+									"parameters": [
+										"Comp_Dispatcher.compRef",
+										"Comp_Dispatcher.action",
+										"Comp_Dispatcher.refType"
+									]
+								}
+							],
+							"sid": 279223110303071
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Comp_Buttons",
+									"sid": 606646076852540,
+									"parameters": {
+										"instance-variable": "sfx",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 716390283699895,
+									"parameters": {
+										"variable": "audio_SFXEnabled",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 787165548364800,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "Comp_Buttons.sfx",
+										"loop": "not-looping",
+										"volume": "Audio_SFXLevel",
+										"stereo-pan": "0",
+										"tag-optional": "\"button\""
+									}
+								}
+							],
+							"sid": 753822835309683
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 738338295187068
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 522077834653288,
+							"parameters": {
+								"seconds": "0"
+							}
+						}
+					],
+					"sid": 231661915919993,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 541653974676269,
+									"parameters": {
+										"object": "Comp_Buttons"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Comp_Buttons",
+									"sid": 194132927973390,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Comp_Buttons",
+									"sid": 726757120318300,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 277041644363012
+						}
+					]
+				}
+			],
+			"sid": 342044770883590
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp_Save",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Comp_Storage_Save",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "dictionary",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 681700867301981
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 999092800119582,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 544844788072831,
+									"parameters": {
+										"variable": "dictionary",
+										"comparison": 0,
+										"value": "\"options\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 485476791303382,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 863777651162702,
+											"parameters": {
+												"object": "Comp_Storage"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Comp_Storage",
+											"sid": 871393221822481,
+											"parameters": {
+												"instance-variable": "save_ref",
+												"comparison": 0,
+												"value": "\"options\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "SaveDataOptions",
+											"sid": 288101275519678,
+											"parameters": {
+												"key": "Comp_Storage.save_var",
+												"value": "Comp_Storage.save_value"
+											}
+										}
+									],
+									"sid": 594978972781093
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 813466273994706,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"callFunction": "System_SaveOptions",
+											"sid": 135921045113084
+										}
+									],
+									"sid": 402254781715501
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 588589205284852
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 324133968981589,
+									"parameters": {
+										"object": "Comp_Storage"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Comp_Storage",
+									"sid": 705860381879259,
+									"parameters": {
+										"instance-variable": "save_ref",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-key",
+									"objectClass": "SaveData",
+									"sid": 123128143327730,
+									"parameters": {
+										"key": "Comp_Storage.save_var",
+										"value": "Comp_Storage.save_value"
+									}
+								}
+							],
+							"sid": 399289138454585
+						}
+					]
+				},
+				{
+					"functionName": "Comp_Storage_Update",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "compId",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 986968660147348
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 494457121306471
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comp_Storage",
+							"sid": 840998944366906,
+							"parameters": {
+								"unique-id": "compId"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Comp_Storage",
+							"sid": 436538254100107,
+							"parameters": {
+								"instance-variable": "save_value",
+								"value": "value"
+							}
+						}
+					],
+					"sid": 871427692399886
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Comp_Storage",
+							"sid": 603935922015310
+						}
+					],
+					"actions": [],
+					"sid": 800190133457946,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Comp_Storage",
+									"sid": 466727987572022,
+									"parameters": {
+										"instance-variable": "save_ref",
+										"comparison": 0,
+										"value": "\"options\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Comp_Storage",
+									"sid": 488468299915829,
+									"parameters": {
+										"instance-variable": "save_value",
+										"value": "SaveDataOptions.Get(Comp_Storage.save_var)"
+									}
+								}
+							],
+							"sid": 791564578227746
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 712174346567218
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Comp_Storage",
+									"sid": 579233791430749,
+									"parameters": {
+										"instance-variable": "save_value",
+										"value": "SaveData.Get(Comp_Storage.save_var)"
+									}
+								}
+							],
+							"sid": 614423878502884
+						},
+						{
+							"eventType": "comment",
+							"text": "Entities"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Comp_Segment",
+									"sid": 567667686249465,
+									"parameters": {
+										"unique-id": "Comp_Storage.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Comp_Segment",
+									"sid": 395499987311249,
+									"parameters": {
+										"instance-variable": "value",
+										"value": "Comp_Storage.save_value"
+									}
+								},
+								{
+									"callFunction": "Comp_Segment_Refresh",
+									"sid": 660941775257335
+								}
+							],
+							"sid": 334601289028559
+						}
+					]
+				}
+			],
+			"sid": 874455316363108
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Comp_Action",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Comp_Action",
+					"functionDescription": "",
+					"functionCategory": "Comp",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "compId",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 350310276309426
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 429769420798625
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comp_Action",
+							"sid": 277055407183347,
+							"parameters": {
+								"unique-id": "compId"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 792399628945059,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Comp_Action",
+									"sid": 163363568643183,
+									"parameters": {
+										"instance-variable": "label",
+										"comparison": 0,
+										"value": "\"options\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 384837807326246,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Comp_Action",
+											"sid": 529252379087831,
+											"parameters": {
+												"instance-variable": "action",
+												"comparison": 0,
+												"value": "\"music\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 260419708744085,
+											"parameters": {
+												"variable": "audio_MusicLevel",
+												"value": "- (20 - (int(value) * 2))"
+											}
+										}
+									],
+									"sid": 682541984540026
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 842162089930091
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Comp_Action",
+											"sid": 793419997118722,
+											"parameters": {
+												"instance-variable": "action",
+												"comparison": 0,
+												"value": "\"sfx\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 232293117182073,
+											"parameters": {
+												"variable": "audio_SFXLevel",
+												"value": "-(20 - (int(value) * 2))"
+											}
+										}
+									],
+									"sid": 786476579360001
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 150082045242354
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Comp_Action",
+											"sid": 633226109072449,
+											"parameters": {
+												"instance-variable": "action",
+												"comparison": 0,
+												"value": "\"decay\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 266127596747382,
+											"parameters": {
+												"variable": "options_Decay",
+												"value": "int(value)"
+											}
+										}
+									],
+									"sid": 705056681312044
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Pause_Update_Options",
+											"sid": 618643310782949
+										}
+									],
+									"sid": 563035959289059
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 394253955094004
+		}
+	],
+	"sid": 622953722023276
+}

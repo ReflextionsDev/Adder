@@ -132,6 +132,18 @@
 								"group-name": "\"Hub Events\"",
 								"state": "deactivated"
 							}
+						},
+						{
+							"id": "call-function",
+							"objectClass": "function",
+							"sid": 836587436152971,
+							"parameters": {
+								"name": "\"VFX_Screenshake\"",
+								"parameter-n": [
+									"0",
+									"0"
+								]
+							}
 						}
 					],
 					"sid": 121584236656294,
@@ -197,6 +209,28 @@
 							],
 							"actions": [],
 							"sid": 658895053318752
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 457958072236721
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 313127910269669,
+									"parameters": {
+										"variable": "level_Type",
+										"comparison": 0,
+										"value": "\"Event\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 246030484004842
 						},
 						{
 							"eventType": "block",
@@ -280,6 +314,12 @@
 								}
 							],
 							"sid": 390250939988185
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 886791508022472
 						}
 					]
 				},
@@ -320,6 +360,32 @@
 						}
 					],
 					"sid": 784717538907452
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 640248661190580
+						},
+						{
+							"id": "is-available",
+							"objectClass": "Greenworks",
+							"sid": 605050776953343
+						}
+					],
+					"actions": [
+						{
+							"id": "activate-achievement",
+							"objectClass": "Greenworks",
+							"sid": 763962432088170,
+							"parameters": {
+								"achievement": "\"adder\""
+							}
+						}
+					],
+					"sid": 876363847851740
 				}
 			],
 			"sid": 580378530064525
@@ -1645,7 +1711,8 @@
 													]
 												}
 											],
-											"sid": 625215064233439
+											"sid": 625215064233439,
+											"disabled": true
 										},
 										{
 											"eventType": "comment",
@@ -1729,14 +1796,162 @@
 													"parameters": [
 														"\"Shop_Artifact\""
 													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 698684667518550,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnBuildingThenFinish",
+													"sid": 637090602026338
 												}
 											],
 											"sid": 701602814232970,
-											"children": [
+											"disabled": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
 												{
-													"eventType": "comment",
-													"text": "Ending Buildings"
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 838531596907859,
+													"disabled": true,
+													"parameters": {
+														"variable": "level_Biome",
+														"comparison": 0,
+														"value": "\"Forest\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 835607046562176,
+													"parameters": {
+														"seconds": "0"
+													}
 												},
+												{
+													"callFunction": "Builder_SpawnPrefab",
+													"sid": 968906386487617,
+													"parameters": [
+														"\"Shop_Forest\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 941697206789033,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"callFunction": "Builder_SpawnBuildingThenFinish",
+													"sid": 620790824337030,
+													"disabled": true
+												},
+												{
+													"callFunction": "Builder_Finish",
+													"sid": 348349388895354
+												}
+											],
+											"sid": 519635991676973
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 387550493068643
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 651484394102681,
+											"parameters": {
+												"variable": "level_Type",
+												"comparison": 0,
+												"value": "\"Event\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 384138101814229,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BiomeEventList",
+													"sid": 477474528346487,
+													"parameters": {
+														"instance-variable": "Biome",
+														"comparison": 0,
+														"value": "level_Biome"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 247848386820937,
+													"parameters": {
+														"type": "log",
+														"message": "\"EL UID\" & BiomeEventList.UID"
+													}
+												},
+												{
+													"callFunction": "Array_Shuffle",
+													"sid": 317498719633602,
+													"parameters": [
+														"BiomeEventList.UID"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 271160746098704,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,0)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 618120607913372,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,0)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 961606693165093,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"Random Event\" & Functions.Array_GetRandomElement(BiomeEventList.UID,1)"
+													}
+												}
+											],
+											"sid": 990165508444558,
+											"children": [
 												{
 													"eventType": "block",
 													"conditions": [],
@@ -1744,41 +1959,55 @@
 														{
 															"id": "wait",
 															"objectClass": "System",
-															"sid": 816611319705535,
+															"sid": 621794868988658,
 															"parameters": {
 																"seconds": "0"
 															}
 														},
 														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 398942539639237,
+															"parameters": {
+																"variable": "level_EventToLoad",
+																"value": "Functions.Array_GetRandomElement(BiomeEventList.UID,1)"
+															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 320450199133695,
+															"parameters": {
+																"type": "log",
+																"message": "\"EVENT TO LOAD: \" & level_EventToLoad"
+															}
+														},
+														{
 															"callFunction": "Builder_SpawnPrefab",
-															"sid": 822689372028275,
+															"sid": 357364661370558,
 															"parameters": [
-																"Functions.Builder_GetPrefab"
+																"level_EventToLoad"
 															]
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 579610654435257,
+															"parameters": {
+																"seconds": "0"
+															}
+														},
+														{
+															"callFunction": "Builder_SpawnBuildingThenFinish",
+															"sid": 802018682688221,
+															"disabled": true
+														},
+														{
+															"callFunction": "Builder_Finish",
+															"sid": 903401931973749
 														}
 													],
-													"sid": 212628740747092,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [],
-															"actions": [
-																{
-																	"id": "wait",
-																	"objectClass": "System",
-																	"sid": 792139551106880,
-																	"parameters": {
-																		"seconds": "0"
-																	}
-																},
-																{
-																	"callFunction": "Builder_Finish",
-																	"sid": 310934963350966
-																}
-															],
-															"sid": 260375348683914
-														}
-													]
+													"sid": 145937576929689
 												}
 											]
 										}
@@ -1817,6 +2046,47 @@
 									"sid": 874460943360910
 								}
 							]
+						},
+						{
+							"functionName": "Builder_SpawnBuildingThenFinish",
+							"functionDescription": "",
+							"functionCategory": "Builder",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 824911118619843,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"callFunction": "Builder_SpawnPrefab",
+									"sid": 794864587165259,
+									"parameters": [
+										"Functions.Builder_GetPrefab"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 685578380561691,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"callFunction": "Builder_Finish",
+									"sid": 332784575348015
+								}
+							],
+							"sid": 245260174651658
 						},
 						{
 							"functionName": "Builder_Finish",
@@ -2984,7 +3254,7 @@
 											"sid": 533052014335598,
 											"parameters": {
 												"variable": "builder_CurPrefab",
-												"value": "Functions.Array_GetRandomElement(BiomeLevelList.UID)"
+												"value": "Functions.Array_GetRandomElement(BiomeLevelList.UID, 0)"
 											}
 										}
 									],

@@ -208,7 +208,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Pause / Options",
+			"title": "Pause / Options Old",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -437,7 +437,7 @@
 											"actions": [
 												{
 													"id": "set-animation-frame",
-													"objectClass": "Pause_Exit",
+													"objectClass": "UI_Button_Exit",
 													"sid": 926854412329179,
 													"parameters": {
 														"frame-number": "1"
@@ -517,7 +517,7 @@
 											"actions": [
 												{
 													"id": "set-animation-frame",
-													"objectClass": "Pause_Exit",
+													"objectClass": "UI_Button_Exit",
 													"sid": 970495827374894,
 													"parameters": {
 														"frame-number": "0"
@@ -593,7 +593,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "Pause_Exit",
+															"objectClass": "UI_Button_Exit",
 															"sid": 924484445333850,
 															"parameters": {
 																"animation": "\"Default\"",
@@ -1342,7 +1342,7 @@
 							"objectClass": "Touch",
 							"sid": 360075937481233,
 							"parameters": {
-								"object": "Pause_Exit"
+								"object": "UI_Button_Exit"
 							}
 						},
 						{
@@ -1400,7 +1400,7 @@
 					"actions": [
 						{
 							"id": "set-animation-frame",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 198827514526921,
 							"parameters": {
 								"frame-number": "1"
@@ -1423,7 +1423,7 @@
 							"conditions": [
 								{
 									"id": "is-animation-playing",
-									"objectClass": "Pause_Exit",
+									"objectClass": "UI_Button_Exit",
 									"sid": 548229190154461,
 									"parameters": {
 										"animation": "\"Default\""
@@ -1449,7 +1449,7 @@
 								},
 								{
 									"id": "set-animation-frame",
-									"objectClass": "Pause_Exit",
+									"objectClass": "UI_Button_Exit",
 									"sid": 833162262370384,
 									"parameters": {
 										"frame-number": "0"
@@ -1519,7 +1519,7 @@
 							"conditions": [
 								{
 									"id": "is-animation-playing",
-									"objectClass": "Pause_Exit",
+									"objectClass": "UI_Button_Exit",
 									"sid": 763896042447835,
 									"parameters": {
 										"animation": "\"Back\""
@@ -1545,7 +1545,7 @@
 								},
 								{
 									"id": "set-animation-frame",
-									"objectClass": "Pause_Exit",
+									"objectClass": "UI_Button_Exit",
 									"sid": 336939824845880,
 									"parameters": {
 										"frame-number": "0"
@@ -1553,7 +1553,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "Pause_Exit",
+									"objectClass": "UI_Button_Exit",
 									"sid": 439460805678374,
 									"parameters": {
 										"animation": "\"Default\"",
@@ -1749,7 +1749,7 @@
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 230457084432722,
 							"parameters": {
 								"animation": "\"Default\""
@@ -1823,7 +1823,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 171638858042318,
 							"parameters": {
 								"animation": "\"Back\"",
@@ -1943,7 +1943,7 @@
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 211652434133474,
 							"parameters": {
 								"animation": "\"Default\""
@@ -2009,7 +2009,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 101786377634814,
 							"parameters": {
 								"animation": "\"Back\"",
@@ -2184,7 +2184,7 @@
 						},
 						{
 							"id": "is-animation-playing",
-							"objectClass": "Pause_Exit",
+							"objectClass": "UI_Button_Exit",
 							"sid": 827830617100950,
 							"parameters": {
 								"animation": "\"Default\""
@@ -3427,7 +3427,8 @@
 											"actions": [
 												{
 													"callFunction": "Music_PlayBGM",
-													"sid": 966693406086085
+													"sid": 966693406086085,
+													"disabled": true
 												}
 											],
 											"sid": 479060483535317
@@ -3894,7 +3895,7 @@
 									"objectClass": "Player_Target",
 									"sid": 424005445733813,
 									"parameters": {
-										"object": "Pause_Exit"
+										"object": "UI_Button_Exit"
 									}
 								}
 							],
@@ -12543,7 +12544,7 @@
 								},
 								{
 									"eventType": "comment",
-									"text": "Gamepad shit"
+									"text": "Gamepad stuff"
 								},
 								{
 									"eventType": "block",
@@ -14259,7 +14260,6 @@
 									"id": "set-instvar-value",
 									"objectClass": "zzSpawn_Vendor",
 									"sid": 754551922385922,
-									"breakpoint": true,
 									"parameters": {
 										"instance-variable": "Type",
 										"value": "50"

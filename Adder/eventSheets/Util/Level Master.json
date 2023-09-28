@@ -3767,7 +3767,9 @@
 														"transform-w": false,
 														"transform-h": false,
 														"transform-a": false,
+														"transform-o": false,
 														"transform-z-elevation": false,
+														"transform-visibility": false,
 														"destroy-with-parent": false
 													}
 												},
@@ -5305,6 +5307,10 @@
 							"sid": 756704804943498
 						},
 						{
+							"eventType": "comment",
+							"text": "Could have ladder climbing speed items :o"
+						},
+						{
 							"eventType": "group",
 							"disabled": false,
 							"title": "Ladder",
@@ -5533,6 +5539,217 @@
 																}
 															],
 															"sid": 469013438439290
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Disable this to restore drop through behavior "
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 991768848633311
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 634909148790891,
+													"parameters": {
+														"variable": "input_Down",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Player",
+													"sid": 431774741659558,
+													"parameters": {
+														"instance-variable": "AllowMovement",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Player",
+													"sid": 275853580551504,
+													"parameters": {
+														"object": "Solid_Floors",
+														"offset-x": "0",
+														"offset-y": "8"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 678422152101735,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 273462435247141,
+															"parameters": {
+																"first-value": "abs(input_X1)",
+																"comparison": 3,
+																"second-value": "90"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 353038948226646,
+															"parameters": {
+																"animation": "\"Land\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Player_Sprite",
+															"sid": 692139502750825,
+															"parameters": {
+																"animation": "\"Die\"  & PlayerData.Skin"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 839542863708851,
+															"parameters": {
+																"instance-variable": "zzzUsingAbility1"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Player",
+															"sid": 266155039845069,
+															"parameters": {
+																"instance-variable": "zzUsingAbility2"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-enabled",
+															"objectClass": "Player",
+															"sid": 380818890421130,
+															"behaviorType": "Platform",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"id": "set-animation-speed",
+															"objectClass": "Player_Sprite",
+															"sid": 648846126822530,
+															"parameters": {
+																"speed": "20"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Player",
+															"sid": 757165554453124,
+															"parameters": {
+																"instance-variable": "Parachute",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-vector-y",
+															"objectClass": "Player",
+															"sid": 749295399630632,
+															"behaviorType": "Platform",
+															"parameters": {
+																"vector-y": "120"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Player",
+															"sid": 893046981591955,
+															"parameters": {
+																"instance-variable": "FallDistance",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-x",
+															"objectClass": "Player",
+															"sid": 857754605784163,
+															"parameters": {
+																"x": "Ladder.X"
+															}
+														},
+														{
+															"id": "set-group-active",
+															"objectClass": "System",
+															"sid": 926358367052971,
+															"parameters": {
+																"group-name": "\"Jump Sim\"",
+																"state": "activated"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "TouchUI_JumpSprite",
+															"sid": 252177171435755,
+															"parameters": {
+																"frame-number": "1"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Player",
+															"sid": 282991168892688,
+															"parameters": {
+																"instance-variable": "FallStartY",
+																"value": "Player.Y"
+															}
+														}
+													],
+													"sid": 363174204544937,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "Player",
+																	"sid": 799849818192799,
+																	"parameters": {
+																		"instance-variable": "Climbing"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "call-function",
+																	"objectClass": "function",
+																	"sid": 250261044112149,
+																	"parameters": {
+																		"name": "\"PLR_ChangeState\"",
+																		"parameter-n": [
+																			"\"Climb\""
+																		]
+																	}
+																}
+															],
+															"sid": 883691763462687
 														}
 													]
 												}
@@ -5907,7 +6124,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -5953,7 +6172,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -6065,6 +6286,93 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Idk why I had to add this but on collision w/ Door randomly stopped working around ~r350"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Player",
+											"sid": 839888345658101,
+											"parameters": {
+												"object": "Door",
+												"offset-x": "1",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "Player",
+											"sid": 270106637776440,
+											"parameters": {
+												"object": "Door",
+												"offset-x": "-1",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 440733480553786,
+											"parameters": {
+												"type": "log",
+												"message": "\"COLLISION\""
+											}
+										}
+									],
+									"sid": 581680987741364,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-enabled",
+													"objectClass": "Door",
+													"sid": 814080160064284,
+													"behaviorType": "Solid"
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Door",
+													"sid": 953977529188226,
+													"parameters": {
+														"instance-variable": "Locked"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Door",
+													"sid": 241510404493444,
+													"parameters": {
+														"instance-variable": "Closed",
+														"value": "false"
+													}
+												},
+												{
+													"id": "call-function",
+													"objectClass": "function",
+													"sid": 327759791714886,
+													"parameters": {
+														"name": "\"Door_Interact\"",
+														"parameter-n": [
+															"Door.UID"
+														]
+													}
+												}
+											],
+											"sid": 324023566779341
+										}
+									],
+									"isOrBlock": true
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -6110,6 +6418,15 @@
 												"parameter-n": [
 													"Door.UID"
 												]
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 683315659069603,
+											"parameters": {
+												"type": "log",
+												"message": "\"wunk\""
 											}
 										}
 									],
@@ -7850,7 +8167,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										}
@@ -8126,7 +8445,9 @@
 												"transform-w": false,
 												"transform-h": false,
 												"transform-a": false,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": false
 											}
 										}
@@ -9414,7 +9735,9 @@
 												"transform-w": true,
 												"transform-h": true,
 												"transform-a": true,
+												"transform-o": false,
 												"transform-z-elevation": false,
+												"transform-visibility": false,
 												"destroy-with-parent": true
 											}
 										},
@@ -10526,7 +10849,9 @@
 												"\"FX_ScrapObject\"",
 												"Object.X",
 												"Object.Y",
-												"\"effects\""
+												"\"effects\"",
+												"\"\"",
+												"\"\""
 											]
 										},
 										{
@@ -10930,7 +11255,9 @@
 																"transform-w": true,
 																"transform-h": true,
 																"transform-a": true,
+																"transform-o": false,
 																"transform-z-elevation": true,
+																"transform-visibility": false,
 																"destroy-with-parent": true
 															}
 														},
@@ -11468,7 +11795,9 @@
 																		"transform-w": false,
 																		"transform-h": false,
 																		"transform-a": false,
+																		"transform-o": false,
 																		"transform-z-elevation": false,
+																		"transform-visibility": false,
 																		"destroy-with-parent": true
 																	}
 																},
@@ -11484,7 +11813,9 @@
 																		"transform-w": false,
 																		"transform-h": false,
 																		"transform-a": false,
+																		"transform-o": false,
 																		"transform-z-elevation": false,
+																		"transform-visibility": false,
 																		"destroy-with-parent": false
 																	}
 																},
@@ -11671,7 +12002,9 @@
 																		"transform-w": false,
 																		"transform-h": false,
 																		"transform-a": false,
+																		"transform-o": false,
 																		"transform-z-elevation": false,
+																		"transform-visibility": false,
 																		"destroy-with-parent": true
 																	}
 																}
@@ -11728,6 +12061,203 @@
 															]
 														}
 													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Blood Shrine"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 810150214482264
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Containers",
+															"sid": 171147034264546,
+															"parameters": {
+																"unique-id": "OBJ_World.UID"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Containers",
+															"sid": 299700034252494,
+															"parameters": {
+																"instance-variable": "BloodPrice",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 240521851421501,
+															"disabled": true,
+															"parameters": {
+																"type": "log",
+																"message": "\"Interact Type: \" & OBJ_World.WorldInteractType"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "OBJ_World",
+															"sid": 274183204723808,
+															"parameters": {
+																"instance-variable": "WorldHoverText",
+																"value": "function.Call(\"Text_GetString\",lowercase(\"sacrifice_health\"))"
+															}
+														}
+													],
+													"sid": 358900817126667,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 389770818386873,
+																	"parameters": {
+																		"object-to-create": "Text_Object",
+																		"layer": "objectTXT_layer",
+																		"x": "Containers.X",
+																		"y": "Containers.Y + 16",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 803546077330721,
+																	"disabled": true,
+																	"parameters": {
+																		"object-to-create": "Text_Object",
+																		"layer": "\"Player\"",
+																		"x": "Containers.X",
+																		"y": "Player.Y + 16",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																}
+															],
+															"sid": 520341057107222
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-last-created",
+																	"objectClass": "System",
+																	"sid": 343498070665630,
+																	"parameters": {
+																		"object": "Text_Object"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Object",
+																	"sid": 194717105509754,
+																	"disabled": true,
+																	"parameters": {
+																		"text": "OBJ_World.WorldHoverText & \" (\" &  Functions.TXT_ConvertMoney(Containers.BloodPrice) & \")\""
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Object",
+																	"sid": 385261950034509,
+																	"parameters": {
+																		"text": "\"Sacrifice Health\" & \" (\" & (- Containers.BloodPrice) & \")\""
+																	}
+																},
+																{
+																	"id": "add-child",
+																	"objectClass": "Containers",
+																	"sid": 548998316677810,
+																	"parameters": {
+																		"child": "Text_Object",
+																		"transform-x": true,
+																		"transform-y": true,
+																		"transform-w": false,
+																		"transform-h": false,
+																		"transform-a": false,
+																		"transform-o": false,
+																		"transform-z-elevation": false,
+																		"transform-visibility": false,
+																		"destroy-with-parent": true
+																	}
+																}
+															],
+															"sid": 806877287848535,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "PlayerData",
+																			"sid": 543803135953729,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 4,
+																				"value": "Containers.BloodPrice"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 393632074062855,
+																			"parameters": {
+																				"color": "rgbEx255(230,20,20)"
+																			}
+																		}
+																	],
+																	"sid": 382227454428769
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 370077325851771
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 658065944957175,
+																			"parameters": {
+																				"color": "rgbEx255(105,105,105)"
+																			}
+																		},
+																		{
+																			"id": "set-default-color",
+																			"objectClass": "Text_Object",
+																			"sid": 701582114875541,
+																			"parameters": {
+																				"color": "rgbEx255(192,192,192)"
+																			}
+																		}
+																	],
+																	"sid": 765817995908843
+																}
+															]
+														}
+													]
 												}
 											]
 										},
@@ -11774,7 +12304,9 @@
 														"transform-w": true,
 														"transform-h": true,
 														"transform-a": false,
+														"transform-o": false,
 														"transform-z-elevation": false,
+														"transform-visibility": false,
 														"destroy-with-parent": true
 													}
 												},
@@ -13144,6 +13676,69 @@
 												},
 												{
 													"eventType": "comment",
+													"text": "Event"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 262313922856589
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "OBJ_World",
+															"sid": 726124067173469,
+															"parameters": {
+																"instance-variable": "WorldInteractType",
+																"comparison": 0,
+																"value": "\"event\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "OBJ_World",
+															"sid": 584543294063050,
+															"parameters": {
+																"animation": "\"Interact\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "OBJ_World",
+															"sid": 705194505920395,
+															"parameters": {
+																"instance-variable": "WorldEnabled",
+																"value": "false"
+															}
+														},
+														{
+															"id": "call-function",
+															"objectClass": "function",
+															"sid": 245085119725649,
+															"parameters": {
+																"name": "\"OBJ_Deselect_All\"",
+																"parameter-n": []
+															}
+														},
+														{
+															"callFunction": "Event_Start",
+															"sid": 415311722531167,
+															"parameters": [
+																"OBJ_World.WorldEvent",
+																"OBJ_World.X",
+																"OBJ_World.Y"
+															]
+														}
+													],
+													"sid": 693840478807666
+												},
+												{
+													"eventType": "comment",
 													"text": "Modify"
 												},
 												{
@@ -13171,8 +13766,7 @@
 															}
 														}
 													],
-													"sid": 361354060367366,
-													"isOrBlock": true
+													"sid": 361354060367366
 												},
 												{
 													"eventType": "block",
@@ -13870,6 +14464,16 @@
 							}
 						},
 						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 389554006396452,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 1,
+								"second-value": "\"MainMenu\""
+							}
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 215008352646535
@@ -13993,7 +14597,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 598550883052384,
+											"sid": 793610246345529,
 											"parameters": {
 												"variable": "level_Type",
 												"comparison": 0,
@@ -14005,14 +14609,14 @@
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 821927864667036,
+											"sid": 505639302199952,
 											"parameters": {
 												"variable": "director_LevelsCompleted",
 												"value": "1"
 											}
 										}
 									],
-									"sid": 316963752393180
+									"sid": 704648497907119
 								},
 								{
 									"eventType": "block",
@@ -14102,6 +14706,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 234607528734060,
+													"parameters": {
+														"type": "log",
+														"message": "\"Level Exit\""
+													}
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
