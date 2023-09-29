@@ -10,6 +10,8 @@ Project Adder is a 2D platform video game by [Nathan Bennett](https://nlb.dev). 
 ### Using Construct 3 
 Project Adder was originally developed in Construct 2 but has since been ported to [Construct 3](https://www.construct.net/en).
 
+Because of the size of the project, I find the vanilla UI to be incredibly impracticable. I *highly* recommend using a custom theme. I recommend either [PROCSS](https://mitsuhashish.itch.io/procss) or [DARCSS](https://mitsuhashish.itch.io/darcss).
+
 ### Git 
 For Construct 3, I recommend using [Github Desktop](https://desktop.github.com/) for a clearer display of pending changes.
 
