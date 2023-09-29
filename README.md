@@ -68,8 +68,9 @@ For the full terms, see the [LICENSE in the music folder](Adder/armusic/LICENSE)
 
 ## ![Icon Dog](/_PICS/Icon_Dog.png) Attribution
 
-- Art - [Nick N](https://twitter.com/Nootall_)
+- Art - Nick N ([Twitter](https://twitter.com/Nootall_) / [Youtube](https://www.youtube.com/@nootall))
 
+- Additional Art - [Okkoinu](https://okkoinu.com/)
 
 - Music - [Diwa "String Player Gamer" de Leon](https://www.youtube.com/@StringPlayerGamerOfficial)
 
