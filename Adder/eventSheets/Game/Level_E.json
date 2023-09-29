@@ -362,30 +362,87 @@
 					"sid": 784717538907452
 				},
 				{
+					"eventType": "comment",
+					"text": "annoyed w/ greenworks yolo'ing it"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
 							"sid": 640248661190580
+						}
+					],
+					"actions": [],
+					"sid": 876363847851740,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-available",
+									"objectClass": "Greenworks",
+									"sid": 766629309673790
+								}
+							],
+							"actions": [
+								{
+									"id": "activate-achievement",
+									"objectClass": "Greenworks",
+									"sid": 186488636459405,
+									"parameters": {
+										"achievement": "\"adder\""
+									}
+								}
+							],
+							"sid": 435944194563298
 						},
 						{
-							"id": "is-available",
-							"objectClass": "Greenworks",
-							"sid": 605050776953343
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 610573026373041
+								}
+							],
+							"actions": [
+								{
+									"id": "activate-achievement",
+									"objectClass": "Greenworks",
+									"sid": 975125225245047,
+									"parameters": {
+										"achievement": "\"adder\""
+									}
+								}
+							],
+							"sid": 269722776334523
+						},
 						{
-							"id": "activate-achievement",
-							"objectClass": "Greenworks",
-							"sid": 763962432088170,
-							"parameters": {
-								"achievement": "\"adder\""
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 852076186799007,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "activate-achievement",
+									"objectClass": "Greenworks",
+									"sid": 950329290455728,
+									"parameters": {
+										"achievement": "\"adder\""
+									}
+								}
+							],
+							"sid": 400503335386239
 						}
-					],
-					"sid": 876363847851740
+					]
 				}
 			],
 			"sid": 580378530064525
