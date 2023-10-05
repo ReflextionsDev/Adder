@@ -198,6 +198,32 @@
 			]
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 737757216779791
+				},
+				{
+					"id": "is-available",
+					"objectClass": "Greenworks",
+					"sid": 589062265501452
+				}
+			],
+			"actions": [
+				{
+					"id": "activate-achievement",
+					"objectClass": "Greenworks",
+					"sid": 999220506200982,
+					"parameters": {
+						"achievement": "\"adder\""
+					}
+				}
+			],
+			"sid": 826264429097842
+		},
+		{
 			"eventType": "variable",
 			"name": "time_offset",
 			"type": "number",
