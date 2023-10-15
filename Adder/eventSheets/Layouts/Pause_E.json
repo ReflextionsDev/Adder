@@ -1366,6 +1366,42 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 482199816564136,
+							"parameters": {
+								"first-value": "options_Shake",
+								"comparison": 1,
+								"second-value": "options_ShakePrev"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 522826574875341,
+							"parameters": {
+								"variable": "options_ShakePrev",
+								"value": "options_Shake"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 545710712604579,
+							"parameters": {
+								"type": "log",
+								"message": "\"UPDATE SHAKE\""
+							}
+						}
+					],
+					"sid": 424038898654742
 				}
 			]
 		}
