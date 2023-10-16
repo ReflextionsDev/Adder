@@ -1204,6 +1204,38 @@
 								},
 								{
 									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 253981894766720
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Comp_Action",
+											"sid": 104561205331688,
+											"parameters": {
+												"instance-variable": "action",
+												"comparison": 0,
+												"value": "\"shake\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 193637091969885,
+											"parameters": {
+												"variable": "options_Shake",
+												"value": "int(value)"
+											}
+										}
+									],
+									"sid": 801248449788776
+								},
+								{
+									"eventType": "block",
 									"conditions": [],
 									"actions": [
 										{
