@@ -1251,6 +1251,236 @@
 				}
 			],
 			"sid": 394253955094004
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FullScreen Option",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 451553181988215,
+							"parameters": {
+								"key": 122
+							}
+						},
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 353076787318793,
+							"parameters": {
+								"object": "UI_Button_FullScreen"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 397236260349723,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 585936055252437,
+									"parameters": {
+										"variable": "options_FullScreen",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 199904300320525
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "fullscreenON",
+									"sid": 500236570317806
+								}
+							],
+							"sid": 777780546912770
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 487060042061997
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 357950966602568
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "fullscreenOFF",
+									"sid": 415136195980716
+								}
+							],
+							"sid": 937615050103091
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"functionName": "fullscreenON",
+					"functionDescription": "Automatically converted from 'fullscreenON'",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "maximize",
+							"objectClass": "NWjs",
+							"sid": 133150101494621
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 349327940409683,
+							"parameters": {
+								"variable": "options_FullScreen",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_Button_FullScreen",
+							"sid": 684466835609373,
+							"parameters": {
+								"instance-variable": "save_value",
+								"value": "options_FullScreen"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UI_Button_FullScreen",
+							"sid": 722392671046674,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 667665075261441,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Browser check to prevent NWjs to trigger unsupported browser fullscreen request."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-fullscreen",
+									"objectClass": "Browser",
+									"sid": 371331431756121,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "request-fullscreen",
+									"objectClass": "Browser",
+									"sid": 158910552164567,
+									"parameters": {
+										"mode": "stretch-scale-outer",
+										"navigation-ui": "auto"
+									}
+								}
+							],
+							"sid": 144775918731219
+						}
+					]
+				},
+				{
+					"functionName": "fullscreenOFF",
+					"functionDescription": "Automatically converted from 'fullscreenOFF'",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "unmaximize",
+							"objectClass": "NWjs",
+							"sid": 936489977192576
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 835372926703721,
+							"parameters": {
+								"variable": "options_FullScreen",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_Button_FullScreen",
+							"sid": 845466790484250,
+							"parameters": {
+								"instance-variable": "save_value",
+								"value": "options_FullScreen"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UI_Button_FullScreen",
+							"sid": 291288158597685,
+							"parameters": {
+								"animation": "\"Off\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 725393746908868,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Browser check to prevent NWjs to trigger unsupported browser fullscreen request."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-fullscreen",
+									"objectClass": "Browser",
+									"sid": 485091814406352
+								}
+							],
+							"actions": [
+								{
+									"id": "cancel-fullscreen",
+									"objectClass": "Browser",
+									"sid": 487427351281697
+								}
+							],
+							"sid": 801941907789682
+						}
+					]
+				}
+			],
+			"sid": 494415790301248
 		}
 	],
 	"sid": 622953722023276
