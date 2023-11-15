@@ -7,6 +7,9 @@ Project Adder is a 2D zombie shooting sandbox by [Nathan Bennett](https://nlb.de
 
 ## ![Icon Bombboy](/_PICS/Icon_Bombboy.png) Contributing
 
+### Onboarding
+Consider checking out the full onboarding guide [here](https://faint-launch-d42.notion.site/Onboarding-c43c4cbfa8e843a5b9243edecd6d0d95).
+
 ### Using Construct 3 
 Project Adder was originally developed in Construct 2 but has since been ported to [Construct 3](https://www.construct.net/en).
 
