@@ -4340,7 +4340,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 419327204113126,
+											"parameters": {
+												"type": "log",
+												"message": "\"Change form\" & UID & Name"
+											}
+										}
+									],
 									"sid": 218470020178167,
 									"children": [
 										{
@@ -9033,11 +9043,11 @@
 													"actions": [
 														{
 															"callFunction": "NPC_StartMovement",
-															"sid": 273911390232570,
+															"sid": 460202165641184,
 															"parameters": [
 																"NPC.UID",
 																"NPC.SpecialAttackSpeed",
-																"\"Roll\""
+																"\"RollIn2\""
 															]
 														}
 													],
@@ -21533,6 +21543,46 @@
 										}
 									],
 									"sid": 945890442878599
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 457928122897757,
+											"parameters": {
+												"animation": "\"Behemoth_RollIn2\""
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC",
+											"sid": 898662303875946,
+											"parameters": {
+												"unique-id": "NPC_Sprite.HitboxID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 829609616801525,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"callFunction": "NPC_ChangeAnim",
+											"sid": 881752318620433,
+											"parameters": [
+												"NPC.UID",
+												"\"Roll\""
+											]
+										}
+									],
+									"sid": 728448846646667
 								}
 							],
 							"sid": 107781494695008
