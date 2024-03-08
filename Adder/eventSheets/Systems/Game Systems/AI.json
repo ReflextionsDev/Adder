@@ -4736,6 +4736,24 @@
 												"instance-variable": "EmulateMovement",
 												"value": "true"
 											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 554171960646838,
+											"parameters": {
+												"type": "log",
+												"message": "\"NPC_StartMovement\""
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 622757295852696,
+											"parameters": {
+												"type": "log",
+												"message": "\"movement speed\" &  MovementSpeed"
+											}
 										}
 									],
 									"sid": 712849893395562
@@ -8782,6 +8800,289 @@
 												}
 											],
 											"sid": 732151845098283
+										},
+										{
+											"eventType": "comment",
+											"text": "Behemoth"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 755017614874450
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 574029541875897,
+													"parameters": {
+														"variable": "State",
+														"comparison": 0,
+														"value": "\"RollIn\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 155709000318315,
+													"parameters": [
+														"NPC.UID",
+														"\"RollIn\""
+													]
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 549298830308294,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"RollIn\""
+													}
+												}
+											],
+											"sid": 950608126472820,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Zombie_Target",
+															"sid": 761858598127556,
+															"parameters": {
+																"unique-id": "TargetUID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "NPC_FaceX",
+															"sid": 212615394744526,
+															"parameters": [
+																"NPC.UID",
+																"Zombie_Target.X"
+															]
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 596779398035693,
+															"parameters": {
+																"instance-variable": "TargetX",
+																"value": "Zombie_Target.X"
+															}
+														}
+													],
+													"sid": 358064632573396
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 512995005022662
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 467063690417809,
+													"parameters": {
+														"variable": "State",
+														"comparison": 0,
+														"value": "\"Roll\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 394956926410051,
+													"disabled": true,
+													"parameters": [
+														"NPC.UID",
+														"\"Charge\""
+													]
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 846362860212824,
+													"parameters": {
+														"instance-variable": "SpecialPrimed",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 778872610120494,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"Roll\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "NPC",
+													"sid": 241935793666553,
+													"disabled": true,
+													"parameters": {
+														"animation": "NPC.Class & \"Charge\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 581998723309367,
+													"disabled": true,
+													"parameters": {
+														"type": "warn",
+														"message": "\"Brute: \" & NPC.TargetUID & \" | X:\"  & NPC.TargetX"
+													}
+												},
+												{
+													"callFunction": "NPC_ChangeForm",
+													"sid": 324010065081887,
+													"parameters": [
+														"NPC.UID",
+														"\"BehemothRoll\""
+													]
+												}
+											],
+											"sid": 392539898924239,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "NPC",
+															"sid": 701768444053641,
+															"parameters": {
+																"comparison": 3,
+																"x-co-ordinate": "Self.TargetX"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 488198742185139,
+															"parameters": {
+																"instance-variable": "TargetX",
+																"value": "Self.TargetX + 200"
+															}
+														}
+													],
+													"sid": 281661895708689
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 160406554837056
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 783040576651246,
+															"parameters": {
+																"instance-variable": "TargetX",
+																"value": "Self.TargetX - 200"
+															}
+														}
+													],
+													"sid": 710594754111742
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "NPC",
+															"sid": 421371250125003,
+															"parameters": {
+																"instance-variable": "EmulateMovement",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 374449294520970,
+													"disabled": true
+												},
+												{
+													"eventType": "comment",
+													"text": "--- Charge speed?"
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"callFunction": "NPC_StartMovement",
+															"sid": 273911390232570,
+															"parameters": [
+																"NPC.UID",
+																"NPC.SpecialAttackSpeed",
+																"\"Roll\""
+															]
+														}
+													],
+													"sid": 118240554302028
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 130704455633368
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 132853387512685,
+													"parameters": {
+														"variable": "State",
+														"comparison": 0,
+														"value": "\"RollFinish\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "NPC_ChangeAnim",
+													"sid": 111985378460657,
+													"parameters": [
+														"NPC.UID",
+														"\"RollOut\""
+													]
+												},
+												{
+													"callFunction": "NPC_ChangeForm",
+													"sid": 708020256615736,
+													"parameters": [
+														"NPC.UID",
+														"\"\""
+													]
+												}
+											],
+											"sid": 807794114828212
 										},
 										{
 											"eventType": "block",
@@ -17130,7 +17431,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 403273722420225,
+											"parameters": {
+												"type": "log",
+												"message": "\"emu movement\""
+											}
+										}
+									],
 									"sid": 310004821473993,
 									"children": [
 										{
@@ -18060,7 +18371,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 228253154278571,
+													"parameters": {
+														"type": "log",
+														"message": "\"Charge state\""
+													}
+												}
+											],
 											"sid": 231917630286958,
 											"children": [
 												{
@@ -18118,6 +18439,79 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 864197060012190
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 900156993795869,
+													"parameters": {
+														"instance-variable": "State",
+														"comparison": 0,
+														"value": "\"Roll\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 831369077869401,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 839531512748978,
+															"parameters": {
+																"first-value": "abs(NPC.TargetX-NPC.X)",
+																"comparison": 2,
+																"second-value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 813581716376802,
+															"parameters": {
+																"instance-variable": "TargetX",
+																"value": "0"
+															}
+														},
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 883282114524875,
+															"parameters": [
+																"NPC.UID",
+																"\"RollOut\"",
+																"0",
+																"0",
+																"0",
+																"\"\"",
+																"\"\""
+															]
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 509525866879077,
+															"parameters": {
+																"type": "warn",
+																"message": "\"YES\""
+															}
+														}
+													],
+													"sid": 759201378704085
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "compare-x",
 													"objectClass": "NPC",
 													"sid": 633962630868774,
@@ -18127,7 +18521,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 675668124203926,
+													"parameters": {
+														"type": "log",
+														"message": "\"target 1\""
+													}
+												}
+											],
 											"sid": 934270009825660,
 											"children": [
 												{
@@ -18141,6 +18545,16 @@
 																"instance-variable": "HasLimp",
 																"comparison": 0,
 																"value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 456430050077920,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 0,
+																"value": "\"Roll\""
 															}
 														}
 													],
@@ -18195,7 +18609,8 @@
 															],
 															"sid": 709725683103472
 														}
-													]
+													],
+													"isOrBlock": true
 												},
 												{
 													"eventType": "block",
@@ -18280,7 +18695,17 @@
 													"sid": 868189994927502
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 756543356755360,
+													"parameters": {
+														"type": "log",
+														"message": "\"target 2\""
+													}
+												}
+											],
 											"sid": 232386246203901,
 											"children": [
 												{
@@ -18294,6 +18719,16 @@
 																"instance-variable": "HasLimp",
 																"comparison": 0,
 																"value": "0"
+															}
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 293172089363524,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 0,
+																"value": "\"Roll\""
 															}
 														}
 													],
@@ -18348,7 +18783,8 @@
 															],
 															"sid": 513898879762059
 														}
-													]
+													],
+													"isOrBlock": true
 												},
 												{
 													"eventType": "block",
@@ -20455,6 +20891,14 @@
 											"parameters": {
 												"animation": "\"Dog_BarkA\""
 											}
+										},
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 980541003867348,
+											"parameters": {
+												"animation": "\"Behemoth_RollOut\""
+											}
 										}
 									],
 									"actions": [
@@ -21044,6 +21488,51 @@
 										}
 									],
 									"sid": 393264805215609
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "NPC_Sprite",
+											"sid": 429229531705901,
+											"parameters": {
+												"animation": "\"Behemoth_RollIn\""
+											}
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "NPC",
+											"sid": 620958269048347,
+											"parameters": {
+												"unique-id": "NPC_Sprite.HitboxID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 429253637852222,
+											"parameters": {
+												"seconds": "0"
+											}
+										},
+										{
+											"callFunction": "NPC_ChangeState",
+											"sid": 107453182776132,
+											"parameters": [
+												"NPC.UID",
+												"\"Roll\"",
+												"0",
+												"0",
+												"0",
+												"\"\"",
+												"\"\""
+											]
+										}
+									],
+									"sid": 945890442878599
 								}
 							],
 							"sid": 107781494695008
@@ -21362,6 +21851,61 @@
 												}
 											],
 											"sid": 262430461707815
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 919498655381631
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 789860630176769,
+													"parameters": {
+														"instance-variable": "Class",
+														"comparison": 0,
+														"value": "\"Behemoth\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "NPC",
+													"sid": 660760941360634,
+													"parameters": {
+														"instance-variable": "State",
+														"comparison": 0,
+														"value": "\"Roll\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "NPC",
+													"sid": 127777118571070,
+													"parameters": {
+														"instance-variable": "TargetX",
+														"value": "0"
+													}
+												},
+												{
+													"callFunction": "NPC_ChangeState",
+													"sid": 834126279047154,
+													"parameters": [
+														"NPC.UID",
+														"\"RollOut\"",
+														"0",
+														"0",
+														"0",
+														"\"\"",
+														"\"\""
+													]
+												}
+											],
+											"sid": 865235928034799
 										}
 									]
 								},
