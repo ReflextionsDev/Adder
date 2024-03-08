@@ -57,6 +57,15 @@
 							],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 183293307215455,
+									"parameters": {
+										"type": "log",
+										"message": "\"spawn player\""
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 941213989569995,
@@ -885,6 +894,22 @@
 									],
 									"sid": 550853321891311,
 									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 811262826139373,
+											"parameters": {
+												"type": "log",
+												"message": "\"spawn player 2\""
+											}
+										}
+									],
+									"sid": 475009585087446
 								}
 							]
 						}
