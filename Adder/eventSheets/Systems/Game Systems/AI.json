@@ -25079,16 +25079,6 @@
 											"parameters": {
 												"object": "NPC_ChargeTargets"
 											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "NPC",
-											"sid": 406055259742799,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"Charge\""
-											}
 										}
 									],
 									"actions": [],
@@ -25100,48 +25090,156 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "NPC",
-													"sid": 639011804895478,
+													"sid": 522646249562560,
 													"parameters": {
-														"instance-variable": "SpecialPrimed",
+														"instance-variable": "State",
 														"comparison": 0,
-														"value": "1"
+														"value": "\"Charge\""
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 132865997189413,
+											"children": [
 												{
-													"callFunction": "NPC_ChangeState",
-													"sid": 433858313344193,
-													"parameters": [
-														"NPC.UID",
-														"\"ChargeSlam\"",
-														"0",
-														"0",
-														"0",
-														"\"\"",
-														"\"\""
-													]
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 740764306933762,
+															"parameters": {
+																"instance-variable": "SpecialPrimed",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 768203911471216,
+															"parameters": [
+																"NPC.UID",
+																"\"ChargeSlam\"",
+																"0",
+																"0",
+																"0",
+																"\"\"",
+																"\"\""
+															]
+														},
+														{
+															"callFunction": "NPC_ChangeState",
+															"sid": 406033009225707,
+															"disabled": true,
+															"parameters": [
+																"NPC.UID",
+																"\"Attack\"",
+																"0",
+																"0",
+																"0",
+																"\"\"",
+																"\"\""
+															]
+														}
+													],
+													"sid": 857361617276597
 												},
 												{
-													"callFunction": "NPC_ChangeState",
-													"sid": 186059509682949,
-													"disabled": true,
-													"parameters": [
-														"NPC.UID",
-														"\"Attack\"",
-														"0",
-														"0",
-														"0",
-														"\"\"",
-														"\"\""
-													]
+													"eventType": "comment",
+													"text": "Charge Knockback"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 583797462815447
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 319111911525358,
+															"parameters": {
+																"object-to-create": "Hitbox",
+																"layer": "\"Objects\"",
+																"x": "NPC_ChargeTargets.X",
+																"y": "NPC_ChargeTargets.Y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 952807685047585,
+															"parameters": {
+																"instance-variable": "TargetID",
+																"value": "NPC_ChargeTargets.UID"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 537152164810735,
+															"parameters": {
+																"instance-variable": "Owner",
+																"value": "NPC_Sprite.Class"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 528602406371465,
+															"parameters": {
+																"instance-variable": "Damage",
+																"value": "NPC.Attack"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 198675752660724,
+															"parameters": {
+																"instance-variable": "Knockback",
+																"value": "500"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 558926694533320,
+															"parameters": {
+																"instance-variable": "Knockup",
+																"value": "200"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hitbox",
+															"sid": 205276381179151,
+															"parameters": {
+																"instance-variable": "KnockbackOriginX",
+																"value": "NPC.X"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "NPC",
+															"sid": 518509715253295,
+															"parameters": {
+																"instance-variable": "SpecialPrimed",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 655720716198693
 												}
-											],
-											"sid": 328281575355267
-										},
-										{
-											"eventType": "comment",
-											"text": "Charge Knockback"
+											]
 										},
 										{
 											"eventType": "block",
@@ -25149,88 +25247,224 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 800764977795433
+													"sid": 435333648321182
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 792656912065836,
+											"children": [
 												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 440173763339733,
-													"parameters": {
-														"object-to-create": "Hitbox",
-														"layer": "\"Objects\"",
-														"x": "NPC_ChargeTargets.X",
-														"y": "NPC_ChargeTargets.Y",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 343356793982973,
-													"parameters": {
-														"instance-variable": "TargetID",
-														"value": "NPC_ChargeTargets.UID"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 776284511603241,
-													"parameters": {
-														"instance-variable": "Owner",
-														"value": "NPC_Sprite.Class"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 645049988138830,
-													"parameters": {
-														"instance-variable": "Damage",
-														"value": "NPC.Attack"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 881802718126345,
-													"parameters": {
-														"instance-variable": "Knockback",
-														"value": "500"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 123960758619277,
-													"parameters": {
-														"instance-variable": "Knockup",
-														"value": "200"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Hitbox",
-													"sid": 412700244109376,
-													"parameters": {
-														"instance-variable": "KnockbackOriginX",
-														"value": "NPC.X"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "NPC",
-													"sid": 417536440010359,
-													"parameters": {
-														"instance-variable": "SpecialPrimed",
-														"value": "1"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "NPC",
+															"sid": 213978136349080,
+															"parameters": {
+																"instance-variable": "State",
+																"comparison": 0,
+																"value": "\"Roll\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 524453467640204,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "NPC",
+																	"sid": 392689023551711,
+																	"parameters": {
+																		"instance-variable": "SpecialPrimed",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "NPC_ChangeState",
+																	"sid": 835842109889518,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"RollOut\"",
+																		"0",
+																		"0",
+																		"0",
+																		"\"\"",
+																		"\"\""
+																	]
+																},
+																{
+																	"callFunction": "NPC_ChangeState",
+																	"sid": 376844929055650,
+																	"disabled": true,
+																	"parameters": [
+																		"NPC.UID",
+																		"\"Attack\"",
+																		"0",
+																		"0",
+																		"0",
+																		"\"\"",
+																		"\"\""
+																	]
+																}
+															],
+															"sid": 869482111192100
+														},
+														{
+															"eventType": "comment",
+															"text": "Charge Knockback"
+														},
+														{
+															"eventType": "comment",
+															"text": "Temp disable player control"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 578852652154112
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 995779579394051,
+																	"parameters": {
+																		"object-to-create": "Hitbox",
+																		"layer": "\"Objects\"",
+																		"x": "NPC_ChargeTargets.X",
+																		"y": "NPC_ChargeTargets.Y",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 774031475547276,
+																	"parameters": {
+																		"instance-variable": "TargetID",
+																		"value": "NPC_ChargeTargets.UID"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 671357684827294,
+																	"parameters": {
+																		"instance-variable": "Owner",
+																		"value": "NPC_Sprite.Class"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 982109216870398,
+																	"parameters": {
+																		"instance-variable": "Damage",
+																		"value": "NPC.Attack"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 149777303323022,
+																	"parameters": {
+																		"instance-variable": "Knockback",
+																		"value": "500"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 206533175124968,
+																	"parameters": {
+																		"instance-variable": "Knockup",
+																		"value": "10"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hitbox",
+																	"sid": 609135637133128,
+																	"parameters": {
+																		"instance-variable": "KnockbackOriginX",
+																		"value": "NPC.X"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "NPC",
+																	"sid": 667785401537750,
+																	"disabled": true,
+																	"parameters": {
+																		"instance-variable": "SpecialPrimed",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 449680649434469,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "set-vector-x",
+																			"objectClass": "NPC",
+																			"sid": 771891434616581,
+																			"disabled": true,
+																			"behaviorType": "Platform",
+																			"parameters": {
+																				"vector-x": "Self.Platform.VectorX < 0 ? - 300 : 300\n"
+																			}
+																		},
+																		{
+																			"id": "set-vector-x",
+																			"objectClass": "NPC",
+																			"sid": 846162422457691,
+																			"disabled": true,
+																			"behaviorType": "Platform",
+																			"parameters": {
+																				"vector-x": "Self.Platform.VectorX / 2"
+																			}
+																		},
+																		{
+																			"callFunction": "NPC_ChangeState",
+																			"sid": 968864749841965,
+																			"parameters": [
+																				"NPC.UID",
+																				"\"RollOut\"",
+																				"0",
+																				"0",
+																				"0",
+																				"\"\"",
+																				"\"\""
+																			]
+																		}
+																	],
+																	"sid": 926318010803494
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 598003259772743
+														}
+													],
+													"isOrBlock": true
 												}
-											],
-											"sid": 227134919265609
+											]
 										}
 									]
 								}
